@@ -37,11 +37,6 @@
     Then I switch back to login page
     And I delete all emails
     Then I will wait
-    
-
-
-
-
 
     Examples:
 
@@ -54,11 +49,9 @@
 
 
 
-
-
 Scenario Outline:  Verify required filed
 
-     Then I will wait
+      Then I will wait
       When I will wait to see "Administration"
       And I click on the "Administration" tile
       Then I will wait to see "My Dashboard"
@@ -69,22 +62,22 @@ Scenario Outline:  Verify required filed
       And I enter Email with <invalid email>
       And I enter Phone field with "1234567890"
       Then I verify First Name Required Message "First name is required"
-      Then I fill in First Name with "Shumon"
-      And I verify Last Name Required Message "Last name is required"
+      And I fill in First Name with "Shumon"
+      Then I verify Last Name Required Message "Last name is required"
       And I fill in Last Name with <valid Last Name>
-      And I verify email required message "E-mail is required"
+      Then I verify email required message "E-mail is required"
       And I enter Email with <valid email>
-      And Verify Phone validation message "Please enter a valid phone number (example: xxx-xxx-xxxx)."
+      Then Verify Phone validation message "Please enter a valid phone number (example: xxx-xxx-xxxx)."
       And I enter Phone field with "302-445-1146"
       Then I click on Create button
       And I will wait
-      And I should see "Unable to Save User"
+      Then I should see "Unable to Save User"
       And I click Try Again Button
       When I click the Organizational Role Field
       And I search Organizationa Role with <Role Search>
       Then I pick a Organizational <Role>
-      Then I fill in First Name with "Shumon"
-      And I fill in Last Name with <valid Last Name>
+      And I fill in First Name with "Shumon"
+      Then I fill in Last Name with <valid Last Name>
       And I enter Email with <valid email>
       # this step is not required - its a bug
        And I enter Phone field with "302-445-1146"
