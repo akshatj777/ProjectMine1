@@ -50,6 +50,12 @@
             <version>2.15</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.mkolisnyk</groupId>
+            <artifactId>cucumber-reports</artifactId>
+            <version>0.0.9</version>
+            <scope>test</scope>
+        </dependency>
    </dependencies>
 
 </project>
