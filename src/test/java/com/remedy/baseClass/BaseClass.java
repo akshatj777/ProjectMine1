@@ -136,7 +136,7 @@ public class BaseClass {
         }
     }
 
-    protected void selectDropdownVisible(String selectElement, String desc) {
+    protected void selectDropdownVisibleelement(String selectElement, String desc) {
 
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);
@@ -173,19 +173,19 @@ public class BaseClass {
 
     }
 
-    protected void verifyText(WebElement ele, String text) {
+    protected void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
             Assert.assertTrue(ele.getText().contains(text));
         }
 
     }
 
-    protected void verifyTextForElement(String element, String desc) {
+    protected void verifyTextForElement(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
-            // System.out.println(item.getText());
-            item.getText().equalsIgnoreCase(desc);
+             //System.out.println(item.getText());
+            Assert.assertEquals(itemtext, item.getText());
         }
     }
 

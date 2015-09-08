@@ -2,6 +2,8 @@ package stepDefination.LogIn;
 
 import com.remedy.pageObject.LoginPage;
 import com.remedy.resources.DriverScript;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -46,5 +48,26 @@ public class LoginPageSteps extends DriverScript{
 
 
 
+    @And("^I will verify change Password confirmation \"([^\"]*)\"$")
+    public void IVerifyChangePasswordConfirmation(String Text) throws Throwable {
 
+    }
+
+
+    @And("^I enter email field ([^\"]*) for login$")
+    public void IEnterEmailForLogin(String email) throws Throwable {
+
+        loginPage.iEnteruserEmail(email);
+
+    }
+
+    @And("^I enter password field ([^\"]*) for Login$")
+    public void IEnterPasswordForLogin(String password) throws Throwable {
+        loginPage.iEnterPassword(password);
+    }
+
+    @And("^I click Access button$")
+    public void I_click_Access_button() throws Throwable {
+        loginPage.iClickOnAccessButton();
+    }
 }

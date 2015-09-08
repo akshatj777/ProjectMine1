@@ -29,9 +29,31 @@ public class LandingPage extends BaseClass{
     }
 
 
+    public void iVerifyElementText(String element, String text){
+
+        verifyTextForElement(element, text);
+    }
 
 
+    public void iSwitchToNewWindow(){
 
+        switchToNewWindow();
+    }
+
+    public void iSwitchBackToOldWindow(){
+
+        switchBacktoOldWindow();
+    }
+
+    public void iClickOnTheTopUserAccountIcon (){
+
+        clickElement(driver.findElement(By.cssSelector(".dropdown-toggle.btn.btn-menu.btn-inline.rp-icon-user-account")));
+    }
+
+    public void iSelectFromTopUserAccountDropDown(String link){
+
+        selectElementByDesc(".btn.btn-link", link);
+    }
 
 }
 

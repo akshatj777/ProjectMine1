@@ -48,27 +48,25 @@ public class EmailVarificationPage extends BaseClass {
 
     }
 
-    public void deleteAllEmails(String desc) {
+    public void deleteAllEmails() {
 
         clickElement(driver.findElement(By.cssSelector(".igif.lmenudelall")));
-        selectElementByDesc("#delmenu>ul>li", desc);
+        clickElement(driver.findElement(By.xpath("//*[@id='delmenu']/ul/li[3]/a")));
+        //selectElementByDesc("#delmenu>ul>li", desc);
 
     }
 
-    public void iswitchtoLogInPage() {
 
-        switchToNewWindow();
+
+    public void iClickCheckForNewMail (){
+
+        clickElement(driver.findElement(By.xpath("//*[@id='lrefr']/span/span")));
     }
 
 
+    public void iClickOnConfirmPasswordLink(){
 
-    public void iswitchBacktoEmailPage() {
-
-        switchBacktoOldWindow();
+        clickElement(driver.findElement(By.xpath("//*[@id='mailmillieu']/div[2]//tr/td/p[2]/strong/a")));
     }
-
-
-
-
 
 }

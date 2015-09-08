@@ -1,6 +1,7 @@
 package com.remedy.pageObject;
 
 import com.remedy.baseClass.BaseClass;
+import org.eclipse.jetty.util.security.Password;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,11 +18,12 @@ public class LoginPage extends BaseClass  {
 
 
 
-    public void iLoginWithUserAndPassword(String userName, String passWord) {
+    public void iLoginAsSupperUser(String userName, String passWord) {
 
-        iFillInText(driver.findElement(By.id("a0-signin_easy_email")), userName);
-        iFillInText(driver.findElement(By.id("a0-signin_easy_password")), passWord);
-        clickElement(driver.findElement(By.cssSelector(".a0-primary.a0-next")));
+        iEnteruserEmail(userName);
+        iEnterPassword(passWord);
+        iClickOnAccessButton();
+
     }
 
     public void IWillWait(){
@@ -65,6 +67,28 @@ public class LoginPage extends BaseClass  {
     public void iVerifyResetPasswordText(String text){
 
         verifyTextForElement(".a0-header.a0-top-header>h1", text);
+
+    }
+
+    public void iEnteruserEmail(String userName ){
+
+        iFillInText(driver.findElement(By.cssSelector("#a0-signin_easy_email")), userName);
+
+
+    }
+
+    public void iEnterPassword(String passWord ){
+
+        iFillInText(driver.findElement(By.cssSelector("#a0-signin_easy_password")),passWord);
+
+
+    }
+
+
+    public void iClickOnAccessButton(){
+
+        clickElement(driver.findElement(By.cssSelector(".a0-primary.a0-next")));
+
 
     }
 

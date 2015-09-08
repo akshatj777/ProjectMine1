@@ -22,9 +22,9 @@ public class CreateUserSteps extends DriverScript{
 
 
 
-    @When("^I log in with \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void ILoginWith(String userName, String passWord ) throws Throwable {
-        loginPage.iLoginWithUserAndPassword(userName, passWord);
+    @When("^I log in as super user$")
+    public void ILoginWith( ) throws Throwable {
+        loginPage.iLoginAsSupperUser("lbarinstein+qaadmin@remedypartners.com", "Testing1");
     }
 
     @Then("^I will wait$")
@@ -33,12 +33,7 @@ public class CreateUserSteps extends DriverScript{
 
     }
 
-    @Then("^I will wait to see \"([^\"]*)\"$")
-    public void IWillWaitToSee(String text) {
 
-        landingPage.iVerifyTextforTiles(text);
-
-    }
 
 
     @And("^I click on the \"([^\"]*)\" tile$")
@@ -63,6 +58,13 @@ public class CreateUserSteps extends DriverScript{
 
 
         createUser.selectOrganizationalRole(role);
+
+    }
+
+    @And("^I enter NPI field with ([^\"]*)$")
+    public void IEnterNPIFieldWith_(String npi) throws Throwable {
+
+        createUser.iEnterNPI(npi);
 
     }
 
@@ -172,5 +174,24 @@ public class CreateUserSteps extends DriverScript{
 
         createUser.iVerifyPhoneValidationMessageText(message);
 
+    }
+
+
+    @And("^I fill in Last Name with text \"([^\"]*)\"$")
+    public void IFillLastNameWithText(String lastName) throws Throwable {
+        createUser.iEnterLasttName(lastName);
+    }
+
+    @And("^I enter Email with text \"([^\"]*)\"$")
+    public void IEnterEmailText(String email) throws Throwable {
+
+        createUser.iEnterEmail(email);
+
+    }
+
+
+    @Then("^I verify Organizational Role Required Message \"([^\"]*)\"$")
+    public void IVerifyOrganizationalRoleRequiredMessage(String text) throws Throwable {
+        createUser.iVerifyOrganizationalRoleRequiredMessageText(text);
     }
 }

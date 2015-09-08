@@ -2,10 +2,8 @@ package stepDefination.UserAdmin;
 
 import com.remedy.pageObject.EmailVarificationPage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import org.openqa.selenium.By;
 
 /**
  * Created by salam on 8/6/15.
@@ -45,25 +43,28 @@ public class EmailVerificationSteps extends DriverScript{
     }
 
 
-    @Then("^I switch to new window$")
-    public void switchToNew_window() throws Throwable {
-
-                popMail.iswitchtoLogInPage();
-
-    }
-
-    @Then("^I switch back to login page$")
-    public void ISwitchBackToLoginPage() throws Throwable {
-
-        popMail.iswitchtoLogInPage();
-
-    }
 
     @And("^I delete all emails$")
     public void IDeleteAllEmails() throws Throwable {
 
         popMail.switcToFrame("//*[@id='ifinbox']");
-       popMail.deleteAllEmails("Empty Inbox");
+       popMail.deleteAllEmails();
 
+    }
+
+
+    @Then("^I click check for new mails button$")
+    public void IClickCheckForNewNailsButton() throws Throwable {
+
+        popMail.iClickCheckForNewMail();
+
+    }
+
+
+    @And("^I click on Confirm Password Link$")
+    public void IClickConfirmPasswordLink() throws Throwable {
+
+        popMail.switcToFrame("//*[@id='ifmail']");
+        popMail.iClickOnConfirmPasswordLink();
     }
 }

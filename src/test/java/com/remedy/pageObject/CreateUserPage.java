@@ -31,6 +31,10 @@ public class CreateUserPage extends BaseClass{
         selectElementByDesc(".ui-select-choices-row", desc);
     }
 
+    public void iEnterNPI(String text){
+
+        iFillInText(driver.findElement(By.xpath("//div[2]/div[1]/rp-input/div/input")), text);
+    }
 
     public void iEnterFirstName(String text){
 
@@ -73,24 +77,29 @@ public class CreateUserPage extends BaseClass{
         clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
     }
 
+    public void iVerifyOrganizationalRoleRequiredMessageText(String text){
+
+        verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/div[2]")), text);
+    }
+
     public void iVerifyFirstNameRequiredText(String text){
 
-        verifyText(driver.findElement(By.xpath("//div[2]/rp-input/div/div[2]")), text);
+        verifyTextForElement(driver.findElement(By.xpath("//div[2]/rp-input/div/div[2]")), text);
     }
 
     public void iVerifyLastNameRequiredText(String text){
 
-        verifyText(driver.findElement(By.xpath("//div[3]/rp-input/div/div[2]")), text);
+        verifyTextForElement(driver.findElement(By.xpath("//div[3]/rp-input/div/div[2]")), text);
     }
 
     public void iVerifyEmailRequiredText(String text){
 
-        verifyText(driver.findElement(By.xpath("//div[4]/rp-input/div/div[2]")), text);
+        verifyTextForElement(driver.findElement(By.xpath("//div[4]/rp-input/div/div[2]")), text);
     }
 
     public void iVerifyPhoneValidationMessageText(String text){
 
-        verifyText(driver.findElement(By.xpath("//div/rp-input/div/div[2]")), text);
+        verifyTextForElement(driver.findElement(By.xpath("//div[3]/div/rp-input/div/div[2]")), text);
     }
 
     public void iClickTryAgainButton (){
