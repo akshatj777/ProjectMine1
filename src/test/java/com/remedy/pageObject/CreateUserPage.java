@@ -69,7 +69,7 @@ public class CreateUserPage extends BaseClass{
     public void iSelectFacility (String desc){
 
 
-        selectElementByDesc(".ui-select-choices-row", desc);
+        selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
 
     public void iClickCreateButton (){

@@ -136,7 +136,7 @@ public class BaseClass {
         }
     }
 
-    protected void selectDropdownVisibleelement(String selectElement, String desc) {
+    protected void selectDropdownVisibleElement(String selectElement, String desc) {
 
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);

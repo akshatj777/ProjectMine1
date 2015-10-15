@@ -1,6 +1,6 @@
  Feature: Create new User
 
-  Scenario Outline: Administrator  can create Technical or Partner Technical Administrator
+  Scenario Outline: Administrator can create all user
     Given I am on the login page
     When I log in as super user
     Then I will wait
@@ -13,7 +13,7 @@
     And I search Organizationa Role with <Role Search>
     Then I pick a Organizational <Role>
     And I enter NPI field with <NPI>
-    And I fill in First Name with "Shumontest"
+    And I fill in First Name with "Newuser"
     Then I fill in Last Name with <lastName>
     And I enter Email with <email>
     Then I enter Phone field with "302-459-1143"
@@ -35,7 +35,7 @@
     Then I click on chnage password button
     Then I should see "Reset Password"
     ##And I close current Window
-    Then I switch to new window
+    Then I switch back to old window
     Then I click check for new mails button
     And I click on Confirm Password Link
     And I switch to new window
@@ -45,15 +45,32 @@
     And I will verify user <email>
 
 
-
     Examples:
 
-    |    Role Search  |  lastName           |        NPI       |       email                          |      Role           |  Facility Search  |    Facility      |      Password   |
-    |         se      |   CaseManager       |                  |    shumonexample01@yopmail.com      |      Case Manager    |         ent       |  Allentown       |   Testing1      |
-    #|         ti      |  Executive          |                  |    shumonexample02@yopmail.com      |      Executive      |         arr       |  Warren Hospital  |  Testing1      |
-    #|         na      |  Manager            |                  |    shumonexample03@yopmail.com      |      Manager        |         tow       |  Allentown        |  Testing1      |
-    #|         ci      |  Physician          |   1234567890     |     shumonexample04@yopmail.com     |      Physician      |         ers       |  Anderson         |  Testing1      |
-    #|         mi      |  Remedy Admin       |                  |     shumonexample05@yopmail.com     |      Remedy Admin   |         pit       |  Warren Hospital  |  Testing1      |
+    |    Role Search  |  lastName             |        NPI       |       email                              |      Role                            |  Facility Search  |    Facility             |      Password   |
+    |         ve      |  ExecutiveTest        |                  |    executiveexample01@yopmail.com        |      Executive                       |         arr       |  (SLW) Warren Hospital  |   Testing1      |
+    |         na      |  ManagerTest          |                  |    managerexample01@yopmail.com          |      Manager                         |         tow       |  (A) Allentown          |   Testing1      |
+    |         se      |  CaseManagerTest      |                  |    casemanagerexample01@yopmail.com      |      Case Manager                    |         ent       |  (A) Allentown          |   Testing1      |
+    |         ci      |  PhysicianTest        |   1234567890     |    physicianexample01@yopmail.com        |      Physician                       |         ers       |  (T) Anderson           |   Testing1      |
+    |         tc      |  RemedyTCSTest        |                  |    remedytcsexample01@yopmail.com        |      Remedy TCS                      |         pit       |  (SLW) Warren Hospital  |   Testing1      |
+    |         lp      |  RemedyLPNTest        |                  |    remedylpnexample01@yopmail.com        |      Remedy LPN                      |         ers       |  (T) Anderson           |   Testing1      |
+    |         rn      |  RemedyRNTest         |                  |    remedyrnexample01@yopmail.com         |      Remedy RN                       |         pit       |  (SLW) Warren Hospital  |   Testing1      |
+    |         fi      |  RemedyFieldRNTest    |                  |    remedyfieldrnexample01@yopmail.com    |      Remedy Field RN                 |         arr       |  (SLW) Warren Hospital  |   Testing1      |
+    |         pm      |  RemedyPMTest         |                  |    remedypmexample01@yopmail.com         |      Remedy RN                       |         ent       |  (A) Allentown          |   Testing1      |
+    |         mi      |  RemedyAdminTest      |                  |    remedyadminexample01@yopmail.com      |      Remedy Admin                    |         ent       |  (A) Allentown          |   Testing1      |
+    |         sa      |  RemedySalesTeamTest  |                  |    remedysalesteamexample01@yopmail.com  |      Remedy Sales Team               |         ent       |  (A) Allentown          |   Testing1      |
+    |         pa      |  PatientTest          |                  |    remedypatientexample01@yopmail.com    |      Patient                         |         ers       |  (T) Anderson           |   Testing1      |
+    |         ca      |  CareGivertTest       |                  |    remedycaregiverexample01@yopmail.com  |      Care Giver                      |         arr       |  (SLW) Warren Hospital  |   Testing1      |
+    |         ex      |  RemedyExtecutiveTest |                  |    remedyexecutiveexample01@yopmail.com  |      Remedy Executive                |         arr       |  (SLW) Warren Hospital  |   Testing1      |
+    |         ex      |  ProPartnerExcTest    |                  |    propartnerexeexample01@yopmail.com    |      Prospective Partner Executive   |         arr       |  (SLW) Warren Hospital  |   Testing1      |
+    |         pa      |  ProPartnerManTest    |                  |    propartnermanexample01@yopmail.com    |      Prospective Partner Manager     |         ers       |  (T) Anderson           |   Testing1      |
+    |         ot      |  RemedyOtherTest      |                  |    remedyotherexample01@yopmail.com      |      Remedy Other                    |         ers       |  (T) Anderson           |   Testing1      |
+    |         pa      |  PartProgramAdminTest |                  |    partprogramadminexample01@yopmail.com |      Partner program Administrator   |         all       |  (T) Anderson           |   Testing1      |
+    |         pr      |  RemedyProgAdminTest  |                  |    remedyprogadminexample01@yopmail.com  |      Remedy program Administrator    |         all       |  (A) Allentown          |   Testing1      |
+    |         te      |  PartnerTechAdminTest |                  |    partnertechadminxample01@yopmail.com  |      Partner Technical Administrator |         all       |  (A) Allentown          |   Testing1      |
+    |         te      |  RemedyTechAdminTest  |                  |    remedytechadminxample01@yopmail.com   |      Remedy Technical Administrator  |         all       |  (A) Allentown          |   Testing1      |
+
+
 
 
   #Scenario Outline: verify that Partner technical administrator user able to create users in facilities for which they have access

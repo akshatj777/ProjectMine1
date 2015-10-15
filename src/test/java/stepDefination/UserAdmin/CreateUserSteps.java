@@ -109,7 +109,6 @@ public class CreateUserSteps extends DriverScript{
 
         createUser.iClickCreateButton();
 
-
     }
 
 

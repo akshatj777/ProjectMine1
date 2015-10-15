@@ -59,6 +59,7 @@ public class DriverScript {
 
         public void quitDriver(){
 
+           driver.manage().deleteAllCookies();
             driver.quit();
             driver = null;
 
