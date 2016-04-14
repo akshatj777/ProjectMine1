@@ -23,7 +23,7 @@ public class UserAdminHomePage extends BaseClass {
 
     public void enterSerchUserText(String user) {
 
-        iFillInText(driver.findElement(By.xpath("//*[@id='searchBar']/div[1]/div/input")), user);
+        iFillInText(driver.findElement(By.cssSelector(".elastic-input")), user);
     }
 
     public void iClickResetFilterButton() {

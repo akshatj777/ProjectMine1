@@ -1,7 +1,6 @@
 package stepDefination;
 
 import com.remedy.pageObject.LandingPage;
-import com.remedy.resources.Configuration.DriverScript2;
 import com.remedy.resources.DriverScript;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;

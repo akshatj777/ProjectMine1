@@ -2,6 +2,7 @@ package com.remedy.resources;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,9 +15,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class DriverScript {
 
-    /*public static RemoteWebDriver				driver;
-    private static DesiredCapabilities capability	= new DesiredCapabilities();
-    private static final RemedyAppConfig	appConfig	= RemedyAppConfig.getInstance();*/
 
         protected static WebDriver driver;
 
@@ -30,7 +28,8 @@ public class DriverScript {
         }
 
         private void createNewDriverInstance() {
-            driver = new FirefoxDriver();
+            System.setProperty("webdriver.chrome.driver", "src/test/java/com/remedy/resources/chromedriver");
+            driver = new ChromeDriver();
         }
 
         public WebDriver getDriver() {
@@ -39,23 +38,6 @@ public class DriverScript {
 
 
 
-   /*public static RemoteWebDriver initilize() {
-
-
-        try {
-            capability.setBrowserName("chrome");
-            capability.setPlatform(Platform.ANY);
-
-            capability.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
-            driver = new RemoteWebDriver(new URL(RemedyAppConfig.getwebdriverhub), capability);
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(RemedyAppConfig.getUrl());
-        return driver;
-    }*/
 
         public void quitDriver(){
 
