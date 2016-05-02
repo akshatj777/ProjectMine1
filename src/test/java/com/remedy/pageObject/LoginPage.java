@@ -1,7 +1,6 @@
 package com.remedy.pageObject;
 
 import com.remedy.baseClass.BaseClass;
-import org.eclipse.jetty.util.security.Password;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -64,9 +63,9 @@ public class LoginPage extends BaseClass  {
 
     }
 
-    public void iVerifyResetPasswordText(String text){
+    public void iVerifyResetPasswordText( String text){
 
-        verifyTextForElement(".a0-header.a0-top-header>h1", text);
+    verifyTextForElement(driver.findElement(By.cssSelector(".a0-header.a0-top-header>h1")), text);
 
     }
 

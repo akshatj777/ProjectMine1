@@ -17,7 +17,7 @@ public class LandingPage extends BaseClass{
 
     public void iVerifyTextforTiles(String text){
 
-            verifyTextForElement(".spoe-button>p", text);
+        verifyTextForElement(driver.findElement(By.cssSelector(".program-admin>p")), text);
     }
 
 
@@ -29,10 +29,6 @@ public class LandingPage extends BaseClass{
     }
 
 
-    public void iVerifyElementText(String element, String text){
-
-        verifyTextForElement(element, text);
-    }
 
 
     public void iSwitchToNewWindow(){

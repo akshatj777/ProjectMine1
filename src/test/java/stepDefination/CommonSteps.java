@@ -7,6 +7,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import junit.framework.Assert;
+import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,24 +26,6 @@ public class CommonSteps extends DriverScript {
         driver.manage().window().maximize();
     }
 
-
-    @Then("^I should see \"([^\"]*)\"$")
-    @And("^I will wait to verify ([^\"]*)$")
-    public void IWaitToSee(String text) throws Throwable {
-
-        Assert.assertTrue(driver.getPageSource().contains(text));
-
-    }
-
-
-    @Then("^I will wait to see ([^\"]*)$")
-    public void IWillWaitToSee(String text) {
-
-        Assert.assertTrue(driver.getPageSource().contains(text));
-
-    }
-
-
     @Then("^I go to mail verification page$")
     public void IGoToMailVerificationpage() throws Throwable {
         driver.navigate().to("http://www.yopmail.com/en/");
@@ -58,10 +41,10 @@ public class CommonSteps extends DriverScript {
     }
 
 
-    @And("^I will verify user ([^\"]*)$")
+  /*  @And("^I will verify user ([^\"]*)$")
     public void iWillverifyElementText(String text) throws Throwable {
-        landingPage.iVerifyElementText(".rp-icon-user-account", text);
-    }
+        landingPage.v(driver.findElement(By.cssSelector(".rp-icon-user-account")), text);
+    }*/
 
 
     @And("^I nevigate back$")
@@ -82,9 +65,4 @@ public class CommonSteps extends DriverScript {
     }
 
 
-    @And("^I will wait to see (\\d+)$")
-    public void I_will_wait_to_see_Tile_(int arg1) throws Throwable {
-        // Express the Regexp above with the code you wish you had
-        throw new PendingException();
-    }
 }

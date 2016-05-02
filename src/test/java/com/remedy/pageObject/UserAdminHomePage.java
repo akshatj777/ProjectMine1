@@ -5,6 +5,8 @@ import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by salam on 7/29/15.
  */
@@ -24,11 +26,7 @@ public class UserAdminHomePage extends BaseClass {
     public void enterSerchUserText(String user) {
 
         iFillInText(driver.findElement(By.cssSelector(".elastic-input")), user);
-    }
-
-    public void iClickResetFilterButton() {
-
-        clickElement(driver.findElement(By.cssSelector("#searchBar>div>button")));
+        delay();
     }
 
 
@@ -68,6 +66,44 @@ public class UserAdminHomePage extends BaseClass {
     public void iClickCancelButton(){
 
         clickElement(driver.findElement(By.cssSelector(".btn.btn-secondary.pull-right")));
+    }
+
+
+
+    public void iSeeUserAdminPageHeader(String pageHeader){
+
+        verifyTextForElement(driver.findElement(By.cssSelector(".page-title-text")), pageHeader);
+    }
+
+
+   /* public void iSeeFirstNameinUserCard(String firstname){
+
+        verifyContainTextForanElement(driver.findElement(By.cssSelector(".card-header-content>div>h3>span:nth-of-type(2)")), firstname);
+    }*/
+
+    public void iSelectSortOption(String desc){
+
+        clickElement(driver.findElement( By.cssSelector(".sort-select")));
+        selectElementByDesc(".ui-select-choices-row",  desc );
+        delay();
+    }
+
+    public void iSeeSortOrderDefaultOption(String defaultoption){
+
+        verifyTextForElement(driver.findElement(By.cssSelector(".sort-select")), defaultoption);
+    }
+
+
+    public void iVerifyUserCardCount(int cardCount){
+
+        verifyElementCount(".card-view-body", cardCount);
+    }
+
+
+    public void iClickLoadMoreButton(){
+
+        clickElement(driver.findElement(By.cssSelector(".btn.btn-auto-rounded")));
+        longDelay();
     }
 
 

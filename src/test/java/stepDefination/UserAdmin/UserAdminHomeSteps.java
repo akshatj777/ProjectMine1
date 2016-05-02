@@ -34,10 +34,7 @@ public class UserAdminHomeSteps extends DriverScript{
                 userAdminHome.iSelectFacilityForFilter(facility);
         }
 
-        @Then("^I click on reset button$")
-        public void IClickResetButton() throws Throwable {
-                userAdminHome.iClickResetFilterButton();
-        }
+
 
         @And("^I click on the table view icon$")
         public void IClickTableViewIcon() throws Throwable {
@@ -66,4 +63,45 @@ public class UserAdminHomeSteps extends DriverScript{
 
                 userAdminHome.iClickOnViewProfileIcon(0);
         }
+
+        @Then("^I should see header text \"([^\"]*)\"$")
+        public void iShouldSeeHeaderText(String header) throws Throwable {
+
+                userAdminHome.iSeeUserAdminPageHeader(header);
+        }
+
+        @And("^I sort user by \"([^\"]*)\"$")
+        public void iSortUserBy(String sortOption) throws Throwable {
+
+                userAdminHome.iSelectSortOption(sortOption);
+
+        }
+
+        @Then("^I should see sort order default option \"([^\"]*)\"$")
+        public void iShouldSeeSortOrderDefaultOption(String defaultOption) throws Throwable {
+                userAdminHome.iSeeSortOrderDefaultOption(defaultOption);
+
+        }
+
+        @And("^I can see \"([^\"]*)\" user card$")
+        public void iCanSeeUserCard(int count) throws Throwable {
+
+                userAdminHome.iVerifyUserCardCount(count);
+
+        }
+
+        @Then("^I click Load More Button$")
+        public void iClickLoadMoreButton() throws Throwable {
+                userAdminHome.iClickLoadMoreButton();
+
+        }
+
+
+
+
+       /* @And("^I should see \"([^\"]*)\" for First Name$")
+        public void iShouldSeeForFirstName(String firstname) throws Throwable {
+
+                userAdminHome.iSeeFirstNameinUserCard(firstname);
+        }*/
 }

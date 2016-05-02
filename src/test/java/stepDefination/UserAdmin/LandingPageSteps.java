@@ -38,4 +38,10 @@ public class LandingPageSteps extends DriverScript{
         landingPage.iSelectFromTopUserAccountDropDown(link);
 
     }
+
+    @Then("^I should see Tile text \"([^\"]*)\"$")
+    public void iShouldSeeTile(String tileName) throws Throwable {
+
+        landingPage.iVerifyTextforTiles(tileName);
+    }
 }

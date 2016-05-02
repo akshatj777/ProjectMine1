@@ -23,6 +23,7 @@ public class BaseClass {
     public WebDriver driver = null;
     protected static long Wait_Time = 2000L;
     protected static long delay_Time = 3000L;
+    protected static long LongDelay_Time = 5000L;
 
     public BaseClass(final WebDriver driver) {
 
@@ -37,6 +38,17 @@ public class BaseClass {
 
         }
     }
+
+    protected void longDelay() {
+        try {
+            Thread.sleep(LongDelay_Time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+
 
 
     protected boolean isElementVisible(final WebElement ele) {
@@ -165,7 +177,7 @@ public class BaseClass {
     }
 
 
-    protected void iWillWaitToSeeElement(WebElement element) {
+    protected void iWillWaitToSeeElement(WebElement element, String text) {
         if (isElementVisible(element)) {
             Assert.assertTrue(element.isDisplayed());
 
@@ -175,12 +187,32 @@ public class BaseClass {
 
     protected void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
-            Assert.assertTrue(ele.getText().contains(text));
+            Assert.assertEquals(ele.getText(), text);
         }
 
     }
 
-    protected void verifyTextForElement(String element, String itemtext) {
+
+    protected void verifyElementCount(String element, int count) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        delay();
+            System.out.println(countelement);
+            Assert.assertEquals( countelement, count);
+        }
+
+
+
+
+   /* protected void verifyContainTextForanElement(WebElement ele, String text) {
+        if (isElementVisible(ele)) {
+            Assert.assertTrue(ele.getText().contains(text));
+        }
+
+    }*/
+
+
+    protected void verifyTextForElements(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
