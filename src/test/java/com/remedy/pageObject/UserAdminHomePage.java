@@ -107,4 +107,24 @@ public class UserAdminHomePage extends BaseClass {
     }
 
 
+    public void iverifyFirstNameText(String firstName){
+
+       verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[2]/span[1]")), firstName);
+        longDelay();
+    }
+
+    public void iverifyLastNameText(String lastName){
+
+        verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[1]/span[1]")), lastName);
+        longDelay();
+    }
+
+
+    public void iverifyOrganizationalRoleForAUser(String OrganizationalRole){
+
+        verifyTextForElement(driver.findElement(By.xpath("//div/div[4]/div[1]/div/div[2]/div[1]/div/div")), OrganizationalRole);
+        longDelay();
+    }
+
+
 }

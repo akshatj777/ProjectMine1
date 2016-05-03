@@ -25,10 +25,7 @@ public class LoginPage extends BaseClass  {
 
     }
 
-    public void IWillWait(){
 
-        delay();
-    }
 
     public void iClickForgotPassword(){
 
@@ -59,15 +56,22 @@ public class LoginPage extends BaseClass  {
 
     public void iClickChangePasswordCancleButton(){
 
-        clickElement(driver.findElement(By.cssSelector(".a0-centered.a0-btn-small.a0-cancel")));
+        clickElement(driver.findElement(By.cssSelector(".a0-cancel")));
 
     }
 
-    public void iVerifyResetPasswordText( String text){
 
-    verifyTextForElement(driver.findElement(By.cssSelector(".a0-header.a0-top-header>h1")), text);
+    public void iVerifyChagePasswordConfirmation(String text){
 
+        verifyTextForElement(driver.findElement(By.cssSelector(".a0-success")), text);
     }
+
+
+    public void iVerifyResetPasswordText(String text){
+
+        verifyTextForElement(driver.findElement(By.cssSelector(".a0-top-header>h1")), text);
+    }
+
 
     public void iEnteruserEmail(String userName ){
 
@@ -79,17 +83,20 @@ public class LoginPage extends BaseClass  {
     public void iEnterPassword(String passWord ){
 
         iFillInText(driver.findElement(By.cssSelector("#a0-signin_easy_password")),passWord);
-
-
     }
-
 
     public void iClickOnAccessButton(){
 
         clickElement(driver.findElement(By.cssSelector(".a0-primary.a0-next")));
-
+        delay();
 
     }
+
+    public void iVerifyLoginText(String text){
+
+        verifyTextForElement(driver.findElement(By.cssSelector(".a0-top-header>h1")), text);
+    }
+
 
 }
 

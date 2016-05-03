@@ -1,6 +1,7 @@
 package stepDefination.UserAdmin;
 
 import com.remedy.pageObject.LandingPage;
+import com.remedy.pageObject.LoginPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -12,6 +13,7 @@ import cucumber.api.java.en.Then;
 public class LandingPageSteps extends DriverScript{
 
     LandingPage landingPage = new LandingPage(driver);
+    LoginPage loginPage = new LoginPage(driver);
 
 
 
@@ -43,5 +45,13 @@ public class LandingPageSteps extends DriverScript{
     public void iShouldSeeTile(String tileName) throws Throwable {
 
         landingPage.iVerifyTextforTiles(tileName);
+    }
+
+
+    @And("^I should see Jira Log in Page text \"([^\"]*)\"$")
+    public void iShouldSeeJiraLogInPageText(String text) throws Throwable {
+
+        landingPage.iVerifyTextForJiraLogInPage(text);
+
     }
 }

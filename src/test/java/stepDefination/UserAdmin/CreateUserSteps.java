@@ -27,13 +27,6 @@ public class CreateUserSteps extends DriverScript{
         loginPage.iLoginAsSupperUser("lbarinstein+qaadmin@remedypartners.com", "Testing1");
     }
 
-    @Then("^I will wait$")
-    public void iWait()  {
-        loginPage.IWillWait();
-
-    }
-
-
 
 
     @And("^I click on the \"([^\"]*)\" tile$")

@@ -204,14 +204,6 @@ public class BaseClass {
 
 
 
-   /* protected void verifyContainTextForanElement(WebElement ele, String text) {
-        if (isElementVisible(ele)) {
-            Assert.assertTrue(ele.getText().contains(text));
-        }
-
-    }*/
-
-
     protected void verifyTextForElements(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));

@@ -47,10 +47,15 @@ public class LoginPageSteps extends DriverScript{
     }
 
 
+    @And("^I should see password change confirmation \"([^\"]*)\"$")
+    public void iShouldSeePasswordChangeConfirmation(String text) throws Throwable {
+        loginPage.iVerifyChagePasswordConfirmation( text);
+    }
 
-    @And("^I will verify change Password confirmation \"([^\"]*)\"$")
-    public void IVerifyChangePasswordConfirmation(String Text) throws Throwable {
+    @And("^I should see text for reset password \"([^\"]*)\"$")
+    public void iShouldSee(String resetPassword) throws Throwable {
 
+        loginPage.iVerifyResetPasswordText(resetPassword);
     }
 
 
@@ -70,4 +75,20 @@ public class LoginPageSteps extends DriverScript{
     public void I_click_Access_button() throws Throwable {
         loginPage.iClickOnAccessButton();
     }
+
+
+
+    @Then("^I click on cancel button$")
+    public void iClickOnCancelButton() throws Throwable {
+      loginPage.iClickChangePasswordCancleButton();
+    }
+
+    @And("^I should see Log in page text \"([^\"]*)\"$")
+    public void iShouldSeeLogInPageText(String text) throws Throwable {
+        loginPage.iVerifyLoginText(text);
+    }
+
+
+
+
 }

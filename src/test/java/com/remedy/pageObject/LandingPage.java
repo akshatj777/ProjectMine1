@@ -43,13 +43,20 @@ public class LandingPage extends BaseClass{
 
     public void iClickOnTheTopUserAccountIcon (){
 
-        clickElement(driver.findElement(By.cssSelector(".dropdown-toggle.btn.btn-menu.btn-inline.rp-icon-user-account")));
+        clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
 
-        selectElementByDesc(".btn.btn-link", link);
+        selectElementByDesc(".btn.btn-flyout-nav", link);
     }
+
+
+    public void iVerifyTextForJiraLogInPage(String text){
+
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='footer']/div/section/ul/li[1]/a")), text);
+    }
+
 
 }
 

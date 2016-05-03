@@ -96,12 +96,19 @@ public class UserAdminHomeSteps extends DriverScript{
 
         }
 
-
-
-
-       /* @And("^I should see \"([^\"]*)\" for First Name$")
+        @And("^I should see \"([^\"]*)\" for First Name$")
         public void iShouldSeeForFirstName(String firstname) throws Throwable {
 
-                userAdminHome.iSeeFirstNameinUserCard(firstname);
-        }*/
+                userAdminHome.iverifyFirstNameText(firstname);
+        }
+
+        @And("^I should see \"([^\"]*)\" for Last Name$")
+        public void iShouldSeeForLastName(String lastName) throws Throwable {
+                userAdminHome.iverifyLastNameText(lastName);
+        }
+
+        @And("^I should see \"([^\"]*)\" for User Role on user card$")
+        public void iShouldSeeForUserRoleOnUserCard(String organizationalrole) throws Throwable {
+                userAdminHome.iverifyOrganizationalRoleForAUser(organizationalrole);
+        }
 }
