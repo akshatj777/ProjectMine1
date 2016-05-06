@@ -1,6 +1,6 @@
 package stepDefination.UserAdmin;
 
-import com.remedy.pageObject.EmailVarificationPage;
+import com.remedy.userAdmin.EmailVarificationPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;

@@ -1,10 +1,8 @@
-package com.remedy.pageObject;
+package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
-import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 /**
  * Created by salam on 8/6/15.

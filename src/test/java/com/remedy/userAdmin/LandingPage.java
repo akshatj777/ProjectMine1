@@ -1,4 +1,4 @@
-package com.remedy.pageObject;
+package com.remedy.userAdmin;
 
 
 import com.remedy.baseClass.BaseClass;
@@ -15,9 +15,9 @@ public class LandingPage extends BaseClass{
         super(driver);}
 
 
-    public void iVerifyTextforTiles(String text){
+    public void iVerifyTextforTiles( String text){
 
-        verifyTextForElement(driver.findElement(By.cssSelector(".program-admin>p")), text);
+        verifyTextForElementfromList(".spoe-button>p", text);
     }
 
 
@@ -27,8 +27,6 @@ public class LandingPage extends BaseClass{
         selectElementByDesc(".spoe-button>p", tile);
 
     }
-
-
 
 
     public void iSwitchToNewWindow(){

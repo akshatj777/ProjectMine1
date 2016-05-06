@@ -1,8 +1,7 @@
 package stepDefination.LogIn;
 
-import com.remedy.pageObject.LoginPage;
+import com.remedy.userAdmin.LoginPage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

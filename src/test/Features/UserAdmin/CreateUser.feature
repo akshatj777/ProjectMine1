@@ -81,42 +81,6 @@
 
 
 
-
-
-
-   Scenario Outline:  Newly created user have access to the applications accoding to their role
-
-      Given I am on the login page
-      When I enter email field <email> for login
-      And I enter password field <password> for Login
-      Then I click Access button
-      And I will verify user <email>
-      And I will wait to see <Tile1>
-      And I will wait to see <Tile2>
-      And I will wait to see <Tile3>
-      And I click on the Tile with text <Tile1>
-      And I will wait
-      #And I should see "My Dashboard"
-      And I nevigate back
-      And I click on the Tile with text <Tile2>
-      And I will wait
-      And I switch to new window
-      And I should see "Continue to my dashboard"
-      And I switch back to old window
-      And I click on the Tile with text <Tile3>
-      And I nevigate back
-
-      Examples:
-
-      |                 email           |   password       |        Tile1         |      Tile2      |      Tile3        |       Tile4      |
-      #|   shumonexample01@yopmail.com   |    Testing1      |   Bundle Selection   |     Lessons     |   Reports        |                  |
-      |   shumonexample02@yopmail.com   |    Testing1      |   Bundle Selection   |     Lessons     |   Reports        |                  |
-      |   shumonexample03@yopmail.com   |    Testing1      |   Bundle Selection   |     Lessons     |   Reports        |                  |
-     # |   shumonexample04@yopmail.com   |    Testing1      |   Bundle Selection   |     Lessons     |   Reports        |                  |
-      |   shumonexample05@yopmail.com   |    Testing1      |    Administration     |     Lessons     |   Reports        |                  |
-
-
-
    Scenario:  Verify required filed
 
       Given I am on the login page

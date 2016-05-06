@@ -3,7 +3,7 @@ Feature: User Admin Dashboard view
   Scenario: Search user by FirstName
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text "Administration"
+    Then I should see Tile text <Administration>
     And I click on the "Administration" tile
     Then I should see header text "User Management"
     Then I enter search box with "AutoRexe"
@@ -13,7 +13,7 @@ Feature: User Admin Dashboard view
   Scenario: Search user by Lastname
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text "Administration"
+    Then I should see Tile text <Administration>
     And I click on the "Administration" tile
     Then I should see header text "User Management"
     Then I enter search box with "May02930a"
@@ -22,7 +22,7 @@ Feature: User Admin Dashboard view
   Scenario: Search user by NPI
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text "Administration"
+    Then I should see Tile text <Administration>
     And I click on the "Administration" tile
     Then I should see header text "User Management"
     Then I enter search box with "1234567891"
@@ -32,7 +32,7 @@ Feature: User Admin Dashboard view
   Scenario: Search user with sort by
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text "Administration"
+    Then I should see Tile text <Administration>
     And I click on the "Administration" tile
     Then I should see header text "User Management"
     Then I enter search box with "auto"
@@ -48,7 +48,7 @@ Feature: User Admin Dashboard view
   Scenario: Load More users to view
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text "Administration"
+    Then I should see Tile text <Administration>
     And I click on the "Administration" tile
     Then I should see header text "User Management"
     And I can see "30" user card

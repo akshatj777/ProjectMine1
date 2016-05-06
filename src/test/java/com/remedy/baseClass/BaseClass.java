@@ -148,6 +148,16 @@ public class BaseClass {
         }
     }
 
+
+    protected void verifyTextForElementfromList(String element, String itemtext) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        for (WebElement item : listItems) {
+            //System.out.println(item.getText());
+            item.getText().equalsIgnoreCase(itemtext);
+        }
+    }
+
     protected void selectDropdownVisibleElement(String selectElement, String desc) {
 
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
@@ -204,14 +214,7 @@ public class BaseClass {
 
 
 
-    protected void verifyTextForElements(String element, String itemtext) {
 
-        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-        for (WebElement item : listItems) {
-             //System.out.println(item.getText());
-            Assert.assertEquals(itemtext, item.getText());
-        }
-    }
 
     protected void elementInformation(WebElement ele) {
         System.out.println("  ");
@@ -265,7 +268,7 @@ public class BaseClass {
 
             }
         }
-
+        delay();
     }
 
 }
