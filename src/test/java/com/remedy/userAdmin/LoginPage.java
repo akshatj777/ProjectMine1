@@ -1,4 +1,4 @@
-package com.remedy.pageObject;
+package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
 import org.openqa.selenium.By;

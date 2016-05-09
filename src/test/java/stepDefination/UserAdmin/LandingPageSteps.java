@@ -1,9 +1,8 @@
 package stepDefination.UserAdmin;
 
-import com.remedy.pageObject.LandingPage;
-import com.remedy.pageObject.LoginPage;
+import com.remedy.userAdmin.LandingPage;
+import com.remedy.userAdmin.LoginPage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -41,7 +40,7 @@ public class LandingPageSteps extends DriverScript{
 
     }
 
-    @Then("^I should see Tile text \"([^\"]*)\"$")
+    @Then("^I should see Tile text ([^\"]*)")
     public void iShouldSeeTile(String tileName) throws Throwable {
 
         landingPage.iVerifyTextforTiles(tileName);

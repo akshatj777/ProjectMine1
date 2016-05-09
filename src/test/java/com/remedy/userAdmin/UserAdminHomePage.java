@@ -1,11 +1,8 @@
-package com.remedy.pageObject;
+package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
-import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by salam on 7/29/15.

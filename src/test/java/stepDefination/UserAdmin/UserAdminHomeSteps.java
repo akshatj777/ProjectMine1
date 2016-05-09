@@ -1,8 +1,7 @@
 package stepDefination.UserAdmin;
 
-import com.remedy.pageObject.UserAdminHomePage;
+import com.remedy.userAdmin.UserAdminHomePage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 

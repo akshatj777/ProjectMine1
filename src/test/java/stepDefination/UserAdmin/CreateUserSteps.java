@@ -1,11 +1,10 @@
 package stepDefination.UserAdmin;
 
-import com.remedy.pageObject.CreateUserPage;
-import com.remedy.pageObject.LandingPage;
-import com.remedy.pageObject.LoginPage;
-import com.remedy.pageObject.UserAdminHomePage;
+import com.remedy.userAdmin.CreateUserPage;
+import com.remedy.userAdmin.LandingPage;
+import com.remedy.userAdmin.LoginPage;
+import com.remedy.userAdmin.UserAdminHomePage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
