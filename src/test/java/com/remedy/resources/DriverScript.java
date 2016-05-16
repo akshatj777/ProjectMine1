@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
@@ -57,22 +57,27 @@ public class DriverScript {
 	}
 
 	private void createNewDriverInstance() throws Exception {
+		
+		browser = Config.getProperty("Browser");
+		System.out.println("initialize Browser: " + browser);
+		os = Config.getProperty("OS");
+		System.out.println("initialize OS: " + os);
 
-		switch (Config.getProperty("Browser")) {
+		switch (browser) {
 		case "chrome":
 			String chromDrvrPath;
 			chromDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
 
-			os: switch (Config.getProperty("OS")) {
+			os: switch (os) {
 			case "linux32":
 			case "linux64":
 			case "mac":
-				System.out.println("initialize OS: " + os);
+				//System.out.println("initialize OS: " + os);
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver");
 				break os;
 			case "win":
-				System.out.println("initialize OS: " + os);
+				//System.out.println("initialize OS: " + os);
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver.exe");
 				break os;
@@ -105,17 +110,17 @@ public class DriverScript {
 			dCaps.setJavascriptEnabled(true);
 			dCaps.setCapability("takesScreenshot", true);
 
-			os: switch (Config.getProperty("OS")) {
+			os: switch (os) {
 			case "linux32":
 			case "linux64":
 			case "mac":
-				System.out.println("initialize OS: " + os);
+				//System.out.println("initialize OS: " + os);
 				dCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 						phantomJSDrvrPath + "phantomjsdriver_" + os + File.separator + "phantomjs");
 
 				break os;
 			case "win":
-				System.out.println("initialize OS: " + os);
+				//System.out.println("initialize OS: " + os);
 				dCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 						phantomJSDrvrPath + "phantomjsdriver_" + os + File.separator + "phantomjs.exe");
 
@@ -129,7 +134,9 @@ public class DriverScript {
 
 			break;
 		default:
+			System.out.println("***************Starting FF browser**********");
 			driver = new FirefoxDriver();
+			System.out.println("***************Ending FF browser**********");
 		}
 
 		/*
