@@ -2,17 +2,12 @@ package com.remedy.resources;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
-
-
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
@@ -90,8 +85,13 @@ public class DriverScript {
 				// Utility.illegalStateException("Invalid OS paramter, expected
 				// values 'linux32||linux64||mac||win'");
 			}
+			
+			ChromeOptions options = new ChromeOptions();
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-extensions");
+            driver = new ChromeDriver(options);
 
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
 
 			break;
 		case "ie":
