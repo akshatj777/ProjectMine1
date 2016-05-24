@@ -2,6 +2,7 @@ package stepDefination.LogIn;
 
 import com.remedy.userAdmin.LoginPage;
 import com.remedy.resources.DriverScript;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -72,7 +73,8 @@ public class LoginPageSteps extends DriverScript{
 
     @And("^I click Access button$")
     public void I_click_Access_button() throws Throwable {
-        loginPage.iClickOnAccessButton();
+        loginPage.iClickLogInButton();
+
     }
 
 
@@ -82,12 +84,13 @@ public class LoginPageSteps extends DriverScript{
       loginPage.iClickChangePasswordCancleButton();
     }
 
-    @And("^I should see Log in page text \"([^\"]*)\"$")
-    public void iShouldSeeLogInPageText(String text) throws Throwable {
-        loginPage.iVerifyLoginText(text);
+
+
+
+    @And("^I should see Log in widget$")
+    public void iShouldSeeLogInWidget() throws Throwable {
+
+        loginPage.iVerifyLogInWidget();
+
     }
-
-
-
-
 }

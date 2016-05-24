@@ -30,6 +30,7 @@ public class DriverScript {
         private void createNewDriverInstance() {
             System.setProperty("webdriver.chrome.driver", "src/test/java/com/remedy/resources/chromedriver");
             driver = new ChromeDriver();
+
         }
 
         public WebDriver getDriver() {

@@ -21,7 +21,7 @@ public class LoginPage extends BaseClass  {
 
         iEnteruserEmail(userName);
         iEnterPassword(passWord);
-        iClickOnAccessButton();
+        iClickLogInButton();
 
     }
 
@@ -75,26 +75,26 @@ public class LoginPage extends BaseClass  {
 
     public void iEnteruserEmail(String userName ){
 
-        iFillInText(driver.findElement(By.cssSelector("#a0-signin_easy_email")), userName);
+        iFillInText(driver.findElement(By.cssSelector(".login-form>input:nth-child(1)")), userName);
 
 
     }
 
     public void iEnterPassword(String passWord ){
 
-        iFillInText(driver.findElement(By.cssSelector("#a0-signin_easy_password")),passWord);
+        iFillInText(driver.findElement(By.name("password")),passWord);
     }
 
-    public void iClickOnAccessButton(){
+    public void iClickLogInButton(){
 
-        clickElement(driver.findElement(By.cssSelector(".a0-primary.a0-next")));
+        clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
         delay();
 
     }
 
-    public void iVerifyLoginText(String text){
+    public void iVerifyLogInWidget(){
 
-        verifyTextForElement(driver.findElement(By.cssSelector(".a0-top-header>h1")), text);
+        isElementVisible(driver.findElement(By.cssSelector(".login-form")));
     }
 
 

@@ -44,7 +44,7 @@ public class CommonSteps extends DriverScript {
     }*/
 
 
-    @And("^I nevigate back$")
+    @And("^I navigate back$")
     public void I_nevigate_back() throws Throwable {
         driver.navigate().back();
     }

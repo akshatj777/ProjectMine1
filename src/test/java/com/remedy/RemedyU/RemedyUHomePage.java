@@ -1,6 +1,7 @@
 package com.remedy.RemedyU;
 
 import com.remedy.baseClass.BaseClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -13,4 +14,10 @@ public class RemedyUHomePage extends BaseClass {
         super(driver);
     }
 
+
+    public void iverifyRemedyUpageHeader(String text ){
+
+        verifyTextForElement(driver.findElement(By.cssSelector("..logo.valentino-icon-reports")), text);
+
+    }
 }
