@@ -24,5 +24,37 @@ public class Ec1DashboardPage extends BaseClass{
 
     }
 
+    public void iexapndsPatiensListTab(){
+
+        clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
+
+
+    }
+
+    public void iclickPatiensList(){
+
+        clickElement(driver.findElement(By.cssSelector("#patientsFilter>li:nth-child(1)")));
+        delay();
+
+
+    }
+
+    public void iverifyMyPatient(String text ){
+
+        verifyTextForElement(driver.findElement(By.cssSelector("#ui-nav-tab-dashboard-filter_myPatients")), text);
+
+
+    }
+
+    public void iclickOnAddPainetButton(){
+
+        clickElement(driver.findElement(By.cssSelector("#patient-add-button")));
+        delay();
+
+
+    }
+
+
+
 
 }

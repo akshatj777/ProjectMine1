@@ -17,7 +17,9 @@ public class LandingPage extends BaseClass{
 
     public void iVerifyTextforTiles( String text){
 
+        delay();
         verifyTextForElementfromList(".spoe-button>p", text);
+
     }
 
 
@@ -54,6 +56,14 @@ public class LandingPage extends BaseClass{
 
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='footer']/div/section/ul/li[1]/a")), text);
     }
+
+
+    public void iVerifyPageLogoText(String text){
+
+        verifyTextForElement(driver.findElement(By.cssSelector(".logo.valentino-icon-reports")), text);
+    }
+
+
 
 
 }
