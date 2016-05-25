@@ -37,23 +37,8 @@ public class DriverScript {
 
 	public void initialize() throws Exception {
 		if (driver == null)
-			/*
-			 * Code commented since Issue while executing using config file, Multiple object of Web driver launched
-			  
-			  try {
-				fis = new FileInputStream(System.getProperty("user.dir")
-						+ "\\src\\test\\java\\com\\remedy\\resources\\config.properties");
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-		try {
-			Config.load(fis);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		*/
-
-		createNewDriverInstance();
+			
+			createNewDriverInstance();
 	}
 
 	private void createNewDriverInstance() throws Exception {
@@ -67,23 +52,19 @@ public class DriverScript {
 		case "chrome":
 			String chromDrvrPath;
 			chromDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
-
 			os: switch (os) {
 			case "linux32":
 			case "linux64":
-			case "mac":
-				
+			case "mac":				
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver");
 				break os;
-			case "win":
-				
+			case "win":				
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver.exe");
 				break os;
 			default:
-				// Utility.illegalStateException("Invalid OS paramter, expected
-				// values 'linux32||linux64||mac||win'");
+				throw new IllegalStateException("Invalid OS paramter, expected values 'linux32||linux64||mac||win'");				
 			}
 			
 			ChromeOptions options = new ChromeOptions();
@@ -91,9 +72,7 @@ public class DriverScript {
             options.addArguments("--disable-extensions");
             driver = new ChromeDriver(options);
 
-			//driver = new ChromeDriver();
-
-			break;
+			break;			
 		case "ie":
 			String IEDrvrPath;
 			IEDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
@@ -107,7 +86,6 @@ public class DriverScript {
 			driver = new InternetExplorerDriver(caps);
 
 			break;
-
 		case "phantomJS":
 			String phantomJSDrvrPath;
 			phantomJSDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
@@ -118,28 +96,23 @@ public class DriverScript {
 			os: switch (os) {
 			case "linux32":
 			case "linux64":
-			case "mac":
-				
+			case "mac":				
 				dCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 						phantomJSDrvrPath + "phantomjsdriver_" + os + File.separator + "phantomjs");
 
 				break os;
-			case "win":
-				
+			case "win":				
 				dCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 						phantomJSDrvrPath + "phantomjsdriver_" + os + File.separator + "phantomjs.exe");
 
 				break os;
 			default:
-				// Utility.illegalStateException("Invalid OS paramter, expected
-				// values 'linux32||linux64||mac||win'");
+				
 			}
-
 			driver = new PhantomJSDriver(dCaps);
-
-			break;
-		default:
 			
+			break;			
+		default:			
 			driver = new FirefoxDriver();
 		}
 		
@@ -150,10 +123,8 @@ public class DriverScript {
 	}
 
 	public void quitDriver() {
-
 		driver.manage().deleteAllCookies();
 		driver.quit();
 		driver = null;
-
 	}
 }
