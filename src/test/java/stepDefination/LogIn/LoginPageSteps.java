@@ -20,7 +20,7 @@ public class LoginPageSteps extends DriverScript{
         loginPage.iClickForgotPassword();
     }
 
-    @Then("^i enter ([^\"]*) for changing password$")
+    @Then("^I enter ([^\"]*) for changing password$")
     public void iEnterEmailChangingPassword(String email) throws Throwable {
 
         loginPage.iEnterEmailForResetPssword(email);

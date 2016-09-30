@@ -7,96 +7,85 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by salam on 7/29/15.
  */
-public class LoginPage extends BaseClass  {
+public class LoginPage extends BaseClass {
 
-    public LoginPage(WebDriver driver){
+	public LoginPage(WebDriver driver) {
 
-        super(driver);
-    }
+		super(driver);
+	}
 
+	public void iLoginAsSupperUser(String userName, String passWord) {
 
+		iEnteruserEmail(userName);
+		iEnterPassword(passWord);
+		iClickLogInButton();
 
+	}
 
-    public void iLoginAsSupperUser(String userName, String passWord) {
+	public void iClickForgotPassword() {
 
-        iEnteruserEmail(userName);
-        iEnterPassword(passWord);
-        iClickLogInButton();
+		clickElement(driver.findElement(By.cssSelector("a.forgot-password")));
+	}
 
-    }
+	public void iEnterEmailForResetPssword(String text) {
 
+		iFillInText(driver.findElement(By.name("email")), text);
+	}
 
+	public void iEnterNewPasswordForResetPassword(String text) {
 
-    public void iClickForgotPassword(){
+		iFillInText(driver.findElement(By.name("password")), text);
+	}
 
-        clickElement(driver.findElement(By.cssSelector(".a0-forgot-pass.a0-btn-small")));
-    }
+	public void iEnterConfirmPasswordForResetPassword(String text) {
 
-    public void iEnterEmailForResetPssword(String text){
+		iFillInText(driver.findElement(By.name("confirmPassword")), text);
 
-        iFillInText(driver.findElement(By.cssSelector("#a0-reset_easy_email")), text);
-    }
+	}
 
-    public void iEnterNewPasswordForResetPassword(String text){
+	public void iClickChangePasswordButton() {
 
-        iFillInText(driver.findElement(By.cssSelector("#a0-reset_easy_password")), text);
-    }
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Change Password')]")));
 
-    public void iEnterConfirmPasswordForResetPassword(String text){
+	}
 
-        iFillInText(driver.findElement(By.cssSelector("#a0-reset_easy_repeat_password")), text);
+	public void iClickChangePasswordCancleButton() {
 
-    }
+		clickElement(driver.findElement(By.linkText("Return to Login")));
 
-    public void iClickChangePasswordButton(){
+	}
 
-        clickElement(driver.findElement(By.cssSelector(".a0-primary.a0-next")));
+	public void iVerifyChagePasswordConfirmation(String text) {
 
-    }
+		verifyTextForElement(driver.findElement(By.cssSelector(".a0-success")), text);
+	}
 
-    public void iClickChangePasswordCancleButton(){
+	public void iVerifyResetPasswordText(String text) {
 
-        clickElement(driver.findElement(By.cssSelector(".a0-cancel")));
+		verifyTextForElement(driver.findElement(By.cssSelector("h1.page-auth-title.divider-horz")), text);
+	}
 
-    }
+	public void iEnteruserEmail(String userName) {
 
+		iFillInText(driver.findElement(By.cssSelector(".login-form>input:nth-child(1)")), userName);
 
-    public void iVerifyChagePasswordConfirmation(String text){
+	}
 
-        verifyTextForElement(driver.findElement(By.cssSelector(".a0-success")), text);
-    }
+	public void iEnterPassword(String passWord) {
 
+		iFillInText(driver.findElement(By.name("password")), passWord);
+	}
 
-    public void iVerifyResetPasswordText(String text){
+	public void iClickLogInButton() {
 
-        verifyTextForElement(driver.findElement(By.cssSelector(".a0-top-header>h1")), text);
-    }
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Log In')]")));
+		delay();
 
+	}
 
-    public void iEnteruserEmail(String userName ){
+	public void iVerifyLogInWidget() {
 
-        iFillInText(driver.findElement(By.cssSelector(".login-form>input:nth-child(1)")), userName);
-
-
-    }
-
-    public void iEnterPassword(String passWord ){
-
-        iFillInText(driver.findElement(By.name("password")),passWord);
-    }
-
-    public void iClickLogInButton(){
-
-        clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
-        delay();
-
-    }
-
-    public void iVerifyLogInWidget(){
-
-        isElementVisible(driver.findElement(By.cssSelector(".login-form")));
-    }
-
+		isElementVisible(driver.findElement(By.cssSelector(".login-form")));
+	}
 
 }
-
