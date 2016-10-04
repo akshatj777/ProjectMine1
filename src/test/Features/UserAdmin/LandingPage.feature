@@ -2,7 +2,6 @@ Feature: Change Login Information
 
 
   Scenario: Logout link test from top menu
-
     Given I am on the login page
     Then I enter email field lbarinstein+qaadmin@remedypartners.com for login
     And I enter password field Testing1 for Login
@@ -11,9 +10,7 @@ Feature: Change Login Information
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
-
   Scenario: Internal Support link test from top menu
-
     Given I am on the login page
     Then I enter email field lbarinstein+qaadmin@remedypartners.com for login
     And I enter password field Testing1 for Login
@@ -26,7 +23,6 @@ Feature: Change Login Information
 
 
   Scenario: Reset Password link test from top menu
-
     Given I am on the login page
     Then I enter email field lbarinstein+qaadmin@remedypartners.com for login
     And I enter password field Testing1 for Login
@@ -37,7 +33,6 @@ Feature: Change Login Information
 
 
   Scenario: Log ot link test from top menu
-
     Given I am on the login page
     Then I enter email field lbarinstein+qaadmin@remedypartners.com for login
     And I enter password field Testing1 for Login
@@ -48,7 +43,6 @@ Feature: Change Login Information
 
 
   Scenario Outline:  Newly created user have access to the applications accoding to their role
-
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -79,7 +73,6 @@ Feature: Change Login Information
     Then I click on the Tile with text <Institue>
     And I switch to new window
     Then I switch back to old window
-
 
     #And I nevigate back
 

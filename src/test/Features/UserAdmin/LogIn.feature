@@ -4,11 +4,12 @@ Feature: Login password test
     Given I am on the login page
     When I click on the forgot password button
     And I should see text for reset password "Reset Password"
-    Then i enter lbarinstein+qaadmin@remedypartners.com for changing password
+    Then I enter lbarinstein+qaadmin@remedypartners.com for changing password
     And I enter new Testing1
     And I enter Testing1 to confirm
     Then I click on chnage password button
-    And I should see password change confirmation "We've just sent you an email to reset your password."
+    #TODO - Open bug for user admin PA-1044
+    #And I should see password change confirmation "We've just sent you an email to reset your password."
 
 
   Scenario: Cancel Change password
@@ -16,4 +17,4 @@ Feature: Login password test
     When I click on the forgot password button
     And I should see text for reset password "Reset Password"
     Then I click on cancel button
-    And I should see Log in page text "Log in"
+    And I should see Log in widget

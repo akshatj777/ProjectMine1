@@ -9,119 +9,110 @@ import org.openqa.selenium.WebDriver;
  */
 public class UserAdminHomePage extends BaseClass {
 
-    public UserAdminHomePage(WebDriver driver) {
+	public UserAdminHomePage(WebDriver driver) {
 
-        super(driver);
-    }
+		super(driver);
+	}
 
+	public void clickCreateUserButton() {
 
-    public void clickCreateUserButton() {
+		clickElement(driver.findElement(By.xpath("//button[contains(text(), 'Create User')]")));
+	}
 
-        clickElement(driver.findElement(By.cssSelector(".space.space-top-x2")));
-    }
+	public void enterSerchUserText(String user) {
 
-    public void enterSerchUserText(String user) {
+		iFillInText(driver.findElement(By.cssSelector(".elastic-input")), user);
+		delay();
+	}
 
-        iFillInText(driver.findElement(By.cssSelector(".elastic-input")), user);
-        delay();
-    }
+	public void iClickOnSearchFilterField() {
 
+		clickElement(driver.findElement(By.cssSelector(".ui-select-toggle")));
+	}
 
-    public void iClickOnSearchFilterField() {
+	public void iSelectFacilityForFilter(String facility) {
 
-        clickElement(driver.findElement(By.cssSelector(".ui-select-toggle")));
-    }
+		selectElementByDesc(".ui-select-choices-row", facility);
+	}
 
-    public void iSelectFacilityForFilter(String facility) {
+	public void iClickonCardViewIcon() {
 
-        selectElementByDesc(".ui-select-choices-row", facility);
-    }
+		clickElement(driver.findElement(By.cssSelector(".btn btn-secondary.rp-icon-card-view")));
+	}
 
+	public void iClickonTableViewIcon() {
 
-    public void iClickonCardViewIcon(){
+		clickElement(driver.findElement(By.cssSelector(".btn.btn-secondary.rp-icon-table-view")));
+	}
 
-        clickElement(driver.findElement(By.cssSelector(".btn btn-secondary.rp-icon-card-view")));
-    }
+	public void iClickOnViewProfileIcon(int inx) {
 
-    public void iClickonTableViewIcon(){
+		clickElement(driver.findElements(By.cssSelector(".rp-icon-expand")).get(inx));
+	}
 
-        clickElement(driver.findElement(By.cssSelector(".btn.btn-secondary.rp-icon-table-view")));
-    }
+	public void iClickViewProfileLinkByIndex(int ind) {
 
-    public void iClickOnViewProfileIcon(int inx){
+		clickElement(driver.findElements(By.linkText("View Profile")).get(ind));
+	}
 
-        clickElement(driver.findElements(By.cssSelector(".rp-icon-expand")).get(inx));
-    }
+	public void iClickCancelButton() {
 
+		clickElement(driver.findElement(By.cssSelector(".btn.btn-secondary.pull-right")));
+	}
 
+	public void iSeeUserAdminPageHeader(String pageHeader) {
 
-    public void iClickViewProfileLinkByIndex(int ind){
+		delay();
+		verifyTextForElement(driver.findElement(By.cssSelector(".page-title-text")), pageHeader);
+	}
 
-        clickElement(driver.findElements(By.linkText("View Profile")).get(ind));
-    }
+	/*
+	 * public void iSeeFirstNameinUserCard(String firstname){
+	 * 
+	 * verifyContainTextForanElement(driver.findElement(By.cssSelector(
+	 * ".card-header-content>div>h3>span:nth-of-type(2)")), firstname); }
+	 */
 
-    public void iClickCancelButton(){
+	public void iSelectSortOption(String desc) {
 
-        clickElement(driver.findElement(By.cssSelector(".btn.btn-secondary.pull-right")));
-    }
+		clickElement(driver.findElement(By.cssSelector(".sort-select")));
+		selectElementByDesc(".ui-select-choices-row", desc);
+		delay();
+	}
 
+	public void iSeeSortOrderDefaultOption(String defaultoption) {
 
+		verifyTextForElement(driver.findElement(By.cssSelector(".sort-select")), defaultoption);
+	}
 
-    public void iSeeUserAdminPageHeader(String pageHeader){
+	public void iVerifyUserCardCount(int cardCount) {
 
-        verifyTextForElement(driver.findElement(By.cssSelector(".page-title-text")), pageHeader);
-    }
+		verifyElementCount(".card-view-body", cardCount);
+	}
 
+	public void iClickLoadMoreButton() {
 
-   /* public void iSeeFirstNameinUserCard(String firstname){
+		clickElement(driver.findElement(By.cssSelector(".btn.btn-auto-rounded")));
+		longDelay();
+	}
 
-        verifyContainTextForanElement(driver.findElement(By.cssSelector(".card-header-content>div>h3>span:nth-of-type(2)")), firstname);
-    }*/
+	public void iverifyFirstNameText(String firstName) {
 
-    public void iSelectSortOption(String desc){
+		verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[2]/span[1]")), firstName);
+		longDelay();
+	}
 
-        clickElement(driver.findElement( By.cssSelector(".sort-select")));
-        selectElementByDesc(".ui-select-choices-row",  desc );
-        delay();
-    }
+	public void iverifyLastNameText(String lastName) {
 
-    public void iSeeSortOrderDefaultOption(String defaultoption){
+		verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[1]/span[1]")), lastName);
+		longDelay();
+	}
 
-        verifyTextForElement(driver.findElement(By.cssSelector(".sort-select")), defaultoption);
-    }
+	public void iverifyOrganizationalRoleForAUser(String OrganizationalRole) {
 
-
-    public void iVerifyUserCardCount(int cardCount){
-
-        verifyElementCount(".card-view-body", cardCount);
-    }
-
-
-    public void iClickLoadMoreButton(){
-
-        clickElement(driver.findElement(By.cssSelector(".btn.btn-auto-rounded")));
-        longDelay();
-    }
-
-
-    public void iverifyFirstNameText(String firstName){
-
-       verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[2]/span[1]")), firstName);
-        longDelay();
-    }
-
-    public void iverifyLastNameText(String lastName){
-
-        verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[1]/span[1]")), lastName);
-        longDelay();
-    }
-
-
-    public void iverifyOrganizationalRoleForAUser(String OrganizationalRole){
-
-        verifyTextForElement(driver.findElement(By.xpath("//div/div[4]/div[1]/div/div[2]/div[1]/div/div")), OrganizationalRole);
-        longDelay();
-    }
-
+		delay();
+		verifyTextForElement(driver.findElement(By.cssSelector("div.row-padding-vertical.color-bg-core-white div.ng-binding")),	OrganizationalRole);
+		longDelay();
+	}
 
 }
