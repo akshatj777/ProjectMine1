@@ -3,3 +3,5 @@
 .project
 .settings/
 phantomjsdriver.log
+.idea/
+newec.iml
