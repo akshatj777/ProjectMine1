@@ -17,9 +17,10 @@ Feature: Change Login Information
     Then I click Access button
     And I click on the top user account link
     Then I select Internal Support option from the dropdown
-    #When I switch to new window
-    #And I should see Jira Log in Page text "Service Desk (2.5.4)"
-    #Then I switch back to old window
+    When I switch to new window
+    And I verify current page "Login - Service Desk" title
+    #And I should see Jira Log in Page text "Service Desk (2.5.9)"
+    Then I switch back to old window
 
 
   Scenario: Reset Password link test from top menu

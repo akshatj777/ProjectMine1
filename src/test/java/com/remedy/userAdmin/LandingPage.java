@@ -47,7 +47,7 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
-
+    	delay();
         selectElementByDesc(".btn.btn-flyout-nav", link);
     }
 

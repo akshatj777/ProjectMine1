@@ -8,6 +8,8 @@ import cucumber.api.java.en.Then;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
+
 /**
  * Created by salam on 8/5/15.
  */
@@ -60,6 +62,10 @@ public class CommonSteps extends DriverScript {
 
         landingPage.iSwitchBackToOldWindow();
     }
-
+    
+    @And("^I verify current page \"([^\"]*)\" title$")
+    public void iVerifycurrentPageTitle(String pageTitle) {
+    	Assert.assertEquals(driver.getTitle(), pageTitle);
+    }
 
 }
