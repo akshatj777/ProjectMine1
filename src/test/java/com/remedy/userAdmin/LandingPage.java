@@ -18,7 +18,7 @@ public class LandingPage extends BaseClass{
     public void iVerifyTextforTiles( String text){
 
         delay();
-        verifyTextForElementfromList(".spoe-button>p", text);
+        verifyTextForElementfromList(".title>p", text);
 
     }
 
