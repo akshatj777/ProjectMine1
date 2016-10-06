@@ -3,3 +3,6 @@
 .project
 .settings/
 phantomjsdriver.log
+.idea/
+newec.iml
+Remedy2Application.iml
