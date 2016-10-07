@@ -11,7 +11,6 @@ Feature: Login password test
     #TODO - Open bug for user admin PA-1044
     #And I should see password change confirmation "We've just sent you an email to reset your password."
 
-
   Scenario: Cancel Change password
     Given I am on the login page
     When I click on the forgot password button

@@ -43,10 +43,10 @@ Feature: Change Login Information
     #And I should see Jira Log in Page text "Service Desk (2.5.9)"
     Then I switch back to old window
 
-  Scenario Outline: User have access to the applications accroding to their organisation roles
+  Scenario Outline: User should have access to the applications according to their organisation roles
     Given I am on the login page
     When I enter email field <email> for login
-    And I enter password field <password> for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text <Episode1>
     Then I should see Tile text <RemedyU>
@@ -56,11 +56,34 @@ Feature: Change Login Information
     Then I should see Tile text <Institue>
 
   Examples:
-    |                email          | password | Episode1 | RemedyU | Reports | Episodes2.0  | sharefile    | Institue  |
-    | shutestaug231132a@yopmail.com | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-    | shutestaug221130a@yopmail.com | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-    | shutestaug221140a@yopmail.com | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-    | shutestaug221145a@yopmail.com | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+    |                email          | Episode1 | RemedyU | Reports | Episodes2.0  | sharefile    | Institue  |
+    | shutestaug231132a@yopmail.com | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+    | shutestaug221130a@yopmail.com | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+    | shutestaug221140a@yopmail.com | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+    | shutestaug221145a@yopmail.com | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+
+  Scenario: Transitional Case Manager user should have access to the applications according to their organisation role
+    Given I am on the login page
+    When I enter email field repopsnofintest@yopmail.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text Episodes
+    Then I should see Tile text RemedyU
+    Then I should see Tile text Reports
+    Then I should see Tile text Institute
+
+  Scenario: Remedy Program Administrator user should have access to the applications according to their organisation role
+    Given I am on the login page
+    When I enter email field shutestaug15240p@yopmail.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text Episodes
+    Then I should see Tile text RemedyU
+    Then I should see Tile text Reports
+    Then I should see Tile text Institute
+    Then I should see Tile text Gainsharing Physician Survey
+    Then I should see Tile text Episodes 2.0
+    Then I should see Tile text Shared Files
 
   Scenario Outline:  Newly created user have access to the applications accoding to their role
     Given I am on the login page
