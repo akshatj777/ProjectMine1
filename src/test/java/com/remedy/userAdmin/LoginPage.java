@@ -1,6 +1,8 @@
 package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -78,7 +80,7 @@ public class LoginPage extends BaseClass {
 
 	public void iClickLogInButton() {
 
-		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Log In')]")));
+		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
 		delay();
 
 	}
@@ -87,5 +89,6 @@ public class LoginPage extends BaseClass {
 
 		isElementVisible(driver.findElement(By.cssSelector(".login-form")));
 	}
-
+	
+	
 }

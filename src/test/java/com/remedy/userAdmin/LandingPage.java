@@ -18,7 +18,7 @@ public class LandingPage extends BaseClass{
     public void iVerifyTextforTiles( String text){
 
         delay();
-        verifyTextForElementfromList(".spoe-button>p", text);
+        verifyTextForElementfromList(".title>p", text);
 
     }
 
@@ -47,7 +47,7 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
-
+    	delay();
         selectElementByDesc(".btn.btn-flyout-nav", link);
     }
 
