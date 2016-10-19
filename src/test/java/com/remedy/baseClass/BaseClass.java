@@ -150,18 +150,23 @@ public class BaseClass {
         }
     }
 
-
     protected void verifyTextForElementfromList(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+
         for (WebElement item : listItems) {
             //System.out.println(item.getText());
             item.getText().equalsIgnoreCase(itemtext);
+            try {
+                Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext));
+            } catch (Exception e) {
+
+            }
         }
+
     }
 
     protected void selectDropdownVisibleElement(String selectElement, String desc) {
-
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);
     }
@@ -185,25 +190,20 @@ public class BaseClass {
        /* WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         driver.findElement(by).click();*/
-
     }
-
 
     protected void iWillWaitToSeeElement(WebElement element, String text) {
         if (isElementVisible(element)) {
             Assert.assertTrue(element.isDisplayed());
 
         }
-
     }
 
     protected void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
             Assert.assertEquals(ele.getText(), text);
         }
-
     }
-
 
     protected void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
@@ -212,11 +212,6 @@ public class BaseClass {
             System.out.println(countelement);
             Assert.assertEquals( countelement, count);
         }
-
-
-
-
-
 
     protected void elementInformation(WebElement ele) {
         System.out.println("  ");
@@ -271,6 +266,16 @@ public class BaseClass {
             }
         }
         delay();
+    }
+
+    protected void verifyTextNotPresentForElementFromList(String element, String itemtext) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        for (WebElement item : listItems) {
+            //item.getText().equalsIgnoreCase(itemtext);
+            Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
+            //Assert.assertNotEquals();
+        }
     }
 
 }

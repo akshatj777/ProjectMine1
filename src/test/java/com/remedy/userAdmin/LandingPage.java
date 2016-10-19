@@ -26,7 +26,7 @@ public class LandingPage extends BaseClass{
     public void iClickOnApplicateTile(String tile){
 
       //  clickElement(driver.findElement(By.cssSelector(tile)));
-        selectElementByDesc(".spoe-button>p", tile);
+        selectElementByDesc(".title>p", tile);
 
     }
 
@@ -61,6 +61,12 @@ public class LandingPage extends BaseClass{
     public void iVerifyPageLogoText(String text){
 
         verifyTextForElement(driver.findElement(By.cssSelector(".logo.valentino-icon-reports")), text);
+    }
+
+    public void iVerifyTextNotForTiles( String text){
+        delay();
+        verifyTextNotPresentForElementFromList(".title>p", text);
+
     }
 
 
