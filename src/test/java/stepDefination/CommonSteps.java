@@ -1,5 +1,6 @@
 package stepDefination;
 
+import com.remedy.baseClass.BaseClass;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
@@ -17,6 +18,7 @@ public class CommonSteps extends DriverScript {
 
 
         LandingPage landingPage = new LandingPage(driver);
+        BaseClass baseClass = new BaseClass(driver);
 
     @Given("I am on the login page$")
     public void setup() throws Throwable {
@@ -64,8 +66,9 @@ public class CommonSteps extends DriverScript {
     }
     
     @And("^I verify current page \"([^\"]*)\" title$")
-    public void iVerifycurrentPageTitle(String pageTitle) {
-    	Assert.assertEquals(driver.getTitle(), pageTitle);
+    public void iVerifyCurrentPageTitle(String pageTitle) {
+        baseClass.delay();
+        Assert.assertEquals(driver.getTitle(), pageTitle);
     }
 
 }

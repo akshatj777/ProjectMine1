@@ -30,7 +30,7 @@ public class BaseClass {
         this.driver = driver;
     }
 
-    protected void delay() {
+    public void delay() {
         try {
             Thread.sleep(delay_Time);
         } catch (InterruptedException e) {
@@ -39,7 +39,7 @@ public class BaseClass {
         }
     }
 
-    protected void longDelay() {
+    public void longDelay() {
         try {
             Thread.sleep(LongDelay_Time);
         } catch (InterruptedException e) {
@@ -48,10 +48,7 @@ public class BaseClass {
         }
     }
 
-
-
-
-    protected boolean isElementVisible(final WebElement ele) {
+    public boolean isElementVisible(final WebElement ele) {
         long start = System.currentTimeMillis();
         while (true) {
             if (ele.isDisplayed()) {
@@ -72,7 +69,7 @@ public class BaseClass {
         }
     }
 
-    protected WebElement waitFindElement(WebElement parentElement, By by) {
+    public WebElement waitFindElement(WebElement parentElement, By by) {
 
         WebElement ele = null;
         if (parentElement == null) {
@@ -84,7 +81,7 @@ public class BaseClass {
         return ele;
     }
 
-    protected List<WebElement> waitFindElements(WebElement parentElement, By by) {
+    public List<WebElement> waitFindElements(WebElement parentElement, By by) {
         if (parentElement == null) {
             return driver.findElements(by);
         }
@@ -93,24 +90,24 @@ public class BaseClass {
 
     }
 
-
-    protected WebElement findVisibleElement(WebDriver driver, By by) {
+    public WebElement findVisibleElement(WebDriver driver, By by) {
         WebElement ele = driver.findElement(by);
         isElementVisible(ele);
         return ele;
     }
 
-    protected WebElement findVisibleElement(WebElement wEle, By by) {
+    public WebElement findVisibleElement(WebElement wEle, By by) {
         WebElement ele = wEle.findElement(by);
         isElementVisible(ele);
         return ele;
     }
 
-    protected List<WebElement> waitFindElements(WebDriver driver, By by) {
+    public List<WebElement> waitFindElements(WebDriver driver, By by) {
+
         return driver.findElements(by);
     }
 
-    protected boolean isElementEnabled(WebElement ele) {
+    public boolean isElementEnabled(WebElement ele) {
         boolean clickable = true;
         String attr = ele.getAttribute("class");
         if ((attr != null) && (attr.indexOf("disabled") > -1)) {
@@ -120,7 +117,7 @@ public class BaseClass {
     }
 
 
-    protected WebElement getVisibleDropDownParentElement(String parent) {
+    public WebElement getVisibleDropDownParentElement(String parent) {
         List<WebElement> comboListParentElements = waitFindElements(driver, By.cssSelector(parent));
         for (WebElement el : comboListParentElements) {
             if (el.isDisplayed()) {
@@ -130,14 +127,14 @@ public class BaseClass {
         return null;
     }
 
-    protected void selectElementByIndex(String element, int idx) {
+    public void selectElementByIndex(String element, int idx) {
 
         //WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         listItems.get(idx).click();
     }
 
-    protected void selectElementByDesc(String element, String desc) {
+    public void selectElementByDesc(String element, String desc) {
         //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
@@ -150,28 +147,30 @@ public class BaseClass {
         }
     }
 
-    protected void verifyTextForElementfromList(String element, String itemtext) {
+    public void verifyTextForElementfromList(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 
         for (WebElement item : listItems) {
             //System.out.println(item.getText());
             item.getText().equalsIgnoreCase(itemtext);
-            try {
-                Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext));
-            } catch (Exception e) {
 
-            }
+            /*if (item.getText().equalsIgnoreCase(itemtext)) {
+                try {
+                    Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext));
+                } catch (Exception e) {
+
+                }
+            }*/
         }
-
     }
 
-    protected void selectDropdownVisibleElement(String selectElement, String desc) {
+    public void selectDropdownVisibleElement(String selectElement, String desc) {
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);
     }
 
-    protected void iFillInText(WebElement obj, String text) {
+    public void iFillInText(WebElement obj, String text) {
         if (!isElementVisible(obj)) {
             return;
         }
@@ -183,7 +182,7 @@ public class BaseClass {
     }
 
 
-    protected void clickElement(WebElement element) {
+    public void clickElement(WebElement element) {
         if (isElementVisible(element)) {
             element.click();
         }
@@ -192,7 +191,7 @@ public class BaseClass {
         driver.findElement(by).click();*/
     }
 
-    protected void iWillWaitToSeeElement(WebElement element, String text) {
+    public void iWillWaitToSeeElement(WebElement element, String text) {
         if (isElementVisible(element)) {
             Assert.assertTrue(element.isDisplayed());
 
@@ -205,7 +204,7 @@ public class BaseClass {
         }
     }
 
-    protected void verifyElementCount(String element, int count) {
+    public void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
@@ -213,7 +212,7 @@ public class BaseClass {
             Assert.assertEquals( countelement, count);
         }
 
-    protected void elementInformation(WebElement ele) {
+    public void elementInformation(WebElement ele) {
         System.out.println("  ");
         System.out.println("************************************");
         System.out.println("tagname " + ele.getTagName());
@@ -230,7 +229,7 @@ public class BaseClass {
 
     }
 
-    protected  void swithToFrame (String element){
+    public  void swithToFrame (String element){
 
         driver.switchTo().frame(driver.findElement(By.xpath(element)));
     }
@@ -238,8 +237,7 @@ public class BaseClass {
 
 
 
-    protected void switchToNewWindow(){
-
+    public void switchToNewWindow(){
 
         String parentWindow = driver.getWindowHandle();
         Set<String> handles =  driver.getWindowHandles();
@@ -253,8 +251,7 @@ public class BaseClass {
         }
     }
 
-
-    protected void switchBacktoOldWindow () {
+    public void switchBacktoOldWindow () {
 
         String parentWindow = driver.getWindowHandle();
         Set<String> handles = driver.getWindowHandles();
@@ -268,13 +265,43 @@ public class BaseClass {
         delay();
     }
 
-    protected void verifyTextNotPresentForElementFromList(String element, String itemtext) {
+    public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
             //item.getText().equalsIgnoreCase(itemtext);
             Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
             //Assert.assertNotEquals();
+        }
+    }
+
+    public void verifyTextForElementFromListByXpath(String element, String itemtext) {
+
+        List<WebElement> listItems = driver.findElements(By.xpath(element));
+
+        for (WebElement item : listItems) {
+            //System.out.println(item.getText());
+            item.getText().equalsIgnoreCase(itemtext);
+
+            /*if (item.getText().equalsIgnoreCase(itemtext)) {
+                try {
+                    Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext));
+                } catch (Exception e) {
+
+                }
+            }*/
+        }
+    }
+
+    public void selectElementByTextDescByXpath(String element, String desc) {
+        List<WebElement> listItems = driver.findElements(By.xpath(element));
+        for (WebElement item : listItems) {
+            //System.out.println(item.getText());
+            if (item.getText().equalsIgnoreCase(desc)) {
+                item.click();
+                delay();
+                return;
+            }
         }
     }
 

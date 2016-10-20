@@ -17,7 +17,7 @@ public class LandingPage extends BaseClass{
 
     public void iVerifyTextforTiles( String text){
 
-        delay();
+        longDelay();
         verifyTextForElementfromList(".title>p", text);
 
     }
@@ -27,7 +27,7 @@ public class LandingPage extends BaseClass{
 
       //  clickElement(driver.findElement(By.cssSelector(tile)));
         selectElementByDesc(".title>p", tile);
-
+        longDelay();
     }
 
 
