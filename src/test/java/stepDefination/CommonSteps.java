@@ -17,8 +17,8 @@ import org.junit.Assert;
 public class CommonSteps extends DriverScript {
 
 
-        LandingPage landingPage = new LandingPage(driver);
-        BaseClass baseClass = new BaseClass(driver);
+    LandingPage landingPage = new LandingPage(driver);
+    BaseClass baseClass = new BaseClass(driver);
 
     @Given("I am on the login page$")
     public void setup() throws Throwable {
@@ -64,11 +64,19 @@ public class CommonSteps extends DriverScript {
 
         landingPage.iSwitchBackToOldWindow();
     }
-    
+
     @And("^I verify current page \"([^\"]*)\" title$")
     public void iVerifyCurrentPageTitle(String pageTitle) {
         baseClass.delay();
         Assert.assertEquals(driver.getTitle(), pageTitle);
     }
 
+    @And("^I wait for ([^\"]*) milli seconds$")
+    public void iWaitForMillisSeconds(Long waitTimeInMillis) {
+        try {
+            Thread.sleep(waitTimeInMillis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

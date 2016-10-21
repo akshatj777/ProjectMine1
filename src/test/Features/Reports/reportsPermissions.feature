@@ -30,3 +30,14 @@ Feature: User only can see reports based on their role ( external and internal r
     And I should see "Spending (Claims)" Reports text for Overall Program
 
     When I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for 30000 milli seconds
+    Then I should see "Report" in the reports header page
+    When I switch to performance reports iframe
+
+    Then I should see performance reports column Tile text as "Participant"
+    Then I should see performance reports column Tile text as "Episode Initiator"
+    Then I should see performance reports column Tile text as "Anchor Facility"
+    Then I should see performance reports column Tile text as "Bundle"
+    Then I should see performance reports column Tile text as "Anchor Admission Quarter"
+
+    When I click on field-panel-icon button

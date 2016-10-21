@@ -198,7 +198,7 @@ public class BaseClass {
         }
     }
 
-    protected void verifyTextForElement(WebElement ele, String text) {
+    public void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
             Assert.assertEquals(ele.getText(), text);
         }
@@ -302,6 +302,24 @@ public class BaseClass {
                 delay();
                 return;
             }
+        }
+    }
+
+    public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
+
+        List<WebElement> listItems = driver.findElements(By.xpath(element));
+
+        for (WebElement item : listItems) {
+            //System.out.println(item.getText());
+            item.getAttribute(attribute).equalsIgnoreCase(itemtext);
+
+            /*if (item.getText().equalsIgnoreCase(itemtext)) {
+                try {
+                    Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext));
+                } catch (Exception e) {
+
+                }
+            }*/
         }
     }
 

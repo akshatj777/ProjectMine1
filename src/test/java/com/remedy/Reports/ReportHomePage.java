@@ -35,9 +35,23 @@ public class ReportHomePage extends BaseClass {
         longDelay();
     }
 
+    public void iVerifyReportsPageHeaderText(String tile){
+        longDelay();
+        verifyTextForElement(driver.findElement(By.xpath("//h5[@class='ng-binding' and text()='Report']")), tile);
+    }
 
+    public void iSwitchToReportsPageFrameWithXpath(String frameXpath){
+        longDelay();
+        swithToFrame(frameXpath);
+    }
 
+    public void iVerifyPerformanceReportsColumnsTitleText(String text){
+        delay();
+        verifyAttributeForElementFromListByXpath("//div[label[text()='Overall Program']]/following-sibling::div/a", "title", text);
+    }
 
+    public void iClickReportFieldPanelIconButton(){
 
-
+        clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
+    }
 }
