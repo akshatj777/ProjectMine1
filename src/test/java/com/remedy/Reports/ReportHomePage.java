@@ -47,11 +47,31 @@ public class ReportHomePage extends BaseClass {
 
     public void iVerifyPerformanceReportsColumnsTitleText(String text){
         delay();
-        verifyAttributeForElementFromListByXpath("//div[label[text()='Overall Program']]/following-sibling::div/a", "title", text);
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 
     public void iClickReportFieldPanelIconButton(){
 
         clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
     }
+
+    public void iMoveToElementToPerform(String toElementLocator){
+        moveToTheElement(driver.findElement(By.xpath(toElementLocator)));
+    }
+
+    public void iMoveToElementAndPerformClick(String toElementLocator){
+        moveToTheElementAndClick(driver.findElement(By.xpath(toElementLocator)));
+    }
+
+    public void iChooseOptionsFromFilterWithXpath(String toLocator){
+        delay();
+        clickElement(driver.findElement(By.xpath(toLocator)));
+    }
+
+    public void iVerifyFilterModalHeaderText(String text){
+        delay();
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
+    }
+
+
 }

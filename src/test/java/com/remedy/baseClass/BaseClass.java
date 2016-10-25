@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import static stepDefination.CommonSteps.actionEvent;
+
 /**
  * Created by salam on 7/27/15.
  */
@@ -321,6 +323,14 @@ public class BaseClass {
                 }
             }*/
         }
+    }
+
+    public void moveToTheElement(WebElement toElement){
+        actionEvent.moveToElement(toElement).perform();
+    }
+
+    public void moveToTheElementAndClick(WebElement toElement){
+        actionEvent.moveToElement(toElement).click().build().perform();
     }
 
 }
