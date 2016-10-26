@@ -1,8 +1,11 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+import cucumber.api.DataTable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import java.util.List;
 
 /**
  * Created by salam on 5/6/16.
@@ -72,6 +75,8 @@ public class ReportHomePage extends BaseClass {
         delay();
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
+
+
 
 
 }

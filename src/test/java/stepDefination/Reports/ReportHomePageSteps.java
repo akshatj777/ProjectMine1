@@ -11,7 +11,7 @@ public class ReportHomePageSteps extends DriverScript {
 
     ReportHomePage reportHomePage = new ReportHomePage(driver);
 
-    @And("^I should see Reports Tile text as \"([^\"]*)\"$")
+    @And("^I should see Reports Tile text as ([^\"]*)$")
     public void iShouldSeeReportsTileTextAs(String text) throws Throwable {
         reportHomePage.iVerifyReportsTextforTiles(text);
     }
