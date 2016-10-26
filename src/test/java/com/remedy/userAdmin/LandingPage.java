@@ -24,10 +24,10 @@ public class LandingPage extends BaseClass{
 
 
     public void iClickOnApplicateTile(String tile){
-
-      //  clickElement(driver.findElement(By.cssSelector(tile)));
-        selectElementByDesc(".title>p", tile);
-        longDelay();
+        delay();
+        clickElement(driver.findElement(By.xpath(tile)));
+        //selectElementByDesc(".title>p", tile);
+        //longDelay();
     }
 
 

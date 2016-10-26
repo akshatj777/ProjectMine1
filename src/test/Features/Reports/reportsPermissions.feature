@@ -1,7 +1,6 @@
 Feature: User only can see reports based on their role ( external and internal roles), facility type and model
 
   Scenario Outline: User can only see reports based on their role facility type and model
-
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -9,6 +8,7 @@ Feature: User only can see reports based on their role ( external and internal r
     And I wait for 2000 milli seconds
 
     When I click on the "Reports" tile
+    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     And I wait for 2000 milli seconds
 
@@ -45,7 +45,6 @@ Feature: User only can see reports based on their role ( external and internal r
 
 
   Scenario Outline: Verify that Performance claims report display data based on provisioning
-
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

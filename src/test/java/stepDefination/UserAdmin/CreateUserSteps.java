@@ -31,7 +31,9 @@ public class CreateUserSteps extends DriverScript{
     @And("^I click on the \"([^\"]*)\" tile$")
     public void IClickOnApplicatioTile(String tile) throws Throwable {
 
-        landingPage.iClickOnApplicateTile(tile);
+        //landingPage.iClickOnApplicateTile(tile);
+        landingPage.iClickOnApplicateTile("//p[text()='"+tile+"']");
+
 
     }
 
