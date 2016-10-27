@@ -67,7 +67,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
-        delay();
+        longDelay();
         clickElement(driver.findElement(By.xpath(toLocator)));
     }
 
@@ -76,7 +76,27 @@ public class ReportHomePage extends BaseClass {
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
 
+    public void iVerifyFilterValueListModalText(String text){
+        delay();
+        verifyTextForElementfromList("#FT_valueList div", text);
+    }
 
+    public void iClickOnFilterTextFormFilterValueList(String filterText){
+        clickElement(driver.findElement(By.xpath("//*[starts-with(@id,'FT_AVA') and text()='"+filterText+"']")));
+    }
 
+    public void iClickAddSelectedArrowFromFilterModal() {
 
+        clickElement(driver.findElement(By.id("FT_select_add")));
+    }
+
+    public void iClickOkButtonFromFilterModal() {
+
+        clickElement(driver.findElement(By.id("dlgBtnSave")));
+    }
+
+    public void iClickCancelButtonFromFilterModal() {
+
+        clickElement(driver.findElement(By.id("dlgBtnCancel")));
+    }
 }

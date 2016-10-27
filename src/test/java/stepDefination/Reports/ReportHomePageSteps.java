@@ -3,6 +3,8 @@ package stepDefination.Reports;
 import com.remedy.Reports.ReportHomePage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+import org.openqa.selenium.By;
 
 /**
  * Created by salam on 5/10/16.
@@ -66,8 +68,33 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdField"+optionText+"_text']");
     }
 
-    @And("^I should see Filter on \"([^\"]*)\" in the header text of filter page$")
+    @And("^I should see \"([^\"]*)\" in the header text of filter page$")
     public void iShouldSeeFilterOnHeaderTextFilterPage(String appliedFilter) throws Throwable {
-        reportHomePage.iVerifyFilterModalHeaderText(appliedFilter);
+        reportHomePage.iVerifyFilterModalHeaderText("Filter on "+appliedFilter);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the filter value list$")
+    public void i_should_see_in_the_filter_value_list(String filterText) throws Throwable {
+        reportHomePage.iVerifyFilterValueListModalText(filterText);
+    }
+
+    @And("^I click on \"([^\"]*)\" in the filter value list$")
+    public void i_click_on_in_the_filter_value_list(String filterText) throws Throwable {
+         reportHomePage.iClickOnFilterTextFormFilterValueList(filterText);
+    }
+
+    @And("^I click on add selected in the filter modal$")
+    public void i_click_on_add_selected_in_the_filter_modal() throws Throwable {
+        reportHomePage.iClickAddSelectedArrowFromFilterModal();
+    }
+
+    @And("^I click on ok button from filter$")
+    public void i_click_on_ok_button_from_filter() throws Throwable {
+        reportHomePage.iClickOkButtonFromFilterModal();
+    }
+
+    @And("^I click on cancel button from filter$")
+    public void i_click_on_cancel_button_from_filter() throws Throwable {
+        reportHomePage.iClickCancelButtonFromFilterModal();
     }
 }
