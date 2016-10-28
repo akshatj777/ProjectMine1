@@ -99,4 +99,10 @@ public class ReportHomePage extends BaseClass {
 
         clickElement(driver.findElement(By.id("dlgBtnCancel")));
     }
+
+    public void iClickOnCloseReportsCrossLink() {
+
+        clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x")));
+
+    }
 }

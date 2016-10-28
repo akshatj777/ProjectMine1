@@ -6,6 +6,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
 /**
  * Created by salam on 5/10/16.
  */
@@ -96,5 +98,19 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I click on cancel button from filter$")
     public void i_click_on_cancel_button_from_filter() throws Throwable {
         reportHomePage.iClickCancelButtonFromFilterModal();
+    }
+
+    @And("^I click on close reports cross icon on report page$")
+    public void i_click_on_close_report_cross_icon_report_page() throws Throwable {
+        reportHomePage.iClickOnCloseReportsCrossLink();
+    }
+
+    @Then("^I should see following Reports text for Overall Program$")
+    public void i_should_see_following_Reports_text_for_Overall_Program(List<String> reportLinks) throws Throwable {
+         for (int i=0; i<reportLinks.size(); i++) {
+            //System.out.println(reportLinks.get(i));
+            reportHomePage.iVerifyReportsTextForOverallProgramReports(reportLinks.get(i));
+        }
+
     }
 }

@@ -20,12 +20,22 @@ Feature: User only can see reports based on their role ( external and internal r
     And I should see Reports Tile text as <Menu 6>
     And I should see Reports Tile text as <Menu 7>
 
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on the Reports Tile with text "Patient ID"
+    When I click on the Reports Tile with text "Post Acute Care"
+    When I click on the Reports Tile with text "Physician"
+    When I click on the Reports Tile with text "NSoC"
+    When I click on the Reports Tile with text "Readmissions"
+    #Under report link verification implementation is still under discussion, need to see all possible ways
+
    When I click on the Reports Tile with text "Overall Program"
-   #Then I should see  Reports text for Overall Program
-    #| Report1             |        Report 2                   |           Report 3          |
-    #|Performance (Claims) |   Financial Performance (Claims   |   Spending (Claims)         |
-
-
+    #And I should see "Performance (Claims)" Reports text for Overall Program
+    #And I should see "Financial Performance (Claims)" Reports text for Overall Program
+    #And I should see "Spending (Claims)" Reports text for Overall Program
+   Then I should see following Reports text for Overall Program
+    | Performance (Claims)           |
+    | Financial Performance (Claims) |
+    | Spending (Claims)              |
 
   Examples:
   |           email                       |    Menu 1        |       Menu 2        |      Menu 3       |      Menu 4      |     Menu 5    |   Menu 6   |      Menu 7     |
@@ -85,6 +95,18 @@ Feature: User only can see reports based on their role ( external and internal r
     And I click on ok button from filter
     And I wait for 2000 milli seconds
 
+    When I click on close reports cross icon on report page
+    And I wait for 1000 milli seconds
+    Then I verify current page "Reports" title
+
     Examples:
       |           email                       |
       |   shutestaug231132a@yopmail.com       |
+
+  Scenario: System should direct to the login page if a user tries to access the report directly through url
+    Given I am on the login page
+    And I go to "https://cdn-qa.remedypartners.com/reports/index.html#/reports/physician/performance-(claims)?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253AClaims%253Arelease%253APhysician%20Performance.xanalyzer%2Feditor" page
+
+    Then I wait for 2000 milli seconds
+    And I should see Log in widget
+

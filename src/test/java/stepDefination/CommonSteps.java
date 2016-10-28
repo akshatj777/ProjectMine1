@@ -97,4 +97,10 @@ public class CommonSteps extends DriverScript {
 
         actionEvent.doubleClick().perform();
     }
+
+    @And("^I go to \"([^\"]*)\" page$")
+    public void visit(String page)
+    {
+        driver.navigate().to(page);
+    }
 }
