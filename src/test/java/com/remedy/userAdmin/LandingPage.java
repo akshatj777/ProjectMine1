@@ -17,17 +17,17 @@ public class LandingPage extends BaseClass{
 
     public void iVerifyTextforTiles( String text){
 
-        delay();
+        longDelay();
         verifyTextForElementfromList(".title>p", text);
 
     }
 
 
     public void iClickOnApplicateTile(String tile){
-
-      //  clickElement(driver.findElement(By.cssSelector(tile)));
-        selectElementByDesc(".spoe-button>p", tile);
-
+        delay();
+        clickElement(driver.findElement(By.xpath(tile)));
+        //selectElementByDesc(".title>p", tile);
+        //longDelay();
     }
 
 
@@ -61,6 +61,12 @@ public class LandingPage extends BaseClass{
     public void iVerifyPageLogoText(String text){
 
         verifyTextForElement(driver.findElement(By.cssSelector(".logo.valentino-icon-reports")), text);
+    }
+
+    public void iVerifyTextNotForTiles( String text){
+        delay();
+        verifyTextNotPresentForElementFromList(".title>p", text);
+
     }
 
 

@@ -1,5 +1,6 @@
 package stepDefination;
 
+import com.remedy.baseClass.BaseClass;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
@@ -9,6 +10,10 @@ import cucumber.api.java.en.Then;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * Created by salam on 8/5/15.
@@ -16,7 +21,10 @@ import org.junit.Assert;
 public class CommonSteps extends DriverScript {
 
 
-        LandingPage landingPage = new LandingPage(driver);
+    LandingPage landingPage = new LandingPage(driver);
+    BaseClass baseClass = new BaseClass(driver);
+
+    public static Actions actionEvent = new Actions(driver);
 
     @Given("I am on the login page$")
     public void setup() throws Throwable {
@@ -62,10 +70,37 @@ public class CommonSteps extends DriverScript {
 
         landingPage.iSwitchBackToOldWindow();
     }
-    
+
     @And("^I verify current page \"([^\"]*)\" title$")
-    public void iVerifycurrentPageTitle(String pageTitle) {
-    	Assert.assertEquals(driver.getTitle(), pageTitle);
+    public void iVerifyCurrentPageTitle(String pageTitle) {
+        baseClass.delay();
+        Assert.assertEquals(driver.getTitle(), pageTitle);
     }
 
+    @And("^I wait for ([^\"]*) milli seconds$")
+    public void iWaitForMillisSeconds(Long waitTimeInMillis) {
+        try {
+            Thread.sleep(waitTimeInMillis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @And("^I switch to default window from iframe$")
+    public void iSwitchDefaultWindowFromIframe(){
+
+        driver.switchTo().defaultContent();
+    }
+
+    @And("^I double click on current mouse location element$")
+    public void iDoubleClickCurrentMouseLocationElement(){
+
+        actionEvent.doubleClick().perform();
+    }
+
+    @And("^I go to \"([^\"]*)\" page$")
+    public void visit(String page)
+    {
+        driver.navigate().to(page);
+    }
 }

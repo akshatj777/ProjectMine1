@@ -3,7 +3,6 @@ package stepDefination.UserAdmin;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.userAdmin.LoginPage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -61,5 +60,11 @@ public class LandingPageSteps extends DriverScript{
     public void iShouldSeeLogoText(String text) throws Throwable {
 
         landingPage.iVerifyPageLogoText(text);
+    }
+
+    @Then("^I should not see Tile text ([^\"]*)")
+    public void iShouldNotSeeTileText(String tileName) throws Throwable {
+
+        landingPage.iVerifyTextNotForTiles(tileName);
     }
 }
