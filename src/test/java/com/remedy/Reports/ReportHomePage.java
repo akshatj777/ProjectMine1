@@ -101,8 +101,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnCloseReportsCrossLink() {
-
-        clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x")));
+        delay();
+        clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
 
     }
 }

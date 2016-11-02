@@ -76,7 +76,6 @@ Feature: User only can see reports based on their role ( external and internal r
 
     When I click on field-panel-icon button
     And I wait for 3000 milli seconds
-
     When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
     And I double click on current mouse location element
     And I wait for 5000 milli seconds
@@ -89,11 +88,59 @@ Feature: User only can see reports based on their role ( external and internal r
     And I should see "CCN" in the header text of filter page
     And I should see "390223" in the filter value list
     And I should see "390226" in the filter value list
-
     And I click on "390223" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
-    And I wait for 2000 milli seconds
+    And I wait for 3000 milli seconds
+
+    When I click to "Anchor Facility" field filter under "Anchor Facility" filter field
+    And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 3000 milli seconds
+    And I should see "Anchor Facility" in the header text of filter page
+    And I should see "Hospital Of Univ Of Pennsylvania" in the filter value list
+    And I should see "Penn Presbyterian Medical Center" in the filter value list
+    And I should see "Pennsylvania Hosp Of The Univ Of Pa Health Sys" in the filter value list
+    And I click on "Penn Presbyterian Medical Center" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+
+    When I click to "Participant" field filter under "Episode Initiator" filter field
+    And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 3000 milli seconds
+    And I should see "Participant" in the header text of filter page
+    And I should see "Penn" in the filter value list
+    And I click on "Penn" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+
+    When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
+    And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 3000 milli seconds
+    And I should see "Episode Initiator" in the header text of filter page
+    And I should see "Hospital Of The University Of Pennsylvania" in the filter value list
+    And I should see "Penn Presbyterian Medical Center" in the filter value list
+    And I should see "The Pennsylvania Hospital Of The University Of Pennsylvania Health System" in the filter value list
+    And I click on "Hospital Of The University Of Pennsylvania" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+
+    When I click to "Bundle" field filter under "Bundle" filter field
+    And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 3000 milli seconds
+    And I should see "Bundle" in the header text of filter page
+    And I should see "Amputation" in the filter value list
+    And I should see "Atherosclerosis" in the filter value list
+    And I click on "Amputation" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
 
     When I click on close reports cross icon on report page
     And I wait for 1000 milli seconds
