@@ -75,7 +75,34 @@ Feature: User only can see reports based on their role ( external and internal r
     Then I should see performance reports column Tile text as "Anchor Admission Quarter"
 
     When I click on field-panel-icon button
+    And I wait for 4000 milli seconds
+
+    When I click to "Participant" field filter under "Episode Initiator" filter field
     And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 3000 milli seconds
+    And I should see "Participant" in the header text of filter page
+    And I should see "Penn" in the filter value list
+    And I click on "Penn" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "Penn" result in "Participant" field column for "Episode Initiator" filter field
+
+    When I click to "Anchor Facility" field filter under "Anchor Facility" filter field
+    And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 3000 milli seconds
+    And I should see "Anchor Facility" in the header text of filter page
+    And I should see "Hospital Of Univ Of Pennsylvania" in the filter value list
+    And I should see "Penn Presbyterian Medical Center" in the filter value list
+    And I should see "Pennsylvania Hosp Of The Univ Of Pa Health Sys" in the filter value list
+    And I click on "Penn Presbyterian Medical Center" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "Penn Presbyterian Medical Center" result in "Anchor Facility" field column for "Anchor Facility" filter field
+
     When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
     And I double click on current mouse location element
     And I wait for 5000 milli seconds
@@ -92,30 +119,7 @@ Feature: User only can see reports based on their role ( external and internal r
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-
-    When I click to "Anchor Facility" field filter under "Anchor Facility" filter field
-    And I wait for 3000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
-    And I should see "Anchor Facility" in the header text of filter page
-    And I should see "Hospital Of Univ Of Pennsylvania" in the filter value list
-    And I should see "Penn Presbyterian Medical Center" in the filter value list
-    And I should see "Pennsylvania Hosp Of The Univ Of Pa Health Sys" in the filter value list
-    And I click on "Penn Presbyterian Medical Center" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-
-    When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I wait for 3000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
-    And I should see "Participant" in the header text of filter page
-    And I should see "Penn" in the filter value list
-    And I click on "Penn" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
+    And I should see "390223" result in "CCN" field column for "Anchor Facility" filter field
 
     When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
     And I wait for 3000 milli seconds
@@ -129,6 +133,7 @@ Feature: User only can see reports based on their role ( external and internal r
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
+    And I should see "Hospital Of The University Of Pennsylvania" result in "Episode Initiator" field column for "Episode Initiator" filter field
 
     When I click to "Bundle" field filter under "Bundle" filter field
     And I wait for 3000 milli seconds
@@ -141,6 +146,7 @@ Feature: User only can see reports based on their role ( external and internal r
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
+    And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
 
     When I click on close reports cross icon on report page
     And I wait for 1000 milli seconds

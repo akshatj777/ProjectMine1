@@ -111,6 +111,10 @@ public class ReportHomePageSteps extends DriverScript {
             //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyReportsTextForOverallProgramReports(reportLinks.get(i));
         }
+    }
 
+    @Then("^I should see \"([^\"]*)\" result in \"([^\"]*)\" field column for \"([^\"]*)\" filter field$")
+    public void i_should_see_result_in_field_column_for_filter_field(String text, String filterCol, String filterOption) throws Throwable {
+        reportHomePage.iVerifyFilterResultInColumnFieldForReportFilterField(text, filterCol, filterOption);
     }
 }

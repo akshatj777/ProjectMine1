@@ -103,6 +103,9 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnCloseReportsCrossLink() {
         delay();
         clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
+    }
 
+    public void iVerifyFilterResultInColumnFieldForReportFilterField(String text, String filterCol, String filterOption){
+        verifyTextForElementFromListByXpath("//*[@class='pivotTableRowLabelSection']//*[@formula='["+filterOption+"].["+filterCol+"]']/div", text);
     }
 }
