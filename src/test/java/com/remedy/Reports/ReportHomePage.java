@@ -28,9 +28,9 @@ public class ReportHomePage extends BaseClass {
         delay();
     }
 
-    public void iVerifyReportsTextForOverallProgramReports(String text){
+    public void iVerifyReportsTextForReportsTextName(String reportsTextName, String text){
         delay();
-        verifyTextForElementFromListByXpath("//div[label[text()='Overall Program']]/following-sibling::div/a", text);
+        verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
     public void iClickOnReportTextForOverallProgramReportTile(String tile){
@@ -62,8 +62,8 @@ public class ReportHomePage extends BaseClass {
         moveToTheElement(driver.findElement(By.xpath(toElementLocator)));
     }
 
-    public void iMoveToElementAndPerformClick(String toElementLocator){
-        moveToTheElementAndClick(driver.findElement(By.xpath(toElementLocator)));
+    public void iMoveToElementAndPerformRightClick(String moveToElementLocator){
+        moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
@@ -107,5 +107,10 @@ public class ReportHomePage extends BaseClass {
 
     public void iVerifyFilterResultInColumnFieldForReportFilterField(String text, String filterCol, String filterOption){
         verifyTextForElementFromListByXpath("//*[@class='pivotTableRowLabelSection']//*[@formula='["+filterOption+"].["+filterCol+"]']/div", text);
+    }
+
+    public void iVerifyFollowingReportsTextsForReportsTile(String reportsTextName, String text){
+        delay();
+        verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 }

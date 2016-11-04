@@ -26,33 +26,24 @@ Feature: User only can see reports based on their role ( external and internal r
     When I click on the Reports Tile with text "Physician"
     When I click on the Reports Tile with text "NSoC"
     When I click on the Reports Tile with text "Readmissions"
-    #Under report link verification implementation is still under discussion, need to see all possible ways
 
-   When I click on the Reports Tile with text "Overall Program"
-    #And I should see "Performance (Claims)" Reports text for Overall Program
-    #And I should see "Financial Performance (Claims)" Reports text for Overall Program
-    #And I should see "Spending (Claims)" Reports text for Overall Program
-   Then I should see following Reports text for Overall Program
-    | Performance (Claims)           |
-    | Financial Performance (Claims) |
-    | Spending (Claims)              |
+    When I click on the Reports Tile with text "Overall Program"
+    And I should see "Performance (Claims)" Reports text for "Overall Program" reports
 
-  Examples:
-  |           email                       |    Menu 1        |       Menu 2        |      Menu 3       |      Menu 4      |     Menu 5    |   Menu 6   |      Menu 7     |
-  |   shutestaug231132a@yopmail.com       |    Dashboards    |  Overall Program    |   Patient ID      |  Post Acute Care |   Physician   |   NSoC     |   Readmissions  |
-  |   shutestaug221130a@yopmail.com       |    Dashboards    |  Overall Program    |   Patient ID      |  Post Acute Care |   Physician   |   NSoC     |   Readmissions  |
-  |   reptestachmodel2opsfin@yopmail.com  |    Dashboards    |  Overall Program    |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   shutestaug15240p@yopmail.com        |    Dashboards    |  Overall Program    |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   shutestaug221145a@yopmail.com       |    Dashboards    |  Overall Program    |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   repopsnofintest@yopmail.com         |    Dashboards    |                     |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   shutestaug15252p@yopmail.com        |    Dashboards    |                     |   Patient ID      |  Post Acute Care |   Physician   |   NSoC     |   Readmissions  |
-  |   shutestaug15220p@yopmail.com        |    Dashboards    |                     |   Patient ID      |  Post Acute Care |   Physician   |   NSoC     |   Readmissions  |
-  |   shutestaug26212p@yopmail.com        |    Dashboards    |                     |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   shutestjul26420p@yopmail.com        |    Dashboards    |                     |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   shutestjul26415@yopmail.com         |    Dashboards    |                     |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-  |   shutestaug221150a@yopmail.com       |    Dashboards    |                     |   Patient ID      |  Post Acute Care |               |   NSoC     |   Readmissions  |
-
-
+    Examples:
+      | email                              | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5    | Menu 6 | Menu 7       |
+      | shutestaug231132a@yopmail.com      | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | NSoC   | Readmissions |
+      | shutestaug221130a@yopmail.com      | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | NSoC   | Readmissions |
+      | reptestachmodel2opsfin@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | shutestaug15240p@yopmail.com       | Dashboards | Overall Program | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | shutestaug221145a@yopmail.com      | Dashboards | Overall Program | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | repopsnofintest@yopmail.com        | Dashboards |                 | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | shutestaug15252p@yopmail.com       | Dashboards |                 | Patient ID | Post Acute Care | Physician | NSoC   | Readmissions |
+      | shutestaug15220p@yopmail.com       | Dashboards |                 | Patient ID | Post Acute Care | Physician | NSoC   | Readmissions |
+      | shutestaug26212p@yopmail.com       | Dashboards |                 | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | shutestjul26420p@yopmail.com       | Dashboards |                 | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | shutestjul26415@yopmail.com        | Dashboards |                 | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
+      | shutestaug221150a@yopmail.com      | Dashboards |                 | Patient ID | Post Acute Care |           | NSoC   | Readmissions |
 
   Scenario Outline: Verify that Performance claims report display data based on provisioning
     Given I am on the login page
@@ -78,67 +69,46 @@ Feature: User only can see reports based on their role ( external and internal r
     And I wait for 4000 milli seconds
 
     When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I should see "Participant" in the header text of filter page
-    And I should see "Penn" in the filter value list
-    And I click on "Penn" in the filter value list
+    And I should see "<participant>" in the filter value list
+    And I click on "<participant>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-    And I should see "Penn" result in "Participant" field column for "Episode Initiator" filter field
+    And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
 
     When I click to "Anchor Facility" field filter under "Anchor Facility" filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I should see "Anchor Facility" in the header text of filter page
-    And I should see "Hospital Of Univ Of Pennsylvania" in the filter value list
-    And I should see "Penn Presbyterian Medical Center" in the filter value list
-    And I should see "Pennsylvania Hosp Of The Univ Of Pa Health Sys" in the filter value list
-    And I click on "Penn Presbyterian Medical Center" in the filter value list
+    And I should see "<anchorFacility1>" in the filter value list
+    And I should see "<anchorFacility2>" in the filter value list
+    And I click on "<anchorFacility2>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-    And I should see "Penn Presbyterian Medical Center" result in "Anchor Facility" field column for "Anchor Facility" filter field
-
-    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
-    And I double click on current mouse location element
-    And I wait for 5000 milli seconds
-    Then I should see performance reports column Tile text as "CCN"
-
-    When I click to "CCN" field filter under "Anchor Facility" filter field
-    And I wait for 3000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
-    And I should see "CCN" in the header text of filter page
-    And I should see "390223" in the filter value list
-    And I should see "390226" in the filter value list
-    And I click on "390223" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "390223" result in "CCN" field column for "Anchor Facility" filter field
+    And I should see "<anchorFacility2>" result in "Anchor Facility" field column for "Anchor Facility" filter field
 
     When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I should see "Episode Initiator" in the header text of filter page
-    And I should see "Hospital Of The University Of Pennsylvania" in the filter value list
-    And I should see "Penn Presbyterian Medical Center" in the filter value list
-    And I should see "The Pennsylvania Hospital Of The University Of Pennsylvania Health System" in the filter value list
-    And I click on "Hospital Of The University Of Pennsylvania" in the filter value list
+    And I should see "<episodeInitiator1>" in the filter value list
+    And I click on "<episodeInitiator1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-    And I should see "Hospital Of The University Of Pennsylvania" result in "Episode Initiator" field column for "Episode Initiator" filter field
+    And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
 
     When I click to "Bundle" field filter under "Bundle" filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     And I should see "Bundle" in the header text of filter page
     And I should see "Amputation" in the filter value list
     And I should see "Atherosclerosis" in the filter value list
@@ -148,13 +118,32 @@ Feature: User only can see reports based on their role ( external and internal r
     And I wait for 3000 milli seconds
     And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
 
+    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
+    And I double click on current mouse location element
+    And I wait for 5000 milli seconds
+    Then I should see performance reports column Tile text as "CCN"
+
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "CCN" in the header text of filter page
+    And I should see "<ccn1>" in the filter value list
+    And I click on "<ccn1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
+
+    When I switch to default window from iframe
     When I click on close reports cross icon on report page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 
     Examples:
-      |           email                       |
-      |   shutestaug231132a@yopmail.com       |
+      | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   |
+      | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 |
+
 
   Scenario: System should direct to the login page if a user tries to access the report directly through url
     Given I am on the login page

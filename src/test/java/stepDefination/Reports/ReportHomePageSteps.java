@@ -25,9 +25,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iClickOnReportTileWithText(tile);
     }
 
-    @And("^I should see \"([^\"]*)\" Reports text for Overall Program$")
-    public void iShouldSeeReportsTextForOverallProgram(String tile) throws Throwable {
-        reportHomePage.iVerifyReportsTextForOverallProgramReports(tile);
+    @And("^I should see \"([^\"]*)\" Reports text for \"([^\"]*)\" reports$")
+    public void iShouldSeeReportsTextForOverallProgram(String tile, String reportsTextName) throws Throwable {
+        reportHomePage.iVerifyReportsTextForReportsTextName(reportsTextName, tile);
     }
 
     @And("^I click on \"([^\"]*)\" report text for Overall Program Reports$")
@@ -62,7 +62,7 @@ public class ReportHomePageSteps extends DriverScript {
 
     @And("I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
-        reportHomePage.iMoveToElementAndPerformClick(".//*[@id='fieldListTree']//div[@formula='["+filterTitle+"].["+filterField+"]']/div");
+        reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
 
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
@@ -105,16 +105,60 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iClickOnCloseReportsCrossLink();
     }
 
-    @Then("^I should see following Reports text for Overall Program$")
-    public void i_should_see_following_Reports_text_for_Overall_Program(List<String> reportLinks) throws Throwable {
+    @Then("^I should see following Reports text for Overall Program reports$")
+    public void i_should_see_following_Reports_text_for_Overall_Program_reports(List<String> reportLinks) throws Throwable {
          for (int i=0; i<reportLinks.size(); i++) {
             //System.out.println(reportLinks.get(i));
-            reportHomePage.iVerifyReportsTextForOverallProgramReports(reportLinks.get(i));
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Overall Program", reportLinks.get(i));
         }
     }
 
     @Then("^I should see \"([^\"]*)\" result in \"([^\"]*)\" field column for \"([^\"]*)\" filter field$")
     public void i_should_see_result_in_field_column_for_filter_field(String text, String filterCol, String filterOption) throws Throwable {
         reportHomePage.iVerifyFilterResultInColumnFieldForReportFilterField(text, filterCol, filterOption);
+    }
+
+    @Then("^I should see following Reports text for Dashboards reports$")
+    public void i_should_see_following_Reports_text_for_Dashboards_reports(List<String> reportLinks) throws Throwable {
+        for (int i=0; i<reportLinks.size(); i++) {
+            //System.out.println(reportLinks.get(i));
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Dashboards", reportLinks.get(i));
+        }
+    }
+
+    @Then("^I should see following Reports text for Patient ID reports$")
+    public void i_should_see_following_Reports_text_for_Patient_ID_reports(List<String> reportLinks) throws Throwable {
+        for (int i=0; i<reportLinks.size(); i++) {
+            //System.out.println(reportLinks.get(i));
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Patient ID", reportLinks.get(i));
+        }
+    }
+
+    @Then("^I should see following Reports text for Post Acute Care reports$")
+    public void i_should_see_following_Reports_text_for_Post_Acute_Care_reports(List<String> reportLinks) throws Throwable {
+        for (int i=0; i<reportLinks.size(); i++) {
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Post Acute Care", reportLinks.get(i));
+        }
+    }
+
+    @Then("^I should see following Reports text for Physician reports$")
+    public void i_should_see_following_Reports_text_for_Physician_reports(List<String> reportLinks) throws Throwable {
+        for (int i=0; i<reportLinks.size(); i++) {
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Physician", reportLinks.get(i));
+        }
+    }
+
+    @Then("^I should see following Reports text for Readmissions reports$")
+    public void i_should_see_following_Reports_text_for_Readmissions_reports(List<String> reportLinks) throws Throwable {
+        for (int i=0; i<reportLinks.size(); i++) {
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Readmissions", reportLinks.get(i));
+        }
+    }
+
+    @Then("^I should see following Reports text for NSoC reports$")
+    public void i_should_see_following_Reports_text_for_NSoC_reports(List<String> reportLinks) throws Throwable {
+        for (int i=0; i<reportLinks.size(); i++) {
+            reportHomePage.iVerifyFollowingReportsTextsForReportsTile("NSoC", reportLinks.get(i));
+        }
     }
 }
