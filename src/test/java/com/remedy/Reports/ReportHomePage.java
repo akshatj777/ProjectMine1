@@ -113,4 +113,37 @@ public class ReportHomePage extends BaseClass {
         delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
+
+    public void iClickOnReportsTextForReportsTextName(String reportsTextName, String reportTile){
+        selectElementByTextDescByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", reportTile);
+        longDelay();
+    }
+
+    public void iVerifyOperationsDashboardReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='dashboardTitle']")), text);
+    }
+
+    public void iVerifyPerformanceOverallProgramReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+
+    public void iVerifyEpisodeDataIssuesPatientIDReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='rpt-report-header-label-0']")), text);
+    }
+
+    public void iVerifySNFLOSDetailPostAcuteCareReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='rpt-report-header-label-0']")), text);
+    }
+
+    public void iVerifyPhysicianPerformancePhysicianReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+
+    public void iVerifyCARLNSOCReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+
+    public void iVerifyReadmissionsReadmissionReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
 }

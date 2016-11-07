@@ -40,7 +40,7 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyReportsPageHeaderText(headerText);
     }
 
-    @And("^I switch to performance reports iframe$")
+    @And("^I switch to reports embedded iframe$")
     public void iShouSeeReportsTheReportsHeaderPage() throws Throwable {
         reportHomePage.iSwitchToReportsPageFrameWithXpath("//iframe[@class='embedded-iframe']");
     }
@@ -160,5 +160,45 @@ public class ReportHomePageSteps extends DriverScript {
         for (int i=0; i<reportLinks.size(); i++) {
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("NSoC", reportLinks.get(i));
         }
+    }
+
+    @And("^I click on \"([^\"]*)\" reports text for \"([^\"]*)\" report tile$")
+    public void i_click_on_reports_text_for_report_tile(String tile, String reportsTextName) throws Throwable {
+        reportHomePage.iClickOnReportsTextForReportsTextName(reportsTextName, tile);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the Operations Dashboard report page header$")
+    public void i_should_see_in_the_Operations_Dashboard_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyOperationsDashboardReportPageHeader(headedText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the Performance Overall Program report page header$")
+    public void i_should_see_in_the_Performance_Overall_Program_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the Episode Data Issues Patient ID report page header$")
+    public void i_should_see_in_the_Episode_Data_Issues_Patient_ID_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyEpisodeDataIssuesPatientIDReportPageHeader(headedText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the SNF LOS Detail Post Acute Care report page header$")
+    public void i_should_see_in_the_SNF_LOS_Detail_Post_Acute_Care_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifySNFLOSDetailPostAcuteCareReportPageHeader(headedText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the Physician Performance Physician report page header$")
+    public void i_should_see_in_the_Physician_Performance_Physician_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyPhysicianPerformancePhysicianReportPageHeader(headedText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the CARL NSOC report page header$")
+    public void i_should_see_in_the_CARL_NSOC_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyCARLNSOCReportPageHeader(headedText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" in the Readmissions Readmission report page header$")
+    public void i_should_see_in_the_Readmissions_Readmission_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyReadmissionsReadmissionReportPageHeader(headedText);
     }
 }
