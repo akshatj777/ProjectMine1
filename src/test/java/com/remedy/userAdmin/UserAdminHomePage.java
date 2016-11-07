@@ -19,6 +19,11 @@ public class UserAdminHomePage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[contains(text(), 'Create User')]")));
 	}
 
+	public void clickImportUsers() {
+
+		clickElement(driver.findElement(By.cssSelector(".btn.btn-primary.dark.margin-right-10")));
+	}
+
 	public void enterSerchUserText(String user) {
 
 		iFillInText(driver.findElement(By.cssSelector(".elastic-input")), user);
@@ -63,7 +68,7 @@ public class UserAdminHomePage extends BaseClass {
 	public void iSeeUserAdminPageHeader(String pageHeader) {
 
 		delay();
-		verifyTextForElement(driver.findElement(By.cssSelector(".page-title-text")), pageHeader);
+		verifyTextForElement(driver.findElement(By.cssSelector(".page-title>h1")), pageHeader);
 	}
 
 	/*
@@ -98,21 +103,31 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void iverifyFirstNameText(String firstName) {
 
-		verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[2]/span[1]")), firstName);
+		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[1]/div[2]/div/h3/span[1]/span")), firstName);
 		longDelay();
 	}
 
 	public void iverifyLastNameText(String lastName) {
 
-		verifyTextForElement(driver.findElement(By.xpath("//div[1]/div/div/h3/span[1]/span[1]")), lastName);
+		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[1]/div[2]/div/h3/span[2]/span")), lastName);
 		longDelay();
 	}
 
 	public void iverifyOrganizationalRoleForAUser(String OrganizationalRole) {
 
 		delay();
-		verifyTextForElement(driver.findElement(By.cssSelector("div.row-padding-vertical.color-bg-core-white div.ng-binding")),	OrganizationalRole);
+		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[2]/div[1]/div/div")),	OrganizationalRole);
 		longDelay();
 	}
+
+
+
+	public void iverifyUserSearchResult(String userCount) {
+
+		verifyTextForElement(driver.findElement(By.xpath("//div[6]/div/div/div[3]/div[1]/strong")), userCount);
+
+	}
+
+
 
 }

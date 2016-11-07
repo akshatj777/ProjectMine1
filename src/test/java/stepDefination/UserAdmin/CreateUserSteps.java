@@ -5,6 +5,7 @@ import com.remedy.userAdmin.LandingPage;
 import com.remedy.userAdmin.LoginPage;
 import com.remedy.userAdmin.UserAdminHomePage;
 import com.remedy.resources.DriverScript;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -34,7 +35,6 @@ public class CreateUserSteps extends DriverScript{
         //landingPage.iClickOnApplicateTile(tile);
         landingPage.iClickOnApplicateTile("//p[text()='"+tile+"']");
 
-
     }
 
 
@@ -46,10 +46,8 @@ public class CreateUserSteps extends DriverScript{
 
     }
 
-
     @Then("^I pick a Organizational ([^\"]*)$")
     public void IPickOrganizationalRole(String role) throws Throwable {
-
 
         createUser.selectOrganizationalRole(role);
 
@@ -67,7 +65,6 @@ public class CreateUserSteps extends DriverScript{
 
         createUser.iEnterFirstName(firstName);
     }
-
 
 
     @Then("^I fill in Last Name with ([^\"]*)$")
@@ -93,7 +90,6 @@ public class CreateUserSteps extends DriverScript{
     @Then("^I select a ([^\"]*)$")
     public void iSelectFacility(String facility) throws Throwable {
 
-
         createUser.iSelectFacility(facility);
 
     }
@@ -106,11 +102,6 @@ public class CreateUserSteps extends DriverScript{
     }
 
 
-    @When("^I search Organizationa Role with ([^\"]*)$")
-    public void ISearchOrganizationaRole(String text) throws Throwable {
-
-        createUser.iEnterSearchTextForOrganizationalRole(text);
-    }
 
     @And("^I search for facility with ([^\"]*)$")
     public void ISearchFacilityWith(String text) throws Throwable {
@@ -177,9 +168,7 @@ public class CreateUserSteps extends DriverScript{
 
     @And("^I enter Email with text \"([^\"]*)\"$")
     public void IEnterEmailText(String email) throws Throwable {
-
         createUser.iEnterEmail(email);
-
     }
 
 
@@ -187,4 +176,24 @@ public class CreateUserSteps extends DriverScript{
     public void IVerifyOrganizationalRoleRequiredMessage(String text) throws Throwable {
         createUser.iVerifyOrganizationalRoleRequiredMessageText(text);
     }
+
+
+    @Then("^I should see \"([^\"]*)\" on the user creation page$")
+    public void iShouldSeeOnTheUserCreationPage(String header) throws Throwable {
+        createUser.iverifyCreateUserPageHeader(header);
+    }
+
+
+    @When("^I enter ([^\"]*) search text$")
+    public void iEnterHealthSystemSearchText(String provider) throws Throwable {
+        createUser.iEnterProviderSerachText(provider);
+    }
+
+
+    @Then("^I select and Facilites for the Health System$")
+    public void iSelectAndFacilitesForTheHealthSystem() throws Throwable {
+        createUser.iCheckAllProviderForTheHealthSystem();
+    }
+
+
 }
