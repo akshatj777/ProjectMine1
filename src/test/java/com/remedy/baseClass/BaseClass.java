@@ -333,6 +333,14 @@ public class BaseClass {
         actionEvent.moveToElement(toElement).click().build().perform();
     }
 
+    public void clickAllElementofAlistbyXpath(String xpathElement) {
+        //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
+        List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
+        for (WebElement item : listItems) {
+                item.click();
+            }
+        }
+
 
 
 }
