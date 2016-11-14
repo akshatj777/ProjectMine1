@@ -2,6 +2,7 @@ package stepDefination.UserAdmin;
 
 import com.remedy.userAdmin.UserAdminHomePage;
 import com.remedy.resources.DriverScript;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -109,5 +110,15 @@ public class UserAdminHomeSteps extends DriverScript{
         @And("^I should see \"([^\"]*)\" for User Role on user card$")
         public void iShouldSeeForUserRoleOnUserCard(String organizationalrole) throws Throwable {
                 userAdminHome.iverifyOrganizationalRoleForAUser(organizationalrole);
+        }
+
+        @Then("^I click on the \"([^\"]*)\" Button$")
+        public void iClickOnTheButton(String arg0) throws Throwable {
+                userAdminHome.clickImportUsers();
+        }
+
+        @Then("^I should see \"([^\"]*)\" for search results$")
+        public void iShouldSeeForSearchResults(String userCount) throws Throwable {
+                userAdminHome.iverifyUserSearchResult(userCount);
         }
 }

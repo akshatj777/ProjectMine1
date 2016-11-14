@@ -51,10 +51,15 @@ public class Ec1DashboardPage extends BaseClass{
         clickElement(driver.findElement(By.cssSelector("#patient-add-button")));
         delay();
 
-
     }
 
 
+    public void iverifyEc1DashboardHeaderText(String text ){
+
+        verifyTextForElement(driver.findElement(By.cssSelector(".ec2-embed-patient-name")), text);
+
+
+    }
 
 
 }
