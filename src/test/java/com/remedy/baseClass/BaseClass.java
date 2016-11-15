@@ -329,8 +329,14 @@ public class BaseClass {
         actionEvent.moveToElement(toElement).perform();
     }
 
-    public void moveToTheElementAndClick(WebElement toElement){
-        actionEvent.moveToElement(toElement).click().build().perform();
+    public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement){
+        //actionEvent.moveToElement(toElement).click().build().perform();
+        actionEvent.moveToElement(moveToElement).perform();
+        clickToElement.click();
+    }
+
+    public void moveToTheElementAndRightClick(WebElement moveToElementToRightClick){
+        actionEvent.contextClick(moveToElementToRightClick).build().perform();
     }
 
     public void clickAllElementofAlistbyXpath(String xpathElement) {

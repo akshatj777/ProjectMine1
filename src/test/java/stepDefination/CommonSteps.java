@@ -73,7 +73,7 @@ public class CommonSteps extends DriverScript {
 
     @And("^I verify current page \"([^\"]*)\" title$")
     public void iVerifyCurrentPageTitle(String pageTitle) {
-        baseClass.delay();
+        //baseClass.delay();
         Assert.assertEquals(driver.getTitle(), pageTitle);
     }
 

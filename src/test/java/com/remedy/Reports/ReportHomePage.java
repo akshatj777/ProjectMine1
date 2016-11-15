@@ -28,9 +28,9 @@ public class ReportHomePage extends BaseClass {
         delay();
     }
 
-    public void iVerifyReportsTextForOverallProgramReports(String text){
-        delay();
-        verifyTextForElementFromListByXpath("//div[label[text()='Overall Program']]/following-sibling::div/a", text);
+    public void iVerifyReportsTextForReportsTextName(String reportsTextName, String text){
+        //delay();
+        verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
     public void iClickOnReportTextForOverallProgramReportTile(String tile){
@@ -39,7 +39,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsPageHeaderText(String tile){
-        longDelay();
+        //longDelay();
         verifyTextForElement(driver.findElement(By.xpath("//h5[@class='ng-binding' and text()='Report']")), tile);
     }
 
@@ -62,17 +62,17 @@ public class ReportHomePage extends BaseClass {
         moveToTheElement(driver.findElement(By.xpath(toElementLocator)));
     }
 
-    public void iMoveToElementAndPerformClick(String toElementLocator){
-        moveToTheElementAndClick(driver.findElement(By.xpath(toElementLocator)));
+    public void iMoveToElementAndPerformRightClick(String moveToElementLocator){
+        moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
-        longDelay();
+        //longDelay();
         clickElement(driver.findElement(By.xpath(toLocator)));
     }
 
     public void iVerifyFilterModalHeaderText(String text){
-        delay();
+        //delay();
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
 
@@ -101,8 +101,49 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnCloseReportsCrossLink() {
+        //delay();
+        clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
+    }
 
-        clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x")));
+    public void iVerifyFilterResultInColumnFieldForReportFilterField(String text, String filterCol, String filterOption){
+        verifyTextForElementFromListByXpath("//*[@class='pivotTableRowLabelSection']//*[@formula='["+filterOption+"].["+filterCol+"]']/div", text);
+    }
 
+    public void iVerifyFollowingReportsTextsForReportsTile(String reportsTextName, String text){
+        //delay();
+        verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
+    }
+
+    public void iClickOnReportsTextForReportsTextName(String reportsTextName, String reportTile){
+        selectElementByTextDescByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", reportTile);
+        longDelay();
+    }
+
+    public void iVerifyOperationsDashboardReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='dashboardTitle']")), text);
+    }
+
+    public void iVerifyPerformanceOverallProgramReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+
+    public void iVerifyEpisodeDataIssuesPatientIDReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='rpt-report-header-label-0']")), text);
+    }
+
+    public void iVerifySNFLOSDetailPostAcuteCareReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='rpt-report-header-label-0']")), text);
+    }
+
+    public void iVerifyPhysicianPerformancePhysicianReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+
+    public void iVerifyCARLNSOCReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+
+    public void iVerifyReadmissionsReadmissionReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
 }
