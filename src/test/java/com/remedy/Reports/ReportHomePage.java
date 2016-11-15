@@ -18,7 +18,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsTextforTiles(String text){
-        longDelay();
+        //longDelay();
         verifyTextForElementfromList(".dropdown-tile-label.ng-binding", text);
     }
 
@@ -29,7 +29,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsTextForReportsTextName(String reportsTextName, String text){
-        delay();
+        //delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
@@ -39,7 +39,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsPageHeaderText(String tile){
-        longDelay();
+        //longDelay();
         verifyTextForElement(driver.findElement(By.xpath("//h5[@class='ng-binding' and text()='Report']")), tile);
     }
 
@@ -67,12 +67,12 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
-        longDelay();
+        //longDelay();
         clickElement(driver.findElement(By.xpath(toLocator)));
     }
 
     public void iVerifyFilterModalHeaderText(String text){
-        delay();
+        //delay();
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
 
@@ -101,7 +101,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnCloseReportsCrossLink() {
-        delay();
+        //delay();
         clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
     }
 
@@ -110,7 +110,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFollowingReportsTextsForReportsTile(String reportsTextName, String text){
-        delay();
+        //delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
