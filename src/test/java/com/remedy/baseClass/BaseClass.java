@@ -23,8 +23,8 @@ public class BaseClass {
 
 
     public WebDriver driver = null;
-    protected static long Wait_Time = 2000L;
-    protected static long delay_Time = 3000L;
+    protected static long Wait_Time = 1000L;
+    protected static long delay_Time = 2000L;
     protected static long LongDelay_Time = 5000L;
 
     public BaseClass(final WebDriver driver) {
@@ -338,6 +338,16 @@ public class BaseClass {
     public void moveToTheElementAndRightClick(WebElement moveToElementToRightClick){
         actionEvent.contextClick(moveToElementToRightClick).build().perform();
     }
+
+    public void clickAllElementofAlistbyXpath(String xpathElement) {
+        //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
+        List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
+        for (WebElement item : listItems) {
+                item.click();
+            }
+        }
+
+
 
 }
 

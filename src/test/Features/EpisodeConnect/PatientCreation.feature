@@ -8,9 +8,9 @@ Feature: Patient list
     And I enter password field <password> for Login
     Then I click Access button
     Then I should see Tile text <Episode1>
-    And I click on the Tile with text <Episode1>
+    And I click on the "Episodes" tile
     And I switch to new window
-    Then I should see "My patients"
+    Then I should see Episode header text "Dashboard"
     And I expand the Patients panel on Dashboard
     And I click on patientlist link
     Then I should see "Patients" on the patient list page
@@ -26,7 +26,7 @@ Feature: Patient list
     And I click on Submit Button
     Then I should see "No Patient Found" on next window
     And I click on Submit Button
-    Then I select an Admit Date
+    #Then I select an Admit Date
 
 
 
@@ -35,5 +35,5 @@ Feature: Patient list
 
     Examples:
 
-      |           email              |   password    |     Episode1    | FirstName   |     LastName    | DateofBirth   | FicilitySearch| Admission Date |
-      |  atuorexe3test3@yopmail.com  |    Testing1   |   Episodes      |   Patients   |     Testing        |  12/01/1960   |     sound     | 05/16/2016     |
+      |             email               |   password    |     Episode1    | FirstName   |     LastName    | DateofBirth   | FicilitySearch| Admission Date |
+      |  shutestaug231132a@yopmail.com  |    Testing1   |   Episodes      |   Patients   |     Testing    |  12/01/1960   |     upenn     | 05/16/2016     |

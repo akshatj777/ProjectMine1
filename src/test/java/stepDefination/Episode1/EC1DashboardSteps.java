@@ -47,4 +47,9 @@ public class EC1DashboardSteps extends DriverScript {
     }
 
 
+    @Then("^I should see Episode header text \"([^\"]*)\"$")
+    public void iShouldSeeEpisodeHeaderText(String header) throws Throwable {
+
+        ec1Dashboard.iverifyEc1DashboardHeaderText(header);
+    }
 }

@@ -18,7 +18,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsTextforTiles(String text){
-        //longDelay();
+        delay();
         verifyTextForElementfromList(".dropdown-tile-label.ng-binding", text);
     }
 
