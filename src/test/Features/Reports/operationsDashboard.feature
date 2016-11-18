@@ -18,4 +18,14 @@ Feature: Operations Dashboard report
     And I wait for 2000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "Operations Dashboard" in the Operations Dashboard report page header
-    And I wait for 4000 milli seconds
+    And I wait for 2000 milli seconds
+
+    And I should see "Episodes" header title for "episodesColumnTitle" column in Operations Dashboard report
+    And I should see "Readmissions" header title for "readmissionsColumnTitle" column in Operations Dashboard report
+    And I should see "SNF Discharges" header title for "onBoardedColumnTitle" column in Operations Dashboard report
+    And I should see "Risk Assessments" header title for "contactedColumnTitle" column in Operations Dashboard report
+
+    When I select "Upenn - Pennsylvania Hospital" from "hospitalSelector" filter in Operations Dashboard report
+    And I wait for 8000 milli seconds
+    When I select "Amputation" from "summarySelector" filter in Operations Dashboard report
+    And I wait for 6000 milli seconds
