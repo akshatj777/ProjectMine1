@@ -207,7 +207,7 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyHeaderTitleForColumnOperationsDashboardReport(elementColumn, titleText);
     }
 
-    @And("^I select \"([^\"]*)\" from \"([^\"]*)\" filter in Operations Dashboard report$")
+    @And("^I select ([^\"]*) from \"([^\"]*)\" filter in Operations Dashboard report$")
     public void i_select_from_filter_in_Operations_Dashboard_report(String filterOptions, String filterType) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
     }

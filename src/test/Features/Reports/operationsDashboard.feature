@@ -1,8 +1,8 @@
 Feature: Operations Dashboard report
 
-  Scenario: Operations Dashboard reports feature
+  Scenario Outline: Operations Dashboard reports feature
     Given I am on the login page
-    When I enter email field shutestaug231132a@yopmail.com for login
+    When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -25,7 +25,14 @@ Feature: Operations Dashboard report
     And I should see "SNF Discharges" header title for "onBoardedColumnTitle" column in Operations Dashboard report
     And I should see "Risk Assessments" header title for "contactedColumnTitle" column in Operations Dashboard report
 
-    When I select "Upenn - Pennsylvania Hospital" from "hospitalSelector" filter in Operations Dashboard report
+    When I select <Select Hospital> from "hospitalSelector" filter in Operations Dashboard report
     And I wait for 8000 milli seconds
-    When I select "Amputation" from "summarySelector" filter in Operations Dashboard report
+    When I select <Select Bundle> from "summarySelector" filter in Operations Dashboard report
     And I wait for 6000 milli seconds
+
+
+  Examples:
+  | email                         |             Select Hospital             |         Select Bundle             |
+  | shutestaug231132a@yopmail.com |   Upenn - Pennsylvania Hospital         |          Amputation               |
+  | shutestaug15252p@yopmail.com  |   Hackensack University Medical Center  |           Cellulitis              |
+
