@@ -19,3 +19,4 @@ Feature: Operations Dashboard report
     And I switch to reports embedded iframe
     Then I should see "Operations Dashboard" in the Operations Dashboard report page header
     And I wait for 4000 milli seconds
+
