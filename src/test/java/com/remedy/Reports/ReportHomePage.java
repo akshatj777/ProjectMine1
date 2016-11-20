@@ -146,4 +146,14 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyReadmissionsReadmissionReportPageHeader(String text){
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
+
+    public void iVerifyHeaderTitleForColumnOperationsDashboardReport(String elementColumn, String elementText){
+        verifyTextForElement(driver.findElement(By.id(elementColumn)), elementText);
+    }
+
+    public void iChooseOptionsFromFilterOperationsDashboardReport(String filterType,String filterOptions){
+        clickElement(driver.findElement(By.xpath("//div[@id='"+filterType+"']//span[text()='All']")));
+        delay();
+        clickElement(driver.findElement(By.xpath("//li[text()='"+filterOptions+"']")));
+    }
 }
