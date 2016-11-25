@@ -347,6 +347,11 @@ public class BaseClass {
             }
         }
 
+    public void verifyElementAttributeContainsValue(WebElement element, String attribute, String contains) {
+        String attr = element.getAttribute(attribute);
+        Assert.assertTrue(attr.contains(contains));
+    }
+
 
 
 }

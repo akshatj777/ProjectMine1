@@ -4,6 +4,7 @@ import com.remedy.Episode2.PatientsPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -22,4 +23,22 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_tab_in_the_filter_bar_on_patients_page(String filterTabText) throws Throwable {
         patientsPage.iClickTabInFilterBarOnPatientsPage(filterTabText);
     }
+
+    @Then("^I should see view section on patients page$")
+    public void i_should_see_view_section_on_patients_page() throws Throwable {
+        patientsPage.iVerifyViewSectionOnPatientsPage("View:");
+
+    }
+
+    @Then("^I should see \"([^\"]*)\" view as active view on patients page$")
+    public void i_should_see_view_as_active_view_on_patients_page(String viewOption) throws Throwable {
+        patientsPage.iVerifyViewAsActiveViewOnPatientsPage(By.cssSelector("button.valentino-icon-"+viewOption+""));
+    }
+
+    @When("^I select \"([^\"]*)\" view on patients page$")
+    public void i_select_view_on_patients_page(String viewOption) throws Throwable {
+        patientsPage.iClickViewOnPatientsPage("button.valentino-icon-"+viewOption+"");
+    }
+
+
 }
