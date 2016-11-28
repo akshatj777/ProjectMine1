@@ -30,6 +30,10 @@ public class PatientsPage extends BaseClass{
         verifyElementAttributeContainsValue(driver.findElement(element),"class","active");
     }
 
+    public void iVerifyToHaveViewOptionOnPatientsPage(By element , String viewOptions) {
+        verifyElementAttributeContainsValue(driver.findElement(element),"ng-click", viewOptions);
+    }
+
     public void iClickViewOnPatientsPage(String viewElement) {
         clickElement(driver.findElement(By.cssSelector(viewElement)));
     }

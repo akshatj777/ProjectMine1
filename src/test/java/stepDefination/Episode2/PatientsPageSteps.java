@@ -35,6 +35,11 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iVerifyViewAsActiveViewOnPatientsPage(By.cssSelector("button.valentino-icon-"+viewOption+""));
     }
 
+    @Then("^I should have \"([^\"]*)\" view option on patients page$")
+    public void i_sould_have_view_option_on_patients_page(String viewOption) throws Throwable {
+        patientsPage.iVerifyToHaveViewOptionOnPatientsPage(By.cssSelector("button.valentino-icon-"+viewOption+""), viewOption);
+    }
+
     @When("^I select \"([^\"]*)\" view on patients page$")
     public void i_select_view_on_patients_page(String viewOption) throws Throwable {
         patientsPage.iClickViewOnPatientsPage("button.valentino-icon-"+viewOption+"");

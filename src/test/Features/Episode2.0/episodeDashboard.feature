@@ -31,10 +31,10 @@ Feature: Episode 2.0 dashboard
     Then I verify current page "Remedy Partners" title
 
     And I should see "All" tab in the filter bar on patients page
-
     And I should see view section on patients page
+    And I should have "cards" view option on patients page
+    And I should have "table" view option on patients page
     And I should see "cards" view as active view on patients page
-    And I wait for 4000 milli seconds
     When I select "table" view on patients page
     And I wait for 4000 milli seconds
     And I should see "table" view as active view on patients page
