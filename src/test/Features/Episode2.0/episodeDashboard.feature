@@ -25,16 +25,15 @@ Feature: Episode 2.0 dashboard
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-
     And I should see "All" tab in the filter bar on patients page
     And I should see view section on patients page
     And I should have "cards" view option on patients page
     And I should have "table" view option on patients page
     And I should see "cards" view as active view on patients page
+
     When I select "table" view on patients page
     And I wait for 4000 milli seconds
     And I should see "table" view as active view on patients page
