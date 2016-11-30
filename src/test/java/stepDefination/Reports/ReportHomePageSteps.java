@@ -201,4 +201,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_in_the_Readmissions_Readmission_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifyReadmissionsReadmissionReportPageHeader(headedText);
     }
+
+    @And("^I should see \"([^\"]*)\" header title for \"([^\"]*)\" column in Operations Dashboard report$")
+    public void i_should_see_header_title_for_column_in_Operations_Dashboard_report(String titleText, String elementColumn) throws Throwable {
+        reportHomePage.iVerifyHeaderTitleForColumnOperationsDashboardReport(elementColumn, titleText);
+    }
+
+    @And("^I select ([^\"]*) from \"([^\"]*)\" filter in Operations Dashboard report$")
+    public void i_select_from_filter_in_Operations_Dashboard_report(String filterOptions, String filterType) throws Throwable {
+        reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
+    }
 }

@@ -1,5 +1,6 @@
 package stepDefination.UserAdmin;
 
+import com.remedy.resources.Constants;
 import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.userAdmin.LoginPage;
@@ -23,8 +24,8 @@ public class CreateUserSteps extends DriverScript{
 
 
     @When("^I log in as super user$")
-    public void ILoginWith( ) throws Throwable {
-        loginPage.iLoginAsSupperUser("lbarinstein+qaadmin@remedypartners.com", "Testing1");
+    public void ILoginWith() throws Throwable {
+        loginPage.iLoginAsSupperUser(Constants.SuperUserEmail, "Testing1");
     }
 
 

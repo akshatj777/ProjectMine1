@@ -1,5 +1,4 @@
-Feature: User only can see reports  data based on their provisioning
-
+Feature: Performance claims Overall Program
 
   Scenario Outline: Verify that Performance claims report display data based on provisioning
     Given I am on the login page
@@ -99,12 +98,3 @@ Feature: User only can see reports  data based on their provisioning
     Examples:
       | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   |
       | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 |
-
-
-  Scenario: System should direct to the login page if a user tries to access the report directly through url
-    Given I am on the login page
-    And I go to "https://cdn-qa.remedypartners.com/reports/index.html#/reports/physician/performance-(claims)?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253AClaims%253Arelease%253APhysician%20Performance.xanalyzer%2Feditor" page
-
-    Then I wait for 2000 milli seconds
-    And I should see Log in widget
-

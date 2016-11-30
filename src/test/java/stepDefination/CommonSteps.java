@@ -1,6 +1,7 @@
 package stepDefination;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.Constants;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
@@ -28,7 +29,7 @@ public class CommonSteps extends DriverScript {
 
     @Given("I am on the login page$")
     public void setup() throws Throwable {
-        driver.navigate().to("https://cdn-qa.remedypartners.com/");
+        driver.navigate().to(Constants.BaseUrl);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

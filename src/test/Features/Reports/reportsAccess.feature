@@ -176,5 +176,10 @@ Feature: User only see reports per report tiles based on their role (external an
       | shutestaug221150a@yopmail.com  | Dashboards |    Patient ID  |  Post Acute Care |   NSoC   | Readmissions  |
 
 
+  Scenario: System should direct to the login page if a user tries to access the report directly through url
+    Given I am on the login page
+    And I go to "https://cdn-qa.remedypartners.com/reports/index.html#/reports/physician/performance-(claims)?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253AClaims%253Arelease%253APhysician%20Performance.xanalyzer%2Feditor" page
 
+    Then I wait for 2000 milli seconds
+    And I should see Log in widget
 
