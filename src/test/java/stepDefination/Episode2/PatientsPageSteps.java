@@ -45,5 +45,16 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickViewOnPatientsPage("button.valentino-icon-"+viewOption+"");
     }
 
+    @When("^I type \"([^\"]*)\" in the patient search field on patients page$")
+    public void i_type_in_the_patient_search_field_on_patients_page(String patientName) throws Throwable {
+        patientsPage.iEnterInPatientSearchFieldOnPatientsPage(patientName);
+    }
+
+    @Then("^I should see patient searched result contains \"([^\"]*)\" on patients page$")
+    public void i_should_see_patient_searched_result_contains_on_patient_page(String patientText) throws Throwable {
+        patientsPage.iVerifyPatientSearchedResultContainsTextOnPatientPage(patientText);
+
+    }
+
 
 }

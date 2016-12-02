@@ -38,4 +38,12 @@ public class PatientsPage extends BaseClass{
         clickElement(driver.findElement(By.cssSelector(viewElement)));
     }
 
+    public void iEnterInPatientSearchFieldOnPatientsPage(String patientName){
+        iFillInText(driver.findElement(By.xpath("//div[@placeholder='Search Name']/div/input")), patientName);
+    }
+
+    public void iVerifyPatientSearchedResultContainsTextOnPatientPage(String patientNameText){
+        verifyTextForElementFromListByXpath("//div[@class='card-header-content']/div/h3", patientNameText);
+    }
+
 }
