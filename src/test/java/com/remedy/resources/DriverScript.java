@@ -20,7 +20,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class DriverScript {
 
 	protected static WebDriver driver;
-	public static Properties Config = new Properties();
+	public static Properties Config = null;
 	public static FileInputStream fis;
 	public static File directory = new File(".");
 	public static String os;
@@ -36,6 +36,23 @@ public class DriverScript {
 	}
 
 	public void initialize() throws Exception {
+		if (Config == null) {
+
+			Config = new Properties();
+
+			try {
+				fis = new FileInputStream(System.getProperty("user.dir")
+						+ "//src//test//java//com//remedy//resources//config.properties");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			try {
+				Config.load(fis);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 		if (driver == null)
 			
 			createNewDriverInstance();
@@ -43,9 +60,16 @@ public class DriverScript {
 
 	private void createNewDriverInstance() throws Exception {
 		
+		/*
+		 *Feature was being used to parameterize the data using Constant.java file.
+		 * Now we are using properties file to store the data, so deprecated variable uses.
 		browser = Constants.Browser;
-		System.out.println("initialize Browser: " + browser);
 		os = Constants.OS;
+		*/
+
+		browser = Config.getProperty("Browser");
+		os = Config.getProperty("OS");
+		System.out.println("initialize Browser: " + browser);
 		System.out.println("initialize OS: " + os);
 
 		switch (browser) {
