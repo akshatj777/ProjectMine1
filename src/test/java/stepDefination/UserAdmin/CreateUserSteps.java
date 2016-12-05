@@ -25,7 +25,7 @@ public class CreateUserSteps extends DriverScript{
 
     @When("^I log in as super user$")
     public void ILoginWith() throws Throwable {
-        loginPage.iLoginAsSupperUser(Constants.SuperUserEmail, "Testing1");
+        loginPage.iLoginAsSupperUser(Config.getProperty("SuperUserEmail"), "Testing1");
     }
 
 
