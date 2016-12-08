@@ -29,7 +29,7 @@ public class CommonSteps extends DriverScript {
 
     @Given("I am on the login page$")
     public void setup() throws Throwable {
-        driver.navigate().to(Constants.BaseUrl);
+        driver.navigate().to(Config.getProperty("BaseUrl"));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

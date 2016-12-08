@@ -1,0 +1,4 @@
+Browser = UR_BROWSER
+OS = UR_OS
+BaseUrl = UR_BaseUrl
+SuperUserEmail = UR_SuperUserEmail
