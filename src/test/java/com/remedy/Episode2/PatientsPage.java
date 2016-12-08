@@ -46,4 +46,28 @@ public class PatientsPage extends BaseClass{
         verifyTextForElementFromListByXpath("//div[@class='card-header-content']/div/h3", patientNameText);
     }
 
+    public void iVerifyFilterButtonOnPatientPage(String elementText) {
+        verifyTextForElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Filters')]]]")), elementText);
+    }
+
+    public void iVerifySeeAsPlaceholderForSearchOnPatientPage(String elementText) {
+        verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("i.valentino-icon-search ~ input")), "placeholder", elementText);
+    }
+
+    public void iVerifyTheTotalPatientCountOnPatientPage(){
+        isElementVisible(driver.findElement(By.cssSelector("div.ng-scope>div>strong.ng-binding")));
+    }
+
+    public void i_should_see_link(String ExportText){
+        verifyTextForElement(driver.findElement(By.cssSelector(".export-link>a")), ExportText);
+    }
+
+    public void i_should_see_text_is_present(String SortByText){
+        verifyTextForElement(driver.findElement(By.xpath("//strong[@class='sort-select-label']")), SortByText);
+    }
+
+    public void i_should_see_Refresh_button_is_present(){
+        isElementVisible(driver.findElement(By.cssSelector("button.btn-reload")));
+    }
+
 }

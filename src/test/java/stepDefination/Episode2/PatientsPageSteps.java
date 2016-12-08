@@ -53,8 +53,37 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I should see patient searched result contains \"([^\"]*)\" on patients page$")
     public void i_should_see_patient_searched_result_contains_on_patient_page(String patientText) throws Throwable {
         patientsPage.iVerifyPatientSearchedResultContainsTextOnPatientPage(patientText);
-
     }
 
+    @Then("^I should see \"([^\"]*)\" button on patients page$")
+    public void i_should_see_button_On_Patient_Page(String Filters) throws Throwable {
+        patientsPage.iVerifyFilterButtonOnPatientPage(Filters);
+    }
+
+    @Then("^I should see \"([^\"]*)\" as placeholder for search on patients page$")
+    public void i_Should_See_As_Placeholder_For_Search_On_Patient_Page(String patientText) throws Throwable {
+        patientsPage.iVerifySeeAsPlaceholderForSearchOnPatientPage(patientText);
+    }
+
+    @Then("^I should see the total patient count on patient page$")
+    public void i_should_see_the_total_patient_count_on_patient_page() throws Throwable {
+        patientsPage.iVerifyTheTotalPatientCountOnPatientPage();
+    }
+
+    @Then("^I should see \"([^\"]*)\" link$")
+    public void i_should_see_link(String ExportText) throws Throwable {
+        patientsPage.i_should_see_link(ExportText);
+    }
+
+    @Then("^I should see \"([^\"]*)\" text is present$")
+    public void i_should_see_text_is_present(String SortByText) throws Throwable {
+        patientsPage.i_should_see_text_is_present(SortByText);
+    }
+
+    @Then("^I should see Refresh button is present$")
+    public void i_should_see_Refresh_button_is_present() throws Throwable {
+        patientsPage.i_should_see_Refresh_button_is_present();
+
+    }
 
 }
