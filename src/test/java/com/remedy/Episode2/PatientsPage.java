@@ -70,4 +70,76 @@ public class PatientsPage extends BaseClass{
         isElementVisible(driver.findElement(By.cssSelector("button.btn-reload")));
     }
 
+    public void iVerifyAddPatientButtonIsPresentOnPatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[contains(text(),'Add Patient')]")));
+    }
+
+    public void iVerifyAddPatientButtonIsClickableOnPatientsPage(){
+        isElementEnabled(driver.findElement(By.xpath("//button[contains(text(),'Add Patient')]")));
+    }
+
+    public void iVerifyCountOFPatientCardsArePresentOnPatientsPage(int Count){
+        verifyElementCount(".row.cards-mode.isotope>div", Count);
+
+    }
+    public void iVerifyTotalNumberOfPagesIsPresentOnPatientsPage(){
+        isElementVisible(driver.findElement(By.cssSelector(".page-selector.ng-binding")));
+    }
+
+    public void iClickOnInpatientWorkistSubBarOptionOnThePatientsPage(){
+        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Inpatient')]]]")));
+    }
+
+    public void iShouldVerifyNeedsReviewIsPresentOnSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Needs Review')]]]")));
+    }
+
+    public void iShouldVerifyConfirmPredictedIsPresentOnSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Confirm Predicted')]]]")));
+    }
+
+    public void iShouldVerifyInpatientCareIsPresentOnSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Inpatient Care')]]]")));
+    }
+
+    public void iShouldVerifyReadmissionsIsPresentOnSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Readmissions')]]]")));
+    }
+
+    public void iShouldVerifyPostAcuteOnboardingIsPresentOnInpatientSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post-Acute Onboarding')]]]")));
+    }
+
+    public void iClickOnPostAcuteWorkListSubBarOptionOnThePatientsPage(){
+        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post Acute')]]]")));
+    }
+
+    public void iShouldVerifyPostAcuteOnboardingIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post-Acute Onboarding')]]]")));
+    }
+
+    public void iShouldVerifyReadmissionDischargesIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Readmission Discharges')]]]")));
+    }
+
+    public void iShouldVerifyExceededSNFLOSIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Exceeded SNF LOS')]]]")));
+    }
+
+    public void iShouldVerifyPostAcuteFacilityIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post-Acute Facility')]]]")));
+    }
+
+    public void iShouldVerifyHomeHealthIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Home Health')]]]")));
+    }
+
+    public void iShouldVerifyHomeWithLimitedServicesIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Home With Limited Services')]]]")));
+    }
+
+    public void iShouldVerifyOtherIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Other')]]]")));
+    }
+
 }

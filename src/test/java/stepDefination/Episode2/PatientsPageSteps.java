@@ -83,7 +83,98 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I should see Refresh button is present$")
     public void i_should_see_Refresh_button_is_present() throws Throwable {
         patientsPage.i_should_see_Refresh_button_is_present();
+    }
 
+    @Then("^I verify Add Patient button is present on patients page$")
+    public void i_verify_Add_Patient_button_is_present_on_patients_page() throws Throwable {
+        patientsPage.iVerifyAddPatientButtonIsPresentOnPatientsPage();
+
+    }
+
+    @Then("^I verify Add Patient button is clickable on patients page$")
+    public void i_verify_Add_Patient_button_is_clickable_on_patients_page() throws Throwable {
+        patientsPage.iVerifyAddPatientButtonIsClickableOnPatientsPage();
+    }
+
+    @Then("^I verify \"([^\"]*)\" Patient Cards are present on patients page$")
+    public void i_verify_Patient_Cards_are_present_on_patients_page(int Count) throws Throwable {
+        patientsPage.iVerifyCountOFPatientCardsArePresentOnPatientsPage(Count);
+    }
+
+    @Then("^I verify Total number of Pages is present on patients page$")
+    public void i_verify_Total_number_of_Pages_is_present_on_patients_page() throws Throwable {
+        patientsPage.iVerifyTotalNumberOfPagesIsPresentOnPatientsPage();
+    }
+
+
+    @When("^I click on Inpatient work-list sub-bar option on the patients page$")
+    public void i_click_on_Inpatient_work_list_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iClickOnInpatientWorkistSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Needs Review is present on sub-bar option on the patients page$")
+    public void i_should_verify_Needs_Review_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyNeedsReviewIsPresentOnSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Confirm Predicted is present on sub-bar option on the patients page$")
+    public void i_should_verify_Confirm_Predicted_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyConfirmPredictedIsPresentOnSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Inpatient Care is present on sub-bar option on the patients page$")
+    public void i_should_verify_Inpatient_Care_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyInpatientCareIsPresentOnSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Readmissions is present on sub-bar option on the patients page$")
+    public void i_should_verify_Readmissions_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyReadmissionsIsPresentOnSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Post-Acute onboarding is present on sub-bar option on the patients page$")
+    public void i_should_verify_Post_Acute_onboarding_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyPostAcuteOnboardingIsPresentOnInpatientSubBarOptionOnThePatientsPage();
+    }
+
+    @When("^I click on Post Acute work-list sub-bar option on the patients page$")
+    public void i_click_on_Post_Acute_work_list_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iClickOnPostAcuteWorkListSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Post-Acute Onboarding is present on sub-bar option on the patients page$")
+    public void i_should_verify_Post_Acute_Onboarding_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyPostAcuteOnboardingIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify readmission Discharges is present on sub-bar option on the patients page$")
+    public void i_should_verify_readmission_Discharges_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyReadmissionDischargesIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Exceeded SNF LOS is present on sub-bar option on the patients page$")
+    public void i_should_verify_Exceeded_SNF_LOS_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyExceededSNFLOSIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Post-Acute Facility is present on sub-bar option on the patients page$")
+    public void i_should_verify_Post_Acute_Facility_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyPostAcuteFacilityIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Home Health is present on sub-bar option on the patients page$")
+    public void i_should_verify_Home_Health_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyHomeHealthIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Home with Limited Services is present on sub-bar option on the patients page$")
+    public void i_should_verify_Home_with_Limited_Services_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyHomeWithLimitedServicesIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
+    }
+
+    @Then("^I should verify Other is present on sub-bar option on the patients page$")
+    public void i_should_verify_Other_is_present_on_sub_bar_option_on_the_patients_page() throws Throwable {
+        patientsPage.iShouldVerifyOtherIsPresentOnPostAccuteSubBarOptionOnThePatientsPage();
     }
 
 }
