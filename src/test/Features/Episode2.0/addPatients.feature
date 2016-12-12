@@ -11,7 +11,8 @@ Feature: Episode 2.0 Add Patient
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-
+  
+	Scenario: Verify Add Patient button,Patient Card and Total number of pages on Patient Pages
     Then I verify Add Patient button is present on patients page
     Then I verify Add Patient button is clickable on patients page
     Then I verify "20" Patient Cards are present on patients page

@@ -141,5 +141,97 @@ public class PatientsPage extends BaseClass{
     public void iShouldVerifyOtherIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
         isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Other')]]]")));
     }
+    
+    public void iClickOnFilterButtonPresentOnPatientPage(){
+    	clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Filters')]]]")));
+    }
+    
+    public void iVerifyDateRangeIsSelectedAsDefaultFilterUnderFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//span[text()='Date Range']")));
+    }
+    
+    public void iVerifyCareSettingIsSelectedAsDefaultFilterUnderFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//span[text()='Care Setting']")));
+    }
+    
+    public void iVerifyInitiatorIsSelectedAsDefaultFilterUnderFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//span[text()='Initiator']")));
+    }
+    
+    public void iClickOnFiltersButtonPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.row-controls>a")));
+    }
+    
+    public void iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Admit Reason')]")));
+    }
+    
+    public void iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Discharge Facility')]")));
+    }
+    
+    public void iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Facility')]")));
+    }
+    
+    public void iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Care Plan')]")));
+    }
+    
+    public void iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Care Setting')]")));
+    }
+    
+    public void iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Cooperation Metric')]")));
+    }
+    
+    public void iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Current Facility')]")));
+    }
+    
+    public void iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Daily Report')]")));
+    }
+    
+    public void iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Date Range')]")));
+    }
+    
+    public void iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'DRG Type')]")));
+    }
+    
+    public void iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Eligibility')]")));
+    }
+    
+    public void iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode DRG')]")));
+    }
+    
+    public void iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode Status')]")));
+    }
+    
+    public void iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'First Name')]")));
+    }
+    
+    public void iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Gender')]")));
+    }
+    
+    public void iVerifyInitiatorFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Initiator')]")));
+    }
+    
+    public void iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Inpatient Location')]")));
+    }
+    
+    public void iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
 
+    }
 }
