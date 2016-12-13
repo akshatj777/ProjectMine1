@@ -290,4 +290,94 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_Last_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
     	patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
     }
+    
+    @Then("^I verify Medicare ID Filter is displayed under List of Filter Options$")
+    public void i_verify_Medicare_ID_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Payer Filter is displayed under List of Filter Options$")
+    public void i_verify_Payer_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyPayerFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Quality Metric Filter is displayed under List of Filter Options$")
+    public void i_verify_Quality_Metric_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+        patientsPage.iVerifyQualityMetricFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Readmission Count Filter is displayed under List of Filter Options$")
+    public void i_verify_Readmission_Count_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyReadmissionCountFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Risk Assessment Filter is displayed under List of Filter Options$")
+    public void i_verify_Risk_Assessment_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyRiskAssessmentFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify SSN Filter is displayed under List of Filter Options$")
+    public void i_verify_SSN_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifySSNFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Tags Filter is displayed under List of Filter Options$")
+    public void i_verify_Tags_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyTagFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Patient Name is present in the patient card header on patient page$")
+    public void i_verify_Patient_Name_is_present_in_the_patient_card_header_on_patient_page() throws Throwable {
+    	patientsPage.iVerifyPatientNameIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify DOB is present on the patient card header on the patient page$")
+    public void i_verify_DOB_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyDOBIsPresentInThePatientCardHeaderOnPatientPage();    
+    }
+    
+    @Then("^I verify Age is present on the patient card header on the patient page$")
+    public void i_verify_Age_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyAgeIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify Gender is present on the patient card header on the patient page$")
+    public void i_verify_Gender_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyGenderIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify SSN is present on the patient card header on the patient page$")
+    public void i_verify_SSN_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifySSNIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify Expand button is present on the patient card header on the patient page$")
+    public void i_verify_Expand_button_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+    
+    @Then("^I verify risk status is present on the patient card on the patient page$")
+    public void i_verify_risk_status_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyRiskStatusIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify current location is present on the patient card on the patient page$")
+    public void i_verify_current_location_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyCurrentLocationIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify anchor facility is present on the patient card on the patient page$")
+    public void i_verify_anchor_facility_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyAnchorFacilityIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify tags is present on the patient card on the patient page$")
+    public void i_verify_tags_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyTagsIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify Quick Actions is present on the patient card on the patient page$")
+    public void i_verify_Quick_Actions_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage();
+    }
 }
