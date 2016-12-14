@@ -380,4 +380,124 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_Quick_Actions_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
     	patientsPage.iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage();
     }
+    
+    @When("^I click on the Expand button on the patient card on the patient page$")
+    public void i_click_on_the_Expand_button_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iClickOnTheExpandButtonOnThePatientCardOnThePatientPage();
+    }
+
+    @Then("^I verify Quick action button \\(Add Clinical Document, New Task\\) is present on the patient summary page$")
+    public void i_verify_Quick_action_button_Add_Clinical_Document_New_Task_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyQuickActionButtonAddClinicalDocumentAndNewTaskIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Current Location is present on the patient summary page$")
+    public void i_Verify_Current_Location_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyCurrentLocationIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Anchor Facility is present on the patient summary page$")
+    public void i_Verify_Anchor_Facility_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyAnchorFacilityIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Account status is present on the patient summary page$")
+    public void i_Verify_Account_status_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyAccountStatusIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify MRNs is present on the patient summary page$")
+    public void i_Verify_MRNs_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyMRNsIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Onboarding Status is present on the patient summary page$")
+    public void i_Verify_Onboarding_Status_is_present_on_the_patient_summary_page() throws Throwable {
+        patientsPage.iVerifyOnboardingStatusIsPresentOnThePatientSummaryPage();
+    }
+
+    @When("^I Click on Onboarding Status present on the patient summary page$")
+    public void i_Click_on_Onboarding_Status_present_on_the_patient_summary_page() throws Throwable {
+    	 patientsPage.iClickOnOnboardingStatusPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Recalculate is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Recalculate_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyRecalculateIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Low Status is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Low_Status_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyLowStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify High Status is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_High_Status_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyHighStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Needs-Onboarding Status in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Needs_Onboarding_Status_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNeedsOnboardingStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Not-Onboarded Status is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Not_Onboarded_Status_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNotOnboardedStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Eligibility is present on the patient summary page$")
+    public void i_Verify_Eligibility_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyEligibilityIsPresentOnThePatientSummaryPage();
+    }
+
+    @When("^I Click on Eligibility present on the patient summary page$")
+    public void i_Click_on_Eligibility_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iClickOnEligibilityPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Run Service is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Run_Service_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyRunServiceIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Review Service Response is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Review_Service_Response_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyReviewServiceResponseIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Reset Payer section is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Reset_Payer_section_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyResetPayerSectionIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Eligible is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Eligible_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyEligibleIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Not Eligible is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Not_Eligible_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNotEligibleIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Not Eligible ESRD is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Not_Eligible_ESRD_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Error is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Error_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyErrorIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Expired is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Expired_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyExpiredIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Tags is present on the patient summary page$")
+    public void i_Verify_Tags_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyTagsIsPresentOnThePatientSummaryPage();
+    }
 }

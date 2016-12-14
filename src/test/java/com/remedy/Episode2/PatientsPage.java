@@ -303,4 +303,118 @@ public class PatientsPage extends BaseClass{
     public void iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage(){
     	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[button[contains(@ng-click,'quickAction')]]")));
     }
+    
+    public void iClickOnTheExpandButtonOnThePatientCardOnThePatientPage(){
+    	clickElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/button")));
+    }
+    
+    public void iVerifyQuickActionButtonAddClinicalDocumentAndNewTaskIsPresentOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.className("buttons-dropdown-tab-group")));
+    }
+    
+    public void iVerifyCurrentLocationIsPresentOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Current Location']")));
+    }
+    
+    public void iVerifyAnchorFacilityIsPresentOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Anchor Facility']")));
+    }
+    
+    public void iVerifyAccountStatusIsPresentOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Account Status']")));
+    }
+    
+    public void iVerifyMRNsIsPresentOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='MRNs']")));
+    }
+    
+    public void iVerifyOnboardingStatusIsPresentOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Onboarding Status']")));
+    }
+    
+    public void iClickOnOnboardingStatusPresentOnThePatientSummaryPage(){
+    	switchToFrameByNameOrId("iFrameEC2PatientRisks");
+    	clickElement(driver.findElement(By.cssSelector("#risk_button")));
+    }
+    
+    public void iVerifyRecalculateIsPresentInTheOnboardingDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//a[@data-confirm-title='Calculate Risk Score']")));
+    }
+    
+    public void iVerifyLowStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'LOW')]")));
+    }
+    
+    public void iVerifyHighStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'HIGH')]")));
+    }
+    
+    public void iVerifyNeedsOnboardingStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'NEEDS-ONBOARDING')]")));
+    }
+    
+    public void iVerifyNotOnboardedStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'NOT-ONBOARDED')]")));
+    }
+    public void iVerifyEligibilityIsPresentOnThePatientSummaryPage(){
+    	switchToParentFrame();
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Eligibility']")));
+    }
+    
+    public void iClickOnEligibilityPresentOnThePatientSummaryPage(){
+    	switchToFrameByNameOrId("iFrameEC2PatientEligibility");
+    	clickElement(driver.findElement(By.id("eligibility_button")));
+    }
+    
+    public void iVerifyRunServiceIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@id='eligibility_service']//a[@class='eligibility_verification']")));
+    }
+    
+    public void iVerifyReviewServiceResponseIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//a[@class='review_service_response']")));
+    }
+    
+    public void iVerifyResetPayerSectionIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.id("resetPayerSection")));
+    }
+    
+    public void iVerifyEligibleIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(@class,'label-success')][contains(text(),'Eligible')]")));
+    }
+    
+    public void iVerifyNotEligibleIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//a[@class='set_eligibility_value set_eligibility_not_eligible']//span[contains(text(),'Not Eligible')]")));
+    }
+    
+    public void iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible – ESRD')]")));
+    }
+    
+    public void iVerifyErrorIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){    	
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Error')]")));
+    }
+    
+    public void iVerifyExpiredIsPresentInTheEligibilityDropdownOnThePatientSummaryPage(){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Expired')]")));
+    }
+    
+    public void iVerifyTagsIsPresentOnThePatientSummaryPage(){
+    	switchToParentFrame();
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Tags']")));
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

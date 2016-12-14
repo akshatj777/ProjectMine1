@@ -231,12 +231,12 @@ public class BaseClass {
 
     }
 
-    public  void swithToFrame (String element){
+    public void swithToFrame (String element){
 
         driver.switchTo().frame(driver.findElement(By.xpath(element)));
     }
 
-
+   
 
 
     public void switchToNewWindow(){
@@ -351,9 +351,35 @@ public class BaseClass {
         String attr = element.getAttribute(attribute);
         Assert.assertTrue(attr.contains(contains));
     }
+    
+    public boolean isElementNotVisible(final WebElement ele) {
+        long start = System.currentTimeMillis();
+        while (true) {
+            if (!ele.isDisplayed()) {
+                return true;
+            } else {
+                if (System.currentTimeMillis() - start >= Wait_Time) {
+                    throw new Error("Element is visible");
+                } else {
+                    try {
+                        synchronized (this) {
+                            wait(200);
+                        }
+                    } catch (final InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 
-
-
+    public void switchToFrameByNameOrId(String nameOrId){
+    	driver.switchTo().frame(nameOrId);
+    }
+    
+    public void switchToParentFrame(){
+    driver.switchTo().parentFrame();
+    }
 }
 
 
