@@ -43,3 +43,5 @@ Feature: Episode 2.0 Expand Patient Card
     
     Then I Verify Tags is present on the patient summary page
     
+    When I click on Hide Summary button present on the patient summary page
+    Then I verify that only Card header information is displayed on the patient summary page
