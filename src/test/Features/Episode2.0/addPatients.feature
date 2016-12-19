@@ -13,6 +13,4 @@ Feature: Episode 2.0 Add Patient
     Then I verify current page "Remedy Partners" title
 
     Then I verify Add Patient button is present on patients page
-    Then I verify Add Patient button is clickable on patients page
     Then I verify "20" Patient Cards are present on patients page
-    Then I verify Total number of Pages is present on patients page

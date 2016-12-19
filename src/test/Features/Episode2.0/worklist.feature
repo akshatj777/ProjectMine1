@@ -18,7 +18,6 @@ Feature: Episode 2.0 Worklist
     And I should verify Readmissions is present on sub-bar option on the patients page
     And I should verify Post-Acute onboarding is present on sub-bar option on the patients page
 
-
   Scenario: verify different options under Post-Acute worklist Sub-bar
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login

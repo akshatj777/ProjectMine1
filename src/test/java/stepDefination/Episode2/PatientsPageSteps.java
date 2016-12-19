@@ -55,9 +55,9 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iVerifyPatientSearchedResultContainsTextOnPatientPage(patientText);
     }
 
-    @Then("^I should see \"([^\"]*)\" button on patients page$")
-    public void i_should_see_button_On_Patient_Page(String Filters) throws Throwable {
-        patientsPage.iVerifyFilterButtonOnPatientPage(Filters);
+    @Then("^I should see Filters button present on patients page$")
+    public void i_should_see_filter_button_present_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementTextPresentOnPatientPage(By.xpath("//button[span[span[contains(text(),'Filters')]]]"),"Filter");
     }
 
     @Then("^I should see \"([^\"]*)\" as placeholder for search on patients page$")
@@ -67,45 +67,34 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I should see the total patient count on patient page$")
     public void i_should_see_the_total_patient_count_on_patient_page() throws Throwable {
-        patientsPage.iVerifyTheTotalPatientCountOnPatientPage();
+        patientsPage.iVerifyElementPresentOnPatientPage(By.cssSelector("div.ng-scope>div>strong.ng-binding"));
     }
 
-    @Then("^I should see \"([^\"]*)\" link$")
-    public void i_should_see_link(String ExportText) throws Throwable {
-        patientsPage.i_should_see_link(ExportText);
+    @Then("^I should see Export feature present on patient page$")
+    public void i_should_see_export_feature_present_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementPresentOnPatientPage(By.cssSelector(".export-link>a"));
+        patientsPage.iVerifyElementTextPresentOnPatientPage(By.cssSelector(".export-link>a"), "Export");
     }
 
-    @Then("^I should see \"([^\"]*)\" text is present$")
-    public void i_should_see_text_is_present(String SortByText) throws Throwable {
-        patientsPage.i_should_see_text_is_present(SortByText);
+    @Then("^I should see Sort by feature is present on patient page$")
+    public void i_should_see_Sortby_feature_present_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementTextPresentOnPatientPage(By.xpath("//strong[@class='sort-select-label']"),"Sort by:");
     }
 
-    @Then("^I should see Refresh button is present$")
+    @Then("^I should see Refresh button is present on patient page$")
     public void i_should_see_Refresh_button_is_present() throws Throwable {
-        patientsPage.i_should_see_Refresh_button_is_present();
+        patientsPage.iVerifyElementPresentOnPatientPage(By.cssSelector("button.btn-reload"));
     }
 
     @Then("^I verify Add Patient button is present on patients page$")
     public void i_verify_Add_Patient_button_is_present_on_patients_page() throws Throwable {
-        patientsPage.iVerifyAddPatientButtonIsPresentOnPatientsPage();
-
-    }
-
-    @Then("^I verify Add Patient button is clickable on patients page$")
-    public void i_verify_Add_Patient_button_is_clickable_on_patients_page() throws Throwable {
-        patientsPage.iVerifyAddPatientButtonIsClickableOnPatientsPage();
+        patientsPage.iVerifyElementPresentOnPatientPage(By.xpath("//button[contains(text(),'Add Patient')]"));
     }
 
     @Then("^I verify \"([^\"]*)\" Patient Cards are present on patients page$")
     public void i_verify_Patient_Cards_are_present_on_patients_page(int Count) throws Throwable {
         patientsPage.iVerifyCountOFPatientCardsArePresentOnPatientsPage(Count);
     }
-
-    @Then("^I verify Total number of Pages is present on patients page$")
-    public void i_verify_Total_number_of_Pages_is_present_on_patients_page() throws Throwable {
-        patientsPage.iVerifyTotalNumberOfPagesIsPresentOnPatientsPage();
-    }
-
 
     @When("^I click on Inpatient work-list sub-bar option on the patients page$")
     public void i_click_on_Inpatient_work_list_sub_bar_option_on_the_patients_page() throws Throwable {
