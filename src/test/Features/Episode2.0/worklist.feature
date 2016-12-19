@@ -10,8 +10,6 @@ Feature: Episode 2.0 Worklist
 
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
-
-	Scenario: verify different options under Inpatient worklist Sub-bar
     When I click on Inpatient work-list sub-bar option on the patients page
     Then I should verify Needs Review is present on sub-bar option on the patients page
     And I should verify Confirm Predicted is present on sub-bar option on the patients page
