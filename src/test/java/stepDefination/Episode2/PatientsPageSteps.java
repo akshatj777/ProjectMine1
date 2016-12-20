@@ -290,4 +290,19 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_Last_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
     	patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
     }
+    
+    @When("^I click on Admit Reason Filter present on Filter Page$")
+    public void i_click_on_Admit_Reason_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAdmitReasonFilterPresentOnFilterPage();
+    }
+    
+    @When("^I type \"([^\"]*)\" in the search field on patients page$")
+    public void i_type_in_the_search_field_on_patients_page(String admitReason) throws Throwable {
+    	patientsPage.i_type_in_the_search_field_on_patients_page(admitReason);
+    }
+   
+    @Then("^I verify the total number of patients present on the Patients Page$")
+    public void i_verify_the_total_number_of_patients_present_on_the_Patients_Page() throws Throwable {
+    	patientsPage.iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage();
+    }
 }

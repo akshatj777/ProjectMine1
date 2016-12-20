@@ -234,4 +234,16 @@ public class PatientsPage extends BaseClass{
     	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
 
     }
+    
+    public void iClickOnAdmitReasonFilterPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(1)")));
+    }
+    
+    public void i_type_in_the_search_field_on_patients_page(String admitReason){
+    	iFillInText(driver.findElement(By.cssSelector("[name='admit-reason']")), admitReason);
+    }
+    
+    public void iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".controls-bar.ng-scope>div>strong")));
+    }
 }

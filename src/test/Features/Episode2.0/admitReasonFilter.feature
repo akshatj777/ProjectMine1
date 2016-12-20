@@ -14,3 +14,7 @@ Feature: Episode 2.0 Admit reason Filters
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     Then I verify Admit Reason Filter is displayed under List of Filter Options
+    When I click on Admit Reason Filter present on Filter Page 
+    When I type "Sick" in the search field on patients page 
+    And I wait for 9000 milli seconds
+    Then I verify the total number of patients present on the Patients Page 
