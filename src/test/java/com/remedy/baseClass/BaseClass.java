@@ -352,6 +352,27 @@ public class BaseClass {
         Assert.assertTrue(attr.contains(contains));
     }
     
+    public boolean isElementNotVisible(final WebElement ele) {
+        long start = System.currentTimeMillis();
+        while (true) {
+            if (!ele.isDisplayed()) {
+                return true;
+            } else {
+                if (System.currentTimeMillis() - start >= Wait_Time) {
+                    throw new Error("Element is visible");
+                } else {
+                    try {
+                        synchronized (this) {
+                            wait(200);
+                        }
+                    } catch (final InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
     public boolean isElementPresentOnPage(By locatorKey) {
     	boolean value = true;
     	try {
@@ -364,7 +385,6 @@ public class BaseClass {
 		return value;		
     }
 
-    
     public void switchToFrameByNameOrId(String nameOrId){
     	driver.switchTo().frame(nameOrId);
     }
