@@ -160,7 +160,76 @@ public class PatientsPage extends BaseClass{
     
     public void iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions(){
     	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
-
+    }
+    
+    public void iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Medicare ID')]")));
+    }
+    
+    public void iVerifyPayerFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Payer')]")));
+    }
+    
+    public void iVerifyQualityMetricFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Quality Metric')]")));
+    }
+    
+    public void iVerifyReadmissionCountFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Readmission Count')]")));
+    }
+    
+    public void iVerifyRiskAssessmentFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Risk Assessment')]")));
+    }
+    public void iVerifySSNFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'SSN')]")));
+    }
+    
+    public void iVerifyTagFilterIsDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Tags')]")));	
+    }
+    
+    public void iVerifyPatientNameIsPresentInThePatientCardHeaderOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3")));	
+    }
+    
+    public void iVerifyDOBIsPresentInThePatientCardHeaderOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[1]")));	
+    }
+    
+    public void iVerifyAgeIsPresentInThePatientCardHeaderOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[2]")));	
+    }
+    
+    public void iVerifyGenderIsPresentInThePatientCardHeaderOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[3]")));
+    }
+    
+    public void iVerifySSNIsPresentInThePatientCardHeaderOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[4]")));
+    }
+    public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/button")));
+    }
+    
+    public void iVerifyRiskStatusIsPresentOnThePatientCardOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[contains(@class,'card-triangle')]")));
+    }
+    
+    public void iVerifyCurrentLocationIsPresentOnThePatientCardOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[h5[text()='Current Location']]")));
+    }
+    
+    public void iVerifyAnchorFacilityIsPresentOnThePatientCardOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[h5[text()='Anchor Facility']]")));
+    }
+    
+    public void iVerifyTagsIsPresentOnThePatientCardOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[@class='card-tags-selected']/h5[text()='Tags']")));
+    }
+    
+    public void iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[button[contains(@ng-click,'quickAction')]]")));
     }
     
     public void iClickOnAdmitReasonFilterPresentOnFilterPage(){
