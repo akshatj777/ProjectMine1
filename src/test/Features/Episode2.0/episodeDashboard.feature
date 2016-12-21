@@ -49,6 +49,6 @@ Feature: Episode 2.0 dashboard
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I should see the total patient count on patient page
-    And I should see "Export" link
-    And I should see "Sort by:" text is present
-    And I should see Refresh button is present
+    And I should see Export feature present on patient page
+    And I should see Sort by feature is present on patient page
+    And I should see Refresh button is present on patient page
