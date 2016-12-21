@@ -46,100 +46,28 @@ public class PatientsPage extends BaseClass{
         verifyTextForElementFromListByXpath("//div[@class='card-header-content']/div/h3", patientNameText);
     }
 
-    public void iVerifyFilterButtonOnPatientPage(String elementText) {
-        verifyTextForElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Filters')]]]")), elementText);
-    }
-
     public void iVerifySeeAsPlaceholderForSearchOnPatientPage(String elementText) {
         verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("i.valentino-icon-search ~ input")), "placeholder", elementText);
     }
 
-    public void iVerifyTheTotalPatientCountOnPatientPage(){
-        isElementVisible(driver.findElement(By.cssSelector("div.ng-scope>div>strong.ng-binding")));
+    public void iVerifyElementPresentOnPatientPage(By byLocator){
+         isElementVisible(driver.findElement(byLocator));
     }
 
-    public void i_should_see_link(String ExportText){
-        verifyTextForElement(driver.findElement(By.cssSelector(".export-link>a")), ExportText);
-    }
-
-    public void i_should_see_text_is_present(String SortByText){
-        verifyTextForElement(driver.findElement(By.xpath("//strong[@class='sort-select-label']")), SortByText);
-    }
-
-    public void i_should_see_Refresh_button_is_present(){
-        isElementVisible(driver.findElement(By.cssSelector("button.btn-reload")));
-    }
-
-    public void iVerifyAddPatientButtonIsPresentOnPatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[contains(text(),'Add Patient')]")));
-    }
-
-    public void iVerifyAddPatientButtonIsClickableOnPatientsPage(){
-        isElementEnabled(driver.findElement(By.xpath("//button[contains(text(),'Add Patient')]")));
+    public void iVerifyElementTextPresentOnPatientPage(By byLocator, String elementText){
+         verifyTextForElement(driver.findElement(byLocator), elementText);
     }
 
     public void iVerifyCountOFPatientCardsArePresentOnPatientsPage(int Count){
         verifyElementCount(".row.cards-mode.isotope>div", Count);
-
-    }
-    public void iVerifyTotalNumberOfPagesIsPresentOnPatientsPage(){
-        isElementVisible(driver.findElement(By.cssSelector(".page-selector.ng-binding")));
     }
 
-    public void iClickOnInpatientWorkistSubBarOptionOnThePatientsPage(){
-        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Inpatient')]]]")));
+    public void iClickOnWorkistFilterOptionsOnPatientsPage(String worklistOption){
+        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'"+worklistOption+"')]]]")));
     }
 
-    public void iShouldVerifyNeedsReviewIsPresentOnSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Needs Review')]]]")));
-    }
-
-    public void iShouldVerifyConfirmPredictedIsPresentOnSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Confirm Predicted')]]]")));
-    }
-
-    public void iShouldVerifyInpatientCareIsPresentOnSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Inpatient Care')]]]")));
-    }
-
-    public void iShouldVerifyReadmissionsIsPresentOnSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Readmissions')]]]")));
-    }
-
-    public void iShouldVerifyPostAcuteOnboardingIsPresentOnInpatientSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post-Acute Onboarding')]]]")));
-    }
-
-    public void iClickOnPostAcuteWorkListSubBarOptionOnThePatientsPage(){
-        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post Acute')]]]")));
-    }
-
-    public void iShouldVerifyPostAcuteOnboardingIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post-Acute Onboarding')]]]")));
-    }
-
-    public void iShouldVerifyReadmissionDischargesIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Readmission Discharges')]]]")));
-    }
-
-    public void iShouldVerifyExceededSNFLOSIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Exceeded SNF LOS')]]]")));
-    }
-
-    public void iShouldVerifyPostAcuteFacilityIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Post-Acute Facility')]]]")));
-    }
-
-    public void iShouldVerifyHomeHealthIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Home Health')]]]")));
-    }
-
-    public void iShouldVerifyHomeWithLimitedServicesIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Home With Limited Services')]]]")));
-    }
-
-    public void iShouldVerifyOtherIsPresentOnPostAccuteSubBarOptionOnThePatientsPage(){
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'Other')]]]")));
+    public void iVerifyWorklistSubBarOptionsPresentOnPatientsPage(String worklistSubbar){
+        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'"+worklistSubbar+"')]]]")));
     }
     
     public void iClickOnFilterButtonPresentOnPatientPage(){
@@ -302,5 +230,54 @@ public class PatientsPage extends BaseClass{
     
     public void iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage(){
     	isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[button[contains(@ng-click,'quickAction')]]")));
+    }
+    
+    public void iClickOnAdmitReasonFilterPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(1)")));
+    }
+    
+    public void i_type_in_the_search_field_on_patients_page(String admitReason){
+    	iFillInText(driver.findElement(By.cssSelector("[name='admit-reason']")), admitReason);
+    }
+    
+    public void iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".controls-bar.ng-scope>div>strong")));
+    }
+    
+    public void iClickOnDoneButtonPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("button[class='btn btn-primary'][ng-click='closeFilters()']")));
+    }
+    
+    public void iClickOnAnchorDischargeFacilityFilterPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(2)")));
+    }
+    
+    public void iClickOnAnchorDischargeFacilityDropdownToSelectTheFaciltyOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector(".form-control.dropdown-look")));
+    }
+    
+    public void iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(String Facility){
+    	iFillInText(driver.findElement(By.cssSelector("input[placeholder='Name or Group*']")), Facility);
+    }
+    
+    public void iSelectStamfordHospitalCheckboxPresentInTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("li.checkbox-item:nth-child(1)>div:nth-child(2)>label[for*='anchor-discharge-facility']")));
+    }
+    
+    public void iClickOnAnchorFacilityFilterPresentInTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(3)")));
+    }
+    
+    public void iClickOnAnchorFacilityDropdownToSelectTheFaciltyOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector(".form-control.dropdown-look")));
+    }
+    
+    public void iTypeInTheSearchFieldToSearchTheAnchorFacilty(String facility){
+    	iFillInText(driver.findElement(By.cssSelector("input[placeholder='Name or Group*']")), facility);
+    }
+    
+    public void iSelectStamfordHospitalCheckboxAsAnchorFacilityPresentInTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("li.checkbox-item>div.checkbox>input[id*='anchor-facility']")));
+
     }
 }
