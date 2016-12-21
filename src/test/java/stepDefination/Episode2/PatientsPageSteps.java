@@ -360,4 +360,125 @@ public class PatientsPageSteps extends DriverScript {
     public void i_Verify_Tags_is_present_on_the_patient_summary_page() throws Throwable {
     	patientsPage.iVerifyTagsIsPresentOnThePatientSummaryPage();
     }
+    
+    @When("^I click on Hide Summary button present on the patient summary page$")
+    public void i_click_on_Hide_Summary_button_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iClickOnHideSummaryButtonPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I verify that only Card header information is displayed on the patient summary page$")
+    public void i_verify_that_only_Card_header_information_is_displayed_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyThatOnlyCardHeaderInformationIsDisplayedOnThePatientSummaryPage();
+    }
+    
+    @Then("^I click on the gear icon present on the patient overview page\\.$")
+    public void i_click_on_the_gear_icon_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnTheGearIconPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Edit button is present on the patient overview page$")
+    public void i_verify_Edit_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyEditButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Delete button is present on the patient overview page$")
+    public void i_verify_Delete_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyDeleteButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Assign button is present on the patient overview page$")
+    public void i_verify_Assign_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyAssignButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Attach Note button is present on the patient overview page$")
+    public void i_verify_Attach_Note_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyAttachNoteButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Start CARL Tool button is present on the patient overview page$")
+    public void i_verify_Start_CARL_Tool_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyStartCARLToolButtonIsPresentOnThePatientOverviewPage();
+    }
+    
+    @When("^I click on Edit option present under gear icon present on the transition table$")
+    public void i_click_on_Edit_option_present_under_gear_icon_present_on_the_transition_table() throws Throwable {
+    	patientsPage.iClickOnEditOptionPresentUnderGearIconDropdownMenuPresentOnTheTransitionTable();
+    }
+
+    @Then("^I verify Transition Info is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Transition_Info_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyTransitionInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Diagnosis and DRG is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Diagnosis_and_DRG_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyDiagnosisAndDRGIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Treatment Info is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Treatment_Info_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyTreatmentInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Comment is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Comment_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyCommentIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify TCRN Checklist is present under Transition Tab present on the patient overview page$")
+    public void i_verify_TCRN_Checklist_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyTCRNChecklistIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+    
+    @When("^I click on Diagnosis and DRG tab present on the patient overview page$")
+    public void i_click_on_Diagnosis_and_DRG_tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnDiagnosisAndDRGTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify ICD is present in the Diagnosis and DRG tab$")
+    public void i_verify_ICD_is_present_in_the_Diagnosis_and_DRG_tab() throws Throwable {
+    	patientsPage.iVerifyICDIsPresentInTheDiagnosisAndDRGTab();
+    }
+
+    @Then("^I verify Predict DRG is present in the Diagnosis and DRG tab$")
+    public void i_verify_Predict_DRG_is_present_in_the_Diagnosis_and_DRG_tab() throws Throwable {
+    	patientsPage.iVerifyPredictDRGIsPresentInTheDiagnosisAndDRGTab();
+    }
+
+    @Then("^I verify Add a New DRG is present in the Diagnosis and DRG tab$")
+    public void i_verify_Add_a_New_DRG_is_present_in_the_Diagnosis_and_DRG_tab() throws Throwable {
+    	patientsPage.iVerifyAddANewDRGIsPresentInTheDiagnosisAndDRGTab();
+    }
+    
+    @When("^I click on DRG Type to Add a New DRG present on the patient overview page$")
+    public void i_click_on_DRG_Type_to_Add_a_New_DRG_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnDRGTypeToAddANewDRGPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I select Possible from the DRG type dropdown present on the patient overview page$")
+    public void i_select_Possible_from_the_DRG_type_dropdown_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I Click on DRG dropdown menu present on the patient overview page$")
+    public void i_Click_on_DRG_dropdown_menu_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnDRGDropdownMenuPresentOnThePatientOverviewPage();
+    }
+    
+    @Then("^I Search DRG (\\d+) on the search box on the DRG present on the patient overview page$")
+    public void i_Search_DRG_on_the_search_box_on_the_DRG_present_on_the_patient_overview_page(int DRG) throws Throwable {
+    	patientsPage.iSearchDRGOnTheSearchBoxOnTheDRGPresentOnThePatientOverviewPage(DRG);
+    }
+
+    @Then("^I select RESPIRATORY INFECTIONS & INFLAMATIONS from the DRG list present on the patient overview page$")
+    public void i_select_RESPIRATORY_INFECTIONS_INFLAMATIONS_from_the_DRG_list_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iSelectRespiratoryInfectionsInflationsFromTheDRGListPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I click on Update Transition button present on the patient overview page$")
+    public void i_click_on_Update_Transition_button_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
+    }
+
 }
