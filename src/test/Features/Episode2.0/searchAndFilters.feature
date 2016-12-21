@@ -13,7 +13,7 @@ Feature: User should able to search patient using filters
     And I should see "All" tab in the filter bar on patients page
     And I should see "cards" view as active view on patients page
 
-    Then I should see "Filters" button on patients page
+    Then I should see Filters button present on patients page
     And I should see "Search Name" as placeholder for search on patients page
     When I type "VVYWR," in the patient search field on patients page
     And I wait for 9000 milli seconds
