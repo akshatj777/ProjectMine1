@@ -50,7 +50,7 @@ public class BaseClass {
         }
     }
 
-    public boolean isElementVisible(final WebElement ele) {
+    public boolean isElementVisible (final WebElement ele) {
         long start = System.currentTimeMillis();
         while (true) {
             if (ele.isDisplayed()) {
@@ -364,7 +364,6 @@ public class BaseClass {
 		return value;		
     }
 
-    
     public void switchToFrameByNameOrId(String nameOrId){
     	driver.switchTo().frame(nameOrId);
     }
