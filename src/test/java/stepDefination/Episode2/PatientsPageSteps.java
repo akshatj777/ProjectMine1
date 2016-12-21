@@ -105,4 +105,50 @@ public class PatientsPageSteps extends DriverScript {
     public void i_should_verify_worklist_sub_bar_option_on_the_patients_page(String worklistSubbar) throws Throwable {
         patientsPage.iVerifyWorklistSubBarOptionsPresentOnPatientsPage(worklistSubbar);
     }
+    
+    @Then("^I click on Done button present on the Filter Page$")
+    public void i_click_on_Done_button_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDoneButtonPresentOnTheFilterPage();
+    }
+
+    @When("^I click on Anchor Discharge Facility Filter present on Filter Page$")
+    public void i_click_on_Anchor_Discharge_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorDischargeFacilityFilterPresentOnTheFilterPage();
+    }
+    
+    @When("^I click on Anchor Discharge Facility dropdown to select the Facilty on the Filter Page$")
+    public void i_click_on_Anchor_Discharge_Facility_dropdown_to_select_the_Facilty_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorDischargeFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
+    }
+
+    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Discharge Facilty$")
+    public void i_type_in_the_search_field_to_search_the_Anchor_Discharge_Facilty(String Facility) throws Throwable {
+    	patientsPage.iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(Facility);
+    }
+
+    @When("^I select Stamford hospital checkbox present in the Filter Page$")
+    public void i_select_Stamford_hospital_checkbox_present_in_the_Filter_Page() throws Throwable {
+    	patientsPage.iSelectStamfordHospitalCheckboxPresentInTheFilterPage();
+    }
+    
+    @When("^I click on Anchor Facility Filter present on Filter Page$")
+    public void i_click_on_Anchor_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorFacilityFilterPresentInTheFilterPage();
+    }
+
+    @When("^I click on Anchor Facility dropdown to select the Facilty on the Filter Page$")
+    public void i_click_on_Anchor_Facility_dropdown_to_select_the_Facilty_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
+    }
+    
+    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Facility$")
+    public void i_type_in_the_search_field_to_search_the_Anchor_Facilty(String facility) throws Throwable {
+    	patientsPage.iTypeInTheSearchFieldToSearchTheAnchorFacilty(facility);
+    }
+    
+    @When("^I select Stamford hospital checkbox as Anchor Facility present in the Filter Page$")
+    public void i_select_Stamford_hospital_checkbox_as_Anchor_Facility_present_in_the_Filter_Page() throws Throwable {
+    	patientsPage.iSelectStamfordHospitalCheckboxAsAnchorFacilityPresentInTheFilterPage();
+    }
+
 }
