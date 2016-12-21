@@ -50,7 +50,7 @@ public class BaseClass {
         }
     }
 
-    public boolean isElementVisible(final WebElement ele) {
+    public boolean isElementVisible (final WebElement ele) {
         long start = System.currentTimeMillis();
         while (true) {
             if (ele.isDisplayed()) {
@@ -371,6 +371,18 @@ public class BaseClass {
                 }
             }
         }
+    }
+
+    public boolean isElementPresentOnPage(By locatorKey) {
+    	boolean value = true;
+    	try {
+            driver.findElement(locatorKey);
+            
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+        	value = false;
+        }
+//    	System.out.println(value);
+		return value;		
     }
 
     public void switchToFrameByNameOrId(String nameOrId){
