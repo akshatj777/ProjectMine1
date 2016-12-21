@@ -2,7 +2,7 @@ Feature: Episode 2.0 Admit reason Filters
 
   Scenario: verify Admit Reason filter is present under list of Filter options on Patient Page
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field admin.user@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -18,3 +18,5 @@ Feature: Episode 2.0 Admit reason Filters
     When I type "Sick" in the search field on patients page 
     And I wait for 9000 milli seconds
     Then I verify the total number of patients present on the Patients Page 
+    Then I click on Done button present on the Filter Page 
+   

@@ -246,4 +246,41 @@ public class PatientsPage extends BaseClass{
     public void iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage(){
     	isElementVisible(driver.findElement(By.cssSelector(".controls-bar.ng-scope>div>strong")));
     }
+    
+    public void iClickOnDoneButtonPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("button[class='btn btn-primary'][ng-click='closeFilters()']")));
+    }
+    
+    public void iClickOnAnchorDischargeFacilityFilterPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(2)")));
+    }
+    
+    public void iClickOnAnchorDischargeFacilityDropdownToSelectTheFaciltyOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector(".form-control.dropdown-look")));
+    }
+    
+    public void iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(String Facility){
+    	iFillInText(driver.findElement(By.cssSelector("input[placeholder='Name or Group*']")), Facility);
+    }
+    
+    public void iSelectStamfordHospitalCheckboxPresentInTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("li.checkbox-item:nth-child(1)>div:nth-child(2)>label[for*='anchor-discharge-facility']")));
+    }
+    
+    public void iClickOnAnchorFacilityFilterPresentInTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(3)")));
+    }
+    
+    public void iClickOnAnchorFacilityDropdownToSelectTheFaciltyOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector(".form-control.dropdown-look")));
+    }
+    
+    public void iTypeInTheSearchFieldToSearchTheAnchorFacilty(String facility){
+    	iFillInText(driver.findElement(By.cssSelector("input[placeholder='Name or Group*']")), facility);
+    }
+    
+    public void iSelectStamfordHospitalCheckboxAsAnchorFacilityPresentInTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("li.checkbox-item>div.checkbox>input[id*='anchor-facility']")));
+
+    }
 }
