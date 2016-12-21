@@ -480,5 +480,25 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_Update_Transition_button_present_on_the_patient_overview_page() throws Throwable {
     	patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
     }
+    
+    @When("^I click on Last Name present on the Filter Page$")
+    public void i_click_on_Last_Name_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnLastNamePresentOnTheFilterPage();
+    }
+
+    @When("^I click on export button present on the Patient Page$")
+    public void i_click_on_export_button_present_on_the_Patient_Page() throws Throwable {
+    	patientsPage.iClickOnExportButtonPresentOnThePatientPage();
+    }
+
+    @When("^I click on Select All checkbox present on the Patient Page$")
+    public void i_click_on_Select_All_checkbox_present_on_the_Patient_Page() throws Throwable {
+    	patientsPage.iClickOnSelectAllCheckboxPresentOnThePatientPage();
+    }
+
+    @When("^I click on Export button present on the Patient Page to export the Patient List$")
+    public void i_click_on_Export_button_present_on_the_Patient_Page_to_export_the_Patient_List() throws Throwable {
+    	patientsPage.iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList();
+    }
 
 }

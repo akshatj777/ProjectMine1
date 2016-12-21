@@ -479,4 +479,21 @@ public class PatientsPage extends BaseClass {
     public void iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage(){
     	clickElement(driver.findElement(By.id("submitButton")));
     }
+
+    public void iClickOnLastNamePresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
+    }
+    
+    public void iClickOnExportButtonPresentOnThePatientPage(){
+    	clickElement(driver.findElement(By.xpath("//div[@class='export-link']/a")));
+    }
+    
+    public void iClickOnSelectAllCheckboxPresentOnThePatientPage(){
+    	clickElement(driver.findElement(By.xpath("//label[@for='select-all']")));
+    }
+    
+    public void iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList(){
+    	
+    	clickElement(driver.findElement(By.cssSelector("div.export-footer>button:nth-child(2)")));
+    }
 }
