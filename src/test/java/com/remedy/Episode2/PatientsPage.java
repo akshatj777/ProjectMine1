@@ -380,7 +380,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iSelectStamfordHospitalCheckboxAsAnchorFacilityPresentInTheFilterPage() {
-        clickElement(driver.findElement(By.cssSelector("li.checkbox-item>div.checkbox>input[id*='anchor-facility']")));
+        clickElement(driver.findElement(By.cssSelector("ul[class='light-tags ng-scope']~ul[class='checkbox-list list-unstyled ng-scope']>li>div:nth-child(2)")));
     }
 
     public void iClickOnHideSummaryButtonPresentOnThePatientSummaryPage(){
@@ -493,7 +493,14 @@ public class PatientsPage extends BaseClass {
     }
     
     public void iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList(){
-    	
     	clickElement(driver.findElement(By.cssSelector("div.export-footer>button:nth-child(2)")));
+    }
+    
+    public void iClickOnCarePlanFilterPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(4)")));	
+    }
+    
+    public void iClickOnCreatedRadioButtonPresentOnPatientsPage(){
+    	clickElement(driver.findElement(By.cssSelector("input[id='careplanhas']~label[for='careplanhas']")));	
     }
 }

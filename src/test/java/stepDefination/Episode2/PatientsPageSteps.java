@@ -621,9 +621,26 @@ public class PatientsPageSteps extends DriverScript {
     }
     
     @Then("^I verify \"([^\"]*)\" filter is displayed under list of filter options$")
-    public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        
+    public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(String arg1) throws Throwable {   
+    }
+    
+    @When("^I click on Admit Reason Filter present on Filter Page$")
+    public void i_click_on_Admit_Reason_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAdmitReasonFilterPresentOnFilterPage();
     }
 
+    @When("^I type \"([^\"]*)\" in the search field on patients page$")
+    public void i_type_in_the_search_field_on_patients_page(String admitReason) throws Throwable {
+        patientsPage.i_type_in_the_search_field_on_patients_page(admitReason);
+    }
+    
+    @When("^I click on Care Plan Filter present on Filter Page$")
+    public void i_click_on_Care_Plan_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCarePlanFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on created radio button present on patients page$")
+    public void i_click_on_created_radio_button_present_on_patients_page() throws Throwable {
+    	patientsPage.iClickOnCreatedRadioButtonPresentOnPatientsPage();
+    }
 }
