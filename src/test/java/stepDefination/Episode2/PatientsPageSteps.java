@@ -639,8 +639,57 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iClickOnCarePlanFilterPresentOnFilterPage();
     }
 
-    @When("^I click on created radio button present on patients page$")
-    public void i_click_on_created_radio_button_present_on_patients_page() throws Throwable {
-    	patientsPage.iClickOnCreatedRadioButtonPresentOnPatientsPage();
+    @When("^I click on created radio button present on Filter Page$")
+    public void i_click_on_created_radio_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCreatedRadioButtonPresentOnFilterPage();
+    }
+    
+    @Then("^I click on Inpatient checkbox under care setting present on the Filter Page$")
+    public void i_click_on_Inpatient_checkbox_under_care_setting_present_on_the_Filter_Page() throws Throwable {
+        patientsPage.iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage();
+    }
+    
+    @Then("^I verify Cooperation Metric Filter is displayed under List of Filter Options$")
+    public void i_verify_Cooperation_Metric_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions();
+    }
+    @When("^I click on Cooperation Metric Filter present on Filter Page$")
+    public void i_click_on_Cooperation_Metric_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCooperationMetricFilterPresentOnTheFilterPage();
+    }
+
+    @When("^I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page$")
+    public void i_Click_on_Not_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage();
+    }
+    
+    @When("^I click on Current Facility Filter present on Filter Page$")
+    public void i_click_on_Current_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCurrentFacilityFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on Current Facility dropdown present on Filter Page$")
+    public void i_click_on_Current_Facility_dropdown_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCurrentFacilityDropdownPresentOnFilterPage();
+    }
+    
+    @When("^I click on Daily Report Filter present on Filter Page$")
+    public void i_click_on_Daily_Report_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDailyReportFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on Inpatient Episodes radio button present on Filter Page$")
+    public void i_click_on_Inpatient_Episodes_radio_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnInpatientEpisodesRadioButtonPresentOnFilterPage();
+    }
+    
+    @When("^I click on Date Range dropdown present on Filter Page$")
+    public void i_click_on_Date_Range_dropdown_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDateRangeDropdownPresentOnFilterPage();
+    }
+
+    @Then("^I click on (\\d+) Days present on the filter page$")
+    public void i_click_on_Days_present_on_the_filter_page(int days) throws Throwable {
+    	patientsPage.iClickOnDaysresentPresentOnFilterPage(days);
     }
 }

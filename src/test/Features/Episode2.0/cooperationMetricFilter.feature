@@ -1,4 +1,4 @@
-Feature: Episode 2.0 Care Plan Filters
+Feature: Episode 2.0 Cooperation Metric Filters
 
   Scenario: verify Admit Reason filter is present under list of Filter options on Patient Page
     Given I am on the login page
@@ -13,10 +13,11 @@ Feature: Episode 2.0 Care Plan Filters
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    Then I verify Care Plan Filter is displayed under List of Filter Options 
+    Then I verify Cooperation Metric Filter is displayed under List of Filter Options 
     
-    When I click on Care Plan Filter present on Filter Page 
-    When I click on created radio button present on Filter Page  
-    And I wait for 9000 milli seconds
+    When I click on Cooperation Metric Filter present on Filter Page 
+    And I wait for 4000 milli seconds
+    And I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page
+    And I wait for 20000 milli seconds
     Then I verify the total number of patients present on the Patients Page  
-    Then I click on Done button present on the Filter Page    
+    Then I click on Done button present on the Filter Page  

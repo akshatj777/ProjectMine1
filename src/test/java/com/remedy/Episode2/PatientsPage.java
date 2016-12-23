@@ -500,7 +500,47 @@ public class PatientsPage extends BaseClass {
     	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(4)")));	
     }
     
-    public void iClickOnCreatedRadioButtonPresentOnPatientsPage(){
+    public void iClickOnCreatedRadioButtonPresentOnFilterPage(){
     	clickElement(driver.findElement(By.cssSelector("input[id='careplanhas']~label[for='careplanhas']")));	
+    }
+    
+    public void iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("input[id='care-settingHHH-I']~label[for='care-settingHHH-I']")));	
+    }
+    
+    public void iClickOnCooperationMetricFilterPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));	
+    }
+    
+    public void iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("input[id='cooperation-metricsnull']~label[for='cooperation-metricsnull']")));	
+    }
+    
+    public void iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions(){
+    	isElementVisible(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));
+    }
+    
+    public void iClickOnCurrentFacilityFilterPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(7)")));	
+    }
+    
+    public void iClickOnCurrentFacilityDropdownPresentOnFilterPage(){
+        clickElement(driver.findElement(By.cssSelector(".form-control.dropdown-look")));
+    }
+    
+    public void iClickOnDailyReportFilterPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(8)")));
+    }
+    
+    public void iClickOnInpatientEpisodesRadioButtonPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("input[id='daily-report0']~label[for='daily-report0']")));
+    }
+    
+    public void iClickOnDateRangeDropdownPresentOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.dropdown-calendar>a>div")));
+    }
+    
+    public void iClickOnDaysresentPresentOnFilterPage(int days){
+    	clickElement(driver.findElement(By.cssSelector("div.tab-content>div:nth-child(1)>quick-range-selection>div>div>a:nth-child(4)")));
     }
 }
