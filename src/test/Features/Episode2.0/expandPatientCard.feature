@@ -1,6 +1,6 @@
 Feature: Episode 2.0 Expand Patient Card
 
-  Scenario: verify Admit Reason filter is present under list of Filter options on Patient Page
+  Scenario: verify Expand Patient Card feature is present under patient list Page
     Given I am on the login page
     When I enter email field admin.user@yopmail.com for login
     And I enter password field Episode1! for Login
