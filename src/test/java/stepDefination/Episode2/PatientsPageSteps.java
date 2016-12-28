@@ -500,5 +500,196 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_Export_button_present_on_the_Patient_Page_to_export_the_Patient_List() throws Throwable {
     	patientsPage.iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList();
     }
+    
+    @When("^I click on Filter button present on Patient Page$")
+    public void i_click_on_Filter_button_present_on_Patient_Page() throws Throwable {
+    	patientsPage.iClickOnFilterButtonPresentOnPatientPage();
+    }
 
+    @When("^I click on Filters button present on Filter Page$")
+    public void i_click_on_Filters_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnFiltersButtonPresentOnFilterPage();
+    }
+
+    @Then("^I verify Admit Reason Filter is displayed under List of Filter Options$")
+    public void i_verify_Admit_Reason_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions();
+    }
+    
+    @Then("^I verify Anchor Discharge Facility Filter is displayed under List of Filter Options$")
+    public void i_verify_Anchor_Discharge_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions();
+    }
+
+    @Then("^I verify the total number of patients present on the Patients Page$")
+    public void i_verify_the_total_number_of_patients_present_on_the_Patients_Page() throws Throwable {
+    	patientsPage.iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage();
+    }
+    
+    @Then("^I verify Anchor Facility Filter is displayed under List of Filter Options$")
+    public void i_verify_Anchor_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Care Plan Filter is displayed under List of Filter Options$")
+    public void i_verify_Care_Plan_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Care Setting Filter is displayed under List of Filter Options$")
+    public void i_verify_Care_Setting_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions();
+    }
+
+    @Then("^I verify Cooperation Metric Filter Filter is displayed under List of Filter Options$")
+    public void i_verify_Cooperation_Metric_Filter_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Current Facility Filter is displayed under List of Filter Options$")
+    public void i_verify_Current_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+        patientsPage.iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Daily Report Filter is displayed under List of Filter Options$")
+    public void i_verify_Daily_Report_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Date Range Filter is displayed under List of Filter Options$")
+    public void i_verify_Date_Range_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify DRG Type Filter is displayed under List of Filter Options$")
+    public void i_verify_DRG_Type_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    @Then("^I verify Eligibility Filter is displayed under List of Filter Options$")
+    public void i_verify_Eligibility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Episode DRG Filter is displayed under List of Filter Options$")
+    public void i_verify_Episode_DRG_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Episode Status Filter is displayed under List of Filter Options$")
+    public void i_verify_Episode_Status_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Date Range is selected as default filter under Filter options$")
+    public void i_verify_Date_Range_is_selected_as_default_filter_under_Filter_options() throws Throwable {
+    	patientsPage.iVerifyDateRangeIsSelectedAsDefaultFilterUnderFilterOptions();
+    }
+
+    @Then("^I verify Care Setting is selected as default filter under Filter options$")
+    public void i_verify_Care_Setting_is_selected_as_default_filter_under_Filter_options() throws Throwable {
+    	patientsPage.iVerifyCareSettingIsSelectedAsDefaultFilterUnderFilterOptions();
+    }
+
+    @Then("^I verify Initiator is selected as default filter under Filter options$")
+    public void i_verify_Initiator_is_selected_as_default_filter_under_Filter_options() throws Throwable {
+    	patientsPage.iVerifyInitiatorIsSelectedAsDefaultFilterUnderFilterOptions();
+    }
+    
+    @Then("^I verify First Name Filter is displayed under List of Filter Options$")
+    public void i_verify_First_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Gender Filter is displayed under List of Filter Options$")
+    public void i_verify_Gender_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Initiator Filter is displayed under List of Filter Options$")
+    public void i_verify_Initiator_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyInitiatorFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Inpatient Location Filter is displayed under List of Filter Options$")
+    public void i_verify_Inpatient_Location_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Last Name Filter is displayed under List of Filter Options$")
+    public void i_verify_Last_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" filter is displayed under list of filter options$")
+    public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(String arg1) throws Throwable {   
+    }
+    
+    @When("^I click on Admit Reason Filter present on Filter Page$")
+    public void i_click_on_Admit_Reason_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAdmitReasonFilterPresentOnFilterPage();
+    }
+
+    @When("^I type \"([^\"]*)\" in the search field on patients page$")
+    public void i_type_in_the_search_field_on_patients_page(String admitReason) throws Throwable {
+        patientsPage.i_type_in_the_search_field_on_patients_page(admitReason);
+    }
+    
+    @When("^I click on Care Plan Filter present on Filter Page$")
+    public void i_click_on_Care_Plan_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCarePlanFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on created radio button present on Filter Page$")
+    public void i_click_on_created_radio_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCreatedRadioButtonPresentOnFilterPage();
+    }
+    
+    @Then("^I click on Inpatient checkbox under care setting present on the Filter Page$")
+    public void i_click_on_Inpatient_checkbox_under_care_setting_present_on_the_Filter_Page() throws Throwable {
+        patientsPage.iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage();
+    }
+    
+    @Then("^I verify Cooperation Metric Filter is displayed under List of Filter Options$")
+    public void i_verify_Cooperation_Metric_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions();
+    }
+    @When("^I click on Cooperation Metric Filter present on Filter Page$")
+    public void i_click_on_Cooperation_Metric_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCooperationMetricFilterPresentOnTheFilterPage();
+    }
+
+    @When("^I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page$")
+    public void i_Click_on_Not_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage();
+    }
+    
+    @When("^I click on Current Facility Filter present on Filter Page$")
+    public void i_click_on_Current_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCurrentFacilityFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on Current Facility dropdown present on Filter Page$")
+    public void i_click_on_Current_Facility_dropdown_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCurrentFacilityDropdownPresentOnFilterPage();
+    }
+    
+    @When("^I click on Daily Report Filter present on Filter Page$")
+    public void i_click_on_Daily_Report_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDailyReportFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on Inpatient Episodes radio button present on Filter Page$")
+    public void i_click_on_Inpatient_Episodes_radio_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnInpatientEpisodesRadioButtonPresentOnFilterPage();
+    }
+    
+    @When("^I click on Date Range dropdown present on Filter Page$")
+    public void i_click_on_Date_Range_dropdown_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDateRangeDropdownPresentOnFilterPage();
+    }
+
+    @Then("^I click on (\\d+) Days present on the filter page$")
+    public void i_click_on_Days_present_on_the_filter_page(int days) throws Throwable {
+    	patientsPage.iClickOnDaysresentPresentOnFilterPage(days);
+    }
 }

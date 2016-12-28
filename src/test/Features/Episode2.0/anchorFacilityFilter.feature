@@ -13,7 +13,7 @@ Feature: Episode 2.0 Anchor Facility Filters
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    Then I verify Anchor Facility Filter is displayed under List of Filter Options
+    Then I verify Anchor Facility Filter is displayed under List of Filter Options 
     
     When I click on Anchor Facility Filter present on Filter Page 
     And I wait for 3000 milli seconds

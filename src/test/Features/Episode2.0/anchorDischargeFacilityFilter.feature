@@ -22,5 +22,5 @@ Feature: Episode 2.0 Anchor Discharge Facility Filters
     And I wait for 5000 milli seconds
     And I select Stamford hospital checkbox present in the Filter Page
     And I wait for 9000 milli seconds
-    Then I verify the total number of patients present on the Patients Page 
+    Then I verify the total number of patients present on the Patients Page  
     Then I click on Done button present on the Filter Page  
