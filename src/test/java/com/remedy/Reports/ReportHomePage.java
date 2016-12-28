@@ -156,4 +156,18 @@ public class ReportHomePage extends BaseClass {
         delay();
         clickElement(driver.findElement(By.xpath("//li[text()='"+filterOptions+"']")));
     }
+    
+    public void iEnterAsTheValueOnTheTetboxInTheFilterModal(int value){
+    	iFillInText(driver.findElement(By.cssSelector("input#FT_condOp1")), Integer.toString(value));
+    }
+    
+    public void iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal(){
+    	clickElement(driver.findElement(By.cssSelector("#FT_condOp")));
+    	selectDropdownVisibleElement("#FT_condOp", "Less Than");
+    }
+    
+    public void iClickOnForTheInTheFilterValueList(String month, String year){
+    	clickElement(driver.findElement(By.cssSelector("[id='FT_AVA_[Anchor Begin Date].["+year+"].[2014Q1].["+month+"]']")));
+
+    }
 }
