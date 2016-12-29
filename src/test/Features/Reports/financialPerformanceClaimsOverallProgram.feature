@@ -67,6 +67,5 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     #And I should see "<Quarter>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
     
     Examples:
-      | email                         | Field Measure	  					|Value1			| Value2				| Anchor Admission Month           |Level(Names, Categories, etc.)       | Month                | Year   |
-      | shutestaug231132a@yopmail.com | Episode Count - Total			|5	 	     	| 100000				| 		Month												 | Anchor Begin Date									 | Jan									| 2014 |
-    
+      | email                         | Field Measure	  					|Value1			|Value2								| Anchor Admission Month         |Level(Names, Categories, etc.)       | Month                | Year |
+      |shutestaug231132a@yopmail.com 	| Episode Count - Total			|5	 	     	| 100000							|		Month												 | Anchor Begin Date									 | Jan									| 2014 |
