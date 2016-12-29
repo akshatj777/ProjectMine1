@@ -157,8 +157,8 @@ public class ReportHomePage extends BaseClass {
         clickElement(driver.findElement(By.xpath("//li[text()='"+filterOptions+"']")));
     }
     
-    public void iEnterAsTheValueOnTheTetboxInTheFilterModal(int value){
-    	iFillInText(driver.findElement(By.cssSelector("input#FT_condOp1")), Integer.toString(value));
+    public void iEnterAsTheValueOnTheTextboxInTheFilterModal(String value){
+    	iFillInText(driver.findElement(By.cssSelector("input#FT_condOp1")), value);
     }
     
     public void iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal(){

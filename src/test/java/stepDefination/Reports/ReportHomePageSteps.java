@@ -214,9 +214,14 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
     }
     
-    @Then("^I enter (\\d+) as the value on the tetbox in the filter modal$")
-    public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(int value) throws Throwable {
-    	reportHomePage.iEnterAsTheValueOnTheTetboxInTheFilterModal(value);
+//    @Then("^I enter (\\d+) as the value on the tetbox in the filter modal$")
+//    public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(int value) throws Throwable {
+//    	reportHomePage.iEnterAsTheValueOnTheTetboxInTheFilterModal(value);
+//    }
+    
+    @Then("^I enter \"([^\"]*)\" as the value on the textbox in the filter modal$")
+    public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(String value) throws Throwable {
+    	reportHomePage.iEnterAsTheValueOnTheTextboxInTheFilterModal(value);
     }
 
     @Then("^I click on range filter dropdown and selected Less Than range in the filter modal$")
