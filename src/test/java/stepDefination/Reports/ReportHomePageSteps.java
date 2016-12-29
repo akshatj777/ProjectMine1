@@ -4,6 +4,8 @@ import com.remedy.Reports.ReportHomePage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -210,5 +212,21 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I select ([^\"]*) from \"([^\"]*)\" filter in Operations Dashboard report$")
     public void i_select_from_filter_in_Operations_Dashboard_report(String filterOptions, String filterType) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
+    }
+
+    //TODO
+    @Then("^I enter \"([^\"]*)\" as the value on the textbox in the filter modal$")
+    public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(String value) throws Throwable {
+    	reportHomePage.iEnterAsTheValueOnTheTextboxInTheFilterModal(value);
+    }
+
+    @Then("^I click on range filter dropdown and selected Less Than range in the filter modal$")
+    public void i_click_on_range_filter_dropdown_and_selected_Less_Than_range_in_the_filter_modal() throws Throwable {
+    	reportHomePage.iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal();
+    }
+
+    @When("^I click on \"([^\"]*)\" for the \"([^\"]*)\" in the filter value list$")
+    public void i_click_on_for_the_in_the_filter_value_list(String month, String year) throws Throwable {
+    	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
 }
