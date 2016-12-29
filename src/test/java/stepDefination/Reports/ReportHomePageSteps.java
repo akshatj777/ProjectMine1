@@ -229,4 +229,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_for_the_in_the_filter_value_list(String month, String year) throws Throwable {
     	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
+    
+    @Then("^I click on \"([^\"]*)\" report text for Post Acute Care Reports$")
+    public void i_click_on_report_text_for_Post_Acute_Care_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForPostAcuteCareReportsTile(text);
+    }
 }
