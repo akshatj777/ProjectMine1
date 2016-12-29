@@ -12,7 +12,7 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
     Then I should see "Report" in the reports header page
-    When I switch to reports embedded iframe 
+    When I switch to reports embedded iframe
     
     Then I should see performance reports column Tile text as "Participant"
     Then I should see performance reports column Tile text as "Episode Initiator"
@@ -23,10 +23,11 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
 
-    When I click to "<Field Measure>" field filter under "Measures" filter field
+    When I click to "<FieldMeasure>" field filter under "Measures" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
     And I wait for 2000 milli seconds
+
     Then I click on range filter dropdown and selected Less Than range in the filter modal
     Then I enter "<Value1>" as the value on the textbox in the filter modal 
     And I click on ok button from filter
@@ -67,5 +68,5 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     #And I should see "<Quarter>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
     
     Examples:
-      | email                         | Field Measure	  					|Value1			|Value2								| Anchor Admission Month         |Level(Names, Categories, etc.)       | Month                | Year |
-      |shutestaug231132a@yopmail.com 	| Episode Count - Total			|5	 	     	| 100000							|		Month												 | Anchor Begin Date									 | Jan									| 2014 |
+      | email                         | FieldMeasure	  	  | Value1 | Value2 | Anchor Admission Month | Level(Names, Categories, etc.) | Month | Year |
+      | shutestaug231132a@yopmail.com | Episode Count - Total | 5	   | 100000 |		Month			 | Anchor Begin Date			  | Jan	  | 2014 |

@@ -156,11 +156,13 @@ public class ReportHomePage extends BaseClass {
         delay();
         clickElement(driver.findElement(By.xpath("//li[text()='"+filterOptions+"']")));
     }
-    
+
+
     public void iEnterAsTheValueOnTheTextboxInTheFilterModal(String value){
     	iFillInText(driver.findElement(By.cssSelector("input#FT_condOp1")), value);
     }
-    
+
+    //TODO - make function as parameter
     public void iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal(){
     	clickElement(driver.findElement(By.cssSelector("#FT_condOp")));
     	selectDropdownVisibleElement("#FT_condOp", "Less Than");

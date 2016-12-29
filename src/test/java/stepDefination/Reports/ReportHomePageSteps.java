@@ -213,12 +213,8 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_select_from_filter_in_Operations_Dashboard_report(String filterOptions, String filterType) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
     }
-    
-//    @Then("^I enter (\\d+) as the value on the tetbox in the filter modal$")
-//    public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(int value) throws Throwable {
-//    	reportHomePage.iEnterAsTheValueOnTheTetboxInTheFilterModal(value);
-//    }
-    
+
+    //TODO
     @Then("^I enter \"([^\"]*)\" as the value on the textbox in the filter modal$")
     public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(String value) throws Throwable {
     	reportHomePage.iEnterAsTheValueOnTheTextboxInTheFilterModal(value);
