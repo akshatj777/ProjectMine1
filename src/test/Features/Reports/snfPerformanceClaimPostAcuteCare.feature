@@ -14,11 +14,11 @@ Feature: SNF Performance claims post acute care
     Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
 
-    Then I should see performance reports column Tile text as "Participant"
-    Then I should see performance reports column Tile text as "Episode Initiator"
-    Then I should see performance reports column Tile text as "Post Acute Facility"
-    Then I should see performance reports column Tile text as "Bundle"
-    Then I should see performance reports column Tile text as "Anchor Admission Quarter"
+    Then I should see snf performance reports column Tile text as "Participant"
+    Then I should see snf performance reports column Tile text as "Episode Initiator"
+    Then I should see snf performance reports column Tile text as "Post Acute Facility"
+    Then I should see snf performance reports column Tile text as "Bundle"
+    Then I should see snf performance reports column Tile text as "Anchor Admission Quarter"
 
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
@@ -76,7 +76,7 @@ Feature: SNF Performance claims post acute care
     When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
     And I double click on current mouse location element
     And I wait for 5000 milli seconds
-    Then I should see performance reports column Tile text as "CCN"
+    Then I should see snf performance reports column Tile text as "CCN" 
 
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds

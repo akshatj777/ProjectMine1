@@ -176,4 +176,9 @@ public class ReportHomePage extends BaseClass {
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", tile);
         longDelay();
     }
+    
+    public void iShouldSeeSnfPerformanceReportsColumnTileTextAs(String tile){
+    	delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
 }
