@@ -383,164 +383,229 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("ul[class='light-tags ng-scope']~ul[class='checkbox-list list-unstyled ng-scope']>li>div:nth-child(2)")));
     }
 
-    public void iClickOnHideSummaryButtonPresentOnThePatientSummaryPage(){
-    	clickElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")));
-    }
-    
-    public void iVerifyThatOnlyCardHeaderInformationIsDisplayedOnThePatientSummaryPage(){
-    	isElementPresentOnPage((By.cssSelector(".row.row-with-columns.ng-scope")));
-    }
-    
-    public void iClickOnTheGearIconPresentOnThePatientOverviewPage(){
-    	switchToFrameByNameOrId("iFrameEC2PatientTransitions");
-    	clickElement(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/a")));
-    }
-    
-    public void iVerifyEditButtonIsPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[1]/a")));
-    }
-    
-    public void iVerifyDeleteButtonIsPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[3]/a")));
-    }
-    
-    public void iVerifyAssignButtonIsPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[4]/a")));
-    }
-    
-    public void iVerifyAttachNoteButtonIsPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[5]/a")));
-    }
-    
-    public void iVerifyStartCARLToolButtonIsPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[6]/a")));
-    }
-    
-    public void iClickOnEditOptionPresentUnderGearIconDropdownMenuPresentOnTheTransitionTable(){
-    	clickElement(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[1]/a")));
-    }
-    
-    public void iVerifyTransitionInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//a[text()='Transition Info']")));
-    }
-    
-    public void iVerifyDiagnosisAndDRGIsPresentUnderTransitionTabPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//a[text()='Diagnosis and DRG']")));
-    }
-    
-    public void iVerifyTreatmentInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//a[text()='Treatment Info']")));
-    }
-    
-    public void iVerifyCommentIsPresentUnderTransitionTabPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//a[text()='Comment']")));	
-    }
-    
-    public void iVerifyTCRNChecklistIsPresentUnderTransitionTabPresentOnThePatientOverviewPage(){
-    	isElementVisible(driver.findElement(By.xpath("//a[text()='TCRN Checklist']")));	
-    }
-    
-    public void iClickOnDiagnosisAndDRGTabPresentOnThePatientOverviewPage(){
-    	clickElement(driver.findElement(By.xpath("//a[text()='Diagnosis and DRG']")));
-    }
-    
-    public void iVerifyICDIsPresentInTheDiagnosisAndDRGTab(){
-    	isElementVisible(driver.findElement(By.xpath("//div[@class='icd-selection']")));	
-    }
-    
-    public void iVerifyPredictDRGIsPresentInTheDiagnosisAndDRGTab(){
-    	isElementVisible(driver.findElement(By.xpath("//h3[text()='Predict a DRG']")));	
-    }
-    
-    public void iVerifyAddANewDRGIsPresentInTheDiagnosisAndDRGTab(){
-    	isElementVisible(driver.findElement(By.xpath("//h3[text()='Add a New DRG']")));	
-    }
-    
-    public void iClickOnDRGTypeToAddANewDRGPresentOnThePatientOverviewPage(){
-    	clickElement(driver.findElement(By.id("bp_personbundle_bpadmissiontype_drgType")));
-    }
-    
-    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage(){
-    	selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Possible");
-    }
-    
-    public void iClickOnDRGDropdownMenuPresentOnThePatientOverviewPage(){
-    	clickElement(driver.findElement(By.xpath("//label[text()='DRG']/preceding-sibling::a")));
-    }
-    
-    public void iSearchDRGOnTheSearchBoxOnTheDRGPresentOnThePatientOverviewPage(int DRG){
-    	iFillInText(driver.findElement(By.xpath("//label[text()='DRG']/following-sibling::input[@class='select2-input select2-focused']")), Integer.toString(DRG));
-    }
-    
-    public void iSelectRespiratoryInfectionsInflationsFromTheDRGListPresentOnThePatientOverviewPage(){
-    	clickElement(driver.findElement(By.xpath("//div[@class='select2-result-label']")));
-    }
-    
-    public void iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage(){
-    	clickElement(driver.findElement(By.id("submitButton")));
+    public void iClickOnHideSummaryButtonPresentOnThePatientSummaryPage() {
+        clickElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")));
     }
 
-    public void iClickOnLastNamePresentOnTheFilterPage(){
-    	clickElement(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
+    public void iVerifyThatOnlyCardHeaderInformationIsDisplayedOnThePatientSummaryPage() {
+        isElementPresentOnPage((By.cssSelector(".row.row-with-columns.ng-scope")));
     }
-    
-    public void iClickOnExportButtonPresentOnThePatientPage(){
-    	clickElement(driver.findElement(By.xpath("//div[@class='export-link']/a")));
+
+    public void iClickOnTheGearIconPresentOnThePatientOverviewPage() {
+        switchToFrameByNameOrId("iFrameEC2PatientTransitions");
+        clickElement(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/a")));
     }
-    
-    public void iClickOnSelectAllCheckboxPresentOnThePatientPage(){
-    	clickElement(driver.findElement(By.xpath("//label[@for='select-all']")));
+
+    public void iVerifyEditButtonIsPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[1]/a")));
     }
-    
-    public void iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList(){
-    	clickElement(driver.findElement(By.cssSelector("div.export-footer>button:nth-child(2)")));
+
+    public void iVerifyDeleteButtonIsPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[3]/a")));
     }
-    
-    public void iClickOnCarePlanFilterPresentOnFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(4)")));	
+
+    public void iVerifyAssignButtonIsPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[4]/a")));
     }
-    
-    public void iClickOnCreatedRadioButtonPresentOnFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("input[id='careplanhas']~label[for='careplanhas']")));	
+
+    public void iVerifyAttachNoteButtonIsPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[5]/a")));
     }
-    
-    public void iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("input[id='care-settingHHH-I']~label[for='care-settingHHH-I']")));	
+
+    public void iVerifyStartCARLToolButtonIsPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[6]/a")));
     }
-    
-    public void iClickOnCooperationMetricFilterPresentOnTheFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));	
+
+    public void iClickOnEditOptionPresentUnderGearIconDropdownMenuPresentOnTheTransitionTable() {
+        clickElement(driver.findElement(By.xpath("//tr[@class='odd'][1]//div/ul/li[1]/a")));
     }
-    
-    public void iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("input[id='cooperation-metricsnull']~label[for='cooperation-metricsnull']")));	
+
+    public void iVerifyTransitionInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//a[text()='Transition Info']")));
     }
-    
-    public void iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions(){
-    	isElementVisible(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));
+
+    public void iVerifyDiagnosisAndDRGIsPresentUnderTransitionTabPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//a[text()='Diagnosis and DRG']")));
     }
-    
-    public void iClickOnCurrentFacilityFilterPresentOnFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(7)")));	
+
+    public void iVerifyTreatmentInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//a[text()='Treatment Info']")));
     }
-    
-    public void iClickOnCurrentFacilityDropdownPresentOnFilterPage(){
+
+    public void iVerifyCommentIsPresentUnderTransitionTabPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//a[text()='Comment']")));
+    }
+
+    public void iVerifyTCRNChecklistIsPresentUnderTransitionTabPresentOnThePatientOverviewPage() {
+        isElementVisible(driver.findElement(By.xpath("//a[text()='TCRN Checklist']")));
+    }
+
+    public void iClickOnDiagnosisAndDRGTabPresentOnThePatientOverviewPage() {
+        clickElement(driver.findElement(By.xpath("//a[text()='Diagnosis and DRG']")));
+    }
+
+    public void iVerifyICDIsPresentInTheDiagnosisAndDRGTab() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='icd-selection']")));
+    }
+
+    public void iVerifyPredictDRGIsPresentInTheDiagnosisAndDRGTab() {
+        isElementVisible(driver.findElement(By.xpath("//h3[text()='Predict a DRG']")));
+    }
+
+    public void iVerifyAddANewDRGIsPresentInTheDiagnosisAndDRGTab() {
+        isElementVisible(driver.findElement(By.xpath("//h3[text()='Add a New DRG']")));
+    }
+
+    public void iClickOnDRGTypeToAddANewDRGPresentOnThePatientOverviewPage() {
+        clickElement(driver.findElement(By.id("bp_personbundle_bpadmissiontype_drgType")));
+    }
+
+    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage() {
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Possible");
+    }
+
+    public void iClickOnDRGDropdownMenuPresentOnThePatientOverviewPage() {
+        clickElement(driver.findElement(By.xpath("//label[text()='DRG']/preceding-sibling::a")));
+    }
+
+    public void iSearchDRGOnTheSearchBoxOnTheDRGPresentOnThePatientOverviewPage(int DRG) {
+        iFillInText(driver.findElement(By.xpath("//label[text()='DRG']/following-sibling::input[@class='select2-input select2-focused']")), Integer.toString(DRG));
+    }
+
+    public void iSelectRespiratoryInfectionsInflationsFromTheDRGListPresentOnThePatientOverviewPage() {
+        clickElement(driver.findElement(By.xpath("//div[@class='select2-result-label']")));
+    }
+
+    public void iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage() {
+        clickElement(driver.findElement(By.id("submitButton")));
+    }
+
+    public void iClickOnLastNamePresentOnTheFilterPage() {
+        clickElement(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
+    }
+
+    public void iClickOnExportButtonPresentOnThePatientPage() {
+        clickElement(driver.findElement(By.xpath("//div[@class='export-link']/a")));
+    }
+
+    public void iClickOnSelectAllCheckboxPresentOnThePatientPage() {
+        clickElement(driver.findElement(By.xpath("//label[@for='select-all']")));
+    }
+
+    public void iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList() {
+        clickElement(driver.findElement(By.cssSelector("div.export-footer>button:nth-child(2)")));
+    }
+
+    public void iClickOnCarePlanFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(4)")));
+    }
+
+    public void iClickOnCreatedRadioButtonPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("input[id='careplanhas']~label[for='careplanhas']")));
+    }
+
+    public void iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("input[id='care-settingHHH-I']~label[for='care-settingHHH-I']")));
+    }
+
+    public void iClickOnCooperationMetricFilterPresentOnTheFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));
+    }
+
+    public void iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("input[id='cooperation-metricsnull']~label[for='cooperation-metricsnull']")));
+    }
+
+    public void iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));
+    }
+
+    public void iClickOnCurrentFacilityFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(7)")));
+    }
+
+    public void iClickOnCurrentFacilityDropdownPresentOnFilterPage() {
         clickElement(driver.findElement(By.cssSelector(".form-control.dropdown-look")));
     }
-    
-    public void iClickOnDailyReportFilterPresentOnFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(8)")));
+
+    public void iClickOnDailyReportFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(8)")));
     }
-    
-    public void iClickOnInpatientEpisodesRadioButtonPresentOnFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("input[id='daily-report0']~label[for='daily-report0']")));
+
+    public void iClickOnInpatientEpisodesRadioButtonPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("input[id='daily-report0']~label[for='daily-report0']")));
     }
-    
-    public void iClickOnDateRangeDropdownPresentOnFilterPage(){
-    	clickElement(driver.findElement(By.cssSelector("div.dropdown-calendar>a>div")));
+
+    public void iClickOnDateRangeDropdownPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.dropdown-calendar>a>div")));
     }
-    
-    public void iClickOnDaysresentPresentOnFilterPage(int days){
-    	clickElement(driver.findElement(By.cssSelector("div.tab-content>div:nth-child(1)>quick-range-selection>div>div>a:nth-child(4)")));
+
+    public void iClickOnDaysresentPresentOnFilterPage(int days) {
+        clickElement(driver.findElement(By.cssSelector("div.tab-content>div:nth-child(1)>quick-range-selection>div>div>a:nth-child(4)")));
+    }
+
+    public void iClickOnAddPatientButtonPresentOnThePatientsPage() {
+        clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary.pull-right")));
+    }
+
+    public void iEnterInTheFirstNameTextBoxPresentOnTheAddPatientPage(String firstname){
+        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_firstName")), firstname);
+    }
+
+    public void iEnterInTheLastNameTextBoxPresentOnTheAddPatientPage(String lastname){
+        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_lastName")), lastname);
+    }
+
+    public void iEnterDateOfBirthPresentOnTheAddPatientPage(String dateOfBirth){
+        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_dob")), dateOfBirth);
+        clickElement(driver.findElement(By.cssSelector("#Patient_Details_dob")));
+    }
+
+    public void iSwitchToAddPatientEmbeddedIframe(){
+        switchToFrameByNameOrId("iFrameEC2PatientAdd");
+    }
+
+    public void iSelectedFromTheGenderDropdownListPresentOnTheAddPatientPage(String gender){
+        clickElement(driver.findElement(By.cssSelector("#Patient_Details_gender")));
+        selectDropdownVisibleElement("#Patient_Details_gender",gender);
+    }
+
+    public void iClickOnAdmittingFacilityPresentOnTheAddPatientPage(){
+        clickElement(driver.findElement(By.cssSelector("a.select2-choice.select2-default")));
+    }
+
+    public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility){
+        iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")),facility);
+        longDelay();
+        clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
+    }
+
+    public void iEnterInTheMedicareIDPresentOnTheAddPatientPage(String medicareID){
+        iFillInText(driver.findElement(By.cssSelector("input#Patient_Details_medicareId")),medicareID);
+    }
+
+    public void iClickOnTheNextButtonPresentOnTheAddPatientPage(){
+        clickElement(driver.findElement(By.cssSelector("button#submitButton")));
+    }
+
+    public void iClickOnCalenderButtonPresentOnTheAddPatientPage(){
+        clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_admitDate")));
+    }
+
+    public void iSelectTodaysDateAsTheAdmissionDate(){
+        clickElement(driver.findElement(By.cssSelector("td.day.active")));
+        delay();
+        clickElement(driver.findElement(By.cssSelector("span.hour.active")));
+        delay();
+        clickElement(driver.findElement(By.cssSelector("span.minute.active")));
+    }
+
+    public void iSelectInpatientFromTheCareTypeDropdownMenuPresentOnTheAddPatientPage(String careType){
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType",careType);
+    }
+
+    public void iClickOnAddTransitionButtonPresentOnTheAddPatientPage(){
+        clickElement(driver.findElement(By.cssSelector("button#submitButton")));
     }
 }
+

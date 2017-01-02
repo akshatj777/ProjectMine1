@@ -2,6 +2,8 @@ package stepDefination.Episode2;
 
 import com.remedy.Episode2.PatientsPage;
 import com.remedy.resources.DriverScript;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
@@ -691,5 +693,82 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I click on (\\d+) Days present on the filter page$")
     public void i_click_on_Days_present_on_the_filter_page(int days) throws Throwable {
     	patientsPage.iClickOnDaysresentPresentOnFilterPage(days);
+    }
+
+    @When("^I click on Add Patient button present on the patients page$")
+    public void i_click_on_Add_Patient_button_present_on_the_patients_page() throws Throwable {
+        patientsPage.iClickOnAddPatientButtonPresentOnThePatientsPage();
+    }
+
+    @Then("^I Enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
+    public void i_Enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
+        patientsPage.iEnterInTheFirstNameTextBoxPresentOnTheAddPatientPage(firstname);
+    }
+
+    @Then("^I Enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
+    public void i_Enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
+        patientsPage.iEnterInTheLastNameTextBoxPresentOnTheAddPatientPage(lastname);
+    }
+
+    @Then("^I Enter date of birth \"([^\"]*)\" present on the Add Patient Page$")
+    public void i_Enter_date_of_birth_present_on_the_Add_Patient_Page(String dateOfBirth) throws Throwable {
+        patientsPage.iEnterDateOfBirthPresentOnTheAddPatientPage(dateOfBirth);
+    }
+
+    @Then("^I selected \"([^\"]*)\" from the gender drop down list present on the Add Patient page$")
+    public void i_selected_from_the_gender_drop_down_list_present_on_the_Add_Patient_page(String gender) throws Throwable {
+        patientsPage.iSelectedFromTheGenderDropdownListPresentOnTheAddPatientPage(gender);
+    }
+
+    @When("^I click on Admitting Facility present on the Add Patient page$")
+    public void i_click_on_Admitting_Facility_present_on_the_Add_Patient_page() throws Throwable {
+        patientsPage.iClickOnAdmittingFacilityPresentOnTheAddPatientPage();
+    }
+
+    @When("^I Select \"([^\"]*)\" from the list of admitting facility present on the Add Patient page$")
+    public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
+        patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
+    }
+
+    @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
+    public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
+        patientsPage.iEnterInTheMedicareIDPresentOnTheAddPatientPage(medicareID);
+    }
+
+    @Then("^I click on the next button present on the Add Patient page$")
+    public void i_click_on_the_next_button_present_on_the_Add_Patient_page() throws Throwable {
+        patientsPage.iClickOnTheNextButtonPresentOnTheAddPatientPage();
+    }
+
+    @When("^I click on Calender button present on the Add Patient page$")
+    public void i_click_on_Calender_button_present_on_the_Add_Patient_page() throws Throwable {
+        patientsPage.iClickOnCalenderButtonPresentOnTheAddPatientPage();
+    }
+
+    @When("^I select today's date as the admission date$")
+    public void i_select_today_s_date_as_the_admission_date() throws Throwable {
+        patientsPage.iSelectTodaysDateAsTheAdmissionDate();
+    }
+
+    @When("^I select \"([^\"]*)\" from the care type drop down menu present on the Add Patient page$")
+    public void i_select_from_the_care_type_drop_down_menu_present_on_the_Add_Patient_page(String careType) throws Throwable {
+        patientsPage.iSelectInpatientFromTheCareTypeDropdownMenuPresentOnTheAddPatientPage(careType);
+    }
+
+    @When("^I click on Add Transition button present on the Add Patient page$")
+    public void i_click_on_Add_Transition_button_present_on_the_Add_Patient_page() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+//        throw new PendingException();
+    }
+
+    @When("^I click on Agree button present on the Attestation page$")
+    public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+//        throw new PendingException();
+    }
+
+    @And("^I switch to Add Patient embedded iframe$")
+    public void iSwitchToAddPatientEmbeddedIframe() throws Throwable {
+        patientsPage.iSwitchToAddPatientEmbeddedIframe();
     }
 }
