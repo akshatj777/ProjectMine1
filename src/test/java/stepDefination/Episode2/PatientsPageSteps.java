@@ -757,8 +757,7 @@ public class PatientsPageSteps extends DriverScript {
 
     @When("^I click on Add Transition button present on the Add Patient page$")
     public void i_click_on_Add_Transition_button_present_on_the_Add_Patient_page() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new PendingException();
+    	patientsPage.iClickOnAddTransitionButtonPresentOnTheAddPatientPage();
     }
 
     @When("^I click on Agree button present on the Attestation page$")
@@ -771,4 +770,20 @@ public class PatientsPageSteps extends DriverScript {
     public void iSwitchToAddPatientEmbeddedIframe() throws Throwable {
         patientsPage.iSwitchToAddPatientEmbeddedIframe();
     }
+    
+    @Then("^I verify \"([^\"]*)\" text is present on the add patient page$")
+    public void i_verify_text_is_present_on_the_add_patient_page(String text) throws Throwable {
+    	patientsPage.iVerifyTextIsPresentOnTheAddPatientPage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\"  is present \"([^\"]*)\" on the transition page$")
+    public void i_verify_is_present_on_the_transition_page(String text, String columnName) throws Throwable {
+    	patientsPage.iVerifyIsPresentOnTheTransitionPage(text, columnName);
+    }
+
+
+    @Then("^I verify Admit Date is present on the transition page$")
+    public void i_verify_Admit_Date_is_present_on_the_transition_page() throws Throwable {
+    	patientsPage.iVerifyAdmitDateIsPresentOnTheTransitionPage();
+    }   
 }

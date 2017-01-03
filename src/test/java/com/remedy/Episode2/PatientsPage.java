@@ -607,5 +607,17 @@ public class PatientsPage extends BaseClass {
     public void iClickOnAddTransitionButtonPresentOnTheAddPatientPage(){
         clickElement(driver.findElement(By.cssSelector("button#submitButton")));
     }
+    
+    public void iVerifyTextIsPresentOnTheAddPatientPage(String text){
+    	isElementVisible(driver.findElement(By.xpath("//*[text()='"+text+"']")));
+    }
+    
+    public void iVerifyAdmitDateIsPresentOnTheTransitionPage(){
+    	isElementVisible(driver.findElement(By.xpath("//td[@class='admit_date-column sorting_1']")));
+
+    }
+    public void iVerifyIsPresentOnTheTransitionPage(String text, String columnName){
+    	isElementVisible(driver.findElement(By.xpath("//td[@class='"+columnName+"' and text()='"+text+"']")));
+    }
 }
 
