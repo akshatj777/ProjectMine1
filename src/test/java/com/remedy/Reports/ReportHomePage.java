@@ -170,6 +170,15 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnForTheInTheFilterValueList(String month, String year){
     	clickElement(driver.findElement(By.cssSelector("[id='FT_AVA_[Anchor Begin Date].["+year+"].[2014Q1].["+month+"]']")));
+    }
 
+    public void iClickOnReportTextForPhysicianReports(String text){
+        selectElementByTextDescByXpath("//div[label[text()='Physician']]/following-sibling::div/a", text);
+        longDelay();
+    }
+
+    public void iShouldSeeSpendingReportsColumnTileTextAs(String text){
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 }
