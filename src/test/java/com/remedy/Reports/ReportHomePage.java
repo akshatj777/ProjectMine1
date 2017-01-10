@@ -172,13 +172,18 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.cssSelector("[id='FT_AVA_[Anchor Begin Date].["+year+"].[2014Q1].["+month+"]']")));
     }
     
-    public void iClickOnReportTextForPostAcuteCareReports(String text){
+    public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
         longDelay();
     }
     
-    public void iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(String tile){
+    public void iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(String tile) {
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+
+    public void iShouldSeeSnfPerformanceReportsColumnTileTextAs(String tile){
     	delay();
-        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);	
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
 }
