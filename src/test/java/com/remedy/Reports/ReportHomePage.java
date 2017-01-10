@@ -176,7 +176,7 @@ public class ReportHomePage extends BaseClass {
         selectElementByTextDescByXpath("//div[label[text()='Physician']]/following-sibling::div/a", text);
         longDelay();
     }
-    
+
     public void iShouldSeeVolumeReportsColumnTileTextAs(String text) {
         delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
@@ -195,5 +195,10 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeSnfPerformanceReportsColumnTileTextAs(String tile){
     	delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+
+    public void iShouldSeeSpendingReportsColumnTileTextAs(String text) {
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 }

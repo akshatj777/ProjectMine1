@@ -232,7 +232,12 @@ public class ReportHomePageSteps extends DriverScript {
 
     @Then("^I click on \"([^\"]*)\" report text for Physician Reports$")
     public void i_click_on_report_text_for_Physician_Reports(String text) throws Throwable {
-    	reportHomePage.iClickOnReportTextForPhysicianReports(text);
+        reportHomePage.iClickOnReportTextForPhysicianReports(text);
+    }
+
+    @Then("^I should see Spending reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Spending_reports_column_Tile_text_as(String text) throws Throwable {
+        reportHomePage.iShouldSeeSpendingReportsColumnTileTextAs(text);
     }
 
     @Then("^I should see Volume reports column Tile text as \"([^\"]*)\"$")
