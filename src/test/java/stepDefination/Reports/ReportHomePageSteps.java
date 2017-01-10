@@ -230,16 +230,21 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
 
+    @Then("^I click on \"([^\"]*)\" report text for Post Acute Care Reports$")
+    public void i_click_on_report_text_for_Post_Acute_Care_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForPostAcuteCareReportsTile(text);
+    }
+    
+    @Then("^I should see Post Acute Care \\(Claims\\) reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Post_Acute_Care_Claims_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(tile);
+    }
+    
     @Then("^I should see snf performance reports column Tile text as \"([^\"]*)\"$")
     public void i_should_see_snf_performance_reports_column_Tile_text_as(String tile) throws Throwable {
         reportHomePage.iShouldSeeSnfPerformanceReportsColumnTileTextAs(tile);
     }
 
-    @Then("^I click on \"([^\"]*)\" report text for Post Acute Care Reports$")
-    public void i_click_on_report_text_for_Post_Acute_Care_Reports(String tile) throws Throwable {
-    	reportHomePage.iClickOnReportTextForPostAcuteCareReportsTile(tile);
-    }
-    
     @Then("^I should see SNF volume reports column Tile text as \"([^\"]*)\"$")
     public void i_should_see_SNF_volume_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeSnfPerformanceReportsColumnTileTextAs(tile);
