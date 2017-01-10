@@ -275,4 +275,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_SNF_volume_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeSnfPerformanceReportsColumnTileTextAs(tile);
     }
+    
+    @Then("^I should see Initial SNF Length of Stay Summary reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Initial_SNF_Length_of_Stay_Summary_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(tile);
+    }
 }
