@@ -167,9 +167,19 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.cssSelector("#FT_condOp")));
     	selectDropdownVisibleElement("#FT_condOp", "Less Than");
     }
-    
+
     public void iClickOnForTheInTheFilterValueList(String month, String year){
     	clickElement(driver.findElement(By.cssSelector("[id='FT_AVA_[Anchor Begin Date].["+year+"].[2014Q1].["+month+"]']")));
+    }
+
+    public void iClickOnReportTextForReadmissionsReports(String text){
+        selectElementByTextDescByXpath("//div[label[text()='Readmissions']]/following-sibling::div/a", text);
+        longDelay();
+    }
+
+    public void iShouldSeeReadmissionReportsColumnTileTextAs(String text) {
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 
     public void iClickOnReportTextForPhysicianReports(String text){
@@ -186,7 +196,7 @@ public class ReportHomePage extends BaseClass {
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
         longDelay();
     }
-    
+
     public void iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(String tile) {
         delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);

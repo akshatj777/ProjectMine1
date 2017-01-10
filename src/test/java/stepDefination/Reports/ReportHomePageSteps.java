@@ -230,6 +230,17 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
 
+    
+    @Then("^I click on \"([^\"]*)\" report text for Readmissions Reports$")
+    public void i_click_on_report_text_for_Readmissions_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForReadmissionsReports(text);
+    }
+
+    @Then("^I should see Readmission reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Readmission_reports_column_Tile_text_as(String text) throws Throwable {
+        reportHomePage.iShouldSeeReadmissionReportsColumnTileTextAs(text);
+    }
+
     @Then("^I click on \"([^\"]*)\" report text for Physician Reports$")
     public void i_click_on_report_text_for_Physician_Reports(String text) throws Throwable {
         reportHomePage.iClickOnReportTextForPhysicianReports(text);
