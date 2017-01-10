@@ -177,7 +177,27 @@ public class ReportHomePage extends BaseClass {
         longDelay();
     }
 
-    public void iShouldSeeSpendingReportsColumnTileTextAs(String text){
+    public void iShouldSeeVolumeReportsColumnTileTextAs(String text) {
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
+    }
+
+    public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
+    	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
+        longDelay();
+    }
+    
+    public void iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(String tile) {
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+
+    public void iShouldSeeSnfPerformanceReportsColumnTileTextAs(String tile){
+    	delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+
+    public void iShouldSeeSpendingReportsColumnTileTextAs(String text) {
         delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
