@@ -230,6 +230,11 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
 
+    @Then("^I click on \"([^\"]*)\" report text for Physician Reports$")
+    public void i_click_on_report_text_for_Physician_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForPhysicianReports(text);
+    }
+
     @Then("^I click on \"([^\"]*)\" report text for Post Acute Care Reports$")
     public void i_click_on_report_text_for_Post_Acute_Care_Reports(String text) throws Throwable {
     	reportHomePage.iClickOnReportTextForPostAcuteCareReportsTile(text);
