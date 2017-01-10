@@ -235,6 +235,11 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnReportTextForPhysicianReports(text);
     }
 
+    @Then("^I should see Volume reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Volume_reports_column_Tile_text_as(String text) throws Throwable {
+        reportHomePage.iShouldSeeVolumeReportsColumnTileTextAs(text);
+    }
+
     @Then("^I click on \"([^\"]*)\" report text for Post Acute Care Reports$")
     public void i_click_on_report_text_for_Post_Acute_Care_Reports(String text) throws Throwable {
     	reportHomePage.iClickOnReportTextForPostAcuteCareReportsTile(text);

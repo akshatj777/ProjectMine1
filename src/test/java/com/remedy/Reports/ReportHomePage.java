@@ -172,9 +172,14 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.cssSelector("[id='FT_AVA_[Anchor Begin Date].["+year+"].[2014Q1].["+month+"]']")));
     }
 
-    public void iClickOnReportTextForPhysicianReports(String text) {
+    public void iClickOnReportTextForPhysicianReports(String text){
         selectElementByTextDescByXpath("//div[label[text()='Physician']]/following-sibling::div/a", text);
         longDelay();
+    }
+    
+    public void iShouldSeeVolumeReportsColumnTileTextAs(String text) {
+        delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 
     public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
