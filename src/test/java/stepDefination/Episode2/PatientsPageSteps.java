@@ -700,24 +700,24 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAddPatientButtonPresentOnThePatientsPage();
     }
 
-    @Then("^I Enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
-    public void i_Enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
-        patientsPage.iEnterInTheFirstNameTextBoxPresentOnTheAddPatientPage(firstname);
+    @Then("^I enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
+    public void i_enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName",firstname);
     }
 
-    @Then("^I Enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
-    public void i_Enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
-        patientsPage.iEnterInTheLastNameTextBoxPresentOnTheAddPatientPage(lastname);
+    @Then("^I enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
+    public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName",lastname);
     }
 
-    @Then("^I Enter date of birth \"([^\"]*)\" present on the Add Patient Page$")
-    public void i_Enter_date_of_birth_present_on_the_Add_Patient_Page(String dateOfBirth) throws Throwable {
-        patientsPage.iEnterDateOfBirthPresentOnTheAddPatientPage(dateOfBirth);
+    @Then("^I enter date of birth \"([^\"]*)\" present on the Add Patient Page$")
+    public void i_enter_date_of_birth_present_on_the_Add_Patient_Page(String dateOfBirth) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("dob",dateOfBirth);
     }
 
     @Then("^I selected \"([^\"]*)\" from the gender drop down list present on the Add Patient page$")
     public void i_selected_from_the_gender_drop_down_list_present_on_the_Add_Patient_page(String gender) throws Throwable {
-        patientsPage.iSelectedFromTheGenderDropdownListPresentOnTheAddPatientPage(gender);
+        patientsPage.iSelecteOptionFromDropdownListPresentOnTheAddPatientPage("gender", gender);
     }
 
     @When("^I click on Admitting Facility present on the Add Patient page$")
@@ -732,7 +732,7 @@ public class PatientsPageSteps extends DriverScript {
 
     @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
     public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
-        patientsPage.iEnterInTheMedicareIDPresentOnTheAddPatientPage(medicareID);
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
     }
 
     @Then("^I click on the next button present on the Add Patient page$")
@@ -750,9 +750,9 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iSelectTodaysDateAsTheAdmissionDate();
     }
 
-    @When("^I select \"([^\"]*)\" from the care type drop down menu present on the Add Patient page$")
+    @When("^I select \"([^\"]*)\" from admission care type drop down menu present on Add Patient page$")
     public void i_select_from_the_care_type_drop_down_menu_present_on_the_Add_Patient_page(String careType) throws Throwable {
-        patientsPage.iSelectInpatientFromTheCareTypeDropdownMenuPresentOnTheAddPatientPage(careType);
+        patientsPage.iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(careType);
     }
 
     @When("^I click on Add Transition button present on the Add Patient page$")
@@ -762,8 +762,8 @@ public class PatientsPageSteps extends DriverScript {
 
     @When("^I click on Agree button present on the Attestation page$")
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new PendingException();
+        // open bug
+        // throw new PendingException();
     }
 
     @And("^I switch to Add Patient embedded iframe$")

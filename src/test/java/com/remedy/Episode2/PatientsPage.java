@@ -548,26 +548,17 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary.pull-right")));
     }
 
-    public void iEnterInTheFirstNameTextBoxPresentOnTheAddPatientPage(String firstname){
-        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_firstName")), firstname);
-    }
-
-    public void iEnterInTheLastNameTextBoxPresentOnTheAddPatientPage(String lastname){
-        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_lastName")), lastname);
-    }
-
-    public void iEnterDateOfBirthPresentOnTheAddPatientPage(String dateOfBirth){
-        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_dob")), dateOfBirth);
-        clickElement(driver.findElement(By.cssSelector("#Patient_Details_dob")));
+    public void iEnterDetailsInTextFieldPresentOnAddPatientModal(String detailFileds, String patientDetails){
+        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_"+detailFileds+"")), patientDetails);
     }
 
     public void iSwitchToAddPatientEmbeddedIframe(){
         switchToFrameByNameOrId("iFrameEC2PatientAdd");
     }
 
-    public void iSelectedFromTheGenderDropdownListPresentOnTheAddPatientPage(String gender){
-        clickElement(driver.findElement(By.cssSelector("#Patient_Details_gender")));
-        selectDropdownVisibleElement("#Patient_Details_gender",gender);
+    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails){
+        clickElement(driver.findElement(By.cssSelector("#Patient_Details_"+detailFileds+"")));
+        selectDropdownVisibleElement("#Patient_Details_"+detailFileds+"", patientDetails);
     }
 
     public void iClickOnAdmittingFacilityPresentOnTheAddPatientPage(){
@@ -578,10 +569,6 @@ public class PatientsPage extends BaseClass {
         iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")),facility);
         longDelay();
         clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
-    }
-
-    public void iEnterInTheMedicareIDPresentOnTheAddPatientPage(String medicareID){
-        iFillInText(driver.findElement(By.cssSelector("input#Patient_Details_medicareId")),medicareID);
     }
 
     public void iClickOnTheNextButtonPresentOnTheAddPatientPage(){
@@ -600,7 +587,7 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("span.minute.active")));
     }
 
-    public void iSelectInpatientFromTheCareTypeDropdownMenuPresentOnTheAddPatientPage(String careType){
+    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType){
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType",careType);
     }
 
