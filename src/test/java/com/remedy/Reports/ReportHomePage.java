@@ -216,4 +216,18 @@ public class ReportHomePage extends BaseClass {
     	delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
+    
+    public void iShouldSeeNextSiteOfCareReportsColumnTileTextAs(String tile){
+    	delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+    
+    public void iClickOnReportTextForNSoCReports(String text){
+    	selectElementByTextDescByXpath("//div[label[text()='NSoC']]/following-sibling::div/a", text);
+        longDelay();
+    }
+    
+    public void iSelectFromTheDropdownListOnTheFilterPage(String range){
+    	selectDropdownVisibleElement("#FT_rangeOp", range);
+    }
 }
