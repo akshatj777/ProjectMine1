@@ -22,4 +22,4 @@ Feature: Dashboard Search for Patient
    Examples:
 
      |                 email            |   password    |     Episode1       |
-     |  shutestaug231132a@yopmail.com     |    Testing1   |   Episodes         |
+     |  shutestaug231132a@yopmail.com   |   Testing1 	  |  		Episodes       |

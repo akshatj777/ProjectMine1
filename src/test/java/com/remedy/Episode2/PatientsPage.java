@@ -15,11 +15,11 @@ public class PatientsPage extends BaseClass{
     }
 
     public void iVerifyTabInFilterBarOnPatientsPage(String elementText){
-        verifyTextForElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'"+elementText+"')]]]")), elementText);
+        verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'"+elementText+"')]")), elementText);
     }
 
     public void iClickTabInFilterBarOnPatientsPage(String elementTextXpath){
-        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'"+elementTextXpath+"')]]]")));
+        clickElement(driver.findElement(By.xpath("//button//span[contains(text(),'"+elementTextXpath+"')]")));
     }
 
     public void iVerifyViewSectionOnPatientsPage(String elementText) {
