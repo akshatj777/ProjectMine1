@@ -15,13 +15,13 @@ Feature: Change Login Information
     Then I should see Tile text <Institue>
 
     Examples:
-      |                email                | Gainsharing Physician Survey   | Episode1 | RemedyU | Reports | Episodes2.0  | sharefile    | Institue  |
-      | shutestaug231132a@yopmail.com       |                                | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-      | shutestaug221130a@yopmail.com       |                                | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-      | reptestachmodel2opsfin@yopmail.com  |                                | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-      | shutestaug15240p@yopmail.com        | Gainsharing Physician Survey   | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-      | shutestaug221145a@yopmail.com       |                                | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-      | repopsnofintest@yopmail.com         |                                | Episodes | RemedyU | Reports |              |              | Institute |
+      | email                              | Gainsharing Physician Survey | Episode1 | RemedyU | Reports | Episodes2.0  | sharefile    | Institue  |
+      | shutestaug231132a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+      | shutestaug221130a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+      | reptestachmodel2opsfin@yopmail.com |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+      | shutestaug15240p@yopmail.com       | Gainsharing Physician Survey | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+      | shutestaug221145a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
+      | repopsnofintest@yopmail.com        |                              | Episodes | RemedyU | Reports |              |              | Institute |
 
 
   Scenario: Logout link test from top menu

@@ -2,7 +2,6 @@ Feature: Patient list
 
 
   Scenario Outline: Create new patient for the user
-
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -28,12 +27,6 @@ Feature: Patient list
     And I click on Submit Button
     #Then I select an Admit Date
 
-
-
-
-
-
     Examples:
-
-      |             email               |   password    |     Episode1    | FirstName   |     LastName    | DateofBirth   | FicilitySearch| Admission Date |
-      |  shutestaug231132a@yopmail.com  |    Testing1   |   Episodes      |   Patients   |     Testing    |  12/01/1960   |     upenn     | 05/16/2016     |
+      | email                         | password | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch | Admission Date |
+      | shutestaug231132a@yopmail.com | Testing1 | Episodes | Patients  | Testing  | 12/01/1960  | upenn          | 05/16/2016     |

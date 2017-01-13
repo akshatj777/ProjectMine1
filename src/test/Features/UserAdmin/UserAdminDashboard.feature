@@ -12,7 +12,6 @@ Feature: User Admin Dashboard view test
     Then I should see "9 Users" for search results
     And I should see "ACHMODEL2" for First Name
 
-
   Scenario: Search user by Lastname
     Given I am on the login page
     When I log in as super user
@@ -36,7 +35,6 @@ Feature: User Admin Dashboard view test
     And I wait for 3000 milli seconds
     Then I should see "5 Users" for search results
     And I should see "Physicians" for User Role on user card
-
 
   #Scenario: Search user with sort by
    # Given I am on the login page
