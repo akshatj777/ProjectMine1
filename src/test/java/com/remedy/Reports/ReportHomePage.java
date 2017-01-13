@@ -230,4 +230,9 @@ public class ReportHomePage extends BaseClass {
     public void iSelectFromTheDropdownListOnTheFilterPage(String range){
     	selectDropdownVisibleElement("#FT_rangeOp", range);
     }
+    
+    public void iShouldSeeNextSiteOfCareSummaryReportsColumnTileTextAs(String tile){
+    	delay();
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
 }

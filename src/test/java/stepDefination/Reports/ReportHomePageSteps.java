@@ -295,5 +295,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_select_from_the_drop_down_list_on_the_filter_page(String range) throws Throwable {
     	reportHomePage.iSelectFromTheDropdownListOnTheFilterPage(range);
     }
+    
+    @Then("^I should see Next site of care summary reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Next_site_of_care_summary_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeNextSiteOfCareSummaryReportsColumnTileTextAs(tile);
+    }
 
 }
