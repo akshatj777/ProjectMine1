@@ -4,8 +4,8 @@
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
-    Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When  I click on Create User button
     Then I should see "Create User" on the user creation page
@@ -102,8 +102,8 @@
       Given I am on the login page
       When I log in as super user
      And I wait for 1000 milli seconds
-     Then I should see Tile text <Administration>
-      And I click on the "Administration" tile
+     Then I should see Tile text User Admin
+      And I click on the "User Admin" tile
      Then I should see header text "User Management"
       When  I click on Create User button
       Then I should see "Create User" on the user creation page
@@ -125,8 +125,8 @@
       Given I am on the login page
       When I log in as super user
       And I wait for 2000 milli seconds
-      Then I should see Tile text <Administration>
-      And I click on the "Administration" tile
+      Then I should see Tile text User Admin
+      And I click on the "User Admin" tile
       Then I should see header text "User Management"
       When  I click on Create User button
        Then I should see "Create User" on the user creation page
@@ -147,8 +147,8 @@
       Given I am on the login page
     When I log in as super user
       And I wait for 1000 milli seconds
-      Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
+      Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
       Then I should see header text "User Management"
       When  I click on Create User button
       And I wait for 1000 milli seconds

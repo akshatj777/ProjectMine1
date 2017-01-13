@@ -10,7 +10,6 @@ Feature: Patient list
     Then I should see Tile text <Episode1>
     And I click on the "Episodes" tile
     And I switch to new window
-    And I wait for 10000 milli seconds 
     Then I should see Episode header text "Dashboard"
     And I expand the Patients panel on Dashboard
     And I click on patientlist link

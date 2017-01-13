@@ -3,8 +3,8 @@ Feature: User Admin Dashboard view test
   Scenario: Search user by FirstName
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
     Then I should see header text "User Management"
     And I wait for 3000 milli seconds
     Then I enter search box with "ACH"
@@ -16,8 +16,8 @@ Feature: User Admin Dashboard view test
   Scenario: Search user by Lastname
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
     Then I should see header text "User Management"
     And I wait for 3000 milli seconds
     Then I enter search box with "REPTESTRPFIN"
@@ -28,13 +28,13 @@ Feature: User Admin Dashboard view test
   Scenario: Search user by NPI
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
     Then I should see header text "User Management"
     And I wait for 3000 milli seconds
     Then I enter search box with "1234567891"
     And I wait for 3000 milli seconds
-    Then I should see "4 Users" for search results
+    Then I should see "5 Users" for search results
     And I should see "Physicians" for User Role on user card
 
 
