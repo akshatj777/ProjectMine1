@@ -47,7 +47,38 @@ Feature: Episode with DRG issue Patient ID
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<Issue1>" result in "Issue" field column for "Issue" filter field
-
+	
+		When I click to "Episode Status" field filter under "Episode Status" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Episode Status" in the header text of filter page
+    And I should see "<EpisodeStatus1>" in the filter value list
+    And I should see "<EpisodeStatus2>" in the filter value list
+    And I should see "<EpisodeStatus3>" in the filter value list
+    And I should see "<EpisodeStatus4>" in the filter value list
+    And I should see "<EpisodeStatus5>" in the filter value list
+    And I click on "<EpisodeStatus1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<EpisodeStatus1>" result in "Episode Status" field column for "Episode Status" filter field
+		
+		When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Eligibility" in the header text of filter page
+    And I should see "<Eligibility1>" in the filter value list
+    And I should see "<Eligibility2>" in the filter value list
+    And I should see "<Eligibility3>" in the filter value list
+    And I should see "<Eligibility4>" in the filter value list
+    And I click on "<Eligibility1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<Eligibility1>" result in "Eligibility" field column for "Eligibility" filter field
+		
     
     When I switch to default window from iframe
     When I click on close reports cross icon on report page
@@ -56,5 +87,5 @@ Feature: Episode with DRG issue Patient ID
     
     
      Examples:
-      | email                         | participant | anchorFacility1                		  | anchorFacility2                  | Issue1                |	 Issue2				|		Issue3					|
-      | shutestaug231132a@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital  | Upenn - Pennsylvania Hospital		 | MISMATCH OF DRGS      |	NO FINAL DRG	|	NO WORKING DRG 		|
+      | email                         | participant | anchorFacility1                		  | anchorFacility2                  | Issue1                |	 Issue2				|		Issue3					|	EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |Eligibility1		|Eligibility2		|Eligibility3		|Eligibility4		|
+      | shutestaug231132a@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital  | Upenn - Pennsylvania Hospital		 | MISMATCH OF DRGS      |	NO FINAL DRG	|	NO WORKING DRG 		|	Active					|Completed			 |Expired					|Pending				 |potentialM3			|ELIGIBLE				|ERROR					|EXPIRED				|UNKNOWN				|
