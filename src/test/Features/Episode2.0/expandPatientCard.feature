@@ -2,7 +2,7 @@ Feature: Episode 2.0 Expand Patient Card
 
   Scenario: verify Expand Patient Card feature is present under patient list Page
     Given I am on the login page
-    When I enter email field admin.user@yopmail.com for login
+    When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -31,11 +31,11 @@ Feature: Episode 2.0 Expand Patient Card
     Then I Verify Eligibility is present on the patient summary page
     
     When I Click on Eligibility present on the patient summary page
-    
+     
     Then I Verify Run Service is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Review Service Response is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Reset Payer section is present in the Eligibility Dropdown on the patient summary page
-    Then I Verify Eligible is present in the Eligibility Dropdown on the patient summary page
+    Then I Verify Eligible or Not-Eligible is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Not Eligible is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Not Eligible ESRD is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Error is present in the Eligibility Dropdown on the patient summary page

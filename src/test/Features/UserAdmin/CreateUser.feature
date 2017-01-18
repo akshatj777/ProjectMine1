@@ -4,8 +4,8 @@
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
-    Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When  I click on Create User button
     Then I should see "Create User" on the user creation page
@@ -98,12 +98,11 @@
 
 
    Scenario:  Verify required filed
-
       Given I am on the login page
       When I log in as super user
      And I wait for 1000 milli seconds
-     Then I should see Tile text <Administration>
-      And I click on the "Administration" tile
+     Then I should see Tile text User Admin
+      And I click on the "User Admin" tile
      Then I should see header text "User Management"
       When  I click on Create User button
       Then I should see "Create User" on the user creation page
@@ -121,12 +120,11 @@
    
    
     Scenario: Email field verification test
-
       Given I am on the login page
       When I log in as super user
       And I wait for 2000 milli seconds
-      Then I should see Tile text <Administration>
-      And I click on the "Administration" tile
+      Then I should see Tile text User Admin
+      And I click on the "User Admin" tile
       Then I should see header text "User Management"
       When  I click on Create User button
        Then I should see "Create User" on the user creation page
@@ -138,29 +136,24 @@
       Then I enter Phone field with "4559994948"
       Then I verify email required message "Please enter a valid email address (example: name@domain.com)"
 
-
-
-
-
-    Scenario: NPI field required validation for Physitian Users
-
-      Given I am on the login page
-    When I log in as super user
-      And I wait for 1000 milli seconds
-      Then I should see Tile text <Administration>
-    And I click on the "Administration" tile
-      Then I should see header text "User Management"
-      When  I click on Create User button
-      And I wait for 1000 milli seconds
-      Then I should see "Create User" on the user creation page
-    When I click the Organizational Role Field
-    And I pick a Organizational Physicians
-    And I fill in First Name with "Shumontest"
-    Then I fill in Last Name with NPITest
-    And I enter Email with npitest@yopmail.com
+   Scenario: NPI field required validation for Physitian Users
+     Given I am on the login page
+     When I log in as super user
+     And I wait for 1000 milli seconds
+     Then I should see Tile text User Admin
+     And I click on the "User Admin" tile
+     Then I should see header text "User Management"
+     When  I click on Create User button
+     And I wait for 1000 milli seconds
+     Then I should see "Create User" on the user creation page
+     When I click the Organizational Role Field
+     And I pick a Organizational Physicians
+     And I fill in First Name with "Shumontest"
+     Then I fill in Last Name with NPITest
+     And I enter Email with npitest@yopmail.com
      When I fill in NPI Field with ""
-      Then I enter Phone field with "302-459-1143"
-    Then I verify NPI Required Message "NPI is required"
+     Then I enter Phone field with "302-459-1143"
+     Then I verify NPI Required Message "NPI is required"
 
 
 

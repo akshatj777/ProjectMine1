@@ -315,8 +315,6 @@ Feature: User only see reports per report tiles based on their role (external an
       | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5 | Menu 6       |
       | shutestaug15240p@yopmail.com  | Dashboards | Overall Program | Patient ID | Post Acute Care | NSoC   | Readmissions |
 
-
-
   Scenario Outline: For ACH MODEL 2 OPSSPEND verify the respective reports link as per the user permissions
     Given I am on the login page
     When I enter email field <email> for login
