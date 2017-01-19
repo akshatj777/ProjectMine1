@@ -280,4 +280,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_Initial_SNF_Length_of_Stay_Summary_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(tile);
     }
+    
+    @Then("^I should see Readmissions reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Readmissions_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeReadmissionsReportsColumnTileTextAs(tile);
+    }
 }

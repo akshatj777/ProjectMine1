@@ -216,4 +216,8 @@ public class ReportHomePage extends BaseClass {
     	delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
+    
+    public void iShouldSeeReadmissionsReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
 }
