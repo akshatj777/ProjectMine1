@@ -70,6 +70,19 @@ Feature: Readmissions readmisisons
     And I wait for 3000 milli seconds
     And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
 		
+		When I click to "Bundle" field filter under "Bundle" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Bundle" in the header text of filter page
+    And I should see "Amputation" in the filter value list
+    And I should see "Atherosclerosis" in the filter value list
+    And I click on "Amputation" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
+		
     When I switch to default window from iframe
     When I click on close reports cross icon on report page
     And I wait for 1000 milli seconds
