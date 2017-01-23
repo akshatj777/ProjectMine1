@@ -58,6 +58,18 @@ Feature: Readmissions readmisisons
     And I wait for 3000 milli seconds
     And I should see "<anchorFacility2>" result in "Anchor Facility" field column for "Anchor Facility" filter field
 		
+		When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "CCN" in the header text of filter page
+    And I should see "<ccn1>" in the filter value list
+    And I click on "<ccn1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
+		
     When I switch to default window from iframe
     When I click on close reports cross icon on report page
     And I wait for 1000 milli seconds
@@ -65,5 +77,5 @@ Feature: Readmissions readmisisons
     
     
      Examples:
-      | email                         | participant | anchorFacility1                		  | anchorFacility2                  | Anchor Admission Month      |	Level(Names, Categories, etc.)       |episodeInitiator1								  |
-      | shutestaug231132a@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital  | Upenn - Pennsylvania Hospital		 | Month    									 |	 Anchor Begin Date									 |Penn Presbyterian Medical Center  |
+      | email                         | participant | anchorFacility1                		  | anchorFacility2                  | Anchor Admission Month      |	Level(Names, Categories, etc.)       |episodeInitiator1								  | ccn1   |
+      | shutestaug231132a@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital  | Upenn - Pennsylvania Hospital		 | Month    									 |	 Anchor Begin Date									 |Penn Presbyterian Medical Center  | 390223 |
