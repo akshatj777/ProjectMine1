@@ -290,4 +290,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_Episode_with_DRG_issue_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeEpisodeWithDRGIssueReportsColumnTileTextAs(tile);
     }
+
+    @Then("^I should see Next site of care reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Next_site_of_care_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeNextSiteOfCareReportsColumnTileTextAs(tile);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" report text for NSoC Reports$")
+    public void i_click_on_report_text_for_NSoC_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForNSoCReports(text);
+    }
+    
+    @When("^I select \"([^\"]*)\" from the drop down list on the filter page$")
+    public void i_select_from_the_drop_down_list_on_the_filter_page(String range) throws Throwable {
+    	reportHomePage.iSelectFromTheDropdownListOnTheFilterPage(range);
+    }
+    
+    @Then("^I should see Next site of care summary reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Next_site_of_care_summary_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeNextSiteOfCareSummaryReportsColumnTileTextAs(tile);
+    }
 }
