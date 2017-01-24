@@ -224,4 +224,12 @@ public class ReportHomePage extends BaseClass {
     	delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
+    
+    public void iClickOnReportTextForPatientIDReports(String text){
+    	selectElementByTextDescByXpath("//div[label[text()='Patient ID']]/following-sibling::div/a", text);
+    }
+    
+    public void iShouldSeeEpisodeWithDRGIssueReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
 }

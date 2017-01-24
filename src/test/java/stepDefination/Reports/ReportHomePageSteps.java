@@ -281,6 +281,16 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(tile);
     }
     
+    @Then("^I click on \"([^\"]*)\" report text for Patient ID Reports$")
+    public void i_click_on_report_text_for_Patient_ID_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForPatientIDReports(text);
+    }
+
+    @Then("^I should see Episode with DRG issue reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Episode_with_DRG_issue_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeEpisodeWithDRGIssueReportsColumnTileTextAs(tile);
+    }
+
     @Then("^I should see Next site of care reports column Tile text as \"([^\"]*)\"$")
     public void i_should_see_Next_site_of_care_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeNextSiteOfCareReportsColumnTileTextAs(tile);
@@ -300,5 +310,4 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_Next_site_of_care_summary_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeNextSiteOfCareSummaryReportsColumnTileTextAs(tile);
     }
-
 }
