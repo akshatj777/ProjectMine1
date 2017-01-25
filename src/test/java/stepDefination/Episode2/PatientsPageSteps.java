@@ -2,6 +2,8 @@ package stepDefination.Episode2;
 
 import com.remedy.Episode2.PatientsPage;
 import com.remedy.resources.DriverScript;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
@@ -53,8 +55,735 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I should see patient searched result contains \"([^\"]*)\" on patients page$")
     public void i_should_see_patient_searched_result_contains_on_patient_page(String patientText) throws Throwable {
         patientsPage.iVerifyPatientSearchedResultContainsTextOnPatientPage(patientText);
+    }
 
+    @Then("^I should see Filters button present on patients page$")
+    public void i_should_see_filter_button_present_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementTextPresentOnPatientPage(By.xpath("//button[span[span[contains(text(),'Filters')]]]"),"Filter");
+    }
+
+    @Then("^I should see \"([^\"]*)\" as placeholder for search on patients page$")
+    public void i_Should_See_As_Placeholder_For_Search_On_Patient_Page(String patientText) throws Throwable {
+        patientsPage.iVerifySeeAsPlaceholderForSearchOnPatientPage(patientText);
+    }
+
+    @Then("^I should see the total patient count on patient page$")
+    public void i_should_see_the_total_patient_count_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementPresentOnPatientPage(By.cssSelector("div.ng-scope>div>strong.ng-binding"));
+    }
+
+    @Then("^I should see Export feature present on patient page$")
+    public void i_should_see_export_feature_present_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementPresentOnPatientPage(By.cssSelector(".export-link>a"));
+        patientsPage.iVerifyElementTextPresentOnPatientPage(By.cssSelector(".export-link>a"), "Export");
+    }
+
+    @Then("^I should see Sort by feature is present on patient page$")
+    public void i_should_see_Sortby_feature_present_on_patient_page() throws Throwable {
+        patientsPage.iVerifyElementTextPresentOnPatientPage(By.xpath("//strong[@class='sort-select-label']"),"Sort by:");
+    }
+
+    @Then("^I should see Refresh button is present on patient page$")
+    public void i_should_see_Refresh_button_is_present() throws Throwable {
+        patientsPage.iVerifyElementPresentOnPatientPage(By.cssSelector("button.btn-reload"));
+    }
+
+    @Then("^I verify Add Patient button is present on patients page$")
+    public void i_verify_Add_Patient_button_is_present_on_patients_page() throws Throwable {
+        patientsPage.iVerifyElementPresentOnPatientPage(By.xpath("//button[contains(text(),'Add Patient')]"));
+    }
+
+    @Then("^I verify \"([^\"]*)\" Patient Cards are present on patients page$")
+    public void i_verify_Patient_Cards_are_present_on_patients_page(int Count) throws Throwable {
+        patientsPage.iVerifyCountOFPatientCardsArePresentOnPatientsPage(Count);
+    }
+
+    @When("^I click on \"([^\"]*)\" worklist filter options on the patients page$")
+    public void i_click_on_worklist_filter_option_on_the_patients_page(String worklistFilter) throws Throwable {
+        patientsPage.iClickOnWorkistFilterOptionsOnPatientsPage(worklistFilter);
+    }
+
+    @Then("^I should verify \"([^\"]*)\" worklist sub bar option is present on patients page$")
+    public void i_should_verify_worklist_sub_bar_option_on_the_patients_page(String worklistSubbar) throws Throwable {
+        patientsPage.iVerifyWorklistSubBarOptionsPresentOnPatientsPage(worklistSubbar);
+    }
+    
+    @Then("^I click on Done button present on the Filter Page$")
+    public void i_click_on_Done_button_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDoneButtonPresentOnTheFilterPage();
+    }
+
+    @When("^I click on Anchor Discharge Facility Filter present on Filter Page$")
+    public void i_click_on_Anchor_Discharge_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorDischargeFacilityFilterPresentOnTheFilterPage();
+    }
+    
+    @When("^I click on Anchor Discharge Facility dropdown to select the Facilty on the Filter Page$")
+    public void i_click_on_Anchor_Discharge_Facility_dropdown_to_select_the_Facilty_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorDischargeFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
+    }
+
+    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Discharge Facilty$")
+    public void i_type_in_the_search_field_to_search_the_Anchor_Discharge_Facilty(String Facility) throws Throwable {
+    	patientsPage.iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(Facility);
+    }
+
+    @When("^I select Stamford hospital checkbox present in the Filter Page$")
+    public void i_select_Stamford_hospital_checkbox_present_in_the_Filter_Page() throws Throwable {
+    	patientsPage.iSelectStamfordHospitalCheckboxPresentInTheFilterPage();
+    }
+    
+    @When("^I click on Anchor Facility Filter present on Filter Page$")
+    public void i_click_on_Anchor_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorFacilityFilterPresentInTheFilterPage();
+    }
+
+    @When("^I click on Anchor Facility dropdown to select the Facilty on the Filter Page$")
+    public void i_click_on_Anchor_Facility_dropdown_to_select_the_Facilty_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAnchorFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
+    }
+    
+    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Facility$")
+    public void i_type_in_the_search_field_to_search_the_Anchor_Facilty(String facility) throws Throwable {
+    	patientsPage.iTypeInTheSearchFieldToSearchTheAnchorFacilty(facility);
+    }
+    
+    @When("^I select Stamford hospital checkbox as Anchor Facility present in the Filter Page$")
+    public void i_select_Stamford_hospital_checkbox_as_Anchor_Facility_present_in_the_Filter_Page() throws Throwable {
+    	patientsPage.iSelectStamfordHospitalCheckboxAsAnchorFacilityPresentInTheFilterPage();
+    }
+
+    @Then("^I verify Medicare ID Filter is displayed under List of Filter Options$")
+    public void i_verify_Medicare_ID_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Payer Filter is displayed under List of Filter Options$")
+    public void i_verify_Payer_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyPayerFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Quality Metric Filter is displayed under List of Filter Options$")
+    public void i_verify_Quality_Metric_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+        patientsPage.iVerifyQualityMetricFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Readmission Count Filter is displayed under List of Filter Options$")
+    public void i_verify_Readmission_Count_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyReadmissionCountFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Risk Assessment Filter is displayed under List of Filter Options$")
+    public void i_verify_Risk_Assessment_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyRiskAssessmentFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify SSN Filter is displayed under List of Filter Options$")
+    public void i_verify_SSN_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifySSNFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Tags Filter is displayed under List of Filter Options$")
+    public void i_verify_Tags_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyTagFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Patient Name is present in the patient card header on patient page$")
+    public void i_verify_Patient_Name_is_present_in_the_patient_card_header_on_patient_page() throws Throwable {
+    	patientsPage.iVerifyPatientNameIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify DOB is present on the patient card header on the patient page$")
+    public void i_verify_DOB_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyDOBIsPresentInThePatientCardHeaderOnPatientPage();    
+    }
+    
+    @Then("^I verify Age is present on the patient card header on the patient page$")
+    public void i_verify_Age_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyAgeIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify Gender is present on the patient card header on the patient page$")
+    public void i_verify_Gender_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyGenderIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify SSN is present on the patient card header on the patient page$")
+    public void i_verify_SSN_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifySSNIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+
+    @Then("^I verify Expand button is present on the patient card header on the patient page$")
+    public void i_verify_Expand_button_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage();
+    }
+    
+    @Then("^I verify risk status is present on the patient card on the patient page$")
+    public void i_verify_risk_status_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyRiskStatusIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify current location is present on the patient card on the patient page$")
+    public void i_verify_current_location_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyCurrentLocationIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify anchor facility is present on the patient card on the patient page$")
+    public void i_verify_anchor_facility_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyAnchorFacilityIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify tags is present on the patient card on the patient page$")
+    public void i_verify_tags_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyTagsIsPresentOnThePatientCardOnPatientPage();
+    }
+
+    @Then("^I verify Quick Actions is present on the patient card on the patient page$")
+    public void i_verify_Quick_Actions_is_present_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage();
+    }
+    
+    @When("^I click on the Expand button on the patient card on the patient page$")
+    public void i_click_on_the_Expand_button_on_the_patient_card_on_the_patient_page() throws Throwable {
+    	patientsPage.iClickOnTheExpandButtonOnThePatientCardOnThePatientPage();
+    }
+
+    @Then("^I verify Quick action button \\(Add Clinical Document, New Task\\) is present on the patient summary page$")
+    public void i_verify_Quick_action_button_Add_Clinical_Document_New_Task_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyQuickActionButtonAddClinicalDocumentAndNewTaskIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Current Location is present on the patient summary page$")
+    public void i_Verify_Current_Location_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyCurrentLocationIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Anchor Facility is present on the patient summary page$")
+    public void i_Verify_Anchor_Facility_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyAnchorFacilityIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Account status is present on the patient summary page$")
+    public void i_Verify_Account_status_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyAccountStatusIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify MRNs is present on the patient summary page$")
+    public void i_Verify_MRNs_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyMRNsIsPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Onboarding Status is present on the patient summary page$")
+    public void i_Verify_Onboarding_Status_is_present_on_the_patient_summary_page() throws Throwable {
+        patientsPage.iVerifyOnboardingStatusIsPresentOnThePatientSummaryPage();
+    }
+
+    @When("^I Click on Onboarding Status present on the patient summary page$")
+    public void i_Click_on_Onboarding_Status_present_on_the_patient_summary_page() throws Throwable {
+    	 patientsPage.iClickOnOnboardingStatusPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Recalculate is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Recalculate_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyRecalculateIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Low Status is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Low_Status_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyLowStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify High Status is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_High_Status_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyHighStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Needs-Onboarding Status in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Needs_Onboarding_Status_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNeedsOnboardingStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Not-Onboarded Status is present in the Onboarding Dropdown on the patient summary page$")
+    public void i_Verify_Not_Onboarded_Status_is_present_in_the_Onboarding_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNotOnboardedStatusIsPresentInTheOnboardingDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Eligibility is present on the patient summary page$")
+    public void i_Verify_Eligibility_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyEligibilityIsPresentOnThePatientSummaryPage();
+    }
+
+    @When("^I Click on Eligibility present on the patient summary page$")
+    public void i_Click_on_Eligibility_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iClickOnEligibilityPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Run Service is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Run_Service_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyRunServiceIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Review Service Response is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Review_Service_Response_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyReviewServiceResponseIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Reset Payer section is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Reset_Payer_section_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyResetPayerSectionIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Eligible is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Eligible_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyEligibleIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Not Eligible is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Not_Eligible_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNotEligibleIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Not Eligible ESRD is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Not_Eligible_ESRD_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Error is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Error_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyErrorIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Expired is present in the Eligibility Dropdown on the patient summary page$")
+    public void i_Verify_Expired_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyExpiredIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
+    }
+
+    @Then("^I Verify Tags is present on the patient summary page$")
+    public void i_Verify_Tags_is_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyTagsIsPresentOnThePatientSummaryPage();
+    }
+    
+    @When("^I click on Hide Summary button present on the patient summary page$")
+    public void i_click_on_Hide_Summary_button_present_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iClickOnHideSummaryButtonPresentOnThePatientSummaryPage();
+    }
+
+    @Then("^I verify that only Card header information is displayed on the patient summary page$")
+    public void i_verify_that_only_Card_header_information_is_displayed_on_the_patient_summary_page() throws Throwable {
+    	patientsPage.iVerifyThatOnlyCardHeaderInformationIsDisplayedOnThePatientSummaryPage();
+    }
+    
+    @Then("^I click on the gear icon present on the patient overview page\\.$")
+    public void i_click_on_the_gear_icon_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnTheGearIconPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Edit button is present on the patient overview page$")
+    public void i_verify_Edit_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyEditButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Delete button is present on the patient overview page$")
+    public void i_verify_Delete_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyDeleteButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Assign button is present on the patient overview page$")
+    public void i_verify_Assign_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyAssignButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Attach Note button is present on the patient overview page$")
+    public void i_verify_Attach_Note_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyAttachNoteButtonIsPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Start CARL Tool button is present on the patient overview page$")
+    public void i_verify_Start_CARL_Tool_button_is_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyStartCARLToolButtonIsPresentOnThePatientOverviewPage();
+    }
+    
+    @When("^I click on Edit option present under gear icon present on the transition table$")
+    public void i_click_on_Edit_option_present_under_gear_icon_present_on_the_transition_table() throws Throwable {
+    	patientsPage.iClickOnEditOptionPresentUnderGearIconDropdownMenuPresentOnTheTransitionTable();
+    }
+
+    @Then("^I verify Transition Info is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Transition_Info_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyTransitionInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Diagnosis and DRG is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Diagnosis_and_DRG_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyDiagnosisAndDRGIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Treatment Info is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Treatment_Info_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyTreatmentInfoIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify Comment is present under Transition Tab present on the patient overview page$")
+    public void i_verify_Comment_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyCommentIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify TCRN Checklist is present under Transition Tab present on the patient overview page$")
+    public void i_verify_TCRN_Checklist_is_present_under_Transition_Tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iVerifyTCRNChecklistIsPresentUnderTransitionTabPresentOnThePatientOverviewPage();
+    }
+    
+    @When("^I click on Diagnosis and DRG tab present on the patient overview page$")
+    public void i_click_on_Diagnosis_and_DRG_tab_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnDiagnosisAndDRGTabPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I verify ICD is present in the Diagnosis and DRG tab$")
+    public void i_verify_ICD_is_present_in_the_Diagnosis_and_DRG_tab() throws Throwable {
+    	patientsPage.iVerifyICDIsPresentInTheDiagnosisAndDRGTab();
+    }
+
+    @Then("^I verify Predict DRG is present in the Diagnosis and DRG tab$")
+    public void i_verify_Predict_DRG_is_present_in_the_Diagnosis_and_DRG_tab() throws Throwable {
+    	patientsPage.iVerifyPredictDRGIsPresentInTheDiagnosisAndDRGTab();
+    }
+
+    @Then("^I verify Add a New DRG is present in the Diagnosis and DRG tab$")
+    public void i_verify_Add_a_New_DRG_is_present_in_the_Diagnosis_and_DRG_tab() throws Throwable {
+    	patientsPage.iVerifyAddANewDRGIsPresentInTheDiagnosisAndDRGTab();
+    }
+    
+    @When("^I click on DRG Type to Add a New DRG present on the patient overview page$")
+    public void i_click_on_DRG_Type_to_Add_a_New_DRG_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnDRGTypeToAddANewDRGPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I select Possible from the DRG type dropdown present on the patient overview page$")
+    public void i_select_Possible_from_the_DRG_type_dropdown_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I Click on DRG dropdown menu present on the patient overview page$")
+    public void i_Click_on_DRG_dropdown_menu_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnDRGDropdownMenuPresentOnThePatientOverviewPage();
+    }
+    
+    @Then("^I Search DRG (\\d+) on the search box on the DRG present on the patient overview page$")
+    public void i_Search_DRG_on_the_search_box_on_the_DRG_present_on_the_patient_overview_page(int DRG) throws Throwable {
+    	patientsPage.iSearchDRGOnTheSearchBoxOnTheDRGPresentOnThePatientOverviewPage(DRG);
+    }
+
+    @Then("^I select RESPIRATORY INFECTIONS & INFLAMATIONS from the DRG list present on the patient overview page$")
+    public void i_select_RESPIRATORY_INFECTIONS_INFLAMATIONS_from_the_DRG_list_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iSelectRespiratoryInfectionsInflationsFromTheDRGListPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I click on Update Transition button present on the patient overview page$")
+    public void i_click_on_Update_Transition_button_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
+    }
+    
+    @When("^I click on Last Name present on the Filter Page$")
+    public void i_click_on_Last_Name_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnLastNamePresentOnTheFilterPage();
+    }
+
+    @When("^I click on export button present on the Patient Page$")
+    public void i_click_on_export_button_present_on_the_Patient_Page() throws Throwable {
+    	patientsPage.iClickOnExportButtonPresentOnThePatientPage();
+    }
+
+    @When("^I click on Select All checkbox present on the Patient Page$")
+    public void i_click_on_Select_All_checkbox_present_on_the_Patient_Page() throws Throwable {
+    	patientsPage.iClickOnSelectAllCheckboxPresentOnThePatientPage();
+    }
+
+    @When("^I click on Export button present on the Patient Page to export the Patient List$")
+    public void i_click_on_Export_button_present_on_the_Patient_Page_to_export_the_Patient_List() throws Throwable {
+    	patientsPage.iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList();
+    }
+    
+    @When("^I click on Filter button present on Patient Page$")
+    public void i_click_on_Filter_button_present_on_Patient_Page() throws Throwable {
+    	patientsPage.iClickOnFilterButtonPresentOnPatientPage();
+    }
+
+    @When("^I click on Filters button present on Filter Page$")
+    public void i_click_on_Filters_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnFiltersButtonPresentOnFilterPage();
+    }
+
+    @Then("^I verify Admit Reason Filter is displayed under List of Filter Options$")
+    public void i_verify_Admit_Reason_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions();
+    }
+    
+    @Then("^I verify Anchor Discharge Facility Filter is displayed under List of Filter Options$")
+    public void i_verify_Anchor_Discharge_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions();
+    }
+
+    @Then("^I verify the total number of patients present on the Patients Page$")
+    public void i_verify_the_total_number_of_patients_present_on_the_Patients_Page() throws Throwable {
+    	patientsPage.iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage();
+    }
+    
+    @Then("^I verify Anchor Facility Filter is displayed under List of Filter Options$")
+    public void i_verify_Anchor_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Care Plan Filter is displayed under List of Filter Options$")
+    public void i_verify_Care_Plan_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Care Setting Filter is displayed under List of Filter Options$")
+    public void i_verify_Care_Setting_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions();
+    }
+
+    @Then("^I verify Cooperation Metric Filter Filter is displayed under List of Filter Options$")
+    public void i_verify_Cooperation_Metric_Filter_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Current Facility Filter is displayed under List of Filter Options$")
+    public void i_verify_Current_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+        patientsPage.iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Daily Report Filter is displayed under List of Filter Options$")
+    public void i_verify_Daily_Report_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Date Range Filter is displayed under List of Filter Options$")
+    public void i_verify_Date_Range_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify DRG Type Filter is displayed under List of Filter Options$")
+    public void i_verify_DRG_Type_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    @Then("^I verify Eligibility Filter is displayed under List of Filter Options$")
+    public void i_verify_Eligibility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Episode DRG Filter is displayed under List of Filter Options$")
+    public void i_verify_Episode_DRG_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Episode Status Filter is displayed under List of Filter Options$")
+    public void i_verify_Episode_Status_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Date Range is selected as default filter under Filter options$")
+    public void i_verify_Date_Range_is_selected_as_default_filter_under_Filter_options() throws Throwable {
+    	patientsPage.iVerifyDateRangeIsSelectedAsDefaultFilterUnderFilterOptions();
+    }
+
+    @Then("^I verify Care Setting is selected as default filter under Filter options$")
+    public void i_verify_Care_Setting_is_selected_as_default_filter_under_Filter_options() throws Throwable {
+    	patientsPage.iVerifyCareSettingIsSelectedAsDefaultFilterUnderFilterOptions();
+    }
+
+    @Then("^I verify Initiator is selected as default filter under Filter options$")
+    public void i_verify_Initiator_is_selected_as_default_filter_under_Filter_options() throws Throwable {
+    	patientsPage.iVerifyInitiatorIsSelectedAsDefaultFilterUnderFilterOptions();
+    }
+    
+    @Then("^I verify First Name Filter is displayed under List of Filter Options$")
+    public void i_verify_First_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Gender Filter is displayed under List of Filter Options$")
+    public void i_verify_Gender_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Initiator Filter is displayed under List of Filter Options$")
+    public void i_verify_Initiator_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyInitiatorFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Inpatient Location Filter is displayed under List of Filter Options$")
+    public void i_verify_Inpatient_Location_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify Last Name Filter is displayed under List of Filter Options$")
+    public void i_verify_Last_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" filter is displayed under list of filter options$")
+    public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(String arg1) throws Throwable {   
+    }
+    
+    @When("^I click on Admit Reason Filter present on Filter Page$")
+    public void i_click_on_Admit_Reason_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnAdmitReasonFilterPresentOnFilterPage();
+    }
+
+    @When("^I type \"([^\"]*)\" in the search field on patients page$")
+    public void i_type_in_the_search_field_on_patients_page(String admitReason) throws Throwable {
+        patientsPage.i_type_in_the_search_field_on_patients_page(admitReason);
+    }
+    
+    @When("^I click on Care Plan Filter present on Filter Page$")
+    public void i_click_on_Care_Plan_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCarePlanFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on created radio button present on Filter Page$")
+    public void i_click_on_created_radio_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCreatedRadioButtonPresentOnFilterPage();
+    }
+    
+    @Then("^I click on Inpatient checkbox under care setting present on the Filter Page$")
+    public void i_click_on_Inpatient_checkbox_under_care_setting_present_on_the_Filter_Page() throws Throwable {
+        patientsPage.iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage();
+    }
+    
+    @Then("^I verify Cooperation Metric Filter is displayed under List of Filter Options$")
+    public void i_verify_Cooperation_Metric_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions();
+    }
+    @When("^I click on Cooperation Metric Filter present on Filter Page$")
+    public void i_click_on_Cooperation_Metric_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCooperationMetricFilterPresentOnTheFilterPage();
+    }
+
+    @When("^I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page$")
+    public void i_Click_on_Not_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage();
+    }
+    
+    @When("^I click on Current Facility Filter present on Filter Page$")
+    public void i_click_on_Current_Facility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCurrentFacilityFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on Current Facility dropdown present on Filter Page$")
+    public void i_click_on_Current_Facility_dropdown_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnCurrentFacilityDropdownPresentOnFilterPage();
+    }
+    
+    @When("^I click on Daily Report Filter present on Filter Page$")
+    public void i_click_on_Daily_Report_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDailyReportFilterPresentOnFilterPage();
+    }
+
+    @When("^I click on Inpatient Episodes radio button present on Filter Page$")
+    public void i_click_on_Inpatient_Episodes_radio_button_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnInpatientEpisodesRadioButtonPresentOnFilterPage();
+    }
+    
+    @When("^I click on Date Range dropdown present on Filter Page$")
+    public void i_click_on_Date_Range_dropdown_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDateRangeDropdownPresentOnFilterPage();
+    }
+
+    @Then("^I click on (\\d+) Days present on the filter page$")
+    public void i_click_on_Days_present_on_the_filter_page(int days) throws Throwable {
+    	patientsPage.iClickOnDaysresentPresentOnFilterPage(days);
+    }
+
+    @When("^I click on Add Patient button present on the patients page$")
+    public void i_click_on_Add_Patient_button_present_on_the_patients_page() throws Throwable {
+        patientsPage.iClickOnAddPatientButtonPresentOnThePatientsPage();
+    }
+
+    @Then("^I enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
+    public void i_enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName",firstname);
+    }
+
+    @Then("^I enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
+    public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName",lastname);
+    }
+
+    @Then("^I enter date of birth \"([^\"]*)\" present on the Add Patient Page$")
+    public void i_enter_date_of_birth_present_on_the_Add_Patient_Page(String dateOfBirth) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("dob",dateOfBirth);
+    }
+
+    @Then("^I selected \"([^\"]*)\" from the gender drop down list present on the Add Patient page$")
+    public void i_selected_from_the_gender_drop_down_list_present_on_the_Add_Patient_page(String gender) throws Throwable {
+        patientsPage.iSelecteOptionFromDropdownListPresentOnTheAddPatientPage("gender", gender);
+    }
+
+    @When("^I click on Admitting Facility present on the Add Patient page$")
+    public void i_click_on_Admitting_Facility_present_on_the_Add_Patient_page() throws Throwable {
+        patientsPage.iClickOnAdmittingFacilityPresentOnTheAddPatientPage();
+    }
+
+    @When("^I Select \"([^\"]*)\" from the list of admitting facility present on the Add Patient page$")
+    public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
+        patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
+    }
+
+    @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
+    public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
+        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
+    }
+
+    @Then("^I click on the next button present on the Add Patient page$")
+    public void i_click_on_the_next_button_present_on_the_Add_Patient_page() throws Throwable {
+        patientsPage.iClickOnTheNextButtonPresentOnTheAddPatientPage();
+    }
+
+    @When("^I click on Calender button present on the Add Patient page$")
+    public void i_click_on_Calender_button_present_on_the_Add_Patient_page() throws Throwable {
+        patientsPage.iClickOnCalenderButtonPresentOnTheAddPatientPage();
+    }
+
+    @When("^I select today's date as the admission date$")
+    public void i_select_today_s_date_as_the_admission_date() throws Throwable {
+        patientsPage.iSelectTodaysDateAsTheAdmissionDate();
+    }
+
+    @When("^I select \"([^\"]*)\" from admission care type drop down menu present on Add Patient page$")
+    public void i_select_from_the_care_type_drop_down_menu_present_on_the_Add_Patient_page(String careType) throws Throwable {
+        patientsPage.iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(careType);
+    }
+
+    @When("^I click on Add Transition button present on the Add Patient page$")
+    public void i_click_on_Add_Transition_button_present_on_the_Add_Patient_page() throws Throwable {
+    	patientsPage.iClickOnAddTransitionButtonPresentOnTheAddPatientPage();
+    }
+
+    @When("^I click on Agree button present on the Attestation page$")
+    public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
+        // open bug
+        // throw new PendingException();
+    }
+
+    @And("^I switch to Add Patient embedded iframe$")
+    public void iSwitchToAddPatientEmbeddedIframe() throws Throwable {
+        patientsPage.iSwitchToAddPatientEmbeddedIframe();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" text is present on the add patient page$")
+    public void i_verify_text_is_present_on_the_add_patient_page(String text) throws Throwable {
+    	patientsPage.iVerifyTextIsPresentOnTheAddPatientPage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\"  is present \"([^\"]*)\" on the transition page$")
+    public void i_verify_is_present_on_the_transition_page(String text, String columnName) throws Throwable {
+    	patientsPage.iVerifyIsPresentOnTheTransitionPage(text, columnName);
     }
 
 
+    @Then("^I verify Admit Date is present on the transition page$")
+    public void i_verify_Admit_Date_is_present_on_the_transition_page() throws Throwable {
+    	patientsPage.iVerifyAdmitDateIsPresentOnTheTransitionPage();
+    }   
 }
