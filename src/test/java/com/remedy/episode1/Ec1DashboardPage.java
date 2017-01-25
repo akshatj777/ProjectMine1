@@ -60,6 +60,17 @@ public class Ec1DashboardPage extends BaseClass{
 
 
     }
+    
+    public void iShouldSeeUserProfileIconOnProductTilePage(){
+    	isElementVisible(driver.findElement(By.cssSelector("menu-toggle.flex-right")));
+    }
+    
+    public void iClickOnTheUserProfileIconPresentOnTheProductTilePage(){
+        clickElement(driver.findElement(By.cssSelector("menu-toggle.flex-right")));
+    }
+    public void iClickOnLogoutButtonPresentOnTheUserProfileDropDown(){
+    	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")));
+    }
 
 
 }

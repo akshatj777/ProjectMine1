@@ -52,4 +52,19 @@ public class EC1DashboardSteps extends DriverScript {
 
         ec1Dashboard.iverifyEc1DashboardHeaderText(header);
     }
+    
+    @Then("^I should see user profile icon on product tile page$")
+    public void i_should_see_user_profile_icon_on_product_tile_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeUserProfileIconOnProductTilePage();
+    }
+
+    @Then("^I click on the user profile icon present on the product tile page$")
+    public void i_click_on_the_user_profile_icon_present_on_the_product_tile_page() throws Throwable {
+    	ec1Dashboard.iClickOnTheUserProfileIconPresentOnTheProductTilePage();
+    }
+
+    @Then("^I click on Logout button present on the user profile drop down$")
+    public void i_click_on_Logout_button_present_on_the_user_profile_drop_down() throws Throwable {
+    	ec1Dashboard.iClickOnLogoutButtonPresentOnTheUserProfileDropDown();
+    }
 }
