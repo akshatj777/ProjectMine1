@@ -174,45 +174,53 @@ public class ReportHomePage extends BaseClass {
 
     public void iClickOnReportTextForReadmissionsReports(String text){
         selectElementByTextDescByXpath("//div[label[text()='Readmissions']]/following-sibling::div/a", text);
-        longDelay();
     }
 
     public void iShouldSeeReadmissionReportsColumnTileTextAs(String text) {
-        delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 
     public void iClickOnReportTextForPhysicianReports(String text){
         selectElementByTextDescByXpath("//div[label[text()='Physician']]/following-sibling::div/a", text);
-        longDelay();
     }
 
     public void iShouldSeeVolumeReportsColumnTileTextAs(String text) {
-        delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
 
     public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
-        longDelay();
     }
 
     public void iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(String tile) {
-        delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
 
     public void iShouldSeeSnfPerformanceReportsColumnTileTextAs(String tile){
-    	delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
 
     public void iShouldSeeSpendingReportsColumnTileTextAs(String text) {
-        delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", text);
     }
     
     public void iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+    
+    public void iShouldSeeNextSiteOfCareReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+    
+    public void iClickOnReportTextForNSoCReports(String text){
+    	selectElementByTextDescByXpath("//div[label[text()='NSoC']]/following-sibling::div/a", text);
+    }
+    
+    public void iSelectFromTheDropdownListOnTheFilterPage(String range){
+    	selectDropdownVisibleElement("#FT_rangeOp", range);
+    }
+    
+    public void iShouldSeeNextSiteOfCareSummaryReportsColumnTileTextAs(String tile){
     	delay();
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
@@ -220,7 +228,17 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnReportTextForPatientIDReports(String text){
         selectElementByTextDescByXpath("//div[label[text()='Patient ID']]/following-sibling::div/a", text);
     }
+
     public void iShouldSeeEpisodeAvgDayToDRGReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
+
+    public void iShouldSeeEpisodeWithDRGIssueReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+
+    public void iShouldSeeReadmissionsReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
 }
+

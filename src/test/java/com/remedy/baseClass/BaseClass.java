@@ -50,7 +50,7 @@ public class BaseClass {
         }
     }
 
-    public boolean isElementVisible(final WebElement ele) {
+    public boolean isElementVisible (final WebElement ele) {
         long start = System.currentTimeMillis();
         while (true) {
             if (ele.isDisplayed()) {
@@ -231,12 +231,12 @@ public class BaseClass {
 
     }
 
-    public  void swithToFrame (String element){
+    public void swithToFrame (String element){
 
         driver.switchTo().frame(driver.findElement(By.xpath(element)));
     }
 
-
+   
 
 
     public void switchToNewWindow(){
@@ -351,9 +351,26 @@ public class BaseClass {
         String attr = element.getAttribute(attribute);
         Assert.assertTrue(attr.contains(contains));
     }
+    
+    public boolean isElementPresentOnPage(By locatorKey) {
+    	boolean value = true;
+    	try {
+            driver.findElement(locatorKey);
+            
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+        	value = false;
+        }
+//    	System.out.println(value);
+		return value;		
+    }
 
-
-
+    public void switchToFrameByNameOrId(String nameOrId){
+    	driver.switchTo().frame(nameOrId);
+    }
+    
+    public void switchToParentFrame(){
+    driver.switchTo().parentFrame();
+    }
 }
 
 

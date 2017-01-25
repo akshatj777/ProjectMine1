@@ -2,7 +2,7 @@ Feature: Episode 2.0 dashboard
 
   Scenario: User can see ec2 patients page and navigate to different fil
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field admin.user@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -37,3 +37,18 @@ Feature: Episode 2.0 dashboard
     When I select "table" view on patients page
     And I wait for 4000 milli seconds
     And I should see "table" view as active view on patients page
+
+  Scenario: verify element present in the control bar
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    And I wait for 4000 milli seconds
+    Then I verify current page "Remedy Partners" title
+    Then I should see the total patient count on patient page
+    And I should see Export feature present on patient page
+    And I should see Sort by feature is present on patient page
+    And I should see Refresh button is present on patient page
