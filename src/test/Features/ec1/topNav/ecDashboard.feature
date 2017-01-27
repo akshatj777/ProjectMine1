@@ -1,6 +1,6 @@
 Feature: Episode Connect dashboard
 
-  Scenario: User can navigate to episode connect dashboard
+  Scenario Outline: User can navigate to episode connect dashboard
   
    Given I am on the login page
  	 When I enter email field <email> for login
@@ -24,10 +24,10 @@ Feature: Episode Connect dashboard
    Then I should see "Admin Center" in the left navigator present on the episode dashboard page
    Then I should see refresh button is present on the episode dashboard page
    
+   Then I should see user profile icon on the episode dashboard page 
    When I move the mouse to user profile icon
    And I click on return on remedy connect present on the user profile dropdown
-   And I wait for 5000 milli seconds
-   Then I should be navigated to product tile page 
+   And I wait for 5000 milli seconds 
    Then I should see user profile icon on product tile page
    Then I click on the user profile icon present on the product tile page
    And I click on Logout button present on the user profile drop down

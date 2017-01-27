@@ -71,6 +71,42 @@ public class Ec1DashboardPage extends BaseClass{
     public void iClickOnLogoutButtonPresentOnTheUserProfileDropDown(){
     	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")));
     }
+    
+    public void iShouldSeeAlertsPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_notification_bar")));
+    }
 
+    public void iShouldSeeMessegesPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_inbox_bar")));
+    }
+    
+    public void iShouldSeeNotificationsPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_task_count_bar")));
+    }
+    
+    public void iShouldSeeUserProfilePresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("span.username")));
+    }
+    
+    public void iShouldSeeInTheLeftNavigatorPresentOnTheEpisodeDashboardPage(String text){
+    	isElementVisible(driver.findElement(By.xpath("//span[@class='title'and text()='Dashboard']")));
+    }
+    
+    public void iShouldSeeRefreshButtonIsPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a.refreshPatientsListContainer")));
+    }
+    
+    public void iShouldSeeUserProfileIconOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("span.username")));
+    }
+    
+    public void iMoveTheMouseToUserProfileIcon(){
+    	moveToTheElement(driver.findElement(By.cssSelector("span.username")));
+    }
+    
+    public void iClickOnReturnOnRemedyConnectPresentOn_TheUserProfileDropdown(){
+    	clickElement(driver.findElement(By.cssSelector("a#navbar-dropdown-menu-logout")));
+    }
+    
 
 }
