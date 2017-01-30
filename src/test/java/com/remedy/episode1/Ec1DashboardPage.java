@@ -108,5 +108,97 @@ public class Ec1DashboardPage extends BaseClass{
     	clickElement(driver.findElement(By.cssSelector("a#navbar-dropdown-menu-logout")));
     }
     
-
+    public void iClickOnNotificationButtonPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	clickElement(driver.findElement(By.cssSelector("li#header_task_count_bar")));
+    }
+    
+    public void iClickOnSeeAllTaskButtonPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	clickElement(driver.findElement(By.cssSelector("li#header_task_count_bar ul.dropdown-menu.extended.inbox>li:nth-child(2)")));
+    }
+    
+    public void iShouldSeeTasksPresentOnTheTaskOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("span#inboxTitle")));
+    }
+    
+    public void iClickOnCreateANewTaskButtonPresentOnTheTaskOverviewPage(){
+    	clickElement(driver.findElement(By.cssSelector("a.compose-btn")));
+    }
+    
+    public void iShouldSeeNewTaskPresentOnTheCreateNewTaskTaskPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("div.inbox-header>h1")));
+    }
+    
+    public void iShouldSeeCreateContinueButtonPresentOnTheCreateNewTaskTaskPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("button.submitButton")));
+    }
+    
+    public void iShouldSeeCancelButtonPresentOnTheCreateNewTaskTaskPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("button.btn.close-btn")));
+    }
+    
+    public void iClickOnCalenderIconPresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector("button.btn.default.date-set")));
+    }
+    
+    public void iSelectDateFromTheCalenderPresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector(".day.active")));
+    	clickElement(driver.findElement(By.cssSelector(".hour.active")));
+    	clickElement(driver.findElement(By.cssSelector(".minute.active")));
+    }
+    
+    public void iTypeAsTheTaskDescriptionPresentOnTheCreateNewTaskTaskPage(String text){
+    	iFillInText(driver.findElement(By.cssSelector("#ec_taskbundle_ectasktype_text")), text);
+    }
+    
+    public void iClickOnTaskTypePresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector("select#ec_taskbundle_ectasktype_type")));
+    }
+    
+    public void iSelectFromTheTaskTypeDropdownList(String taskType){
+    	selectDropdownVisibleElement("select#ec_taskbundle_ectasktype_type", taskType);
+    }
+    
+    public void iClickOnPriorityPresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector("select#ec_taskbundle_ectasktype_priority")));
+    }
+    
+    public void iSelecFromThePriorityDropdownList(String priority){
+    	selectDropdownVisibleElement("select#ec_taskbundle_ectasktype_priority", priority);
+    }
+    
+    public void iClickOnThePatientNamePresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector("a.select2-choice.select2-default")));
+    }
+    
+    public void iTypeInThePatientSearchBox(String patientName){
+    	iFillInText(driver.findElement(By.cssSelector("input.select2-input")), patientName);
+    }
+    
+    public void iSelectPatientFromTheSearchListPresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.select2-search~ul>li:nth-child(1)")));
+    }
+    
+    public void iClickOnTheCreateContinueButtonPresentOnTheCreateNewTaskTaskPage(){
+    	clickElement(driver.findElement(By.cssSelector("button.submitButton")));
+    }
+    
+    public void iShouldSeeAllTaskButtonPresentOnTheNotificationDropdownMenu(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_task_count_bar ul.dropdown-menu.extended.inbox>li:nth-child(2)")));
+    }
+    
+    public void iShouldSeeCreateANewTaskButtonIsPresentOnTheTaskOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a.compose-btn")));
+    }
+    
+    public void iShouldSeeMyTasksButtonIsPresentOnTheTaskOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("ul#tasks-nav>li:nth-child(2)>a")));
+    }
+    
+    public void iShouldSeeIsPresentOnTheTaskOverviewPage(String tabs){
+    	isElementVisible(driver.findElement(By.cssSelector("a[my-task-tasktype="+tabs+"]")));
+    }
+    
+    public void iClickOnTheCheckboxToAssignTheCareTeam(){
+    	clickElement(driver.findElement(By.cssSelector("input[type=checkbox]")));
+    }
 }
