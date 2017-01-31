@@ -700,15 +700,15 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAddPatientButtonPresentOnThePatientsPage();
     }
 
-    @Then("^I enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
-    public void i_enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
-        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName",firstname);
-    }
-
-    @Then("^I enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
-    public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
-        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName",lastname);
-    }
+//    @Then("^I enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
+//    public void i_enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
+//        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName",firstname);
+//    }
+//
+//    @Then("^I enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
+//    public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
+//        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName",lastname);
+//    }
 
     @Then("^I enter date of birth \"([^\"]*)\" present on the Add Patient Page$")
     public void i_enter_date_of_birth_present_on_the_Add_Patient_Page(String dateOfBirth) throws Throwable {
@@ -730,10 +730,10 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
     }
 
-    @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
-    public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
-        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
-    }
+//    @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
+//    public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
+//        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
+//    }
 
     @Then("^I click on the next button present on the Add Patient page$")
     public void i_click_on_the_next_button_present_on_the_Add_Patient_page() throws Throwable {
@@ -786,4 +786,35 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_Admit_Date_is_present_on_the_transition_page() throws Throwable {
     	patientsPage.iVerifyAdmitDateIsPresentOnTheTransitionPage();
     }   
+    
+    @Then("^I enter ([^\"]*) in the first name text box present on the Add Patient page$")
+    public void i_enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
+    	patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName",firstname);
+    }
+
+    @Then("^I enter  ([^\"]*) in the last name text box present on the Add Patient page$")
+    public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
+    	patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName",lastname);
+    }
+
+    @When("^I enter ([^\"]*) in the Medicare ID present on the Add Patient page$")
+    public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
+    	patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
+    }
+
+    @Then("^I enter ([^\"]*) in the search text box present on the patients page$")
+    public void i_enter_in_the_search_text_box_present_on_the_patients_page(String firstname) throws Throwable {
+    	patientsPage.iEnterInTheSearchTextBoxPresentOnTheAddPatientPage(firstname);
+    }
+    
+    @Then("^I verify ([^\"]*) and ([^\"]*) is displayed on the patient card$")
+    public void i_verify_and_is_displayed_on_the_patient_card(String firstname, String lastname) throws Throwable {
+    	patientsPage.iVerifyAndIsDisplayedOnThePatientCard(firstname, lastname);
+    }
+
+    @Then("^I click on attestation button present on the patient card$")
+    public void i_click_on_attestation_button_present_on_the_patient_card() throws Throwable {
+    	patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
+    }
+
 }

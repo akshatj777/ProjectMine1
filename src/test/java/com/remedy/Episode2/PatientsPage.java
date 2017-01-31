@@ -606,5 +606,18 @@ public class PatientsPage extends BaseClass {
     public void iVerifyIsPresentOnTheTransitionPage(String text, String columnName){
     	isElementVisible(driver.findElement(By.xpath("//td[@class='"+columnName+"' and text()='"+text+"']")));
     }
+    
+    public void iEnterInTheSearchTextBoxPresentOnTheAddPatientPage(String firstname){
+        iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search Name']")), firstname);
+    }
+    
+    public void iVerifyAndIsDisplayedOnThePatientCard(String firstname, String lastname){
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"+firstname+"')]")));
+    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"+lastname+"')]")));
+    }
+    
+    public void iClickOnAttestationButtonPresentOnThePatientCard(){
+        clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope button.attestation-button")));
+    }
 }
 
