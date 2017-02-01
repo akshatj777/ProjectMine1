@@ -228,6 +228,71 @@ public class EC1DashboardSteps extends DriverScript {
     public void i_click_on_the_checkbox_to_assign_the_care_team() throws Throwable {
     	ec1Dashboard.iClickOnTheCheckboxToAssignTheCareTeam();
     }
+    
+    @Then("^I should see message icon present on the top-nav bar present on the episode dashboard page$")
+    public void i_should_see_message_icon_present_on_the_top_nav_bar_present_on_the_episode_dashboard_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeMessageIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage();
+    }
+
+    @When("^I click on message icon present on the top-nav bar present on the episode dashboard page$")
+    public void i_click_on_message_icon_present_on_the_top_nav_bar_present_on_the_episode_dashboard_page() throws Throwable {
+    	ec1Dashboard.iClickOnMessageIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage();
+    }
+
+    @Then("^I should see See all messages button present on the notification drop down menu$")
+    public void i_should_see_See_all_messages_button_present_on_the_notification_drop_down_menu() throws Throwable {
+    	ec1Dashboard.iShouldSeeSeeAllMessagesButtonPresentOnTheNotificationDropdownMenu();
+    }
+
+    @When("^I click on See all messages button present on the notification drop down menu$")
+    public void i_click_on_See_all_messages_button_present_on_the_notification_drop_down_menu() throws Throwable {
+    	ec1Dashboard.iClickOnSeeAllMessagesButtonPresentOnTheNotificationDropdownMenu();
+    }
+
+    @Then("^I should see Inbox present on the message overview page$")
+    public void i_should_see_Inbox_present_on_the_message_overview_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeInboxPresentOnTheMessageOverviewPage();
+    }
+
+    @Then("^I should see Compose button is present on the message overview page$")
+    public void i_should_see_Compose_button_is_present_on_the_message_overview_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeComposeButtonIsPresentOnTheMessageOverviewPage();
+    }
+
+    @Then("^I should see Inbox button is present on the message overview page$")
+    public void i_should_see_Inbox_button_is_present_on_the_message_overview_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeInboxButtonIsPresentOnTheMessageOverviewPage();
+    }
+
+    @Then("^I should see Sent button is present on the message overview page$")
+    public void i_should_see_Sent_button_is_present_on_the_message_overview_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeSentButtonIsPresentOnTheMessageOverviewPage();
+    }
+
+    @Then("^I should see Archive is present on the message overview page$")
+    public void i_should_see_Archive_is_present_on_the_message_overview_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeArchiveIsPresentOnTheMessageOverviewPage();
+    }
+    
+    @Then("^I click on gear icon present on the inbox page$")
+    public void i_click_on_gear_icon_present_on_the_inbox_page() throws Throwable {
+    	ec1Dashboard.iClickOnGearIconPresentOnTheInboxPage();
+    }
+
+    @Then("^I click on Move to archive present on the inbox page$")
+    public void i_click_on_Move_to_archive_present_on_the_inbox_page() throws Throwable {
+    	ec1Dashboard.iClickOnMoveToArchivePresentOnTheInboxPage();
+    }
+
+    @Then("^I click on the archive message present on the message page$")
+    public void i_click_on_the_archive_message_present_on_the_message_page() throws Throwable {
+    	ec1Dashboard.iClickOnTheArchiveMessagePresentOnTheMessagePage();
+    }
+
+    @Then("^I verify the message is present on the archive page$")
+    public void i_verify_the_message_is_present_on_the_archive_page() throws Throwable {
+    	ec1Dashboard.iVerifyTheMessageIsPresentOnTheArchivePage();
+    }
 
 
 

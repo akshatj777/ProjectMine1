@@ -201,4 +201,56 @@ public class Ec1DashboardPage extends BaseClass{
     public void iClickOnTheCheckboxToAssignTheCareTeam(){
     	clickElement(driver.findElement(By.cssSelector("input[type=checkbox]")));
     }
+    
+    public void iShouldSeeMessageIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_inbox_bar")));
+    }
+    
+    public void iClickOnMessageIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	clickElement(driver.findElement(By.cssSelector("li#header_inbox_bar")));
+    }
+    
+    public void iShouldSeeSeeAllMessagesButtonPresentOnTheNotificationDropdownMenu(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_inbox_bar li.external.last.inbox-path>a")));
+    }
+    
+    public void iClickOnSeeAllMessagesButtonPresentOnTheNotificationDropdownMenu(){
+    	clickElement(driver.findElement(By.cssSelector("li#header_inbox_bar li.external.last.inbox-path>a")));
+    }
+    
+    public void iShouldSeeInboxPresentOnTheMessageOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("h3.page-title>span:nth-child(1)")));
+    }
+    
+    public void iShouldSeeComposeButtonIsPresentOnTheMessageOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a[data-title='Compose']")));
+    }
+    
+    public void iShouldSeeInboxButtonIsPresentOnTheMessageOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a[data-title='Inbox']")));		
+    }
+    
+    public void iShouldSeeSentButtonIsPresentOnTheMessageOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a[data-title='Sent']")));		
+    }
+    
+    public void iShouldSeeArchiveIsPresentOnTheMessageOverviewPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a[data-title='Archive']")));		
+    }
+    
+    public void iClickOnGearIconPresentOnTheInboxPage(){
+    	clickElement(driver.findElement(By.cssSelector("div.table-scrollable>table>tbody>tr>td.settings-column>div>button")));
+    }
+    
+    public void iClickOnMoveToArchivePresentOnTheInboxPage(){
+    	clickElement(driver.findElement(By.cssSelector("a.move-to-archive-btn")));
+    }
+    
+    public void iClickOnTheArchiveMessagePresentOnTheMessagePage(){
+    	clickElement(driver.findElement(By.cssSelector("a[data-title='Archive']")));
+    }
+    
+    public void iVerifyTheMessageIsPresentOnTheArchivePage(){
+    	isElementVisible(driver.findElement(By.cssSelector("div.table-scrollable>table>tbody>tr:nth-child(1)")));		
+    }
 }

@@ -1,35 +1,35 @@
 Feature: Episode Connect Tasks
 
-  #Scenario Outline: User can navigate to episode connect Tasks 
-  #
-   #Given I am on the login page
- #	 When I enter email field <email> for login
-   #And I enter password field <password> for Login
-   #Then I click Access button
-   #And I wait for 2000 milli seconds
-   #Then I should see Tile text Episodes
-   #
-   #And I click on the "Episodes" tile
-   #And I switch to new window
-   #Then I should see Episode header text "Dashboard"
-   #Then I should see Notifications present on the top-nav bar present on the episode dashboard page
-   #When I click on Notification button present on the top-nav bar present on the episode dashboard page
-   #Then I should see all task button present on the notification drop down menu 
-   #When I click on see all task button present on the notification drop down menu
-   #And I wait for 7000 milli seconds 
-   #Then I should see Tasks present on the task overview page
-   #Then I should see Create a New Task button is present on the task overview page
-   #Then I should see My Tasks button is present on the task overview page
-   #Then I should see "pending" is present on the task overview page
-#	 Then I should see "today" is present on the task overview page
-   #Then I should see "overdue" is present on the task overview page
-   #Then I should see "completed" is present on the task overview page
-   #
-      #Examples:
-#
-      #|          email            |   password   |
-      #|  qa.admin@yopmail.com 		|   Episode1!  |
-      #
+  Scenario Outline: User can navigate to episode connect Tasks 
+  
+   Given I am on the login page
+ 	 When I enter email field <email> for login
+   And I enter password field <password> for Login
+   Then I click Access button
+   And I wait for 2000 milli seconds
+   Then I should see Tile text Episodes
+   
+   And I click on the "Episodes" tile
+   And I switch to new window
+   Then I should see Episode header text "Dashboard"
+   Then I should see Notifications present on the top-nav bar present on the episode dashboard page
+   When I click on Notification button present on the top-nav bar present on the episode dashboard page
+   Then I should see all task button present on the notification drop down menu 
+   When I click on see all task button present on the notification drop down menu
+   And I wait for 7000 milli seconds 
+   Then I should see Tasks present on the task overview page
+   Then I should see Create a New Task button is present on the task overview page
+   Then I should see My Tasks button is present on the task overview page
+   Then I should see "pending" is present on the task overview page
+	 Then I should see "today" is present on the task overview page
+   Then I should see "overdue" is present on the task overview page
+   Then I should see "completed" is present on the task overview page
+   
+      Examples:
+
+      |          email            |   password   |
+      |  qa.admin@yopmail.com 		|   Episode1!  |
+      
       
    Scenario Outline: User can create a new task from the task overview page
     
