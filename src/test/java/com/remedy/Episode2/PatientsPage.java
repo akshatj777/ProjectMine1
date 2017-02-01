@@ -548,38 +548,38 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary.pull-right")));
     }
 
-    public void iEnterDetailsInTextFieldPresentOnAddPatientModal(String detailFileds, String patientDetails){
-        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_"+detailFileds+"")), patientDetails);
+    public void iEnterDetailsInTextFieldPresentOnAddPatientModal(String detailFileds, String patientDetails) {
+        iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), patientDetails);
     }
 
-    public void iSwitchToAddPatientEmbeddedIframe(){
+    public void iSwitchToAddPatientEmbeddedIframe() {
         switchToFrameByNameOrId("iFrameEC2PatientAdd");
     }
 
-    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails){
-        clickElement(driver.findElement(By.cssSelector("#Patient_Details_"+detailFileds+"")));
-        selectDropdownVisibleElement("#Patient_Details_"+detailFileds+"", patientDetails);
+    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
+        clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
+        selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
     }
 
-    public void iClickOnAdmittingFacilityPresentOnTheAddPatientPage(){
+    public void iClickOnAdmittingFacilityPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("a.select2-choice.select2-default")));
     }
 
-    public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility){
-        iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")),facility);
+    public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
+        iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
         longDelay();
         clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
     }
 
-    public void iClickOnTheNextButtonPresentOnTheAddPatientPage(){
+    public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("button#submitButton")));
     }
 
-    public void iClickOnCalenderButtonPresentOnTheAddPatientPage(){
+    public void iClickOnCalenderButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_admitDate")));
     }
 
-    public void iSelectTodaysDateAsTheAdmissionDate(){
+    public void iSelectTodaysDateAsTheAdmissionDate() {
         clickElement(driver.findElement(By.cssSelector("td.day.active")));
         delay();
         clickElement(driver.findElement(By.cssSelector("span.hour.active")));
@@ -587,36 +587,37 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("span.minute.active")));
     }
 
-    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType){
-        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType",careType);
+    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType) {
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", careType);
     }
 
-    public void iClickOnAddTransitionButtonPresentOnTheAddPatientPage(){
+    public void iClickOnAddTransitionButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("button#submitButton")));
     }
-    
-    public void iVerifyTextIsPresentOnTheAddPatientPage(String text){
-    	isElementVisible(driver.findElement(By.xpath("//*[text()='"+text+"']")));
+
+    public void iVerifyTextIsPresentOnTheAddPatientPage(String text) {
+        isElementVisible(driver.findElement(By.xpath("//*[text()='" + text + "']")));
     }
-    
-    public void iVerifyAdmitDateIsPresentOnTheTransitionPage(){
-    	isElementVisible(driver.findElement(By.xpath("//td[@class='admit_date-column sorting_1']")));
+
+    public void iVerifyAdmitDateIsPresentOnTheTransitionPage() {
+        isElementVisible(driver.findElement(By.xpath("//td[@class='admit_date-column sorting_1']")));
 
     }
-    public void iVerifyIsPresentOnTheTransitionPage(String text, String columnName){
-    	isElementVisible(driver.findElement(By.xpath("//td[@class='"+columnName+"' and text()='"+text+"']")));
+
+    public void iVerifyIsPresentOnTheTransitionPage(String text, String columnName) {
+        isElementVisible(driver.findElement(By.xpath("//td[@class='" + columnName + "' and text()='" + text + "']")));
     }
-    
-    public void iEnterInTheSearchTextBoxPresentOnTheAddPatientPage(String firstname){
+
+    public void iEnterInTheSearchTextBoxPresentOnTheAddPatientPage(String firstname) {
         iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search Name']")), firstname);
     }
-    
-    public void iVerifyAndIsDisplayedOnThePatientCard(String firstname, String lastname){
-    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"+firstname+"')]")));
-    	isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"+lastname+"')]")));
+
+    public void iVerifyAndIsDisplayedOnThePatientCard(String firstname, String lastname) {
+        isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'" + firstname + "')]")));
+        isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'" + lastname + "')]")));
     }
-    
-    public void iClickOnAttestationButtonPresentOnThePatientCard(){
+
+    public void iClickOnAttestationButtonPresentOnThePatientCard() {
         clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope button.attestation-button")));
     }
 }

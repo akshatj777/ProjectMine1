@@ -1,6 +1,6 @@
 Feature: Episode 2.0 Add Patient
 
-  Scenario Outline: Adding a new patient in episode connect 2 
+  Scenario Outline: Adding a new patient in episode connect 2
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -13,13 +13,13 @@ Feature: Episode 2.0 Add Patient
     Then I verify current page "Remedy Partners" title
     Then I verify "20" Patient Cards are present on patients page
     Then I verify Add Patient button is present on patients page
-		
+
     When I click on Add Patient button present on the patients page
     And I wait for 15000 milli seconds
     Then I verify "Add Patient" text is present on the add patient page
     And I switch to Add Patient embedded iframe
     Then I verify "Patient Information" text is present on the add patient page
-    Then I enter <First name> in the first name text box present on the Add Patient page 
+    Then I enter <First name> in the first name text box present on the Add Patient page
     And I enter  <Last name> in the last name text box present on the Add Patient page
     And I enter date of birth "01/05/2011" present on the Add Patient Page
     And I wait for 4000 milli seconds
@@ -29,7 +29,7 @@ Feature: Episode 2.0 Add Patient
     And I wait for 2000 milli seconds
     And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
     And I wait for 4000 milli seconds
-    And I enter <Medicare ID> in the Medicare ID present on the Add Patient page  
+    And I enter <Medicare ID> in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     And I wait for 8000 milli seconds
 
@@ -50,14 +50,14 @@ Feature: Episode 2.0 Add Patient
 #		And I verify Admit Date is present on the transition page
 #		Then I verify "Inpatient"  is present " type-column" on the transition page
 
-  Examples:
-  | First name           |Last name           |Medicare ID	|
-  |FIRSTNAMEAUTB				 |LASTNAMEAUTB 	  	  |wa984986			|  
-  
-  
- Scenario Outline: search a newly added patient in episode connect 2 
-		
-		Given I am on the login page
+    Examples:
+      | First name    | Last name    | Medicare ID |
+      | FIRSTNAMEAUTB | LASTNAMEAUTB | wa984986    |
+
+
+  Scenario Outline: search a newly added patient in episode connect 2
+
+    Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -67,12 +67,12 @@ Feature: Episode 2.0 Add Patient
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I enter <First name> in the search text box present on the patients page 
+    Then I enter <First name> in the search text box present on the patients page
     And I wait for 30000 milli seconds
     And I verify <First name> and <Last name> is displayed on the patient card
     Then I click on attestation button present on the patient card
-    
-  Examples:
-  | First name         	 |Last name           	|Medicare ID		|
-  |FIRSTNAMEAUTB				 |LASTNAMEAUTB  	  	  |wa984986				|
+
+    Examples:
+      | First name    | Last name    | Medicare ID |
+      | FIRSTNAMEAUTB | LASTNAMEAUTB | wa984986    |
   
