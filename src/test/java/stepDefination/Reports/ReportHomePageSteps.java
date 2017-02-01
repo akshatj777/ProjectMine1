@@ -4,6 +4,8 @@ import com.remedy.Reports.ReportHomePage;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -210,5 +212,72 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I select ([^\"]*) from \"([^\"]*)\" filter in Operations Dashboard report$")
     public void i_select_from_filter_in_Operations_Dashboard_report(String filterOptions, String filterType) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
+    }
+
+    //TODO
+    @Then("^I enter \"([^\"]*)\" as the value on the textbox in the filter modal$")
+    public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(String value) throws Throwable {
+    	reportHomePage.iEnterAsTheValueOnTheTextboxInTheFilterModal(value);
+    }
+
+    @Then("^I click on range filter dropdown and selected Less Than range in the filter modal$")
+    public void i_click_on_range_filter_dropdown_and_selected_Less_Than_range_in_the_filter_modal() throws Throwable {
+    	reportHomePage.iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal();
+    }
+
+    @When("^I click on \"([^\"]*)\" for the \"([^\"]*)\" in the filter value list$")
+    public void i_click_on_for_the_in_the_filter_value_list(String month, String year) throws Throwable {
+    	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
+    }
+
+    
+    @Then("^I click on \"([^\"]*)\" report text for Readmissions Reports$")
+    public void i_click_on_report_text_for_Readmissions_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForReadmissionsReports(text);
+    }
+
+    @Then("^I should see Readmission reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Readmission_reports_column_Tile_text_as(String text) throws Throwable {
+        reportHomePage.iShouldSeeReadmissionReportsColumnTileTextAs(text);
+    }
+
+    @Then("^I click on \"([^\"]*)\" report text for Physician Reports$")
+    public void i_click_on_report_text_for_Physician_Reports(String text) throws Throwable {
+        reportHomePage.iClickOnReportTextForPhysicianReports(text);
+    }
+
+    @Then("^I should see Spending reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Spending_reports_column_Tile_text_as(String text) throws Throwable {
+        reportHomePage.iShouldSeeSpendingReportsColumnTileTextAs(text);
+    }
+
+    @Then("^I should see Volume reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Volume_reports_column_Tile_text_as(String text) throws Throwable {
+        reportHomePage.iShouldSeeVolumeReportsColumnTileTextAs(text);
+    }
+
+    @Then("^I click on \"([^\"]*)\" report text for Post Acute Care Reports$")
+    public void i_click_on_report_text_for_Post_Acute_Care_Reports(String text) throws Throwable {
+    	reportHomePage.iClickOnReportTextForPostAcuteCareReportsTile(text);
+    }
+    
+    @Then("^I should see Post Acute Care \\(Claims\\) reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Post_Acute_Care_Claims_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeePostAcuteCareClaimsReportsColumnTileTextAs(tile);
+    }
+    
+    @Then("^I should see snf performance reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_snf_performance_reports_column_Tile_text_as(String tile) throws Throwable {
+        reportHomePage.iShouldSeeSnfPerformanceReportsColumnTileTextAs(tile);
+    }
+
+    @Then("^I should see SNF volume reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_SNF_volume_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeSnfPerformanceReportsColumnTileTextAs(tile);
+    }
+    
+    @Then("^I should see Initial SNF Length of Stay Summary reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Initial_SNF_Length_of_Stay_Summary_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(tile);
     }
 }
