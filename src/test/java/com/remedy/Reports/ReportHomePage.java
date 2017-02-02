@@ -226,9 +226,13 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForPatientIDReports(String text){
-    	selectElementByTextDescByXpath("//div[label[text()='Patient ID']]/following-sibling::div/a", text);
+        selectElementByTextDescByXpath("//div[label[text()='Patient ID']]/following-sibling::div/a", text);
     }
-    
+
+    public void iShouldSeeEpisodeAvgDayToDRGReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+
     public void iShouldSeeEpisodeWithDRGIssueReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
@@ -237,3 +241,4 @@ public class ReportHomePage extends BaseClass {
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
 }
+
