@@ -253,4 +253,24 @@ public class Ec1DashboardPage extends BaseClass{
     public void iVerifyTheMessageIsPresentOnTheArchivePage(){
     	isElementVisible(driver.findElement(By.cssSelector("div.table-scrollable>table>tbody>tr:nth-child(1)")));		
     }
+    
+    public void iShouldSeeAlertsIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("li#header_notification_bar")));		
+    }
+    
+    public void iClickOnAlertsIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage(){
+    	clickElement(driver.findElement(By.cssSelector("li#header_notification_bar")));
+    }
+    
+    public void iShouldSeeSeeAllAlertsButtonPresentOnTheNotificationDropdownMenu(){
+    	isElementVisible(driver.findElement(By.cssSelector("ul.dropdown-menu.extended.dropdown-notification li.external>a")));		
+    }
+    
+    public void iShouldSeeDismissAllButtonPresentOnTheNotificationDropdownMenu(){
+    	isElementVisible(driver.findElement(By.cssSelector("button.btn-dismiss-all")));		
+    }
+    
+    public void iClickOnDismissAllButtonPresentOnTheNotificationDropdownMenu(){
+    	clickElement(driver.findElement(By.cssSelector("button.btn-dismiss-all")));
+    }
 }

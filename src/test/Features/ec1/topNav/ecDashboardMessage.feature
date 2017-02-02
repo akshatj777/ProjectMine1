@@ -1,6 +1,6 @@
-Feature: Episode Connect Tasks
+Feature: Episode Connect Messages
 
-  Scenario Outline: User can navigate to episode connect Tasks 
+  Scenario Outline: User can navigate to episode connect messages 
   
    Given I am on the login page
  	 When I enter email field <email> for login

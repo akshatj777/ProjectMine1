@@ -293,6 +293,32 @@ public class EC1DashboardSteps extends DriverScript {
     public void i_verify_the_message_is_present_on_the_archive_page() throws Throwable {
     	ec1Dashboard.iVerifyTheMessageIsPresentOnTheArchivePage();
     }
+    
+    @Then("^I should see alerts icon present on the top-nav bar present on the episode dashboard page$")
+    public void i_should_see_alerts_icon_present_on_the_top_nav_bar_present_on_the_episode_dashboard_page() throws Throwable {
+    	ec1Dashboard.iShouldSeeAlertsIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage();
+    }
+
+    @When("^I click on alerts icon present on the top-nav bar present on the episode dashboard page$")
+    public void i_click_on_alerts_icon_present_on_the_top_nav_bar_present_on_the_episode_dashboard_page() throws Throwable {
+    	ec1Dashboard.iClickOnAlertsIconPresentOnTheTopNavBarPresentOnTheEpisodeDashboardPage();
+    }
+
+    @Then("^I should see See all alerts button present on the notification drop down menu$")
+    public void i_should_see_See_all_alerts_button_present_on_the_notification_drop_down_menu() throws Throwable {
+    	ec1Dashboard.iShouldSeeSeeAllAlertsButtonPresentOnTheNotificationDropdownMenu();
+    }
+
+    @Then("^I should see dismiss all button present on the notification drop down menu$")
+    public void i_should_see_dismiss_all_button_present_on_the_notification_drop_down_menu() throws Throwable {
+    	ec1Dashboard.iShouldSeeDismissAllButtonPresentOnTheNotificationDropdownMenu();
+    }
+
+    @Then("^I click on dismiss all button present on the notification drop down menu$")
+    public void i_click_on_dismiss_all_button_present_on_the_notification_drop_down_menu() throws Throwable {
+    	ec1Dashboard.iClickOnDismissAllButtonPresentOnTheNotificationDropdownMenu();
+    }
+
 
 
 
