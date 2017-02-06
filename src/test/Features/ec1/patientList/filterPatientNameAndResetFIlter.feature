@@ -1,6 +1,6 @@
-Feature: Episode Connect create custom filter
+Feature: Episode Connect add and reset filter 
 
-  Scenario Outline: User can create and save custom filter 
+  Scenario Outline: User can search a patient by adding a filter and reset the filter
     
    Given I am on the login page
  	 When I enter email field <email> for login
