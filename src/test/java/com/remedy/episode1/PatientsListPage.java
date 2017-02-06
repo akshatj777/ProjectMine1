@@ -21,6 +21,20 @@ public class PatientsListPage extends BaseClass {
 
     }
 
+    public void iClickOnTheLeftNavigatorPresentOnTheEpisodeDashboardPage(String text){
+        clickElement(driver.findElement(By.cssSelector("a#patientsListOpenClose")));
+    }
+
+    public void iClickOnInThePatientsDropdownMenu(String text){
+        clickElement(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));
+    }
+
+    public void iClickOnAddPatientButtonPresentOnTheEcPatientsPage(int text){
+        clickElement(driver.findElement(By.cssSelector("a#patient-add-button")));
+
+    }
+
+
 
 
 
