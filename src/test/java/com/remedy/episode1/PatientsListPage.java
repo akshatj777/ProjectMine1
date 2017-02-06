@@ -76,7 +76,7 @@ public class PatientsListPage extends BaseClass {
     public void iClickOnTheCancelButtonPresentOnTheExportListPage(){
     	clickElement(driver.findElement(By.cssSelector("#modal-download-file-cancel")));
     }
-//   this 
+    
     public void iClickOnPresentInThePatientsDropdownMenu(String text){
     	clickElement(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));
     }
@@ -115,5 +115,21 @@ public class PatientsListPage extends BaseClass {
     
     public void iShouldSeePresentOnTheCustomFilterList(String filter){
     	isElementVisible(driver.findElement(By.cssSelector("a[data-name='"+filter+"']")));
+    }
+    
+    public void iEnterThePatientSearchBoxPresentOnThePatientPage(String patientName){
+    	iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), patientName);
+    }
+
+    public void iShouldSeePatientOnThePatientListPresentOnThePatientPage(String patientName){
+    	isElementVisible(driver.findElement(By.cssSelector("span.ng-scope>div:nth-child(1) div.element-title.ng-binding")));
+    }
+    
+    public void iShouldSeeClearFilterButtonPresentOnThePatientPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("a#filter-clear-button")));
+    }
+    
+    public void iClickOnTheClearFilterButtonPresentOnThePatientPage(){
+    	clickElement(driver.findElement(By.cssSelector("a#filter-clear-button")));
     }
 }

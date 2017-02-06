@@ -89,7 +89,7 @@ public class PatientListPageSteps extends DriverScript {
     public void i_click_on_the_cancel_button_present_on_the_export_list_page() throws Throwable {
     	patientsList.iClickOnTheCancelButtonPresentOnTheExportListPage();
     }
-//    this
+    
     @Then("^I click on \"([^\"]*)\" present in the Patients dropdown menu$")
     public void i_click_on_present_in_the_Patients_dropdown_menu(String text) throws Throwable {
     	patientsList.iClickOnPresentInThePatientsDropdownMenu(text);
@@ -139,4 +139,25 @@ public class PatientListPageSteps extends DriverScript {
     public void i_should_see_present_on_the_custom_filter_list(String filter) throws Throwable {
     	patientsList.iShouldSeePresentOnTheCustomFilterList(filter);
     }
+    
+    @Then("^I enter ([^\"]*) in the patient search box present on the patient page$")
+    public void i_enter_in_the_patient_search_box_present_on_the_patient_page(String patientName) throws Throwable {
+    	patientsList.iEnterThePatientSearchBoxPresentOnThePatientPage(patientName);
+    }
+
+    @Then("^I should see ([^\"]*) patient on the patient list present on the patient page$")
+    public void i_should_see_patient_on_the_patient_list_present_on_the_patient_page(String patientName) throws Throwable {
+    	patientsList.iShouldSeePatientOnThePatientListPresentOnThePatientPage(patientName);
+    }
+
+    @Then("^I should see clear filter button present on the patient page$")
+    public void i_should_see_clear_filter_button_present_on_the_patient_page() throws Throwable {
+    	patientsList.iShouldSeeClearFilterButtonPresentOnThePatientPage();
+    }
+
+    @Then("^I click on the clear filter button present on the patient page$")
+    public void i_click_on_the_clear_filter_button_present_on_the_patient_page() throws Throwable {
+    	patientsList.iClickOnTheClearFilterButtonPresentOnThePatientPage();
+    }
+
 }
