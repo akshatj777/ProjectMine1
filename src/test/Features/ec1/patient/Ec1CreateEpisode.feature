@@ -20,6 +20,7 @@ Feature: Episode connect 1 Create Episode
     Then I click on search button present on the patients page  
     And I wait for 20000 milli seconds
     Then I click on the patient name present on the patient list
+    And I wait for 3000 milli seconds
     And I click on Agree button present on the Attestation page
     And I wait for 10000 milli seconds
     Then I click on new transition button present on the patient overview page
