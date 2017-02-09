@@ -2,7 +2,7 @@ Feature: Episode 2.0 Date Range Filter
 
   Scenario: verify Admit Reason filter is present under list of Filter options on Patient Page
     Given I am on the login page
-    When I enter email field admin.user@yopmail.com for login
+    When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds

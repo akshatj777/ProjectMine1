@@ -155,7 +155,7 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I verify Medicare ID Filter is displayed under List of Filter Options$")
     public void i_verify_Medicare_ID_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions();
     }
 
     @Then("^I verify Payer Filter is displayed under List of Filter Options$")
@@ -515,12 +515,14 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I verify Admit Reason Filter is displayed under List of Filter Options$")
     public void i_verify_Admit_Reason_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions();
+        //patientsPage.iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Admit Reason");
     }
 
     @Then("^I verify Anchor Discharge Facility Filter is displayed under List of Filter Options$")
     public void i_verify_Anchor_Discharge_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions();
+        //patientsPage.iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Anchor Discharge Facility");
     }
 
     @Then("^I verify the total number of patients present on the Patients Page$")
@@ -530,57 +532,68 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I verify Anchor Facility Filter is displayed under List of Filter Options$")
     public void i_verify_Anchor_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Anchor Facility");
     }
 
     @Then("^I verify Care Plan Filter is displayed under List of Filter Options$")
     public void i_verify_Care_Plan_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Care Plan");
     }
 
     @Then("^I verify Care Setting Filter is displayed under List of Filter Options$")
     public void i_verify_Care_Setting_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Care Setting");
     }
 
     @Then("^I verify Cooperation Metric Filter Filter is displayed under List of Filter Options$")
     public void i_verify_Cooperation_Metric_Filter_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Cooperation Metric");
     }
 
     @Then("^I verify Current Facility Filter is displayed under List of Filter Options$")
     public void i_verify_Current_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Current Facility");
     }
 
     @Then("^I verify Daily Report Filter is displayed under List of Filter Options$")
     public void i_verify_Daily_Report_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Daily Report");
     }
 
     @Then("^I verify Date Range Filter is displayed under List of Filter Options$")
     public void i_verify_Date_Range_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Date Range");
     }
 
     @Then("^I verify DRG Type Filter is displayed under List of Filter Options$")
     public void i_verify_DRG_Type_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("DRG Type");
     }
 
     @Then("^I verify Eligibility Filter is displayed under List of Filter Options$")
     public void i_verify_Eligibility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Eligibility");
     }
 
     @Then("^I verify Episode DRG Filter is displayed under List of Filter Options$")
     public void i_verify_Episode_DRG_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Episode DRG");
     }
 
     @Then("^I verify Episode Status Filter is displayed under List of Filter Options$")
     public void i_verify_Episode_Status_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Episode Status");
     }
 
     @Then("^I verify Date Range is selected as default filter under Filter options$")
@@ -600,31 +613,37 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I verify First Name Filter is displayed under List of Filter Options$")
     public void i_verify_First_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("First Name");
     }
 
     @Then("^I verify Gender Filter is displayed under List of Filter Options$")
     public void i_verify_Gender_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Gender");
     }
 
     @Then("^I verify Initiator Filter is displayed under List of Filter Options$")
     public void i_verify_Initiator_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyInitiatorFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyInitiatorFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Initiator");
     }
 
     @Then("^I verify Inpatient Location Filter is displayed under List of Filter Options$")
     public void i_verify_Inpatient_Location_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Inpatient Location");
     }
 
     @Then("^I verify Last Name Filter is displayed under List of Filter Options$")
     public void i_verify_Last_Name_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
-        patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
+        //patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
+        patientsPage.iVerifyVariousFilterIsPresentUnderListofFilterOptions("Last Name");
     }
 
     @Then("^I verify \"([^\"]*)\" filter is displayed under list of filter options$")
     public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(String arg1) throws Throwable {
+        //todo then we will have to change all the steps in the feature file as well
     }
 
     @When("^I click on Admit Reason Filter present on Filter Page$")
@@ -702,16 +721,6 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAddPatientButtonPresentOnThePatientsPage();
     }
 
-//    @Then("^I enter \"([^\"]*)\" in the first name text box present on the Add Patient page$")
-//    public void i_enter_in_the_first_name_text_box_present_on_the_Add_Patient_page(String firstname) throws Throwable {
-//        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName",firstname);
-//    }
-//
-//    @Then("^I enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
-//    public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
-//        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName",lastname);
-//    }
-
     @Then("^I enter date of birth \"([^\"]*)\" present on the Add Patient Page$")
     public void i_enter_date_of_birth_present_on_the_Add_Patient_Page(String dateOfBirth) throws Throwable {
         patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("dob", dateOfBirth);
@@ -731,11 +740,6 @@ public class PatientsPageSteps extends DriverScript {
     public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
         patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
     }
-
-//    @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
-//    public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
-//        patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("medicareId", medicareID);
-//    }
 
     @Then("^I click on the next button present on the Add Patient page$")
     public void i_click_on_the_next_button_present_on_the_Add_Patient_page() throws Throwable {
@@ -764,7 +768,7 @@ public class PatientsPageSteps extends DriverScript {
 
     @When("^I click on Agree button present on the Attestation page$")
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
-        // open bug
+        // TODO open bug
         // throw new PendingException();
     }
 
