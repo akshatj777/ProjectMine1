@@ -1,9 +1,8 @@
 package com.remedy.baseClass;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -32,6 +31,7 @@ public class BaseClass {
         this.driver = driver;
     }
 
+
     public void delay() {
         try {
             Thread.sleep(delay_Time);
@@ -50,7 +50,7 @@ public class BaseClass {
         }
     }
 
-    public boolean isElementVisible (final WebElement ele) {
+    public boolean isElementVisible(final WebElement ele) {
         long start = System.currentTimeMillis();
         while (true) {
             if (ele.isDisplayed()) {
@@ -210,9 +210,9 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
-            System.out.println(countelement);
-            Assert.assertEquals( countelement, count);
-        }
+        System.out.println(countelement);
+        Assert.assertEquals(countelement, count);
+    }
 
     public void elementInformation(WebElement ele) {
         System.out.println("  ");
@@ -231,29 +231,25 @@ public class BaseClass {
 
     }
 
-    public void swithToFrame (String element){
+    public void swithToFrame(String element) {
 
         driver.switchTo().frame(driver.findElement(By.xpath(element)));
     }
 
-   
 
-
-    public void switchToNewWindow(){
+    public void switchToNewWindow() {
 
         String parentWindow = driver.getWindowHandle();
-        Set<String> handles =  driver.getWindowHandles();
-        for(String windowHandle  : handles)
-        {
-            if(!windowHandle.equals(parentWindow))
-            {
+        Set<String> handles = driver.getWindowHandles();
+        for (String windowHandle : handles) {
+            if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
                 //
             }
         }
     }
 
-    public void switchBacktoOldWindow () {
+    public void switchBacktoOldWindow() {
 
         String parentWindow = driver.getWindowHandle();
         Set<String> handles = driver.getWindowHandles();
@@ -325,17 +321,17 @@ public class BaseClass {
         }
     }
 
-    public void moveToTheElement(WebElement toElement){
+    public void moveToTheElement(WebElement toElement) {
         actionEvent.moveToElement(toElement).perform();
     }
 
-    public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement){
+    public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
         //actionEvent.moveToElement(toElement).click().build().perform();
         actionEvent.moveToElement(moveToElement).perform();
         clickToElement.click();
     }
 
-    public void moveToTheElementAndRightClick(WebElement moveToElementToRightClick){
+    public void moveToTheElementAndRightClick(WebElement moveToElementToRightClick) {
         actionEvent.contextClick(moveToElementToRightClick).build().perform();
     }
 
@@ -343,34 +339,65 @@ public class BaseClass {
         //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
         for (WebElement item : listItems) {
-                item.click();
-            }
+            item.click();
         }
+    }
 
     public void verifyElementAttributeContainsValue(WebElement element, String attribute, String contains) {
         String attr = element.getAttribute(attribute);
         Assert.assertTrue(attr.contains(contains));
     }
-    
+
     public boolean isElementPresentOnPage(By locatorKey) {
-    	boolean value = true;
-    	try {
+        boolean value = true;
+        try {
             driver.findElement(locatorKey);
-            
+
         } catch (org.openqa.selenium.NoSuchElementException e) {
-        	value = false;
+            value = false;
         }
 //    	System.out.println(value);
-		return value;		
+        return value;
     }
 
-    public void switchToFrameByNameOrId(String nameOrId){
-    	driver.switchTo().frame(nameOrId);
+    public void switchToFrameByNameOrId(String nameOrId) {
+        driver.switchTo().frame(nameOrId);
     }
-    
-    public void switchToParentFrame(){
-    driver.switchTo().parentFrame();
+
+    public void switchToParentFrame() {
+        driver.switchTo().parentFrame();
     }
+
+
+    public void selectDropdownByValue(WebElement element, String value) {
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
+
+    //scroll to bottom of the page
+    public void scrollToBottomOfPageUsingJS() {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+
+    }
+
+
+
+    public void selectAnItemFromComboBoxWKeyPress(){
+
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).click().perform();
+
+    }
+    // accept alert
+    public void acceptAlert(){
+
+         Alert alert = driver.switchTo().alert();
+        alert.accept();
+
+    }
+
 }
 
 
