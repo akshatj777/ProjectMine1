@@ -15,7 +15,7 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnUnderPatientListPage() throws Throwable 
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='patientsList']/div/div/span/div[5]/a/div/div[1]")));
+		clickElement(driver.findElement(By.xpath("//*[@id='patientsList']/div/div/span/div[1]/a/div/div[1]")));
 	}
 	public void iShouldSeeDetails(String text) throws Throwable 
 	{
@@ -71,7 +71,7 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnAppointmentsUnderCarePlan() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='careFlowAppointmentsTab']")));
+		clickElement(driver.findElement(By.xpath("//*[@id='careFlowAppointmentsTab']/a")));
 	}
 	public void iShouldSeeNewApointmentButton() throws Throwable
 	{
@@ -100,5 +100,77 @@ public class PatientCarePlan extends BaseClass
 	public void iClickOnScheduleAppointmentButton() throws Throwable
 	{
 		clickElement(driver.findElement(By.xpath("//*[@id='editAppointment']/div[3]/button[1]")));
+	}
+	public void iClickOnNotesTabUnderCarePlan() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='careFlowNotesTab']/a")));
+	}
+	public void iClickOnNewNoteButton() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='notesList']/div/div[2]/a")));
+	}
+	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable
+	{
+		isElementVisible(driver.findElement(By.xpath("//*[@id='newNote']/div[1]/h4")));
+	}
+	public void iClickOnTopicDropdownUnderNewNote() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpnotetype_topic']")));
+	}
+	public void iSelectValueFromTheTopicDropdown() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpnotetype_topic']/option[2]")));
+	}
+	public void iClickOnCreateNoteButton() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='submitButton']")));
+	}
+	public void iClickOnActionsColumnInNotes() throws Throwable
+	{
+		clickElement(driver.findElement(By.cssSelector(".table-scrollable>table>tbody>tr:nth-of-type(1)>td:nth-of-type(7)>div>a")));
+	}
+	public void iClickOnDeleteInTheActionsColumn() throws Throwable
+	{
+		clickElement(driver.findElement(By.cssSelector(".table-scrollable>table>tbody>tr:nth-of-type(1)>td:nth-of-type(7)>div>ul:nth-of-type(1)>li:nth-of-type(2)")));
+	}
+	public void iShouldSeeAPopupForDeleteConfirmation() throws Throwable
+	{
+		isElementVisible(driver.findElement(By.xpath("//*[@class='modal-header']/div[1]")));
+	}
+	public void iClickOnOkButton() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("html/body/div[7]/div/div/div[3]/button[2]")));
+	}
+	public void iShouldSeeOnPopup(String text) throws Throwable
+	{
+		isElementVisible(driver.findElement(By.xpath("html/body/div[7]/div/div/div[2]/div")));
+	}
+	public void iClickOnCareTeam() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='careTeamButton']")));
+	}
+	public void iClickOnJoinCareTeam() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='page-content-frame']/div[2]/div[2]/div/div/div/div[2]/div[2]/div/a[2]")));
+	}
+	public void iClickOnGearIconUnderCareManagers() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='tab_4_1']/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/a/i")));
+	}
+	public void iClickOnRemoveUnderTheGearIcon() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("//*[@id='tab_4_1']/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/ul/li[4]")));
+	}
+	public void iShouldSeeOnTheRemovePopup(String text) throws Throwable
+	{
+		isElementVisible(driver.findElement(By.xpath("html/body/div[10]/div/div/div[1]/h4")));
+	}
+	public void iShouldSeeText(String text) throws Throwable
+	{
+		isElementVisible(driver.findElement(By.xpath("html/body/div[10]/div/div/div[2]/div")));
+	}
+	public void iClickOnOkToRemove() throws Throwable
+	{
+		clickElement(driver.findElement(By.xpath("html/body/div[10]/div/div/div[3]/button[2]")));
 	}
 }

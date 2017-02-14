@@ -1,22 +1,19 @@
 Feature: Patent care plan and care team
 
- Scenario Outline: Assigning care paln and care team
+ Scenario Outline: Login to application and select patient
   Given I am on the login page
   When I enter email field <email> for login
   And I enter password field <password> for Login
   Then I click Access button
   And I wait for 2000 milli seconds
-  Then I should see Tile text Episodes
-  
+  Then I should see Tile text Episodes 
   And I click on the "Episodes" tile
   And I switch to new window
   Then I should see Episode header text "Dashboard"
-
   Then I should see "Dashboard" in the left navigator present on the episode dashboard page
   Then I should see "Bookmarks" in the left navigator present on the episode dashboard page
   Then I should see "Patients" in the left navigator present on the episode dashboard page
   Then I should see "Admin Center" in the left navigator present on the episode dashboard page
-  
   When I click on "Patients" in the left navigator present on the episode dashboard page
   Then I click on "Patient List" present in the Patients dropdown menu
   Then I should see "Patient" present on the patient list filter page present on the patient list page 
@@ -24,10 +21,15 @@ Feature: Patent care plan and care team
   Then I should see "Completed" filter tab present on the patients page
   Then I should see "Canceled" filter tab present on the patients page
   And I wait for 8000 milli seconds
-
+  Then I enter <Patient Name> in the patient search box present on the patient page
+  Then I click on search button present on the patients page  
+  And I wait for 10000 milli seconds
+  Then I should see <Patient Name> patient on the patient list present on the patient page
   When I click on Patient under patient list page
   Then I should see "Patients" details
   And I wait for 2000 milli seconds
+    
+  #Assigning care plan
   Then I should see Care Plan present on the student details page
   Then I click on Care Plan
   And I wait for 2000 milli seconds
@@ -46,8 +48,11 @@ Feature: Patent care plan and care team
   Then I select the checkbox in the plan
   Then I click on Save button
   And I wait for 2000 milli seconds
+  
+  #Create an appointment
   Then I click on Appointments under care plan
   Then I should see new apointment button
+  And I wait for 2000 milli seconds
   Then I click on new appointment button
   And I wait for 3000 milli seconds
   Then I should see "New Appointment" present on the new appointment page
@@ -55,9 +60,39 @@ Feature: Patent care plan and care team
   Then I assign "St David's Georgetown Hospital" under facility
   Then I assign "7847713019" under contact phone
   Then I click on schedule appointment button
+  And I wait for 3000 milli seconds
   
-  
-    Examples:
+  #Create and delete notes
+  When I click on Notes tab under care plan
+  Then I click on new note button
+  And I wait for 3000 milli seconds
+  Then I should see "New Note" present on the new note page
+  And I wait for 2000 milli seconds
+  Then I click on topic dropdown under new note
+  Then I select value from the topic dropdown
+  Then I click on create note button
+  And I wait for 3000 milli seconds
+  Then I click on actions column in notes
+  Then I click on delete in the actions column
+  And I wait for 2000 milli seconds
+  Then I should see "This note will be permanently deleted. Are you sure?" on popup
+  Then I click on ok button
+  And I wait for 3000 milli seconds
 
-      |          email            |   password   |
-      |  qa.admin@yopmail.com 		|   Episode1!  |
+  #Assign and delte care team to patient  
+  When I click on care team
+  And I wait for 3000 milli seconds
+  Then I click on join care team
+  And I wait for 3000 milli seconds
+  Then I click on gear icon under care managers
+  Then I click on remove under the gear icon
+  And I wait for 2000 milli seconds
+  Then I should see "Unassign CareTeam Member" on the remove popup
+  Then I should see "Are you sure?" text
+  Then I click on ok to remove
+  And I wait for 2000 milli seconds
+  
+   Examples:
+
+      |          email            |   password   | Patient Name |
+      |  qa.admin@yopmail.com 		|   Episode1!  | Jwmqdj Aax   |
