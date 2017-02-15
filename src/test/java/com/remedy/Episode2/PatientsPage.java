@@ -606,5 +606,59 @@ public class PatientsPage extends BaseClass {
     public void iVerifyIsPresentOnTheTransitionPage(String text, String columnName){
     	isElementVisible(driver.findElement(By.xpath("//td[@class='"+columnName+"' and text()='"+text+"']")));
     }
+    
+    public void iClickOnFilterTabPresentOnThePatientsPage(String filtertab){
+        clickElement(driver.findElement(By.cssSelector("#filterTab_"+filtertab+"")));
+    }
+    
+    public void iClickOnThePatientNamePresentOnThePatientList(){
+        clickElement(driver.findElement(By.cssSelector("div.ng-scope div.patient-list div.element-title")));
+    }
+    
+    public void iClickOnNewTransitionButtonPresentOnThePatientOverviewPage(){
+        clickElement(driver.findElement(By.cssSelector("a#btnNewTransition")));
+    }
+    
+    public void iClickOnTheCalenderButtonPresentOnTheNewTranitionPage(){
+        clickElement(driver.findElement(By.cssSelector(".btn.default.date-set")));
+    }
+    
+    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option){
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory", option);
+    }
+    
+    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option){
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", option);
+    }
+    
+    public void iClickOnAdmittingFacilityPresentOnTheAddTransitionPage(){
+        clickElement(driver.findElement(By.cssSelector("div[id*='bpadmissiontype_admitFacility']")));
+    }
+    
+    public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(String facility){
+        iFillInText(driver.findElement(By.cssSelector("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")),facility);
+        longDelay();
+        clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
+    }
+    
+    public void iClickOnEditButtonPresentOnThePatientOverviewPage(){
+        clickElement(driver.findElement(By.cssSelector("table#ui-transitions-table>tbody>tr>td>a")));
+    }
+    
+    public void iShouldSeeButtonIsPresentOnTheEditEpisodeInitiatorModal(String button){
+    	isElementVisible(driver.findElement(By.xpath("//button[text()='"+button+"']")));
+    }
+    
+    public void iClickOnTheEpisodeInitiatorDropdownPresentOnTheEditEpisodeInitiatorModal(){
+        clickElement(driver.findElement(By.cssSelector("select#episode_initiator_episodeInitiator")));
+    }
+    
+    public void iShouldSeeOptionIsPresentOnTheEditEpisodeInitiatorModal(String option){
+    	isElementVisible(driver.findElement(By.xpath(".//select[@id='episode_initiator_episodeInitiator']/option[text()='"+option+"']")));
+    }
+    
+    public void iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(String button){
+        clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
+    }
 }
 

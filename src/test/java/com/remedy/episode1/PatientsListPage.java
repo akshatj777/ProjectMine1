@@ -30,7 +30,12 @@ public class PatientsListPage extends BaseClass {
     }
 
     public void iClickOnInThePatientsDropdownMenu(String text){
-    	clickElement(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));
+        clickElement(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));
+    }
+
+    public void iClickOnAddPatientButtonPresentOnTheEcPatientsPage(int text){
+        clickElement(driver.findElement(By.cssSelector("a#patient-add-button")));
+
     }
 
     public void iClickOnPinToDashboardInToPinTheFilterToDashboard(String text){
