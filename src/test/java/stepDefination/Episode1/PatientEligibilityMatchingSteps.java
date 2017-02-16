@@ -2,7 +2,6 @@ package stepDefination.Episode1;
 
 import com.remedy.episode1.PatientEligibilityMatching;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -74,11 +73,6 @@ public void i_verify_is_present_in_episode_dropdown(String text) throws Throwabl
 {
 	patienteligibility.iVerifyIsPresentInEpisodeDropdown(text);
 }
-@Then("^I clear the text in search box of episodes$")
-public void i_clear_the_text_in_search_box_of_episodes() throws Throwable
-{
-	patienteligibility.iClearTheTextInSearchBoxOfEpisodes();
-}
 @Then("^I click on not eligible in the episodes dropdown$")
 public void i_click_on_in_the_episodes_dropdown()
 {
@@ -103,5 +97,10 @@ public void i_verify_date_present_in_episode_dropdown() throws Throwable
 public void i_click_on_agree_under_attestation_page() throws Throwable
 {
 	patienteligibility.iClickOnAgreeUnderAttestationPage();
+}
+@Then("^I verify for patient in cancelled$")
+public void i_verify_for_patient_in_cancelled() throws Throwable
+{
+	patienteligibility.iVerifyForPatientInCancelled();
 }
 }

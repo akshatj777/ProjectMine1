@@ -6,16 +6,14 @@ import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.remedy.baseClass.BaseClass;
 
 public class PatientEligibilityMatching extends BaseClass
 
-{ 	
-
+{ 		
 	public PatientEligibilityMatching(WebDriver driver) 
 	{
-		super(driver);
+		super(driver);	
 	}
 	public void iShouldSeeOnNextPage(String text) throws Throwable
 	{
@@ -33,9 +31,9 @@ public class PatientEligibilityMatching extends BaseClass
 	public void iSelectAnAdmitDate() throws Throwable
 	{
 		clickElement(driver.findElement(By.xpath("//*[@id='tab-transition']/div[1]/div[1]/div/div/span[1]/button")));
-		clickElement(driver.findElement(By.xpath("html/body/div[10]/div[3]/table/tbody/tr[3]/td[3]")));
-		clickElement(driver.findElement(By.xpath("html/body/div[10]/div[2]/table/tbody/tr/td/span[14]")));
-		clickElement(driver.findElement(By.xpath("html/body/div[10]/div[1]/table/tbody/tr/td/span[7]")));
+		clickElement(driver.findElements(By.xpath("//td[@class='day active']")).get(0));
+		clickElement(driver.findElements(By.xpath("//span[@class='hour active']")).get(0));
+		clickElement(driver.findElements(By.xpath("//span[@class='minute active']]")).get(0));
 	}
 	public void iSelectCareType()
 	{
@@ -47,7 +45,6 @@ public class PatientEligibilityMatching extends BaseClass
         clickElement(driver.findElement(By.cssSelector(".select2-arrow>b")));
         iFillInText(driver.findElement(By.cssSelector("#s2id_autogen1_search")), searchText);
         delay();
-
     }
 	public void iSelectTheFirstAdmitFacility() throws Throwable
 	{
@@ -80,21 +77,16 @@ public class PatientEligibilityMatching extends BaseClass
 	{
 		verifyTextForElement(driver.findElement(By.xpath("//span[@class='select2-match'][normalize-space(.) = '"+text+"']")), text);
 	}
-	public void iClearTheTextInSearchBoxOfEpisodes() throws Throwable
-	{
-		driver.findElement(By.xpath("//*[@id='s2id_autogen3_search']")).clear();
-	}
 	public void iClickOnAllEpisodesInDropdown()
 	{
 		clickElement(driver.findElement(By.xpath("//div[@class='select2-result-label']")));
 	}
 	public void iClickOnCancel() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-default']")));
+		clickElement(driver.findElement(By.cssSelector("button.btn.btn-default")));
 	}
 	public void iSearchForDateInEpisodesDropdown() throws Throwable
 	{
-		//Code for fetching yesterday's date
 		Calendar calendar= Calendar.getInstance();
 		calendar.add(Calendar.DATE, -1);
 		Date yesterday= calendar.getTime();	  
@@ -115,5 +107,16 @@ public class PatientEligibilityMatching extends BaseClass
 	public void iClickOnAgreeUnderAttestationPage() throws Throwable
 	{
 		clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
+	}
+	public void iVerifyForPatientInCancelled() throws Throwable
+	{
+		String patient=driver.findElement(By.cssSelector(".col-md-6.ec2-embed-patient-name")).getText();
+		clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
+		clickElement(driver.findElement(By.cssSelector("#patientsFilter>li:nth-child(1)")));
+        clickElement(driver.findElement(By.cssSelector("button[name='Canceled']")));
+        iFillInText(driver.findElement(By.cssSelector("#form_search_search")), patient);
+        clickElement(driver.findElement(By.cssSelector(".btn.btn-primary.refreshPatientsList")));
+        clickElement(driver.findElement(By.xpath("//*[@id='patientsList']/div/div/span/div[1]/a/div/div[1]")));
+        verifyTextForElement(driver.findElement(By.cssSelector(".col-md-6.ec2-embed-patient-name")), patient);
 	}
 }
