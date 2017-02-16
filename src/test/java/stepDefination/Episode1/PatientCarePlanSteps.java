@@ -2,9 +2,6 @@ package stepDefination.Episode1;
 
 import com.remedy.episode1.PatientCarePlan;
 import com.remedy.resources.DriverScript;
-
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -16,19 +13,16 @@ public class PatientCarePlanSteps extends DriverScript
 	{
 	   patientcare.iClickOnUnderPatientListPage();
 	}
-
 	@Then("^I should see \"([^\"]*)\" details$")
 	public void i_should_see_details(String text) throws Throwable 
 	{
 	    patientcare.iShouldSeeDetails(text);
 	}
-
 	@Then("^I should see Care Plan present on the student details page$")
 	public void i_should_see_Care_Plan_present_on_the_student_details_page() throws Throwable 
 	{
 	   patientcare.iShouldSeeCarePlanpresentonthestudentdetailspage();
 	}
-
 	@Then("^I click on Care Plan$")
 	public void i_click_on_Care_Plan() throws Throwable 
 	{
@@ -40,7 +34,6 @@ public class PatientCarePlanSteps extends DriverScript
 	{
 	   patientcare.iShouldSeeAssignCarePlanUnderCarePlanPage();
 	}
-
 	@When("^I click on Assign Care Plan$")
 	public void i_click_on_Assign_Care_Plan() throws Throwable 
 	{
@@ -206,10 +199,4 @@ public class PatientCarePlanSteps extends DriverScript
 	{
 		patientcare.iShouldSeeText(text);
 	}
-	@Then("^I click on ok to remove$")
-	public void i_click_on_ok_to_remove() throws Throwable
-	{
-		patientcare.iClickOnOkToRemove();
-	}
-
 }

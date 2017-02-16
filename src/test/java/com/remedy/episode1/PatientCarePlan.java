@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import com.remedy.baseClass.BaseClass;
 
 public class PatientCarePlan extends BaseClass
@@ -19,15 +18,15 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeeDetails(String text) throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='page-content-frame']/h3/span[1]")));
+		isElementVisible(driver.findElement(By.cssSelector(".col-md-6.ec2-embed-patient-name")));
 	}
 	public void iShouldSeeCarePlanpresentonthestudentdetailspage() throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='carePlanButton']")));
+		isElementVisible(driver.findElement(By.cssSelector("#carePlanButton")));
 	}
 	public void iClickOnCarePlan() throws Throwable 
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='carePlanButton']")));
+		clickElement(driver.findElement(By.cssSelector("#carePlanButton")));
 	}
 	public void iShouldSeeAssignCarePlanUnderCarePlanPage() throws Throwable 
 	{
@@ -39,15 +38,15 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeePresentOnTheAssignCarePlanPage(String text) throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignCarePlanModal']/div/div[1]/h4")));
+		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
 	}
 	public void iShouldSeePresentInThePopup(String text) throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignCarePlanModal']/div/div[2]/div/div[1]/div/div/a[1]")));
+		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-tab.active")));
 	}
 	public void iShouldSeeTextOnThePopup(String text) throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignCarePlanModal']/div/div[2]/div/div[1]/div/div/a[2]")));
+		isElementVisible(driver.findElement(By.cssSelector(".btn-group>a:nth-of-type(2)")));
 	}
 	public void iShouldSeeUnderThePlans(String text) throws Throwable
 	{
@@ -59,51 +58,49 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iSelectTheCheckboxInThePlan() throws Throwable
 	{
-//		WebElement element=driver.findElement(By.xpath("//*[@id='assignCarePlanModal']/div/div[2]/div/div[3]/div/div[2]/div/div/div[1]/div/span/input"));
-//		clickElement(element);
 		WebElement element = driver.findElement(By.xpath("//input[@ng-model='carePlan.selected']"));
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 	}
 	public void iClickOnSaveButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='assignCarePlanModal']/div/div[3]/button[1]")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space(.) = 'Save changes']")));
 	}
 	public void iClickOnAppointmentsUnderCarePlan() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='careFlowAppointmentsTab']/a")));
+		clickElement(driver.findElement(By.cssSelector("#careFlowAppointmentsTab>a")));
 	}
 	public void iShouldSeeNewApointmentButton() throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='appointmentsList']/h3/a")));
+		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-primary.pull-right")));
 	}
 	public void iClickOnNewAppointmentButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='appointmentsList']/h3/a")));
+		clickElement(driver.findElement(By.cssSelector(".btn.btn-primary.pull-right")));
 	}
 	public void iShouldSeePresentOnTheNewAppointmentPage(String text) throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='editAppointment']/div[1]/h4")));
+		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
 	}
 	public void iAssignUnderContact(String number) throws Throwable
 	{
-		iFillInText(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpappointmenttype_contact']")), number);
+		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpappointmenttype_contact")), number);
 	}
 	public void iAssignUnderContactPhone(String number) throws Throwable
 	{
-		iFillInText(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpappointmenttype_contact_phone']")), number);
+		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpappointmenttype_contact_phone")), number);
 	}
 	public void iAssignUnderFacility(String text) throws Throwable
 	{
-		iFillInText(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpappointmenttype_facility']")), text);
+		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpappointmenttype_facility")), text);
 	}
 	public void iClickOnScheduleAppointmentButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='editAppointment']/div[3]/button[1]")));
+		clickElement(driver.findElement(By.cssSelector(".btn.blue.btn-primary")));
 	}
 	public void iClickOnNotesTabUnderCarePlan() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='careFlowNotesTab']/a")));
+		clickElement(driver.findElement(By.cssSelector("#careFlowNotesTab>a")));
 	}
 	public void iClickOnNewNoteButton() throws Throwable
 	{
@@ -111,19 +108,19 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@id='newNote']/div[1]/h4")));
+		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
 	}
 	public void iClickOnTopicDropdownUnderNewNote() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpnotetype_topic']")));
+		clickElement(driver.findElement(By.cssSelector("#bp_personbundle_bpnotetype_topic")));
 	}
 	public void iSelectValueFromTheTopicDropdown() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='bp_personbundle_bpnotetype_topic']/option[2]")));
+		clickElement(driver.findElement(By.cssSelector("#bp_personbundle_bpnotetype_topic>option:nth-of-type(2)")));
 	}
 	public void iClickOnCreateNoteButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='submitButton']")));
+		clickElement(driver.findElement(By.cssSelector("#submitButton")));
 	}
 	public void iClickOnActionsColumnInNotes() throws Throwable
 	{
@@ -135,23 +132,23 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeeAPopupForDeleteConfirmation() throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("//*[@class='modal-header']/div[1]")));
+		isElementVisible(driver.findElement(By.cssSelector(".modal-header")));
 	}
 	public void iClickOnOkButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("html/body/div[7]/div/div/div[3]/button[2]")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space(.) = 'OK']")));
 	}
 	public void iShouldSeeOnPopup(String text) throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("html/body/div[7]/div/div/div[2]/div")));
+		verifyTextForElement(driver.findElement(By.cssSelector(".bootbox-body")),text);
 	}
 	public void iClickOnCareTeam() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='careTeamButton']")));
+		clickElement(driver.findElement(By.cssSelector("#careTeamButton")));
 	}
 	public void iClickOnJoinCareTeam() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='page-content-frame']/div[2]/div[2]/div/div/div/div[2]/div[2]/div/a[2]")));
+		clickElement(driver.findElement(By.cssSelector(".pull-right>a:nth-of-type(2)")));
 	}
 	public void iClickOnGearIconUnderCareManagers() throws Throwable
 	{
@@ -163,14 +160,10 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeeOnTheRemovePopup(String text) throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("html/body/div[10]/div/div/div[1]/h4")));
+		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
 	}
 	public void iShouldSeeText(String text) throws Throwable
 	{
-		isElementVisible(driver.findElement(By.xpath("html/body/div[10]/div/div/div[2]/div")));
-	}
-	public void iClickOnOkToRemove() throws Throwable
-	{
-		clickElement(driver.findElement(By.xpath("html/body/div[10]/div/div/div[3]/button[2]")));
+		isElementVisible(driver.findElement(By.cssSelector(".bootbox-body")));
 	}
 }
