@@ -25,6 +25,7 @@ Feature: Patient Eligibility Verification
   	Then I click on "Active" filter tab present on the patients page
   	And I wait for 4000 milli seconds
   	When I click on Patient under patient list page
+  	And I click agree under attestation page
   	Then I should see "Patients" details
   	And I wait for 2000 milli seconds
   	Then I click on eligibility dropdown
@@ -42,7 +43,8 @@ Feature: Patient Eligibility Verification
   	Then I verify date present in episode dropdown
   	Then I click on not eligible in the episodes dropdown
   	And I wait for 2000 milli seconds
-  	Then I verify for patient in cancelled  	
+  	Then I verify not eligible patient is present in cancelled section
+  	
   	
      Examples:
 
