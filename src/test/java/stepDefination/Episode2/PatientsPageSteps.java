@@ -785,5 +785,25 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I verify Admit Date is present on the transition page$")
     public void i_verify_Admit_Date_is_present_on_the_transition_page() throws Throwable {
     	patientsPage.iVerifyAdmitDateIsPresentOnTheTransitionPage();
+    }  
+    @When("^I click on DRG Type Filter present on Filter Page$")
+    public void i_click_on_DRG_Type_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnDRGTypeFilterPresentOnFilterPage();
+    }
+    @Then("^I click on possible radio button under drg type filter option$")
+    public void i_click_on_possible_radio_button_under_DRG_Type_filter_option() throws Throwable {
+    	patientsPage.iClickOnPossibleRadioButtonUnderDRGTypeFilter();
+    } 
+    @Then("^I verify eligibility Filter is displayed under List of Filter Options$")
+    public void i_verify_eligibility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
+    	patientsPage.iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions();
+    }
+    @When("^I click on eligibility Filter present on Filter Page$")
+    public void i_click_on_eligibility_Filter_present_on_Filter_Page() throws Throwable {
+    	patientsPage.iClickOnEligibilityFilterPresentOnFilterPage();
+    }
+    @Then("^I click on eligible checkbox under eligible filter option$")
+    public void i_click_on_eligibile_checkbox_under_eligible_filter_option() throws Throwable {
+    	patientsPage.iClickOnEligibileCheckboxUnderEligibleFilterOption();
     }   
 }

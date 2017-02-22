@@ -1,10 +1,10 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 /**
  * Created by ashish.ranjan on 24-11-2016.
  */
@@ -71,7 +71,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iClickOnFilterButtonPresentOnPatientPage() {
-        clickElement(driver.findElement(By.xpath("//button[span[span[contains(text(),'Filters')]]]")));
+        clickElement(driver.findElement(By.xpath("//button[@ng-click='toggleFilterDropdown($event)']")));
     }
 
     public void iVerifyDateRangeIsSelectedAsDefaultFilterUnderFilterOptions() {
@@ -606,5 +606,18 @@ public class PatientsPage extends BaseClass {
     public void iVerifyIsPresentOnTheTransitionPage(String text, String columnName){
     	isElementVisible(driver.findElement(By.xpath("//td[@class='"+columnName+"' and text()='"+text+"']")));
     }
+    public void iClickOnDRGTypeFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(10)")));
+    }
+    public void iClickOnPossibleRadioButtonUnderDRGTypeFilter() throws Throwable {
+    	 clickElement(driver.findElement(By.xpath("//label[@for='drg-typeP']/i")));
+    } 
+    public void iClickOnEligibilityFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(11)")));
+    }
+    public void iClickOnEligibileCheckboxUnderEligibleFilterOption() throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//label[@for='eligibilityELIGIBLE']")));
+    }
+    
 }
 
