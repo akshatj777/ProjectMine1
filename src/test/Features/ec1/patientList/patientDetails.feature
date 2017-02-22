@@ -26,65 +26,39 @@ Feature: Patient Details Verification
   	Then I click on patient details button
   	Then I see "General" under patient details
   	Then I see "First Name" under general
-  	Then I click on firstname
-  	Then I update with "Auto" under first name
-  	Then I click on submit button
+  	Then I update with "Auto" for first name under patient details
   	And I wait for 2000 milli seconds
   	Then I see "Last Name" under general
-  	Then I click on lastname
-  	Then I update with "Testing" under last name
+  	Then I update with "Testing" for last name under patient details
   	And I wait for 2000 milli seconds
-  	Then I click on submit button
   	Then I see "Primary Care Physician" under patient details
-  	Then I click on physician name
-  	Then I update with "TestPCP" under physicianname
-  	Then I click on submit button
+  	Then I update with "TestPCP" for physicianname under patient details
   	And I wait for 1000 milli seconds
-  	Then I click on Add new under phones
-  	Then I click on empty phone field
   	Then I update with "8416159021" under phonenumber
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
-  	Then I click on Add new under phones
-  	Then I click on empty phone field
   	Then I update with "8316159021" under phonenumber
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
-  	Then I click on Add new under phones
-  	Then I click on empty phone field
   	Then I update with "8216159021" under phonenumber
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
-  	Then I click on Add new under phones
-  	Then I click on empty phone field
   	Then I update with "8116159021" under phonenumber
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
-  	Then I click on Add new under phones
-  	Then I click on empty phone field
   	Then I update with "8016159021" under phonenumber
-  	Then I click on submit button
   	And I wait for 4000 milli seconds
   	Then I click on Add new under Addresses
   	Then I click on "Select Type" under address
   	Then I select the address type
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
   	Then I click on "Street" to add street
   	Then I update with "286 Madison ave" under street
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
   	Then I click on "City" to add city
   	Then I update with "New York" under city
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
   	Then I click on "Select State" under address
   	Then I select the state under address
-  	Then I click on submit button
   	And I wait for 1000 milli seconds
   	Then I click on "Zip" to add zip
   	Then I update with "10017" under zip
-  	Then I click on submit button
   	And I wait for 2000 milli seconds
   	 	
   	 Examples:

@@ -36,6 +36,8 @@ public class PatientDetails extends BaseClass {
 		iFillInText(
 				driver.findElement(By.cssSelector(".editable-input>input")),
 				text);
+		clickElement(driver.findElement(By
+				.cssSelector(".btn.blue.editable-submit")));
 	}
 
 	public void iClickOnSubmitButton() throws Throwable {
@@ -82,10 +84,55 @@ public class PatientDetails extends BaseClass {
 		clickElement(driver
 				.findElement(By
 						.cssSelector(".editable-input .form-control>option:nth-child(2)")));
+		clickElement(driver.findElement(By
+				.cssSelector(".btn.blue.editable-submit")));
 	}
 
 	public void iClickOn(String text) throws Throwable {
 		clickElement(driver.findElement(By.xpath("//div[@placeholder='" + text
 				+ "'][normalize-space(.) = 'Empty']")));
+	}
+
+	public void iUpdateWithlastname(String text) throws Throwable {
+		clickElement(driver.findElement(By
+				.cssSelector("div#BP_patientType_lastName")));
+		iFillInText(
+				driver.findElement(By.cssSelector(".editable-input>input")),
+				text);
+		clickElement(driver.findElement(By
+				.cssSelector(".btn.blue.editable-submit")));
+	}
+
+	public void iUpdateWithphysicianname(String text) throws Throwable {
+		clickElement(driver.findElement(By
+				.cssSelector("div#BP_patientType_pcp_pcpName")));
+		iFillInText(
+				driver.findElement(By.cssSelector(".editable-input>input")),
+				text);
+		clickElement(driver.findElement(By
+				.cssSelector(".btn.blue.editable-submit")));
+	}
+
+	public void iUpdateWithfirstname(String text) throws Throwable {
+		clickElement(driver.findElement(By
+				.cssSelector("div#BP_patientType_firstName")));
+		iFillInText(
+				driver.findElement(By.cssSelector(".editable-input>input")),
+				text);
+		clickElement(driver.findElement(By
+				.cssSelector(".btn.blue.editable-submit")));
+	}
+
+	public void iUpdateWithNumber(String text) throws Throwable {
+		clickElement(driver.findElement(By
+				.cssSelector("#BP_patientType_phones .add_to_collection")));
+		clickElement(driver
+				.findElement(By
+						.xpath("//div[@placeholder='Phone number'][normalize-space(.) = 'Empty']")));
+		iFillInText(
+				driver.findElement(By.cssSelector(".editable-input>input")),
+				text);
+		clickElement(driver.findElement(By
+				.cssSelector(".btn.blue.editable-submit")));
 	}
 }

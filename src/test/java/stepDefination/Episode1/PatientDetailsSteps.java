@@ -27,24 +27,24 @@ public class PatientDetailsSteps extends DriverScript {
 		details.iClickOnFirstname();
 	}
 
-	@Then("^I update with \"([^\"]*)\" under first name$")
+	@Then("^I update with \"([^\"]*)\" for first name under patient details$")
 	public void i_update_with_under_first_name(String text) throws Throwable {
-		details.iUpdateWith(text);
+		details.iUpdateWithfirstname(text);
 	}
 
-	@Then("^I update with \"([^\"]*)\" under last name$")
+	@Then("^I update with \"([^\"]*)\" for last name under patient details$")
 	public void i_update_with_under_last_name(String text) throws Throwable {
-		details.iUpdateWith(text);
+		details.iUpdateWithlastname(text);
 	}
 
-	@Then("^I update with \"([^\"]*)\" under physicianname$")
+	@Then("^I update with \"([^\"]*)\" for physicianname under patient details$")
 	public void i_update_with_under_physicianname(String text) throws Throwable {
-		details.iUpdateWith(text);
+		details.iUpdateWithphysicianname(text);
 	}
 
 	@Then("^I update with \"([^\"]*)\" under phonenumber$")
 	public void i_update_with_under_phonenumber(String text) throws Throwable {
-		details.iUpdateWith(text);
+		details.iUpdateWithNumber(text);
 	}
 
 	@Then("^I update with \"([^\"]*)\" under street$")
