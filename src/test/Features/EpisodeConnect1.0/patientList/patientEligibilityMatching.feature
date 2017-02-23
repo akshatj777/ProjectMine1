@@ -1,5 +1,5 @@
 Feature: Patient Eligibility and Matching
-  
+
   Scenario Outline: Create patient
     Given I am on the login page
     When I enter email field <email> for login
@@ -37,12 +37,12 @@ Feature: Patient Eligibility and Matching
     And I wait for 4000 milli seconds
     Then I click on Agree under Attestation page
     And I wait for 3000 milli seconds
-    
+
     Examples:
-      | email                 | password  | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch    |
-      | qa.admin@yopmail.com  | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
-  
-  Scenario Outline: Create matching patient    
+      | email                | password  | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch    |
+      | qa.admin@yopmail.com | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
+
+  Scenario Outline: Create matching patient
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -70,6 +70,6 @@ Feature: Patient Eligibility and Matching
     And I wait for 3000 milli seconds
 
     Examples:
-      | email                 | password  | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch    |
-      | qa.admin@yopmail.com  | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
+      | email                | password  | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch    |
+      | qa.admin@yopmail.com | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
   

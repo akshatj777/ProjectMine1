@@ -10,14 +10,14 @@ Feature: Episode connect 1 Create Episode
     And I click on the "Episodes" tile
     And I switch to new window
     Then I should see Episode header text "Dashboard"
-    
+
     When I click on "Patients" in the left navigator present on the episode dashboard page
     When I click on "Patient List" in the Patients dropdown menu
     And I wait for 10000 milli seconds
     Then I click on "custom" filter tab present on the patients page
     And I wait for 3000 milli seconds
     Then I enter <Patient Name> in the patient search box present on the patient page
-    Then I click on search button present on the patients page  
+    Then I click on search button present on the patients page
     And I wait for 20000 milli seconds
     Then I click on the patient name present on the patient list
     And I wait for 3000 milli seconds
@@ -35,12 +35,12 @@ Feature: Episode connect 1 Create Episode
     And I wait for 2000 milli seconds
     And I Select "Stamford Hospital" from the list of admitting facility present on the Add transition page
     And I wait for 4000 milli seconds
-  
+
     When I click on Diagnosis and DRG tab present on the patient overview page
     Then I verify ICD is present in the Diagnosis and DRG tab
     And I verify Predict DRG is present in the Diagnosis and DRG tab
-    And I verify Add a New DRG is present in the Diagnosis and DRG tab 
-    
+    And I verify Add a New DRG is present in the Diagnosis and DRG tab
+
     When I click on DRG Type to Add a New DRG present on the patient overview page
     Then I select Possible from the DRG type dropdown present on the patient overview page
     Then I Click on DRG dropdown menu present on the patient overview page
@@ -49,11 +49,11 @@ Feature: Episode connect 1 Create Episode
     And I wait for 4000 milli seconds
     Then I select RESPIRATORY INFECTIONS & INFLAMATIONS from the DRG list present on the patient overview page
     And I wait for 4000 milli seconds
-    Then I click on Update Transition button present on the patient overview page 
-    
+    Then I click on Update Transition button present on the patient overview page
+
     Examples:
 
-      |          email            |   password   | Patient Name  |
-      |  qa.admin@yopmail.com 		|   Episode1!  | FirstNfbynigj |
+      | email                | password  | Patient Name  |
+      | qa.admin@yopmail.com | Episode1! | FirstNfbynigj |
     
     
