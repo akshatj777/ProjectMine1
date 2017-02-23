@@ -97,14 +97,14 @@ public class PatientDetailsSteps extends DriverScript {
 		details.iClickOnUnderAddress(text);
 	}
 
-	@Then("^I select the address type$")
-	public void i_select_the_address_type() throws Throwable {
-		details.iSelectTheType();
+	@Then("^I Select \"([^\"]*)\" of the address$")
+	public void i_select_the_address_type(String text) throws Throwable {
+		details.iSelectTheType(text);
 	}
 
-	@Then("^I select the state under address$")
-	public void i_select_the_state_under_address() throws Throwable {
-		details.iSelectTheType();
+	@Then("^I select \"([^\"]*)\" under address$")
+	public void i_select_the_state_under_address(String text) throws Throwable {
+		details.iSelectTheType(text);
 	}
 
 	@Then("^I click on \"([^\"]*)\" to add street$")

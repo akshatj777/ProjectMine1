@@ -46,7 +46,7 @@ Feature: Patient Details Verification
   	And I wait for 4000 milli seconds
   	Then I click on Add new under Addresses
   	Then I click on "Select Type" under address
-  	Then I select the address type
+  	Then I Select "Type" of the address
   	And I wait for 1000 milli seconds
   	Then I click on "Street" to add street
   	Then I update with "286 Madison ave" under street
@@ -55,7 +55,7 @@ Feature: Patient Details Verification
   	Then I update with "New York" under city
   	And I wait for 1000 milli seconds
   	Then I click on "Select State" under address
-  	Then I select the state under address
+  	Then I select "State" under address
   	And I wait for 1000 milli seconds
   	Then I click on "Zip" to add zip
   	Then I update with "10017" under zip

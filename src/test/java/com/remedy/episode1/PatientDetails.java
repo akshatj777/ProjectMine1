@@ -78,7 +78,7 @@ public class PatientDetails extends BaseClass {
 								+ text + "']")));
 	}
 
-	public void iSelectTheType() throws Throwable {
+	public void iSelectTheType(String text) throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector(".editable-input .form-control")));
 		clickElement(driver
