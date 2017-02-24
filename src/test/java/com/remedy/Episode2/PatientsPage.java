@@ -1,7 +1,6 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -874,118 +873,135 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iSelectTheGenderFromTheGenderFilterList() throws Throwable {
-		clickElement(driver
-				.findElement(By.xpath("//label[@for='genderM']/i")));
+		clickElement(driver.findElement(By.xpath("//label[@for='genderM']/i")));
 	}
+
 	public void iSelectInitiatorFromFilterList(String initiator)
 			throws Throwable {
-		clickElement(driver
-				.findElement(By.xpath("//label[span[text()='"+initiator+"']]")));
+		clickElement(driver.findElement(By.xpath("//label[span[text()='"
+				+ initiator + "']]")));
 	}
+
 	public void iClickOnInpatientLocationFilterPresentOnFilterPage()
 			throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(17)")));
 	}
+
 	public void iEnterUnderInpatientLocationFilter(String text)
 			throws Throwable {
 		iFillInText(
-				driver.findElement(By
-						.xpath("//div[@class='ng-scope']/input")),
+				driver.findElement(By.xpath("//div[@class='ng-scope']/input")),
 				text);
 	}
-	public void iClickOnLastNameFilterPresentOnFilterPage()
-			throws Throwable {
+
+	public void iClickOnLastNameFilterPresentOnFilterPage() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(18)")));
 	}
-	public void iEnterUnderLastNameFilter(String patient)
-			throws Throwable {
+
+	public void iEnterUnderLastNameFilter(String patient) throws Throwable {
 		iFillInText(
 				driver.findElement(By
 						.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),
 				patient);
 	}
-	public void iClickOnMedicareidFilter()
-			throws Throwable {
+
+	public void iClickOnMedicareidFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(19)")));
 	}
-	public void iEnterUnderMedicareidFilter(String medicareid)
-			throws Throwable {
+
+	public void iEnterUnderMedicareidFilter(String medicareid) throws Throwable {
 		iFillInText(
-				driver.findElement(By
-						.xpath("//div[@class='ng-scope']/input")),
+				driver.findElement(By.xpath("//div[@class='ng-scope']/input")),
 				medicareid);
 	}
-	public void iClickOnPayerFilter()
-			throws Throwable {
+
+	public void iClickOnPayerFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(20)")));
 	}
-	public void iEnterUnderPayerFilter(String payer)
-			throws Throwable {
+
+	public void iEnterUnderPayerFilter(String payer) throws Throwable {
 		iFillInText(
-				driver.findElement(By
-						.xpath("//div[@class='ng-scope']/input")),
+				driver.findElement(By.xpath("//div[@class='ng-scope']/input")),
 				payer);
 	}
-	public void iClickOnQualityMetricFilter()
-			throws Throwable {
+
+	public void iClickOnQualityMetricFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(21)")));
 	}
+
 	public void iClickOnCheckboxUnderQualityMetricFilter(String text)
 			throws Throwable {
-		clickElement(driver.findElement(By
-				.xpath("//label[span[text()='"+text+"']]")));
+		clickElement(driver.findElement(By.xpath("//label[span[text()='" + text
+				+ "']]")));
 	}
-	public void iClickOnReadmissionCountFilter()
-			throws Throwable {
+
+	public void iClickOnReadmissionCountFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(22)")));
 	}
-	public void iEnterFromToUnderReadmissionFilter(String arg1,String arg2)
+
+	public void iEnterFromToUnderReadmissionFilter(String arg1, String arg2)
 			throws Throwable {
-		iFillInText(
-				driver.findElement(By
-						.xpath("//input[@placeholder='0']")),
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='0']")),
 				arg1);
-		iFillInText(
-				driver.findElement(By
-						.xpath("//input[@placeholder='10']")),
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='10']")),
 				arg2);
 	}
-	public void iClickOnRiskAssessmentFilter()
-			throws Throwable {
+
+	public void iClickOnRiskAssessmentFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(23)")));
 	}
+
 	public void iClickOnCheckboxUnderRiskAssessmentFilter(String text)
 			throws Throwable {
-		clickElement(driver.findElement(By
-				.xpath("//label[span[text()='"+text+"']]")));
+		clickElement(driver.findElement(By.xpath("//label[span[text()='" + text
+				+ "']]")));
 	}
-	public void iClickOnSSNFilter()
-			throws Throwable {
+
+	public void iClickOnSSNFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(24)")));
 	}
-	public void iEnterUnderSSNFilter(String ssn)
-			throws Throwable {
+
+	public void iEnterUnderSSNFilter(String ssn) throws Throwable {
 		iFillInText(
-				driver.findElement(By
-						.xpath("//div[@class='ng-scope']/input")),
+				driver.findElement(By.xpath("//div[@class='ng-scope']/input")),
 				ssn);
 	}
-	public void iClickOnTagsFilter()
-			throws Throwable {
+
+	public void iClickOnTagsFilter() throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div.filters-list>ul>li:nth-child(25)")));
 	}
-	public void iClickOnCheckboxUnderTagsFilter(String text)
+
+	public void iClickOnCheckboxUnderTagsFilter(String text) throws Throwable {
+		clickElement(driver.findElement(By.xpath("//label[span[text()='" + text
+				+ "']]")));
+	}
+
+	public void iVerifyAdmitSectionIsPresentOnThePatientCard() throws Throwable {
+		isElementVisible(driver
+				.findElement(By
+						.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[1]")));
+	}
+
+	public void iVerifyInpatientStatusIsPresentOnThePatientCard()
 			throws Throwable {
-		clickElement(driver.findElement(By
-				.xpath("//label[span[text()='"+text+"']]")));
+		isElementVisible(driver
+				.findElement(By
+						.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[2]")));
+	}
+
+	public void iVerifyAdmissionReasonIsPresentOnThePatientCard()
+			throws Throwable {
+		isElementVisible(driver
+				.findElement(By
+						.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
 	}
 }

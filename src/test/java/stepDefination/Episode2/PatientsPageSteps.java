@@ -1128,104 +1128,139 @@ public class PatientsPageSteps extends DriverScript {
 			throws Throwable {
 		patientsPage.iSelectTheGenderFromTheGenderFilterList();
 	}
+
 	@When("^I click \"([^\"]*)\" initiator from filter list$")
 	public void i_click_initiator_from_filter_list(String initiator)
 			throws Throwable {
 		patientsPage.iSelectInitiatorFromFilterList(initiator);
 	}
+
 	@When("^I click on inpatient location Filter present on Filter Page$")
 	public void i_click_on_inpatient_location_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnInpatientLocationFilterPresentOnFilterPage();
 	}
+
 	@When("^I enter \"([^\"]*)\" under inpatient location filter$")
 	public void i_enter_under_inpatient_location_Filter(String text)
 			throws Throwable {
 		patientsPage.iEnterUnderInpatientLocationFilter(text);
 	}
+
 	@When("^I click on last name Filter present on Filter Page$")
 	public void i_click_on_last_name_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnLastNamePresentOnTheFilterPage();
 	}
+
 	@Then("^I enter \"([^\"]*)\" under last name filter$")
-	public void i_enter_under_last_name_filter(String patient)
-			throws Throwable {
+	public void i_enter_under_last_name_filter(String patient) throws Throwable {
 		patientsPage.iEnterUnderLastNameFilter(patient);
 	}
+
 	@Then("^I verify MedicareID Filter is displayed under List of Filter Options$")
 	public void i_verify_medicareid_filter_is_displayed_under_list_of_filter_option()
 			throws Throwable {
-		patientsPage.iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions();
+		patientsPage
+				.iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions();
 	}
+
 	@When("^I click on MedicareID Filter present on Filter Page$")
 	public void i_click_on_medicareid_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnMedicareidFilter();
 	}
+
 	@Then("^I enter \"([^\"]*)\" under medicareid filter$")
 	public void i_enter_under_medicareid_filter(String medicareid)
 			throws Throwable {
 		patientsPage.iEnterUnderMedicareidFilter(medicareid);
 	}
+
 	@When("^I click on Payer Filter present on Filter Page$")
 	public void i_click_on_payer_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnPayerFilter();
 	}
+
 	@Then("^I enter \"([^\"]*)\" under payer filter$")
-	public void i_enter_under_payer_filter(String payer)
-			throws Throwable {
+	public void i_enter_under_payer_filter(String payer) throws Throwable {
 		patientsPage.iEnterUnderPayerFilter(payer);
 	}
+
 	@When("^I click on Quality Metric Filter present on Filter Page$")
 	public void i_click_on_quality_metric_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnQualityMetricFilter();
 	}
+
 	@Then("^I click on \"([^\"]*)\" checkbox under quality metric filter$")
 	public void i_click_on_checkbox_under_quality_metric_filter(String text)
 			throws Throwable {
 		patientsPage.iClickOnCheckboxUnderQualityMetricFilter(text);
 	}
+
 	@When("^I click on Readmission Count Filter present on Filter Page$")
 	public void i_click_on_readmission_count_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnReadmissionCountFilter();
 	}
+
 	@Then("^I enter from \"([^\"]*)\" to \"([^\"]*)\" under readmission filter$")
-	public void i_enter_from_to_under_readmission_filter(String arg1,String arg2)
-			throws Throwable {
+	public void i_enter_from_to_under_readmission_filter(String arg1,
+			String arg2) throws Throwable {
 		patientsPage.iEnterFromToUnderReadmissionFilter(arg1, arg2);
 	}
+
 	@When("^I click on Risk Assessment Filter present on Filter Page$")
 	public void i_click_on_risk_assessment_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnRiskAssessmentFilter();
 	}
+
 	@Then("^I click on \"([^\"]*)\" checkbox under risk assessment filter$")
 	public void i_click_on_checkbox_under_risk_assessment_filter(String text)
 			throws Throwable {
 		patientsPage.iClickOnCheckboxUnderRiskAssessmentFilter(text);
 	}
+
 	@When("^I click on SSN Filter present on Filter Page$")
-	public void i_click_on_ssn_Filter_present_on_Filter_Page()
-			throws Throwable {
+	public void i_click_on_ssn_Filter_present_on_Filter_Page() throws Throwable {
 		patientsPage.iClickOnSSNFilter();
 	}
+
 	@Then("^I enter \"([^\"]*)\" under ssn filter$")
-	public void i_enter_under_ssn_filter(String ssn)
-			throws Throwable {
+	public void i_enter_under_ssn_filter(String ssn) throws Throwable {
 		patientsPage.iEnterUnderSSNFilter(ssn);
 	}
+
 	@When("^I click on Tags Filter present on Filter Page$")
 	public void i_click_on_tags_Filter_present_on_Filter_Page()
 			throws Throwable {
 		patientsPage.iClickOnTagsFilter();
 	}
+
 	@Then("^I click on \"([^\"]*)\" checkbox under tags filter$")
 	public void i_click_on_checkbox_under_tags_filter(String text)
 			throws Throwable {
 		patientsPage.iClickOnCheckboxUnderTagsFilter(text);
+	}
+
+	@Then("^I verify Admit Section is present on the patient card on the inpatient page$")
+	public void i_verify_admit_section_is_present_on_the_patient_card_on_the_inpatient_page()
+			throws Throwable {
+		patientsPage.iVerifyAdmitSectionIsPresentOnThePatientCard();
+	}
+
+	@Then("^I verify Inpatient Status is present on the patient card on the inpatient page$")
+	public void i_verify_inpatient_status_is_present_on_the_patient_card_on_the_inpatient_page()
+			throws Throwable {
+		patientsPage.iVerifyInpatientStatusIsPresentOnThePatientCard();
+	}
+
+	@Then("^I verify Admission Reason is present on the patient card on the inpatient page$")
+	public void i_verify_admission_reason_is_present_on_the_patient_card_on_the_inpatient_page()
+			throws Throwable {
+		patientsPage.iVerifyAdmissionReasonIsPresentOnThePatientCard();
 	}
 }

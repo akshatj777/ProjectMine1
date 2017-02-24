@@ -23,5 +23,13 @@ Feature: Episode 2.0 Patient Card
     Then I verify anchor facility is present on the patient card on the patient page
     Then I verify tags is present on the patient card on the patient page
     Then I verify Quick Actions is present on the patient card on the patient page
-  
+    
+    When I click on "Inpatient" tab in the filter bar on patients page
+    And I wait for 5000 milli seconds
+    Then I verify Admit Section is present on the patient card on the inpatient page
+    And I wait for 2000 milli seconds
+    Then I verify Inpatient Status is present on the patient card on the inpatient page
+    Then I verify Admission Reason is present on the patient card on the inpatient page
+    And I wait for 2000 milli seconds
+    
     
