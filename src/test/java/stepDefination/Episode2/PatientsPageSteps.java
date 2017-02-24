@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
  * Created by ashish.ranjan on 24-11-2016.
  */
 public class PatientsPageSteps extends DriverScript {
+
 	PatientsPage patientsPage = new PatientsPage(driver);
 
 	@Then("^I should see \"([^\"]*)\" tab in the filter bar on patients page$")
@@ -1228,4 +1229,19 @@ public class PatientsPageSteps extends DriverScript {
 			throws Throwable {
 		patientsPage.iClickOnCheckboxUnderTagsFilter(text);
 	}
+
+    @Then("^I enter ([^\"]*) in the search text box present on the patients page$")
+    public void i_enter_in_the_search_text_box_present_on_the_patients_page(String firstname) throws Throwable {
+        patientsPage.iEnterInTheSearchTextBoxPresentOnTheAddPatientPage(firstname);
+    }
+
+    @Then("^I verify ([^\"]*) and ([^\"]*) is displayed on the patient card$")
+    public void i_verify_and_is_displayed_on_the_patient_card(String firstname, String lastname) throws Throwable {
+        patientsPage.iVerifyAndIsDisplayedOnThePatientCard(firstname, lastname);
+    }
+
+    @Then("^I click on attestation button present on the patient card$")
+    public void i_click_on_attestation_button_present_on_the_patient_card() throws Throwable {
+        patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
+    }
 }
