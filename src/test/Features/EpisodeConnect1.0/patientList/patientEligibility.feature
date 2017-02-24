@@ -1,6 +1,7 @@
-Feature: Patent care team
+Feature: Patient Eligibility Verification
 
-  Scenario Outline: Login to application and select patient
+  Scenario Outline: Check Eligibility
+
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -21,28 +22,31 @@ Feature: Patent care team
     Then I should see "Completed" filter tab present on the patients page
     Then I should see "Canceled" filter tab present on the patients page
     And I wait for 8000 milli seconds
-    Then I enter <Patient Name> in the patient search box present on the patient page
-    Then I click on search button present on the patients page
-    And I wait for 10000 milli seconds
-    Then I should see <Patient Name> patient on the patient list present on the patient page
+    Then I click on "Active" filter tab present on the patients page
+    And I wait for 4000 milli seconds
     When I click on Patient under patient list page
+    And I click agree under attestation page
     Then I should see "Patients" details
     And I wait for 2000 milli seconds
+    Then I click on eligibility dropdown
+    Then I click on "Not Eligible" status
+    And I wait for 5000 milli seconds
+    And I search for "Not Eligible" in episodes dropdown
+    Then I verify "NOT ELIGIBLE" is present in episode dropdown
+    And I wait for 2000 milli seconds
+    Then I click on not eligible in the episodes dropdown
+    And I wait for 1000 milli seconds
+    Then I click on cancel
+    And I wait for 2000 milli seconds
+    And I search for date in episodes dropdown
+    And I wait for 2000 milli seconds
+    Then I verify date present in episode dropdown
+    Then I click on not eligible in the episodes dropdown
+    And I wait for 2000 milli seconds
+    Then I verify not eligible patient is present in cancelled section
 
-    When I click on care team
-    And I wait for 3000 milli seconds
-    Then I click on join care team
-    And I wait for 3000 milli seconds
-    Then I click on gear icon under care managers
-    Then I click on remove under the gear icon
-    And I wait for 2000 milli seconds
-    Then I should see "Unassign CareTeam Member" on the remove popup
-    Then I should see "Are you sure?" text
-    Then I click on ok button
-    And I wait for 2000 milli seconds
 
     Examples:
 
-      | email                | password  | Patient Name   |
-      | qa.admin@yopmail.com | Episode1! | Mypat Aaacyysa |
-  
+      | email                | password  |
+      | qa.admin@yopmail.com | Episode1! |
