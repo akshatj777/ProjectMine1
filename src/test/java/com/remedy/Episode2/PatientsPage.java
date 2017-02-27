@@ -1,7 +1,6 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,11 +10,11 @@ import org.openqa.selenium.WebElement;
  */
 public class PatientsPage extends BaseClass {
 
-    public PatientsPage(WebDriver driver) {
-        super(driver);
-    }
+	public PatientsPage(WebDriver driver) {
+		super(driver);
+	}
 
-    public void iVerifyTabInFilterBarOnPatientsPage(String elementText) {
+	public void iVerifyTabInFilterBarOnPatientsPage(String elementText) {
         verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'" + elementText + "')]")), elementText);
     }
 
@@ -263,7 +262,6 @@ public class PatientsPage extends BaseClass {
         switchToParentFrame();
         isElementVisible(driver.findElement(By.xpath("//label[text()='Tags']")));
     }
-
 
     public void iClickOnAdmitReasonFilterPresentOnFilterPage() {
         clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(1)")));
@@ -805,4 +803,16 @@ public class PatientsPage extends BaseClass {
     public void iClickOnCheckboxUnderTagsFilter(String text) {
         clickElement(driver.findElement(By.xpath("//label[span[text()='" + text + "']]")));
     }
+
+	public void iVerifyAdmitSectionIsPresentOnThePatientCard() {
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[1]")));
+	}
+
+	public void iVerifyInpatientStatusIsPresentOnThePatientCard(){
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[2]")));
+	}
+
+	public void iVerifyAdmissionReasonIsPresentOnThePatientCard(){
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
+	}
 }
