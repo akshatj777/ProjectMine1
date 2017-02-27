@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
  * Created by ashish.ranjan on 24-11-2016.
  */
 public class PatientsPageSteps extends DriverScript {
+
+
 	PatientsPage patientsPage = new PatientsPage(driver);
 
 	@Then("^I should see \"([^\"]*)\" tab in the filter bar on patients page$")
@@ -1235,63 +1237,133 @@ public class PatientsPageSteps extends DriverScript {
 	}
 
 	@When("^I click on Tags Filter present on Filter Page$")
-	public void i_click_on_tags_Filter_present_on_Filter_Page()
-			throws Throwable {
+	public void i_click_on_tags_Filter_present_on_Filter_Page()	throws Throwable {
 		patientsPage.iClickOnTagsFilter();
 	}
 
 	@Then("^I click on \"([^\"]*)\" checkbox under tags filter$")
-	public void i_click_on_checkbox_under_tags_filter(String text)
-			throws Throwable {
+	public void i_click_on_checkbox_under_tags_filter(String text) throws Throwable {
 		patientsPage.iClickOnCheckboxUnderTagsFilter(text);
 	}
 
+
 	@Then("^I verify Admit Section is present on the patient card on the inpatient page$")
-	public void i_verify_admit_section_is_present_on_the_patient_card_on_the_inpatient_page()
-			throws Throwable {
+	public void i_verify_admit_section_is_present_on_the_patient_card_on_the_inpatient_page() throws Throwable {
 		patientsPage.iVerifyAdmitSectionIsPresentOnThePatientCard();
 	}
 
 	@Then("^I verify Inpatient Status is present on the patient card on the inpatient page$")
-	public void i_verify_inpatient_status_is_present_on_the_patient_card_on_the_inpatient_page()
-			throws Throwable {
+	public void i_verify_inpatient_status_is_present_on_the_patient_card_on_the_inpatient_page() throws Throwable {
 		patientsPage.iVerifyInpatientStatusIsPresentOnThePatientCard();
 	}
 
 	@Then("^I verify Admission Reason is present on the patient card on the inpatient page$")
-	public void i_verify_admission_reason_is_present_on_the_patient_card_on_the_inpatient_page()
-			throws Throwable {
+	public void i_verify_admission_reason_is_present_on_the_patient_card_on_the_inpatient_page() throws Throwable {
 		patientsPage.iVerifyAdmissionReasonIsPresentOnThePatientCard();
 	}
+
 	@Then("^I should see search box appearing on the patients page$")
-	public void i_should_see_search_box_appearing_on_the_patients_page()
-			throws Throwable {
+	public void i_should_see_search_box_appearing_on_the_patients_page() throws Throwable {
 		patientsPage.iShouldSeeSearchBoxAppearingOnThePatientsPage();
 	}
 	@Then("^I enter \"([^\"]*)\" in the searchbox on the patients page$")
-	public void i_enter_and_in_the_searchbox_on_the_patients_page(String search)
-			throws Throwable {
+	public void i_enter_and_in_the_searchbox_on_the_patients_page(String search) throws Throwable {
 		patientsPage.iEnterInIheSearchbox(search);
 	}
 	@Then("^I verify \"([^\"]*)\" is appearing under firstname in the search result$")
-	public void i_verify_is_appearing_under_firstname_in_the_search_result(String firstname)
-			throws Throwable {
+	public void i_verify_is_appearing_under_firstname_in_the_search_result(String firstname) throws Throwable {
 		patientsPage.iVerifyFirstnameInTheSearchResult(firstname);
 	}
 	@Then("^I verify \"([^\"]*)\" is appearing under lastname in the search result$")
-	public void i_verify_is_appearing_under_lastname_in_the_search_result(String lastname)
-			throws Throwable {
+	public void i_verify_is_appearing_under_lastname_in_the_search_result(String lastname) throws Throwable {
 		patientsPage.iVerifyLastnameInTheSearchResult(lastname);
 	}
 	@Then("I verify \"([^\"]*)\" button is present for few patients on patient cards for non remedy users$")
-	public void i_verify_agree_button_is_appearing_for_few_patients_on_patient_cards(String element)
-			throws Throwable {
+	public void i_verify_agree_button_is_appearing_for_few_patients_on_patient_cards(String element) throws Throwable {
 		patientsPage.iVerifyAgreeButtonIsAppearing(element);
 	}
 	@Then("I verify \"([^\"]*)\" button is not present for patients on patient cards for remedy users$")
-	public void i_verify_agree_button_is_not_present_for_patients_on_patient_cards(String element)
-			throws Throwable {
+	public void i_verify_agree_button_is_not_present_for_patients_on_patient_cards(String element) throws Throwable {
 		patientsPage.iVerifyAgreeButtonIsNotPresent(element);
 	}
 	
+    @Then("^I click on \"([^\"]*)\" filter tab present on the patients page$")
+    public void i_click_on_filter_tab_present_on_the_patients_page(String filtertab) throws Throwable {
+    	patientsPage.iClickOnFilterTabPresentOnThePatientsPage(filtertab);
+    }
+
+    @Then("^I click on the patient name present on the patient list$")
+    public void i_click_on_the_patient_name_present_on_the_patient_list() throws Throwable {
+    	patientsPage.iClickOnThePatientNamePresentOnThePatientList();
+    }
+
+    @Then("^I click on new transition button present on the patient overview page$")
+    public void i_click_on_new_transition_button_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnNewTransitionButtonPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I click on the calender button present on the new tranition page$")
+    public void i_click_on_the_calender_button_present_on_the_new_tranition_page() throws Throwable {
+    	patientsPage.iClickOnTheCalenderButtonPresentOnTheNewTranitionPage();
+    }
+
+    @Then("^I select \"([^\"]*)\" from the care setting dropdown present on the add transition page$")
+    public void i_select_from_the_care_setting_dropdown_present_on_the_add_transition_page(String option) throws Throwable {
+    	patientsPage.iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(option);
+    }
+
+    @Then("^I select \"([^\"]*)\" from admission care type drop down menu present on Add transition page$")
+    public void i_select_from_admission_care_type_drop_down_menu_present_on_Add_transition_page(String option) throws Throwable {
+    	patientsPage.iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(option);
+    }
+
+    @When("^I click on Admitting Facility present on the Add transition page$")
+    public void i_click_on_Admitting_Facility_present_on_the_Add_transition_page() throws Throwable {
+    	patientsPage.iClickOnAdmittingFacilityPresentOnTheAddTransitionPage();
+    }
+
+    @When("^I Select \"([^\"]*)\" from the list of admitting facility present on the Add transition page$")
+    public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_transition_page(String facility) throws Throwable {
+    	patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(facility);
+    }
+    
+    @Then("^I click on edit button present on the patient overview page$")
+    public void i_click_on_edit_button_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnEditButtonPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I should see \"([^\"]*)\" button is present on the Edit Episode Initiator modal$")
+    public void i_should_see_button_is_present_on_the_Edit_Episode_Initiator_modal(String button) throws Throwable {
+    	patientsPage.iShouldSeeButtonIsPresentOnTheEditEpisodeInitiatorModal(button);
+    }
+
+    @When("^I click on the Episode Initiator dropdown present on the Edit Episode Initiator modal$")
+    public void i_click_on_the_Episode_Initiator_dropdown_present_on_the_Edit_Episode_Initiator_modal() throws Throwable {
+    	patientsPage.iClickOnTheEpisodeInitiatorDropdownPresentOnTheEditEpisodeInitiatorModal();
+    }
+
+    @Then("^I should see \"([^\"]*)\" option is present on the Edit Episode Initiator modal$")
+    public void i_should_see_option_is_present_on_the_Edit_Episode_Initiator_modal(String option) throws Throwable {
+    	patientsPage.iShouldSeeOptionIsPresentOnTheEditEpisodeInitiatorModal(option);
+    }
+
+    @Then("^I click on the \"([^\"]*)\" button present on the Edit Episode Initiator modal$")
+    public void i_click_on_the_button_present_on_the_Edit_Episode_Initiator_modal(String button) throws Throwable {
+    	patientsPage.iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(button);
+    }
+
+    @Then("^I enter ([^\"]*) in the search text box present on the patients page$")
+    public void i_enter_in_the_search_text_box_present_on_the_patients_page(String firstname) throws Throwable {
+        patientsPage.iEnterInTheSearchTextBoxPresentOnTheAddPatientPage(firstname);
+    }
+
+    @Then("^I verify ([^\"]*) and ([^\"]*) is displayed on the patient card$")
+    public void i_verify_and_is_displayed_on_the_patient_card(String firstname, String lastname) throws Throwable {
+        patientsPage.iVerifyAndIsDisplayedOnThePatientCard(firstname, lastname);
+    }
+
+    @Then("^I click on attestation button present on the patient card$")
+    public void i_click_on_attestation_button_present_on_the_patient_card() throws Throwable {
+        patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
+    }
 }
