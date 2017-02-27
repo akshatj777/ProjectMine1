@@ -2,6 +2,7 @@ package com.remedy.episode1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.remedy.baseClass.BaseClass;
 
 public class PatientDetails extends BaseClass {
@@ -134,5 +135,9 @@ public class PatientDetails extends BaseClass {
 				text);
 		clickElement(driver.findElement(By
 				.cssSelector(".btn.blue.editable-submit")));
+	}
+
+	public void iRemoveThePhoneNumbers(String number) {
+		clickElement(driver.findElement(By.xpath(".//*[@id='BP_patientType_phones_" + number+ "']/div[2]/div/a")));
 	}
 }

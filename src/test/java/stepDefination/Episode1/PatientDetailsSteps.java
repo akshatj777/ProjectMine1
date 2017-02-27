@@ -121,4 +121,8 @@ public class PatientDetailsSteps extends DriverScript {
 	public void i_click_on_to_add_zip(String text) throws Throwable {
 		details.iClickOn(text);
 	}
+	@Then("^I remove the \"([^\"]*)\" phone numbers under patient details$")
+	public void i_remove_the_phone_numbers_under_patient_details(String number) throws Throwable {
+		details.iRemoveThePhoneNumbers(number);
+	}
 }
