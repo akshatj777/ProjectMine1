@@ -1,6 +1,7 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,12 +15,12 @@ public class PatientsPage extends BaseClass {
         super(driver);
     }
 
-    public void iVerifyTabInFilterBarOnPatientsPage(String elementText){
-        verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'"+elementText+"')]")), elementText);
+    public void iVerifyTabInFilterBarOnPatientsPage(String elementText) {
+        verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'" + elementText + "')]")), elementText);
     }
 
-    public void iClickTabInFilterBarOnPatientsPage(String elementTextXpath){
-        clickElement(driver.findElement(By.xpath("//button//span[contains(text(),'"+elementTextXpath+"')]")));
+    public void iClickTabInFilterBarOnPatientsPage(String elementTextXpath) {
+        clickElement(driver.findElement(By.xpath("//button//span[contains(text(),'" + elementTextXpath + "')]")));
     }
 
     public void iVerifyViewSectionOnPatientsPage(String elementText) {
@@ -91,7 +92,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyVariousFilterIsPresentUnderListofFilterOptions(String filterOption) {
-        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'"+filterOption+"')]")));
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'" + filterOption + "')]")));
     }
 
 
@@ -549,59 +550,259 @@ public class PatientsPage extends BaseClass {
     public void iClickOnAttestationButtonPresentOnThePatientCard() {
         clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope button.attestation-button")));
     }
-    
-    public void iClickOnFilterTabPresentOnThePatientsPage(String filtertab){
-        clickElement(driver.findElement(By.cssSelector("#filterTab_"+filtertab+"")));
+
+    public void iClickOnFilterTabPresentOnThePatientsPage(String filtertab) {
+        clickElement(driver.findElement(By.cssSelector("#filterTab_" + filtertab + "")));
     }
-    
-    public void iClickOnThePatientNamePresentOnThePatientList(){
+
+    public void iClickOnThePatientNamePresentOnThePatientList() {
         clickElement(driver.findElement(By.cssSelector("div.ng-scope div.patient-list div.element-title")));
     }
-    
-    public void iClickOnNewTransitionButtonPresentOnThePatientOverviewPage(){
+
+    public void iClickOnNewTransitionButtonPresentOnThePatientOverviewPage() {
         clickElement(driver.findElement(By.cssSelector("a#btnNewTransition")));
     }
-    
-    public void iClickOnTheCalenderButtonPresentOnTheNewTranitionPage(){
+
+    public void iClickOnTheCalenderButtonPresentOnTheNewTranitionPage() {
         clickElement(driver.findElement(By.cssSelector(".btn.default.date-set")));
     }
-    
-    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option){
+
+    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option) {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory", option);
     }
-    
-    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option){
+
+    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option) {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", option);
     }
-    
-    public void iClickOnAdmittingFacilityPresentOnTheAddTransitionPage(){
+
+    public void iClickOnAdmittingFacilityPresentOnTheAddTransitionPage() {
         clickElement(driver.findElement(By.cssSelector("div[id*='bpadmissiontype_admitFacility']")));
     }
-    
-    public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(String facility){
-        iFillInText(driver.findElement(By.cssSelector("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")),facility);
+
+    public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(String facility) {
+        iFillInText(driver.findElement(By.cssSelector("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")), facility);
         longDelay();
         clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
     }
-    
-    public void iClickOnEditButtonPresentOnThePatientOverviewPage(){
+
+    public void iClickOnEditButtonPresentOnThePatientOverviewPage() {
         clickElement(driver.findElement(By.cssSelector("table#ui-transitions-table>tbody>tr>td>a")));
     }
-    
-    public void iShouldSeeButtonIsPresentOnTheEditEpisodeInitiatorModal(String button){
-    	isElementVisible(driver.findElement(By.xpath("//button[text()='"+button+"']")));
+
+    public void iShouldSeeButtonIsPresentOnTheEditEpisodeInitiatorModal(String button) {
+        isElementVisible(driver.findElement(By.xpath("//button[text()='" + button + "']")));
     }
-    
-    public void iClickOnTheEpisodeInitiatorDropdownPresentOnTheEditEpisodeInitiatorModal(){
+
+    public void iClickOnTheEpisodeInitiatorDropdownPresentOnTheEditEpisodeInitiatorModal() {
         clickElement(driver.findElement(By.cssSelector("select#episode_initiator_episodeInitiator")));
     }
-    
-    public void iShouldSeeOptionIsPresentOnTheEditEpisodeInitiatorModal(String option){
-    	isElementVisible(driver.findElement(By.xpath(".//select[@id='episode_initiator_episodeInitiator']/option[text()='"+option+"']")));
+
+    public void iShouldSeeOptionIsPresentOnTheEditEpisodeInitiatorModal(String option) {
+        isElementVisible(driver.findElement(By.xpath(".//select[@id='episode_initiator_episodeInitiator']/option[text()='" + option + "']")));
     }
-    
-    public void iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(String button){
-        clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
+
+    public void iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(String button) {
+        clickElement(driver.findElement(By.xpath("//button[text()='" + button + "']")));
+    }
+
+    public void iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Admit Reason')]")));
+    }
+
+    public void iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Discharge Facility')]")));
+    }
+
+    public void iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Facility')]")));
+    }
+
+    public void iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Care Plan')]")));
+    }
+
+    public void iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Care Setting')]")));
+    }
+
+    public void iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Cooperation Metric')]")));
+    }
+
+    public void iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Current Facility')]")));
+    }
+
+    public void iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Daily Report')]")));
+    }
+
+    public void iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Date Range')]")));
+    }
+
+    public void iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'DRG Type')]")));
+    }
+
+    public void iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Eligibility')]")));
+    }
+
+    public void iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode DRG')]")));
+    }
+
+    public void iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode Status')]")));
+    }
+
+    public void iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'First Name')]")));
+    }
+
+    public void iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Gender')]")));
+    }
+
+    public void iVerifyInitiatorFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Initiator')]")));
+    }
+
+    public void iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Inpatient Location')]")));
+    }
+
+    public void iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
+    }
+
+    public void iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions() {
+        isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Medicare ID')]")));
+    }
+
+    public void iClickOnDRGTypeFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(10)")));
+    }
+
+    public void iClickOnPossibleRadioButtonUnderDRGTypeFilter() {
+        clickElement(driver.findElement(By.xpath("//label[@for='drg-typeP']/i")));
+    }
+
+    public void iClickOnEligibilityFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(11)")));
+    }
+
+    public void iClickOnEligibileCheckboxUnderEligibleFilterOption() {
+        clickElement(driver.findElement(By.xpath("//label[@for='eligibilityELIGIBLE']")));
+    }
+
+    public void iClickOnEpisodeDRGFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(12)")));
+    }
+
+    public void iClickOnDrgTypeCheckboxUnderFilterOption() {
+        clickElement(driver.findElement(By.xpath("//label[@for='episode-drg770']")));
+    }
+
+    public void iClickOnEpisodeStatusFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(13)")));
+    }
+
+    public void iClickOnEpisodeStatusCheckboxUnderFilterOption() {
+        clickElement(driver.findElement(By.xpath("//label[@for='episode-statusActive']")));
+    }
+
+    public void iClickOnFirstNameFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(14)")));
+    }
+
+    public void iEnterUnderFirstNameFilter(String patient) {
+        iFillInText(driver.findElement(By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")), patient);
+    }
+
+    public void iClickOnGenderFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(15)")));
+    }
+
+    public void iSelectTheGenderFromTheGenderFilterList() {
+        clickElement(driver.findElement(By.xpath("//label[@for='genderM']/i")));
+    }
+
+    public void iSelectInitiatorFromFilterList(String initiator) {
+        clickElement(driver.findElement(By.xpath("//label[span[text()='" + initiator + "']]")));
+    }
+
+    public void iClickOnInpatientLocationFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(17)")));
+    }
+
+    public void iEnterUnderInpatientLocationFilter(String text) {
+        iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")), text);
+    }
+
+    public void iClickOnLastNameFilterPresentOnFilterPage() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(18)")));
+    }
+
+    public void iEnterUnderLastNameFilter(String patient) {
+        iFillInText(driver.findElement(By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")), patient);
+    }
+
+    public void iClickOnMedicareidFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(19)")));
+    }
+
+    public void iEnterUnderMedicareidFilter(String medicareid) {
+        iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")), medicareid);
+    }
+
+    public void iClickOnPayerFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(20)")));
+    }
+
+    public void iEnterUnderPayerFilter(String payer) {
+        iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")), payer);
+    }
+
+    public void iClickOnQualityMetricFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(21)")));
+    }
+
+    public void iClickOnCheckboxUnderQualityMetricFilter(String text) {
+        clickElement(driver.findElement(By.xpath("//label[span[text()='" + text + "']]")));
+    }
+
+    public void iClickOnReadmissionCountFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(22)")));
+    }
+
+    public void iEnterFromToUnderReadmissionFilter(String arg1, String arg2) {
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='0']")), arg1);
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='10']")), arg2);
+    }
+
+    public void iClickOnRiskAssessmentFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(23)")));
+    }
+
+    public void iClickOnCheckboxUnderRiskAssessmentFilter(String text) {
+        clickElement(driver.findElement(By.xpath("//label[span[text()='" + text + "']]")));
+    }
+
+    public void iClickOnSSNFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(24)")));
+    }
+
+    public void iEnterUnderSSNFilter(String ssn) {
+        iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")), ssn);
+    }
+
+    public void iClickOnTagsFilter() {
+        clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(25)")));
+    }
+
+    public void iClickOnCheckboxUnderTagsFilter(String text) {
+        clickElement(driver.findElement(By.xpath("//label[span[text()='" + text + "']]")));
     }
 }
-
