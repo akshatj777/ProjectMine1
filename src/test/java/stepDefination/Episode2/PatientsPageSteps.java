@@ -789,7 +789,72 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I verify Admit Date is present on the transition page$")
     public void i_verify_Admit_Date_is_present_on_the_transition_page() throws Throwable {
-        patientsPage.iVerifyAdmitDateIsPresentOnTheTransitionPage();
+    	patientsPage.iVerifyAdmitDateIsPresentOnTheTransitionPage();
+    }   
+    
+    @Then("^I click on \"([^\"]*)\" filter tab present on the patients page$")
+    public void i_click_on_filter_tab_present_on_the_patients_page(String filtertab) throws Throwable {
+    	patientsPage.iClickOnFilterTabPresentOnThePatientsPage(filtertab);
+    }
+
+    @Then("^I click on the patient name present on the patient list$")
+    public void i_click_on_the_patient_name_present_on_the_patient_list() throws Throwable {
+    	patientsPage.iClickOnThePatientNamePresentOnThePatientList();
+    }
+
+    @Then("^I click on new transition button present on the patient overview page$")
+    public void i_click_on_new_transition_button_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnNewTransitionButtonPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I click on the calender button present on the new tranition page$")
+    public void i_click_on_the_calender_button_present_on_the_new_tranition_page() throws Throwable {
+    	patientsPage.iClickOnTheCalenderButtonPresentOnTheNewTranitionPage();
+    }
+
+    @Then("^I select \"([^\"]*)\" from the care setting dropdown present on the add transition page$")
+    public void i_select_from_the_care_setting_dropdown_present_on_the_add_transition_page(String option) throws Throwable {
+    	patientsPage.iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(option);
+    }
+
+    @Then("^I select \"([^\"]*)\" from admission care type drop down menu present on Add transition page$")
+    public void i_select_from_admission_care_type_drop_down_menu_present_on_Add_transition_page(String option) throws Throwable {
+    	patientsPage.iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(option);
+    }
+
+    @When("^I click on Admitting Facility present on the Add transition page$")
+    public void i_click_on_Admitting_Facility_present_on_the_Add_transition_page() throws Throwable {
+    	patientsPage.iClickOnAdmittingFacilityPresentOnTheAddTransitionPage();
+    }
+
+    @When("^I Select \"([^\"]*)\" from the list of admitting facility present on the Add transition page$")
+    public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_transition_page(String facility) throws Throwable {
+    	patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(facility);
+    }
+    
+    @Then("^I click on edit button present on the patient overview page$")
+    public void i_click_on_edit_button_present_on_the_patient_overview_page() throws Throwable {
+    	patientsPage.iClickOnEditButtonPresentOnThePatientOverviewPage();
+    }
+
+    @Then("^I should see \"([^\"]*)\" button is present on the Edit Episode Initiator modal$")
+    public void i_should_see_button_is_present_on_the_Edit_Episode_Initiator_modal(String button) throws Throwable {
+    	patientsPage.iShouldSeeButtonIsPresentOnTheEditEpisodeInitiatorModal(button);
+    }
+
+    @When("^I click on the Episode Initiator dropdown present on the Edit Episode Initiator modal$")
+    public void i_click_on_the_Episode_Initiator_dropdown_present_on_the_Edit_Episode_Initiator_modal() throws Throwable {
+    	patientsPage.iClickOnTheEpisodeInitiatorDropdownPresentOnTheEditEpisodeInitiatorModal();
+    }
+
+    @Then("^I should see \"([^\"]*)\" option is present on the Edit Episode Initiator modal$")
+    public void i_should_see_option_is_present_on_the_Edit_Episode_Initiator_modal(String option) throws Throwable {
+    	patientsPage.iShouldSeeOptionIsPresentOnTheEditEpisodeInitiatorModal(option);
+    }
+
+    @Then("^I click on the \"([^\"]*)\" button present on the Edit Episode Initiator modal$")
+    public void i_click_on_the_button_present_on_the_Edit_Episode_Initiator_modal(String button) throws Throwable {
+    	patientsPage.iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(button);
     }
 
     @Then("^I enter ([^\"]*) in the first name text box present on the Add Patient page$")
@@ -821,5 +886,4 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_attestation_button_present_on_the_patient_card() throws Throwable {
         patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
     }
-
 }
