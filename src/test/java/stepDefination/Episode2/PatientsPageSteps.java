@@ -1262,6 +1262,31 @@ public class PatientsPageSteps extends DriverScript {
 		patientsPage.iVerifyAdmissionReasonIsPresentOnThePatientCard();
 	}
 
+	@Then("^I should see search box appearing on the patients page$")
+	public void i_should_see_search_box_appearing_on_the_patients_page() throws Throwable {
+		patientsPage.iShouldSeeSearchBoxAppearingOnThePatientsPage();
+	}
+	@Then("^I enter \"([^\"]*)\" in the searchbox on the patients page$")
+	public void i_enter_and_in_the_searchbox_on_the_patients_page(String search) throws Throwable {
+		patientsPage.iEnterInIheSearchbox(search);
+	}
+	@Then("^I verify \"([^\"]*)\" is appearing under firstname in the search result$")
+	public void i_verify_is_appearing_under_firstname_in_the_search_result(String firstname) throws Throwable {
+		patientsPage.iVerifyFirstnameInTheSearchResult(firstname);
+	}
+	@Then("^I verify \"([^\"]*)\" is appearing under lastname in the search result$")
+	public void i_verify_is_appearing_under_lastname_in_the_search_result(String lastname) throws Throwable {
+		patientsPage.iVerifyLastnameInTheSearchResult(lastname);
+	}
+	@Then("I verify \"([^\"]*)\" button is present for few patients on patient cards for non remedy users$")
+	public void i_verify_agree_button_is_appearing_for_few_patients_on_patient_cards(String element) throws Throwable {
+		patientsPage.iVerifyAgreeButtonIsAppearing(element);
+	}
+	@Then("I verify \"([^\"]*)\" button is not present for patients on patient cards for remedy users$")
+	public void i_verify_agree_button_is_not_present_for_patients_on_patient_cards(String element) throws Throwable {
+		patientsPage.iVerifyAgreeButtonIsNotPresent(element);
+	}
+	
     @Then("^I click on \"([^\"]*)\" filter tab present on the patients page$")
     public void i_click_on_filter_tab_present_on_the_patients_page(String filtertab) throws Throwable {
     	patientsPage.iClickOnFilterTabPresentOnThePatientsPage(filtertab);
