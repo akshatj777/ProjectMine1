@@ -848,4 +848,48 @@ public class PatientsPage extends BaseClass {
 			throws Throwable {
 		verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",text);
 	}
+
+	public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
+	}
+	public void iShouldVerifyIsAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+    }
+	public void iShouldSeeFacilityAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")));
+	}
+	public void iShouldSeeAdmitDateAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[3]")));
+	}
+	public void iShouldSeeAdmitReasonAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[4]")));
+	}
+	public void iShouldSeeAdmitTypeAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[5]")));
+	}
+	public void iShouldSeeDischargeDateAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[6]")));
+	}
+	public void iShouldSeeDischargeLocationAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[7]")));
+	}
+	public void iShouldSeePAPsAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[8]")));
+	}
+	public void iShouldSeeDRGsAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[9]")));
+	}
+	public void iClickOnEditPresentUnderActionsSymbol() {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[1]/a")));
+	}
+	public void iShouldSeeEditTranisitionOnTransitionsPage(String text) {
+		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
+	}
+	public void iClickOnActionsSymbol() {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+	}
+	public void iClickOnDeleteoftransition() {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[3]/a")));
+	}
 }
