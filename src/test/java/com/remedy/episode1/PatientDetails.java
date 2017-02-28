@@ -117,6 +117,7 @@ public class PatientDetails extends BaseClass {
 	public void iUpdateWithfirstname(String text) throws Throwable {
 		clickElement(driver.findElement(By
 				.cssSelector("div#BP_patientType_firstName")));
+		delay();
 		iFillInText(
 				driver.findElement(By.cssSelector(".editable-input>input")),
 				text);

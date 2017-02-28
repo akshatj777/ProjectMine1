@@ -36,23 +36,23 @@ Feature: Patient Details Verification
     And I wait for 1000 milli seconds
     Then I update with "8416159021" under phonenumber
     And I wait for 1000 milli seconds
-    #Then I remove the "1" phone numbers under patient details
+    Then I remove the "1" phone numbers under patient details
     And I wait for 3000 milli seconds
     Then I update with "8316159021" under phonenumber
     And I wait for 1000 milli seconds
-    #Then I remove the "2" phone numbers under patient details
+    Then I remove the "2" phone numbers under patient details
     And I wait for 1000 milli seconds
     Then I update with "8216159021" under phonenumber
     And I wait for 1000 milli seconds
-    #Then I remove the "3" phone numbers under patient details
+    Then I remove the "3" phone numbers under patient details
     And I wait for 1000 milli seconds
     Then I update with "8116159021" under phonenumber
     And I wait for 1000 milli seconds
-    #Then I remove the "4" phone numbers under patient details
+    Then I remove the "4" phone numbers under patient details
     And I wait for 1000 milli seconds
     Then I update with "8016159021" under phonenumber
     And I wait for 1000 milli seconds
-    #Then I remove the "5" phone numbers under patient details
+    Then I remove the "5" phone numbers under patient details
     And I wait for 2000 milli seconds
     Then I click on Add new under Addresses
     Then I click on "Select Type" under address
