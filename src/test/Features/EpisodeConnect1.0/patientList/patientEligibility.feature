@@ -22,7 +22,7 @@ Feature: Patient Eligibility Verification
     Then I should see "Completed" filter tab present on the patients page
     Then I should see "Canceled" filter tab present on the patients page
     And I wait for 8000 milli seconds
-    Then I click on "Active" filter tab present on the patients page
+    Then I click "Active" filter tab present on the patients page
     And I wait for 4000 milli seconds
     When I click on Patient under patient list page
     And I click agree under attestation page
