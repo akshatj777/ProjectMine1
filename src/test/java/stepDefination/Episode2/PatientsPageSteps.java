@@ -1287,7 +1287,7 @@ public class PatientsPageSteps extends DriverScript {
 		patientsPage.iVerifyAgreeButtonIsNotPresent(element);
 	}
 	
-    @Then("^I click on \"([^\"]*)\" filter tab present on the patients page$")
+    @Then("^I click \"([^\"]*)\" filter tab present on the patients page$")
     public void i_click_on_filter_tab_present_on_the_patients_page(String filtertab) throws Throwable {
     	patientsPage.iClickOnFilterTabPresentOnThePatientsPage(filtertab);
     }

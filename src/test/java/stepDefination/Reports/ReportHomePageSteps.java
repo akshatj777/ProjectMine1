@@ -2,6 +2,7 @@ package stepDefination.Reports;
 
 import com.remedy.Reports.ReportHomePage;
 import com.remedy.resources.DriverScript;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -168,7 +169,7 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_reports_text_for_report_tile(String tile, String reportsTextName) throws Throwable {
         reportHomePage.iClickOnReportsTextForReportsTextName(reportsTextName, tile);
     }
-
+    
     @Then("^I should see \"([^\"]*)\" in the Operations Dashboard report page header$")
     public void i_should_see_in_the_Operations_Dashboard_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifyOperationsDashboardReportPageHeader(headedText);
@@ -176,6 +177,11 @@ public class ReportHomePageSteps extends DriverScript {
 
     @Then("^I should see \"([^\"]*)\" in the Performance Overall Program report page header$")
     public void i_should_see_in_the_Performance_Overall_Program_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" in the Patient ID report page header$")
+    public void i_should_see_in_the_patient_id_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
     }
 
@@ -188,9 +194,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_in_the_SNF_LOS_Detail_Post_Acute_Care_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifySNFLOSDetailPostAcuteCareReportPageHeader(headedText);
     }
+    
+    @Then("^I should see \"([^\"]*)\" in the Post Acute Care report page header$")
+    public void i_should_see_in_the_Post_Acute_Care_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyPostAccuteCareReportPageHeader(headedText);
+    }
 
     @Then("^I should see \"([^\"]*)\" in the Physician Performance Physician report page header$")
     public void i_should_see_in_the_Physician_Performance_Physician_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyPhysicianPerformancePhysicianReportPageHeader(headedText);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" in the Physician Volume Physician report page header$")
+    public void i_should_see_in_the_Physician_Volume_Physician_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyPhysicianPerformancePhysicianReportPageHeader(headedText);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" in the Physician Spending Physician report page header$")
+    public void i_should_see_in_the_Physician_Spending_Physician_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifyPhysicianPerformancePhysicianReportPageHeader(headedText);
     }
 
@@ -198,9 +219,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_in_the_CARL_NSOC_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifyCARLNSOCReportPageHeader(headedText);
     }
+    
+    @Then("^I should see \"([^\"]*)\" in the Next Site of Care Detail NSOC report page header$")
+    public void i_should_see_in_the_Next_Site_of_Care_Detail_NSOC_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyNextSiteOfCareDetailNSOCReportPageHeader(headedText);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" in the Next Site of Care Summary NSOC report page header$")
+    public void i_should_see_in_the_Next_Site_of_Care_Summary_NSOC_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyCARLNSOCReportPageHeader(headedText);
+    }
 
     @Then("^I should see \"([^\"]*)\" in the Readmissions Readmission report page header$")
     public void i_should_see_in_the_Readmissions_Readmission_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyReadmissionsReadmissionReportPageHeader(headedText);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" in the Readmissions Claims Readmission report page header$")
+    public void i_should_see_in_the_Readmissions_claims_Readmission_report_page_header(String headedText) throws Throwable {
         reportHomePage.iVerifyReadmissionsReadmissionReportPageHeader(headedText);
     }
 

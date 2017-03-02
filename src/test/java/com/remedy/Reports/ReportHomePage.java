@@ -142,8 +142,16 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyCARLNSOCReportPageHeader(String text){
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
+    
+    public void iVerifyNextSiteOfCareDetailNSOCReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath(".//*[@id='rpt-report-header-label-0']")), text);
+    }
 
     public void iVerifyReadmissionsReadmissionReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+    
+    public void iVerifyPostAccuteCareReportPageHeader(String text){
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
 
