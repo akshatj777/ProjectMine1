@@ -68,7 +68,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyWorklistSubBarOptionsPresentOnPatientsPage(String worklistSubbar) {
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'" + worklistSubbar + "')]]]")));
+        isElementVisible(driver.findElement(By.xpath("//button[span[contains(text(),'" + worklistSubbar + "')]]")));
     }
 
     public void iClickOnFilterButtonPresentOnPatientPage() {
@@ -816,36 +816,28 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyAdmissionReasonIsPresentOnThePatientCard(){
 		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
 	}
-	public void iShouldSeeSearchBoxAppearingOnThePatientsPage()
-			throws Throwable {
-		isElementVisible(driver
-				.findElement(By
-						.xpath("//div[@class='elastic-input-wrapper']")));
-	}
-	public void iEnterInIheSearchbox(String search)
-			throws Throwable {
-		iFillInText(
-				driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),
-				search);
-	}
-	public void iVerifyFirstnameInTheSearchResult(String firstname)
-			throws Throwable {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[1]")),
-				firstname);
-	}
-	public void iVerifyLastnameInTheSearchResult(String lastname)
-			throws Throwable {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[2]")),
-				lastname);
-	}
-	public void iVerifyAgreeButtonIsAppearing(String text)
-			throws Throwable {
-		verifyTextForElementfromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",text);
-	}
-	public void iVerifyAgreeButtonIsNotPresent(String text)
-			throws Throwable {
-		verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",text);
-	}
+
+    public void iShouldSeeSearchBoxAppearingOnThePatientsPage() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='elastic-input-wrapper']")));
+    }
+
+    public void iEnterInIheSearchbox(String search) {
+        iFillInText(driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")), search);
+    }
+
+    public void iVerifyFirstnameInTheSearchResult(String firstname) {
+        verifyTextForElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[1]")), firstname);
+    }
+
+    public void iVerifyLastnameInTheSearchResult(String lastname) {
+        verifyTextForElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[2]")), lastname);
+    }
+
+    public void iVerifyAgreeButtonIsAppearing(String text) {
+        verifyTextForElementfromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
+    }
+
+    public void iVerifyAgreeButtonIsNotPresent(String text) {
+        verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
+    }
 }
