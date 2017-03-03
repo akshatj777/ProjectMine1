@@ -9,6 +9,8 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 /**
  * Created by ashish.ranjan on 24-11-2016.
  */
@@ -623,8 +625,12 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions();
     }
 
-    @Then("^I verify \"([^\"]*)\" filter is displayed under list of filter options$")
-    public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(String arg1) throws Throwable {
+    @Then("^I verify following filter is displayed under list of filter options$")
+    public void i_verify_Filter_is_displayed_under_List_of_Filter_Options(List<String> filtersLinks) throws Throwable {
+        for (int i=0; i<filtersLinks.size(); i++) {
+            //System.out.println(filtersLinks.get(i));
+            patientsPage.iVerifyFollowingFiltersPresentOnPatientPage(filtersLinks.get(i));
+        }
     }
 
     @When("^I click on Admit Reason Filter present on Filter Page$")
@@ -994,7 +1000,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iShouldSeeSearchBoxAppearingOnThePatientsPage();
     }
 
-    @Then("^I enter \"([^\"]*)\" in the searchbox on the patients page$")
+    @Then("^I enter \"([^\"]*)\" in the search box on the patients page$")
     public void i_enter_and_in_the_searchbox_on_the_patients_page(String search) throws Throwable {
         patientsPage.iEnterInIheSearchbox(search);
     }

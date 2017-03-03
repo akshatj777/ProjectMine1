@@ -840,4 +840,8 @@ public class PatientsPage extends BaseClass {
     public void iVerifyAgreeButtonIsNotPresent(String text) {
         verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
     }
+
+    public void iVerifyFollowingFiltersPresentOnPatientPage(String text){
+        verifyTextForElementFromListByXpath("//div[@class='filters-dropdown-content filters-list']/ul/li", text);
+    }
 }
