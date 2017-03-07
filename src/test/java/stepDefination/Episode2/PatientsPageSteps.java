@@ -6,6 +6,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -1005,16 +1006,6 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iEnterInIheSearchbox(search);
     }
 
-    @Then("^I verify \"([^\"]*)\" is appearing under firstname in the search result$")
-    public void i_verify_is_appearing_under_firstname_in_the_search_result(String firstname) throws Throwable {
-        patientsPage.iVerifyFirstnameInTheSearchResult(firstname);
-    }
-
-    @Then("^I verify \"([^\"]*)\" is appearing under lastname in the search result$")
-    public void i_verify_is_appearing_under_lastname_in_the_search_result(String lastname) throws Throwable {
-        patientsPage.iVerifyLastnameInTheSearchResult(lastname);
-    }
-
     @Then("I verify \"([^\"]*)\" button is present for few patients on patient cards for non remedy users$")
     public void i_verify_agree_button_is_appearing_for_few_patients_on_patient_cards(String element) throws Throwable {
         patientsPage.iVerifyAgreeButtonIsAppearing(element);
@@ -1103,5 +1094,10 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I click on attestation button present on the patient card$")
     public void i_click_on_attestation_button_present_on_the_patient_card() throws Throwable {
         patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
+    }
+
+    @Then("^I verify patient having either ([^\"]*) first name or ([^\"]*) last name on patient page$")
+    public void i_verify_patient_having_either_fname_or_lname_on_patient_page(String userFname, String userLname) throws Throwable {
+        Assert.assertTrue(patientsPage.isAllCorrectPatientsReturnAfterPatientSearch(userFname, userLname));
     }
 }
