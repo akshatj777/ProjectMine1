@@ -1366,4 +1366,60 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_attestation_button_present_on_the_patient_card() throws Throwable {
         patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
     }
+    @Then("^I should see Episode Initiator appearing under transitions table$")
+    public void i_should_see_episode_initiator_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage();
+    }
+    @Then("^I should verify Actions symbol is appearing under transition table$")
+    public void i_should_verify_is_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldVerifyIsAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see Facility appearing under transitions table$")
+    public void i_should_see_facility_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeFacilityAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see Admit Date appearing under transitions table$")
+    public void i_should_see_admit_date_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeAdmitDateAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see Admit Reason appearing under transitions table$")
+    public void i_should_see_admit_reason_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeAdmitReasonAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see Admit Type appearing under transitions table$")
+    public void i_should_see_admit_type_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeAdmitTypeAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see Discharge Date appearing under transitions table$")
+    public void i_should_see_discharge_date_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeDischargeDateAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see Discharge Location appearing under transitions table$")
+    public void i_should_see_discharge_location_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeDischargeLocationAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see PAPs appearing under transitions table$")
+    public void i_should_see_PAPs_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeePAPsAppearingUnderTransitionsPage();
+    }
+    @Then("^I should see DRGs appearing under transitions table$")
+    public void i_should_see_DRGs_column_appearing_under_transitions_page() throws Throwable {
+    	patientsPage.iShouldSeeDRGsAppearingUnderTransitionsPage();
+    }
+    @Then("^I click on edit present under actions symbol$")
+    public void i_click_on_edit_present_under_actions_symbol() throws Throwable {
+    	patientsPage.iClickOnEditPresentUnderActionsSymbol();
+    }
+    @Then("^I should see \"([^\"]*)\" appearing on the transition page$")
+    public void i_should_see_edit_transition_appearing(String text) throws Throwable {
+    	patientsPage.iShouldSeeEditTranisitionOnTransitionsPage(text);
+    }
+    @Then("^I click on Action symbol is appearing under transition table$")
+    public void i_click_on_action_symbol() throws Throwable {
+    	patientsPage.iClickOnActionsSymbol();
+    }
+    @Then("^I click on delete to delete the transition$")
+    public void i_click_on_delete_to_delete_the_transition() throws Throwable {
+    	patientsPage.iClickOnDeleteoftransition();
+    }
 }
