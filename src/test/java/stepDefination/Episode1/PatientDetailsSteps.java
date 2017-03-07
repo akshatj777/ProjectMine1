@@ -1,7 +1,12 @@
 package stepDefination.Episode1;
 
+import org.openqa.selenium.By;
+
 import com.remedy.episode1.PatientDetails;
 import com.remedy.resources.DriverScript;
+import com.thoughtworks.selenium.webdriven.commands.IsElementPresent;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class PatientDetailsSteps extends DriverScript {
@@ -124,5 +129,9 @@ public class PatientDetailsSteps extends DriverScript {
 	@Then("^I remove the \"([^\"]*)\" phone numbers under patient details$")
 	public void i_remove_the_phone_numbers_under_patient_details(String number) throws Throwable {
 		details.iRemoveThePhoneNumbers(number);
+	}
+	@And("^I verify Add new button is not visible after adding 10 numbers$")
+	public void i_verify_Add_new_button_is_not_visible_after_adding_10_numbers(){
+		details.isElementPresentOnPage(By.cssSelector("#BP_patientType_phones .add_to_collection"));
 	}
 }
