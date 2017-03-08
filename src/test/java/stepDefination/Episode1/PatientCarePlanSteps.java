@@ -199,4 +199,9 @@ public class PatientCarePlanSteps extends DriverScript
 	{
 		patientcare.iShouldSeeText(text);
 	}
+	@Then("^I agree the attestation if available$")
+	public void i_agree_the_attestation_if_available(){
+		patientcare.iAcceptAttestation();
+		
+	}
 }
