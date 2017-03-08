@@ -371,7 +371,8 @@ public class BaseClass {
     public void switchToParentFrame(){
     driver.switchTo().parentFrame();
     }
-}
+    
+   }
 
 
 
