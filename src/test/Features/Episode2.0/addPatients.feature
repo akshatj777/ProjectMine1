@@ -19,8 +19,8 @@ Feature: Episode 2.0 Add Patient
     Then I verify "Add Patient" text is present on the add patient page
     And I switch to Add Patient embedded iframe
     Then I verify "Patient Information" text is present on the add patient page
-    Then I enter <First name> in the first name text box present on the Add Patient page
-    And I enter  <Last name> in the last name text box present on the Add Patient page
+    Then I enter "<First name>" in the first name text box present on the Add Patient page
+    And I enter  "<Last name>" in the last name text box present on the Add Patient page
     And I enter date of birth "01/05/2011" present on the Add Patient Page
     And I wait for 4000 milli seconds
     And I selected "Male" from the gender drop down list present on the Add Patient page
@@ -29,7 +29,7 @@ Feature: Episode 2.0 Add Patient
     And I wait for 2000 milli seconds
     And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
     And I wait for 4000 milli seconds
-    And I enter <Medicare ID> in the Medicare ID present on the Add Patient page
+    And I enter "<Medicare ID>" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     And I wait for 8000 milli seconds
 
