@@ -205,6 +205,13 @@ public class BaseClass {
             Assert.assertEquals(ele.getText(), text);
         }
     }
+    
+    public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text){
+    	if (isElementVisible(ele)) {
+            Assert.assertEquals(ele.getText().replaceAll("\\s+", " "), text);
+        }
+    	
+    }
 
     public void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));

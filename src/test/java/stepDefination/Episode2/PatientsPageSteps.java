@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class PatientsPageSteps extends DriverScript {
 
-
     PatientsPage patientsPage = new PatientsPage(driver);
 
     @Then("^I should see \"([^\"]*)\" tab in the filter bar on patients page$")
