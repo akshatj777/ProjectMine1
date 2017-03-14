@@ -376,4 +376,74 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_under_program_overview_reports(String text) throws Throwable {
         reportHomePage.iVerifyTextProgramOverviewReport(text);
     }
+    
+    @Then("^I verify skilled nursing graph appearing under overall program report$")
+    public void i_verify_skilled_nursing_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifySkilledNursingGraphUnderReport();
+    }
+    
+    @Then("^I verify long term acute care graph appearing under overall program report$")
+    public void i_verify_long_term_acute_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyLongTermAcuteGraphUnderReport();
+    }
+    
+    @Then("^I verify inpatient rehab graph appearing under overall program report$")
+    public void i_verify_inpatient_rehab_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyInpatientRehabGraphUnderReport();
+    }
+    
+    @Then("^I verify home health graph appearing under overall program report$")
+    public void i_verify_home_health_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyHomeHealthGraphUnderReport();
+    }
+    
+    @Then("^I verify home graph appearing under overall program report$")
+    public void i_verify_home_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyHomeGraphUnderReport();
+    }
+    
+    @Then("^I verify other graph appearing under overall program report$")
+    public void i_verify_other_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyOtherGraphUnderReport();
+    }
+    
+    @Then("^I verify initial snf length of stay graph appearing under overall program report$")
+    public void i_verify_initial_snf_length_of_stay_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyInitialSnfLengthOfStayGraphUnderReport();
+    }
+    
+    @Then("^I verify snf days graph appearing under overall program report$")
+    public void i_verify_snf_days_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifySnfDaysGraphUnderReport();
+    }
+    
+    @Then("^I verify episodes w readmit graph appearing under overall program report$")
+    public void i_verify_episodes_w_readmit_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyEpisodesWReadmitGraphUnderReport();
+    }
+    
+    @Then("^I verify readmits per episode graph appearing under overall program report$")
+    public void i_verify_readmits_per_episode_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyReadmitsPerEpisodeGraphUnderReport();
+    }
+    
+    @Then("^I verify episodes graph appearing under overall program report$")
+    public void i_verify_episodes_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyEpisodesGraphUnderReport();
+    }
+    
+    @Then("^I verify npra graph appearing under overall program report$")
+    public void i_verify_npra_graph_under_report() throws Throwable {
+    	reportHomePage.iVerifyNpraGraphUnderReport();
+    }
+    
+    @And("^I verify \"([^\"]*)\" is present on the left side of overall program report$")
+    public void i_Verify_Is_Present_On_The_Left_Side_Of_Overall_Program_Report(String text) throws Throwable {
+    	reportHomePage.iVerifyFilterOptions(text);
+    }
+    
+    @Then("^I should see partcipant filter on the left side of overall program report$")
+    public void i_should_see_participant_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyParticipantFilter();
+    }
 }

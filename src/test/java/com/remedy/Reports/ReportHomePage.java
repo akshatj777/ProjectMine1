@@ -267,5 +267,61 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyTextProgramOverviewReport(String text){
         verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
     }
+    
+    public void iVerifySkilledNursingGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#SNFChartObjprotovis")));
+    }
+    
+    public void iVerifyLongTermAcuteGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#LTCHChartObjprotovis")));
+    }
+    
+    public void iVerifyInpatientRehabGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#IRFChartObjprotovis")));
+    }
+    
+    public void iVerifyHomeHealthGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#HHAChartObjprotovis")));
+    }
+    
+    public void iVerifyHomeGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#homeChartObjprotovis")));
+    }
+    
+    public void iVerifyOtherGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#otherChartObjprotovis")));
+    }
+    
+    public void iVerifyInitialSnfLengthOfStayGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#initialSNFChartObjprotovis")));
+    }
+    
+    public void iVerifySnfDaysGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#daysSNFChartObjprotovis")));
+    }
+    
+    public void iVerifyEpisodesWReadmitGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#episodesReadmitsChartObjprotovis")));
+    }
+    
+    public void iVerifyReadmitsPerEpisodeGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#readmitsEpisodesChartObjprotovis")));
+    }
+    
+    public void iVerifyEpisodesGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#episodesChartObjprotovis")));
+    }
+    
+    public void iVerifyNpraGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#NPRAChartObjprotovis")));
+    }
+    
+    public void iVerifyFilterOptions(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#filterTitleObj")), text);
+    }
+    
+    public void iVerifyParticipantFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#participantFilterObj")));
+    }
 }
 
