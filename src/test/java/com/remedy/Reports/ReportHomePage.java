@@ -1,7 +1,9 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import cucumber.api.DataTable;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,6 +22,11 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyReportsTextforTiles(String text){
         delay();
         verifyTextForElementfromList(".dropdown-tile-label.ng-binding", text);
+    }
+    
+    public void iVerifyReportsTextNotPresent(String text){
+        delay();
+        verifyTextNotPresentForElementFromList(".dropdown-tile-label.ng-binding", text);
     }
 
     public void iClickOnReportTileWithText(String tile){
@@ -247,6 +254,18 @@ public class ReportHomePage extends BaseClass {
 
     public void iShouldSeeReadmissionsReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+    
+    public void iVerifyTextUnderProgramOverviewReport(String text){
+        verifyTextForElement(driver.findElement(By.cssSelector("#topchartsTitleObj")), text);
+    }
+    
+    public void iShouldSeeUnderOverallProgram(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTextProgramOverviewReport(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
     }
 }
 

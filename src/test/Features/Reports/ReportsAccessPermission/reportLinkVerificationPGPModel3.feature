@@ -19,6 +19,7 @@ Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports lin
       | Episode Data Issues Detail         |
       | Episode Avg Days to DRG            |
       | Inpatient Episode Clearing         |
+      | Episode DRG Issues                 |
 
     When I click on "Episode Data Issues Detail" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds

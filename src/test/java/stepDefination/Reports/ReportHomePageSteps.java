@@ -22,6 +22,11 @@ public class ReportHomePageSteps extends DriverScript {
     public void iShouldSeeReportsTileTextAs(String text) throws Throwable {
         reportHomePage.iVerifyReportsTextforTiles(text);
     }
+    
+    @And("^I should not see Reports Tile text as ([^\"]*)$")
+    public void iShouldNotSeeReportsTileTextAs(String element) throws Throwable {
+        reportHomePage.iVerifyReportsTextNotPresent(element);
+    }
 
     @And("^I click on the Reports Tile with text \"([^\"]*)\"$")
     public void iClickReportTileWithText(String tile) throws Throwable {
@@ -355,5 +360,20 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see Readmissions reports column Tile text as \"([^\"]*)\"$")
     public void i_should_see_Readmissions_reports_column_Tile_text_as(String tile) throws Throwable {
         reportHomePage.iShouldSeeReadmissionsReportsColumnTileTextAs(tile);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" appearing under program overview reports$")
+    public void i_should_see_appearing_under_program_overview_reports(String text) throws Throwable {
+        reportHomePage.iVerifyTextUnderProgramOverviewReport(text);
+    }
+    
+    @And("^I should see \"([^\"]*)\" under overall program$")
+    public void i_Should_See_Under_Overall_Program(String text) throws Throwable {
+    	reportHomePage.iShouldSeeUnderOverallProgram(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" under program overview reports$")
+    public void i_should_see_under_program_overview_reports(String text) throws Throwable {
+        reportHomePage.iVerifyTextProgramOverviewReport(text);
     }
 }
