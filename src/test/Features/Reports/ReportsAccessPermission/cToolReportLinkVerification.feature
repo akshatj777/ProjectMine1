@@ -82,7 +82,27 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     Then I verify readmits per episode graph appearing under overall program report
     
     And I verify "Filter option(s)" is present on the left side of overall program report
+    Then I should see daterange filter on the left side of overall program report
     Then I should see partcipant filter on the left side of overall program report
+    Then I should see episode initiator filter on the left side of overall program report
+    Then I should see facility filter on the left side of overall program report
+    Then I should see bundle filter on the left side of overall program report
+    Then I should see bundle risk filter on the left side of overall program report
+    Then I should see view filter on the left side of overall program report
+    And I click on "Table" option appearing under view filter
+    And I wait for 5000 milli seconds
+    Then I should see "Claims" table under overall program report
+    Then I should see claims table under post acute utilization report
+    Then I should see claims table under SNF Length of stay report
+    Then I should see claims table under Readmissions report
+    Then I should see data source filter on the left side of overall program report
+    Then I select "Episode Connect" radio button under data source filter
+    And I wait for 5000 milli seconds
+    Then I should see "EC" table under overall program report
+    Then I should see "EC" table under post acute utilization report
+    Then I should see "EC" table under SNF length of stay report
+    Then I should see "EC" table under readmissions report
+    And I wait for 2000 milli seconds
     
     Examples:
     
@@ -90,4 +110,80 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
       | shutestaug231132a@yopmail.com      | Dashboards |
       | shutestaug221130a@yopmail.com      | Dashboards |
       | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      
+Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmission Graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
     
+    When I click on the "Reports" tile
+    And I wait for 1000 milli seconds
+    Then I verify current page "Reports" title
+    And I wait for 2000 milli seconds
+    
+    Then I should see Reports Tile text as <Menu 1>
+    When I click on the Reports Tile with text "<Menu 1>"
+    Then I should see following Reports text for Dashboards reports
+      | Program Overview |
+      
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 18000 milli seconds
+    And I switch to reports embedded iframe
+    
+    Then I should see "Post Acute Utilization" under program overview reports
+    And I click on "Post Acute Utilization" under program overview reports
+    And I wait for 2000 milli seconds
+    Then I should see "SNF Length of Stay" under program overview reports
+    And I click on "SNF Length of Stay" under program overview reports
+    Then I should see "Readmissions" under program overview reports
+    And I click on "Readmissions" under program overview reports
+    
+    Then I again click on Post Acute Utilization under program overview reports
+    And I wait for 2000 milli seconds
+    Then I should see "SNF Length of Stay" under program overview reports
+    Then I again click on SNF Length of Stay under program overview reports
+    And I wait for 2000 milli seconds
+    Then I again click on Readmissions under program overview reports
+    And I wait for 2000 milli seconds
+    
+    Examples:
+     
+      | email                              | Menu 1     |
+      | shutestaug231132a@yopmail.com      | Dashboards |
+      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+    
+
+Scenario Outline: User should click on zoom in and zoom out under post accute utilization graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+    
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    
+    When I click on the "Reports" tile
+    And I wait for 1000 milli seconds
+    Then I verify current page "Reports" title
+    And I wait for 2000 milli seconds
+    
+    Then I should see Reports Tile text as <Menu 1>
+    When I click on the Reports Tile with text "<Menu 1>"
+    Then I should see following Reports text for Dashboards reports
+      | Program Overview |
+      
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 18000 milli seconds
+    And I switch to reports embedded iframe
+    
+    Then I should see "Post Acute Utilization" under program overview reports
+    And I click on "Zoom In" button under skilled nursing graph for post accute utilization report
+    
+    
+    Examples:
+    
+      | email                              | Menu 1     |
+      | shutestaug231132a@yopmail.com      | Dashboards |
+      | reptestachmodel2opsfin@yopmail.com | Dashboards |

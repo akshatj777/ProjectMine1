@@ -446,4 +446,109 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_participant_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
     	reportHomePage.iVerifyParticipantFilter();
     }
+    
+    @And("^I click on \"([^\"]*)\" under program overview reports$")
+    public void i_click_on_under_program_overview_reports(String text) throws Throwable{
+    	reportHomePage.iClickOnProgramOverviewReports(text);
+    }
+    
+    @Then("^I again click on Post Acute Utilization under program overview reports$")
+    public void i_again_click_on_post_acute_utilization() throws Throwable {
+    	reportHomePage.iAgainClickOnPostAcuteUtilization();
+    }
+    
+    @Then("^I again click on SNF Length of Stay under program overview reports$")
+    public void i_again_click_on_snf_length_of_stay() throws Throwable {
+    	reportHomePage.iAgainClickOnSNFLengthOfStay();
+    }
+    
+    @Then("^I again click on Readmissions under program overview reports$")
+    public void i_again_click_on_redamissions() throws Throwable {
+    	reportHomePage.iAgainClickOnReadmissions();
+    }
+    
+    @Then("^I should see daterange filter on the left side of overall program report$")
+    public void i_should_see_daterange_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyDateRangeFilter();
+    }
+    
+    @Then("^I should see episode initiator filter on the left side of overall program report$")
+    public void i_should_see_episode_initiator_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyEpisodeInitiatorFilter();
+    }
+    
+    @Then("^I should see facility filter on the left side of overall program report$")
+    public void i_should_see_facility_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyFacilityFilter();
+    }
+    
+    @Then("^I should see bundle filter on the left side of overall program report$")
+    public void i_should_see_bundle_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyBundleFilter();
+    }
+    
+    @Then("^I should see bundle risk filter on the left side of overall program report$")
+    public void i_should_see_bundle_risk_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyBundleRiskFilter();
+    }
+    
+    @Then("^I should see view filter on the left side of overall program report$")
+    public void i_should_see_view_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyViewFilter();
+    }
+    
+    @Then("^I should see data source filter on the left side of overall program report$")
+    public void i_should_see_data_source_filter_on_the_left_side_of_overall_program_reort() throws Throwable {
+    	reportHomePage.iVerifyDataSourceFilter();
+    }
+    
+    @And("^I click on \"([^\"]*)\" option appearing under view filter$")
+    public void i_click_on_option_appearing_under_view_filter(String text) throws Throwable{
+    	reportHomePage.iClickOnTableOptionForViewFilter(text);
+    }
+    
+    @Then("^I select \"([^\"]*)\" radio button under data source filter$")
+    public void i_select_radio_button_under_data_source_filter(String text) throws Throwable {
+    	reportHomePage.iSelectEpisodeConnectRadioButton(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" table under overall program report$")
+    public void i_should_see_table_under_overall_program_report(String text) throws Throwable {
+    	reportHomePage.iSeeOverallProgramReport(text);
+    }
+    
+    @Then("^I should see claims table under post acute utilization report$")
+    public void i_should_seeclaims_table_under_post_acute_utilization_report() throws Throwable {
+    	reportHomePage.iSeeClaimsReportForPostAcuteUtlization();
+    }
+    
+    @Then("^I should see claims table under SNF Length of stay report$")
+    public void i_should_seeclaims_table_under_SNF_Length_of_stay_report() throws Throwable {
+    	reportHomePage.iSeeClaimsReportForSNFLengthofStay();
+    }
+    
+    @Then("^I should see claims table under Readmissions report$")
+    public void i_should_seeclaims_table_under_Readmissions_report() throws Throwable {
+    	reportHomePage.iSeeClaimsReportForReadmissions();
+    }
+    
+    @Then("^I should see \"([^\"]*)\" table under post acute utilization report$")
+    public void i_should_see_table_under_post_acute_utlization_report(String text) throws Throwable {
+    	reportHomePage.iSeePostAcuteUtilizationReport(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" table under SNF length of stay report$")
+    public void i_should_see_table_under_SNF_length_of_stay_report(String text) throws Throwable {
+    	reportHomePage.iSeeSNFLengthofStayReport(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" table under readmissions report$")
+    public void i_should_see_table_under_readmissions_report(String text) throws Throwable {
+    	reportHomePage.iSeeReadmissionsReport(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under skilled nursing graph for post accute utilization report$")
+    public void i_click_on_button_under_skilled_nursing_graph_for_post_accute_utilization(String text) throws Throwable{
+    	reportHomePage.iClickOnSkilledNursingZoom(text);
+    }
 }

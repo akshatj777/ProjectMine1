@@ -5,7 +5,11 @@ import com.remedy.baseClass.BaseClass;
 import cucumber.api.DataTable;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -322,6 +326,96 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyParticipantFilter(){
     	isElementVisible(driver.findElement(By.cssSelector("#participantFilterObj")));
+    }
+    
+    public void iClickOnProgramOverviewReports(String text) throws Throwable{
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iAgainClickOnPostAcuteUtilization() throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//*[@id='utilizationTitleButtonObj']/button")));
+    }
+    
+    public void iAgainClickOnSNFLengthOfStay() throws Throwable {
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button"));  
+    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	clickElement(driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button")));
+    }
+    
+    public void iAgainClickOnReadmissions() throws Throwable {
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button"));  
+    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	clickElement(driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button")));
+    }
+    
+    public void iVerifyDateRangeFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#newDateRangeObj")));
+    }
+    
+    public void iVerifyEpisodeInitiatorFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#initiatorFilterObj")));
+    }
+    
+    public void iVerifyFacilityFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#facilityFilterObj")));
+    }
+    
+    public void iVerifyBundleFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#bundleFilterObj")));
+    }
+    
+    public void iVerifyBundleRiskFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#bundleRiskFilterObj")));
+    }
+    
+    public void iVerifyViewFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#viewSelectorRow")));
+    }
+    
+    public void iVerifyDataSourceFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#dataSourceRow")));
+    }
+    
+    public void iClickOnTableOptionForViewFilter(String text) throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//button[@name='render_viewSelector'][text()='"+text+"']")));
+    }
+    
+    public void iSelectEpisodeConnectRadioButton(String text) throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']")));
+    }
+    
+    public void iSeeOverallProgramReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#episodesNPRATable"+text+"ObjTable")));
+    }
+    
+    public void iSeeClaimsReportForPostAcuteUtlization(){
+    	isElementVisible(driver.findElement(By.cssSelector("#utilizationTableObjTable")));
+    }
+    
+    public void iSeeClaimsReportForSNFLengthofStay(){
+    	isElementVisible(driver.findElement(By.cssSelector("#daysSNFTableObjTable")));
+    }
+    
+    public void iSeeClaimsReportForReadmissions(){
+    	isElementVisible(driver.findElement(By.cssSelector("#readmitionsTableObjTable")));
+    }
+    
+    public void iSeePostAcuteUtilizationReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#utilizationTable"+text+"ObjTable")));
+    }
+    
+    public void iSeeSNFLengthofStayReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#daysSNFTable"+text+"ObjTable")));
+    }
+    
+    public void iSeeReadmissionsReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#readmitionsTable"+text+"ObjTable")));
+    }
+    
+    public void iClickOnSkilledNursingZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='SFNChartButtonObj']/button")));
     }
 }
 
