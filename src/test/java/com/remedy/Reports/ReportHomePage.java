@@ -417,5 +417,73 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnSkilledNursingZoom(String text){
     	clickElement(driver.findElement(By.xpath("//*[@id='SFNChartButtonObj']/button")));
     }
+    
+    public void iClickOnInpatientRehabZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='IRFChartButtonObj']/button")));
+    }
+    
+    public void iClickOnLongTermAcuteCareZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='LTCHChartButtonObj']/button")));
+    }
+    
+    public void iClickOnHomeHealthZoom(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	clickElement(driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button")));
+    }
+    
+    public void iClickOnHomeZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='homeChartButtonObj']/button")));
+    }
+    
+    public void iClickOnOtherZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='otherChartButtonObj']/button")));
+    }
+    
+    public void iVerifyZoomOutText(String text,String graph){
+    	verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
+    }
+    
+    public void iClickOnExportSymbol(String export){
+    	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
+    }
+    
+    public void iVerifyAppearingClickingExport(String text,String Graph){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")), text);
+    }
+    
+    public void iClickOnOptionUnderExportSymbol(String text,String Graph){
+    	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyUnderExportOptions(String text,String Grpah){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")), text);
+    }
+    
+    public void iClickOnExportOption(String text,String Graph){
+    	clickElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyGraphUnderExportOptionsPopUp(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='exportChartImageDiv']/img")));
+    }
+    
+    public void iCloseTheExportOptionsPopUp(){
+    	clickElement(driver.findElement(By.xpath("//*[@id='fancybox-close']")));
+    }
+    
+    public void iClickOnXLSCSVOptionUnderExportSymbol(String text,String Graph){
+    	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']")));
+    }
+    
+    public void iShouldSeeAppearingClickingExport(String text,String Graph){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']")), text);
+    }
+    
+    public void iScrollPageToBottom(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor)driver);
+    	js.executeScript("scroll(0, "+text+")");
+    }
 }
 

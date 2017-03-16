@@ -551,4 +551,84 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_button_under_skilled_nursing_graph_for_post_accute_utilization(String text) throws Throwable{
     	reportHomePage.iClickOnSkilledNursingZoom(text);
     }
+    
+    @And("^I click on \"([^\"]*)\" button under inpatient rehab graph for post accute utilization report$")
+    public void i_click_on_button_under_inpatient_rehab_graph_for_post_accute_utilization(String text) throws Throwable{
+    	reportHomePage.iClickOnInpatientRehabZoom(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under long term acute care graph for post accute utilization report$")
+    public void i_click_on_button_under_long_term_acute_care_graph_for_post_accute_utilization(String text) throws Throwable{
+    	reportHomePage.iClickOnLongTermAcuteCareZoom(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under home health graph for post accute utilization report$")
+    public void i_click_on_button_under_home_health_graph_for_post_accute_utilization(String text) throws Throwable{
+    	reportHomePage.iClickOnHomeHealthZoom(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under home graph for post accute utilization report$")
+    public void i_click_on_button_under_home_graph_for_post_accute_utilization(String text) throws Throwable{
+    	reportHomePage.iClickOnHomeZoom(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" button under other graph for post accute utilization report$")
+    public void i_click_on_button_under_other_graph_for_post_accute_utilization(String text) throws Throwable{
+    	reportHomePage.iClickOnOtherZoom(text);
+    }
+       
+    @Then("^I verify \"([^\"]*)\" text appearing on the \"([^\"]*)\" graph$")
+    public void i_verify_text_appearing_on_the_graph(String text,String graph) throws Throwable{
+    	reportHomePage.iVerifyZoomOutText(text,graph);
+    }
+    
+    @And("^I click on export symbol on \"([^\"]*)\" graph$")
+    public void i_click_on_export_symbol_on_graph(String export) throws Throwable{
+    	reportHomePage.iClickOnExportSymbol(export);
+    }
+    
+    @Then("^I Verify \"([^\"]*)\" is appearing after clicking on \"([^\"]*)\" export symbol$")
+    public void i_verify_is_appearing_after_clicking_on_export_symbol(String text,String Graph) throws Throwable{
+    	reportHomePage.iVerifyAppearingClickingExport(text, Graph);
+    }
+    
+    @And("^I click on \"([^\"]*)\" option under \"([^\"]*)\" export symbol$")
+    public void i_click_on_option_under_export_symbol(String text,String Graph) throws Throwable{
+    	reportHomePage.iClickOnOptionUnderExportSymbol(text, Graph);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under Export Options for \"([^\"]*)\" graph$")
+    public void i_verify_is_appearing_under_export_options_for_graph(String text,String Graph) throws Throwable{
+    	reportHomePage.iVerifyUnderExportOptions(text, Graph);
+    }
+    
+    @And("^I click on \"([^\"]*)\" Export Options for \"([^\"]*)\" graph$")
+    public void i_click_on_export_option_for_graph(String text,String Graph) throws Throwable{
+    	reportHomePage.iClickOnExportOption(text, Graph);
+    }
+    
+    @Then("^I verify graph appearing under export options popup$")
+    public void i_verify_graph_appearing_under_export_options_popup()throws Throwable{
+    	reportHomePage.iVerifyGraphUnderExportOptionsPopUp();
+    }
+    
+    @Then("^I close the export options popup$")
+    public void i_close_the_export_options_popup()throws Throwable{
+    	reportHomePage.iCloseTheExportOptionsPopUp();
+    }
+    
+    @Then("^I should click on \"([^\"]*)\" option under \"([^\"]*)\" export symbol$")
+    public void i_click_on_XLS_CSV_option_under_export_symbol(String text,String Graph) throws Throwable{
+    	reportHomePage.iClickOnXLSCSVOptionUnderExportSymbol(text, Graph);
+    }
+    
+    @Then("^I Should see \"([^\"]*)\" is appearing after clicking on \"([^\"]*)\" export symbol$")
+    public void i_should_see_is_appearing_after_clicking_on_export_symbol(String text,String Graph) throws Throwable{
+    	reportHomePage.iShouldSeeAppearingClickingExport(text, Graph);
+    }
+    
+    @Then("^I scroll the page to bottom by \"([^\"]*)\"$")
+    public void i_scroll_the_page_to_bottom(String text) throws Throwable{
+    	reportHomePage.iScrollPageToBottom(text);
+    }
 }
