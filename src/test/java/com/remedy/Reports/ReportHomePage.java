@@ -4,6 +4,7 @@ import com.remedy.baseClass.BaseClass;
 
 import cucumber.api.DataTable;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -485,5 +486,48 @@ public class ReportHomePage extends BaseClass {
     	JavascriptExecutor js = ((JavascriptExecutor)driver);
     	js.executeScript("scroll(0, "+text+")");
     }
+    
+    public void iClickOnAdjustHistoricButton(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void IVerifyURLAfterClickingAdjustedHistoricButton(){
+    	String ReportURL = driver.getCurrentUrl();
+    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253ACtoolsDashboards%253Arelease%253AProgramOverview.wcdf%2FgeneratedContent" );
+    }
+    
+    public void iSelectFilterInFilterOptions(String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
+    	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    }
+    
+    public void iClickOnDateRangeFilter(){
+    	clickElement(driver.findElement(By.cssSelector(".range-display")));
+    }
+    
+    public void ISelectStartDateRangeDates(){
+    	clickElement(driver.findElement(By.cssSelector(".start-calendar-dialog>div")));
+    }
+    
+    public void ISelectEndDateRangeDates(){
+    	clickElement(driver.findElement(By.cssSelector(".end-calendar-dialog>div")));
+    }
+    
+    public void iSelectMonthInDateRange(String month,String range){
+    	clickElement(driver.findElement(By.xpath("//div[text()='"+month+"']")));
+    }
+    
+    public void iClickOnApplyButtonForDateRangeFilter(){
+    	clickElement(driver.findElement(By.cssSelector(".apply-button")));
+    }
+    
+    public void iClickOnEndMonthDate(String enddate){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//div[text()='"+enddate+"']"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
+    }
+    
 }
 

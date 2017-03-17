@@ -631,4 +631,49 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_scroll_the_page_to_bottom(String text) throws Throwable{
     	reportHomePage.iScrollPageToBottom(text);
     }
+    
+    @Then("^I Click on \"([^\"]*)\" button appearing under benchmark in filter options$")
+    public void i_click_on_button_appearing_under_benchmark_in_filter_option(String text) throws Throwable{
+    	reportHomePage.iClickOnAdjustHistoricButton(text);
+    }
+    
+    @And("^I verify current url is not changed after clicking on adjusted historic button$")
+    public void i_verify_cuurent_url_is_not_changed_after_clicking_on_adjusted_historic_button() throws Throwable{
+    	reportHomePage.IVerifyURLAfterClickingAdjustedHistoricButton();
+    }
+     
+    @Then("^I select All option under \"([^\"]*)\" filter in the filter options$")
+    public void i_select_all_option_under_filter_in_the_filter_option(String filter) throws Throwable{
+    	reportHomePage.iSelectFilterInFilterOptions(filter);
+    }
+    
+    @Then("^I click on date range filter under filter options for program overview reports$")
+    public void i_click_on_date_range_filter_under_filter_options_for_program_overview_reports() throws Throwable{
+    	reportHomePage.iClickOnDateRangeFilter();
+    }
+    
+    @And("^I click on start range box to select date$")
+    public void i_click_on_start_range_box_to_select_date() throws Throwable{
+    	reportHomePage.ISelectStartDateRangeDates();
+    }
+    
+    @And("^I click on end range box to select date$")
+    public void i_click_on_end_range_box_to_select_date() throws Throwable{
+    	reportHomePage.ISelectEndDateRangeDates();
+    }
+    
+    @Then("^I select \"([^\"]*)\" month in the \"([^\"]*)\" date range filter$")
+    public void i_select_month_in_the_date_range_filter(String month,String range) throws Throwable{
+    	reportHomePage.iSelectMonthInDateRange(month, range);
+    }
+    
+    @Then("^I click on apply button under date range filter$")
+    public void i_click_on_apply_button_under_date_range_filter() throws Throwable{
+    	reportHomePage.iClickOnApplyButtonForDateRangeFilter();
+    }
+    
+    @Then("^I select End month \"([^\"]*)\" in the calendar$")
+    public void i_select_end_month_in_the_calendar(String enddate) throws Throwable{
+    	
+    }    	
 }
