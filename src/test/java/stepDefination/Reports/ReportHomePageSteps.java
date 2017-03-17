@@ -674,6 +674,6 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I select End month \"([^\"]*)\" in the calendar$")
     public void i_select_end_month_in_the_calendar(String enddate) throws Throwable{
-    	
+    	reportHomePage.iClickOnEndMonthDate(enddate);
     }    	
 }

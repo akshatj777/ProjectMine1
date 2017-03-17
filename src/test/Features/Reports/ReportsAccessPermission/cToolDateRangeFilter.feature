@@ -70,7 +70,7 @@ Scenario Outline: User should click on date range filter more than four months f
     And I click on end range box to select date
     And I wait for 4000 milli seconds
     Then I scroll the page to bottom by "150"
-    Then I select End month "    Dec  " in the calendar
+    #Then I select End month "    Dec  " in the calendar
     Then I click on apply button under date range filter
     And I wait for 4000 milli seconds
     
