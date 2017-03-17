@@ -675,5 +675,15 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I select End month \"([^\"]*)\" in the calendar$")
     public void i_select_end_month_in_the_calendar(String enddate) throws Throwable{
     	reportHomePage.iClickOnEndMonthDate(enddate);
-    }    	
+    }
+    
+    @When("^I click on show all filters icon button$")
+    public void i_click_on_show_all_filters_icon_button() throws Throwable{
+    	reportHomePage.iClickOnShowAllFiltersIcon();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" preselected under the filter$")
+    public void i_verify_preselected_under_the_filter(String model) throws Throwable{
+    	reportHomePage.iVerifyPreselectedModelFilter(model);
+    }
 }

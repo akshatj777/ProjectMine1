@@ -529,5 +529,14 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
     }
     
+    public void iClickOnShowAllFiltersIcon(){
+    	clickElement(driver.findElement(By.xpath(".//div[@class='pentaho-filterbutton']")));
+    }
+    
+    public void iVerifyPreselectedModelFilter(String model){
+    	//verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")), model);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")), model);
+    }
+    
 }
 
