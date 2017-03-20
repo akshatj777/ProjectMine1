@@ -533,10 +533,17 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath(".//div[@class='pentaho-filterbutton']")));
     }
     
-    public void iVerifyPreselectedModelFilter(String model){
+    public void iVerifyPreselectedModelFilter(String text){
     	//verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")), model);
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")), model);
+    	isElementVisible(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='["+text+"].["+text+"]']/span")));
     }
     
+    public void iSeeModelFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")),text);
+    }
+    
+    public void iSeeUnderMeasuresField(String text,String field){
+    	verifyTextForElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent'] //div[text()='"+text+"']")),text);
+    }
 }
 

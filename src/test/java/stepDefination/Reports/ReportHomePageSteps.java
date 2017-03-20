@@ -682,8 +682,18 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnShowAllFiltersIcon();
     }
     
-    @Then("^I verify \"([^\"]*)\" preselected under the filter$")
-    public void i_verify_preselected_under_the_filter(String model) throws Throwable{
-    	reportHomePage.iVerifyPreselectedModelFilter(model);
+    @Then("^I verify \"([^\"]*)\" filter is preselected under the filter$")
+    public void i_verify_preselected_under_the_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyPreselectedModelFilter(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected model filter$")
+    public void i_should_see_is_present_under_preselected_model_filter(String text) throws Throwable{
+    	reportHomePage.iSeeModelFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" appearing under \"([^\"]*)\" field$")
+    public void i_should_see_appearing_under__filed(String text,String field) throws Throwable{
+    	reportHomePage.iSeeUnderMeasuresField(text,field);
     }
 }
