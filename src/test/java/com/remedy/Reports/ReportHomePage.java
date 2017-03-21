@@ -1,9 +1,16 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import cucumber.api.DataTable;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -20,6 +27,11 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyReportsTextforTiles(String text){
         delay();
         verifyTextForElementfromList(".dropdown-tile-label.ng-binding", text);
+    }
+    
+    public void iVerifyReportsTextNotPresent(String text){
+        delay();
+        verifyTextNotPresentForElementFromList(".dropdown-tile-label.ng-binding", text);
     }
 
     public void iClickOnReportTileWithText(String tile){
@@ -248,5 +260,274 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeReadmissionsReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
+    
+    public void iVerifyTextUnderProgramOverviewReport(String text){
+        verifyTextForElement(driver.findElement(By.cssSelector("#topchartsTitleObj")), text);
+    }
+    
+    public void iShouldSeeUnderOverallProgram(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTextProgramOverviewReport(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
+    }
+    
+    public void iVerifySkilledNursingGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#SNFChartObjprotovis")));
+    }
+    
+    public void iVerifyLongTermAcuteGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#LTCHChartObjprotovis")));
+    }
+    
+    public void iVerifyInpatientRehabGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#IRFChartObjprotovis")));
+    }
+    
+    public void iVerifyHomeHealthGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#HHAChartObjprotovis")));
+    }
+    
+    public void iVerifyHomeGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#homeChartObjprotovis")));
+    }
+    
+    public void iVerifyOtherGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#otherChartObjprotovis")));
+    }
+    
+    public void iVerifyInitialSnfLengthOfStayGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#initialSNFChartObjprotovis")));
+    }
+    
+    public void iVerifySnfDaysGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#daysSNFChartObjprotovis")));
+    }
+    
+    public void iVerifyEpisodesWReadmitGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#episodesReadmitsChartObjprotovis")));
+    }
+    
+    public void iVerifyReadmitsPerEpisodeGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#readmitsEpisodesChartObjprotovis")));
+    }
+    
+    public void iVerifyEpisodesGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#episodesChartObjprotovis")));
+    }
+    
+    public void iVerifyNpraGraphUnderReport(){
+    	isElementVisible(driver.findElement(By.cssSelector("#NPRAChartObjprotovis")));
+    }
+    
+    public void iVerifyFilterOptions(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#filterTitleObj")), text);
+    }
+    
+    public void iVerifyParticipantFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#participantFilterObj")));
+    }
+    
+    public void iClickOnProgramOverviewReports(String text) throws Throwable{
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iAgainClickOnPostAcuteUtilization() throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//*[@id='utilizationTitleButtonObj']/button")));
+    }
+    
+    public void iAgainClickOnSNFLengthOfStay() throws Throwable {
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button"));  
+    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	clickElement(driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button")));
+    }
+    
+    public void iAgainClickOnReadmissions() throws Throwable {
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button"));  
+    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	clickElement(driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button")));
+    }
+    
+    public void iVerifyDateRangeFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#newDateRangeObj")));
+    }
+    
+    public void iVerifyEpisodeInitiatorFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#initiatorFilterObj")));
+    }
+    
+    public void iVerifyFacilityFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#facilityFilterObj")));
+    }
+    
+    public void iVerifyBundleFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#bundleFilterObj")));
+    }
+    
+    public void iVerifyBundleRiskFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#bundleRiskFilterObj")));
+    }
+    
+    public void iVerifyViewFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#viewSelectorRow")));
+    }
+    
+    public void iVerifyDataSourceFilter(){
+    	isElementVisible(driver.findElement(By.cssSelector("#dataSourceRow")));
+    }
+    
+    public void iClickOnTableOptionForViewFilter(String text) throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//button[@name='render_viewSelector'][text()='"+text+"']")));
+    }
+    
+    public void iSelectEpisodeConnectRadioButton(String text) throws Throwable {
+    	clickElement(driver.findElement(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']")));
+    }
+    
+    public void iSeeOverallProgramReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#episodesNPRATable"+text+"ObjTable")));
+    }
+    
+    public void iSeeClaimsReportForPostAcuteUtlization(){
+    	isElementVisible(driver.findElement(By.cssSelector("#utilizationTableObjTable")));
+    }
+    
+    public void iSeeClaimsReportForSNFLengthofStay(){
+    	isElementVisible(driver.findElement(By.cssSelector("#daysSNFTableObjTable")));
+    }
+    
+    public void iSeeClaimsReportForReadmissions(){
+    	isElementVisible(driver.findElement(By.cssSelector("#readmitionsTableObjTable")));
+    }
+    
+    public void iSeePostAcuteUtilizationReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#utilizationTable"+text+"ObjTable")));
+    }
+    
+    public void iSeeSNFLengthofStayReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#daysSNFTable"+text+"ObjTable")));
+    }
+    
+    public void iSeeReadmissionsReport(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#readmitionsTable"+text+"ObjTable")));
+    }
+    
+    public void iClickOnSkilledNursingZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='SFNChartButtonObj']/button")));
+    }
+    
+    public void iClickOnInpatientRehabZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='IRFChartButtonObj']/button")));
+    }
+    
+    public void iClickOnLongTermAcuteCareZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='LTCHChartButtonObj']/button")));
+    }
+    
+    public void iClickOnHomeHealthZoom(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	clickElement(driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button")));
+    }
+    
+    public void iClickOnHomeZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='homeChartButtonObj']/button")));
+    }
+    
+    public void iClickOnOtherZoom(String text){
+    	clickElement(driver.findElement(By.xpath("//*[@id='otherChartButtonObj']/button")));
+    }
+    
+    public void iVerifyZoomOutText(String text,String graph){
+    	verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
+    }
+    
+    public void iClickOnExportSymbol(String export){
+    	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
+    }
+    
+    public void iVerifyAppearingClickingExport(String text,String Graph){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")), text);
+    }
+    
+    public void iClickOnOptionUnderExportSymbol(String text,String Graph){
+    	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyUnderExportOptions(String text,String Grpah){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")), text);
+    }
+    
+    public void iClickOnExportOption(String text,String Graph){
+    	clickElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyGraphUnderExportOptionsPopUp(){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='exportChartImageDiv']/img")));
+    }
+    
+    public void iCloseTheExportOptionsPopUp(){
+    	clickElement(driver.findElement(By.xpath("//*[@id='fancybox-close']")));
+    }
+    
+    public void iClickOnXLSCSVOptionUnderExportSymbol(String text,String Graph){
+    	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']")));
+    }
+    
+    public void iShouldSeeAppearingClickingExport(String text,String Graph){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']")), text);
+    }
+    
+    public void iScrollPageToBottom(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor)driver);
+    	js.executeScript("scroll(0, "+text+")");
+    }
+    
+    public void iClickOnAdjustHistoricButton(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void IVerifyURLAfterClickingAdjustedHistoricButton(){
+    	String ReportURL = driver.getCurrentUrl();
+    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253ACtoolsDashboards%253Arelease%253AProgramOverview.wcdf%2FgeneratedContent" );
+    }
+    
+    public void iSelectFilterInFilterOptions(String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
+    	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    }
+    
+    public void iClickOnDateRangeFilter(){
+    	clickElement(driver.findElement(By.cssSelector(".range-display")));
+    }
+    
+    public void ISelectStartDateRangeDates(){
+    	clickElement(driver.findElement(By.cssSelector(".start-calendar-dialog>div")));
+    }
+    
+    public void ISelectEndDateRangeDates(){
+    	clickElement(driver.findElement(By.cssSelector(".end-calendar-dialog>div")));
+    }
+    
+    public void iSelectMonthInDateRange(String month,String range){
+    	clickElement(driver.findElement(By.xpath("//div[text()='"+month+"']")));
+    }
+    
+    public void iClickOnApplyButtonForDateRangeFilter(){
+    	clickElement(driver.findElement(By.cssSelector(".apply-button")));
+    }
+    
+    public void iClickOnEndMonthDate(String enddate){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//div[text()='"+enddate+"']"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
+    }
+    
 }
 
