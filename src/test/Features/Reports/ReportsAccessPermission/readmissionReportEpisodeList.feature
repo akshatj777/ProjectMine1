@@ -1,6 +1,6 @@
 Feature: Episode List Verification Under Readmission Reports
 
-Scenario Outline: User should be able to see Episodes List
+Scenario Outline: User should be able to see Episodes List under Readmission Report After clicking on any Episode number link
     
     Given I am on the login page
     When I enter email field <email> for login

@@ -38,7 +38,8 @@ Given I am on the login page
     
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
-    Then I verify "Model includes 2" preselected under the filter
+    Then I verify "Model" filter is preselected under the filter
+    Then I should see "Model includes 2" is present under preselected model filter
     
     Examples:
     

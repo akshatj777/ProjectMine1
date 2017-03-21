@@ -697,6 +697,11 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSeeModelFilterPreselected(text);
     }
     
+    @Then("^I should see \"([^\"]*)\" is present under preselected anchor month filter$")
+    public void i_should_see_is_present_under_preselected_anchor_month_filter(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
+    }
+    
     @Then("^I should see \"([^\"]*)\" under \"([^\"]*)\" field$")
     public void i_should_see_under__filed(String text,String field) throws Throwable{
     	reportHomePage.iSeeUnderMeasuresField(text,field);
@@ -705,6 +710,11 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see \"([^\"]*)\" appearing under \"([^\"]*)\" field$")
     public void i_should_see_appearing_under__filed(String text,String field) throws Throwable{
     	reportHomePage.iSeeUnderLevelTimeField(text,field);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" for Nsoc Summary under \"([^\"]*)\" field$")
+    public void i_should_see_for_NSoC_summary_under__filed(String text,String field) throws Throwable{
+    	reportHomePage.iSeeUnderNSOCLevelTimeField(text, field);
     }
     
     @Then("^I click on a number under episodes column$")

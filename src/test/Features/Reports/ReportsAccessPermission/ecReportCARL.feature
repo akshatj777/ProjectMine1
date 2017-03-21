@@ -1,6 +1,6 @@
-Feature: Verification of Readmissions EC report
+Feature: Verification of CARL EC Report
 
-Scenario Outline: User should be able to see Level and Measures on Left Side of Readmission Report
+Scenario Outline: User should be able to see Level and Measures on Left Side of CARL Report
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -9,8 +9,8 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions" report text for Readmissions Reports 
+    When I click on the Reports Tile with text "NSoC"
+    Then I click on "CARL" report text for NSoC Reports 
     And I wait for 30000 milli seconds
     Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
@@ -18,21 +18,26 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I wait for 2000 milli seconds
     Then I verify "Model" filter is preselected under the filter
     Then I should see "Model includes 2" is present under preselected model filter
-    Then I verify "Anchor Month" filter is preselected under the filter
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
     When I click on field-layout-icon button
     And I wait for 4000 milli seconds
     
     Then I should see "# Episodes" under "measures" field
-    Then I should see "% Eps w Readmit" under "measures" field
-    Then I should see "Readmit per Eps" under "measures" field
-    Then I should see "Leaked Readmits per Eps" under "measures" field
-    Then I should see "% Eps w Readmit w/in 7 days" under "measures" field
-    Then I should see "% Eps w Readmit w/in 15 days" under "measures" field
-    Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
-    Then I should see "% Eps w Readmit w/in 60 days" under "measures" field
-    Then I should see "% Eps w Readmit w/in 90 days" under "measures" field
+    Then I should see "Completed CARL %" under "measures" field
+    Then I should see "HHA % CARL Recommended" under "measures" field
+    Then I should see "Home % CARL Recommended" under "measures" field
+    Then I should see "PAC % CARL Recommended" under "measures" field
+    Then I should see "Uncategorized % CARL" under "measures" field
+    #Then I should see "HHA % Actual NSOC" under "measures" field
+    #Then I should see "Home % Actual NSOC" under "measures" field
+    #Then I should see "PAC % Actual NSOC" under "measures" field
+    Then I should see "Uncategorized % Actual NSOC" under "measures" field
+    Then I should see "HHA % Followed" under "measures" field
+    Then I should see "Home % Followed" under "measures" field
+    Then I should see "PAC % Followed" under "measures" field
+    Then I should see "Uncategorized % Followed" under "measures" field
+    Then I should see "Total % Followed" under "measures" field
     
     Then I should see "1st Post Acute CCN" appearing under "level" field
     Then I should see "1st Post Acute Facility" appearing under "level" field
@@ -163,8 +168,8 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
-       
+    
     Examples:
     
-      | email                         | Menu 1      | participant | BPID1   |
-      | shutestaug231132a@yopmail.com | Patient ID  | Penn        | 2070-021|
+      | email                         | participant | BPID1   |
+      | shutestaug231132a@yopmail.com | Penn        | 2070-021|

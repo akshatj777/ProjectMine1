@@ -1,6 +1,6 @@
-Feature: Remove the default filters from Readmission Report
+Feature: Remove the default filters from CARL Report
 
-Scenario Outline: User should be able to remove default filters from Readmission Report and add Anchor Discharge Month Filter
+Scenario Outline: User should be able to remove default filters from CARL Report and add Anchor Discharge Month Filter
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -9,19 +9,17 @@ Scenario Outline: User should be able to remove default filters from Readmission
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions" report text for Readmissions Reports 
+    When I click on the Reports Tile with text "NSoC"
+    Then I click on "CARL" report text for NSoC Reports 
     And I wait for 30000 milli seconds
     Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
-    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Anchor Admission Month" field filter under "Anchor Begin Date" filter field from default filters
+    Then I remove "Anchor Admission Year" field filter under "Anchor Begin Date" filter field from default filters
     Then I remove "Model" field filter under "Model" filter field from default filters
-    Then I remove "Participant ID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "BPID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "CCN" field filter under "Anchor Facility" filter field from default filters
     
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds
@@ -33,8 +31,8 @@ Scenario Outline: User should be able to remove default filters from Readmission
     Then I select "PREVIOUS" discharge month in anchor discharge month filter
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-     
+    
     Examples:
     
-      | email                         | Menu 1      |
-      | shutestaug231132a@yopmail.com | Patient ID  |
+      | email                         |
+      | shutestaug231132a@yopmail.com |

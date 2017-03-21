@@ -548,6 +548,10 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")),text);
     }
     
+    public void iSeeAnchorMonthFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Month].[Anchor Month]']/span")),text);
+    }
+    
     public void iSeeUnderMeasuresField(String text,String field){
     	verifyTextForElement(driver.findElement(By.xpath(".//*[@class='gem-label'][text()='"+text+"']")),text);
     }
@@ -556,8 +560,12 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@id='fieldListTreeContent'] //div[text()='"+text+"']")),text);
     }
     
+    public void iSeeUnderNSOCLevelTimeField(String text,String field){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@id='fieldListTreeContent'] //div[@title='"+text+"']")),text);
+    }
+    
     public void iClickOnFirstNumberUnderEpisodesColumn(){
-    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,0)']")));
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
     }
     
     public void iShouldVerifyInEpisodesTable(String text){
