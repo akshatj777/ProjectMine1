@@ -14,30 +14,29 @@ Scenario Outline: User should be able to see Anchor Admit and Measures on Left S
     And I wait for 30000 milli seconds
     Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
-    
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
-    
     Then I verify "Model" filter is preselected under the filter
     Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Month" filter is preselected under the filter
-    
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
+    When I click on field-layout-icon button
+    And I wait for 4000 milli seconds
     
-    Then I should see "# Episodes" appearing under "measures" field
-    Then I should see "% Eps w Readmit" appearing under "measures" field
-    Then I should see "Leaked Readmit per Eps" appearing under "measures" field
-    Then I should see "% Eps w Readmit w/in 7 days" appearing under "measures" field
-    Then I should see "% Eps w Readmit w/in 15 days" appearing under "measures" field
-    Then I should see "% Eps w Readmit w/in 30 days" appearing under "measures" field
-    Then I should see "% Eps w Readmit w/in 60 days" appearing under "measures" field
-    Then I should see "% Eps w Readmit w/in 90 days" appearing under "measures" field
+    Then I should see "# Episodes" under "measures" field
+    Then I should see "% Eps w Readmit" under "measures" field
+    Then I should see "Readmit per Eps" under "measures" field
+    Then I should see "Leaked Readmits per Eps" under "measures" field
+    Then I should see "% Eps w Readmit w/in 7 days" under "measures" field
+    Then I should see "% Eps w Readmit w/in 15 days" under "measures" field
+    Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
+    Then I should see "% Eps w Readmit w/in 60 days" under "measures" field
+    Then I should see "% Eps w Readmit w/in 90 days" under "measures" field
     
     Then I should see "1st Post Acute CCN" appearing under "level" field
     Then I should see "1st Post Acute Facility" appearing under "level" field
     Then I should see "1st Post Acute Type" appearing under "level" field
-    #Then I should see "ADL’s" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
     Then I should see "Anchor Facility" appearing under "level" field
@@ -96,7 +95,6 @@ Scenario Outline: User should be able to see Anchor Admit and Measures on Left S
     Then I should see "Readmission Admit Date 3" appearing under "level" field
     Then I should see "Readmission Admit Date 4" appearing under "level" field
     Then I should see "Readmission Admit Date 5" appearing under "level" field
-    
     Then I should see "Readmission CCN 1" appearing under "level" field
     Then I should see "Readmission CCN 2" appearing under "level" field
     Then I should see "Readmission CCN 3" appearing under "level" field

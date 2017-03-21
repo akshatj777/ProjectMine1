@@ -62,6 +62,11 @@ public class ReportHomePageSteps extends DriverScript {
     public void iClickFieldPaneliconButton() throws Throwable {
         reportHomePage.iClickReportFieldPanelIconButton();
     }
+    
+    @When("^I click on field-layout-icon button$")
+    public void iClickFieldLayouticonButton() throws Throwable {
+        reportHomePage.iClickReportFieldLayoutIconButton();
+    }
 
     @And("I move the mouse to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iMoveMouseToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
@@ -692,8 +697,33 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSeeModelFilterPreselected(text);
     }
     
+    @Then("^I should see \"([^\"]*)\" under \"([^\"]*)\" field$")
+    public void i_should_see_under__filed(String text,String field) throws Throwable{
+    	reportHomePage.iSeeUnderMeasuresField(text,field);
+    }
+    
     @Then("^I should see \"([^\"]*)\" appearing under \"([^\"]*)\" field$")
     public void i_should_see_appearing_under__filed(String text,String field) throws Throwable{
-    	reportHomePage.iSeeUnderMeasuresField(text,field);
+    	reportHomePage.iSeeUnderLevelTimeField(text,field);
+    }
+    
+    @Then("^I click on a number under episodes column$")
+    public void i_click_on_a_number_under_episodes_column() throws Throwable{
+    	reportHomePage.iClickOnFirstNumberUnderEpisodesColumn();
+    }
+    
+    @Then("^I should verify \"([^\"]*)\" is appearing under Episodes table$")
+    public void i_should_verify_is_appearing_under_episodes_table(String text) throws Throwable{
+    	reportHomePage.iShouldVerifyInEpisodesTable(text);
+    }
+    
+    @Then("^I remove \"([^\"]*)\" field filter under \"([^\"]*)\" filter field from default filters$")
+    public void i_remove_field_filter_under_filter_field_from_default_filters(String field,String title) throws Throwable{
+    	reportHomePage.iRemoveDeefaultFilters(field, title);
+    }
+    
+    @Then("^I select \"([^\"]*)\" discharge month in anchor discharge month filter$")
+    public void i_select_discharge_month_in_anchor_discharge_month_filter(String text) throws Throwable{
+    	reportHomePage.iSelectCurrentMonthInAnchorDischargeMonth(text);
     }
 }

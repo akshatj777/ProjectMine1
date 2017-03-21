@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -68,6 +69,11 @@ public class ReportHomePage extends BaseClass {
     public void iClickReportFieldPanelIconButton(){
 
         clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
+    }
+    
+    public void iClickReportFieldLayoutIconButton(){
+
+        clickElement(driver.findElement(By.xpath(".//div[@class='field-layout-icon']")));
     }
 
     public void iMoveToElementToPerform(String toElementLocator){
@@ -543,7 +549,30 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSeeUnderMeasuresField(String text,String field){
-    	verifyTextForElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent'] //div[text()='"+text+"']")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//*[@class='gem-label'][text()='"+text+"']")),text);
+    }
+    
+    public void iSeeUnderLevelTimeField(String text,String field){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@id='fieldListTreeContent'] //div[text()='"+text+"']")),text);
+    }
+    
+    public void iClickOnFirstNumberUnderEpisodesColumn(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,0)']")));
+    }
+    
+    public void iShouldVerifyInEpisodesTable(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	verifyTextForElement(driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']")),text);
+    }
+    
+    public void iRemoveDeefaultFilters(String field,String title){
+    	clickElement(driver.findElement(By.xpath(".//div[@id='filter_["+title+"].["+field+"]'] //i[@class='filterAction pentaho-deletebutton']")));
+    }
+    
+    public void iSelectCurrentMonthInAnchorDischargeMonth(String text){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+text+"_TIME']")));
     }
 }
 
