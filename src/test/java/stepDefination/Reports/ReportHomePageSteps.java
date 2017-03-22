@@ -77,35 +77,70 @@ public class ReportHomePageSteps extends DriverScript {
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
         reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
-
+    
+    @And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
+    public void iClickOnParticipantFilterUnderEpisodeInitiatorFilterField(String text) throws Throwable {
+        reportHomePage.iMoveToElementAndPerformRightClick(".//div[@id='fieldlist'] //div[text()='"+text+"']");
+    }
+    
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
     public void iChooseOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdField"+optionText+"_text']");
+    }
+    
+    @And("^I Click on \"([^\"]*)\" option from select options of filter field$")
+    public void iClickOnOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
+        reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='field"+optionText+"_text']");
     }
 
     @And("^I should see \"([^\"]*)\" in the header text of filter page$")
     public void iShouldSeeFilterOnHeaderTextFilterPage(String appliedFilter) throws Throwable {
         reportHomePage.iVerifyFilterModalHeaderText("Filter on "+appliedFilter);
     }
+    
+    @And("^I verify \"([^\"]*)\" in the header text of filter page$")
+    public void iVerifyFilterOnHeaderTextFilterPage(String appliedFilter) throws Throwable {
+        reportHomePage.iVerifyFilterTitleHeaderText("Filter on "+appliedFilter);
+    }
 
     @Then("^I should see \"([^\"]*)\" in the filter value list$")
     public void i_should_see_in_the_filter_value_list(String filterText) throws Throwable {
         reportHomePage.iVerifyFilterValueListModalText(filterText);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" in the filter value list$")
+    public void i_verify_in_the_filter_value_list(String filterText) throws Throwable {
+        reportHomePage.iSeeFilterValueListText(filterText);
     }
 
     @And("^I click on \"([^\"]*)\" in the filter value list$")
     public void i_click_on_in_the_filter_value_list(String filterText) throws Throwable {
          reportHomePage.iClickOnFilterTextFormFilterValueList(filterText);
     }
+    
+    @And("^I select \"([^\"]*)\" in the filter value list$")
+    public void i_select_in_the_filter_value_list(String filterText) throws Throwable {
+         reportHomePage.iSelectFilterTextFormFilterValueList(filterText);
+    }
 
     @And("^I click on add selected in the filter modal$")
     public void i_click_on_add_selected_in_the_filter_modal() throws Throwable {
         reportHomePage.iClickAddSelectedArrowFromFilterModal();
     }
+    
+    @And("^I click on \"([^\"]*)\" in the filter modal$")
+    public void i_click_on_in_the_filter_modal(String text) throws Throwable {
+        reportHomePage.iClickSelectedFromFilterModal(text);
+    }
 
     @And("^I click on ok button from filter$")
     public void i_click_on_ok_button_from_filter() throws Throwable {
         reportHomePage.iClickOkButtonFromFilterModal();
+    }
+    
+    @And("^I click \"([^\"]*)\" button from filter to select field$")
+    public void i_click_button_from_filter_to_select_field(String text) throws Throwable {
+        reportHomePage.iClickButtonFromFilterModalToSelectField(text);
     }
 
     @And("^I click on cancel button from filter$")
@@ -325,6 +360,11 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see Initial SNF Length of Stay Summary reports column Tile text as \"([^\"]*)\"$")
     public void i_should_see_Initial_SNF_Length_of_Stay_Summary_reports_column_Tile_text_as(String tile) throws Throwable {
     	reportHomePage.iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(tile);
+    }
+    
+    @Then("^I should see Next Site of Care Detail reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Next_Site_of_Care_Detail_reports_column_Tile_text_as(String tile) throws Throwable {
+    	reportHomePage.iShouldSeeNextSiteOfCareDetailReportsColumnTileTextAs(tile);
     }
 
     @Then("^I click on \"([^\"]*)\" report text for Patient ID Reports$")
@@ -717,9 +757,19 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSeeUnderNSOCLevelTimeField(text, field);
     }
     
+    @Then("^I should see \"([^\"]*)\" for SNF LOS Summary under \"([^\"]*)\" field$")
+    public void i_should_see_for_SNF_LOS_summary_under__filed(String text,String field) throws Throwable{
+    	reportHomePage.iSeeUnderNSOCLevelTimeField(text, field);
+    }
+    
     @Then("^I click on a number under episodes column$")
     public void i_click_on_a_number_under_episodes_column() throws Throwable{
     	reportHomePage.iClickOnFirstNumberUnderEpisodesColumn();
+    }
+    
+    @Then("^I click on one of the episode column number under Episode with DRG Issue Report$")
+    public void i_click_on_One_of_the_episode_column_number_under_episode_with_drg_issue_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodesColumnNumberForEpisodewithDRGIssues();
     }
     
     @Then("^I should verify \"([^\"]*)\" is appearing under Episodes table$")
@@ -735,5 +785,35 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I select \"([^\"]*)\" discharge month in anchor discharge month filter$")
     public void i_select_discharge_month_in_anchor_discharge_month_filter(String text) throws Throwable{
     	reportHomePage.iSelectCurrentMonthInAnchorDischargeMonth(text);
+    }
+    
+    @When("^I click on filters toggle button$")
+    public void i_click_on_filters_toggle_button() throws Throwable{
+    	reportHomePage.iClickOnFiltersToggleButton();
+    }
+    
+    @When("^I click on layout toggle button$")
+    public void i_click_on_layout_toggle_button() throws Throwable{
+    	reportHomePage.iClickOnLayoutToggleButton();
+    }
+    
+    @When("^I click on edit toggle button$")
+    public void i_click_on_edit_toggle_button() throws Throwable{
+    	reportHomePage.iClickOnEditToggleButton();
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is appearing under preselected filter$")
+    public void i_should_see_is_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iSeePreselectedFilters(text);
+    }
+    
+    @Then("^I verify Initial SNF Length of Stay Summary reports column text as \"([^\"]*)\"$")
+    public void i_verify_initial_snf_length_of_stay_summary_report_column_text(String tile) throws Throwable{
+    	reportHomePage.iVerifyInitialSNFLengthOfStaySummaryReportsColumnTextAs(tile);
+    }
+    
+    @And("^I select the radio button of select from list$")
+    public void i_select_the_radio_button_of_select_from_list() throws Throwable{
+    	reportHomePage.iSelectRadioButtonOfSelectFromList();
     }
 }

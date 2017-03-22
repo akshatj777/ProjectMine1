@@ -1,9 +1,7 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-
 import cucumber.api.DataTable;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,8 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by salam on 5/6/16.
@@ -93,24 +91,47 @@ public class ReportHomePage extends BaseClass {
         //delay();
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
+    
+    public void iVerifyFilterTitleHeaderText(String text){
+        verifyTextForElement(driver.findElement(By.xpath(".//span[@class='dijitDialogTitle']")), text);
+    }
 
     public void iVerifyFilterValueListModalText(String text){
         delay();
         verifyTextForElementfromList("#FT_valueList div", text);
     }
+    
+    public void iSeeFilterValueListText(String text){
+        delay();
+        verifyTextForElementfromList("#dijit_form_MultiSelect_0>option", text);
+    }
 
     public void iClickOnFilterTextFormFilterValueList(String filterText){
         clickElement(driver.findElement(By.xpath("//*[starts-with(@id,'FT_AVA') and text()='"+filterText+"']")));
+    }
+    
+    public void iSelectFilterTextFormFilterValueList(String filterText){
+        clickElement(driver.findElement(By.xpath("//div[@class='filterDialogPicklistContainer'] //option[text()='"+filterText+"']")));
     }
 
     public void iClickAddSelectedArrowFromFilterModal() {
 
         clickElement(driver.findElement(By.id("FT_select_add")));
     }
+    
+    public void iClickSelectedFromFilterModal(String text) {
+
+        clickElement(driver.findElement(By.xpath("//img[@title='"+text+"']")));
+    }
 
     public void iClickOkButtonFromFilterModal() {
 
         clickElement(driver.findElement(By.id("dlgBtnSave")));
+    }
+    
+    public void iClickButtonFromFilterModalToSelectField(String text) {
+
+        clickElement(driver.findElement(By.xpath(".//table[@class='button-panel'] //button[text()='"+text+"']")));
     }
 
     public void iClickCancelButtonFromFilterModal() {
@@ -232,6 +253,10 @@ public class ReportHomePage extends BaseClass {
     
     public void iShouldSeeInitialSNFLengthOfStaySummaryReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
+    
+    public void iShouldSeeNextSiteOfCareDetailReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath(".//tr[@id='column-dnd-target']/td", "title", tile);
     }
     
     public void iShouldSeeNextSiteOfCareReportsColumnTileTextAs(String tile){
@@ -568,6 +593,10 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
     }
     
+    public void iClickOnEpisodesColumnNumberForEpisodewithDRGIssues(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,1)']")));
+    }
+    
     public void iShouldVerifyInEpisodesTable(String text){
     	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']"));
@@ -581,6 +610,30 @@ public class ReportHomePage extends BaseClass {
     
     public void iSelectCurrentMonthInAnchorDischargeMonth(String text){
     	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+text+"_TIME']")));
+    }
+    
+    public void iClickOnFiltersToggleButton(){
+    	clickElement(driver.findElement(By.xpath("//*[@id='filterToolbarIndicator']")));
+    }
+    
+    public void iClickOnLayoutToggleButton(){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='toolbar1.layoutToggle']")));
+    }
+    
+    public void iClickOnEditToggleButton(){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='toolbar1.edit']")));
+    }
+    
+    public void iSeePreselectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//*[@class='gem-label'][text()='"+text+"']")),text);
+    }
+    
+    public void iVerifyInitialSNFLengthOfStaySummaryReportsColumnTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_columnAttributes'] //div[text()='"+tile+"']", "title", tile);
+    }
+    
+    public void iSelectRadioButtonOfSelectFromList(){
+    	clickElement(driver.findElement(By.xpath("//div[@data-dojo-attach-point='typePicklistContainer']/input")));
     }
 }
 
