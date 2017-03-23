@@ -22,28 +22,19 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
-    
-    When I click to "<Field Measure>" field filter under "Measures" filter field
-    And I wait for 2000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-    Then I click on range filter dropdown and selected Less Than range in the filter modal
-    Then I enter "<Value1>" as the value on the textbox in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "<Value1>" result in "(Adj Hist) Spending Avg" field column for "Measures" filter field
-		
-		When I click to "<Anchor Admission Month>" field filter under "<Level(Names, Categories, etc.)>" filter field
+    	
+		When I click to "Anchor Admission Month" field filter under "<Level(Names, Categories, etc.)>" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
     And I wait for 2000 milli seconds
     And I should see "Anchor Admission Month" in the header text of filter page
-    And I click on "<Month>" for the "<Year>" in the filter value list
-    And I click on add selected in the filter modal
+    When I click on "PREVIOUS" under anchor admission month filter
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-    And I should see "<Month>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
     
        Examples:
-      | email                         | Field Measure	  					|Value1			|Value2								| Anchor Admission Month         |Level(Names, Categories, etc.)       | Month                | Year |
-      |shutestaug231132a@yopmail.com 	| (Adj Hist) Spending Avg		|5000	 	    | 100000							|		Month												 | Anchor Begin Date									 | Jan									| 2014 |
+      | email                              | Level(Names, Categories, etc.)      |
+      | shutestaug231132a@yopmail.com 	   | Anchor Begin Date									 |
+      | shutestaug221130a@yopmail.com      | Anchor Begin Date									 |
+      | reptestachmodel2opsfin@yopmail.com | Anchor Begin Date									 |
+      | shutestaug221145a@yopmail.com      | Anchor Begin Date									 |

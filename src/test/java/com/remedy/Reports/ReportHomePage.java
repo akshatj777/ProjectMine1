@@ -529,5 +529,8 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
     }
     
+    public void iClickOnAnchorAdmissionMonth(String month){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+month+"_TIME']")));
+    }
 }
 

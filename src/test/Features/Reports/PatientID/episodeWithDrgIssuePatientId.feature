@@ -87,5 +87,5 @@ Feature: Episode with DRG issue Patient ID
     
     
      Examples:
-      | email                         | participant | anchorFacility1                		  | anchorFacility2                  | Issue1                |	 Issue2				|		Issue3					|	EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |Eligibility1		|Eligibility2		|Eligibility3		|Eligibility4		|
-      | shutestaug231132a@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital  | Upenn - Pennsylvania Hospital		 | MISMATCH OF DRGS      |	NO FINAL DRG	|	NO WORKING DRG 		|	Active					|Completed			 |Expired					|Pending				 |potentialM3			|ELIGIBLE				|ERROR					|EXPIRED				|UNKNOWN				|
+      | email                              | participant | anchorFacility1                		  | anchorFacility2                  | Issue1                |	 Issue2				|		Issue3					|	EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |EpisodeStatus1  |Eligibility1		|Eligibility2		|Eligibility3		|Eligibility4		|
+      | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital  | Upenn - Pennsylvania Hospital		 | MISMATCH OF DRGS      |	NO FINAL DRG	|	NO WORKING DRG 		|	Active					|Completed			 |Expired					|Pending				 |potentialM3			|ELIGIBLE				|ERROR					|EXPIRED				|UNKNOWN				|

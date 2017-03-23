@@ -88,6 +88,7 @@ Feature: Episode avg days to drg patient id
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | anchorFacility1                    | anchorFacility2               |  BPID1    | EpisodeStatus1 | EpisodeStatus2 | EpisodeStatus3 | EpisodeStatus4 | EpisodeStatus5 | Eligibility1 | Eligibility2 | Eligibility3 | Eligibility4 |
-      | shutestaug231132a@yopmail.com | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital |  2070-022 | Active         | Completed      | Expired        | Pending        | potentialM3    | ELIGIBLE     | ERROR        | EXPIRED      | UNKNOWN      |
+      | email                              | anchorFacility1                    | anchorFacility2               |  BPID1    | EpisodeStatus1 | EpisodeStatus2 | EpisodeStatus3 | EpisodeStatus4 | EpisodeStatus5 | Eligibility1 | Eligibility2 | Eligibility3 | Eligibility4 |
+      | shutestaug231132a@yopmail.com      | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital |  2070-022 | Active         | Completed      | Expired        | Pending        | potentialM3    | ELIGIBLE     | ERROR        | EXPIRED      | UNKNOWN      |
+      
 
