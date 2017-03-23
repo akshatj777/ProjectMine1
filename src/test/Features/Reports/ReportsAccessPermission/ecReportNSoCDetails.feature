@@ -44,7 +44,7 @@ Scenario Outline: User should be able to select Participant and BPID of NSoc Det
     When I click on edit toggle button
     And I wait for 2000 milli seconds
     
-    When I click on Participant field filter under Episode Initiator filter field
+    When I click on "Participant" field filter under Episode Initiator filter field
     And I wait for 2000 milli seconds
     And I Click on "Filter" option from select options of filter field
     And I wait for 3000 milli seconds
@@ -72,7 +72,19 @@ Scenario Outline: User should be able to select Participant and BPID of NSoc Det
     And I click "Ok" button from filter to select field
     And I wait for 3000 milli seconds
     
+    When I click on "Ancho Disch Month" field filter under Episode Initiator filter field
+    And I Click on "Filter" option from select options of filter field
+    And I select the radio button of select from list
+    And I wait for 5000 milli seconds
+    And I verify "<Month>" in the filter value list
+    And I wait for 1000 milli seconds
+    And I select "<Month>" in the filter value list
+    And I wait for 1000 milli seconds
+    And I click on "Add Selected" in the filter modal
+    And I click "Ok" button from filter to select field
+    And I wait for 5000 milli seconds
+    
     Examples:
     
-      | email                         | participant | BPID1   |
-      | shutestaug231132a@yopmail.com | Penn        | 2070-021|
+      | email                         | participant | BPID1   | Month |
+      | shutestaug231132a@yopmail.com | Penn        | 2070-021| Dec   |
