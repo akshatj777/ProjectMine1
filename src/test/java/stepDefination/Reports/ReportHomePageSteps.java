@@ -737,6 +737,26 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSeeModelFilterPreselected(text);
     }
     
+    @Then("^I should see \"([^\"]*)\" is present under preselected participant id filter$")
+    public void i_should_see_is_present_under_preselected_participant_id_filter(String text) throws Throwable{
+    	reportHomePage.iSeeParticipantIDFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected BPID filter$")
+    public void i_should_see_is_present_under_preselected_bpid_filter(String text) throws Throwable{
+    	reportHomePage.iSeeBPIDFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected Bundle Code filter$")
+    public void i_should_see_is_present_under_preselected_bundle_code_filter(String text) throws Throwable{
+    	reportHomePage.iSeeBundleCodeFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected Dashboard Anchor CCN filter$")
+    public void i_should_see_is_present_under_preselected_dashboard_anchor_ccn_filter(String text) throws Throwable{
+    	reportHomePage.iSeeDashboardAnchorCCNFilterPreselected(text);
+    }
+    
     @Then("^I should see \"([^\"]*)\" is present under preselected anchor month filter$")
     public void i_should_see_is_present_under_preselected_anchor_month_filter(String text) throws Throwable{
     	reportHomePage.iSeeAnchorMonthFilterPreselected(text);

@@ -573,6 +573,22 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")),text);
     }
     
+    public void iSeeParticipantIDFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant ID]']/span")),text);
+    }
+    
+    public void iSeeBPIDFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")),text);
+    }
+    
+    public void iSeeBundleCodeFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Bundle].[Bundle Code]']/span")),text);
+    }
+    
+    public void iSeeDashboardAnchorCCNFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dashboard - Anchor Facility].[CCN]']/span")),text);
+    }
+    
     public void iSeeAnchorMonthFilterPreselected(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Month].[Anchor Month]']/span")),text);
     }
