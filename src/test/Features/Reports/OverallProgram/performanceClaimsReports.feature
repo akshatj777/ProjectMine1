@@ -96,5 +96,9 @@ Feature: Performance claims Overall Program
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   |
-      | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 |
+      | email                              | participant | anchorFacility1                  | anchorFacility2                                | episodeInitiator1                | ccn1   |
+      | shutestaug231132a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center               | Penn Presbyterian Medical Center | 390223 |
+      | shutestaug221130a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center               | Penn Presbyterian Medical Center | 390223 |
+      | reptestachmodel2opsfin@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center               | Penn Presbyterian Medical Center | 390223 |
+      | shutestaug15240p@yopmail.com       | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center               | Penn Presbyterian Medical Center | 390223 |
+      | shutestaug221145a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center               | Penn Presbyterian Medical Center | 390223 |
