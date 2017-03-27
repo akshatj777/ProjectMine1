@@ -742,6 +742,11 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSeeParticipantIDFilterPreselected(text);
     }
     
+    @Then("^I should see \"([^\"]*)\" is present under preselected post acute category filter$")
+    public void i_should_see_is_present_under_preselected_post_acute_category_filter(String text) throws Throwable{
+    	reportHomePage.iSeePostAcuteCategoryFilterPreselected(text);
+    }
+    
     @Then("^I should see \"([^\"]*)\" is present under preselected BPID filter$")
     public void i_should_see_is_present_under_preselected_bpid_filter(String text) throws Throwable{
     	reportHomePage.iSeeBPIDFilterPreselected(text);
@@ -785,6 +790,11 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I click on a number under episodes column$")
     public void i_click_on_a_number_under_episodes_column() throws Throwable{
     	reportHomePage.iClickOnFirstNumberUnderEpisodesColumn();
+    }
+    
+    @Then("^I click on a number under episodes column of spending claims report$")
+    public void i_click_on_a_number_under_episodes_column_of_spending_claims_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport();
     }
     
     @Then("^I click on one of the episode column number under Episode with DRG Issue Report$")

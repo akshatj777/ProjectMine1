@@ -576,6 +576,9 @@ public class ReportHomePage extends BaseClass {
     public void iSeeParticipantIDFilterPreselected(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant ID]']/span")),text);
     }
+    public void iSeePostAcuteCategoryFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@formula='[Post Acute Category.Post Acute Type].[Post Acute Category]']/span")),text);
+    }
     
     public void iSeeBPIDFilterPreselected(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")),text);
@@ -607,6 +610,17 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnFirstNumberUnderEpisodesColumn(){
     	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
+    }
+    
+    public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	//List <WebElement> listings = driver.findElements(By.xpath("//div[@class='cells pivotTableDataContainer']/table/tbody/tr/td/div/a"));
+    	//Random r = new Random();
+    	//int randomValue = r.nextInt(listings.size()); //Getting a random value that is between 0 and (list's size)-1
+    	//listings.get(randomValue).click();
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']")));
     }
     
     public void iClickOnEpisodesColumnNumberForEpisodewithDRGIssues(){
