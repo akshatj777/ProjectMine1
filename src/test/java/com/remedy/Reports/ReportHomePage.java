@@ -632,8 +632,12 @@ public class ReportHomePage extends BaseClass {
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_columnAttributes'] //div[text()='"+tile+"']", "title", tile);
     }
     
-    public void iSelectRadioButtonOfSelectFromList(){
-    	clickElement(driver.findElement(By.xpath("//div[@data-dojo-attach-point='typePicklistContainer']/input")));
+    public void iSelectRadioButtonOfSelectFromList() {
+        clickElement(driver.findElement(By.xpath("//div[@data-dojo-attach-point='typePicklistContainer']/input")));
+    }
+
+    public void iClickOnAnchorAdmissionMonth(String month){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+month+"_TIME']")));
     }
 }
 

@@ -819,6 +819,11 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I should delete the \"([^\"]*)\" preselected filter$")
     public void i_should_delete_the_preselected_filter(String text) throws Throwable{
-    	
+
+    } 
+    
+    @When("^I click on \"([^\"]*)\" under anchor admission month filter$")
+    public void i_click_on_under_anchor_admission_month_filter(String month) throws Throwable{
+    	reportHomePage.iClickOnAnchorAdmissionMonth(month);
     }
 }

@@ -16,7 +16,7 @@ Feature: Volume claims Physician
 
     Then I should see Volume reports column Tile text as "Participant"
     Then I should see Volume reports column Tile text as "Episode Initiator"
-    Then I should see Volume reports column Tile text as "Anchor Facility"
+    #Then I should see Volume reports column Tile text as "Anchor Facility"
     Then I should see Volume reports column Tile text as "Bundle"
     Then I should see Volume reports column Tile text as "Anchor Admission Quarter"
 
@@ -66,7 +66,6 @@ Feature: Volume claims Physician
     And I wait for 2000 milli seconds
     And I should see "Bundle" in the header text of filter page
     And I should see "Amputation" in the filter value list
-    And I should see "Atherosclerosis" in the filter value list
     And I click on "Amputation" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
@@ -98,3 +97,4 @@ Feature: Volume claims Physician
     Examples:
       | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   |
       | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 |
+      | shutestaug221130a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of The University Of Pennsylvania | 390223 |

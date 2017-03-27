@@ -24,7 +24,7 @@ public class PatientEligibilityMatchingSteps extends DriverScript {
 		patienteligibility.iEnterForSSN(ssn);
 	}
 
-	@Then("^I click on \"([^\"]*)\" filter tab present on the patients page$")
+	@Then("^I click \"([^\"]*)\" filter tab present on the patients page$")
 	public void i_click_on_filters_tab_present_on_the_patients_page(
 			String filtertab) throws Throwable {
 		patienteligibility

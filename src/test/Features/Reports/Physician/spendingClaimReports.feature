@@ -16,7 +16,7 @@ Feature: Spending claims Physician
 
     Then I should see Spending reports column Tile text as "Participant"
     Then I should see Spending reports column Tile text as "Episode Initiator"
-    Then I should see Spending reports column Tile text as "Anchor Facility"
+    #Then I should see Spending reports column Tile text as "Anchor Facility"
     Then I should see Spending reports column Tile text as "Bundle"
     Then I should see Spending reports column Tile text as "Anchor Admission Quarter"
 
@@ -96,5 +96,6 @@ Feature: Spending claims Physician
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   |
-      | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 |
+      | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                          | ccn1   |
+      | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center           | 390223 |
+      | shutestaug221130a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of The University Of Pennsylvania | 390223 |
