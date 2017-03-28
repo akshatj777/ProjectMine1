@@ -16,27 +16,14 @@ Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports lin
     And I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Patient ID reports
-      | Episode Data Issues Detail         |
-      | Episode Avg Days to DRG            |
-      | Inpatient Episode Clearing         |
-      | Episode DRG Issues                 |
+      | Episode DRG Issues         |
+      | Inpatient Episode Clearing |
 
-    When I click on "Episode Data Issues Detail" reports text for "Patient ID" report tile
+    When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
-     And I wait for 2000 milli seconds
-    Then I should see "Episode Data Issues" in the Episode Data Issues Patient ID report page header
+    Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 1>"
-    When I click on "Episode Avg Days to DRG" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    Then I should see "Episode Average Days to DRG" in the Patient ID report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
     When I click on the Reports Tile with text "<Menu 1>"

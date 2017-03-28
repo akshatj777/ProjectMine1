@@ -14,12 +14,12 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
-      | Operations |
+      | Program Overview |
 
-    When I click on "Operations" reports text for "Dashboards" report tile
-    And I wait for 2000 milli seconds
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 10000 milli seconds
      And I switch to reports embedded iframe
-    Then I should see "Operations Dashboard" in the Operations Dashboard report page header
+    Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -108,7 +108,7 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
-    Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
+    #Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -146,12 +146,12 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
-      | Operations |
+      | Program Overview |
 
-    When I click on "Operations" reports text for "Dashboards" report tile
-    And I wait for 2000 milli seconds
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 10000 milli seconds
      And I switch to reports embedded iframe
-    Then I should see "Operations Dashboard" in the Operations Dashboard report page header
+    Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title

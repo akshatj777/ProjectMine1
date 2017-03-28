@@ -169,6 +169,10 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyEpisodeDataIssuesPatientIDReportPageHeader(String text){
         verifyTextForElement(driver.findElement(By.xpath("//td[text()='Episode Data Issues']")), text);
     }
+    
+    public void iVerifyEpisodeDRGIssuesReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
 
     public void iVerifySNFLOSDetailPostAcuteCareReportPageHeader(String text){
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='rpt-report-header-label-0']")), text);
@@ -179,7 +183,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyCARLNSOCReportPageHeader(String text){
-        verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//td[text()='Next Site of Care Detail                                           Click on Prompts at top to select Participant']")), text);
+        verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
     
     public void iVerifyNextSiteOfCareDetailNSOCReportPageHeader(String text){
