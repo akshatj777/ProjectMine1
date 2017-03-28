@@ -846,9 +846,4 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_select_the_radio_button_of_select_from_list() throws Throwable{
     	reportHomePage.iSelectRadioButtonOfSelectFromList();
     }
-    
-    @Then("^I should delete the \"([^\"]*)\" preselected filter$")
-    public void i_should_delete_the_preselected_filter(String text) throws Throwable{
-    	
-    }
 }
