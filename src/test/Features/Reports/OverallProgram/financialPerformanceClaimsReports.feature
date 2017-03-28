@@ -23,50 +23,17 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
 
-    When I click to "<FieldMeasure>" field filter under "Measures" filter field
-    And I wait for 2000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-
-    Then I click on range filter dropdown and selected Less Than range in the filter modal
-    Then I enter "<Value1>" as the value on the textbox in the filter modal 
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "<Value1>" result in "Episode Count - Total" field column for "Measures" filter field
-    
-    #When I click to "Forecasted Program Size" field filter under "Measures" filter field
-    #And I wait for 2000 milli seconds
-    #And I choose "Filter" option from select options of filter field
-    #And I wait for 4000 milli seconds
-    #Then I click on range filter dropdown and selected Less Than range in the filter modal  
-    #Then I enter 10000 as the value on the tetbox in the filter modal
-    #And I click on ok button from filter
-    #And I wait for 4000 milli seconds
-    #And I should see "<value2>" result in "Forecasted Program Size" field column for "Measures" filter field 
-    
-    When I click to "<Anchor Admission Month>" field filter under "<Level(Names, Categories, etc.)>" filter field
+    When I click to "Anchor Admission Month" field filter under "<Level(Names, Categories, etc.)>" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
     And I wait for 2000 milli seconds
     And I should see "Anchor Admission Month" in the header text of filter page
-    And I click on "<Month>" for the "<Year>" in the filter value list
-    And I click on add selected in the filter modal
+    When I click on "PREVIOUS" under anchor admission month filter
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-    And I should see "<Month>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
-    
-    #When I click to "Anchor Admission Quarter" field filter under "Level(Names, Categories, etc.)" filter field
-    #And I wait for 2000 milli seconds
-    #And I choose "Filter" option from select options of filter field
-    #And I wait for 2000 milli seconds
-    #And I should see "Filter on Anchor Admission Quarter" in the header text of filter page
-    #And I should see "<Quarter>" in the filter value list
-    #And I click on "<Quarter>" in the filter value list
-    #And I click on add selected in the filter modal
-    #And I click on ok button from filter
-    #And I wait for 3000 milli seconds
-    #And I should see "<Quarter>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
     
     Examples:
-      | email                         | FieldMeasure	  	  | Value1 | Value2 | Anchor Admission Month | Level(Names, Categories, etc.) | Month | Year |
-      | shutestaug231132a@yopmail.com | Episode Count - Total | 5	   | 100000 |		Month			 | Anchor Begin Date			  | Jan	  | 2014 |
+      | email                              |  Level(Names, Categories, etc.) |
+      | shutestaug231132a@yopmail.com      |  Anchor Begin Date			         |
+      | shutestaug221130a@yopmail.com      |  Anchor Begin Date			         |
+      | reptestachmodel2opsfin@yopmail.com |  Anchor Begin Date			         |

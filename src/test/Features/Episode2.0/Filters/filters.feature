@@ -1,6 +1,6 @@
 Feature: Episode 2.0 Filters
 
-  Scenario Outline: verify pre-selected filter under Filter options on Patient Page
+  Scenario: verify pre-selected filter under Filter options on Patient Page
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -17,10 +17,7 @@ Feature: Episode 2.0 Filters
     Then I verify Initiator is selected as default filter under Filter options
 
     And I click on Filters button present on Filter Page
-    Then I verify "<filter name>" filter is displayed under list of filter options
-
-    Examples:
-      | filter name               |
+    Then I verify following filter is displayed under list of filter options
       | Admit Reason              |
       | Anchor Discharge Facility |
       | Care Plan                 |
