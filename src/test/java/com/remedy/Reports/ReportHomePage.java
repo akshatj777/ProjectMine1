@@ -565,12 +565,30 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyPreselectedModelFilter(String text){
-    	//verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")), model);
     	isElementVisible(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='["+text+"].["+text+"]']/span")));
     }
     
     public void iSeeModelFilterPreselected(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Model].[Model]']/span")),text);
+    }
+    
+    public void iSeeParticipantIDFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant ID]']/span")),text);
+    }
+    public void iSeePostAcuteCategoryFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@formula='[Post Acute Category.Post Acute Type].[Post Acute Category]']/span")),text);
+    }
+    
+    public void iSeeBPIDFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")),text);
+    }
+    
+    public void iSeeBundleCodeFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Bundle].[Bundle Code]']/span")),text);
+    }
+    
+    public void iSeeDashboardAnchorCCNFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dashboard - Anchor Facility].[CCN]']/span")),text);
     }
     
     public void iSeeAnchorMonthFilterPreselected(String text){
@@ -591,6 +609,13 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnFirstNumberUnderEpisodesColumn(){
     	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
+    }
+    
+    public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']")));
     }
     
     public void iClickOnEpisodesColumnNumberForEpisodewithDRGIssues(){

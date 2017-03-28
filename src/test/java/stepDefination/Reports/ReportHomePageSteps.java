@@ -737,6 +737,31 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSeeModelFilterPreselected(text);
     }
     
+    @Then("^I should see \"([^\"]*)\" is present under preselected participant id filter$")
+    public void i_should_see_is_present_under_preselected_participant_id_filter(String text) throws Throwable{
+    	reportHomePage.iSeeParticipantIDFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected post acute category filter$")
+    public void i_should_see_is_present_under_preselected_post_acute_category_filter(String text) throws Throwable{
+    	reportHomePage.iSeePostAcuteCategoryFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected BPID filter$")
+    public void i_should_see_is_present_under_preselected_bpid_filter(String text) throws Throwable{
+    	reportHomePage.iSeeBPIDFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected Bundle Code filter$")
+    public void i_should_see_is_present_under_preselected_bundle_code_filter(String text) throws Throwable{
+    	reportHomePage.iSeeBundleCodeFilterPreselected(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected Dashboard Anchor CCN filter$")
+    public void i_should_see_is_present_under_preselected_dashboard_anchor_ccn_filter(String text) throws Throwable{
+    	reportHomePage.iSeeDashboardAnchorCCNFilterPreselected(text);
+    }
+    
     @Then("^I should see \"([^\"]*)\" is present under preselected anchor month filter$")
     public void i_should_see_is_present_under_preselected_anchor_month_filter(String text) throws Throwable{
     	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
@@ -765,6 +790,11 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I click on a number under episodes column$")
     public void i_click_on_a_number_under_episodes_column() throws Throwable{
     	reportHomePage.iClickOnFirstNumberUnderEpisodesColumn();
+    }
+    
+    @Then("^I click on a number under episodes column of spending claims report$")
+    public void i_click_on_a_number_under_episodes_column_of_spending_claims_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport();
     }
     
     @Then("^I click on one of the episode column number under Episode with DRG Issue Report$")
@@ -816,7 +846,7 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_select_the_radio_button_of_select_from_list() throws Throwable{
     	reportHomePage.iSelectRadioButtonOfSelectFromList();
     }
-    
+
     @Then("^I should delete the \"([^\"]*)\" preselected filter$")
     public void i_should_delete_the_preselected_filter(String text) throws Throwable{
 
