@@ -14,8 +14,7 @@ Feature: Episode 2.0 patient search
     
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter "URCRV, RYYQTTXQ" in the searchbox on the patients page
-    And I wait for 5000 milli seconds
-    Then I verify "URCRV," is appearing under firstname in the search result
-    Then I verify "RYYQTTXQ" is appearing under lastname in the search result
+    Then I enter "URCRV, RYYQTTXQ" in the search box on the patients page
+    And I wait for 8000 milli seconds
+    Then I verify patient having either URCRV first name or RYYQTTXQ last name on patient page
     And I wait for 2000 milli seconds

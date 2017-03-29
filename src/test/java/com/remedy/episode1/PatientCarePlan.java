@@ -166,4 +166,15 @@ public class PatientCarePlan extends BaseClass
 	{
 		isElementVisible(driver.findElement(By.cssSelector(".bootbox-body")));
 	}
+	
+	public void iAcceptAttestation(){
+		
+		try{
+			isElementVisible(driver.findElement(By.cssSelector("#submitButtonAdd")));
+			clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
+		}
+		catch(Exception e){
+			
+		}
+	}
 }

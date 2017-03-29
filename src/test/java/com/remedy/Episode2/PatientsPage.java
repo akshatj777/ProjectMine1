@@ -6,16 +6,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 /**
  * Created by ashish.ranjan on 24-11-2016.
  */
 public class PatientsPage extends BaseClass {
 
-	public PatientsPage(WebDriver driver) {
-		super(driver);
-	}
+    public PatientsPage(WebDriver driver) {
+        super(driver);
+    }
 
-	public void iVerifyTabInFilterBarOnPatientsPage(String elementText) {
+    public void iVerifyTabInFilterBarOnPatientsPage(String elementText) {
         verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'" + elementText + "')]")), elementText);
     }
 
@@ -68,7 +70,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyWorklistSubBarOptionsPresentOnPatientsPage(String worklistSubbar) {
-        isElementVisible(driver.findElement(By.xpath("//button[span[span[contains(text(),'" + worklistSubbar + "')]]]")));
+        isElementVisible(driver.findElement(By.xpath("//button[span[contains(text(),'" + worklistSubbar + "')]]")));
     }
 
     public void iClickOnFilterButtonPresentOnPatientPage() {
@@ -805,47 +807,109 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.xpath("//label[span[text()='" + text + "']]")));
     }
 
-	public void iVerifyAdmitSectionIsPresentOnThePatientCard() {
-		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[1]")));
-	}
+    public void iVerifyAdmitSectionIsPresentOnThePatientCard() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[1]")));
+    }
 
-	public void iVerifyInpatientStatusIsPresentOnThePatientCard(){
-		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[2]")));
-	}
+    public void iVerifyInpatientStatusIsPresentOnThePatientCard() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[2]")));
+    }
 
-	public void iVerifyAdmissionReasonIsPresentOnThePatientCard(){
-		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
+    public void iVerifyAdmissionReasonIsPresentOnThePatientCard() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
+    }
+
+    public void iShouldSeeSearchBoxAppearingOnThePatientsPage() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='elastic-input-wrapper']")));
+    }
+
+    public void iEnterInIheSearchbox(String search) {
+        iFillInText(driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")), search);
+    }
+
+    public void iVerifyAgreeButtonIsAppearing(String text) {
+        verifyTextForElementfromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
+    }
+
+    public void iVerifyAgreeButtonIsNotPresent(String text) {
+        verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
+    }
+
+    public void iVerifyFollowingFiltersPresentOnPatientPage(String text) {
+        verifyTextForElementFromListByXpath("//div[@class='filters-dropdown-content filters-list']/ul/li", text);
+    }
+
+    public boolean isAllCorrectPatientsReturnAfterPatientSearch(String fName, String lName) {
+        List<WebElement> allNames = driver.findElements(By.cssSelector(".card-view-body .card-header .card-header-content h3"));
+        boolean isPresent = false;
+
+        for (int i = 0; i < allNames.size(); i++) {
+           String allText = allNames.get(i).getText();
+           String[] patientName = allText.split(",\n");
+
+            if(patientName[0].equalsIgnoreCase(fName) || patientName[0].equalsIgnoreCase(lName)) {
+                isPresent = true;
+            } else if(patientName[1].equalsIgnoreCase(fName) || patientName[1].equalsIgnoreCase(lName)){
+                isPresent = true;
+            } else {
+                isPresent = false;
+                break;
+            }
+
+        }
+
+        return isPresent;
+    }
+
+    public void iVerifyFirstnameInTheSearchResult(String firstname) {
+        verifyTextForElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[1]")), firstname);
+    }
+
+    public void iVerifyLastnameInTheSearchResult(String lastname) {
+        verifyTextForElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[2]")), lastname);
+    }
+
+    public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
 	}
-	public void iShouldSeeSearchBoxAppearingOnThePatientsPage()
-			throws Throwable {
-		isElementVisible(driver
-				.findElement(By
-						.xpath("//div[@class='elastic-input-wrapper']")));
+	public void iShouldVerifyIsAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+    }
+	public void iShouldSeeFacilityAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")));
 	}
-	public void iEnterInIheSearchbox(String search)
-			throws Throwable {
-		iFillInText(
-				driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),
-				search);
+	public void iShouldSeeAdmitDateAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[3]")));
 	}
-	public void iVerifyFirstnameInTheSearchResult(String firstname)
-			throws Throwable {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[1]")),
-				firstname);
+	public void iShouldSeeAdmitReasonAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[4]")));
 	}
-	public void iVerifyLastnameInTheSearchResult(String lastname)
-			throws Throwable {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[2]")),
-				lastname);
+	public void iShouldSeeAdmitTypeAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[5]")));
 	}
-	public void iVerifyAgreeButtonIsAppearing(String text)
-			throws Throwable {
-		verifyTextForElementfromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",text);
+	public void iShouldSeeDischargeDateAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[6]")));
 	}
-	public void iVerifyAgreeButtonIsNotPresent(String text)
-			throws Throwable {
-		verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",text);
+	public void iShouldSeeDischargeLocationAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[7]")));
+	}
+	public void iShouldSeePAPsAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[8]")));
+	}
+	public void iShouldSeeDRGsAppearingUnderTransitionsPage() {
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[9]")));
+	}
+	public void iClickOnEditPresentUnderActionsSymbol() {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[1]/a")));
+	}
+	public void iShouldSeeEditTranisitionOnTransitionsPage(String text) {
+		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
+	}
+	public void iClickOnActionsSymbol() {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+	}
+	public void iClickOnDeleteoftransition() {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[3]/a")));
 	}
 }
