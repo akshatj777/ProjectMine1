@@ -283,6 +283,10 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeEpisodeAvgDayToDRGReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
     }
+    
+    public void iShouldSeeEpisodeDRGIssuesReportsColumnTileTextAs(String tile){
+        verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);
+    }
 
     public void iShouldSeeEpisodeWithDRGIssueReportsColumnTileTextAs(String tile){
         verifyAttributeForElementFromListByXpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']/tbody/tr/td", "title", tile);

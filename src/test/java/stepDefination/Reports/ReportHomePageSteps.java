@@ -376,6 +376,11 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_Episode_Avg_Day_to_DRG_reports_column_Tile_text_as(String tile) throws Throwable {
         reportHomePage.iShouldSeeEpisodeAvgDayToDRGReportsColumnTileTextAs(tile);
     }
+    
+    @Then("^I should see Episode DRG Issues reports column Tile text as \"([^\"]*)\"$")
+    public void i_should_see_Episode_DRG_Issues_reports_column_Tile_text_as(String tile) throws Throwable {
+        reportHomePage.iShouldSeeEpisodeDRGIssuesReportsColumnTileTextAs(tile);
+    }
 
     @Then("^I should see Episode with DRG issue reports column Tile text as \"([^\"]*)\"$")
     public void i_should_see_Episode_with_DRG_issue_reports_column_Tile_text_as(String tile) throws Throwable {
