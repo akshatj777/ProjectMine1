@@ -143,6 +143,11 @@ public class ReportHomePage extends BaseClass {
         //delay();
         clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
     }
+    
+    public void iClickOnReportsTabOnReportsPage() {
+        //delay();
+        clickElement(driver.findElement(By.xpath("//div[@href='#/']")));
+    }
 
     public void iVerifyFilterResultInColumnFieldForReportFilterField(String text, String filterCol, String filterOption){
         verifyTextForElementFromListByXpath("//*[@class='pivotTableRowLabelSection']//*[@formula='["+filterOption+"].["+filterCol+"]']/div", text);
@@ -264,7 +269,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnReportTextForNSoCReports(String text){
-    	selectElementByTextDescByXpath("//div[label[text()='NSoC']]/following-sibling::div/a", text);
+    	selectElementByTextDescByXpath("//div[label[text()='Next Site of Care']]/following-sibling::div/a", text);
     }
     
     public void iSelectFromTheDropdownListOnTheFilterPage(String range){

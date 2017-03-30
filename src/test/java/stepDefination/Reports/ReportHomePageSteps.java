@@ -50,7 +50,7 @@ public class ReportHomePageSteps extends DriverScript {
 
     @And("^I switch to reports embedded iframe$")
     public void iShouSeeReportsTheReportsHeaderPage() throws Throwable {
-        reportHomePage.iSwitchToReportsPageFrameWithXpath("//iframe[@class='embedded-iframe']");
+        reportHomePage.iSwitchToReportsPageFrameWithXpath("//iframe[@class='embedded-iframe ng-scope']");
     }
 
     @And("^I should see performance reports column Tile text as \"([^\"]*)\"$")
@@ -151,6 +151,11 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I click on close reports cross icon on report page$")
     public void i_click_on_close_report_cross_icon_report_page() throws Throwable {
         reportHomePage.iClickOnCloseReportsCrossLink();
+    }
+    
+    @When("^I click on reports tab appearing on reports page$")
+    public void i_click_on_reports_tab_appearing_on_reports_page() throws Throwable {
+        reportHomePage.iClickOnReportsTabOnReportsPage();
     }
 
     @Then("^I should see following Reports text for Overall Program reports$")

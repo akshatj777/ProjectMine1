@@ -11,13 +11,13 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Spending (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe 
     
     Then I should see performance reports column Tile text as "Participant"
-    Then I should see performance reports column Tile text as "Episode Initiator"
-    Then I should see performance reports column Tile text as "Anchor Facility"
+    Then I should see performance reports column Tile text as "Episode Initiator"   
     Then I should see performance reports column Tile text as "Bundle"
+    Then I should see performance reports column Tile text as "Spending Category"
     Then I should see performance reports column Tile text as "Anchor Admission Quarter" 
     
     When I click on field-panel-icon button
@@ -83,8 +83,9 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
 
     When I switch to default window from iframe
-    When I click on close reports cross icon on report page
-    And I wait for 1000 milli seconds
+    #When I click on close reports cross icon on report page
+    When I click on reports tab appearing on reports page
+    And I wait for 2000 milli seconds
     Then I verify current page "Reports" title
 
     Examples:

@@ -11,7 +11,7 @@ Feature: Spending claims Physician
     When I click on the Reports Tile with text "Physician"
     Then I click on "Spending (Claims)" report text for Physician Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
 
     Then I should see Spending reports column Tile text as "Participant"
@@ -96,11 +96,12 @@ Feature: Spending claims Physician
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
 
     When I switch to default window from iframe
-    When I click on close reports cross icon on report page
+    #When I click on close reports cross icon on report page
+    When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 
     Examples:
       | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                          | ccn1   | BPID1    |
       | shutestaug231132a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center           | 390223 | 2070-021 |
-      #| shutestaug221130a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of The University Of Pennsylvania | 390223 | 2070-021 |
+      | shutestaug221130a@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of The University Of Pennsylvania | 390223 | 2070-021 |

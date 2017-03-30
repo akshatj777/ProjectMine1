@@ -12,7 +12,7 @@ Scenario Outline: Verify that Episode drg issues report display data based on pr
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Episode DRG Issues" report text for Patient ID Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     Then I should see Episode DRG Issues reports column Tile text as "Participant"
