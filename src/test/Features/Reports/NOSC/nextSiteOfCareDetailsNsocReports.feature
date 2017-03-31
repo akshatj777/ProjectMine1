@@ -9,7 +9,7 @@ Scenario Outline: Verify that Next site of care detail report display data based
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "NSoC"
+    When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "Next Site of Care Detail" report text for NSoC Reports 
     And I wait for 30000 milli seconds
     Then I should see "Report" in the reports header page
@@ -95,8 +95,8 @@ Scenario Outline: Verify that Next site of care detail report display data based
     
     | email                              | participant | anchorFacility1       	            | anchorFacility2                | episodeInitiator1                | ccn1   | BPID1    |
     | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital	 | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-    #| shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-    #| reptestachmodel2opsfin@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-    #| shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-    #| shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-    #| repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 
+    | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+    | reptestachmodel2opsfin@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+    | shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+    | shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+    | repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 

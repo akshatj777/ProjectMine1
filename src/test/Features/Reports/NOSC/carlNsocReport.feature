@@ -8,7 +8,7 @@ Feature: Next site of care Carl
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "NSoC"
+    When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "CARL" report text for NSoC Reports 
     And I wait for 20000 milli seconds
     Then I should see "Report" in the reports header page
