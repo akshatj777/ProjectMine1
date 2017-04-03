@@ -75,16 +75,23 @@ public class CreateUserSteps extends DriverScript{
 
     }
 
-    @Then("^I enter Email with ([^\"]*)$")
+    @Then("^I enter Email for ([^\"]*)$")
     public void iEnterEmail(String email) throws Throwable {
         createUser.iEnterEmail(email);
 
     }
 
-    @Then("^I enter Phone field with \"([^\"]*)\"$")
+    @Then("^I enter Phone field with ([^\"]*)$")
     public void iEnterPhone(String phone) throws Throwable {
 
         createUser.iEnterPhone(phone);
+
+    }
+    
+    @Then("^I pick payer type from data section ([^\"]*)$")
+    public void IPickPayertypeFromDataSection(String payer) throws Throwable {
+
+        createUser.selectPayerFromData(payer);
 
     }
 
@@ -117,11 +124,18 @@ public class CreateUserSteps extends DriverScript{
         createUser.iClickOrganizationalField();
 
     }
+    
+    @When("^I click the payer Field under data$")
+    public void IClickPayerFieldUnderData() throws Throwable {
 
-    @And("^I click on Facility field$")
-    public void IClickFacilityField() throws Throwable {
+        createUser.iClickPayerField();
 
-        createUser.iClickFacilityField();
+    }
+
+    @And("^I click on Health System field$")
+    public void IClickHealthSystemField() throws Throwable {
+
+        createUser.iClickHealthSystemField();
     }
 
 

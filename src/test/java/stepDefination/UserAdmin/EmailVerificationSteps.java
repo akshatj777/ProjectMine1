@@ -1,7 +1,9 @@
 package stepDefination.UserAdmin;
 
+import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.EmailVarificationPage;
 import com.remedy.resources.DriverScript;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -11,12 +13,14 @@ import cucumber.api.java.en.Then;
 public class EmailVerificationSteps extends DriverScript{
     
    EmailVarificationPage popMail = new EmailVarificationPage(driver);
+   CreateUserPage createUser = new CreateUserPage(driver);
 
 
-    @And("^I enter the ([^\"]*) for verification$")
+    @And("^I enter the email for verification$")
     public void ISearchFacilityWith(String email) throws Throwable {
 
-        popMail.iEnterVerificationEmai(email);
+    	createUser.iEnterEmail(email);
+        //popMail.iEnterVerificationEmai(email);
     }
 
     @And("^I click on check inbox button$")

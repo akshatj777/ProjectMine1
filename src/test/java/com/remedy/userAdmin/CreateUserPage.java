@@ -1,14 +1,26 @@
 package com.remedy.userAdmin;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.remedy.baseClass.BaseClass;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by salam on 7/30/15.
  */
 public class CreateUserPage extends BaseClass{
 
+
+	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
+	Date timestamp = new Date();
+	String time = df.format(timestamp);
+	
     public CreateUserPage(WebDriver driver){
 
         super(driver);
@@ -18,11 +30,23 @@ public class CreateUserPage extends BaseClass{
 
         clickElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[1]/div[1]/div[1]/span")));
     }
+    
+    public void iClickPayerField(){
+    	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
+    }
 
 
     public void selectOrganizationalRole(String desc){
 
 
+        selectElementByDesc(".ui-select-choices-row-inner", desc);
+    }
+    
+    public void selectPayerFromData(String desc){
+
+    	//JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	//WebElement element = driver.findElement(By.cssSelector(".ui-select-match.ng-scope.btn-default-focus"));  
+    	//js.executeScript("arguments[0].scrollIntoView(true);", element);
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
 
@@ -43,7 +67,9 @@ public class CreateUserPage extends BaseClass{
 
     public void iEnterEmail(String text){
 
-        iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), text);
+    	String mail=text+time;
+    	String email="user"+mail+"@yopmail.com";
+	    iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), email);
     }
 
     public void iEnterPhone( String text){
@@ -51,14 +77,14 @@ public class CreateUserPage extends BaseClass{
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
     }
 
-    public void iClickFacilityField(){
+    public void iClickHealthSystemField(){
 
-        clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[1]/div/div[1]/div[1]/div[1]/span")));
+        clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
     }
 
     public void iEnterHealthSystemSerachText(String text){
 
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[1]/div/div[1]/div[1]/input[1]")), text);
+        iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]")), text);
     }
 
     public void iSelectHealthSystem(String desc){
