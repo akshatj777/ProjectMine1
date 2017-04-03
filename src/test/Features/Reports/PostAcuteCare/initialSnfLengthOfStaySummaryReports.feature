@@ -11,14 +11,14 @@ Feature: Initial SNF Length of Stay Summary Post Acute Care
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
 
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Participant"
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Episode Initiator"
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Anchor Facility"
-    Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Bundle"
-    Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Anchor Admission Quarter" 
+    #Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Bundle"
+    Then I should see Initial SNF Length of Stay Summary reports column Tile text as "1st Post Acute Facility" 
 
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
@@ -83,7 +83,8 @@ Feature: Initial SNF Length of Stay Summary Post Acute Care
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
  
     When I switch to default window from iframe
-    When I click on close reports cross icon on report page
+    #When I click on close reports cross icon on report page
+    When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 

@@ -82,7 +82,8 @@ Scenario Outline: Verify that Episode drg issues report display data based on pr
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
       
     When I switch to default window from iframe
-    When I click on close reports cross icon on report page
+    #When I click on close reports cross icon on report page
+    When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title  
     

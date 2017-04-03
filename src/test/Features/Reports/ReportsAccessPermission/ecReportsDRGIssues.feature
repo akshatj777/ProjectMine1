@@ -12,7 +12,7 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Episode with DRG Issue" report text for Patient ID Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
@@ -65,7 +65,7 @@ Scenario Outline: User should be able to see Episodes List under Episode With DR
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Episode with DRG Issue" report text for Patient ID Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     Then I click on one of the episode column number under Episode with DRG Issue Report
@@ -117,7 +117,7 @@ Scenario Outline: User should be able to remove default filters from Episode Wit
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Episode with DRG Issue" report text for Patient ID Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button

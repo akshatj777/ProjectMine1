@@ -243,9 +243,9 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5    | Menu 6 | Menu 7       |
-      | shutestaug231132a@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | NSoC   | Readmissions |
-      | shutestaug221130a@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | NSoC   | Readmissions |
+      | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5    | Menu 6             | Menu 7       |
+      | shutestaug231132a@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | Next Site of Care  | Readmissions |
+      | shutestaug221130a@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | Next Site of Care  | Readmissions |
 
   Scenario Outline: For ACH MODEL 2 OPSFIN verify the respective reports link as per the user permissions
     Given I am on the login page
@@ -421,8 +421,8 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples:
-      | email                              | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5 | Menu 6       |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                              | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5             | Menu 6       |
+      | reptestachmodel2opsfin@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | Next Site of Care  | Readmissions |
 
 
 
@@ -580,8 +580,8 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
     
     Examples:
-      | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5 | Menu 6       |
-      | shutestaug15240p@yopmail.com  | Dashboards | Overall Program | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5            | Menu 6       |
+      | shutestaug15240p@yopmail.com  | Dashboards | Overall Program | Patient ID | Post Acute Care | Next Site of Care | Readmissions |
 
   Scenario Outline: For ACH MODEL 2 OPSSPEND verify the respective reports link as per the user permissions
     Given I am on the login page
@@ -747,8 +747,8 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5 | Menu 6       |
-      | shutestaug221145a@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                         | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5            | Menu 6       |
+      | shutestaug221145a@yopmail.com | Dashboards | Overall Program | Patient ID | Post Acute Care | Next Site of Care | Readmissions |
 
   Scenario Outline: For ACH Model 2 ECReports verify the respective reports link as per the user permissions
     Given I am on the login page
@@ -872,6 +872,6 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4 | Menu 5       |
-      | repopsnofintest@yopmail.com   | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4             | Menu 5       |
+      | repopsnofintest@yopmail.com   | Dashboards | Patient ID | Post Acute Care | Next Site of Care  | Readmissions |
 

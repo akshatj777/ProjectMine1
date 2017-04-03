@@ -127,9 +127,9 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4 | Menu 5       |
-      | shutestaug15252p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestaug15220p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4              | Menu 5       |
+      | shutestaug15252p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestaug15220p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
 
   Scenario Outline: For PGP MODEL 2 OPSFIN,OPSNOFIN,OPSSPEND and ECReports verify the respective reports link as per the user permissions
     Given I am on the login page
@@ -259,11 +259,11 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples:
-      | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4 | Menu 5       |
-      | shutestaug26212p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestjul26420p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestjul26415@yopmail.com   | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestaug221150a@yopmail.com | Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4              | Menu 5       |
+      | shutestaug26212p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestjul26420p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestjul26415@yopmail.com   | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestaug221150a@yopmail.com | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
       
   Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports link verification for the respective reports links functionality
     Given I am on the login page
@@ -335,9 +335,9 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
     
     Examples:
-      | email                         | Menu 1     | Menu 2 |
-      | shutestauf171115a@yopmail.com | Patient ID | NSoC   |
-      | shutestjul24430@yopmail.com   | Patient ID | NSoC   |
-      | shutestagu22945am@yopmail.com | Patient ID | NSoC   |
-      | shutestjul24340p@yopmail.com  | Patient ID | NSoC   |     
+      | email                         | Menu 1     | Menu 2            |
+      | shutestauf171115a@yopmail.com | Patient ID | Next Site of Care |
+      | shutestjul24430@yopmail.com   | Patient ID | Next Site of Care |
+      | shutestagu22945am@yopmail.com | Patient ID | Next Site of Care |
+      | shutestjul24340p@yopmail.com  | Patient ID | Next Site of Care |     
   

@@ -128,5 +128,5 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     Then I verify current page "Reports" title
 
     Examples:
-      | email                       | Menu 1     | Menu 2     | Menu 3          | Menu 4 | Menu 5       |
-      | shutestjul15440p@yopmail.com| Dashboards | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                       | Menu 1     | Menu 2     | Menu 3          | Menu 4            | Menu 5       |
+      | shutestjul15440p@yopmail.com| Dashboards | Patient ID | Post Acute Care | Next Site of Care | Readmissions |

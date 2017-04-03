@@ -9,10 +9,10 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "NSoC"
+    When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "CARL" report text for NSoC Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     Then I click on a number under episodes column
     And I wait for 5000 milli seconds
@@ -20,7 +20,8 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     And I wait for 3000 milli seconds
     
     Then I should verify "Participant" is appearing under Episodes table
-    Then I should verify "BPID (Key)" is appearing under Episodes table
+    Then I should verify "BPID" is appearing under Episodes table
+    Then I should verify "Episode Initiator" is appearing under Episodes table
     Then I should verify "MDC" is appearing under Episodes table
     Then I should verify "DRG" is appearing under Episodes table
     Then I should verify "DRG Code" is appearing under Episodes table
@@ -31,9 +32,14 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "DOB" is appearing under Episodes table
     Then I should verify "Episode Status" is appearing under Episodes table
     Then I should verify "AtRisk" is appearing under Episodes table
-    Then I should verify "CCN (Key)" is appearing under Episodes table
-    Then I should verify "1st Post Acute CCN (Key)" is appearing under Episodes table
+    Then I should verify "Anchor Facility" is appearing under Episodes table
+    Then I should verify "1st Post Acute CCN" is appearing under Episodes table
     Then I should verify "NSOC Category" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Care Setting" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Care Type" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Care Setting Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Care Type Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Care Type Detail (EC)" is appearing under Episodes table
     Then I should verify "Model" is appearing under Episodes table
     Then I should verify "CARL Status" is appearing under Episodes table
     Then I should verify "Cognitive Status" is appearing under Episodes table
