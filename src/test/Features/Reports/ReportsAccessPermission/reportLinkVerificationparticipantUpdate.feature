@@ -15,12 +15,12 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
-      | Operations |
+      | Program Overview |
 
-    When I click on "Operations" reports text for "Dashboards" report tile
-    And I wait for 2000 milli seconds
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 10000 milli seconds
      And I switch to reports embedded iframe
-    Then I should see "Operations Dashboard" in the Operations Dashboard report page header
+    Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -28,37 +28,16 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Patient ID reports
-      | Episode Data Issues Detail         |
-      | Episode with DRG Issue             |
-      | Episode Avg Days to DRG            |
-      | Inpatient Episode Clearing         |
+      | Episode DRG Issues         |
+      | Inpatient Episode Clearing |
 
-    When I click on "Episode Data Issues Detail" reports text for "Patient ID" report tile
+    When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
-    Then I should see "Episode Data Issues" in the Episode Data Issues Patient ID report page header
+    Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 2>"
-    When I click on "Episode with DRG Issue" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    Then I should see "Episode DRG Issues" in the Patient ID report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 2>"
-    When I click on "Episode Avg Days to DRG" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    Then I should see "Episode Average Days to DRG" in the Patient ID report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
+        
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
