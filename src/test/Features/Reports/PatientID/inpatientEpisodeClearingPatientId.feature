@@ -1,6 +1,7 @@
-Feature: Post acute care claims 
+Feature: Inpatient Episode Clearing Patient ID
 
-  Scenario Outline: Verify that Post acute care claims report display data based on provisioning
+Scenario Outline: Verify that Inpatient Episode Clearing report display data based on provisioning
+    
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -8,19 +9,12 @@ Feature: Post acute care claims
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "Post Acute Care"
-    Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for 30000 milli seconds 
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
+    And I wait for 30000 milli seconds
     #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
-
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Participant"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Episode Initiator"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Facility"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Bundle"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Admission Quarter"
-    Then I should see performance reports column Tile text as "Anchor Admission Quarter"
-
+    
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
 
@@ -43,7 +37,7 @@ Feature: Post acute care claims
     And I should see "Anchor Facility" in the header text of filter page
     And I should see "<anchorFacility1>" in the filter value list
     And I should see "<anchorFacility2>" in the filter value list
-    And I click on "<anchorFacility2>" in the filter value list
+    And I click on "<anchorFacility1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
@@ -60,24 +54,11 @@ Feature: Post acute care claims
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
-
-    When I click to "Bundle" field filter under "Bundle" filter field
-    And I wait for 2000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-    And I should see "Bundle" in the header text of filter page
-    And I should see "Amputation" in the filter value list
-    And I should see "Atherosclerosis" in the filter value list
-    And I click on "Amputation" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
-
+    
     When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
     And I double click on current mouse location element
     And I wait for 5000 milli seconds
-    Then I should see performance reports column Tile text as "CCN"
+    Then I should see Readmission reports column Tile text as "CCN"
 
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
@@ -100,7 +81,7 @@ Feature: Post acute care claims
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
-    
+
     When I switch to default window from iframe
     #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
@@ -108,9 +89,10 @@ Feature: Post acute care claims
     Then I verify current page "Reports" title
 
     Examples:
-      | email                              | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   | BPID1    |
-      | shutestaug231132a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug221130a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | reptestachmodel2opsfin@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug15240p@yopmail.com       | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug221145a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | email                              | participant | anchorFacility1                		| anchorFacility2                | episodeInitiator1                | ccn1   | BPID1    | 
+      | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital	 | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | reptestachmodel2opsfin@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 
