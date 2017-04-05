@@ -47,4 +47,44 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iClickOnReportTileOnTopOfReportPage(String report,String tile){
 		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //span[text()='"+report+"']")));
 	}
+	
+	public void iVerifyParticipantIDAppearingInSelectedFilter(String participantid){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant ID]']/span")),participantid);
+	}
+	
+	public void iVerifyBPIDAppearingInSelectedFilter(String bpid){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")),bpid);
+	}
+	
+	public void iVerifyCCNAppearingInSelectedFilter(String ccn){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dashboard - Anchor Facility].[CCN]']/span")),ccn);
+	}
+	
+	public void iClickOnReportTileOnTheTopOfReportsPage(){
+		clickElement(driver.findElement(By.cssSelector(".flex-item.order-2.btn.logo.valentino-icon-reports")));
+	}
+	
+	public void iClickOnCrossMarkForSelectedParticipantFilter(String participant){
+		clickElement(driver.findElement(By.xpath("//span[text()='Participant: "+participant+"']/preceding-sibling::i")));
+	}
+	
+	public void iClickOnCrossMarkForSelectedEpisodeInitiatorFilter(String episodeinitiator){
+		clickElement(driver.findElement(By.xpath("//span[text()='Episode Initiator: "+episodeinitiator+"']/preceding-sibling::i")));
+	}
+	
+	public void iClickOnCrossMarkForSelectedAnchorFacilityFilter(String anchorfacility){
+		clickElement(driver.findElement(By.xpath("//span[text()='Anchor Facility: "+anchorfacility+"']/preceding-sibling::i")));
+	}
+	
+	public void iClickOnClearButtonToClearSelectedFilter(){
+		clickElement(driver.findElement(By.xpath("//button[text()='Clear']")));
+	}
+	
+	public void iClickOnSearchIconForGlobalFilter(String text){
+		clickElement(driver.findElement(By.xpath("//div[h5[span[text()='"+text+"']]] //i[@class='elastic-input-icon valentino-icon-search']")));
+	}
+	
+	public void iSearchUnderFilterOnGlobalFilter(String search,String filter){
+		iFillInText(driver.findElement(By.xpath("//div[h5[span[text()='"+filter+"']]] //input[@placeholder='Search "+filter+"']")), search);
+	}
 }

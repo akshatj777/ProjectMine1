@@ -54,148 +54,338 @@ Scenario Outline: User should be able to see the Global Filters
     Then I verify "Performance (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
-    And I should see "Participant: Penn" under applied filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Financial Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Financial Performance (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
-    And I should see "Participant: Penn" under applied filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Spending (Claims)" report under "Overall Program" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Spending (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Episode DRG Issues" report under "Patient ID" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Episode DRG Issues" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
-    And I should see "Participant: Penn" under applied filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "InPatient Episode Clearing" report under "Patient ID" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "InPatient Episode Clearing" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Initial SNF Length of Stay Summary" report under "Post Acute Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Initial SNF Length of Stay Summary" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "SNF Performance (Claims)" report under "Post Acute Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "SNF Performance (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "SNF Volume (Claims)" report under "Post Acute Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "SNF Volume (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
-    And I should see "Participant: Penn" under applied filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Post Acute Care (Claims)" report under "Post Acute Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Post Acute Care (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
-    And I should see "Participant: Penn" under applied filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Performance (Claims)" report under "Physician" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Performance (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Volume (Claims)" report under "Physician" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Volume (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Spending (Claims)" report under "Physician" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Spending (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "CARL" report under "Next Site of Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "CARL" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Next Site of Care Summary" report under "Next Site of Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Next Site of Care Summary" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Readmissions" report under "Readmissions" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Readmissions" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
+    
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
     
     Then I click on "Readmissions (Claims)" report under "Readmissions" reports tile on the top of reports page
     And I wait for 18000 milli seconds
     Then I verify "Readmissions (Claims)" in the reports header page
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
     And I should see "Participant: Penn" under applied filter of global filters
     And I should see "Episode Initiator: Penn Presbyterian Medical Cente" under applied filter of global filters
     And I should see "Anchor Facility: Upenn - Penn Presbyterian Hospital" under applied filter of global filters
     
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 2000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    
+    When I switch to default window from iframe
+    And I click on reports tile on the top of reports page
+    And I wait for 3000 milli seconds
+    Then I verify current page "Reports" title
+    
     Examples:
     
-      | email                         | Menu 1     | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                             | anchor facility2                   | anchor facility3              |
-      | shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Upenn - Hospital Of The Univ. Of Pennsylvania| Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital |
+      | email                         | Menu 1     | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                             | anchor facility2                   | anchor facility3              | participantid1 | bpid1    | ccn1   |
+      | shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Upenn - Hospital Of The Univ. Of Pennsylvania| Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | 441348         | 2070-021 | 390223 |
     
     

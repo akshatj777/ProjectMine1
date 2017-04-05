@@ -65,4 +65,54 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_click_on_report_under_reports_tile_on_the_top_of_reports_page(String report,String tile)throws Throwable{
 		globalfilters.iClickOnReportTileOnTopOfReportPage(report, tile);
 	}
+	
+	@Then("^I verify participant filter is selected with ([^\"]*) under selected filters$")
+	public void i_verify_participant_filter_is_selected_with_under_selected_filters(String participantid)throws Throwable{
+		globalfilters.iVerifyParticipantIDAppearingInSelectedFilter("Participant ID includes "+participantid);
+	}
+	
+	@Then("^I verify episode initiator filter is selected with ([^\"]*) under selected filters$")
+	public void i_verify_episode_initiator_filter_is_selected_with_under_selected_filters(String bpid)throws Throwable{
+		globalfilters.iVerifyBPIDAppearingInSelectedFilter("BPID includes "+bpid);
+	}
+	
+	@Then("^I verify dashboard anchor ccn filter is selected with ([^\"]*) under selected filters$")
+	public void i_verify_dashboard_anchor_ccn_filter_is_selected_with_under_selected_filters(String ccn)throws Throwable{
+		globalfilters.iVerifyCCNAppearingInSelectedFilter("Dashboard - Anchor CCN includes "+ccn);
+	}
+	
+	@And("^I click on reports tile on the top of reports page$")
+	public void i_click_on_reports_tile_on_the_top_of_reports_page()throws Throwable{
+		globalfilters.iClickOnReportTileOnTheTopOfReportsPage();
+	}
+	
+	@When("^I click on cross mark beside the selected participant filter with ([^\"]*)$")
+	public void i_click_on_cross_mark_beside_the_selected_participant_filter_with(String participant)throws Throwable{
+		globalfilters.iClickOnCrossMarkForSelectedParticipantFilter(participant);
+	}
+	
+	@When("^I click on cross mark beside the selected episode initiator filter with ([^\"]*)$")
+	public void i_click_on_cross_mark_beside_the_selected_episode_initiator_filter_with(String episodeinitiator)throws Throwable{
+		globalfilters.iClickOnCrossMarkForSelectedEpisodeInitiatorFilter(episodeinitiator);
+	}
+	
+	@When("^I click on cross mark beside the selected anchor facility filter with ([^\"]*)$")
+	public void i_click_on_cross_mark_beside_the_selected_anchor_facility_filter_with(String anchorfacility)throws Throwable{
+		globalfilters.iClickOnCrossMarkForSelectedEpisodeInitiatorFilter(anchorfacility);
+	}
+	
+	@When("^I click on Clear button to clear the selected filter$")
+	public void i_click_on_clear_button_to_clear_the_selected_filter()throws Throwable{
+		globalfilters.iClickOnClearButtonToClearSelectedFilter();
+	}
+	
+	@Then("^I click on \"([^\"]*)\" search icon to search existing data on global filters$")
+	public void i_click_on_search_icon_to_search_existing_data_on_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnSearchIconForGlobalFilter(text);
+	}
+	
+	@And("^I seach with \"([^\"]*)\" under \"([^\"]*)\" filter on global filter$")
+	public void i_search_with_under_filter_on_global_filter(String search,String filter)throws Throwable{
+		globalfilters.iSearchUnderFilterOnGlobalFilter(search, filter);
+	}
 }
