@@ -12,7 +12,7 @@ Scenario Outline: User should be able to select Participant and BPID of Inpatien
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on filters toggle button

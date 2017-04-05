@@ -9,10 +9,10 @@ Scenario Outline: User should be able to select Participant and BPID of NSoc Det
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "NSoC"
+    When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "Next Site of Care Detail" report text for NSoC Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on filters toggle button
