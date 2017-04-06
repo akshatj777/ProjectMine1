@@ -33,11 +33,19 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iClickOnCheckboxForGlobalFilters(String text){
-		clickElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+text+"']/preceding-sibling::i")));
+		clickElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+text+"']")));
 	}
 	
-	public void iShouldSeeUnderAppliedFilterOfGlobalFilter(String text){
-		verifyTextForElement(driver.findElement(By.xpath("//span[text()='"+text+"']")), text);
+	public void iShouldSeeUnderParticipantAppliedFilterOfGlobalFilter(String text){
+		verifyTextForElementfromList(".margin-left.ng-binding", text);
+	}
+	
+	public void iShouldSeeUnderEpisodeInitiatorAppliedFilterOfGlobalFilter(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='margin-left ng-binding']")), text);
+	}
+	
+	public void iShouldSeeUnderAnchorFacilityAppliedFilterOfGlobalFilter(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='margin-left ng-binding']")), text);
 	}
 	
 	public void iClickOnApplyFilterButton(){
@@ -45,7 +53,15 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iClickOnReportTileOnTopOfReportPage(String report,String tile){
-		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //span[text()='"+report+"']")));
+		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]")));
+	}
+	
+	public void iMovetoElementToClickOnReportTileOnTopOfReportPage(String moveToElementLocator){
+		moveToTheElement(driver.findElement(By.xpath(moveToElementLocator)));
+	}
+	
+	public void iSeeReportTileOnTopOfReportPage(String report,String tile){
+		isElementVisible(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]")));
 	}
 	
 	public void iVerifyParticipantIDAppearingInSelectedFilter(String participantid){
@@ -81,10 +97,14 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iClickOnSearchIconForGlobalFilter(String text){
-		clickElement(driver.findElement(By.xpath("//div[h5[span[text()='"+text+"']]] //i[@class='elastic-input-icon valentino-icon-search']")));
+		clickElement(driver.findElement(By.xpath("//div[h5[span[text()='"+text+"']]]//div[@class='elastic-input-wrapper']")));
 	}
 	
 	public void iSearchUnderFilterOnGlobalFilter(String search,String filter){
 		iFillInText(driver.findElement(By.xpath("//div[h5[span[text()='"+filter+"']]] //input[@placeholder='Search "+filter+"']")), search);
+	}
+	
+	public void iClickOnTileOnTheTopNavigationOfReportsPage(String tile){
+		clickElement(driver.findElement(By.xpath("//button[text()='"+tile+"']")));
 	}
 }

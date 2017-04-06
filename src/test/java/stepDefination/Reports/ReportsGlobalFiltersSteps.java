@@ -51,9 +51,19 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 		globalfilters.iClickOnCheckboxForGlobalFilters(text);
 	}
 	
-	@And("^I should see \"([^\"]*)\" under applied filter of global filters$")
-	public void i_should_see_under_applied_filter_of_global_filters(String text)throws Throwable{
-		globalfilters.iShouldSeeUnderAppliedFilterOfGlobalFilter(text);
+	@And("^I verify ([^\"]*) is appearing under applied participant on global filters$")
+	public void i_verify_is_appearing_under_applied_participant_on_global_filters(String text)throws Throwable{
+		globalfilters.iShouldSeeUnderParticipantAppliedFilterOfGlobalFilter("Participant: "+text);
+	}
+	
+	@And("^I verify ([^\"]*) is appearing under applied episode initiator on global filters$")
+	public void i_verify_is_appearing_under_applied_episode_initiator_on_global_filters(String text)throws Throwable{
+		globalfilters.iShouldSeeUnderParticipantAppliedFilterOfGlobalFilter("Episode Initiator: "+text);
+	}
+	
+	@And("^I verify ([^\"]*) is appearing under applied anchor facility on global filters$")
+	public void i_verify_is_appearing_under_applied_anchor_facility_on_global_filters(String text)throws Throwable{
+		globalfilters.iShouldSeeUnderParticipantAppliedFilterOfGlobalFilter("Anchor Facility: "+text);
 	}
 	
 	@And("^I click on Apply filters button for global filters$")
@@ -64,6 +74,16 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	@Then("^I click on \"([^\"]*)\" report under \"([^\"]*)\" reports tile on the top of reports page$")
 	public void i_click_on_report_under_reports_tile_on_the_top_of_reports_page(String report,String tile)throws Throwable{
 		globalfilters.iClickOnReportTileOnTopOfReportPage(report, tile);
+	}
+	
+	@Then("^I move to element and click on \"([^\"]*)\" report under \"([^\"]*)\" reports tile on the top of reports page$")
+	public void i_move_to_element_and_click_on_report_under_reports_tile_on_the_top_of_reports_page(String report,String tile)throws Throwable{
+		globalfilters.iMovetoElementToClickOnReportTileOnTopOfReportPage("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]");
+	}
+	
+	@And("^I see \"([^\"]*)\" report is appearing under \"([^\"]*)\" dropdown on the top menu$")
+	public void i_see_report_is_appearing_under_dropdown_on_the_top_menu(String report,String tile)throws Throwable{
+		globalfilters.iSeeReportTileOnTopOfReportPage(report, tile);
 	}
 	
 	@Then("^I verify participant filter is selected with ([^\"]*) under selected filters$")
@@ -114,5 +134,10 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	@And("^I seach with \"([^\"]*)\" under \"([^\"]*)\" filter on global filter$")
 	public void i_search_with_under_filter_on_global_filter(String search,String filter)throws Throwable{
 		globalfilters.iSearchUnderFilterOnGlobalFilter(search, filter);
+	}
+	
+	@When("^I click on \"([^\"]*)\" tile on the top navigation of reports page$")
+	public void i_click_on_tile_on_the_top_navigation_of_reports_page(String tile)throws Throwable{
+		globalfilters.iClickOnTileOnTheTopNavigationOfReportsPage(tile);
 	}
 }
