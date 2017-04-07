@@ -97,23 +97,6 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for 18000 milli seconds
     When I see "1 filter applied" under global filters applied count
     
-    #When I click on "Overall Program" tile on the top navigation of reports page
-    #Then I click on "Spending (Claims)" report under "Overall Program" reports tile on the top of reports page
-    #And I wait for 18000 milli seconds
-    #Then I verify "Spending (Claims)" in the reports header page
-    #When I see "2 filters applied" under global filters applied count
-    #Then I click on Show Summary button to unhide the available global filters
-    #And I verify <participant1> is appearing under applied participant on global filters
-    #And I verify <anchor facility2> is appearing under applied anchor facility on global filters
-    #And I click on Apply filters button for global filters
-    #And I wait for 18000 milli seconds
-    
-    #When I switch to reports embedded iframe
-    #When I click on show all filters icon button
-    #And I wait for 2000 milli seconds
-    #Then I verify participant filter is selected with <participantid1> under selected filters
-    #Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    
     When I click on "Patient ID" tile on the top navigation of reports page
     Then I click on "Episode DRG Issues" report under "Patient ID" reports tile on the top of reports page
     And I wait for 18000 milli seconds
@@ -162,12 +145,6 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for 18000 milli seconds
     Then I verify "SNF Performance (Claims)" in the reports header page
     When I see "0 filters applied" under global filters applied count
-    
-    #When I click on "Post Acute Care" tile on the top navigation of reports page 
-    #Then I click on "SNF Volume (Claims)" report under "Post Acute Care" reports tile on the top of reports page
-    #And I wait for 18000 milli seconds
-    #Then I verify "SNF Volume (Claims)" in the reports header page
-    #When I see "0 filters applied" under global filters applied count
     
     When I click on "Post Acute Care" tile on the top navigation of reports page
     Then I click on "Post Acute Care (Claims)" report under "Post Acute Care" reports tile on the top of reports page
@@ -242,24 +219,6 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for 10000 milli seconds
     When I see "2 filters applied" under global filters applied count
     
-    #When I click on "Next Site of Care" tile on the top navigation of reports page
-    #Then I click on "CARL" report under "Next Site of Care" reports tile on the top of reports page
-    #And I wait for 18000 milli seconds
-    #Then I verify "CARL" in the reports header page
-    #When I see "2 filters applied" under global filters applied count
-    #Then I click on Show Summary button to unhide the available global filters
-    #And I verify <participant1> is appearing under applied participant on global filters
-    #And I verify <episode initiator3> is appearing under applied episode initiator on global filters
-    #And I click on Apply filters button for global filters
-    #And I wait for 18000 milli seconds
-    
-    #When I switch to reports embedded iframe
-    #When I click on show all filters icon button
-    #And I wait for 2000 milli seconds
-    #Then I verify participant filter is selected with <participantid1> under selected filters
-    #Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    #When I switch to default window from iframe
-    
     When I click on "Next Site of Care" tile on the top navigation of reports page
     Then I click on "Next Site of Care Summary" report under "Next Site of Care" reports tile on the top of reports page
     And I wait for 18000 milli seconds
@@ -282,26 +241,6 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "3 filters applied" under global filters applied count
-    
-    #When I click on "Readmissions" tile on the top navigation of reports page
-    #Then I click on "Readmissions" report under "Readmissions" reports tile on the top of reports page
-    #And I wait for 18000 milli seconds
-    #Then I verify "Readmissions" in the reports header page
-    #When I see "3 filters applied" under global filters applied count
-    #Then I click on Show Summary button to unhide the available global filters
-    #And I verify <participant1> is appearing under applied participant on global filters
-    #And I verify <episode initiator3> is appearing under applied episode initiator on global filters
-    #And I verify <anchor facility2> is appearing under applied anchor facility on global filters
-    #And I click on Apply filters button for global filters
-    #And I wait for 18000 milli seconds
-    
-    #When I switch to reports embedded iframe
-    #When I click on show all filters icon button
-    #And I wait for 2000 milli seconds
-    #Then I verify participant filter is selected with <participantid1> under selected filters
-    #Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    #Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    #When I switch to default window from iframe
     
     When I click on "Readmissions" tile on the top navigation of reports page
     Then I click on "Readmissions (Claims)" report under "Readmissions" reports tile on the top of reports page
