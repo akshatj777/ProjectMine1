@@ -8,6 +8,7 @@ import com.remedy.baseClass.BaseClass;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,10 +18,11 @@ import org.openqa.selenium.WebElement;
 public class CreateUserPage extends BaseClass{
 
 
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	String time = df.format(timestamp);
-	
+	public final static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
+	public final static Date timestamp = new Date();
+	public final static String time = df.format(timestamp);
+
+		
     public CreateUserPage(WebDriver driver){
 
         super(driver);
@@ -65,13 +67,23 @@ public class CreateUserPage extends BaseClass{
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[4]/input")), text);
     }
 
-    public void iEnterEmail(String text){
+    
+    
+    public final static String iGenerateEmail(String text){
 
-    	String mail=text+time;
-    	String email="user"+mail+"@yopmail.com";
-	    iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), email);
+    	final String mail=text+time;
+    	final String email="user"+mail+"@mailinator.com";
+		return email;
+	   	    
     }
-
+    
+    
+    
+    public void iEnterEmail(String text){
+    	
+    	iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
+    }
+    
     public void iEnterPhone( String text){
 
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
@@ -141,8 +153,8 @@ public class CreateUserPage extends BaseClass{
 
     public void iEnterProviderSerachText(String text){
 
-        clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[1]/div/div[2]/div/div[1]/input")));
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[1]/div/div[2]/div/div[1]/input")), text);
+        clickElement(driver.findElement(By.xpath("//div[@class='table-select-search']//input")));
+        iFillInText(driver.findElement(By.xpath("//div[@class='table-select-search']//input")), text);
     }
 
     public void iCheckAllProviderForTheHealthSystem (){
@@ -156,6 +168,6 @@ public class CreateUserPage extends BaseClass{
     }
 
 
-
+  
 
 }

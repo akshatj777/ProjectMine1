@@ -17,18 +17,18 @@ public class EmailVarificationPage extends BaseClass {
 
 
     public void iEnterVerificationEmai(String email){
-
-     iFillInText(driver.findElement(By.cssSelector("#login")), email);
+    	
+    	     iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
     }
 
 
 
-    public void iClickCheckInBoxButton(){
+    public void iClickGoButton(){
 
-        clickElement(driver.findElement(By.cssSelector(".sbut")));
+        clickElement(driver.findElement(By.cssSelector(".input-group-btn .btn.btn-dark")));
     }
 
-    public void switcToFrame(String element){
+    public void switchToFrame(String element){
 
         swithToFrame(element);
 
@@ -37,12 +37,12 @@ public class EmailVarificationPage extends BaseClass {
 
     public void SelectNewEmail(){
 
-        driver.findElement(By.cssSelector(".lms"));
+       clickElement(driver.findElement(By.xpath("//div[@title='FROM:']")));
     }
 
     public void clickConfirmAccountLink(){
 
-        clickElement(driver.findElement(By.xpath("//*[@id='mailmillieu']//td/p[3]/a")));
+        clickElement(driver.findElement(By.xpath("//a[text()='Confirm my account']")));
 
     }
 
@@ -58,13 +58,13 @@ public class EmailVarificationPage extends BaseClass {
 
     public void iClickCheckForNewMail (){
 
-        clickElement(driver.findElement(By.xpath("//*[@id='lrefr']/span/span")));
+        clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
     }
 
 
     public void iClickOnConfirmPasswordLink(){
 
-        clickElement(driver.findElement(By.xpath("//*[@id='mailmillieu']/div[2]//tr/td/p[2]/strong/a")));
+        clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
     }
 
 }

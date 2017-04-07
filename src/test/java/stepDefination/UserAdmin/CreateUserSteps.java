@@ -75,12 +75,20 @@ public class CreateUserSteps extends DriverScript{
 
     }
 
-    @Then("^I enter Email for ([^\"]*)$")
-    public void iEnterEmail(String email) throws Throwable {
-        createUser.iEnterEmail(email);
+    @Then("^I Generate Email for ([^\"]*)$")
+    public void iGenerateEmail(String email) throws Throwable {
+        
+    	
+    	createUser.iGenerateEmail(email);
+        
 
     }
-
+    
+    @Then("^I enter Email for ([^\"]*)$")
+    public void iEnterEmail(String email) {
+    createUser.iEnterEmail(email);
+    }
+    
     @Then("^I enter Phone field with ([^\"]*)$")
     public void iEnterPhone(String phone) throws Throwable {
 
@@ -182,10 +190,10 @@ public class CreateUserSteps extends DriverScript{
         createUser.iEnterLasttName(lastName);
     }
 
-    @And("^I enter Email with text \"([^\"]*)\"$")
-    public void IEnterEmailText(String email) throws Throwable {
-        createUser.iEnterEmail(email);
-    }
+//    @And("^I enter Email with text \"([^\"]*)\"$")
+//    public void IEnterEmailText(String email) throws Throwable {
+//        createUser.iEnterEmail(email);
+//    }
 
 
     @Then("^I verify Organizational Role Required Message \"([^\"]*)\"$")
