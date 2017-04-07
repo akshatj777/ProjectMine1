@@ -28,21 +28,17 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I see <participant1> appearing under participant filter of global filters
     Then I verify "Episode Initiator" filter is appearing under global filters
     Then I see <episode initiator1> appearing under episode initiator filter of global filters
-    Then I see <episode initiator2> appearing under episode initiator filter of global filters
-    Then I see <episode initiator3> appearing under episode initiator filter of global filters
     Then I verify "Anchor Facility" filter is appearing under global filters
     Then I see <anchor facility1> appearing under anchor facility filter of global filters
-    Then I see <anchor facility2> appearing under anchor facility filter of global filters
-    Then I see <anchor facility3> appearing under anchor facility filter of global filters
     
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     
-    Then I click on <episode initiator3> checkbox under participant for global filters
-    And I verify <episode initiator3> is appearing under applied episode initiator on global filters
+    Then I click on <episode initiator1> checkbox under participant for global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
     
-    Then I click on <anchor facility2> checkbox under participant for global filters
-    And I verify <anchor facility2> is appearing under applied anchor facility on global filters
+    Then I click on <anchor facility1> checkbox under participant for global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
@@ -56,8 +52,8 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     And I verify <participant1> is appearing under applied participant on global filters
-    And I verify <episode initiator3> is appearing under applied episode initiator on global filters
-    And I verify <anchor facility2> is appearing under applied anchor facility on global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     And I click on Apply filters button for global filters
     And I wait for 18000 milli seconds
     
@@ -69,7 +65,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    Then I click on <episode initiator3> checkbox under participant for global filters
+    Then I click on <episode initiator1> checkbox under participant for global filters
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "2 filters applied" under global filters applied count
@@ -81,7 +77,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I see "2 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     And I verify <participant1> is appearing under applied participant on global filters
-    And I verify <anchor facility2> is appearing under applied anchor facility on global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     And I click on Apply filters button for global filters
     And I wait for 18000 milli seconds
     
@@ -92,7 +88,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    Then I click on <anchor facility2> checkbox under participant for global filters
+    Then I click on <anchor facility1> checkbox under participant for global filters
     And I click on Apply filters button for global filters
     And I wait for 18000 milli seconds
     When I see "1 filter applied" under global filters applied count
@@ -214,7 +210,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
     
-    Then I click on <episode initiator3> checkbox under participant for global filters
+    Then I click on <episode initiator1> checkbox under participant for global filters
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "2 filters applied" under global filters applied count
@@ -226,7 +222,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I see "2 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     And I verify <participant1> is appearing under applied participant on global filters
-    And I verify <episode initiator3> is appearing under applied episode initiator on global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
     And I click on Apply filters button for global filters
     And I wait for 18000 milli seconds
     
@@ -237,7 +233,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    Then I click on <anchor facility2> checkbox under participant for global filters
+    Then I click on <anchor facility1> checkbox under participant for global filters
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "3 filters applied" under global filters applied count
@@ -249,8 +245,8 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I see "3 filters applied" under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     And I verify <participant1> is appearing under applied participant on global filters
-    And I verify <episode initiator3> is appearing under applied episode initiator on global filters
-    And I verify <anchor facility2> is appearing under applied anchor facility on global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     And I click on Apply filters button for global filters
     And I wait for 18000 milli seconds
     
@@ -269,5 +265,5 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     Examples:
     
-      | email                         | Menu 1     | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                             | anchor facility2                   | anchor facility3              | participantid1 | bpid1    | ccn1   |
-      | shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Upenn - Hospital Of The Univ. Of Pennsylvania| Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | 441348         | 2070-021 | 390223 |
+      | email                         | Menu 1     | participant1 | episode initiator1               | anchor facility1                   | participantid1 | bpid1    | ccn1   |
+      | shutestaug231132a@yopmail.com | Dashboards | Penn         | Penn Presbyterian Medical Center | Upenn - Penn Presbyterian Hospital | 441348         | 2070-021 | 390223 |
