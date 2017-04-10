@@ -59,12 +59,16 @@ public class EmailVarificationPage extends BaseClass {
     public void iClickCheckForNewMail (){
 
         clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
+        driver.navigate().refresh();
+        
     }
 
 
     public void iClickOnConfirmPasswordLink(){
-
-        clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
+    	
+    	clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
+    	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
+        driver.findElement(By.xpath("//a[text()='click here']")).click();
     }
 
 }

@@ -224,6 +224,12 @@ public class CreateUserSteps extends DriverScript{
     public void iSelectAllTheApplicationForTheRole() throws Throwable {
        createUser.iclickAllAppsfortheRole();
     }
+    
+    @And("^I turn off the share file application$")
+    public void iTurnOffTheShareFileApplication() throws Throwable{
+    	createUser.iTurnOffShareFile();
+    	
+    }
 
     @And("^I fill in NPI Field with \"([^\"]*)\"$")
     public void iFillInNPIFieldWith(String text) throws Throwable {

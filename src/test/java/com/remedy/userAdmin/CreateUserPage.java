@@ -33,6 +33,10 @@ public class CreateUserPage extends BaseClass{
         clickElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[1]/div[1]/div[1]/span")));
     }
     
+    public void iTurnOffShareFile(){
+    	clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+    }
+    
     public void iClickPayerField(){
     	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
     }

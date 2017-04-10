@@ -13,8 +13,8 @@ Feature: Create new User
     Then I pick a Organizational <Role>
     And I fill in First Name with "Newuser"
     Then I fill in Last Name with <lastName>
-    And I Generate Email for <Role>
-    And I enter Email for <Role>
+    And I Generate Email for <Email>
+    And I enter Email for <Email>
     And I wait for 2000 milli seconds
     Then I enter Phone field with <Phone>
     When I click the payer Field under data
@@ -30,11 +30,12 @@ Feature: Create new User
     Then I click the select all Facilites checkbox for the provider
     And I wait for 2000 milli seconds
     Then I select all the application for the role
+    And I turn off the share file application
     And I click on Create button
     And I wait for 2000 milli seconds
     Then I should see header text "User Management"
     Then I go to mail verification page
-    When I enter the email for verification for <Role>
+    When I enter the email for verification for <Email>
     And I click on Go button
     Then I select the email to check
     And I click on the confirm account link
@@ -44,17 +45,23 @@ Feature: Create new User
     And I enter new <Password>
     And I enter <Password> to confirm
     Then I click on change password button
+    And I wait for 2000 milli seconds
     # Upon clicking change password button, the below step is redirecting to EC1 Dashboard page.
     # Then I should see "Reset Password"
     # And I close current Window
     Then I switch back to old window
     Then I click check for new mails button
+    And I wait for 10000 milli seconds
     And I click on Confirm Password Link
-    #And I switch to new window
+    And I switch to new window
+    And I wait for 10000 milli seconds
     #And I enter email field <email> for login
-    #And I enter password field <Password> for Login
-    #And I click Access button
+    And I enter password field <Password> for Login
+    And I click Access button
+    And I wait for 10000 milli seconds
+
     #And I enter NPI field with <NPI>
     Examples: 
-      | lastName  | Role      | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password |
-      | Executive | Executive | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      | Email | lastName                       | Role                           | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password |
+      | Exe   | Executive                      | Executive                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #| RTA   | Remedy Technical Administrator | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |

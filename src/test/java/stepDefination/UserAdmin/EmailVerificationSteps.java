@@ -74,6 +74,7 @@ public class EmailVerificationSteps extends DriverScript{
     public void IClickConfirmPasswordLink() throws Throwable {
 
         //popMail.switchToFrame("//*[@id='ifmail']");
-        popMail.iClickOnConfirmPasswordLink();
+    	
+    	popMail.iClickOnConfirmPasswordLink();
     }
 }
