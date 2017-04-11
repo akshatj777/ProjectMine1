@@ -42,7 +42,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iEnterInPatientSearchFieldOnPatientsPage(String patientName) {
-        iFillInText(driver.findElement(By.xpath("//div[@placeholder='Search Name']/div/input")), patientName);
+        iFillInText(driver.findElement(By.xpath("//input[@name='last-name']")), patientName);
     }
 
     public void iVerifyPatientSearchedResultContainsTextOnPatientPage(String patientNameText) {
@@ -143,7 +143,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage() {
-        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/button")));
+        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/div[3]/a")));
     }
 
     public void iVerifyRiskStatusIsPresentOnThePatientCardOnPatientPage() {
@@ -808,7 +808,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyAdmitSectionIsPresentOnThePatientCard() {
-        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[1]")));
+        isElementVisible(driver.findElement(By.xpath("(//div[@class='white one-line card-datum ng-scope'])[1]")));
     }
 
     public void iVerifyInpatientStatusIsPresentOnThePatientCard() {
@@ -951,5 +951,9 @@ public class PatientsPage extends BaseClass {
 	
 	public void iSeeRiskScoreMinimizedMode(){
 		isElementVisible(driver.findElement(By.cssSelector(".ng-binding.ng-scope.risk-unknown-risk")));
+	}
+	
+	public void iVerifyTextAfterSelectingFilterToExport(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
 	}
 }

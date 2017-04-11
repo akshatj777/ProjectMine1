@@ -1221,4 +1221,9 @@ public class PatientsPageSteps extends DriverScript {
     public void i_see_risk_score_is_appearing_in_minimized_mode_on_patient_summary_page(){
     	patientsPage.iSeeRiskScoreMinimizedMode();
     }
+    
+    @Then("^I verify \"([^\"]*)\" message is appearing after selecting the filter to export$")
+    public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
+    	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
+    }
 }
