@@ -17,6 +17,7 @@ Feature: Create new User
     And I enter Email for <Email>
     And I wait for 2000 milli seconds
     Then I enter Phone field with <Phone>
+    And I enter NPI field with <NPI>
     When I click the payer Field under data
     Then I pick payer type from data section <payer>
     And I wait for 5000 milli seconds
@@ -62,6 +63,13 @@ Feature: Create new User
 
     #And I enter NPI field with <NPI>
     Examples: 
-      | Email | lastName                       | Role                           | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password |
-      | Exe   | Executive                      | Executive                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      #| RTA   | Remedy Technical Administrator | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      | NPI        | Email           | lastName                       | Role              | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password |
+      | 1234567890 | Phy             | Physicians                     | Physicians        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | Exe             | Executive                      | Executive         | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | Mngr            | Manager                        | Manager           | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | RemedyTCS       | Remedy TCS                     | Remedy TCS        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | RemedyLPN       | Remedy LPN                     | Remedy LPN        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | RemedyFieldRN   | Remedy Field RN                | Remedy Field RN   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | RemedyPM        | Remedy PM                      | Remedy PM         | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | RemedySalesTeam | Remedy Sales Team              | Remedy Sales Team | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      |            | RemedyTechAdmin | Remedy Technical Administrator | Remedy Sales Team | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |

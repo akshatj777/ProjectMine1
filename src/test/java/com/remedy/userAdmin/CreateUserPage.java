@@ -57,8 +57,16 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterNPI(String text){
+    	
+    	 if ("".equals(text)){
+    		 return;
+    	}
+    	else{
 
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
+    
+    	}
+    	
     }
 
     public void iEnterFirstName(String text){
