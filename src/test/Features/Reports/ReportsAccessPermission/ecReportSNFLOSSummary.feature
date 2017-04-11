@@ -11,7 +11,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
+    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button

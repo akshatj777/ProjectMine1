@@ -76,9 +76,9 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                        | Menu 2     | Menu 3          | Menu 4 | Menu 5       |
-      | shutestaug15252p@yopmail.com | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestaug15220p@yopmail.com | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                        | Menu 2     | Menu 3          | Menu 4              | Menu 5       |
+      | shutestaug15252p@yopmail.com | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestaug15220p@yopmail.com | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
 
   Scenario Outline: For PGP MODEL 2 OPSFIN, OPSNOFIN, OPSSPEND and ECReports reports link verification for the respective reports links functionality
     Given I am on the login page
@@ -155,11 +155,11 @@ Feature: User only see reports per report tiles based on their role (external an
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                         | Menu 2     | Menu 3          | Menu 4 | Menu 5       |
-      | shutestaug26212p@yopmail.com  | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestjul26420p@yopmail.com  | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestjul26415@yopmail.com   | Patient ID | Post Acute Care | NSoC   | Readmissions |
-      | shutestaug221150a@yopmail.com | Patient ID | Post Acute Care | NSoC   | Readmissions |
+      | email                         | Menu 2     | Menu 3          | Menu 4              | Menu 5       |
+      | shutestaug26212p@yopmail.com  | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestjul26420p@yopmail.com  | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestjul26415@yopmail.com   | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
+      | shutestaug221150a@yopmail.com | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
 
   Scenario: System should direct to the login page if a user tries to access the report directly through url
     Given I am on the login page
