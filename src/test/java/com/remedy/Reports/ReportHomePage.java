@@ -306,7 +306,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTextUnderProgramOverviewReport(String text){
-        verifyTextForElement(driver.findElement(By.cssSelector("#topchartsTitleObj")), text);
+        verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
     }
     
     public void iShouldSeeUnderOverallProgram(String text){
@@ -537,7 +537,7 @@ public class ReportHomePage extends BaseClass {
     
     public void IVerifyURLAfterClickingAdjustedHistoricButton(){
     	String ReportURL = driver.getCurrentUrl();
-    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253ACtoolsDashboards%253Arelease%253AProgramOverview.wcdf%2FgeneratedContent" );
+    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
     }
     
     public void iSelectFilterInFilterOptions(String text){

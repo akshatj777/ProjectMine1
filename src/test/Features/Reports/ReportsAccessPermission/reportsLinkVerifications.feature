@@ -69,27 +69,18 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
-    #Then I should see "Inpatient Episode Clearing Admits/Discharges in the last 1 Year" in the Episode Data Issues Patient ID report page header
+    Then I should see "Inpatient Episode Clearing" in the Episode Data Issues Patient ID report page header
     And I navigate back
     Then I verify current page "Reports" title
 
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for Post Acute Care reports
-      | Initial SNF Length of Stay Detail  |
       | Initial SNF Length of Stay Summary |
       | SNF Performance (Claims)           |
       | SNF Volume (Claims)                |
       | Post Acute Care (Claims)           |
 
-    When I click on "Initial SNF Length of Stay Detail" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    Then I should see "SNF LOS Detail" in the SNF LOS Detail Post Acute Care report page header
-    And I navigate back
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 4>"
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
@@ -155,28 +146,19 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 6>"
     Then I should see following Reports text for NSoC reports
       | CARL                      |
-      | Next Site of Care Detail  |
       | Next Site of Care Summary |
 
-    When I click on "CARL" reports text for "NSoC" report tile
+    When I click on "CARL" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "CARL" in the CARL NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
     
     When I click on the Reports Tile with text "<Menu 6>"
-    When I click on "Next Site of Care Detail" reports text for "NSoC" report tile
+    When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-     #Then I should see "Next Site of Care Detail" in the Next Site of Care Detail NSOC report page header
-    And I navigate back
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 6>"
-    When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -272,7 +254,7 @@ Feature: User only see reports per report tiles based on their role (external an
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -281,8 +263,8 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    #Then I should see "Inpatient Episode Clearing Admits/Discharges in the last 1 Year" in the Episode Data Issues Patient ID report page header
+    And I switch to reports embedded iframe
+    Then I should see "Inpatient Episode Clearing" in the Episode Data Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -290,21 +272,12 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for Post Acute Care reports
-      | Initial SNF Length of Stay Detail  |
       | Initial SNF Length of Stay Summary |
       | Post Acute Care (Claims)           |
-    When I click on "Initial SNF Length of Stay Detail" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    Then I should see "SNF LOS Detail" in the SNF LOS Detail Post Acute Care report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
     
-    When I click on the Reports Tile with text "<Menu 4>"
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -313,7 +286,7 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "Post Acute Care (Claims)" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Post Acute Care" in the Post Acute Care report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -322,17 +295,9 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 5>
     When I click on the Reports Tile with text "<Menu 5>"
     Then I should see following Reports text for NSoC reports
-      | Next Site of Care Detail  |
       | Next Site of Care Summary |
-    When I click on "Next Site of Care Detail" reports text for "NSoC" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 5>"
-    When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
+   
+    When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
@@ -398,7 +363,7 @@ Feature: User only see reports per report tiles based on their role (external an
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -407,8 +372,8 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    #Then I should see "Inpatient Episode Clearing Admits/Discharges in the last 1 Year" in the Episode Data Issues Patient ID report page header
+    And I switch to reports embedded iframe
+    Then I should see "Inpatient Episode Clearing" in the Episode Data Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -416,18 +381,9 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
     Then I should see following Reports text for Post Acute Care reports
-      | Initial SNF Length of Stay Detail  |
       | Initial SNF Length of Stay Summary |
       | Post Acute Care (Claims)           |
-    When I click on "Initial SNF Length of Stay Detail" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    Then I should see "SNF LOS Detail" in the SNF LOS Detail Post Acute Care report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
     
-    When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
@@ -448,17 +404,9 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for NSoC reports
-      | Next Site of Care Detail  |
       | Next Site of Care Summary |
-    When I click on "Next Site of Care Detail" reports text for "NSoC" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
     
-    When I click on the Reports Tile with text "<Menu 4>"
-    When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
+    When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
@@ -534,7 +482,7 @@ Feature: User only see reports per report tiles based on their role (external an
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -543,8 +491,8 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    #Then I should see "Inpatient Episode Clearing Admits/Discharges in the last 1 Year" in the Episode Data Issues Patient ID report page header
+    And I switch to reports embedded iframe
+    Then I should see "Inpatient Episode Clearing" in the Episode Data Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -552,18 +500,9 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
     Then I should see following Reports text for Post Acute Care reports
-      | Initial SNF Length of Stay Detail  |
       | Initial SNF Length of Stay Summary |
       | Post Acute Care (Claims)           |
-    When I click on "Initial SNF Length of Stay Detail" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    #Then I should see "SNF LOS Detail" in the SNF LOS Detail Post Acute Care report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
     
-    When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
@@ -575,7 +514,7 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Post Acute Care (Claims)" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Post Acute Care" in the Post Acute Care report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -584,19 +523,11 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for NSoC reports
-      | Next Site of Care Detail  |
       | Next Site of Care Summary |
-    When I click on "Next Site of Care Detail" reports text for "NSoC" report tile
+    
+    When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
     And I switch to reports embedded iframe
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 4>"
-    When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -648,7 +579,7 @@ Feature: User only see reports per report tiles based on their role (external an
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
@@ -657,8 +588,8 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on the Reports Tile with text "<Menu 1>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    #Then I should see "Inpatient Episode Clearing Admits/Discharges in the last 1 Year" in the Episode Data Issues Patient ID report page header
+    And I switch to reports embedded iframe
+    Then I should see "Inpatient Episode Clearing" in the Episode Data Issues Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -666,17 +597,8 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Post Acute Care reports
-      | Initial SNF Length of Stay Detail  |
       | Initial SNF Length of Stay Summary |
-    When I click on "Initial SNF Length of Stay Detail" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    Then I should see "SNF LOS Detail" in the SNF LOS Detail Post Acute Care report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
     
-    When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
@@ -688,17 +610,9 @@ Feature: User only see reports per report tiles based on their role (external an
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
     Then I should see following Reports text for NSoC reports
-      | Next Site of Care Detail  |
       | Next Site of Care Summary |
-    When I click on "Next Site of Care Detail" reports text for "NSoC" report tile
-    And I wait for 2000 milli seconds
-    And I switch to reports embedded iframe
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
     
-    When I click on the Reports Tile with text "<Menu 3>"
-    When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
+    When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header

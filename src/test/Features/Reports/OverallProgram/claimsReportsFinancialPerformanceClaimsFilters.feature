@@ -12,7 +12,6 @@ Scenario Outline: User should be able to apply Participant and BPID Filters
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe    
 
     When I click on field-panel-icon button
@@ -60,7 +59,6 @@ Scenario Outline: User should be able to apply Participant and BPID Filters
     
       | email                         | participant | BPID1   | CCN1   |
       | shutestaug231132a@yopmail.com | Penn        | 2070-021| 390223 |
-      #| shutest467Jul20@yopmail.com   | Hackensack  | 2070-005|
       
       
 Scenario Outline: User should be click on one of the link under episodes and verify episode list columns
@@ -75,7 +73,6 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     Then I click on a number under episodes column
@@ -128,7 +125,6 @@ Scenario Outline: User should remove the existing default filters
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
@@ -136,10 +132,8 @@ Scenario Outline: User should remove the existing default filters
     
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
-    Then I remove "Participant ID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "BPID" field filter under "Episode Initiator" filter field from default filters
     Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-    Then I remove "CCN" field filter under "Dashboard - Anchor Facility" filter field from default filters
+    
       
     Examples:
     

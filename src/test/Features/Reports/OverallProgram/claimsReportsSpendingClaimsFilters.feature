@@ -12,7 +12,6 @@ Scenario Outline: User should apply Participant and BPID Filters
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Spending (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe 
     
     When I click on field-panel-icon button
@@ -73,7 +72,6 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Spending (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     Then I click on a number under episodes column of spending claims report
@@ -117,7 +115,6 @@ Scenario Outline: User should remove the existing default filters
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Spending (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button

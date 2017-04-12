@@ -41,8 +41,7 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    #Then I should see "Inpatient Episode Clearing Admits/Discharges in the last 1 Year" in the Episode Data Issues Patient ID report page header
+    And I switch to reports embedded iframe
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -50,18 +49,8 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
     Then I should see following Reports text for Post Acute Care reports
-      | Initial SNF Length of Stay Detail  |
       | Initial SNF Length of Stay Summary |
       
-    When I click on "Initial SNF Length of Stay Detail" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-    Then I should see "SNF LOS Detail" in the SNF LOS Detail Post Acute Care report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
-    When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
@@ -73,19 +62,10 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for NSoC reports
-      | Next Site of Care Detail  |
       | Next Site of Care Summary |
 
-    When I click on "Next Site of Care Detail" reports text for "NSoC" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
-     #Then I should see "Next Site of Care Detail" in the Next Site of Care Detail NSOC report page header
-    And I navigate back
-    And I wait for 1000 milli seconds
-    Then I verify current page "Reports" title
-    
     When I click on the Reports Tile with text "<Menu 4>"
-    When I click on "Next Site of Care Summary" reports text for "NSoC" report tile
+    When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for 2000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
