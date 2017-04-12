@@ -179,7 +179,9 @@ public class CreateUserPage extends BaseClass{
        clickAllElementofAlistbyXpath("//div/label/span[2]");
     }
 
-
+   public void iClickOnContinueToDashboardMessage(){
+	   clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
+   }
   
 
 }

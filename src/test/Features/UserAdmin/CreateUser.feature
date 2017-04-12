@@ -60,16 +60,35 @@ Feature: Create new User
     And I enter password field <Password> for Login
     And I click Access button
     And I wait for 10000 milli seconds
+    And I click on the "Episodes" tile
+    And I switch to new window
+    And I wait for 10000 milli seconds
+    Then I should see Episode header text "Dashboard"
+    #And I verify the Role as PM for Episode
+    #And I close current Window
+    Then I switch back to old window
+    And I click on the "RemedyU" tile
+    And I switch to new window
+    And I click on continue to dashboard
+    Then I switch back to old window
+    And I click on the "Reports" tile
+    And I switch to new window
+    Then I switch back to old window
+    And I click on the "Episodes 2.0" tile
+    And I switch to new window
+    Then I switch back to old window
+    And I click on the "Institute" tile
+    And I switch to new window
+    Then I switch back to old window
 
-    #And I enter NPI field with <NPI>
     Examples: 
-      | NPI        | Email           | lastName                       | Role              | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password |
-      | 1234567890 | Phy             | Physicians                     | Physicians        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | Exe             | Executive                      | Executive         | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | Mngr            | Manager                        | Manager           | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | RemedyTCS       | Remedy TCS                     | Remedy TCS        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | RemedyLPN       | Remedy LPN                     | Remedy LPN        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | RemedyFieldRN   | Remedy Field RN                | Remedy Field RN   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | RemedyPM        | Remedy PM                      | Remedy PM         | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | RemedySalesTeam | Remedy Sales Team              | Remedy Sales Team | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      |            | RemedyTechAdmin | Remedy Technical Administrator | Remedy Sales Team | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      | NPI | Email | lastName  | Role      | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password |
+      |     | Exe   | Executive | Executive | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #| 1234567890 | Phy             | Physicians                     | Physicians                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | Mngr            | Manager                        | Manager                        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | RemedyTCS       | Remedy TCS                     | Remedy TCS                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | RemedyLPN       | Remedy LPN                     | Remedy LPN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | RemedyFieldRN   | Remedy Field RN                | Remedy Field RN                | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | RemedyPM        | Remedy PM                      | Remedy PM                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | RemedySalesTeam | Remedy Sales Team              | Remedy Sales Team              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      #|            | RemedyTechAdmin | Remedy Technical Administrator | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |

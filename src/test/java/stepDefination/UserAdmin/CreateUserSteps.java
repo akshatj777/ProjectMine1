@@ -242,4 +242,9 @@ public class CreateUserSteps extends DriverScript{
     public void iVerifyNPIRequiredMessage(String text) throws Throwable {
         createUser.iVerifyNPIValidationMessageText(text);
     }
+    
+    @And("^I click on continue to dashboard$")
+    public void iClickOnContinueToDashboard()throws Throwable {
+    	createUser.iClickOnContinueToDashboardMessage();
+    }
 }
