@@ -19,6 +19,7 @@ public class LandingPage extends BaseClass{
 
         longDelay();
         verifyTextForElementfromList(".title>p", text);
+        
 
     }
 
@@ -68,7 +69,10 @@ public class LandingPage extends BaseClass{
         verifyTextNotPresentForElementFromList(".title>p", text);
 
     }
-
+    public void iClickOnHamburgurMenuOnTop(){
+	 
+    	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
+    }
 
 
 
