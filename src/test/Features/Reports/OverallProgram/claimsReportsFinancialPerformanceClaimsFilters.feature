@@ -33,6 +33,7 @@ Scenario Outline: User should be able to apply Participant and BPID Filters
     
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I choose "Filter" option from select options of filter field
+    And I wait for 4000 milli seconds
     And I should see "CCN" in the header text of filter page
     And I should see "<CCN1>" in the filter value list
     And I click on "<CCN1>" in the filter value list
@@ -72,7 +73,7 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for 30000 milli seconds
+    And I wait for 40000 milli seconds
     When I switch to reports embedded iframe
     
     Then I click on a number under episodes column
@@ -124,7 +125,7 @@ Scenario Outline: User should remove the existing default filters
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for 30000 milli seconds
+    And I wait for 40000 milli seconds
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button

@@ -11,7 +11,7 @@ Scenario Outline: Verify that Inpatient Episode Clearing report display data bas
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
-    And I wait for 30000 milli seconds
+    And I wait for 50000 milli seconds
     When I switch to reports embedded iframe
     
     When I click on field-panel-icon button

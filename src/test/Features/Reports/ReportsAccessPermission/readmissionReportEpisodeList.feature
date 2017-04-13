@@ -35,7 +35,7 @@ Scenario Outline: User should be able to see Episodes List under Readmission Rep
     Then I should verify "Anchor Admission Month" is appearing under Episodes table
     Then I should verify "Anchor Admission Week" is appearing under Episodes table
     Then I should verify "Anchor Begin Date" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Week (Key)" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Date" is appearing under Episodes table
     Then I should verify "Anchor Facility Type" is appearing under Episodes table
     Then I should verify "CCN" is appearing under Episodes table
     Then I should verify "Anchor Facility" is appearing under Episodes table

@@ -171,8 +171,8 @@ public class ReportHomePage extends BaseClass {
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
 
-    public void iVerifyEpisodeDataIssuesPatientIDReportPageHeader(String text){
-        verifyTextForElement(driver.findElement(By.xpath("//td[text()='Episode Data Issues']")), text);
+    public void iVerifyInpatientEpisodeClearingIssuesPatientIDReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
     
     public void iVerifyEpisodeDRGIssuesReportPageHeader(String text){

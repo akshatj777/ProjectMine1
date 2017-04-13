@@ -91,5 +91,4 @@ Scenario Outline: Verify that Spending claims report display data based on provi
       | shutestaug231132a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
       | shutestaug221130a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
       | reptestachmodel2opsfin@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug15240p@yopmail.com       | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
       | shutestaug221145a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |

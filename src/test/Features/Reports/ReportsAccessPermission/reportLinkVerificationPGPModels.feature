@@ -17,7 +17,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Program Overview |
 
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
@@ -31,7 +31,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
@@ -40,9 +40,9 @@ Feature: User only see reports per report tiles based on their role (external an
     
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
-    Then I should see "Inpatient Episode Clearing" in the Patient ID report page header
+    Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -53,7 +53,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Initial SNF Length of Stay Summary |
       
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
@@ -66,7 +66,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Next Site of Care Summary |
  
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
@@ -79,7 +79,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Readmissions          |
 
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
@@ -109,7 +109,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Program Overview |
 
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
@@ -123,7 +123,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
@@ -132,9 +132,9 @@ Feature: User only see reports per report tiles based on their role (external an
     
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
-    Then I should see "Inpatient Episode Clearing" in the Patient ID report page header
+    Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -145,7 +145,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Initial SNF Length of Stay Summary |
       
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
@@ -158,7 +158,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Next Site of Care Summary |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
@@ -171,7 +171,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Readmissions          |
 
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
@@ -181,9 +181,6 @@ Feature: User only see reports per report tiles based on their role (external an
     Examples:
       | email                         | Menu 1     | Menu 2     | Menu 3          | Menu 4              | Menu 5       |
       | shutestaug26212p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
-      | shutestjul26420p@yopmail.com  | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
-      | shutestjul26415@yopmail.com   | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
-      | shutestaug221150a@yopmail.com | Dashboards | Patient ID | Post Acute Care | Next Site of Care   | Readmissions |
       
   Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports link verification for the respective reports links functionality
     Given I am on the login page
@@ -204,7 +201,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
@@ -213,9 +210,9 @@ Feature: User only see reports per report tiles based on their role (external an
     
     When I click on the Reports Tile with text "<Menu 1>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     And I switch to reports embedded iframe
-    Then I should see "Inpatient Episode Clearing" in the Patient ID report page header
+    Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
@@ -226,7 +223,7 @@ Feature: User only see reports per report tiles based on their role (external an
       | Next Site of Care Summary |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
      And I switch to reports embedded iframe
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back

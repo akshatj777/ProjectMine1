@@ -235,9 +235,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
     }
 
-    @Then("^I should see \"([^\"]*)\" in the Episode Data Issues Patient ID report page header$")
-    public void i_should_see_in_the_Episode_Data_Issues_Patient_ID_report_page_header(String headedText) throws Throwable {
-        reportHomePage.iVerifyEpisodeDataIssuesPatientIDReportPageHeader(headedText);
+    @Then("^I should see \"([^\"]*)\" in the Inpatient Episode Clearing Patient ID report page header$")
+    public void i_should_see_in_the_Inpatient_Episode_Clearing_Patient_ID_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyInpatientEpisodeClearingIssuesPatientIDReportPageHeader(headedText);
     }
     
     @Then("^I should see \"([^\"]*)\" in the Episode DRG Issues Patient ID report page header$")

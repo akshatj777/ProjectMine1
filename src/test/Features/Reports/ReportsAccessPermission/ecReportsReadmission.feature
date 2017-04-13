@@ -11,7 +11,7 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions" report text for Readmissions Reports 
-    And I wait for 30000 milli seconds
+    And I wait for 40000 milli seconds
     
     When I switch to reports embedded iframe
     When I click on show all filters icon button
@@ -56,7 +56,6 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "DRG Code" appearing under "level" field
     Then I should see "DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
-    Then I should see "Discharge Category" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
     Then I should see "Episode Status" appearing under "level" field
