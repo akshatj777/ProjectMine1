@@ -206,6 +206,8 @@ public class BaseClass {
         }
     }
     
+ 
+    
     public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text){
     	if (isElementVisible(ele)) {
             Assert.assertEquals(ele.getText().replaceAll("\\s+", " "), text);
@@ -274,6 +276,9 @@ public class BaseClass {
         delay();
     }
 
+    
+    
+    
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));

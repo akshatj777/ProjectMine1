@@ -75,16 +75,31 @@ public class CreateUserSteps extends DriverScript{
 
     }
 
-    @Then("^I enter Email with ([^\"]*)$")
-    public void iEnterEmail(String email) throws Throwable {
-        createUser.iEnterEmail(email);
+    @Then("^I Generate Email for ([^\"]*)$")
+    public void iGenerateEmail(String email) throws Throwable {
+        
+    	
+    	createUser.iGenerateEmail(email);
+        
 
     }
-
-    @Then("^I enter Phone field with \"([^\"]*)\"$")
+    
+    @Then("^I enter Email for ([^\"]*)$")
+    public void iEnterEmail(String email) {
+    createUser.iEnterEmail(email);
+    }
+    
+    @Then("^I enter Phone field with ([^\"]*)$")
     public void iEnterPhone(String phone) throws Throwable {
 
         createUser.iEnterPhone(phone);
+
+    }
+    
+    @Then("^I pick payer type from data section ([^\"]*)$")
+    public void IPickPayertypeFromDataSection(String payer) throws Throwable {
+
+        createUser.selectPayerFromData(payer);
 
     }
 
@@ -117,11 +132,18 @@ public class CreateUserSteps extends DriverScript{
         createUser.iClickOrganizationalField();
 
     }
+    
+    @When("^I click the payer Field under data$")
+    public void IClickPayerFieldUnderData() throws Throwable {
 
-    @And("^I click on Facility field$")
-    public void IClickFacilityField() throws Throwable {
+        createUser.iClickPayerField();
 
-        createUser.iClickFacilityField();
+    }
+
+    @And("^I click on Health System field$")
+    public void IClickHealthSystemField() throws Throwable {
+
+        createUser.iClickHealthSystemField();
     }
 
 
@@ -168,10 +190,10 @@ public class CreateUserSteps extends DriverScript{
         createUser.iEnterLasttName(lastName);
     }
 
-    @And("^I enter Email with text \"([^\"]*)\"$")
-    public void IEnterEmailText(String email) throws Throwable {
-        createUser.iEnterEmail(email);
-    }
+//    @And("^I enter Email with text \"([^\"]*)\"$")
+//    public void IEnterEmailText(String email) throws Throwable {
+//        createUser.iEnterEmail(email);
+//    }
 
 
     @Then("^I verify Organizational Role Required Message \"([^\"]*)\"$")
@@ -202,6 +224,12 @@ public class CreateUserSteps extends DriverScript{
     public void iSelectAllTheApplicationForTheRole() throws Throwable {
        createUser.iclickAllAppsfortheRole();
     }
+    
+    @And("^I turn off the share file application$")
+    public void iTurnOffTheShareFileApplication() throws Throwable{
+    	createUser.iTurnOffShareFile();
+    	
+    }
 
     @And("^I fill in NPI Field with \"([^\"]*)\"$")
     public void iFillInNPIFieldWith(String text) throws Throwable {
@@ -213,5 +241,10 @@ public class CreateUserSteps extends DriverScript{
     @Then("^I verify NPI Required Message \"([^\"]*)\"$")
     public void iVerifyNPIRequiredMessage(String text) throws Throwable {
         createUser.iVerifyNPIValidationMessageText(text);
+    }
+    
+    @And("^I click on continue to dashboard$")
+    public void iClickOnContinueToDashboard()throws Throwable {
+    	createUser.iClickOnContinueToDashboardMessage();
     }
 }
