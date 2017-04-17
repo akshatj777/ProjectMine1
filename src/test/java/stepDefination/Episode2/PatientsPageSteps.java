@@ -9,7 +9,6 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import java.util.List;
 
 
@@ -1170,5 +1169,60 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I click on delete to delete the transition$")
     public void i_click_on_delete_to_delete_the_transition() throws Throwable {
         patientsPage.iClickOnDeleteoftransition();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in the maximized view on patient summary page$")
+    public void i_verify_is_appearing_in_the_maximized_view_on_patient_summary_page(String text){
+    	patientsPage.iVerifyHideSummaryText(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in the minimized view on patient summary page$")
+    public void i_verify_is_appearing_in_the_minimized_view_on_patient_summary_page(String text){
+    	patientsPage.iVerifyShowSummaryText(text);
+    }
+    
+    @Then("^I see firstname is appearing in minimized mode on patient summary page$")
+    public void i_see_firstname_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeFirstNameMinimizedMode();
+    }
+    
+    @Then("^I see lastname is appearing in minimized mode on patient summary page$")
+    public void i_see_lastname_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeLastNameMinimizedMode();
+    }
+    
+    @Then("^I see date of birth is appearing in minimized mode on patient summary page$")
+    public void i_see_date_of_birth_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeDateOfBirthMinimizedMode();
+    }
+    
+    @Then("^I see age is appearing in minimized mode on patient summary page$")
+    public void i_see_age_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeAgeMinimizedMode();
+    }
+    
+    @Then("^I see gender is appearing in minimized mode on patient summary page$")
+    public void i_see_gender_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeGenderMinimizedMode();
+    }
+    
+    @Then("^I see ssn is appearing in minimized mode on patient summary page$")
+    public void i_see_ssn_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeSSNMinimizedMode();
+    }
+    
+    @Then("^I see language is appearing in minimized mode on patient summary page$")
+    public void i_see_language_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeLanguageMinimizedMode();
+    }
+    
+    @Then("^I see risk score is appearing in minimized mode on patient summary page$")
+    public void i_see_risk_score_is_appearing_in_minimized_mode_on_patient_summary_page(){
+    	patientsPage.iSeeRiskScoreMinimizedMode();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" message is appearing after selecting the filter to export$")
+    public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
+    	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
 }
