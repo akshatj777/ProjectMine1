@@ -217,7 +217,7 @@ public class PatientsPageSteps extends DriverScript {
 
     @Then("^I verify Expand button is present on the patient card header on the patient page$")
     public void i_verify_Expand_button_is_present_on_the_patient_card_header_on_the_patient_page() throws Throwable {
-        patientsPage.iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage();
+        patientsPage.iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage1();
     }
 
     @Then("^I verify risk status is present on the patient card on the patient page$")

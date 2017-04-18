@@ -1,6 +1,8 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
+
+import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -140,7 +142,7 @@ public class PatientsPage extends BaseClass {
         isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[4]")));
     }
 
-    public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage() {
+    public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage1() {
         isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/div[3]/a")));
     }
 
@@ -954,4 +956,52 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyTextAfterSelectingFilterToExport(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
 	}
+	
+	/* Notes Module Generic functions*/
+	
+	   
+        
+        
+    public void  I_click_on_the_patient_card() {
+            clickElement(driver.findElement(By.cssSelector("div.card-header-content")));
+           }
+    
+    public void Iverifyclickonpatientcardtobenavigatedtopatientsummary()
+    {
+    	isElementVisible(driver.findElement(By.cssSelector(".card-view-expanded-header.ng-scope")));
+    }
+    
+    public void IverifyPatientSummaryincludesquickactionbuttonfornotecreation() {
+        isElementVisible(driver.findElement(By.cssSelector(".btn.bg-white.btn-secondary.ng-scope")));
+	}     
+    
+    public void IclickonquickactionbuttonfornotecreationonPatientSummarypage()
+    {
+    	clickElement(driver.findElement(By.cssSelector(".btn.bg-white.btn-secondary.ng-scope")));
+    }
+
+    public void I_verify_whether_topic_drop_down_appears_on_the_Add_Clinical_Document_on_Note_Creation()
+    {
+    	 isElementVisible(driver.findElement(By.cssSelector("span.ui-select-placeholder.text-muted.ng-binding")));
+    }
+
+    public void IselecttheBaselinevaluefromthetopicdropdownonNoteCreation() {
+        clickElement(driver.findElement(By.cssSelector("span.ui-select-placeholder.text-muted.ng-binding")));
+        selectDropdownVisibleElementSpan("div.ng-binding.ng-scope");
+    }
+    
+    public void IverifyActivityDatedropdowncalendarappearsontheAddClinicalDocumentonNoteCreation()
+    {
+    	isElementVisible(driver.findElement(By.cssSelector("div.input-group-addon.double-addon")));
+    }
+    
+    public void IverifyActivityBodytextboxappearsontheAddClinicalDocumentonNoteCreation()
+    {
+    	isElementVisible(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-empty.ng-invalid")));
+    }
+    
+    public void selectDropdownVisibleElementSpan(String dropdown_selector)
+	 {
+		 clickElement(driver.findElement(By.cssSelector(dropdown_selector)));
+	 }
 }
