@@ -14,5 +14,8 @@ Given I am on the login page
     Then I verify current page "Remedy Partners" title
     
     And I should see product list icon is appearing on the top left of the episodes page
+    Then I click on product list icon appearing on the top left of the episodes page
+    And I wait for 3000 milli seconds
+    
     
      

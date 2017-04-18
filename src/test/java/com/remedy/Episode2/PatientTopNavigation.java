@@ -14,4 +14,8 @@ public class PatientTopNavigation extends BaseClass{
 	public void iShouldSeeProductListIcon(){
 		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
 	}
+	
+	public void iClickOnProductListIcon(){
+		clickElement(driver.findElement(By.xpath("(//menu-toggle)[1]")));
+	}
 }
