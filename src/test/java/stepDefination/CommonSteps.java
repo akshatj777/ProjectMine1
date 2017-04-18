@@ -45,9 +45,7 @@ public class CommonSteps extends DriverScript {
         r.keyRelease(KeyEvent.VK_CONTROL);
         r.keyRelease(KeyEvent.VK_T);
         iSwitchBackToOLDWindow();
-        Thread.sleep(3000L);
-       // driver.navigate().to("https://www.mailinator.com/");
-        driver.get("https://www.mailinator.com/");
+        driver.navigate().to("https://www.mailinator.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
