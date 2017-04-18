@@ -1,10 +1,10 @@
-Feature: Create new User
+Feature: Create new User and verify Login logut of user
 
-  Scenario Outline: Super Administrator can create all user
+  Scenario Outline: Super Administrator can create all user and verify login logout of created user
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
+    Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When I click on Create User button
@@ -33,7 +33,7 @@ Feature: Create new User
     Then I select all the application for the role
     And I turn off the share file application
     And I click on Create button
-    And I wait for 2000 milli seconds
+    And I wait for 4000 milli seconds
     Then I should see header text "User Management"
     Then I go to mail verification page
     When I enter the email for verification for <Email>
@@ -66,8 +66,9 @@ Feature: Create new User
     And I should see Tile text <Episode2>
     And I should see Tile text <Institute>
     And I should see Tile text <Physican connect>
+    And I should see Tile text <TCI>
     And I wait for 1000 milli seconds
-    Then I click on Hamburgur menu on top
+    Then I click on Hamburgur menu on top right of homepage
     Then I select <Episode1> option from the dropdown
     When I switch to new window
     And I wait for 5000 milli seconds
@@ -79,43 +80,21 @@ Feature: Create new User
     When I switch to new window
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
-    And I wait for 1000 milli seconds    
-    #And I click on the top user account link
+    And I wait for 1000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text for reset password "Reset Password"
-    
     And I click on the top user account link
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
-    #And I click on the "Episodes" tile
-    #And I switch to new window
-    #And I wait for 10000 milli seconds
-    #Then I should see Episode header text "Dashboard"
-    #And I verify the Role as PM for Episode
-    #And I close current Window
-    #Then I switch back to old window
-    #And I click on the "RemedyU" tile
-    #And I switch to new window
-    #And I click on continue to dashboard
-    #Then I switch back to old window
-    #And I click on the "Reports" tile
-    #And I switch to new window
-    #Then I switch back to old window
-    #And I click on the "Episodes 2.0" tile
-    #And I switch to new window
-    #Then I switch back to old window
-    #And I click on the "Institute" tile
-    #And I switch to new window
-    #Then I switch back to old window
     Examples: 
-      | NPI        | Email | lastName   | Role       | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect |
-      |            | Exe   | Executive  | Executive  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
-      #| 1234567890 | Phy   | Physicians | Physicians | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |
-      #|            | Mngr  | Manager    | Manager    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
-      #|            | RemedyTCS       | Remedy TCS                     | Remedy TCS                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      #|            | RemedyLPN       | Remedy LPN                     | Remedy LPN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      #|            | RemedyFieldRN   | Remedy Field RN                | Remedy Field RN                | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      #|            | RemedyPM        | Remedy PM                      | Remedy PM                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      #|            | RemedySalesTeam | Remedy Sales Team              | Remedy Sales Team              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
-      #|            | RemedyTechAdmin | Remedy Technical Administrator | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |
+      | NPI        | Email           | lastName          | Role              | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | TCI |
+      |            | Exe             | Executive         | Executive         | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |     |
+      | 1234567890 | Phy             | Physicians        | Physicians        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |     |
+      |            | Mngr            | Manager           | Manager           | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |     |
+      |            | RemedyTCS       | Remedy TCS        | Remedy TCS        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  | TCI |
+      |            | RemedyLPN       | Remedy LPN        | Remedy LPN        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  | TCI |
+      |            | RemedyFieldRN   | Remedy Field RN   | Remedy Field RN   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  | TCI |
+      |            | RemedyPM        | Remedy PM         | Remedy PM         | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  | TCI |
+      |            | RemedySalesTeam | Remedy Sales Team | Remedy Sales Team | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU | Reports |              | Institute |                  | TCI |
+      |            | RemedyExe       | Remedy Executive  | Remedy Executive  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  | TCI |
