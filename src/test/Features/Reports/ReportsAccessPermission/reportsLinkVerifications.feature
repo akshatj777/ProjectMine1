@@ -577,7 +577,7 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on "Readmissions" reports text for "Readmissions" report tile
     And I wait for 10000 milli seconds
     And I switch to reports embedded iframe
-    Then I should see "Readmissions" in the Readmissions Readmission report page header
+    Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
