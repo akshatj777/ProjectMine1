@@ -9,7 +9,7 @@ Feature: Episode 2.0 Add Patient
     Then I should see Tile text Episodes 2.0
 
     When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
+    And I wait for 60000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I verify "20" Patient Cards are present on patients page
     Then I verify Add Patient button is present on patients page
@@ -37,42 +37,63 @@ Feature: Episode 2.0 Add Patient
     Then I click on the next button present on the Add Patient page
     And I wait for 15000 milli seconds
 
+    #Then I scroll the page to top
     When I click on Calender button present on the Add Patient page
     And I wait for 2000 milli seconds
     And I select today's date as the admission date
     And I wait for 2000 milli seconds
-    And I select "Inpatient" from admission care type drop down menu present on Add Patient page
+    #Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
+    And I select "Inpatient" from admission care type drop down menu present on Add transition page
     And I wait for 4000 milli seconds
-    When I click on Add Transition button present on the Add Patient page
+    #When I click on Admitting Facility present on the Add transition page
+    #And I wait for 2000 milli seconds
+    #And I Select "Stamford Hospital" from the list of admitting facility present on the Add transition page
+    #And I wait for 4000 milli seconds
+    #When I click on Add Transition button present on the Add Patient page
     #And I wait for 10000 milli seconds
+    When I click on Diagnosis and DRG tab present on the patient overview page
+    Then I verify ICD is present in the Diagnosis and DRG tab
+    And I verify Predict DRG is present in the Diagnosis and DRG tab
+    And I verify Add a New DRG is present in the Diagnosis and DRG tab
+
+    When I click on DRG Type to Add a New DRG present on the patient overview page
+    Then I select Possible from the DRG type dropdown present on the patient overview page
+    Then I Click on DRG dropdown menu present on the patient overview page
+    And I wait for 4000 milli seconds
+    Then I Search DRG 177 on the search box on the DRG present on the patient overview page
+    And I wait for 4000 milli seconds
+    Then I select RESPIRATORY INFECTIONS & INFLAMATIONS from the DRG list present on the patient overview page
+    And I wait for 4000 milli seconds
+    Then I click on Create Transition button present on the patient overview page
+    And I wait for 10000 milli seconds
 #		And I click on Agree button present on the Attestation page
 #		Then I verify "(HHH) Stamford - Stamford Hospital"  is present "facility-column" on the transition page
 #		And I verify Admit Date is present on the transition page
 #		Then I verify "Inpatient"  is present " type-column" on the transition page
 
     Examples:
-      | First name    | Last name    | Medicare ID |
-      | FIRSTNAMEAUTB | LASTNAMEAUTB | wa984986    |
+      | First name | Last name | Medicare ID |
+      | AutomationI| LastNameI | WA725645986 |
 
 
-  Scenario Outline: search a newly added patient in episode connect 2
+  #Scenario Outline: search a newly added patient in episode connect 2
 
-    Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
-    And I enter password field Episode1! for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
-    Then I should see Tile text Episodes 2.0
+    #Given I am on the login page
+    #When I enter email field qa.admin@yopmail.com for login
+    #And I enter password field Episode1! for Login
+    #Then I click Access button
+    #And I wait for 2000 milli seconds
+    #Then I should see Tile text Episodes 2.0
 
-    When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
-    Then I verify current page "Remedy Partners" title
-    Then I enter <First name> in the search text box present on the patients page
-    And I wait for 30000 milli seconds
-    And I verify <First name> and <Last name> is displayed on the patient card
-    Then I click on attestation button present on the patient card
+    #When I click on the "Episodes 2.0" tile
+    #And I wait for 4000 milli seconds
+    #Then I verify current page "Remedy Partners" title
+    #Then I enter <First name> in the search text box present on the patients page
+    #And I wait for 30000 milli seconds
+    #And I verify <First name> and <Last name> is displayed on the patient card
+    #Then I click on attestation button present on the patient card
 
-    Examples:
-      | First name    | Last name    | Medicare ID |
-      | FIRSTNAMEAUTB | LASTNAMEAUTB | wa984986    |
+    #Examples:
+      #| First name    | Last name    | Medicare ID |
+      #| FIRSTNAMEAUTB | LASTNAMEAUTB | wa984986    |
   

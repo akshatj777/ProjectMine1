@@ -484,6 +484,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_Update_Transition_button_present_on_the_patient_overview_page() throws Throwable {
         patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
     }
+    
+    @Then("^I click on Create Transition button present on the patient overview page$")
+    public void i_click_on_Create_Transition_button_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
+    }
 
     @When("^I click on Last Name present on the Filter Page$")
     public void i_click_on_Last_Name_present_on_the_Filter_Page() throws Throwable {

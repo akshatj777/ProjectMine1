@@ -1,9 +1,12 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 /**
@@ -497,7 +500,7 @@ public class PatientsPage extends BaseClass {
     public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
         iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
         longDelay();
-        clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
+        clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-3")));
     }
 
     public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
@@ -513,7 +516,11 @@ public class PatientsPage extends BaseClass {
         delay();
         clickElement(driver.findElement(By.cssSelector("span.hour.active")));
         delay();
-        clickElement(driver.findElement(By.cssSelector("span.minute.active")));
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.cssSelector("span.minute.active"));  
+    	js.executeScript("arguments[0].click();", element);
+        //clickElement(driver.findElement(By.cssSelector("span.minute.active")));
+        //delay();
     }
 
     public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType) {
@@ -579,7 +586,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(String facility) {
-        iFillInText(driver.findElement(By.cssSelector("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")), facility);
+        iFillInText(driver.findElement(By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")), facility);
         longDelay();
         clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
     }
