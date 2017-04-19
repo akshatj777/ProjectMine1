@@ -26,7 +26,7 @@ public class PatientNotes extends DriverScript{
 	
     @Then ("^I click on the patient card$")
 	 public void I_click_on_the_patient_card() throws Throwable {
-	    patientsPage.I_click_on_the_patient_card();
+	    patientsPage.I_click_on_the_patient_card("QNQVRYYR");
 	    }
 	
 	@Then("^I verify Patient Summary includes quick action button for note creation$")
@@ -46,9 +46,9 @@ public class PatientNotes extends DriverScript{
 		patientsPage.I_verify_whether_topic_drop_down_appears_on_the_Add_Clinical_Document_on_Note_Creation();
 	}
 	
-	 @Then("^I select the Baseline value from the topic drop down on Note Creation$")
-	    public void I_select_the_Baseline_value_from_the_topic_drop_down_on_Note_Creation() throws Throwable {
-	        patientsPage.IselecttheBaselinevaluefromthetopicdropdownonNoteCreation();
+	 @Then("^I select the value from the topic drop down on Add Clinical Document on Patient Summary$")
+	    public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Summary() throws Throwable {
+	        patientsPage.IselectthevaluefromthetopicdropdownonAddClinicalDocumentonPatientSummary("Baseline");
 	    }
 	 
 	 @Then("^I verify Activity Date drop down calendar appears on the Add Clinical Document on Note Creation$")
@@ -62,6 +62,30 @@ public class PatientNotes extends DriverScript{
 	     {
 		 patientsPage.IverifyActivityBodytextboxappearsontheAddClinicalDocumentonNoteCreation();
 	     }
-	  
+	 
+	 @And ("^I verify attach files link appears on the Add Clinical Document on Note Creation$")
+	 public void I_verify_attach_files_link_appears_on_the_Add_Clinical_Document_on_Note_Creation()
+	 {
+		 patientsPage.IverifyattachfileslinkappearsontheAddClinicalDocumentonNoteCreation();
+	 }
+	 
+	 @And ("^I verify Cancel button appears on the Add Clinical Document on Note Creation$")
+	 public void I_verify_Cancel_button_appears_on_the_Add_Clinical_Document_on_Note_Creation()
+	 {
+	 patientsPage.IverifyCancelbuttonappearsontheAddClinicalDocumentonNoteCreation();
  }
-
+	 
+	 @And ("^I verify Create note appears on the Add Clinical Document on Note Creation$")
+	 public void I_verify_Create_note_appears_on_the_Add_Clinical_Document_on_Note_Creation()
+	 {
+		 patientsPage.IverifyCreatenoteappearsontheAddClinicalDocumentonNoteCreation();
+	 }
+	 
+	 @Then ("^I attach file on the Add Clinical Document on Note Creation$")
+	 public void I_attach_file_on_the_Add_Clinical_Document_on_Note_Creation()
+	 {
+		 patientsPage.IattachfileontheAddClinicalDocumentonNoteCreation();
+	 }
+	 
+	 
+}

@@ -384,8 +384,13 @@ public class BaseClass {
     driver.switchTo().parentFrame();
     }
     
-  
-   }
+    public void TextonElement(WebElement element,String text) {
+        if (isElementVisible(element)) {
+            element.sendKeys(text);;
+        }
+    	
+    }
    
+}
   
 
