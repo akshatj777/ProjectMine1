@@ -71,6 +71,17 @@ public class UserAdminHomePage extends BaseClass {
 		verifyTextForElement(driver.findElement(By.cssSelector(".page-title>h1")), pageHeader);
 	}
 
+	public void iSeeCreateUserText(String createUser) {
+
+		delay();
+		verifyTextForElement(driver.findElement(By.cssSelector(".btn.btn-primary")), createUser);
+	}
+	
+	public void iSeeUserAdminPageLogo() {
+
+		delay();
+		isElementVisible(driver.findElement(By.cssSelector(".flex-item.order-2.btn.logo.valentino-icon-program-admin")));
+	}
 	/*
 	 * public void iSeeFirstNameinUserCard(String firstname){
 	 * 
@@ -90,10 +101,68 @@ public class UserAdminHomePage extends BaseClass {
 		verifyTextForElement(driver.findElement(By.cssSelector(".sort-select")), defaultoption);
 	}
 
+	public void iSeeRefreshIcon() {
+
+		delay();
+		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-reload")));
+	}
+	
+	public void iSeeUsersCount() {
+
+		delay();
+		isElementVisible(driver.findElement(By.xpath("//strong[@ng-hide='search.total == -1']")));
+	}
+	
 	public void iVerifyUserCardCount(int cardCount) {
 
 		verifyElementCount(".card-view-body", cardCount);
 	}
+	
+	public void iSeeUserCards() {
+
+		isElementVisible(driver.findElement(By.cssSelector(".card-view-body")));
+	}
+	
+	public void iSeeFirstNameOnUserCard() {
+
+		isElementVisible(driver.findElement(By.cssSelector("span[binding-id$='user.firstName']")));
+	}
+	
+	public void iSeeLastNameOnUserCard() {
+		
+		isElementVisible(driver.findElement(By.cssSelector("span.ng-scope[binding-id$='user.lastName']>span")));
+	}
+	
+	public void iSeeExpandButtonOnUserCard() {
+
+		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='expand']")));
+		
+	}
+	
+	public void iSeeRoleOnUserCard() {
+
+		isElementVisible(driver.findElement(By.cssSelector("div[binding-id$='Role']")));
+		
+	}
+	
+	public void iSeeUserEmailOnUserCard() {
+
+		isElementVisible(driver.findElement(By.cssSelector("div[binding-id$='user.email']")));
+		
+	}
+	
+	public void iSeeLockButtonOnUserCard() {
+
+		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='lock']")));
+		
+	}
+	
+	public void iSeeUnLockButtonOnUserCard() {
+
+		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='unlock']")));
+		
+	}
+	
 
 	public void iClickLoadMoreButton() {
 
@@ -127,7 +196,11 @@ public class UserAdminHomePage extends BaseClass {
 		verifyTextForElement(driver.findElement(By.xpath("//div[6]/div/div/div[3]/div[1]/strong")), userCount);
 
 	}
+	
+	public void iSeePagination() {
 
-
+		delay();
+		isElementVisible(driver.findElement(By.cssSelector(".page-selector.ng-binding")));
+	}
 
 }

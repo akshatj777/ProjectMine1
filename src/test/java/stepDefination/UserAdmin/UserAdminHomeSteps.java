@@ -21,6 +21,12 @@ public class UserAdminHomeSteps extends DriverScript{
                userAdminHome.enterSerchUserText(userText);
 
         }
+        
+        @Then("^I should see \"([^\"]*)\" Button$")
+        public void iSeeCreateUser(String text) throws Throwable {
+                userAdminHome.iSeeCreateUserText(text);
+        }
+
 
         @Then("^I click on the Select Faclity field$")
         public void IClickTheSelectFaclityField() throws Throwable {
@@ -63,6 +69,12 @@ public class UserAdminHomeSteps extends DriverScript{
 
                 userAdminHome.iClickOnViewProfileIcon(0);
         }
+        
+        @Then("^I should see Program Administration logo on Top$")
+        public void iShouldSeeHeaderText() throws Throwable {
+
+                userAdminHome.iSeeUserAdminPageLogo();
+        }
 
         @Then("^I should see header text \"([^\"]*)\"$")
         public void iShouldSeeHeaderText(String header) throws Throwable {
@@ -82,12 +94,83 @@ public class UserAdminHomeSteps extends DriverScript{
                 userAdminHome.iSeeSortOrderDefaultOption(defaultOption);
 
         }
+        
+        @And("^I should see total Users Count on page$")
+        public void iShouldSeeUsersCount() throws Throwable {
+
+                userAdminHome.iSeeUsersCount();
+
+        }
+        
+        @And("^I should see Refresh icon on page$")
+        public void iShouldSeeRefreshIcon() throws Throwable {
+
+                userAdminHome.iSeeRefreshIcon();
+
+        }
 
         @And("^I can see \"([^\"]*)\" user card$")
         public void iCanSeeUserCard(int count) throws Throwable {
 
                 userAdminHome.iVerifyUserCardCount(count);
 
+        }
+        
+        @And("^I should see User card on page$")
+        public void iShouldSeeUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeUserCards();
+        	
+        }
+        
+
+        @And("^I should see First Name on user card$")
+        public void iShouldSeeFirstNameOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeFirstNameOnUserCard();
+        	
+        }
+
+        @And("^I should see Last Name on user card$")
+        public void iShouldSeeLastNameOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeLastNameOnUserCard();
+        	
+        }
+        
+        @And("^I should see Expand button on user card$")
+        public void iShouldSeeExpandButtonOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeExpandButtonOnUserCard();
+        	
+        }
+
+        @And("^I should see Role on user card$")
+        public void iShouldSeeRoleOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeRoleOnUserCard();
+        	
+        }
+
+        @And("^I should see User Email on user card$")
+        public void iShouldSeeUserEmailOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeUserEmailOnUserCard();
+        	
+        }
+
+        @And("^I should see Lock button on user card$")
+        public void iShouldLockButtonOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeLockButtonOnUserCard();
+        	
+        }
+
+        @And("^I should see Unlock button on user card$")
+        public void iShouldUnLockButtonOnUserCards() throws Throwable {
+        	
+        	userAdminHome.iSeeUnLockButtonOnUserCard();
+        	
         }
 
         @Then("^I click Load More Button$")
@@ -121,4 +204,12 @@ public class UserAdminHomeSteps extends DriverScript{
         public void iShouldSeeForSearchResults(String userCount) throws Throwable {
                 userAdminHome.iverifyUserSearchResult(userCount);
         }
+        
+        @And("^I should see Pagination at bottom$")
+        public void iShouldSeePagination() throws Throwable {
+
+                userAdminHome.iSeePagination();
+
+        }
+       
 }
