@@ -3,11 +3,18 @@ package com.remedy.Episode2;
 import com.remedy.baseClass.BaseClass;
 
 import cucumber.api.java.en.Then;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by ashish.ranjan on 24-11-2016.
@@ -956,137 +963,8 @@ public class PatientsPage extends BaseClass {
 	
 	public void iVerifyTextAfterSelectingFilterToExport(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
-	}
+	}NoteCreation noteCreation = new NoteCreation(driver);
 	
-	/* Notes Module Generic functions*/
-	
-	   
-        
-        
-    public void  I_click_on_the_patient_card(String Patient_Last_Name) {
-            clickElement(driver.findElement(By.xpath("//span[contains(text(),' "+ Patient_Last_Name + "')]")));
-           }
-    
-    public void Iverifyclickonpatientcardtobenavigatedtopatientsummary()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector(".card-view-expanded-header.ng-scope")));
-    }
-    
-    public void IverifyPatientSummaryincludesquickactionbuttonfornotecreation() {
-        isElementVisible(driver.findElement(By.cssSelector(".btn.bg-white.btn-secondary.ng-scope")));
-	}     
-    
-    public void IclickonquickactionbuttonfornotecreationonPatientSummarypage()
-    {
-    	clickElement(driver.findElement(By.cssSelector(".btn.bg-white.btn-secondary.ng-scope")));
-    }
-
-    public void I_verify_whether_topic_drop_down_appears_on_the_Add_Clinical_Document_on_Note_Creation()
-    {
-    	 isElementVisible(driver.findElement(By.cssSelector("span.ui-select-placeholder.text-muted.ng-binding")));
-    }
-
-    public void IselectthevaluefromthetopicdropdownonAddClinicalDocumentonPatientSummary(String Topic_dropdown_value) {
-    	 clickElement(driver.findElement(By.cssSelector("span.ui-select-placeholder.text-muted.ng-binding")));
-         selectDropdownVisibleElementSpan("//div[contains(text(),'"+ Topic_dropdown_value +"')]");;
-    }
-    
-    public void IverifyActivityDatedropdowncalendarappearsontheAddClinicalDocumentonNoteCreation()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector("div.input-group-addon.double-addon")));
-    }
-    
-    public void IverifyActivityBodytextboxappearsontheAddClinicalDocumentonNoteCreation()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-empty.ng-invalid")));
-    }
-    
-    public void selectDropdownVisibleElementSpan(String dropdown_selector)
-	 {
-		 clickElement(driver.findElement(By.xpath(dropdown_selector)));
-	 }
-    
-    public void IverifyattachfileslinkappearsontheAddClinicalDocumentonNoteCreation()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector(".add-icon.ng-pristine.ng-untouched.ng-valid.ng-empty")));
-    }
-    
-    public void IverifyCancelbuttonappearsontheAddClinicalDocumentonNoteCreation()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-tertiary")));
-    }
-    
-    public void  IverifyCreatenoteappearsontheAddClinicalDocumentonNoteCreation()
-    {
-    	isElementVisible(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
-    }
-     
-    public void IattachfileontheAddClinicalDocumentonNoteCreation()
-    {
-    	
-    	isElementVisible(driver.findElement(By.cssSelector(".add-icon.ng-pristine.ng-untouched.ng-valid.ng-empty")));
-    }	
-    
-    /* Notes Module Generic functions on Patient Card*/
-    
-    public void IclickonquickactionbuttonfornotecreationonPatientCardpage()
-    {
-    	
-    	clickElement(driver.findElement(By.cssSelector("body > div.main-container.container > div > div > div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > button:nth-child(1)")));
- 
-    }
-
-    public void IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage()
-    {
-    	 isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
-    	
-    }
-
-    public void IselectthevaluefromthetopicdropdownonPatientCard(String Topic_dropdown_value) {
-        clickElement(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
-        selectDropdownVisibleElementSpan("//div[contains(text(),'"+ Topic_dropdown_value +"')]");
-    }
-    public void IverifyActivityDatedropdowncalendarappearsontheAddClinicalDocumentonPatientCard()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector("a > div > div > i.valentino-icon-calendar")));
-    }
-    
-    public void IverifyActivityBodytextboxappearsontheAddClinicalDocumentonPatientCard()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")));
-    }
-    
-    public void IverifyattachfileslinkappearsontheAddClinicalDocumentonPatientCard()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector(".add-icon.ng-pristine.ng-untouched.ng-valid.ng-empty")));
-    }
-    
-    public void IverifyCancelbuttonappearsontheAddClinicalDocumentonPatientCard()
-    {
-    	isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-tertiary")));
-    }
-    
-    public void  IverifyCreatenoteappearsontheAddClinicalDocumentonPatientCard()
-    {
-    	isElementVisible(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
-    }
-     
-    public void IselectthedatefromdatepickeronAddClinicalDocumentonPatientCard(String date_element)
-    {
-    	clickElement(driver.findElement(By.cssSelector("a > div > div > i.valentino-icon-calendar")));
-    	//clickElement(driver.findElement(By.cssSelector("h3.ng-binding")));
-    	clickElement(driver.findElement(By.xpath("//div[contains(text(),'"+date_element+"')]")));
-    	}
-    public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard()
-    {
-    	TextonElement(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),"Sample");
-    }
-    
-    public void IclickonthecreateNoteButtononAddClinicalDocumentonPatientCard()
-    {
-    	clickElement(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));	
-    }
-   }	
-    
+}
     
 

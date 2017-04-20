@@ -1,5 +1,5 @@
 
-Feature: Patient Notes
+Feature: Patient Notes on Patient Summary
 
 Scenario: Verify click on patient card to be navigated to patient summary 
 Given I am on the login page
@@ -12,7 +12,7 @@ When I click on the "Episodes 2.0" tile
 And I wait for 25000 milli seconds
 Then I verify current page "Remedy Partners" title
 And I wait for 30000 milli seconds
-Then I click on the patient card
+Then I click on the patient card on Patient Card Page
 Then I verify click on patient card to be navigated to patient summary 
 
 Scenario: To Verify Patient Summary includes quick action button for note creation
@@ -28,7 +28,7 @@ When I click on the "Episodes 2.0" tile
 And I wait for 25000 milli seconds
 Then I verify current page "Remedy Partners" title
 And I wait for 30000 milli seconds
-Then I click on the patient card
+Then I click on the patient card on Patient Card Page
 And I wait for 30000 milli seconds
 Then I verify Patient Summary includes quick action button for note creation
 
@@ -51,7 +51,7 @@ When I click on the "Episodes 2.0" tile
 And I wait for 25000 milli seconds
 Then I verify current page "Remedy Partners" title
 And I wait for 30000 milli seconds
-Then I click on the patient card
+Then I click on the patient card on Patient Card Page
 And I wait for 30000 milli seconds
 Then I click on quick action button for note creation on Patient Summary page
 Then I verify whether topic drop down appears on the Add Clinical Document on Note Creation
