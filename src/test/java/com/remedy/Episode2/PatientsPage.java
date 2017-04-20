@@ -1,11 +1,9 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 /**
@@ -42,7 +40,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iEnterInPatientSearchFieldOnPatientsPage(String patientName) {
-        iFillInText(driver.findElement(By.xpath("//div[@placeholder='Search Name']/div/input")), patientName);
+        iFillInText(driver.findElement(By.xpath("//input[@name='last-name']")), patientName);
     }
 
     public void iVerifyPatientSearchedResultContainsTextOnPatientPage(String patientNameText) {
@@ -143,7 +141,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage() {
-        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/button")));
+        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/div[3]/a")));
     }
 
     public void iVerifyRiskStatusIsPresentOnThePatientCardOnPatientPage() {
@@ -167,7 +165,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iClickOnTheExpandButtonOnThePatientCardOnThePatientPage() {
-        clickElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/button")));
+        clickElement(driver.findElement(By.xpath("(//a[@class='btn btn-quaternary valentino-icon-expand pull-right'])[1]")));
     }
 
     public void iVerifyQuickActionButtonAddClinicalDocumentAndNewTaskIsPresentOnThePatientSummaryPage() {
@@ -250,7 +248,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage() {
-        isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible ï¿½ ESRD')]")));
+        isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible – ESRD')]")));
     }
 
     public void iVerifyErrorIsPresentInTheEligibilityDropdownOnThePatientSummaryPage() {
@@ -808,7 +806,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyAdmitSectionIsPresentOnThePatientCard() {
-        isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[1]")));
+        isElementVisible(driver.findElement(By.xpath("(//div[@class='white one-line card-datum ng-scope'])[1]")));
     }
 
     public void iVerifyInpatientStatusIsPresentOnThePatientCard() {
@@ -911,5 +909,49 @@ public class PatientsPage extends BaseClass {
 	}
 	public void iClickOnDeleteoftransition() {
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[3]/a")));
+	}
+	
+	public void iVerifyHideSummaryText(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")),text);
+	}
+	
+	public void iVerifyShowSummaryText(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")),text);
+	}
+	
+	public void iSeeFirstNameMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector("h2.ng-scope>span:nth-child(1)")));
+	}
+	
+	public void iSeeLastNameMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector("h2.ng-scope>span:nth-child(2)")));
+	}
+	
+	public void iSeeDateOfBirthMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(1)")));
+	}
+	
+	public void iSeeAgeMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(2)")));
+	}
+	
+	public void iSeeGenderMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(3)")));
+	}
+	
+	public void iSeeSSNMinimizedMode(){
+		isElementVisible(driver.findElement(By.xpath("//div[@class='card-datum ng-scope']//span[label[text()='SSN']]")));
+	}
+	
+	public void iSeeLanguageMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector("em.ng-binding")));
+	}
+	
+	public void iSeeRiskScoreMinimizedMode(){
+		isElementVisible(driver.findElement(By.cssSelector(".ng-binding.ng-scope.risk-unknown-risk")));
+	}
+	
+	public void iVerifyTextAfterSelectingFilterToExport(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
 	}
 }

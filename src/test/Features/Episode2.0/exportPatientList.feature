@@ -15,8 +15,11 @@ Feature: Episode 2.0 Expand Patient Card
     And I click on Filters button present on Filter Page
     And I click on Last Name present on the Filter Page
     When I type "xzxpy" in the patient search field on patients page
-    And I wait for 9000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 15000 milli seconds
+    Then I scroll the page to bottom by "-100"
     When I click on export button present on the Patient Page
+    Then I verify "Patients with uncompleted attestations will not be included in this export" message is appearing after selecting the filter to export
     And I click on Select All checkbox present on the Patient Page
     And I click on Export button present on the Patient Page to export the Patient List
     And I wait for 5000 milli seconds

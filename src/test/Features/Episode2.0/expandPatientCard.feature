@@ -9,7 +9,7 @@ Feature: Episode 2.0 Expand Patient Card
     Then I should see Tile text Episodes 2.0
     
     When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
+    And I wait for 25000 milli seconds
     Then I verify current page "Remedy Partners" title
     
     When I click on the Expand button on the patient card on the patient page
@@ -35,7 +35,6 @@ Feature: Episode 2.0 Expand Patient Card
     Then I Verify Run Service is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Review Service Response is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Reset Payer section is present in the Eligibility Dropdown on the patient summary page
-    Then I Verify Eligible is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Not Eligible is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Not Eligible ESRD is present in the Eligibility Dropdown on the patient summary page
     Then I Verify Error is present in the Eligibility Dropdown on the patient summary page
@@ -43,5 +42,22 @@ Feature: Episode 2.0 Expand Patient Card
     
     Then I Verify Tags is present on the patient summary page
     
+    Then I verify "Hide Summary" is appearing in the maximized view on patient summary page
+    And I wait for 2000 milli seconds
     When I click on Hide Summary button present on the patient summary page
+    
+    And I wait for 4000 milli seconds
+    
+    Then I see firstname is appearing in minimized mode on patient summary page
+    Then I see lastname is appearing in minimized mode on patient summary page
+    Then I see date of birth is appearing in minimized mode on patient summary page
+    Then I see age is appearing in minimized mode on patient summary page
+    Then I see gender is appearing in minimized mode on patient summary page
+    Then I see ssn is appearing in minimized mode on patient summary page
+    Then I see language is appearing in minimized mode on patient summary page
+    Then I see risk score is appearing in minimized mode on patient summary page
+    
+    Then I verify "Show Summary" is appearing in the minimized view on patient summary page
+    And I wait for 2000 milli seconds
     Then I verify that only Card header information is displayed on the patient summary page
+    
