@@ -11,13 +11,11 @@ Feature: Next site of care Carl
     When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "CARL" report text for NSoC Reports 
     And I wait for 20000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
 
     Then I should see Next site of care reports column Tile text as "Participant"
     Then I should see Next site of care reports column Tile text as "Episode Initiator"
     Then I should see Next site of care reports column Tile text as "Anchor Facility"
-    #Then I should see Next site of care reports column Tile text as "Bundle"
     Then I should see Next site of care reports column Tile text as "Anchor Admission Quarter" 
 
     When I click on field-panel-icon button
@@ -95,7 +93,6 @@ Feature: Next site of care Carl
     And I should see "<Month>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
       
     When I switch to default window from iframe
-    #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title  

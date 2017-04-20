@@ -12,7 +12,6 @@ Scenario Outline: User should be able to apply Participant and BPID Filters
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions (Claims)" report text for Readmissions Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on field-panel-icon button
@@ -73,7 +72,6 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions (Claims)" report text for Readmissions Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     Then I click on a number under episodes column
@@ -156,18 +154,15 @@ Scenario Outline: User should remove the existing default filters
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions (Claims)" report text for Readmissions Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
+    And I wait for 3000 milli seconds
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
     
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
-    Then I remove "Participant ID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "BPID" field filter under "Episode Initiator" filter field from default filters
     Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-    Then I remove "CCN" field filter under "Dashboard - Anchor Facility" filter field from default filters
     
     Examples:
     

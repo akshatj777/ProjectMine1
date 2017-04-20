@@ -12,7 +12,6 @@ Scenario Outline: User should be able to see Measures,Levels and Preselected Fil
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "SNF Volume (Claims)" report text for Post Acute Care Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
