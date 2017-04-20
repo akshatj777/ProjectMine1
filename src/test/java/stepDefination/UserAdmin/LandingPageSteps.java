@@ -67,4 +67,8 @@ public class LandingPageSteps extends DriverScript{
 
         landingPage.iVerifyTextNotForTiles(tileName);
     }
+    @Then("^I click on Hamburgur menu on top right of homepage$")
+    public void iClickOnHamburgurMenu()throws Throwable {
+    	landingPage.iClickOnHamburgurMenuOnTop();
+    }
 }
