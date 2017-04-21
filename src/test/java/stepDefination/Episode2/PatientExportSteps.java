@@ -75,4 +75,29 @@ public class PatientExportSteps extends DriverScript {
 		patientexport.iVerifyCheckboxBesideColumnListInExportDrawerBox();
 	}
 	
+	@Then("^I verify a error popup appearing after clicking on export patient list if patient count is more than 2000$")
+	public void i_verify_a_error_popup_appearing_on_the_patient_page() throws Throwable{
+		patientexport.iVerifyErrorPopClickinOnExport();
+	}
+	
+	@Then("^I verify close button appearing on the error popup after clicking on export patient list$")
+	public void i_verify_close_button_appearing_on_the_error_page() throws Throwable{
+		patientexport.iVerifyCloseButtonOnErrorPage();
+	}
+	
+	@Then("^I click on close button on the error popup for export patient list$")
+	public void i_click_on_close_button_on_the_error_for_export_patient_list() throws Throwable{
+		patientexport.iClickOnCloseOnErrorForExportPatientList();
+	}
+	
+	@Then("^I verify \"([^\"]*)\" is presnt on the applied filters on export drawer box$")
+	public void i_verify_is_present_on_the_applied_filters_on_export_drawer_box(String text) throws Throwable{
+		patientexport.iVerifyAppliedFilterOnExportDrawerBox("Last Name: "+text);
+	}
+	
+	@And("^I click on applied filter in export drawer box$")
+	public void i_click_on_applied_filter_in_export_drawer_box() throws Throwable{
+		patientexport.iClickOnAppliedFilterOnExportDrawerBox();
+	}
+	
 }

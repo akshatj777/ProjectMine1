@@ -429,7 +429,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList() {
-        clickElement(driver.findElement(By.cssSelector("div.export-footer>button:nth-child(2)")));
+        clickElement(driver.findElement(By.xpath("//button[text()='Export']")));
     }
 
     public void iClickOnCarePlanFilterPresentOnFilterPage() {

@@ -1,10 +1,8 @@
 package com.remedy.Episode2;
 
-import java.util.List;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -66,4 +64,23 @@ public class PatientExport extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>i")));
 	}
 	
+	public void iVerifyErrorPopClickinOnExport(){
+		isElementVisible(driver.findElement(By.xpath("//div[@title='Error']")));
+	}
+	
+	public void iVerifyCloseButtonOnErrorPage(){
+		isElementVisible(driver.findElement(By.cssSelector("i.alert-close-icon")));
+	}
+	
+	public void iClickOnCloseOnErrorForExportPatientList(){
+		clickElement(driver.findElement(By.xpath("//div[@class='tooltip-alert alert alert-danger alert-dismissible']//i[@class='alert-close-icon']")));
+	}
+	
+	public void iVerifyAppliedFilterOnExportDrawerBox(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".margin-left.ng-binding")), text);
+	}
+	
+	public void iClickOnAppliedFilterOnExportDrawerBox(){
+		clickElement(driver.findElement(By.cssSelector(".margin-left.ng-binding")));
+	}
 }
