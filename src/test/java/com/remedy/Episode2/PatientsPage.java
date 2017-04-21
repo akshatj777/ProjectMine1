@@ -1,20 +1,11 @@
 package com.remedy.Episode2;
 
 import com.remedy.baseClass.BaseClass;
-
-import cucumber.api.java.en.Then;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * Created by ashish.ranjan on 24-11-2016.

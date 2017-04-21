@@ -24,6 +24,10 @@ Given I am on the login page
     Then I should see "Patients" details
     And I wait for 2000 milli seconds
     
+    Then I should see Care Plan present on the student details page
+    Then I click on Care Plan
+    And I wait for 2000 milli seconds
+    
     When I click on Notes tab under care plan
     Then I click on new note button
     And I wait for 3000 milli seconds
@@ -32,19 +36,25 @@ Given I am on the login page
     Then I click on topic dropdown under new note
     Then I select value from the topic dropdown
     Then I click on create note button
-    And I wait for 3000 milli seconds
-    Then I click on actions column in notes
-    Then I click on delete in the actions column
+    And I wait for 10000 milli seconds
+   
+    Then I click on QA PRM on navigation bar on EC1
+    Then I click on Return to Remedy from dropdown on QA PRM on navigation bar on EC1
+    
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    And I wait for 25000 milli seconds
+    Then I verify current page "Remedy Partners" title
+    And I wait for 30000 milli seconds
+    
+    And I should see "All" tab in the filter bar on patients page
+    Then I should see search box appearing on the patients page
+    Then I enter <Patient Name> in the search box on the patients page
     And I wait for 2000 milli seconds
-    Then I should see "This note will be permanently deleted. Are you sure?" on popup
-    Then I click on ok button
-    And I wait for 3000 milli seconds
+    Then I click on the patient card on Patient Card Page
+    And I wait for 25000 milli seconds
+    Then I click on Clinical Documents tab below the patient summary 
     
-    
-    
-    
-    
-    
-   Examples:
-    
-        | email | password  | Patient Name |
+    Examples:
+                 | email     | password  | Patient Name   |
+      | qa.admin@yopmail.com | Episode1! | FQTTQSU ABRSSATZBY |

@@ -69,7 +69,7 @@ public class LoginPage extends BaseClass {
 
 	public void iEnteruserEmail(String userName) {
 
-		iFillInText(driver.findElement(By.cssSelector(".login-form>input:nth-child(1)")), userName);
+		iFillInText(driver.findElement(By.name("email")), userName);
 
 	}
 

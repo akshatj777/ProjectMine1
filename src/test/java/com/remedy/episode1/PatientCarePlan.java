@@ -104,7 +104,7 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnNewNoteButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='notesList']/div/div[2]/a")));
+		clickElement(driver.findElement(By.cssSelector("#notesList > div > div.buttons.pull-right > a")));
 	}
 	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable
 	{
@@ -120,7 +120,7 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnCreateNoteButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.cssSelector("#submitButton")));
+		clickElement(driver.findElement(By.id("submitButton")));
 	}
 	public void iClickOnActionsColumnInNotes() throws Throwable
 	{
@@ -177,4 +177,15 @@ public class PatientCarePlan extends BaseClass
 			
 		}
 	}
+
+	public void IclickonQAPRMonnavigationbaronEC1() {
+	
+		clickElement(driver.findElement(By.cssSelector("li.dropdown.dropdown-user")));	
+	}
+	public void IclickonReturntoRemedyfromdropdownonQAPRMonnavigationbaronEC1() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("a#navbar-dropdown-menu-logout")));	
+	}
+	
+	
 }

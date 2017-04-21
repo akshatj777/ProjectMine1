@@ -154,17 +154,19 @@ public class NoteCreation extends BaseClass{
    public void IverifythedropdownvaluesonAddClinicalDocumentonPatientCard() {
     	
         List<String> actualcombolisttext = new ArrayList();
+        List<WebElement> elementtexts = new ArrayList();
         List<String> requiredcombolisttext=new ArrayList();
         String[] expectedvalues={"Baseline","Bedside Visit", "Care Assessment Note","Clinical Note", "Close Call", "Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care", "Patient Call", "Patient Education", "Patient Visit","Psychological Condition", "Transition Note", "TUG/RAPT/CARE Score"};
         		
         requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-        for(int i=0;i<=16;i++)
+       
+        elementtexts=driver.findElements(By.cssSelector("span.ui-select-choices-row-inner"));
+        
+        for(WebElement elementtext:elementtexts )
         {
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-        WebElement element=driver.findElement(By.xpath(".//*[@id='ui-select-choices-row-1-"+i+"']/span/div"));
-        actualcombolisttext.add(element.getText());
-      
-              }
+        actualcombolisttext.add(elementtext.getText());
+        System.out.println("****The drop down value is"+elementtext.getText());
+          }
         System.out.println("*****The drop down values****"+actualcombolisttext);
         verifyarraylist(requiredcombolisttext,actualcombolisttext);
              }
@@ -185,6 +187,13 @@ public class NoteCreation extends BaseClass{
        isElementVisible(driver.findElement(By.cssSelector(".datetimepicker.table-responsive")));
        }
        
+       
+       public void IVerifythattodaysdateshouldbehighlightedincalendarasdefaultdate()
+       {
+    	   verifyTextForElement(driver.findElement(By.xpath("//input[@placeholder='Activity Date']")),"04/21/2017");
+    	   System.out.println("Date is"+driver.findElement(By.xpath("//input[@placeholder='Activity Date']")).getText());
+    	   }
+       
        public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
    {
 	   Assert.assertEquals(requiredcombolisttext,actualcombolisttext);
@@ -194,96 +203,21 @@ public class NoteCreation extends BaseClass{
    {
 	   Assert.assertEquals(expected,actual);
    }
+
+
+public void IclickonoutsideofthecalendaronAddClinicalDocumentonPatientCard() {
+	// TODO Auto-generated method stub
+	clickElement(driver.findElement(By.cssSelector("h5.text-no-row-space.ng-binding.ng-scope")));
+	
+}
          
         
-
+}
 
 // **************************************************//
 
 
-public void Iselectthedate() throws Exception{
 
-    //DAte and Time to be set in textbox
 
-    String dateTime ="12/07/2014";
-
-    
-    
-   
-
-//button to move next in calendar
-
-   WebElement nextLink = driver.findElement(By.cssSelector("i.valentino-icon-caret-right"));
-
-//button to click in center of calendar header
-
-WebElement midLink = driver.findElement(By.cssSelector("h3.ng-binding"));
-
-//button to move previous month in calendar
-
-WebElement previousLink = driver.findElement(By.cssSelector("i.valentino-icon-caret-left")); 
-
-    //Split the date time to get only the date part
-
-    String date_dd_MM_yyyy[] = (dateTime.split(" ")[0]).split("/");
-
-    //get the year difference between current year and year to set in calander
-
-    int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2])- Calendar.getInstance().get(Calendar.YEAR);
-    
-
-    midLink.click();
-
-    if(yearDiff!=0){
-
-        //if you have to move next year
-
-        if(yearDiff>0){
-
-            for(int i=0;i< yearDiff;i++){
-
-                System.out.println("Year Diff->"+i);
-
-                nextLink.click();
-
-            }
-
-        }
-
-        //if you have to move previous year
-
-        else if(yearDiff<0){
-
-            for(int i=0;i< (yearDiff*(-1));i++){
-
-                System.out.println("Year Diff->"+i);
-
-                previousLink.click();
-
-            }
-
-        }
-
-    }
-    
-    Thread.sleep(1000);
-
-    //Get all months from calendar to select correct one
-
-    List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
-    System.out.println("*****List of months***"+list_AllMonthToBook);
-    list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1])-1).click();
-    
-    Thread.sleep(1000);
-
-    //get all dates from calendar to select correct one
-
-    List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//td[not(contains(@class,'day ng-scope past'))]"));
-    System.out.println("*****List of months***"+list_AllDateToBook);
-    list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0])-1).click();
-  
-
-}
-}
      
 
