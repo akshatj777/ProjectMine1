@@ -19,5 +19,9 @@ Feature: Episode 2.0 Daily Report Filter
     And I wait for 4000 milli seconds
     When I click on Inpatient Episodes radio button present on Filter Page
     And I wait for 15000 milli seconds
-    Then I verify the total number of patients present on the Patients Page  
     Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
+    Then I verify the total number of patients present on the Patients Page  
+    And I wait for 5000 milli seconds
+    Then I verify "Inpatient Episodes" is appearing under selected filters for Daily Report
+    

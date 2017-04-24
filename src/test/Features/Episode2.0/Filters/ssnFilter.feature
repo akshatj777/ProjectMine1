@@ -1,6 +1,6 @@
 Feature: Episode 2.0 SSN Filter
 
-   Scenario: verify SSN filter is present under list of Filter options on Patient Page
+   Scenario Outline: verify SSN filter is present under list of Filter options on Patient Page
      Given I am on the login page
      When I enter email field qa.admin@yopmail.com for login
      And I enter password field Episode1! for Login
@@ -17,8 +17,15 @@ Feature: Episode 2.0 SSN Filter
      
      When I click on SSN Filter present on Filter Page
      And I wait for 2000 milli seconds
-     Then I enter "168273732" under ssn filter
+     Then I enter <ssn> under ssn filter
      And I wait for 9000 milli seconds
-     Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
-     And I wait for 2000 milli seconds
+     Then I scroll the page to bottom by "-100"
+     Then I verify the total number of patients present on the Patients Page  
+     And I wait for 5000 milli seconds
+     Then I verify <ssn> is appearing under selected filters for SSN
+     
+     Examples:
+     
+     |ssn      |
+     |168273732|

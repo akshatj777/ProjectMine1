@@ -17,5 +17,8 @@ Feature: Episode 2.0 Care Setting Filters
     
     Then I click on Inpatient checkbox under care setting present on the Filter Page
     And I wait for 15000 milli seconds
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
     Then I verify the total number of patients present on the Patients Page  
-    Then I click on Done button present on the Filter Page 
+    And I wait for 5000 milli seconds
+    Then I verify "Inpatient" is appearing under selected filters for care setting

@@ -19,8 +19,10 @@ Feature: Episode 2.0 Eligibility Filter
      And I wait for 2000 milli seconds
      Then I click on eligible checkbox under eligible filter option
      And I wait for 9000 milli seconds
-     Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
-     And I wait for 2000 milli seconds
+     Then I scroll the page to bottom by "-100"
+     Then I verify the total number of patients present on the Patients Page  
+     And I wait for 5000 milli seconds
+     Then I verify "Eligible" is appearing under selected filters for Eligibility
      
      

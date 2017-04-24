@@ -19,6 +19,9 @@ Feature: Episode 2.0 Tags Filter
      And I wait for 2000 milli seconds
      Then I click on "ACO" checkbox under tags filter
      And I wait for 9000 milli seconds
-     Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
-     And I wait for 2000 milli seconds
+     Then I scroll the page to bottom by "-100"
+     Then I verify the total number of patients present on the Patients Page  
+     And I wait for 5000 milli seconds
+     Then I verify "ACO" is appearing under selected filters for Tags
+     

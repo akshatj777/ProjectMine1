@@ -22,3 +22,5 @@ Feature: Episode 2.0 Episode DRG Filter
      Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
      And I wait for 2000 milli seconds
+     Then I verify "Episode DRG: (770) ABORTION W D&C, ASPIRATION CURETTAGE OR HYSTEROTOMY" is appearing under selected filters for Episode DRG
+     

@@ -21,3 +21,5 @@ Feature: Episode 2.0 Date Range Filter
     And I wait for 15000 milli seconds
     Then I verify the total number of patients present on the Patients Page  
     Then I click on Done button present on the Filter Page 
+    Then I verify "Anchor Admit date" is appearing under selected filters for Date Range
+    

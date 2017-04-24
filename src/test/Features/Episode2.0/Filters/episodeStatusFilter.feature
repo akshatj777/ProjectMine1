@@ -17,8 +17,11 @@ Feature: Episode 2.0 Episode Status Filter
      
      When I click on episode status Filter present on Filter Page
      And I wait for 2000 milli seconds
-     Then I click on episode status checkbox under filter option
+     Then I click on active checkbox under episode status filter option
+     And I wait for 9000 milli seconds
      And I wait for 9000 milli seconds
      Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
      And I wait for 2000 milli seconds
+     Then I verify "Active" is appearing under selected filters for Episode Status
+     

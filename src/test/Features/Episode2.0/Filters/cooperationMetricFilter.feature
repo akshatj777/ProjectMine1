@@ -19,5 +19,9 @@ Feature: Episode 2.0 Cooperation Metric Filters
     And I wait for 4000 milli seconds
     And I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page
     And I wait for 20000 milli seconds
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
     Then I verify the total number of patients present on the Patients Page  
-    Then I click on Done button present on the Filter Page  
+    And I wait for 5000 milli seconds
+    Then I verify "Not assigned" is appearing under selected filters for Cooperation Metrics
+    

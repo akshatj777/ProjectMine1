@@ -125,8 +125,13 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAnchorDischargeFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
     }
 
-    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Discharge Facilty$")
+    @When("^I type ([^\"]*) in the search field to search the Anchor Discharge Facility$")
     public void i_type_in_the_search_field_to_search_the_Anchor_Discharge_Facilty(String Facility) throws Throwable {
+        patientsPage.iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(Facility);
+    }
+    
+    @When("^I type ([^\"]*) in the search field to search the Current Facility$")
+    public void i_type_in_the_search_field_to_search_the_current_Facilty(String Facility) throws Throwable {
         patientsPage.iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(Facility);
     }
 
@@ -145,7 +150,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAnchorFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
     }
 
-    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Facility$")
+    @When("^I type ([^\"]*) in the search field to search the Anchor Facility$")
     public void i_type_in_the_search_field_to_search_the_Anchor_Facilty(String facility) throws Throwable {
         patientsPage.iTypeInTheSearchFieldToSearchTheAnchorFacilty(facility);
     }
@@ -648,7 +653,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAdmitReasonFilterPresentOnFilterPage();
     }
 
-    @When("^I type \"([^\"]*)\" in the search field on patients page$")
+    @When("^I type ([^\"]*) in the search field on patients page$")
     public void i_type_in_the_search_field_on_patients_page(String admitReason) throws Throwable {
         patientsPage.i_type_in_the_search_field_on_patients_page(admitReason);
     }
@@ -860,7 +865,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnEpisodeStatusFilterPresentOnFilterPage();
     }
 
-    @Then("^I click on episode status checkbox under filter option$")
+    @Then("^I click on active checkbox under episode status filter option$")
     public void i_click_on_episode_status_checkbox_under_filter_option() throws Throwable {
         patientsPage.iClickOnEpisodeStatusCheckboxUnderFilterOption();
     }
@@ -875,7 +880,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnFirstNameFilterPresentOnFilterPage();
     }
 
-    @Then("^I enter \"([^\"]*)\" under first name filter$")
+    @Then("^I enter ([^\"]*) under first name filter$")
     public void i_enter_under_first_name_filter(String patient) throws Throwable {
         patientsPage.iEnterUnderFirstNameFilter(patient);
     }
@@ -905,7 +910,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnInpatientLocationFilterPresentOnFilterPage();
     }
 
-    @When("^I enter \"([^\"]*)\" under inpatient location filter$")
+    @When("^I enter ([^\"]*) under inpatient location filter$")
     public void i_enter_under_inpatient_location_Filter(String text) throws Throwable {
         patientsPage.iEnterUnderInpatientLocationFilter(text);
     }
@@ -930,7 +935,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnMedicareidFilter();
     }
 
-    @Then("^I enter \"([^\"]*)\" under medicareid filter$")
+    @Then("^I enter ([^\"]*) under medicareid filter$")
     public void i_enter_under_medicareid_filter(String medicareid) throws Throwable {
         patientsPage.iEnterUnderMedicareidFilter(medicareid);
     }
@@ -940,7 +945,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnPayerFilter();
     }
 
-    @Then("^I enter \"([^\"]*)\" under payer filter$")
+    @Then("^I enter ([^\"]*) under payer filter$")
     public void i_enter_under_payer_filter(String payer) throws Throwable {
         patientsPage.iEnterUnderPayerFilter(payer);
     }
@@ -960,7 +965,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnReadmissionCountFilter();
     }
 
-    @Then("^I enter from \"([^\"]*)\" to \"([^\"]*)\" under readmission filter$")
+    @Then("^I enter from ([^\"]*) to ([^\"]*) under readmission filter$")
     public void i_enter_from_to_under_readmission_filter(String arg1, String arg2) throws Throwable {
         patientsPage.iEnterFromToUnderReadmissionFilter(arg1, arg2);
     }
@@ -980,7 +985,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnSSNFilter();
     }
 
-    @Then("^I enter \"([^\"]*)\" under ssn filter$")
+    @Then("^I enter ([^\"]*) under ssn filter$")
     public void i_enter_under_ssn_filter(String ssn) throws Throwable {
         patientsPage.iEnterUnderSSNFilter(ssn);
     }
@@ -1240,5 +1245,130 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I verify \"([^\"]*)\" message is appearing after selecting the filter to export$")
     public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Admit Reason$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Admit_Reason(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Admit Reason: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Anchor Discharge Facility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_anchor_discharge_facility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Anchor Discharge Facility: "+text+" (STAMFORD, CT) (OTHER)");
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Anchor Facility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_anchor_facility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Anchor Facility: "+text+" - Stamford (STAMFORD, CT) (HHH)");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Care Plan$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_care_plan(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Care Plan: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for care setting$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_care_setting(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Care Setting: (Hospital) "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Cooperation Metrics$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_cooperation_metrics(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Cooperation Metrics: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Current Facility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_current_facility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Current Facility: "+text+" (STAMFORD, CT) (OTHER)");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Daily Report$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_daily_report(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Daily Report: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Date Range$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_date_range(String text) throws Throwable{
+    	patientsPage.iSeeSelectedFilterText(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for DRG Type$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_drg_type(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("DRG Type: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Eligibility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_eligibility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Eligibility: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Episode DRG$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_episode_drg(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Episode Status$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_episode_status(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Episode Status: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for First Name$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_First_Name(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("First Name: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Gender$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_gender(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Gender: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Initiator$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_initiator(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Initiator: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Inpatient Location$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_inpatient_location(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Inpatient Location: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Last Name$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Last_Name(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Last Name: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Medicare ID$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_medicare_id(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Medicare ID: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Payer$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_payer(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Payer: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Quality Metrics$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_quality_metrics(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Quality Metrics: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) and ([^\"]*) is appearing under selected filters for Readmission Count$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_readmission_count(String arg1,String arg2) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Readmission Count: "+arg1+" - "+arg2);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Risk Assessment$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_risk_assessment(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Risk Assessment: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for SSN$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_ssn(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("SSN: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Tags$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_tags(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Tags: "+text);
     }
 }

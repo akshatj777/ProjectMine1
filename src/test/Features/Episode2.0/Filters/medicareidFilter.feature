@@ -1,6 +1,6 @@
 Feature: Episode 2.0 MedicareID Filter
 
-   Scenario: verify MedicareID filter is present under list of Filter options on Patient Page
+   Scenario Outline: verify MedicareID filter is present under list of Filter options on Patient Page
      Given I am on the login page
      When I enter email field qa.admin@yopmail.com for login
      And I enter password field Episode1! for Login
@@ -17,8 +17,15 @@ Feature: Episode 2.0 MedicareID Filter
      
      When I click on MedicareID Filter present on Filter Page
      And I wait for 2000 milli seconds
-     Then I enter "168273732A" under medicareid filter
+     Then I enter <medicareid> under medicareid filter
      And I wait for 9000 milli seconds
-     Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
-     And I wait for 2000 milli seconds
+     Then I scroll the page to bottom by "-100"
+     Then I verify the total number of patients present on the Patients Page  
+     And I wait for 5000 milli seconds
+     Then I verify <medicareid> is appearing under selected filters for Medicare ID
+     
+     Examples:
+     
+        | medicareid |
+        | 168273732A |

@@ -1,6 +1,6 @@
 Feature: Episode 2.0 Payer Filter
 
-   Scenario: verify Payer filter is present under list of Filter options on Patient Page
+   Scenario Outline: verify Payer filter is present under list of Filter options on Patient Page
      Given I am on the login page
      When I enter email field qa.admin@yopmail.com for login
      And I enter password field Episode1! for Login
@@ -17,8 +17,15 @@ Feature: Episode 2.0 Payer Filter
      
      When I click on Payer Filter present on Filter Page
      And I wait for 2000 milli seconds
-     Then I enter "medicare" under payer filter
+     Then I enter <payer> under payer filter
      And I wait for 15000 milli seconds
-     Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
-     And I wait for 2000 milli seconds
+     Then I scroll the page to bottom by "-100"
+     Then I verify the total number of patients present on the Patients Page  
+     And I wait for 5000 milli seconds
+     Then I verify <payer> is appearing under selected filters for Payer
+     
+     Examples:
+     
+        | payer   |
+        | medicare|

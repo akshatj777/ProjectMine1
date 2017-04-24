@@ -18,5 +18,9 @@ Feature: Episode 2.0 Care Plan Filters
     When I click on Care Plan Filter present on Filter Page 
     When I click on created radio button present on Filter Page  
     And I wait for 9000 milli seconds
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
     Then I verify the total number of patients present on the Patients Page  
-    Then I click on Done button present on the Filter Page    
+    And I wait for 5000 milli seconds
+    Then I verify "Created" is appearing under selected filters for Care Plan
+    

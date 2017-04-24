@@ -973,6 +973,14 @@ public class PatientsPage extends BaseClass {
 	}
 	
 	public void iClickOnAgreeButtonOnAttestationPage(){
-		driver.findElement(By.cssSelector("#submitButtonAdd"));
+		clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
+	}
+	
+	public void iVerifySelectedFilterText(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".margin-left.ng-binding")), text);
+	}
+	
+	public void iSeeSelectedFilterText(String text){
+		isElementVisible(driver.findElement(By.cssSelector(".margin-left.ng-binding")));
 	}
 }
