@@ -22,7 +22,7 @@ Given I am on the login page
     Then I should see <Patient Name> patient on the patient list present on the patient page
      When I click on Patient under patient list page
     Then I should see "Patients" details
-    And I wait for 2000 milli seconds
+    And I wait for 10000 milli seconds
     
     Then I should see Care Plan present on the student details page
     Then I click on Care Plan
@@ -57,4 +57,4 @@ Given I am on the login page
     
     Examples:
                  | email     | password  | Patient Name   |
-      | qa.admin@yopmail.com | Episode1! | FQTTQSU ABRSSATZBY |
+      | qa.admin@yopmail.com | Episode1! | Mlma Abccyvw |

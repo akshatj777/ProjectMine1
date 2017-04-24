@@ -1,5 +1,12 @@
 package com.remedy.Episode2;
 
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -7,11 +14,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
+
 
 public class NoteCreation extends BaseClass{
 
@@ -134,7 +143,7 @@ public class NoteCreation extends BaseClass{
     {
     	clickElement(driver.findElement(By.cssSelector("a > div > div > i.valentino-icon-calendar")));
     	//clickElement(driver.findElement(By.cssSelector("h3.ng-binding")));
-    	clickElement(driver.findElement(By.xpath("//div[contains(text(),'"+date_element+"')]")));
+    	selectElementByDesc("td.day.ng-scope",date_element);
     	}
     public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard()
     {
@@ -190,8 +199,8 @@ public class NoteCreation extends BaseClass{
        
        public void IVerifythattodaysdateshouldbehighlightedincalendarasdefaultdate()
        {
-    	   verifyTextForElement(driver.findElement(By.xpath("//input[@placeholder='Activity Date']")),"04/21/2017");
-    	   System.out.println("Date is"+driver.findElement(By.xpath("//input[@placeholder='Activity Date']")).getText());
+    	   verifyTextForElement(driver.findElement(By.cssSelector("input.form-control.ng-pristine.ng-valid.ng-not-empty.ng-valid-required.ng-touched")),"04/21/2017");
+    	   System.out.println("Date is"+driver.findElement(By.cssSelector(" input.form-control.ng-pristine.ng-valid.ng-not-empty.ng-valid-required.ng-touched")).getText());
     	   }
        
        public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
@@ -210,10 +219,48 @@ public void IclickonoutsideofthecalendaronAddClinicalDocumentonPatientCard() {
 	clickElement(driver.findElement(By.cssSelector("h5.text-no-row-space.ng-binding.ng-scope")));
 	
 }
-         
-        
+
+//clickElement(driver.findElement(By.cssSelector()));
+//Upload file
+
+public void IverifythatAdd_Fileslinkisclickable()
+{
+	clickElement(driver.findElement(By.cssSelector("a.add-icon.ng-pristine.ng-untouched.ng-valid.ng-empty")));
 }
 
+
+
+
+
+public static void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
+    
+	StringSelection selection = new StringSelection(file);
+	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	    clipboard.setContents(selection, selection);
+        Robot robot = new Robot();
+        Thread.sleep(1000);
+             
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+}    
+
+
+public void Iverifytheimageisattachedornot() {
+	// TODO Auto-generated method stub
+	 isElementVisible(driver.findElement(By.cssSelector(" div.files.ng-scope > div:nth-child(1) > span")));
+}
+
+
+public void IverifythatcreateNotehasbeensuccessfullycreated() {
+	// TODO Auto-generated method stub
+	isElementVisible(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")));	
+}
+}
 // **************************************************//
 
 

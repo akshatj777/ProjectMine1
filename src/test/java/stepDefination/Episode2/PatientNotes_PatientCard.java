@@ -1,5 +1,7 @@
 package stepDefination.Episode2;
 
+import java.awt.AWTException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -67,6 +69,7 @@ public class PatientNotes_PatientCard extends DriverScript {
 	 public void I_select_the_date_from_date_picker_on_Add_Clinical_Document_on_Patient_Card(String date) throws Throwable 
 	 {
 		 noteCreation.IselectthedatefromdatepickeronAddClinicalDocumentonPatientCard(date);
+		
 	 }
 	 @And ("^I enter the Note Text in the textarea on Add Clinical Document on Patient Card$")	 
 	 public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card() throws Throwable 
@@ -108,7 +111,7 @@ public class PatientNotes_PatientCard extends DriverScript {
 		 noteCreation.IverifyCalendarappearstoselectthedatemanuallyonAddClinicalDocumentonPatientCard();
 	 }
 	 
-	 @Then ("^I Verify that today's date should be highlighted in calendar as default date$")
+	 @Then ("^I Verify that \"(.*)\"  date as default date$")
 	 public void I_Verify_that_todays_date_should_be_highlighted_in_calendar_as_default_date() throws Throwable 
 	 {
 		 noteCreation.IVerifythattodaysdateshouldbehighlightedincalendarasdefaultdate();
@@ -119,6 +122,35 @@ public class PatientNotes_PatientCard extends DriverScript {
 		 {
 		 noteCreation.IclickonoutsideofthecalendaronAddClinicalDocumentonPatientCard();
 		 }
+	 
+	 @Then ("^I verify that create Note has been successfully created$")
+	 public void I_verify_that_create_Note_has_been_successfully_created()
+	 {
+		 noteCreation.IverifythatcreateNotehasbeensuccessfullycreated();
+	 }
+	 
+	 
+	 
+	 
+	 //Upload file
+	 
+	 @Then ("^I verify that Add Files link is clickable$")
+	 public void I_verify_that_Add_Files_link_is_clickable()
+	 {
+		 noteCreation.IverifythatAdd_Fileslinkisclickable();    	 
+	 }
+	 
+	 @Then ("^I verify that user should be able to select and upload files from the computer through Add files link$")
+     public void I_verify_that_usershould_be_able_to_select_and_upload_files_from_the_computer_through_Add_files_link() throws AWTException, InterruptedException  	 
+     {
+		 noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink("MyFile.txt");
+     }
+	 
+	 @Then ("^I verify the image is attached or not$")
+	 public void I_verify_the_image_is_attached_or_not()
+	 {
+		 noteCreation.Iverifytheimageisattachedornot();
+	 }
 	 
 	 
 }

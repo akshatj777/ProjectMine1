@@ -139,6 +139,7 @@ public class BaseClass {
     public void selectElementByDesc(String element, String desc) {
         //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        System.out.println("****The list of webelements is"+listItems);
         for (WebElement item : listItems) {
             //System.out.println(item.getText());
             if (item.getText().equalsIgnoreCase(desc)) {

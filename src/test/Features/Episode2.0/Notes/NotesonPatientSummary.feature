@@ -37,7 +37,6 @@ Then I click on the patient card on Patient Card Page
 Then I click on quick action button for note creation on Patient Summary page
 Then I verify whether topic drop down appears on the Add Clinical Document on Note Creation
 And  I select the value from the topic drop down on Add Clinical Document on Patient Summary
-
 Then I verify Activity Date drop down calendar appears on the Add Clinical Document on Note Creation
 And I verify Activity Body text box appears on the Add Clinical Document on Note Creation
 And I verify attach files link appears on the Add Clinical Document on Note Creation

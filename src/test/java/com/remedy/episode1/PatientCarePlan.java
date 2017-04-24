@@ -22,7 +22,10 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeeCarePlanpresentonthestudentdetailspage() throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.cssSelector("#carePlanButton")));
+		WebElement element=driver.findElement(By.cssSelector("#carePlanButton"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
+		isElementVisible(element);
 	}
 	public void iClickOnCarePlan() throws Throwable 
 	{
@@ -104,7 +107,10 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnNewNoteButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.cssSelector("#notesList > div > div.buttons.pull-right > a")));
+		WebElement element=driver.findElement(By.cssSelector("#notesList > div > div.buttons.pull-right > a"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
+		clickElement(element);
 	}
 	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable
 	{
