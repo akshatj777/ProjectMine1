@@ -84,7 +84,7 @@ public class LoginPage extends BaseClass {
 
     public void iVerifyLogInWidget() {
 
-        isElementVisible(driver.findElement(By.cssSelector(".login-form")));
+        isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
     }
 
 
