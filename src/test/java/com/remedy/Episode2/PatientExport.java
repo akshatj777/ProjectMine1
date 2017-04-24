@@ -83,4 +83,8 @@ public class PatientExport extends BaseClass {
 	public void iClickOnAppliedFilterOnExportDrawerBox(){
 		clickElement(driver.findElement(By.cssSelector(".margin-left.ng-binding")));
 	}
+	
+	public void iClickOnExportLinkBesideCount(){
+		clickElement(driver.findElement(By.cssSelector(".export-link>a")));
+	}
 }

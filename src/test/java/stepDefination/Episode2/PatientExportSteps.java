@@ -100,4 +100,9 @@ public class PatientExportSteps extends DriverScript {
 		patientexport.iClickOnAppliedFilterOnExportDrawerBox();
 	}
 	
+	@And("^I click on Export button present on the Patient Page to export the Patient List$")
+	public void i_click_on_export_button_present_on_the_patient_page_to_export_the_patient_list() throws Throwable{
+		patientexport.iClickOnExportLinkBesideCount();
+	}
+	
 }
