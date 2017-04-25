@@ -41,6 +41,11 @@ public class UserAdminSortingSteps extends DriverScript {
 		UserAdminSort.IShouldBeAbleToSortTheUsersWithNewestOldestSortingOption();
 	}
 	
+	@Then("^I verify \"([^\"]*)\" users cards under user admin page$")
+	public void I_verify_users_cards_under_user_admin_page(int Count) throws Throwable{
+		UserAdminSort.Iverifyuserscardsunderuseradminpage(Count);
+	}
+	
 	@Then("^I should be able to click on DropDown list for sorting Oldest to Newest$")
 	public void I_should_be_able_to_click_on_DropDown_list_for_sorting_Oldest_to_Newest() throws Throwable{
 		UserAdminSort.IShouldbeAbleToClickOnDropDownListForSortingOldestToNewest();
@@ -85,15 +90,54 @@ public class UserAdminSortingSteps extends DriverScript {
 	public void i_verify_refresh_button_should_work_for_the_user() throws Throwable {
 		UserAdminSort.iVerifyRefreshButtonShouldWorkForTheUser();
 	}
+	
+		
+    @Then("^I Verify the sort filter for Z to A under user admin page$")
+    public void I_Verify_the_sort_filter_for_Z_to_A_under_user_admin_page() throws Throwable{
+    	UserAdminSort.IVerifythesortfilterforZtoAunderuseradminpage();
+    }
+    
+    @Then("^I Clicked on Create user button appearing under user admin page$")
+    public void I_Clicked_on_Create_user_button_appearing_under_user_admin_page() throws Throwable{
+    	UserAdminSort.IClickedonCreateuserbuttonappearingunderuseradminpage();
+    }
+    
+    @Then("^I Clicked on close button appearing on create user page under user admin page$")
+    public void I_Clicked_on_close_button_appearing_on_create_user_page_under_user_admin_page() throws Throwable{
+    	UserAdminSort.IClickedonclosebuttonappearingoncreateuserpageunderuseradminpage();
+    }
+    
+    @Then("^I verify sorting applied on user admin page is retaining$")
+    public void I_verify_sorting_applied_on_user_admin_page_is_retaining() throws Throwable{
+    	UserAdminSort.Iverifysortingappliedonuseradminpageisretaining();
+    }
+    
+    @Then("^I entered \"([^\"]*)\" under user admin page$")
+    public void I_entered_under_user_admin_page(String Text) throws Throwable{
+    	UserAdminSort.Ienteredunderuseradminpage(Text);
+    }
+    
+      
+    @Then("^I verify sort should work correctly when search \"([^\"]*)\" is made with Newest to Oldest sorting is applied on the filtered results$")
+    public void I_verify_sort_should_work_correctly_when_search_is_made_with_Newest_to_Oldest_sorting_is_applied_on_the_filtered_results(String Text) throws Throwable{
+    	UserAdminSort.iVerifySortShouldWorkCorrectlyWhenSearchIsMadewithNewesttoOldestSortingIsAppliedOnTheFilteredResults(Text);
+    }
 
-	@Then("^I verify sort applied should retain when user navigates to user page and gets back to card page$")
-	public void i_verify_sort_applied_should_retain_when_user_navigates_to_user_page_and_gets_back_to_card_page() throws Throwable {
-		UserAdminSort.iverifySortAppliedShouldRetainWhenUserNavigatesToUserPageAndGetsBackTocardpage();
+    @Then("^I verify sort should work correctly when search \"([^\"]*)\" is made with Oldest to Newest sorting is applied on the filtered results$")
+    public void I_verify_sort_should_work_correctly_when_search_is_made_with_Oldest_to_Newest_sorting_is_applied_on_the_filtered_results(String Text) throws Throwable{
+    	
+    	UserAdminSort.iVerifySortShouldWorkCorrectlyWhenSearchIsMadewithOldesttoNewestSortingIsAppliedOnTheFilteredResults(Text);
+    } 
+
+	
+	@Then("^I verify sort should work correctly when search \"([^\"]*)\" is made with Z to A sorting is applied on the filtered results\\.$")
+	public void i_verify_sort_should_work_correctly_when_search_is_made_with_Z_to_A_sorting_is_applied_on_the_filtered_results(String Text) throws Throwable {
+		UserAdminSort.iVerifySortShouldWorkCorrectlyWhenSearchIsMadewithZtoASortingIsAppliedOnTheFilteredResults(Text);
 	}
-
-	@Then("^I verify sort should work correctly when search \"([^\"]*)\" is made and sorting is applied on the filtered results\\.$")
-	public void i_verify_sort_should_work_correctly_when_search_is_made_and_sorting_is_applied_on_the_filtered_results(String Text) throws Throwable {
-		UserAdminSort.iVerifySortShouldWorkCorrectlyWhenSearchIsMadeAndSortingIsAppliedOnTheFilteredResults(Text);
+	
+	@Then("^I verify the favicon on user admin page$")
+	public void I_verify_the_favicon_on_user_admin_page() throws Throwable{
+		UserAdminSort.Iverifythefavicononuseradminpage();
 	}
 
 
