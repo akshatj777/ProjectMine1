@@ -955,6 +955,11 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyTextAfterSelectingFilterToExport(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
 	}NoteCreation noteCreation = new NoteCreation(driver);
+
+	public void IclickontheImpatientTabonPatientpage() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
+	}
 	
 }
     

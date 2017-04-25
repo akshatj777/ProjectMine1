@@ -387,6 +387,11 @@ public class BaseClass {
     driver.switchTo().parentFrame();
     }
     
+    public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
+   {
+	   Assert.assertEquals(requiredcombolisttext,actualcombolisttext);
+   }
+    
   }
     
  

@@ -1225,4 +1225,10 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
+    
+    @Then ("^I click on the Impatient Tab on Patient page$")
+    public void I_click_on_the_Impatient_Tab_on_Patient_page()
+    {
+    	patientsPage.IclickontheImpatientTabonPatientpage();
+    }
 }

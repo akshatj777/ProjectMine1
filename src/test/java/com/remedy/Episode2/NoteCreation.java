@@ -174,9 +174,9 @@ public class NoteCreation extends BaseClass{
         for(WebElement elementtext:elementtexts )
         {
         actualcombolisttext.add(elementtext.getText());
-        System.out.println("****The drop down value is"+elementtext.getText());
+      
           }
-        System.out.println("*****The drop down values****"+actualcombolisttext);
+       
         verifyarraylist(requiredcombolisttext,actualcombolisttext);
              }
    
