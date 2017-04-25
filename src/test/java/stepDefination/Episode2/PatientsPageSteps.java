@@ -479,9 +479,19 @@ public class PatientsPageSteps extends DriverScript {
     public void i_select_RESPIRATORY_INFECTIONS_INFLAMATIONS_from_the_DRG_list_present_on_the_patient_overview_page() throws Throwable {
         patientsPage.iSelectRespiratoryInfectionsInflationsFromTheDRGListPresentOnThePatientOverviewPage();
     }
+    
+    @Then("^I select MAJOR JOINT REPLACE OR REATTACH OF LOWER EXTRE from the DRG list present on the patient overview page$")
+    public void i_select_MAJOR_JOINT_REPLACE_OR_REATTACH_OF_LOWER_EXTRE_from_the_DRG_list_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iSelectMajorJointReplaceOrReattachOfLowerExtreFromTheDRGListPresentOnThePatientOverviewPage();
+    }
 
     @Then("^I click on Update Transition button present on the patient overview page$")
     public void i_click_on_Update_Transition_button_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
+    }
+    
+    @Then("^I click on Create Transition button present on the patient overview page$")
+    public void i_click_on_Create_Transition_button_present_on_the_patient_overview_page() throws Throwable {
         patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
     }
 
@@ -737,6 +747,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
         patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
     }
+    
+    @When("^I Select \"([^\"]*)\" from the admitting facility present on the Add Patient page$")
+    public void i_Select_from_the_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
+        patientsPage.iSelectFromTheAdmittingFacilityPresentOnTheAddPatientPage(facility);
+    }
 
     @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
     public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
@@ -772,6 +787,7 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
         // open bug
         // throw new PendingException();
+    	patientsPage.iClickOnAgreeButtonOnAttestationPage();
     }
 
     @And("^I switch to Add Patient embedded iframe$")
