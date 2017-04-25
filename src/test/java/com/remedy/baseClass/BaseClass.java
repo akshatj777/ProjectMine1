@@ -57,7 +57,7 @@ public class BaseClass {
                 return true;
             } else {
                 if (System.currentTimeMillis() - start >= Wait_Time) {
-                    throw new Error("Timeout reached element not visible");
+                    throw new Error("Timeout reached element not visiblie");
                 } else {
                     try {
                         synchronized (this) {
