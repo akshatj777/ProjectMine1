@@ -985,10 +985,10 @@ public class PatientsPage extends BaseClass {
 	}
 	
 	public void iClickOnAgreeAfterApplyingFilter(String button){
-		 if(driver.findElements(By.xpath("//a[span[text()='"+button+"']]")).isEmpty()){
+		 if(driver.findElements(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='"+button+"']]")).isEmpty()){
 			 return;  
 			}else{
-			   clickElement(driver.findElement(By.xpath("(//a[span[text()='"+button+"']])[1]")));
+			   clickElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='"+button+"']]")));
 			}
 	    }
 }

@@ -24,4 +24,8 @@ Feature: Episode 2.0 Episode Status Filter
      Then I click on Done button present on the Filter Page
      And I wait for 2000 milli seconds
      Then I verify "Active" is appearing under selected filters for Episode Status
+     Then I click on "Agree" button appearing on the patient card after applying filter
+     And I wait for 5000 milli seconds
+     When I click on the Expand button on the patient card on the patient page
+     And I wait for 5000 milli seconds
      
