@@ -983,4 +983,12 @@ public class PatientsPage extends BaseClass {
 	public void iSeeSelectedFilterText(String text){
 		isElementVisible(driver.findElement(By.cssSelector(".margin-left.ng-binding")));
 	}
+	
+	public void iClickOnAgreeAfterApplyingFilter(String button){
+		 if(driver.findElements(By.xpath("//a[span[text()='"+button+"']]")).isEmpty()){
+			 return;  
+			}else{
+			   clickElement(driver.findElement(By.xpath("(//a[span[text()='"+button+"']])[1]")));
+			}
+	    }
 }

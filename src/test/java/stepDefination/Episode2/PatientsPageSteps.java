@@ -1371,4 +1371,9 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_tags(String text) throws Throwable{
     	patientsPage.iVerifySelectedFilterText("Tags: "+text);
     }
+    
+    @Then("^I click on \"([^\"]*)\" button appearing on the patient card after applying filter$")
+    public void i_click_agree_button_on_patient_card_after_applying_filter(String button) throws Throwable{
+    	patientsPage.iClickOnAgreeAfterApplyingFilter(button);
+    }
 }
