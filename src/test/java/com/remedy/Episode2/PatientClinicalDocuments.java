@@ -135,6 +135,21 @@ public class PatientClinicalDocuments extends BaseClass {
        
         verifyarraylist(requiredcombolisttext,actualcombolisttext);
              }
+
+
+
+	public void IcountthenumberofdocumentsthatappearintheclinicalDocuments() {
+		// TODO Auto-generated method stub
+		getElementCount("table > tbody");
+	}
+
+	public void Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst() {
+		// TODO Auto-generated method stub
+		int count=getElementCount("table > tbody");
+		//for(int i=0;i<)
+		//table > tbody > tr:nth-child(1) > td:nth-child(4) > div > span.time.ng-binding		
+		
+	}
 	}
 	
 	

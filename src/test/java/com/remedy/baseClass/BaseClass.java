@@ -218,6 +218,15 @@ public class BaseClass {
     	
     }
 
+    public int getElementCount(String element) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        delay();
+            System.out.println(countelement);
+			return countelement;
+            
+        }
+    
     public void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();

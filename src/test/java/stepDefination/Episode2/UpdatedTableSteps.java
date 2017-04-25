@@ -28,4 +28,17 @@ public class UpdatedTableSteps extends DriverScript{
 		patientclinical.IverifyClinicalDocumentTableshouldcontainthefollowingsections();
 	}
 	
+	@Then ("^To verify table should be sorted chronologically by activity date most recent first$") 
+	public void To_verify_table_should_be_sorted_chronologically_by_activity_date_most_recent_first()
+	{
+		patientclinical.Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst();
+	}
+	
+	@Then ("^I count the number of documents that appear in the clinical Documents$")
+	public void I_count_the_number_of_documents_that_appear_in_the_clinical_Documents()
+	{
+		patientclinical.IcountthenumberofdocumentsthatappearintheclinicalDocuments();
+	}
+	
+	
 }
