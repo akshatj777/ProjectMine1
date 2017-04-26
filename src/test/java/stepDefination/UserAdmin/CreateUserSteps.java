@@ -96,6 +96,31 @@ public class CreateUserSteps extends DriverScript{
 
     }
     
+    @And("^I enter email ([^\"]*) for login$")
+    public void iEnterEmailForLogin(String email) throws Throwable{
+    	createUser.iEnterEmailForLogin(email);
+    }
+    
+    @When("^I enter the email ([^\"]*) to generate password$")
+    public void iEnterTheEmailToGeneratePassword(String email) throws Throwable{
+    	createUser.iEnterTheEmailToGeneratePassword(email);
+    }
+    
+    @Then("^I click on send email button$")
+    public void iClickOnSendEmailButton() throws Throwable{
+    	createUser.iClickOnSendEmailButton();
+    }
+    
+    @And("^I click on the email received to change your password$")
+    public void iClickOnTheEmailReceivedToChangeYourPassword() throws Throwable{
+    	createUser.iClickOnTheEmailReceivedToChangeYourPassword();
+    }
+    
+    @Then("^I click on change my password link$")
+    public void iClickOnChangeMyPasswordLink() throws Throwable{
+    	createUser.iClickOnChangeMyPasswordLink();
+    }
+    
     @Then("^I pick payer type from data section ([^\"]*)$")
     public void IPickPayertypeFromDataSection(String payer) throws Throwable {
 

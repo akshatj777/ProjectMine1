@@ -42,7 +42,7 @@ public class EmailVarificationPage extends BaseClass {
 
     public void clickConfirmAccountLink(){
 
-        clickElement(driver.findElement(By.xpath("//a[text()='Confirm my account']")));
+        clickElement(driver.findElement(By.xpath("//a[text()='Confirm my account!']")));
 
     }
 

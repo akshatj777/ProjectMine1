@@ -96,9 +96,31 @@ public class CreateUserPage extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
     }
     
+    public void iEnterEmailForLogin(String text){
+    	iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
+    }
     public void iEnterPhone( String text){
 
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
+    }
+    
+    public void iEnterTheEmailToGeneratePassword(String text){
+    	iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
+    }
+    
+    public void iClickOnSendEmailButton(){
+    	clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+    }
+    
+    public void iClickOnTheEmailReceivedToChangeYourPassword(){
+    	clickElement(driver.findElement(By.xpath("(//div[@title='FROM:']/div)[1]")));
+    }
+    
+    public void iClickOnChangeMyPasswordLink(){
+    	
+    	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
+    	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
+        
     }
 
     public void iClickHealthSystemField(){
