@@ -273,6 +273,16 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() {
 		// TODO Auto-generated method stub
 		
+		
+		
+	}
+
+	public void Iverifythatusershouldbeabletoclickontitleofdocument() {
+		// TODO Auto-generated method stub
+		WebElement element=driver.findElement(By.cssSelector("//span[contains(text(),'CARL')]"));
+		clickElement(element);
+		isElementVisible(element);
+		System.out.println("The CARL form is successfully clicked");
 	}
 	
 	
