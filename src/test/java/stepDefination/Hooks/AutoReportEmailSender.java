@@ -101,7 +101,7 @@ public class AutoReportEmailSender {
                 messageToSend.setRecipients(Message.RecipientType.TO, addressTo);
             }
 
-            messageToSend.setSubject("Test Execution Report- " + dateFormat.format(new Date()));
+            messageToSend.setSubject("Cucumber Automation Tests Execution Report- " + dateFormat.format(new Date()));
 
             // create email message body part
             MimeBodyPart messageBodyPart = new MimeBodyPart();
@@ -130,7 +130,7 @@ public class AutoReportEmailSender {
         transport.send(messageToSend);
         transport.close();*/
 
-            System.out.println("Sent message successfully....");
+            //System.out.println("Sent message successfully....");
 
         } catch (AddressException ae) {
             ae.printStackTrace();

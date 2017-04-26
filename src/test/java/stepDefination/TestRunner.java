@@ -38,25 +38,12 @@ public class TestRunner {
         @AfterSuite
         public static void tearDown () throws Exception {
 
-                System.out.println("Started after suite");
-
                 /*CucumberCoverageReport testReportFinal = new CucumberCoverageReport();
 
                testReportFinal.generateFeatureOverviewReport();
                 testReportFinal.testGenerateDetailedAggregatedReport();
                 testReportFinal.generateCoverageOverviewReport();*/
                 AutoReportEmailSender sendReportEmailAutomatically = new AutoReportEmailSender();
-                sendReportEmailAutomatically.autoSendReportMail("aranjan@remedypartners.com", new String[]{"ssingh@remedypartners.com"}, "Test Email:- Automatic Test Automation Report !!");
-
-
-                System.out.println("ending after suite");
-
-
-
+                sendReportEmailAutomatically.autoSendReportMail("aranjan@remedypartners.com", new String[]{"qa@remedypartners.com"}, "Test Email:- Automatic Test Automation Report !!");
         }
-
-
-
-
-
 }
