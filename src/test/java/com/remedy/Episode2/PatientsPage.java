@@ -991,4 +991,7 @@ public class PatientsPage extends BaseClass {
 			   clickElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='"+button+"']]")));
 			}
 	    }
+	public void iClickOnWorklistOnEpisodeHomePage(String sworklist,String mworklist){
+		clickElement(driver.findElement(By.xpath("//button[span[contains(text(),'"+sworklist+"')]]")));
+	}
 }
