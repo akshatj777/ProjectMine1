@@ -21,7 +21,7 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
     Then I verify that if user has saved a form but not submitted, status should be read as In Progress 
-    Then I verify that In-progress status should be in purple color with Color code AD77B3.
+    Then I verify that Inprogress status should be in purple color with Color code AD77B3
     Then I click on the complete CARL on the Patient Summary  
     And I wait for 10000 milli seconds
     Then I save and continue the complete CARL form
@@ -29,7 +29,7 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
     Then I verify that if user submits a patient form status should be read as Active
-    Then I verify that Active status should be in green color with Color code 4EB96F.
+    Then I verify that Active status should be in green color with Color code 4EB96F
     And I wait for 5000 milli seconds
    # Then I click on the Transition Button to add the new episode 
     Then I click on the Clinical Documents tab in the patient summary Page

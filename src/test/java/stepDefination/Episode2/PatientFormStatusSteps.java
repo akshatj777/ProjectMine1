@@ -54,7 +54,7 @@ public class PatientFormStatusSteps extends DriverScript {
 		patientclinical.IverifythatifuserhassavedaformbutnotsubmittedstatusshouldbereadasInProgress();
 	}
 	
-	@Then ("^I verify that In-progress status should be in purple color with Color code AD77B3$")
+	@Then ("^I verify that Inprogress status should be in purple color with Color code AD77B3$")
 	public void I_verify_that_In_progress_status_should_be_in_purple_color_with_Color_code_AD77B3()
 	{
 		patientclinical.IverifythatInprogressstatusshouldbeinpurplecolorwithColorcodeAD77B3();

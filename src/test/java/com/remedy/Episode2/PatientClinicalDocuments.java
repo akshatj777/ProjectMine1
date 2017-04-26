@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -146,11 +147,143 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst() {
 		// TODO Auto-generated method stub
 		int count=getElementCount("table > tbody");
-		//for(int i=0;i<)
-		//table > tbody > tr:nth-child(1) > td:nth-child(4) > div > span.time.ng-binding		
+		List<String> listtexts = new ArrayList<String>();
+		listtexts.add(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div > span.time.ng-binding")).getText());
+		
+		for(int i=2;i<=count;i++)
+		{
+			String text=driver.findElement(By.cssSelector("table > tbody > tr:nth-child("+i+") > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")).getText();
+			listtexts.add(text);
+		}
+		
+		}
+
+	public void IverifythepresenceofSummarysectionoftheClinicalDocumenttable() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("div > div.ng-scope > table > thead > tr > th:nth-child(3)")));
 		
 	}
+
+	public void IverifybodytextoftheNoteisappearinginthesummarysection() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("span.ellip")));
+		
 	}
+
+	public void Iverifyforclinicalnoteandbaselinesummaryshouldbedisplayedupto2lines() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("span.ellip-line")));
+		String value=driver.findElement(By.cssSelector("span.ellip-line")).getCssValue("line-height");
+		Assert.assertTrue(value.equals("20px"));	
+	}
+
+	public void IverifyifsummaryislongerthanthecharacterlimitthenEllipsisthreedotsshouldshow() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("span.ellip-line")));
+		String value=driver.findElement(By.cssSelector("span.ellip-line")).getCssValue("text-overflow");
+		Assert.assertTrue(value.equals("ellipsis"));
+	}
+
+	public void Iverifyifanoteishavingattachmentanddonothaveanysummarythenattachmentcountshouldappearinthesummarysection() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("//p[contains(text(),'attachments')]")));
+		System.out.println("^^^^^^The attached count is^^^^^^"+driver.findElement(By.cssSelector("//p[contains(text(),'attachments')]")).getText());
+		
+}
+
+	public void Iverifyformsshouldnotdisplayanymessageinthesummarysectionanditshouldbegreyedoutblank() {
+		// TODO Auto-generated method stub
+		if(isElementVisible(driver.findElement(By.xpath("span[contains(text(),'CARL')]"))));
+		{
+			isElementVisible(driver.findElement(By.cssSelector(" table > tbody > tr:nth-child(3) > td.empty-cell")));
+			String value=driver.findElement(By.cssSelector(" table > tbody > tr:nth-child(3) > td.empty-cell")).getCssValue("background-color");
+			Assert.assertTrue(value.equals("transparent"));
+		}
+	}
+
+	public void IclickontheTransitionstabinthepatientsummaryPage() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Transitions')]")));
+		}
+
+	public void ThenIclickonaddanewtransitiontoaddanewepisode() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("#btnNewTransition")));
+		}
+
+	public void Iclickondatepickerbuttontoselecttheadmitdate() {
+		// TODO Auto-generated method stub
+		WebElement element=driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+		clickElement(element);
+	}
+
+	public void Iclickonthedatefromthedatepickeronaddanewtransition() {
+		// TODO Auto-generated method stub
+		
+		clickElement(driver.findElement(By.id("table > tbody > tr:nth-child(5) > td.day.active")));
+		
+	}
+
+	public void Iselectthecaresettingvalueonaddanewtransition() {
+		// TODO Auto-generated method stub
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory","HHH - Hospital");
+	}
+
+	public void Iselectthecaretypevalueonaddanewtransition() {
+		// TODO Auto-generated method stub
+		selectDropdownVisibleElement("bp_personbundle_bpadmissiontype_admitCareType","Inpatient");
+	}
+
+	public void Iselectthefacilityvalueonaddanewtransition() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("#select2-drop-mask")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"Allentown");
+		clickElement(driver.findElement(By.cssSelector("select2-result-label-1412")));
+		
+	}
+	//a[contains(text(),'Diagnosis and DRG')]
+
+	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("//a[contains(text(),'Diagnosis and DRG')]")));
+		
+	}
+
+	public void IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition() {
+		// TODO Auto-generated method stub
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType","Working");
+	}
+	
+	
+
+	public void IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("#select2-drop-mask")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"61");
+		clickElement(driver.findElement(By.cssSelector("select2-result-label-1761")));
+	}
+
+	public void IswitchtoPatientTransitionsframe() {
+		// TODO Auto-generated method stub
+		swithToFrame("//*[@id='iFrameEC2PatientTransitions']");
+	}
+
+	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	}
+
+	
+	
+	
+		
+
+	
 	
 	
 

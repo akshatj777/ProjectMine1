@@ -168,6 +168,18 @@ public class BaseClass {
         }
     }
 
+    public void getTextForElementfromList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        List<String> listtexts = new ArrayList<String>();
+        for (WebElement item : listItems) {
+            //System.out.println(item.getText());
+        	item.getText();
+        	listtexts.add(item.getText());
+        }
+         
+        }
+    
     public void selectDropdownVisibleElement(String selectElement, String desc) {
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);
