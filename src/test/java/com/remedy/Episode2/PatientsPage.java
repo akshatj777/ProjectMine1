@@ -448,8 +448,8 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(6)")));
     }
 
-    public void iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage() {
-        clickElement(driver.findElement(By.cssSelector("input[id='cooperation-metricsnull']~label[for='cooperation-metricsnull']")));
+    public void iClickOnAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage(String text) {
+        clickElement(driver.findElement(By.xpath("//label[span[text()='"+text+"']]")));
     }
 
     public void iVerifyCooperationMetricFilterDisplayedUnderListOfFilterOptions() {
@@ -718,7 +718,8 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iClickOnDrgTypeCheckboxUnderFilterOption() {
-        clickElement(driver.findElement(By.xpath("//label[@for='episode-drg770']")));
+    	
+        clickElement(driver.findElement(By.xpath("//label[@for='episode-drg177']")));
     }
 
     public void iClickOnEpisodeStatusFilterPresentOnFilterPage() {
@@ -987,8 +988,69 @@ public class PatientsPage extends BaseClass {
 	public void iClickOnAgreeAfterApplyingFilter(String button){
 		 if(driver.findElements(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='"+button+"']]")).isEmpty()){
 			 return;  
-			}else{
+			 }
+		 else{
 			   clickElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='"+button+"']]")));
-			}
+			 }
 	    }
+	
+	public void iSeeAdmitReasonFilterOnPatientCard(String admitreason){
+		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")), admitreason);
+	}
+	
+	public void iSeeAdmitReasonFilterOnPatientSummaryPage(String admitreason){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.admitReason.value']")), admitreason);
+	}
+	
+	public void iVerifyAnchorFacilityFilterOnPatientSummary(String text,String facility){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='patient."+text+".value']")), facility);
+	}
+	
+	public void IVerifyAnchorFaciltyOnPatientCard(String text,String facility){
+		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient."+facility+".value']")), text);
+	}
+	
+	public void IClickOnCarePlanOnPatientSummary(String careplan){
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-indicator ng-scope'][normalize-space(.) = '"+careplan+"']")));
+	}
+	
+	public void iVerifyCarePlanOnPatientSummary(){
+		isElementVisible(driver.findElement(By.xpath("//div[@class='header clearfix']")));
+	}
+	
+	public void iSwitchtoEc2PatientSummaryCarePlan(String frameXpath){
+		swithToFrame(frameXpath);
+	}
+	
+	public void iSwitchtoEligibilityFrameOnPatuentSummaryPage(String frameXpath){
+		swithToFrame(frameXpath);
+	}
+	
+	public void iVerifyInpatientForCareSeting(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[5]")), text);
+	}
+	
+	public void iClickOnFormsUnderCarePlan(){
+		clickElement(driver.findElement(By.cssSelector("a[href='#careFlowForms']")));
+	}
+	
+	public void iVerifyassignedInFormsUnderCarePlan(String text){
+		verifyTextForElementfromList(".label.label-warning.ng-scope", text);
+	}
+	
+	public void iVerifyFacilityColumnUnderTransitions(String facility){
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")), facility);
+	}
+	
+	public void iVerifyDrgStatusInPatientSummary(String text){
+		verifyTextForElement(driver.findElement(By.xpath("(//span[@class='label label-success'][text()='"+text+"'])[1]")), text);
+	}
+	
+	public void iVerifyEligibilityStatusOnPatientSummary(String eligible){
+		verifyTextForElement(driver.findElement(By.xpath("//a[@id='eligibility_button'][normalize-space(.) = '"+eligible+"']")), eligible);
+	}
+	
+	public void iVerifyTextEpisodeDrgOnPatientSummaryPage(String text){
+		verifyTextForElement(driver.findElement(By.xpath("(//td[normalize-space(.)='"+text+"'])[1]")), text);
+	}
 }

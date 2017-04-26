@@ -683,9 +683,9 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnCooperationMetricFilterPresentOnTheFilterPage();
     }
 
-    @When("^I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page$")
-    public void i_Click_on_Not_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page() throws Throwable {
-        patientsPage.iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage();
+    @When("^I Click on \"([^\"]*)\" checkbox under Cooperation Metric present on the Filter Page$")
+    public void i_Click_on_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page(String text) throws Throwable {
+        patientsPage.iClickOnAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage(text);
     }
 
     @When("^I click on Current Facility Filter present on Filter Page$")
@@ -1304,7 +1304,7 @@ public class PatientsPageSteps extends DriverScript {
     
     @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Episode DRG$")
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_episode_drg(String text) throws Throwable{
-    	patientsPage.iVerifySelectedFilterText(text);
+    	patientsPage.iVerifySelectedFilterText("Episode DRG: "+text);
     }
     
     @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Episode Status$")
@@ -1375,5 +1375,80 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I click on \"([^\"]*)\" button appearing on the patient card after applying filter$")
     public void i_click_agree_button_on_patient_card_after_applying_filter(String button) throws Throwable{
     	patientsPage.iClickOnAgreeAfterApplyingFilter(button);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on patient card on patient home page$")
+    public void i_verify_admit_reason_is_appearing_on_patient_card_on_patient_home_page(String admitreason) throws Throwable{
+    	patientsPage.iSeeAdmitReasonFilterOnPatientCard(admitreason);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page of patient$")
+    public void i_verify_admit_reason_is_appearing_on_the_patient_summary_page_of_patient(String admitreason) throws Throwable{
+    	patientsPage.iSeeAdmitReasonFilterOnPatientSummaryPage(admitreason);
+    }
+    
+    @Then("^I Verify \"([^\"]*)\" value is containing \"([^\"]*)\" under patient summary page$")
+    public void i_verify_anchor_facility_value_is_containing_under_patient_summary_page(String text,String facility) throws Throwable{
+    	patientsPage.iVerifyAnchorFacilityFilterOnPatientSummary(text, facility);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on patient card under \"([^\"]*)\" on patient home page$")
+    public void i_verify_is_appearing_on_patient_card_under_on_patient_home_page(String text,String facility) throws Throwable{
+    	patientsPage.IVerifyAnchorFaciltyOnPatientCard(text, facility);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" tab appearing under patient summary page to verify care plan created$")
+    public void i_click_on_tab__appearing_under_patient_summary_page_to_verify_care_paln_created(String careplan) throws Throwable{
+    	patientsPage.IClickOnCarePlanOnPatientSummary(careplan);
+    }
+    
+    @Then("^I verify care plan is appearing inside care plan tab on patient summary page$")
+    public void i_verify_care_plan_is_appearing_inside_care_plan_tab_on_patient_summary_page() throws Throwable{
+    	patientsPage.iVerifyCarePlanOnPatientSummary();
+    }
+    
+    @Then("^I switch to ec2 patient summary iframe$")
+    public void i_switch_to_ec2_patient_summary_careplan_iframe() throws Throwable{
+    	patientsPage.iSwitchtoEc2PatientSummaryCarePlan("//iframe[@class='not-showing ng-scope']");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under admit type column under patient summary transitions$")
+    public void i_verify_is_appearing_under_admit_type_column_under_patient_summary_transitions(String text) throws Throwable{
+    	patientsPage.iVerifyInpatientForCareSeting(text);
+    }
+    
+    @Then("^I click on forms tab under careplan on patient summary page$")
+    public void i_click_on_forms_tab_under_careplan_on_patient_summary_page() throws Throwable{
+    	patientsPage.iClickOnFormsUnderCarePlan();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in forms under careplan on patient summary page$")
+    public void i_verify_is_appearing_in_forms_under_careplan_on_patient_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyassignedInFormsUnderCarePlan(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under facility column under patient summary transitions$")
+    public void i_verify_is_appearing_under_facility_column_under_patient_summary_transitions(String facility) throws Throwable{
+    	patientsPage.iVerifyFacilityColumnUnderTransitions(facility);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under drg status column under transitions on patient summary page$")
+    public void i_verify_is_appearing_under_drg_status_column_under_transitions_on_patient_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyDrgStatusInPatientSummary(text);
+    }
+    
+    @When("^I switch to iframe of patient eligibility on patient summary page$")
+    public void i_switch_to_iframe_of_patient_eligibility_on_patient_summary_page() throws Throwable{
+    	patientsPage.iSwitchtoEligibilityFrameOnPatuentSummaryPage("//iframe[@id='iFrameEC2PatientEligibility']");
+    }
+    
+    @Then("I verify \"([^\"]*)\" is appearing in eligibility dropdown on patient summary page")
+    public void i_verify_is_appearing_in_eligibility_dropdown_on_patient_summary_page(String eligibility) throws Throwable{
+    	patientsPage.iVerifyEligibilityStatusOnPatientSummary(eligibility);
+    }
+    
+    @Then("I verify \"([^\"]*)\" is appearing under episode drg column under transitions on patient summary page")
+    public void i_verify_is_appearing_under_episode_drg_column_under_transitions_on_patienT_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyTextEpisodeDrgOnPatientSummaryPage(text);
     }
 }
