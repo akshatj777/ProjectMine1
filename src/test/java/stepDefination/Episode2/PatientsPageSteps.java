@@ -1442,13 +1442,18 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iSwitchtoEligibilityFrameOnPatuentSummaryPage("//iframe[@id='iFrameEC2PatientEligibility']");
     }
     
-    @Then("I verify \"([^\"]*)\" is appearing in eligibility dropdown on patient summary page")
+    @Then("^I verify \"([^\"]*)\" is appearing in eligibility dropdown on patient summary page$")
     public void i_verify_is_appearing_in_eligibility_dropdown_on_patient_summary_page(String eligibility) throws Throwable{
     	patientsPage.iVerifyEligibilityStatusOnPatientSummary(eligibility);
     }
     
-    @Then("I verify \"([^\"]*)\" is appearing under episode drg column under transitions on patient summary page")
+    @Then("^I verify \"([^\"]*)\" is appearing under episode drg column under transitions on patient summary page$")
     public void i_verify_is_appearing_under_episode_drg_column_under_transitions_on_patienT_summary_page(String text) throws Throwable{
     	patientsPage.iVerifyTextEpisodeDrgOnPatientSummaryPage(text);
+    }
+    
+    @Then("^I search with ([^\"]*) in the episode drg searchbox$")
+    public void i_search_with_in_the_episode_drg_searchbox(String drgid) throws Throwable{
+    	patientsPage.iSearchWithDrgIdInEpisodeDrg(drgid);
     }
 }

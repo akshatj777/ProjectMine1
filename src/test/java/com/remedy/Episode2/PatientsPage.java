@@ -718,8 +718,10 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iClickOnDrgTypeCheckboxUnderFilterOption() {
-    	
-        clickElement(driver.findElement(By.xpath("//label[@for='episode-drg177']")));
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//label[@for='episode-drg177']"));  
+    	js.executeScript("arguments[0].click();", element);
+        //clickElement(driver.findElement(By.xpath("//label[@for='episode-drg177']")));
     }
 
     public void iClickOnEpisodeStatusFilterPresentOnFilterPage() {
@@ -1052,5 +1054,10 @@ public class PatientsPage extends BaseClass {
 	
 	public void iVerifyTextEpisodeDrgOnPatientSummaryPage(String text){
 		verifyTextForElement(driver.findElement(By.xpath("(//td[normalize-space(.)='"+text+"'])[1]")), text);
+	}
+	
+	public void iSearchWithDrgIdInEpisodeDrg(String drgid){
+		clickElement(driver.findElement(By.xpath("//input[@placeholder='Search Episode DRG']")));
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search Episode DRG']")), drgid);
 	}
 }
