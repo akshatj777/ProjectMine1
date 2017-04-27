@@ -871,4 +871,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_under_anchor_admission_month_filter(String month) throws Throwable{
     	reportHomePage.iClickOnAnchorAdmissionMonth(month);
     }
+    
+    @Then("^I should not see \"([^\"]*)\" report after clicking on next site of care$")
+    public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);
+    }
 }
