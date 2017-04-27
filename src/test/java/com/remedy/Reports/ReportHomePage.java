@@ -677,5 +677,10 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnAnchorAdmissionMonth(String month){
     	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+month+"_TIME']")));
     }
+    
+    public void iShouldNotSeeReportName(String report){
+    	verifyTextNotPresentForElementFromList(".ng-binding.ng-scope", report);
+    }
+
 }
 
