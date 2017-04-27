@@ -134,4 +134,6 @@ public class SummarySectionSteps extends DriverScript{
     	 patientclinical.Iverifythatusershouldbeabletoclickontitleofdocument();
  	}
      
+     
+     
 }

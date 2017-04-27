@@ -243,11 +243,12 @@ public class PatientClinicalDocuments extends BaseClass {
 		
 	}
 
-	public void Iselectthefacilityvalueonaddanewtransition() {
+	public void Iselectthefacilityvalueonaddanewtransition() throws InterruptedException {
 		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
 		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"Allentown");
-		clickElement(driver.findElement(By.cssSelector("select2-result-label-1412")));
+		Thread.sleep(5000);
+		clickElement(driver.findElement(By.cssSelector("#select2-results-8 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
 		
 	}
 	//a[contains(text(),'Diagnosis and DRG')]
@@ -267,9 +268,9 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition() {
 		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.cssSelector("#select2-drop-mask")));
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"61");
-		clickElement(driver.findElement(By.cssSelector("select2-result-label-1761")));
+		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7_search")),"61");
+		clickElement(driver.findElement(By.cssSelector("#select2-results-7 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
 	}
 
 	public void IswitchtoPatientTransitionsframe() {

@@ -14,12 +14,12 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the ALL Tab on Patient page
-    And I wait for 8000 milli seconds
+    And I wait for 10000 milli seconds
     Then I should see search box appearing on the patients page
     Then I enter "<Last name> <First name>" in the search box on the patients page
-    And I wait for 5000 milli seconds
+    And I wait for 20000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 5000 milli seconds
     Then I switch to PatientTransitions frame
@@ -33,6 +33,7 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     Then I select the care type value on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the facility value on add a new transition
+    Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the DRG on the Diagnosis and DRG tab on add a new transition
