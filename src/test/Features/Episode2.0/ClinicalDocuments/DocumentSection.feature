@@ -19,25 +19,30 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     Then I enter "<Last name> <First name>" in the search box on the patients page
     And I wait for 5000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 20000 milli seconds
+    And I wait for 10000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page
-    And I wait for 20000 milli seconds
+    And I wait for 5000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
-    Then I wait for 10000 milli seconds
+    Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the date from the datepicker on add a new transition
+    Then I wait for 5000 milli seconds
     Then I select the care setting value on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the care type value on add a new transition
+    Then I wait for 5000 milli seconds
     Then I select the facility value on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the DRG on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 8000 milli seconds
+    And I wait for 8000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
     Then I verify that title of document or topic of note should appear as a link in the section
+    Then I verify that user should be able to click on title of document
+    And I wait for 5000 milli seconds
+    
     
     
 Examples:

@@ -22,6 +22,7 @@ Scenario Outline: Verify the buttons and text on Clinical Documents
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify there should be filter link on clinical document section  
     Then I verify Clinical Document Table should contain the following sections
+    
                 #Document
                 #Status
                 #Summary

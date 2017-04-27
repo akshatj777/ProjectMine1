@@ -123,9 +123,15 @@ public class SummarySectionSteps extends DriverScript{
      }
     
      @Then ("^I verify that title of document or topic of note should appear as a link in the section$")
-     public void I_verify_that_title_of_document_or_topic_of_note_should_appear_as_a_link_in_the_section()
+     public void I_verify_that_title_of_document_or_topic_of_note_should_appear_as_a_link_in_the_section() throws Throwable
      {
     	 patientclinical.Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection();
      }
+     
+     @Then ("^I verify that user should be able to click on title of document$")
+ 	public void I_verify_that_user_should_be_able_to_click_on_title_of_document() throws Throwable
+ 	{
+    	 patientclinical.Iverifythatusershouldbeabletoclickontitleofdocument();
+ 	}
      
 }

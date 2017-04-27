@@ -168,7 +168,7 @@ public class BaseClass {
         }
     }
 
-    public void getTextForElementfromList(String element) {
+    public List<String> getTextForElementfromList(String element) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         List<String> listtexts = new ArrayList<String>();
@@ -177,6 +177,16 @@ public class BaseClass {
         	item.getText();
         	listtexts.add(item.getText());
         }
+		return listtexts;
+         
+        }
+    
+    public List<WebElement> getElementsList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        
+        System.out.println("****The list of elements*****"+listItems);
+		return listItems;
          
         }
     
@@ -219,6 +229,15 @@ public class BaseClass {
             Assert.assertEquals(ele.getText(), text);
             
         }
+    }
+    
+    public String getTextForElement(WebElement ele) {
+        if (isElementVisible(ele)) {
+        	System.out.println(ele.getText());
+            
+            
+        }
+		return ele.getText();
     }
     
  
@@ -412,6 +431,12 @@ public class BaseClass {
    {
 	   Assert.assertEquals(requiredcombolisttext,actualcombolisttext);
    }
+    
+    public boolean getcheckboxvalue(String element)
+    {   
+        WebElement webElement=driver.findElement(By.xpath(element));
+        return webElement.isSelected();
+    }
     
   }
     

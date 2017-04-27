@@ -1,7 +1,10 @@
 package com.remedy.Episode2;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
@@ -222,7 +225,10 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void Iclickonthedatefromthedatepickeronaddanewtransition() {
 		// TODO Auto-generated method stub
 		
-		clickElement(driver.findElement(By.id("table > tbody > tr:nth-child(5) > td.day.active")));
+		clickElement(driver.findElement(By.cssSelector("td.day.active")));
+		clickElement(driver.findElement(By.cssSelector("span.hour.active")));
+		clickElement(driver.findElement(By.cssSelector("span.minute.active")));
+		
 		
 	}
 
@@ -233,12 +239,13 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Iselectthecaretypevalueonaddanewtransition() {
 		// TODO Auto-generated method stub
-		selectDropdownVisibleElement("bp_personbundle_bpadmissiontype_admitCareType","Inpatient");
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType","Inpatient");
+		
 	}
 
 	public void Iselectthefacilityvalueonaddanewtransition() {
 		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.cssSelector("#select2-drop-mask")));
+		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
 		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"Allentown");
 		clickElement(driver.findElement(By.cssSelector("select2-result-label-1412")));
 		
@@ -284,9 +291,169 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(element);
 		System.out.println("The CARL form is successfully clicked");
 	}
-	
+
+	public void Iclickonfilterlinkonclinicaldocumentsection() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("div > div.filter-bars.ng-scope>div > div.filter-bar-search > div.filter-bar-search-left > div > search-bar-controls > button-filters-toggle > button")));
+	}
+	//dropdown-header[contains(text(),'Filter patient documents')]
+
+	public void IVerifythatSelectingFilterslinkwhenthefiltersdrawerisopenshouldclosethedrawer() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("div > div.filter-bars.ng-scope>div > div.filter-bar-search > div.filter-bar-search-left > div > search-bar-controls > button-filters-toggle > button")));
+		if(isElementVisible(driver.findElement(By.cssSelector("div.filter-bars.ng-scope > div > div.filters-dropdown.id-filters-dropdown")))==false);
+		{
+			System.out.println("Filter successfully closed");
+		}
+	}
+
+	public void IVerifythatClinicalDocumentsFilterslinkshoulddisplayfiltersasbelowwiththecorrectsyntaxandsequence() {
+		// TODO Auto-generated method stub
+		List<String> actualcombolisttext = new ArrayList();
+        List<WebElement> elementtexts = new ArrayList();
+        List<String> requiredcombolisttext=new ArrayList();
+        String[] expectedvalues={"Baseline","Bedside Visit", "Care Assessment Note","Clinical Note", "Close Call", "Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care", "Patient Call", "Patient Education", "Patient Visit","Psychological Condition", "Transition Note", "TUG/RAPT/CARE Score"};
+        		
+        requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+       
+        elementtexts=driver.findElements(By.cssSelector("  div.checkbox > label > span"));
+        
+        for(WebElement elementtext:elementtexts )
+        {
+        actualcombolisttext.add(elementtext.getText());
+      
+          }
+        System.out.println("The combo text list is"+actualcombolisttext);
+       
+        verifyarraylist(requiredcombolisttext,actualcombolisttext);
+		
+	}
+
+	public void IVerifythatusershouldbeabletoselectmultiplefiltersbycheckbox() {
+		// TODO Auto-generated method stub
+		List<WebElement> myelementlist=getElementsList("checkbox-list > div > div > ul > li");
+		
+		for(int i=1;i<=myelementlist.size();i++)
+		{
+			
+			clickElement(driver.findElement(By.cssSelector("checkbox-list > div > div> ul > li:nth-child("+i+") > div.checkbox")));
+			isElementVisible(driver.findElement(By.cssSelector("checkbox-list > div > div> ul > li:nth-child(1) > div.checkbox>input..ng-not-empty")));
+		    	
+		}
+		
+		
+	}
+
+	public void IVerifythatcheckingmultiplefilteroptionsshouldreturnrelevantpatientsinreturn() {
+		// TODO Auto-generated method stub
+		
+		List<String> mytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
+		 String Filter=mytexts.get(0);
+		 String Filter1=mytexts.get(1);
+		clickElement(driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'"+ Filter + "')]")));
+		clickElement(driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'"+ Filter1 + "')]")));
+		
+		List<String> newmytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
+		if (newmytexts.contains(Filter) & (newmytexts.contains(Filter1))); 
+		{
+			System.out.println("Mutiple Values returns are relevant as per required");
+		}
 	
 	}
+
+	public void IVerifythatclickingonDoneshouldclosethefilterdrawerandprocessthefilter() {
+		// TODO Auto-generated method stub
+		
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Done')]")));
+		List<String> mytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
+		String Filter=mytexts.get(0);
+		 String Filter1=mytexts.get(1);
+		List<String> newmytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
+		if (newmytexts.contains(Filter) & (newmytexts.contains(Filter1))); 
+		{
+			System.out.println("Mutiple Values returns are relevant as per required on clicking on Done");
+		}
+	}
+
+	public void IclickonthedocumenttoopentheNotesontheClinicalDocuments() {
+		// TODO Auto-generated method stub
+		
+		clickElement(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(1) > a")));
+		isElementVisible(driver.findElement(By.cssSelector(" div > section ")));
+		}
+
+	public void IVerifythatNotesReadonlyformshouldbeaccessible() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector(" div > section ")));
+	}
+
+	public void IverifyTopicshouldbethenotetitle() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.note.ng-scope > h1")));
+		getTextForElement(driver.findElement(By.cssSelector("div.takeover-content.container.note.ng-scope > h1")));
+	}
+
+	public void IverifyBodytextboxshouldbethereonNotesReadonlyform() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")));
+         System.out.println("Body text box exists on Notes - Read only form"); 
+ 	}
+
+	public void IVerifythatUserroleshouldbedisplayedundernotesreadonlyform() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("article > h4 > strong")));
+	}
+
+	public void IVerifythatUseremailshouldbedisplayedundernotesreadonlyform() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("div > article > p > a")));
+		
+	}
+
+	public void IVerifythatUsernameshouldbedisplayedundernotesreadonlyform() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("article > h4 > strong")));
+		
+	}
+
+	public void IverifytheActivityDateandtimeofthenoteundernotesreadonlyform() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("article > div:nth-child(5) > strong")));
+		
+		
+	}
+	
+	public void Changing_Date_Format(String date_s) throws ParseException
+	{
+	
+		
+	        // *** note that it's "yyyy-MM-dd hh:mm:ss" not "yyyy-mm-dd hh:mm:ss"  
+	        SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy | hh:mm aa");
+	        Date date = dt.parse(date_s); //Converting String to Date
+	        // *** same for the format String below
+	        SimpleDateFormat dt1 = new SimpleDateFormat("MM/dd/yyyy | hh:mm aa");
+	        System.out.println(dt1.format(date));
+	 }
+
+	public void IVerifythatActivitydateshoulddisplayeddatewithformatMMDDYYYY() throws ParseException {
+		// TODO Auto-generated method stub
+		String date=getTextForElement(driver.findElement(By.cssSelector("// article > div:nth-child(5) > strong")));
+		Changing_Date_Format(date);
+	}
+
+	public void IverifythatthereisanAttachmentssectionthatshoulddisplayallattachments() {
+		// TODO Auto-generated method stub
+		
+		isElementVisible(driver.findElement(By.cssSelector("div.attachments.ng-scope")));
+		 
+	}
+	}
+	
+    
+	
+	 //small[contains(text(),'Activity date')]
+	
+	
 
 	
 	
