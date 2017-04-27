@@ -134,6 +134,16 @@ public class CreateUserSteps extends DriverScript{
         createUser.iSelectHealthSystem(healthSystem);
 
     }
+    
+    @Then("^I should see different tiles for different user role ([^\"]*)$")
+    public void iShouldSeeDifferentTilesForDifferentUserRole(String role) throws Throwable{
+    	createUser.iShouldSeeDifferentTilesForDifferentUserRole(role);
+    }
+    
+    @And("^I verify the dropdown list for user$")
+    public void iVerifyTheDropdownListForUser() throws Throwable{
+    	createUser.iVerifyTheDropdownListForUser();
+    }
 
     @Then("^I click on Create button$")
     public void iClickCreateButton() throws Throwable {

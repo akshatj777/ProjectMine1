@@ -113,7 +113,7 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iClickOnTheEmailReceivedToChangeYourPassword(){
-    	clickElement(driver.findElement(By.xpath("(//div[@title='FROM:']/div)[1]")));
+    	clickElement(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
     }
     
     public void iClickOnChangeMyPasswordLink(){
@@ -137,6 +137,10 @@ public class CreateUserPage extends BaseClass{
 
         selectElementByDesc(".ui-select-choices-row-inner", desc);
 
+    }
+    
+    public void iShouldSeeDifferentTilesForDifferentUserRole(String role){
+    	isElementVisible(driver.findElement(By.cssSelector(".title>p")));
     }
 
     public void iClickCreateButton (){
@@ -183,6 +187,10 @@ public class CreateUserPage extends BaseClass{
     public void iverifyCreateUserPageHeader (String header){
 
        verifyTextForElement(driver.findElement(By.cssSelector(".ng-scope>h2")), header );
+    }
+    
+    public void iVerifyTheDropdownListForUser(){
+    	isElementVisible(driver.findElement(By.cssSelector(".align-right>ul")));
     }
 
     public void iEnterProviderSerachText(String text){

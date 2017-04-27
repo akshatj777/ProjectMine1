@@ -37,7 +37,7 @@ public class EmailVarificationPage extends BaseClass {
 
     public void SelectNewEmail(){
 
-       clickElement(driver.findElement(By.xpath("//div[@title='FROM:']")));
+       clickElement(driver.findElement(By.xpath("//div[contains(text(),'Remedy Partners - Verify your account')]")));
     }
 
     public void clickConfirmAccountLink(){
