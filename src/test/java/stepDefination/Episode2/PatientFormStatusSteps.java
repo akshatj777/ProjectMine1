@@ -107,4 +107,17 @@ public class PatientFormStatusSteps extends DriverScript {
 	 {
 		 patientclinical.IverifythatArchivedstatusshouldbeinGreycolorwithColorcode959595();
 	 }
+	 
+	 @Then ("^I click on the cross button to close the CARL document form$")
+	 public void I_click_on_the_cross_button_to_close_the_CARL_document_form()
+	 {
+		 patientclinical.IclickonthecrossbuttontoclosetheCARLdocumentform();
+	 }
+	 
+	 @Then ("^I click on the Submit button to submit the CARL form$")
+	 public void I_click_on_the_Submit_button_to_submit_the_CARL_form()
+	 {
+		 patientclinical.IclickontheSubmitbuttontosubmittheCARLform();
+	 
+	 }
 }

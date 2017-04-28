@@ -134,6 +134,14 @@ public class SummarySectionSteps extends DriverScript{
     	 patientclinical.Iverifythatusershouldbeabletoclickontitleofdocument();
  	}
      
+     @Then ("^I click on the Create Transition Button to add a new transition$")
+     public void I_click_on_the_Create_Transition_Button_to_add_a_new_transition()
+     {
+    	 patientclinical.IclickontheCreateTransitionButtontoaddanewtransition();
+     }
      
      
+    
+     
+    
 }

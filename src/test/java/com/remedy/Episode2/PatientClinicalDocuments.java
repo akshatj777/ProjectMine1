@@ -129,14 +129,22 @@ public class PatientClinicalDocuments extends BaseClass {
         		
         requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
        
-        elementtexts=driver.findElements(By.cssSelector("table > thead > tr "));
+        elementtexts=driver.findElements(By.cssSelector("table > thead > tr > th "));
         
         for(WebElement elementtext:elementtexts )
         {
         actualcombolisttext.add(elementtext.getText());
       
           }
+        
        
+        for ( int i = 0;  i <  actualcombolisttext.size(); i++){
+        	 String element=actualcombolisttext.remove(actualcombolisttext.size() - 1);
+            if(actualcombolisttext.get(i).equals(element)){
+            	actualcombolisttext.remove(i);
+            }
+        }
+        
         verifyarraylist(requiredcombolisttext,actualcombolisttext);
              }
 
@@ -149,7 +157,18 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst() {
 		// TODO Auto-generated method stub
-		int count=getElementCount("table > tbody");
+		
+		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding"));
+		List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding");
+		List<String> newlist=new ArrayList<String>();
+		for(String mylist:mylists)
+		{
+			String[] values = mylist.split(",");
+			newlist.add(values[0]);
+		}
+		System.out.println("The new list is"+newlist);
+	}
+		/*int count=getElementCount("table > tbody");
 		List<String> listtexts = new ArrayList<String>();
 		listtexts.add(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div > span.time.ng-binding")).getText());
 		
@@ -157,10 +176,9 @@ public class PatientClinicalDocuments extends BaseClass {
 		{
 			String text=driver.findElement(By.cssSelector("table > tbody > tr:nth-child("+i+") > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")).getText();
 			listtexts.add(text);
-		}
+		}*/
 		
-		}
-
+		
 	public void IverifythepresenceofSummarysectionoftheClinicalDocumenttable() {
 		// TODO Auto-generated method stub
 		isElementVisible(driver.findElement(By.cssSelector("div > div.ng-scope > table > thead > tr > th:nth-child(3)")));
@@ -189,10 +207,24 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Iverifyifanoteishavingattachmentanddonothaveanysummarythenattachmentcountshouldappearinthesummarysection() {
 		// TODO Auto-generated method stub
-		isElementVisible(driver.findElement(By.cssSelector("//p[contains(text(),'attachments')]")));
-		System.out.println("^^^^^^The attached count is^^^^^^"+driver.findElement(By.cssSelector("//p[contains(text(),'attachments')]")).getText());
+		List<WebElement> lists=getElementsList("table > tbody > tr:nth-child(1) > td > p");
+	     
+		for(WebElement list : lists)
+		{
+		 if (list.getAttribute("class").equals("jquery-ellipse ng-binding ng-scope"))	
+				 {
+			   
+			      System.out.println("No Attachment found");
+			    	
+			    } else if (list.getAttribute("class").equals("ng-binding ng-scope"))	
+			    {
+			    	System.out.println("Attached is there");
+			    }
+				 }
 		
-}
+		}
+		
+
 
 	public void Iverifyformsshouldnotdisplayanymessageinthesummarysectionanditshouldbegreyedoutblank() {
 		// TODO Auto-generated method stub
@@ -245,7 +277,12 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Iselectthefacilityvalueonaddanewtransition() throws InterruptedException {
 		// TODO Auto-generated method stub
+	
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
+		Thread.sleep(5000);
 		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"Allentown");
 		Thread.sleep(5000);
 		clickElement(driver.findElement(By.cssSelector("#select2-results-8 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
@@ -255,7 +292,7 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG() {
 		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.cssSelector("//a[contains(text(),'Diagnosis and DRG')]")));
+		clickElement(driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2) > a")));
 		
 	}
 
@@ -383,6 +420,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(" div > section ")));
 		}
 
+	
 	public void IVerifythatNotesReadonlyformshouldbeaccessible() {
 		// TODO Auto-generated method stub
 		isElementVisible(driver.findElement(By.cssSelector(" div > section ")));
@@ -448,6 +486,100 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector("div.attachments.ng-scope")));
 		 
 	}
+
+	public void IclickontheCareAssessmentNotedocumenttoopentheNotesontheClinicalDocuments() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Care Assessment Note')]")));
+	}
+
+	public void IverifyinformationofthelastuserwhosavedtheindividualformisdisplayingontheLastsavedsection() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Baseline')]")));
+		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")));
+		
+	}
+
+	public void IverifyLastNameFirstNameanduserroleappearsinlastsavedsection() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span")));
+		
+	}
+
+	public void IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved() {
+		// TODO Auto-generated method stub
+		{
+			isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")));
+			
+		}
+		clickElement(driver.findElement(By.cssSelector("a.hover-pointer.ng-binding")));
+		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div.doc-edit.ng-scope"));
+
+ 
+	}
+
+	public void IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform() {
+		// TODO Auto-generated method stub
+		
+		
+		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding"));
+		List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding");
+		List<String> newlist=new ArrayList<String>();
+		for(String mylist:mylists)
+		{
+			String[] values = mylist.split(",");
+			newlist.add(values[0]);
+		}
+		System.out.println("The new list is"+newlist);
+	}
+
+	public void Iverifydateandtimeinformationappearsinlastsavedsection() {
+		// TODO Auto-generated method stub
+		
+		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")));
+	}
+
+	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {
+		// TODO Auto-generated method stub
+		if(isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td.empty-cell"))));
+		{
+			isElementVisible(driver.findElement(By.cssSelector("//a[not(contains(text(),'Show History'))]")));
+			
+		}
+	}
+
+	public void IclickontheCreateTransitionButtontoaddanewtransition() {
+		// TODO Auto-generated method stub
+	
+		clickElement(driver.findElement(By.cssSelector("#submitButton")));
+		 }
+
+	public void IclickonthecrossbuttontoclosetheCARLdocumentform() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
+		
+	}
+
+	public void IclickontheSubmitbuttontosubmittheCARLform() {
+		// TODO Auto-generated method stub
+		
+		clickElement(driver.findElement(By.cssSelector("div.top-row > div:nth-child(2) > button")));
+		
+	}
+
+	public void IverifythatuponselectingHideHistoryusershouldonlyseetheinformationofthelastuserwhosavedtheform() {
+		// TODO Auto-generated method stub
+		
+		clickElement(driver.findElement(By.cssSelector("//a[contains(text(),'Hide History')]")));
+		if (driver.findElement(By.cssSelector(" table > tbody > tr > td:nth-child(4) > div:nth-child(2)")).getAttribute("class").equals("doc-edit ng-scope ng-hide"));
+		{
+			System.out.println("Userseestheinformationofthelastuserwhosavedtheform");
+		}
+
+		
+	}
+	
+	
+	
 	}
 	
     

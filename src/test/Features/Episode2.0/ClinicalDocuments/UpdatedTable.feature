@@ -18,8 +18,9 @@ Scenario Outline: Verify the buttons and text on Clinical Documents
     Then I enter "<Last name> <First name>" in the search box on the patients page
     And I wait for 10000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
+    Then I wait for 5000 milli seconds
     Then I verify there should be filter link on clinical document section  
     Then I verify Clinical Document Table should contain the following sections
     
