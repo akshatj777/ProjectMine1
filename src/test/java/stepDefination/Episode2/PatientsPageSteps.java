@@ -1352,9 +1352,9 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iVerifySelectedFilterText("Quality Metrics: "+text);
     }
     
-    @Then("^I verify ([^\"]*) and ([^\"]*) is appearing under selected filters for Readmission Count$")
-    public void i_verify_filter_is_appearing_under_selected_filters_for_readmission_count(String arg1,String arg2) throws Throwable{
-    	patientsPage.iVerifySelectedFilterText("Readmission Count: "+arg1+" - "+arg2);
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Readmission Count$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_readmission_count(String arg1) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Readmission Count: "+arg1);
     }
     
     @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Risk Assessment$")
@@ -1398,8 +1398,13 @@ public class PatientsPageSteps extends DriverScript {
     }
     
     @Then("^I click on \"([^\"]*)\" tab appearing under patient summary page to verify care plan created$")
-    public void i_click_on_tab__appearing_under_patient_summary_page_to_verify_care_paln_created(String careplan) throws Throwable{
+    public void i_click_on_tab_appearing_under_patient_summary_page_to_verify_care_paln_created(String careplan) throws Throwable{
     	patientsPage.IClickOnCarePlanOnPatientSummary(careplan);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" tab appearing under patient summary page to verify medicareid$")
+    public void i_click_on_tab_appearing_under_patient_summary_page_to_verify_medicareid(String medicareid) throws Throwable{
+    	patientsPage.IClickOnPatientDetailsOnPatientSummary(medicareid);
     }
     
     @Then("^I verify care plan is appearing inside care plan tab on patient summary page$")
@@ -1455,5 +1460,90 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I search with ([^\"]*) in the episode drg searchbox$")
     public void i_search_with_in_the_episode_drg_searchbox(String drgid) throws Throwable{
     	patientsPage.iSearchWithDrgIdInEpisodeDrg(drgid);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient cards on the patient list page$")
+    public void i_verify_firstname_is_appearing_on_the_patient_cards_on_the_patient_list_page(String firstname) throws Throwable{
+    	patientsPage.iVerifyFirstNameOnPatientCardsOnPatientListPage(firstname);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient cards on the patient list page for lastname$")
+    public void i_verify_lastname_is_appearing_on_the_patient_cards_on_the_patient_list_page(String lastname) throws Throwable{
+    	patientsPage.iVerifyLastNameOnPatientCardsOnPatientListPage(lastname);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page$")
+    public void i_verify_is_appearing_on_the_patient_summary_page(String fname) throws Throwable{
+    	patientsPage.iVerifyFirstNameOnPatientSummaryPage(", "+fname);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page for lastname$")
+    public void i_verify_lastname_is_appearing_on_the_patient_summary_page(String lname) throws Throwable{
+    	patientsPage.iVerifyLastNameOnPatientSummaryPage(lname);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the patient cards on the patients home page$")
+    public void i_verify_is_appearing_on_the_patient_cards_on_the_patients_home_page(String gender) throws Throwable{
+    	patientsPage.iVerifyGenderOnPatientCards(gender);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the patient summary page$")
+    public void i_verify_gender_is_appearing_on_the_patient_summary_page(String gender) throws Throwable{
+    	patientsPage.iVerifyGenderOnPatientSumamry(gender);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under initiator on the patient summary page$")
+    public void i_verify_is_appearing_under_initiator_on_the_patient_summary_page(String initiator) throws Throwable{
+    	patientsPage.iVerifyInitiatorOnPatientSummary(initiator);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" initiator is appearing on the patient card on patient list home page$")
+    public void i_verify_initiator_is_appearing_on_the_patient_card_on_patient_list_home_page(String initiator) throws Throwable{
+    	patientsPage.iVerifyInitiatorOnPatientCard(initiator);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page to verify medicareid$")
+    public void i_verify_is_appearing_on_the_patient_summary_page_to_verify_medicareid(String memberid) throws Throwable{
+    	patientsPage.iVerifyMemberIdOnPatientSummaryPage(memberid);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page to verify ssn$")
+    public void i_verify_is_appearing_on_the_patient_summary_page_to_verify_ssn(String ssn) throws Throwable{
+    	patientsPage.iVerifySsnOnPatientSummaryPage(ssn);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient card readmission count$")
+    public void i_verify_is_appearing_on_the_patient_card_readmission_count(String count) throws Throwable{
+    	patientsPage.iVerifyReadmissionCountOnPatientCard(count);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" label is appearing on the patient card beside readmission count$")
+    public void i_verify_label_is_appearing_on_the_patient_card_beside_readmission_count(String text) throws Throwable{
+    	patientsPage.iVerifyReadmissionTextOnPatientCard(text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page for readmission count$")
+    public void i_verify_is_appearing_on_the_patient_summary_page_for_readmission_count(String count) throws Throwable{
+    	patientsPage.iVerifyReadmissionCountOnPatientCard(count);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" label is appearing on the patient summary page beside readmission count$")
+    public void i_verify_label_is_appearing_on_the_patient_summary_page_beside_readmission_count(String text) throws Throwable{
+    	patientsPage.iVerifyReadmissionTextOnPatientCard(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" risk status is appearing on the patient summary page$")
+    public void i_verify_risk_status_is_appearing_on_the_patient_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyRiskStatusOnPatientSummary(text);
+    }
+    
+    @Then("^I swich to patient tags iframe on patient summary page$")
+    public void i_switch_to_patient_tags_iframe_on_patient_summary_page() throws Throwable{
+    	patientsPage.iSitchtoPatientTagsIframe("//iframe[@id='iFrameEC2PatientTags']");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on patient summary page below tags$")
+    public void i_verify_is_appearing_on_patient_summary_page_below_tags(String tags) throws Throwable{
+    	patientsPage.iVerifyPatientTags(tags);
     }
 }

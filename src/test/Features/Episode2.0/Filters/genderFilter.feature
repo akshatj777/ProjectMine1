@@ -26,6 +26,11 @@ Feature: Episode 2.0 Gender Filter
      Then I verify "Male" is appearing under selected filters for Gender
      Then I click on "Agree" button appearing on the patient card after applying filter
      And I wait for 5000 milli seconds
+     Then I verify "M" is appearing on the patient cards on the patients home page
      When I click on the Expand button on the patient card on the patient page
      And I wait for 5000 milli seconds
+     Then I verify "M" is appearing on the patient summary page
+     And I wait for 2000 milli seconds
+     
+     
      

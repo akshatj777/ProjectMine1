@@ -1016,6 +1016,10 @@ public class PatientsPage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-indicator ng-scope'][normalize-space(.) = '"+careplan+"']")));
 	}
 	
+	public void IClickOnPatientDetailsOnPatientSummary(String medicareid){
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-indicator'][normalize-space(.) = '"+medicareid+"']")));
+	}
+	
 	public void iVerifyCarePlanOnPatientSummary(){
 		isElementVisible(driver.findElement(By.xpath("//div[@class='header clearfix']")));
 	}
@@ -1059,5 +1063,65 @@ public class PatientsPage extends BaseClass {
 	public void iSearchWithDrgIdInEpisodeDrg(String drgid){
 		clickElement(driver.findElement(By.xpath("//input[@placeholder='Search Episode DRG']")));
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search Episode DRG']")), drgid);
+	}
+	
+	public void iVerifyFirstNameOnPatientCardsOnPatientListPage(String firstname){
+		verifyTextForElementFromListByXpath("(//h3[@class='ng-scope']/span[2])",firstname);
+	}
+	
+	public void iVerifyLastNameOnPatientCardsOnPatientListPage(String lastname){
+		verifyTextForElementFromListByXpath("(//h3[@class='ng-scope']/span[1])",lastname);
+	}
+	
+	public void iVerifyFirstNameOnPatientSummaryPage(String fname){
+		verifyTextForElement(driver.findElement(By.cssSelector(".pull-left.ng-binding:nth-child(2)")), fname);
+	}
+	
+	public void iVerifyLastNameOnPatientSummaryPage(String lname){
+		verifyTextForElement(driver.findElement(By.cssSelector(".pull-left.ng-binding:nth-child(1)")), lname);
+	}
+	
+	public void iVerifyGenderOnPatientCards(String gender){
+		verifyTextForElementFromListByXpath("//span[normalize-space(.) = '"+gender+"']",gender);
+	}
+	
+	public void iVerifyGenderOnPatientSumamry(String gender){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding ng-scope'][normalize-space(.) = '"+gender+"']")), gender);
+	}
+	
+	public void iVerifyInitiatorOnPatientSummary(String initiator){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+initiator+"']")), initiator);
+	}
+	
+	public void iVerifyInitiatorOnPatientCard(String initiator){
+		verifyTextForElementFromListByXpath("//span[@ng-bind='::patient.episodeInitiator.value']",initiator);
+	}
+	
+	public void iVerifyMemberIdOnPatientSummaryPage(String memberid){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='patient.memberId.value']")), memberid);
+	}
+	
+	public void iVerifySsnOnPatientSummaryPage(String ssn){
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='SSN']/following-sibling::span")),ssn);
+	}
+	
+	public void iVerifyReadmissionCountOnPatientCard(String count){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.readmissionCounter.value']")), count);
+	}
+	
+	public void iVerifyReadmissionTextOnPatientCard(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.readmissionCounter.config.label']")), text);
+	}
+	
+	public void iVerifyRiskStatusOnPatientSummary(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//span[text()='"+text+"']")), text);
+	}
+	
+	public void iSitchtoPatientTagsIframe(String frameXpath){
+		swithToFrame(frameXpath);
+	}
+	
+	public void iVerifyPatientTags(String tags){
+		verifyTextForElementfromList(".tag-label.ng-binding", tags);
 	}
 }
