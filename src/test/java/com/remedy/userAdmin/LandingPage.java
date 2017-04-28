@@ -16,7 +16,13 @@ public class LandingPage extends BaseClass{
 
 
     public void iVerifyTextforTiles( String text){
-        verifyTextForElementfromList(".title>p", text);
+        
+    	if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).isEmpty()){
+    		return;
+    	}else{
+    		verifyTextForElementfromList(".title>p", text);
+    	}
+    	    	
     }
     
     public void iClickOnApplicateTile(String tile){

@@ -34,8 +34,18 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iTurnOffShareFile(){
-    	clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+    	
+    	try
+    	{
+    	if(driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()){
+    		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+    	}
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
     }
+    	
+    	    
     
     public void iClickPayerField(){
     	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
