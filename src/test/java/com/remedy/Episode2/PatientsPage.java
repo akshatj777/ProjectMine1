@@ -529,8 +529,6 @@ public class PatientsPage extends BaseClass {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.cssSelector("span.minute.active"));  
     	js.executeScript("arguments[0].click();", element);
-        //clickElement(driver.findElement(By.cssSelector("span.minute.active")));
-        //delay();
     }
 
     public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType) {
