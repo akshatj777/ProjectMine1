@@ -522,10 +522,16 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iSelectTodaysDateAsTheAdmissionDate() {
-        clickElement(driver.findElement(By.cssSelector("td.day.active")));
-        delay();
-        clickElement(driver.findElement(By.cssSelector("span.hour.active")));
-        delay();
+    	JavascriptExecutor jsdate = ((JavascriptExecutor) driver);
+    	WebElement elementdate = driver.findElement(By.cssSelector("td.day.active"));  
+    	jsdate.executeScript("arguments[0].click();", elementdate);
+        //clickElement(driver.findElement(By.cssSelector("td.day.active")));
+        //delay();
+        JavascriptExecutor jshour = ((JavascriptExecutor) driver);
+    	WebElement elementhour = driver.findElement(By.cssSelector("span.hour.active"));  
+    	jshour.executeScript("arguments[0].click();", elementhour);
+        //clickElement(driver.findElement(By.cssSelector("span.hour.active")));
+        //delay();
         JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.cssSelector("span.minute.active"));  
     	js.executeScript("arguments[0].click();", element);

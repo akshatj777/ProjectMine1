@@ -58,13 +58,13 @@ Scenario Outline: Create a Patient with Active M2 Episode and HHH Inpatient
     Then I select RESPIRATORY INFECTIONS & INFLAMATIONS from the DRG list present on the patient overview page
     And I wait for 4000 milli seconds
     Then I click on Create Transition button present on the patient overview page
-    And I wait for 2000 milli seconds
+    And I wait for 3000 milli seconds
     
     Examples:
-      | First name | Last name | Medicare ID |
-      | Worklist   | MTwoState | WA697644286 |
+      | First name   | Last name | Medicare ID |
+      | WorklistFive | MTwoState | WA615635285 |
       
-Scenario Outline: Search for created patient with Active M2 Episode and HHH Inpatient unde Preicted DRG Worklist
+Scenario: Search for created patient with Active M2 Episode and HHH Inpatient unde Preicted DRG Worklist
     
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
@@ -79,3 +79,9 @@ Scenario Outline: Search for created patient with Active M2 Episode and HHH Inpa
     When I click on "Inpatient" tab in the filter bar on patients page
     And I wait for 2000 milli seconds
     Then I click on "Confirm Predicted" worklist under "Inpatient" worklist on episode home page
+    And I wait for 5000 milli seconds
+    Then I should see search box appearing on the patients page
+    Then I enter "WorklistFive, MTwoState" in the search box on the patients page
+    And I wait for 60000 milli seconds
+    Then I verify patient having either WorklistFive first name or MTwoState last name on patient page
+    And I wait for 2000 milli seconds
