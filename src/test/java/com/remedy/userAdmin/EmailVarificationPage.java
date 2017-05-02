@@ -58,11 +58,11 @@ public class EmailVarificationPage extends BaseClass {
 
     public void iClickCheckForNewMail (){
     	
-    	for(int i=0;i<=8;i++)
+    	for(int i=0;i<=10;i++)
     	{
         clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
     	}
-        //isElementVisible(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
+        isElementVisible(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
         driver.navigate().refresh();
         
     }
