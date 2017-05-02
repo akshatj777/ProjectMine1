@@ -173,7 +173,7 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         List<String> listtexts = new ArrayList<String>();
         for (WebElement item : listItems) {
-            //System.out.println(item.getText());
+            System.out.println(item.getText());
         	item.getText();
         	listtexts.add(item.getText());
         }

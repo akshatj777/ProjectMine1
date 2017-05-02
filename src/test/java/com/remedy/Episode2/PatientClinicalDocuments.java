@@ -35,7 +35,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IclickontheClinicalDocumentstabinthepatientsummaryPage() {
 		// TODO Auto-generated method stub
 		
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Clinical Documents')]")));
+		clickElement(driver.findElement(By.cssSelector("div.page-patient.ng-scope > div > div.container.profile-info.ng-scope > div > div.filter-bars.ng-scope > tabbed-navbar > div > div.tabbed-navbar-left > div.tabbed-navbar-tabs > button:nth-child(3)")));
 	}
 
 	public void IverifytheCARLDocumentontheClinicalDocumentstabinthepatientsummaryPage() {
@@ -168,15 +168,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		System.out.println("The new list is"+newlist);
 	}
-		/*int count=getElementCount("table > tbody");
-		List<String> listtexts = new ArrayList<String>();
-		listtexts.add(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div > span.time.ng-binding")).getText());
 		
-		for(int i=2;i<=count;i++)
-		{
-			String text=driver.findElement(By.cssSelector("table > tbody > tr:nth-child("+i+") > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")).getText();
-			listtexts.add(text);
-		}*/
 		
 		
 	public void IverifythepresenceofSummarysectionoftheClinicalDocumenttable() {
@@ -256,13 +248,10 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Iclickonthedatefromthedatepickeronaddanewtransition() {
 		// TODO Auto-generated method stub
-		
 		clickElement(driver.findElement(By.cssSelector("td.day.active")));
 		clickElement(driver.findElement(By.cssSelector("span.hour.active")));
 		clickElement(driver.findElement(By.cssSelector("span.minute.active")));
-		
-		
-	}
+		}
 
 	public void Iselectthecaresettingvalueonaddanewtransition() {
 		// TODO Auto-generated method stub
@@ -277,22 +266,33 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Iselectthefacilityvalueonaddanewtransition() throws InterruptedException {
 		// TODO Auto-generated method stub
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    WebElement element1=driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
+	  
+	  
+	    
+	    js.executeScript("arguments[0].click();",element1);
+	    clickElement(element1);
+	    Thread.sleep(5000);
+		
+	    WebElement element2=driver.findElement(By.cssSelector("input#s2id_autogen8_search.select2-input.select2-focused"));
+	  
+		js.executeScript("arguments[0].click();",element2);
+		element2.sendKeys("Allentown");
+		Thread.sleep(10000);
+		  WebElement element3=driver.findElement(By.xpath("//div[contains(text(), 'Allentown - St Luke')]"));
+		 js.executeScript("arguments[0].click();",element3);
+		clickElement(element3);
+		}
 	
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
-		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
-		Thread.sleep(5000);
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"Allentown");
-		Thread.sleep(5000);
-		clickElement(driver.findElement(By.cssSelector("#select2-results-8 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
-		
-	}
-	//a[contains(text(),'Diagnosis and DRG')]
 
 	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG() {
 		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2) > a")));
+		 JavascriptExecutor js = (JavascriptExecutor)driver;
+		// ((JavascriptExecutor) driver).executeScript("scroll(0,-250);");
+		 WebElement element=driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)"));
+		 js.executeScript("arguments[0].click();", element);
+			clickElement(driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)")));
 		
 	}
 
@@ -354,7 +354,7 @@ public class PatientClinicalDocuments extends BaseClass {
         		
         requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
        
-        elementtexts=driver.findElements(By.cssSelector("  div.checkbox > label > span"));
+        elementtexts=driver.findElements(By.cssSelector("ul > li >div.checkbox > label > span"));
         
         for(WebElement elementtext:elementtexts )
         {
@@ -369,13 +369,14 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IVerifythatusershouldbeabletoselectmultiplefiltersbycheckbox() {
 		// TODO Auto-generated method stub
-		List<WebElement> myelementlist=getElementsList("checkbox-list > div > div > ul > li");
+		
+		List<WebElement> myelementlist=getElementsList("ul > li >div.checkbox > label > span");
 		
 		for(int i=1;i<=myelementlist.size();i++)
 		{
 			
 			clickElement(driver.findElement(By.cssSelector("checkbox-list > div > div> ul > li:nth-child("+i+") > div.checkbox")));
-			isElementVisible(driver.findElement(By.cssSelector("checkbox-list > div > div> ul > li:nth-child(1) > div.checkbox>input..ng-not-empty")));
+			isElementVisible(driver.findElement(By.cssSelector("checkbox-list > div > div> ul > li:nth-child(1) > div.checkbox>input.ng-not-empty")));
 		    	
 		}
 		
@@ -385,14 +386,15 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IVerifythatcheckingmultiplefilteroptionsshouldreturnrelevantpatientsinreturn() {
 		// TODO Auto-generated method stub
 		
-		List<String> mytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
+		List<String> mytexts=getTextForElementfromList("ul > li >div.checkbox > label > span");
+		System.out.println("****The list of text****"+mytexts);
 		 String Filter=mytexts.get(0);
 		 String Filter1=mytexts.get(1);
 		clickElement(driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'"+ Filter + "')]")));
 		clickElement(driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'"+ Filter1 + "')]")));
 		
 		List<String> newmytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
-		if (newmytexts.contains(Filter) & (newmytexts.contains(Filter1))); 
+		if (newmytexts.contains(Filter) && (newmytexts.contains(Filter1))); 
 		{
 			System.out.println("Mutiple Values returns are relevant as per required");
 		}
@@ -505,31 +507,31 @@ public class PatientClinicalDocuments extends BaseClass {
 		
 	}
 
-	public void IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved() {
+	public void IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved() throws InterruptedException {
 		// TODO Auto-generated method stub
-		{
-			isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")));
-			
-		}
-		clickElement(driver.findElement(By.cssSelector("a.hover-pointer.ng-binding")));
-		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div.doc-edit.ng-scope"));
-
- 
-	}
-
-	public void IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform() {
-		// TODO Auto-generated method stub
-		
-		
-		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding"));
-		List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding");
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
+	    clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
+	    Thread.sleep(5000);
+		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4) > div> span.time.ng-binding"));
 		List<String> newlist=new ArrayList<String>();
+		List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4) > div> span.time.ng-binding");
 		for(String mylist:mylists)
 		{
 			String[] values = mylist.split(",");
 			newlist.add(values[0]);
 		}
 		System.out.println("The new list is"+newlist);
+		
+	}
+
+	public void IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform() throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		 clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
+		 Thread.sleep(5000);
+		 List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4)>div");
+		System.out.println("The list is"+mylists);
+		
 	}
 
 	public void Iverifydateandtimeinformationappearsinlastsavedsection() {
@@ -577,6 +579,21 @@ public class PatientClinicalDocuments extends BaseClass {
 
 		
 	}
+
+	public void IclickontheTransitionInfoonaddanewtransition() {
+		// TODO Auto-generated method stub
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		// ((JavascriptExecutor) driver).executeScript("scroll(0,-250);");
+		 WebElement element=driver.findElement(By.xpath("//a[contains(text(), 'Transition Info')]"));
+		 js.executeScript("arguments[0].click();", element);
+		 clickElement(element);
+		
+	}
+
+	public void Iclickonhidehistorytodisableallthesavedformlist() {
+		// TODO Auto-generated method stub
+		 clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Hide History')]")));
+	}
 	
 	
 	
@@ -584,7 +601,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	
     
 	
-	 //small[contains(text(),'Activity date')]
+	 
 	
 	
 

@@ -24,7 +24,7 @@ public class LastSavedSteps extends DriverScript  {
 		 patientclinical.IverifyinformationofthelastuserwhosavedtheindividualformisdisplayingontheLastsavedsection();
 	 }
 	
-	 @Then ("^ Then I verify date and time information appears in last saved section$")
+	 @Then ("^I verify date and time information appears in last saved section$")
 	 
 	 
 	 public void I_verify_date_and_time_information_appears_in_last_saved_section()
@@ -33,7 +33,7 @@ public class LastSavedSteps extends DriverScript  {
 	 }
 	 
 
-     @Then ("^Then I verify LastName FirstName and userrole appears in last saved section$")
+     @Then ("^I verify LastName FirstName and userrole appears in last saved section$")
     		 
 	 
 	 public void I_verify_LastName_FirstName_and_userrole_appears_in_last_saved_section()
@@ -44,14 +44,14 @@ public class LastSavedSteps extends DriverScript  {
       
      @Then ("^I verify that upon Selecting Show History should display the information of all users who have saved that form$")
 	
-	 public void I_verify_that_upon_Selecting_Show_History_should_display_the_information_of_all_users_who_have_saved_that_form()
+	 public void I_verify_that_upon_Selecting_Show_History_should_display_the_information_of_all_users_who_have_saved_that_form() throws InterruptedException
 	 {
 		 patientclinical.IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform();
 	 }
 
      @Then ("^I verify upon clicking Show history link a list of users should appear in chronological order from most recent saved to oldest saved$")
 	 
-	public void I_verify_upon_clicking_Show_history_link_a_List_of_users_should_appear_in_chronological_order_from_most_recent_saved_to_oldest_saved ()
+	public void I_verify_upon_clicking_Show_history_link_a_List_of_users_should_appear_in_chronological_order_from_most_recent_saved_to_oldest_saved () throws InterruptedException
 	{
 		 patientclinical.IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved();
 	}
@@ -68,6 +68,10 @@ public class LastSavedSteps extends DriverScript  {
     	 patientclinical.IverifythatuponselectingHideHistoryusershouldonlyseetheinformationofthelastuserwhosavedtheform();
      }
      
-    
+     @Then ("^I click on hide history to disable all the saved form list$")
+    public void  I_click_on_hide_history_to_disable_all_the_saved_form_list()
+    {
+    	 patientclinical.Iclickonhidehistorytodisableallthesavedformlist();
+    }
 	
 }

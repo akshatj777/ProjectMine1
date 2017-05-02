@@ -139,7 +139,13 @@ public class SummarySectionSteps extends DriverScript{
      {
     	 patientclinical.IclickontheCreateTransitionButtontoaddanewtransition();
      }
-     
+  
+     @Then ("^I click on the Transition Info on add a new transition$")
+     public void I_click_on_the_Transition_Info_on_add_a_new_transition()
+     {
+    	 patientclinical.IclickontheTransitionInfoonaddanewtransition();
+    
+     }
      
     
      

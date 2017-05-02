@@ -50,6 +50,6 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     
 Examples:
 
-     | First name    | Last name    | Medicare ID |
-      |   | ABRQSXU  | wa984986    |
+     | First name    |  Last name   | Medicare ID  |
+     |               |    ABRQSXU   |  wa984986    |
 
