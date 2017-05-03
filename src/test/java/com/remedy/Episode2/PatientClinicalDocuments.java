@@ -35,7 +35,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IclickontheClinicalDocumentstabinthepatientsummaryPage() {
 		// TODO Auto-generated method stub
 		
-		clickElement(driver.findElement(By.cssSelector("div.page-patient.ng-scope > div > div.container.profile-info.ng-scope > div > div.filter-bars.ng-scope > tabbed-navbar > div > div.tabbed-navbar-left > div.tabbed-navbar-tabs > button:nth-child(3)")));
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Clinical Documents')]")));
 	}
 
 	public void IverifytheCARLDocumentontheClinicalDocumentstabinthepatientsummaryPage() {
@@ -58,8 +58,10 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickonthecompleteCARLonthePatientSummary() {
 		// TODO Auto-generated method stub
-	     
-		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope")));
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+	     WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
+	     js.executeScript("arguments[0].click();", element);
+		clickElement(element);
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {
@@ -235,7 +237,10 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void ThenIclickonaddanewtransitiontoaddanewepisode() {
 		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.cssSelector("#btnNewTransition")));
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+	     WebElement element = driver.findElement(By.cssSelector("#btnNewTransition"));
+	     js.executeScript("arguments[0].click();", element);
+		clickElement(element);
 		}
 
 	public void Iclickondatepickerbuttontoselecttheadmitdate() {
@@ -275,7 +280,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	    clickElement(element1);
 	    Thread.sleep(5000);
 		
-	    WebElement element2=driver.findElement(By.cssSelector("input#s2id_autogen8_search.select2-input.select2-focused"));
+	    WebElement element2=driver.findElement(By.cssSelector("#s2id_autogen9_search"));
 	  
 		js.executeScript("arguments[0].click();",element2);
 		element2.sendKeys("Allentown");
@@ -306,8 +311,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition() {
 		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7_search")),"61");
-		clickElement(driver.findElement(By.cssSelector("#select2-results-7 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),"61");
+		clickElement(driver.findElement(By.cssSelector("#select2-results-8 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
 	}
 
 	public void IswitchtoPatientTransitionsframe() {
