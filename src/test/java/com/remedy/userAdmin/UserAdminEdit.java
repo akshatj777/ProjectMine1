@@ -11,6 +11,10 @@ public class UserAdminEdit extends BaseClass {
 		super(driver);
 	}
 	
+	public void i_Enter_Search_Box_With(String search){
+		iFillInText(driver.findElement(By.cssSelector(".elastic-input")), search);
+	}
+	
 public void iClickOnTheUsernameCardUnderUserAdminPage(){
 	
 	clickElement(driver.findElement(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)")));
@@ -34,7 +38,7 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
  }
  
  public void i_Clicked_Under_Edit_User_Role_Tab(String Text){
-	 clickElement(driver.findElement(By.xpath("//div[text()='Executive']")));
+	 clickElement(driver.findElement(By.xpath("//div[text()='"+Text+"']")));
  }
  
  public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab(){
@@ -43,6 +47,10 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
  
  public void i_Verify_The_User_Role_Again(){
 	 isElementVisible(driver.findElement(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]")));
+ }
+ 
+ public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(int Count){
+	 verifyElementCount((".product-item-label.ng-binding"), Count);
  }
  
  public void i_Clicked_On_Edit_Button_Under_User_Phone_Row(){
@@ -71,6 +79,7 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
  }
  
  public void i_Clicked_On_Edit_Button_Under_Permissions_Data_Field(){
+	 isElementVisible(driver.findElement(By.xpath("//h3[text()='Data']")));
 	 clickElement(driver.findElement(By.xpath("//a[@class='btn btn-tertiary pull-right edit']")));
  }
  
@@ -91,11 +100,11 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
  }
  
  public void i_Enter_On_Search_Field_Under_Health_System_Name(String Text){
-	 iFillInText(driver.findElement(By.xpath("(//div[@placeholder='Search'])[1]")),Text);
+	 iFillInText(driver.findElement(By.xpath("(//input[@type='search'])[3]")),Text);
  }
  
  public void i_Clicked_On_RP_Payer_Test_B_From_Dropdown_List_Of_Health_System_Name(){
-	 clickElement(driver.findElement(By.xpath("//span[text()='RP Payer Test B']")));
+	 clickElement(driver.findElement(By.xpath("//a/span")));
  }
  
  public void i_Clicked_On_Search_Field_Under_Provider_Name(){
@@ -107,7 +116,7 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
  }
  
  public void i_Clicked_On_Select_All_Facilities_Under_Provider_Name(){
-	 clickElement(driver.findElement(By.xpath("//i[@class='valentino-icon-checkmark']")));
+	 clickElement(driver.findElement(By.cssSelector(".checkbox")));
  }
  
  public void i_Clicked_On_Save_Button_Under_Permissions_Data_Field(){

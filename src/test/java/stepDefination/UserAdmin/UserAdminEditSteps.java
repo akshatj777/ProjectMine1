@@ -9,6 +9,11 @@ import cucumber.api.java.en.Then;
 public class UserAdminEditSteps extends DriverScript {
 	UserAdminEdit UserEdit = new UserAdminEdit(driver);
 	
+	@Then("^I enter search box with ([^\"]*)$")
+	public void i_Enter_Search_Box_With(String search) throws Throwable{
+		UserEdit.i_Enter_Search_Box_With(search);
+	}
+	
 	@And("^I click on the username card under user admin page$")
 	public void i_Click_On_The_Username_Card_Under_User_Admin_Page() throws Throwable{
 		UserEdit.iClickOnTheUsernameCardUnderUserAdminPage();
@@ -34,12 +39,12 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Wait_For_Dropdown_List_To_Select_Role();
 	}
 	
-	@Then("^I clicked \"([^\"]*)\" under edit user role tab$")
-	public void i_Clicked_Under_Edit_User_Role_Tab(String Text) throws Throwable{
-		UserEdit.i_Clicked_Under_Edit_User_Role_Tab(Text);
+	@Then("^I clicked ([^\"]*) under edit user role tab$")
+	public void i_Clicked_Under_Edit_User_Role_Tab(String role) throws Throwable{
+		UserEdit.i_Clicked_Under_Edit_User_Role_Tab(role);
 	}
 	
-	@Then("^I clicked on Save button under edit user role tab$")
+	@Then("^I clicked on Save$")
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() throws Throwable{
 		UserEdit.i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab();
 	}
@@ -47,6 +52,11 @@ public class UserAdminEditSteps extends DriverScript {
 	@And("^I verify the user role again$")
 	public void i_Verify_The_User_Role_Again() throws Throwable{
 		UserEdit.i_Verify_The_User_Role_Again();
+	}
+	
+	@Then("^I verify ([^\"]*) product tiles appear for user under user edit details page$")
+	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(int Count) throws Throwable{
+		UserEdit.i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(Count);
 	}
 	
 	@Then("^I clicked on Edit button under user Phone row$")
