@@ -12,7 +12,6 @@ Scenario Outline: User should be able to remove default filters from CARL Report
     When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "CARL" report text for NSoC Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
