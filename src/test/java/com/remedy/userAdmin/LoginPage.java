@@ -64,7 +64,14 @@ public class LoginPage extends BaseClass {
 
 	public void iVerifyResetPasswordText(String text) {
 
-		verifyTextForElement(driver.findElement(By.cssSelector("h1.page-auth-title.divider-horz")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//h1[text()='Password Reset']")), text);
+	}
+	
+	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
+
+		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
+		delay();
+
 	}
 
 	public void iEnteruserEmail(String userName) {

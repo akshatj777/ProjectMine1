@@ -52,10 +52,16 @@ public class LoginPageSteps extends DriverScript{
         loginPage.iVerifyChagePasswordConfirmation( text);
     }
 
-    @And("^I should see text for reset password \"([^\"]*)\"$")
+    @And("^I should see text popup for reset password \"([^\"]*)\"$")
     public void iShouldSee(String resetPassword) throws Throwable {
 
         loginPage.iVerifyResetPasswordText(resetPassword);
+    }
+    
+    @And("^I click Okay button for reset password popup")
+    public void iClickOkayButtonForResetPasswordPopup() throws Throwable {
+
+        loginPage.iClickOkayButtonForResetPasswordPopupFromAccountLink();
     }
 
 

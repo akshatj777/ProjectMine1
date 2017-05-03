@@ -33,7 +33,7 @@ Feature: Create new User and verify Login logut of user
     Then I select all the application for the role
     And I turn off the share file application
     And I click on Create button
-    And I wait for 4000 milli seconds
+    And I wait for 10000 milli seconds
     Then I should see header text "User Management"
     Then I go to mail verification page
     When I enter the email for verification for <Email>
@@ -41,22 +41,23 @@ Feature: Create new User and verify Login logut of user
     Then I select the email to check
     And I click on the confirm account link
     And I switch to new window
-    # Upon clicking on confirm my account from welcome email, the below step is redirecting to EC1 Dashboard Page
-    # And I should see "Reset Password"
+    When I enter the email <Email> to generate password
+    Then I click on send email button
+    Then I switch back to old window
+    And I wait for 10000 milli seconds
+    Then I click check for new mails button
+    And I wait for 10000 milli seconds
+    And I click on the email received to change your password
+    And I wait for 2000 milli seconds
+    Then I click on change my password link
+    And I switch to new window
+    And I wait for 10000 milli seconds
     And I enter new <Password>
+    And I wait for 1000 milli seconds
     And I enter <Password> to confirm
     Then I click on change password button
     And I wait for 2000 milli seconds
-    # Upon clicking change password button, the below step is redirecting to EC1 Dashboard page.
-    # Then I should see "Reset Password"
-    # And I close current Window
-    Then I switch back to old window
-    Then I click check for new mails button
-    And I wait for 10000 milli seconds
-    And I click on Confirm Password Link
-    And I switch to new window
-    And I wait for 10000 milli seconds
-    #And I enter email field <email> for login
+    And I enter email <Email> for login
     And I enter password field <Password> for Login
     And I click Access button
     And I wait for 10000 milli seconds
@@ -81,22 +82,27 @@ Feature: Create new User and verify Login logut of user
     Then I switch back to old window
     And I wait for 1000 milli seconds
     Then I select Reset Password option from the dropdown
-    And I should see text for reset password "Reset Password"
+    And I should see text popup for reset password "Password Reset"
+    And I click Okay button for reset password popup
     And I click on the top user account link
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                       | Role                           | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | RemedyTechAdmin       | Remedy Technical Administrator | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect | Administration |
-      |            | Exe                   | Executive                      | Executive                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      | 1234567890 | Phy                   | Physicians                     | Physicians                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
-      |            | Mngr                  | Manager                        | Manager                        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyTCS             | Remedy TCS                     | Remedy TCS                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyLPN             | Remedy LPN                     | Remedy LPN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyRN              | Remedy RN                      | Remedy RN                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyFieldRN         | Remedy Field RN                | Remedy Field RN                | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyPM              | Remedy PM                      | Remedy PM                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedySalesTeam       | Remedy Sales Team              | Remedy Sales Team              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU | Reports |              | Institute |                  |                |
-      |            | RemedyExe             | Remedy Executive               | Remedy Executive               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | ProspectivePartnerExe | Prospective Partner Executive  | Prospective Partner Executive  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU |         |              | Institute |                  |                |
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
+      |            | PPA                   | Partner Program Administrator | Partner Program Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           | Physican connect |                |
+      |            | RPA                   | Remedy Program Administrator  | Remedy Program Administrator  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
+      |            | TCMngr                | Transitional Case Manager     | Transitional Case Manager     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports |              |           |                  |                |
+      |            | Exe                   | Executive                     | Executive                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      | 1234567890 | Phy                   | Physicians                    | Physicians                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
+      |            | Mngr                  | Manager                       | Manager                       | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RemedyTCS             | Remedy TCS                    | Remedy TCS                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RemedyLPN             | Remedy LPN                    | Remedy LPN                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RemedyRN              | Remedy RN                     | Remedy RN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RemedyFieldRN         | Remedy Field RN               | Remedy Field RN               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RemedyPM              | Remedy PM                     | Remedy PM                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RemedySalesTeam       | Remedy Sales Team             | Remedy Sales Team             | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU | Reports |              | Institute |                  |                |
+      |            | RemedyExe             | Remedy Executive              | Remedy Executive              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | ProspectivePartnerExe | Prospective Partner Executive | Prospective Partner Executive | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU |         |              | Institute |                  |                |
+      |            | RmdyOthr              | Remedy Other                  | Remedy Other                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | CaseMngr              | Case Manager                  | Case Manager                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           |                  |                |
