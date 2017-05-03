@@ -510,7 +510,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnSelectAllCheckboxPresentOnThePatientPage();
     }
 
-    @When("^I click on Export button present on the Patient Page to export the Patient List$")
+    @When("^I click on Export button present on export drawer box to export the Patient List$")
     public void i_click_on_Export_button_present_on_the_Patient_Page_to_export_the_Patient_List() throws Throwable {
         patientsPage.iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList();
     }
