@@ -62,7 +62,7 @@ Scenario Outline: Create a Patient with Active M2 Episode and HHH Inpatient
     
     Examples:
       | First name   | Last name | Medicare ID |
-      | WorklistFive | MTwoState | WA615635285 |
+      | WorklistSev  | MTwoState | WA625935285 |
       
 Scenario: Search for created patient with Active M2 Episode and HHH Inpatient unde Preicted DRG Worklist
     
@@ -81,7 +81,7 @@ Scenario: Search for created patient with Active M2 Episode and HHH Inpatient un
     Then I click on "Confirm Predicted" worklist under "Inpatient" worklist on episode home page
     And I wait for 5000 milli seconds
     Then I should see search box appearing on the patients page
-    Then I enter "WorklistFive, MTwoState" in the search box on the patients page
+    Then I enter "WorklistSev, MTwoState" in the search box on the patients page
     And I wait for 60000 milli seconds
-    Then I verify patient having either WorklistFive first name or MTwoState last name on patient page
+    Then I verify patient having either WorklistSev first name or MTwoState last name on patient page
     And I wait for 2000 milli seconds

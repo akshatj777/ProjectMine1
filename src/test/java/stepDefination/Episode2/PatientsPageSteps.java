@@ -1379,6 +1379,6 @@ public class PatientsPageSteps extends DriverScript {
     
     @Then("^I click on \"([^\"]*)\" worklist under \"([^\"]*)\" worklist on episode home page$")
     public void i_click_on_worklist_under_worklist_On_episode_home_page(String sworklist,String mworklist) throws Throwable{
-    	
+    	patientsPage.iClickOnWorklistOnEpisodeHomePage(sworklist, mworklist);
     }
 }
