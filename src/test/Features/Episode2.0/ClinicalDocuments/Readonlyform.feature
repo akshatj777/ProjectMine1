@@ -36,5 +36,9 @@ Given I am on the login page
     Then I Verify that Activity date should displayed date with format MM/DD/YYYY
     Then I verify that there is an Attachments section that should display all attachments
     
+    Examples:
+    | First name    | Last name    | Medicare ID |
+    |   PATIENT     |   CROST      | wa984986    |
+    
     
     
