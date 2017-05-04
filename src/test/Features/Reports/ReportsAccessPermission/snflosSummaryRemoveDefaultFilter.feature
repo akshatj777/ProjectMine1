@@ -11,7 +11,6 @@ Feature: Remove the default filters from SNF LOS Summary Report
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
@@ -21,9 +20,6 @@ Feature: Remove the default filters from SNF LOS Summary Report
     Then I remove "Model" field filter under "Model" filter field from default filters
     Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
     Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
-    Then I remove "Participant ID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "BPID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "CCN" field filter under "Anchor Facility" filter field from default filters
     
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds

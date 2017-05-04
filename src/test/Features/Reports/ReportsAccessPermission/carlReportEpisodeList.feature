@@ -12,7 +12,6 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "CARL" report text for NSoC Reports 
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     Then I click on a number under episodes column
     And I wait for 5000 milli seconds
@@ -34,7 +33,6 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "AtRisk" is appearing under Episodes table
     Then I should verify "Anchor Facility" is appearing under Episodes table
     Then I should verify "1st Post Acute CCN" is appearing under Episodes table
-    Then I should verify "NSOC Category" is appearing under Episodes table
     Then I should verify "Anchor Discharge Care Setting" is appearing under Episodes table
     Then I should verify "Anchor Discharge Care Type" is appearing under Episodes table
     Then I should verify "Anchor Discharge Care Setting Code (EC)" is appearing under Episodes table
@@ -46,7 +44,6 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "Agrees with CARL Proposal" is appearing under Episodes table
     Then I should verify "Disagreement Reasons" is appearing under Episodes table
     Then I should verify "Ambulatory Status" is appearing under Episodes table
-    #Then I should verify "ADL’s" is appearing under Episodes table
     Then I should verify "Capable Caregiver Availability" is appearing under Episodes table
     Then I should verify "Ostomy Care" is appearing under Episodes table
     Then I should verify "Tube Feeding" is appearing under Episodes table

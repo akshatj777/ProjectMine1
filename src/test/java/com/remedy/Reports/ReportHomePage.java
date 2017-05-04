@@ -171,8 +171,8 @@ public class ReportHomePage extends BaseClass {
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
 
-    public void iVerifyEpisodeDataIssuesPatientIDReportPageHeader(String text){
-        verifyTextForElement(driver.findElement(By.xpath("//td[text()='Episode Data Issues']")), text);
+    public void iVerifyInpatientEpisodeClearingIssuesPatientIDReportPageHeader(String text){
+        verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
     
     public void iVerifyEpisodeDRGIssuesReportPageHeader(String text){
@@ -306,7 +306,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTextUnderProgramOverviewReport(String text){
-        verifyTextForElement(driver.findElement(By.cssSelector("#topchartsTitleObj")), text);
+        verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
     }
     
     public void iShouldSeeUnderOverallProgram(String text){
@@ -537,7 +537,7 @@ public class ReportHomePage extends BaseClass {
     
     public void IVerifyURLAfterClickingAdjustedHistoricButton(){
     	String ReportURL = driver.getCurrentUrl();
-    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview?url=pentaho%2Fapi%2Frepos%2F%253Apublic%253ACtoolsDashboards%253Arelease%253AProgramOverview.wcdf%2FgeneratedContent" );
+    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
     }
     
     public void iSelectFilterInFilterOptions(String text){
@@ -677,5 +677,10 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnAnchorAdmissionMonth(String month){
     	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+month+"_TIME']")));
     }
+    
+    public void iShouldNotSeeReportName(String report){
+    	verifyTextNotPresentForElementFromList(".ng-binding.ng-scope", report);
+    }
+
 }
 
