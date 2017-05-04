@@ -30,14 +30,8 @@ public class CompleteCarlformSteps extends DriverScript{
 		completecarl.IverifyCARLbuttonisappearingonthepatientcardornot();
 	}
 	
-	@Then ("^I verify the blank status on CARL Document on the Clinical Documents tab in the patient summary Page$")
-	public void I_verify_the_blank_status_on_CARL_Document_on_the_Clinical_Documents_tab_in_the_patient_summary_Page()
-	{
-		completecarl.IverifytheblankstatusonCARLDocumentontheClinicalDocumentstabinthepatientsummaryPage();
-	}
-	
 
-	@Then ("^I select the button to delete the transition$")
+		@Then ("^I select the button to delete the transition$")
 	public void I_select_on_the_button_to_delete_the_transition()
 	{
 		completecarl.Iselectonthebuttontodeletethetransition();
@@ -56,8 +50,49 @@ public class CompleteCarlformSteps extends DriverScript{
 		 completecarl.IclickonOktodeletethetransition();
 	 }
 	 
-	 
+	 @Then ("^I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page$")
+	 public void I_Verify_that_Clicking_on_Complete_CARL_button_Carl_form_should_appear_as_a_takeover_page()
+	 {
+		 completecarl.IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage();
+	 }
 			 
+	 @Then("I Verify that Carl form should appear with White bar with Patient Name \"([^\"]*)\" \"([^\"]*)\" and x icon on the page$")
+	 public void I_Verify_that_Carl_form_should_appear_with_White_bar_with_Patient_Name_Last_First_name_and_x_icon_on_the_page(String lastname,String firstname)
+	 {
+		 completecarl.IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(lastname,firstname);
+	 }
+	 
+	 @Then ("^I Verify that Carl form should appear with Cancel link$")
+	 public void I_Verify_that_Carl_form_should_appear_with_Cancel_link()
+	 {
+		 completecarl.IVerifythatCarlformshouldappearwithCancellink();
+	 }
+	 
+	 
+	 @Then ("^I Verify that Carl form should appear with Save your progress link$")
+	 public void I_Verify_that_Carl_form_should_appear_with_Save_your_progress_link()
+	 {
+		 completecarl.IVerifythatCarlformshouldappearwithSaveyourprogresslink();
+	 }
+	 
+	 @Then ("^I Verify that Carl form should appear with form link$")
+	 public void I_Verify_that_Carl_form_should_appear_with_form_link()
+	 {
+		 completecarl.IVerifythatCarlformshouldappearwithformlink();
+	 }
+	 
+	 
+	 @Then ("^I Verify that Carl form should appear Left navigator displaying four sections$")
+	 public void I_Verify_that_Carl_form_should_appear_Left_navigator_displaying_four_sections()
+	 {
+		 completecarl.IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections();
+		 
+	 }
+
+	     
+	   
+	    
+	 
 	 
 	
 }

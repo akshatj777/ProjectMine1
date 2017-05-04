@@ -1,5 +1,9 @@
 package com.remedy.Episode2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +27,7 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IclosethepatientsummaryPage() {
 		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.cssSelector("body > div.modal-open > div > div > div > div.row.page-nav.ng-scope > div > a")));
+		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
 	public void IverifyCARLbuttonisappearingonthepatientcardornot() {
@@ -31,10 +35,6 @@ public class CompleteCarlform extends BaseClass {
 		 isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
 	}
 
-	public void IverifytheblankstatusonCARLDocumentontheClinicalDocumentstabinthepatientsummaryPage() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void Iselectonthebuttontodeletethetransition() {
 		// TODO Auto-generated method stub
@@ -53,8 +53,50 @@ public class CompleteCarlform extends BaseClass {
 		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
 	}
-	
 
+	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
+		
+		 isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
+		
+	}
+
+	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname,String firstname) {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+lastname+", "+firstname+"')]")));
+		isElementVisible(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
+	}
+
+	public void IVerifythatCarlformshouldappearwithCancellink() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Cancel')]")));
+		
+	}
+
+	public void IVerifythatCarlformshouldappearwithSaveyourprogresslink() {
+		// TODO Auto-generated method stub
+		
+		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Save your progress')]")));	
+		
+		
+	}
+
+	public void IVerifythatCarlformshouldappearwithformlink() {
+		// TODO Auto-generated method stub
+		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'review the form')]")));	
+		
+	}
+
+	public void IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections() {
+		// TODO Auto-generated method stub
+		
+		List<String> mylist=getTextForElementfromList("span.label-content.ng-binding");
+		String[] expectedvalues={"Caregiver","Independence", "Anticipated Discharge Needs","Discharge"};
+		List<String> requiredcombolisttext=new ArrayList();
+        requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+        verifyarraylist(requiredcombolisttext,mylist);
+	}
+	
+	
 	
 	
 	
