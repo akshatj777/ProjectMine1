@@ -58,10 +58,12 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickonthecompleteCARLonthePatientSummary() {
 		// TODO Auto-generated method stub
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-	     WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
-	     js.executeScript("arguments[0].click();", element);
+	//	JavascriptExecutor js = ((JavascriptExecutor) driver);
+	     WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));
+	    // js.executeScript("arguments[0].click();", element);
+	     //delay();
 		clickElement(element);
+		//delay();
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {

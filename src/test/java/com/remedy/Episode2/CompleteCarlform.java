@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,9 +20,10 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IverifyCARLbuttonsappearsonthepatientsummary() {
 		// TODO Auto-generated method stub
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-	     WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
-	     js.executeScript("arguments[0].click();", element);
+		//JavascriptExecutor js = ((JavascriptExecutor) driver);
+	     WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));
+	   //  js.executeScript("arguments[0].click();", element);
+	     delay();
 		 isElementVisible(element);
 	}
 
@@ -96,9 +98,34 @@ public class CompleteCarlform extends BaseClass {
         verifyarraylist(requiredcombolisttext,mylist);
 	}
 	
+	public void IHoverOn_i_IconOnTakeOverPage(String icon){
+		moveToTheElement(driver.findElement(By.xpath("//i[contains(@uib-tooltip,'"+icon+"')]")));
+		delay();
+	}
 	
+	public void IVerifyTheTextHoverOnCaregiver(){
+		String HoverOnCaregiverText = "Identify all caregivers physically and mentally able to provide required support to the patient in a home setting. Caregiver(s) do not necessarily need to reside in the home, but ADL support and treatment needs must be met.";
+		WebElement item = driver.findElement(By.xpath("//i[contains(@uib-tooltip,'Caregiver')]"));
+        try {
+            Assert.assertEquals(item.getAttribute("uib-tooltip"),HoverOnCaregiverText);
+        } catch (Exception e) {
+
+        }
+	}
 	
+	public void IClickOnAnticpatedDischargeNeeds(String text){
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+	}
 	
+	public void IVerifyTheTextHoverOnPatientsRestorationPotential(){
+		String HoverOnPatientsRestorationText = "Restoration potential is defined as the extent to which a patient's condition will improve materially in a reasonable and generally predictable period of time";
+		WebElement item = driver.findElement(By.xpath("//i[contains(@uib-tooltip,'Restoration potential')]"));
+        try {
+            Assert.assertEquals(item.getAttribute("uib-tooltip"),HoverOnPatientsRestorationText);
+        } catch (Exception e) {
+
+        }
+	}
 	
 	
 }

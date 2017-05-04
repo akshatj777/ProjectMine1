@@ -89,10 +89,40 @@ public class CompleteCarlformSteps extends DriverScript{
 		 
 	 }
 
+	 @Then ("^I hover on i icon present on ([^\"]*) on TakeOver page$")
+	 public void I_hover_on_icon_present_on_TakeOver_page(String icon)
+	 {
+		 completecarl.IHoverOn_i_IconOnTakeOverPage(icon);
+	 }	 
+	 
+	 @Then ("^I Verify the text hovering i icon on caregiver$")
+	 public void I_Verify_the_text_hovering_icon_on_caregiver()
+	 {
+		 completecarl.IVerifyTheTextHoverOnCaregiver();
+	 }
+	 
+	 @Then ("^I Click on ([^\"]*) on takeover page$")
+	 public void I_Click_on_Anticipated_Discharge_Needs_on_takeover_page(String text)
+	 {
+		 completecarl.IClickOnAnticpatedDischargeNeeds(text);
+	 }
+	 
+	 @Then ("^I Click on ([^\"]*) on Anticipated Discharge Needs page$")
+	 public void I_Click_on_Physical_therapy_on_Anticipated_Discharge_Needs_page(String text)
+	 {
+		 completecarl.IClickOnAnticpatedDischargeNeeds(text);
+	 }
+	 
+	 @Then ("^I Verify the text hovering i icon on Patients Restoration Potential$")
+	 public void I_Verify_the_text_hovering_icon_on_Patients_Restoration_Potential()
+	 {
+		 completecarl.IVerifyTheTextHoverOnPatientsRestorationPotential();
+	 	 
 	     
 	   
-	    
+	 }
+}
 	 
 	 
 	
-}
+

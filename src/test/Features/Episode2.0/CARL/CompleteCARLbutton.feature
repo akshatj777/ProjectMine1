@@ -1,13 +1,12 @@
 Feature: Complete CARL button
 
-Scenario Outline: The ‘Complete CARL’ button should appear on the patient card with active Episodes 
+  Scenario Outline: The ‘Complete CARL’ button should appear on the patient card with active Episodes
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -41,7 +40,7 @@ Scenario Outline: The ‘Complete CARL’ button should appear on the patient card w
     Then I click on the Create Transition Button to add a new transition
     And I wait for 10000 milli seconds
     When I switch to default window from iframe
-     Then I wait for 5000 milli seconds
+    Then I wait for 5000 milli seconds
     Then I close the patient summary Page
     Then I verify CARL button is appearing on the patient card or not
     Then I click on the "<Last name>" searched patient which has the CARL text in it
@@ -52,23 +51,23 @@ Scenario Outline: The ‘Complete CARL’ button should appear on the patient card w
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     Then I Verify that Carl form should appear with White bar with Patient Name "<Last name>" "<First name>" and x icon on the page
     Then I Verify that Carl form should appear with Cancel link
-    Then I Verify that Carl form should appear with Save your progress link 
+    Then I Verify that Carl form should appear with Save your progress link
     Then I Verify that Carl form should appear with review the form link
     Then I Verify that Carl form should appear with review the form link
     Then I Verify that Carl form should appear Left navigator displaying four sections
     Then I save and continue the complete CARL form
     Then I save and continue the complete CARL form
     Then I save and continue the complete CARL form
-    Then I save and continue the complete CARL form  
+    Then I save and continue the complete CARL form
     Then I close the patient summary Page
-     And I wait for 10000 milli seconds
+    And I wait for 10000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
-    Then I verify that if user has saved a form but not submitted, status should be read as In Progress 
+    Then I verify that if user has saved a form but not submitted, status should be read as In Progress
     Then I click on the complete CARL on the Patient Summary
     Then I save and continue the complete CARL form
     Then I save and continue the complete CARL form
     Then I save and continue the complete CARL form
-    Then I save and continue the complete CARL form  
+    Then I save and continue the complete CARL form
     Then I click on the Submit button to submit the CARL form
     And I wait for 5000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
@@ -87,11 +86,7 @@ Scenario Outline: The ‘Complete CARL’ button should appear on the patient card w
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I verify CARL button is appearing on the patient card or not
-   
-    
-Examples:
 
-     | First name    | Last name    | Medicare ID |
-      |  PATIENT  | TRISTO  | wa984986    |
-   
-  
+    Examples: 
+      | First name | Last name | Medicare ID |
+      | PATIENT    | TRISTO    | wa984986    |
