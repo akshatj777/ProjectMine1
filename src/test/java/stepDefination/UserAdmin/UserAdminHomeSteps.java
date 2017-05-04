@@ -169,5 +169,44 @@ public class UserAdminHomeSteps extends DriverScript{
         public void iShouldSeePagination() throws Throwable {
             userAdminHome.iSeePagination();
         }
+        
+        @Then("^I verify pagination box appearing at the bottom of useradmin home page$")
+        public void i_verify_pagination_box_appearing_at_the_bottom_of_useradmin_home_page() throws Throwable{
+        	userAdminHome.iSeePagination();
+        }
        
+        @Then("^I Verify \"([^\"]*)\" button is appearing beside the pagination on user admin home page$")
+        public void i_verify_next_button_is_appearing_beside_the_pagination_on_user_admin_home_page(String text) throws Throwable{
+        	userAdminHome.iSeeNextButtonAppearingBesidePaginatioN(text);
+        }
+        
+        @And("^I click on \"([^\"]*)\" button beside pagination on user admin home page$")
+        public void i_click_on_next_button_beside_pagination_on_user_admin_home_page(String next) throws Throwable{
+        	userAdminHome.iClickOnNextButtonBesidePaginationOnUserAdminHomePage(next);
+        }
+        
+        @Then("^I enter \"([^\"]*)\" in the pagination input box on user admin home page$")
+        public void i_enter_number_in_the_pagination_input_box_on_user_admin_home_page(String number) throws Throwable{
+        	userAdminHome.iEnterNumberINPaginationInputBox(number);
+        }
+        
+        @Then("^I verify users with \"([^\"]*)\" button present on useradmin home page$")
+        public void i_verify_users_with_button_present_on_useradmin_home_page(String button) throws Throwable{
+        	userAdminHome.iVerifyButtonOnUserAdminHomePage(button);
+        }
+        
+        @Then("^I verify \"([^\"]*)\" appearing on locked useradmin cards on useradmin home page$")
+        public void i_verify_appearing_on_locked_useradmin_cards_on_useradmin_home_page(String text) throws Throwable{
+        	userAdminHome.iVerifyTextForLockedUserAdminCards(text);
+        }
+        
+        @Then("^I click on \"([^\"]*)\" button on the useradmin cards on useradmin home page$")
+        public void i_click_on_button_on_the_useradmin_home_page(String text) throws Throwable{
+        	userAdminHome.iClickOnUnlockButtonOnUserAdminHomePage(text);
+        }
+        
+        @Then("^I verify \"([^\"]*)\" is appearing for the useradmin cards which are \"([^\"]*)\" on useradmin home page$")
+        public void i_verify_is_appearing_for_the_useradmin_cards_which_are_on_useradmin_home_page(String text,String button) throws Throwable{
+        	userAdminHome.iVerifyUnlockCardsInformation(text, button);
+        }
 }

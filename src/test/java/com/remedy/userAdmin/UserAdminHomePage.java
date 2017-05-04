@@ -168,5 +168,38 @@ public class UserAdminHomePage extends BaseClass {
 		delay();
 		isElementVisible(driver.findElement(By.cssSelector(".page-selector.ng-binding")));
 	}
-
+	
+	public void iSeeNextButtonAppearingBesidePaginatioN(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//span[text()='"+text+"']")),text);
+	}
+	
+	public void iClickOnNextButtonBesidePaginationOnUserAdminHomePage(String next){
+		clickElement(driver.findElement(By.xpath("//button[span[text()='"+next+"']]")));
+	}
+	
+	public void iEnterNumberINPaginationInputBox(String number){
+		iFillInText(driver.findElement(By.xpath("//input[@type='number']")), number);
+	}
+	
+	public void iVerifyButtonOnUserAdminHomePage(String button){
+		verifyTextForElementFromListByXpath("//span[text()='"+button+"']",button);
+	}
+	
+	public void iVerifyTextForLockedUserAdminCards(String text){
+		verifyTextForElementFromListByXpath("//strong[text()='"+text+"']",text);
+	}
+	
+	public void iClickOnUnlockButtonOnUserAdminHomePage(String text){
+		clickElement(driver.findElement(By.xpath("(//button[span[text()='"+text+"']])[2]")));
+	}
+	
+	public void iVerifyUnlockCardsInformation(String text,String button){
+		if ("".equals(button)){
+   		 return;
+   	}
+   	else{
+   		verifyTextForElement(driver.findElement(By.xpath("//strong[text()='"+text+"']")),text);
+   	}   	
+	}
+	
 }
