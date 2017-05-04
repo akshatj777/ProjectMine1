@@ -2,6 +2,7 @@ package com.remedy.userAdmin;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -123,4 +124,27 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
 	 clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
  }
  
+ public void i_Verify_The_Text_Under_Permissions_Data_Section(){
+	 isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
+ }
+ 
+ public void i_Clicked_On_Stamford_Hospital_From_Dropdown_List_Of_Health_System_Name(){
+	 clickElement(driver.findElement(By.xpath("//a/span")));
+ }
+ 
+ public void i_Verify_The_Share_File_Tile_Toggle_Off_Button(){
+	 try
+ 	{
+		 String class1="ng-untouched.ng-valid.ng-not-empty";
+		 WebElement element=driver.findElement(By.cssSelector("body > div.modal-open > div > div > div > div.takeover-content.ng-scope > div > div > div > div.layout-area.products > div > products-list > ul > li:nth-child(4)>div>label>input"));
+ 	     System.out.println("********the element classs is ******" + element.getAttribute("class"));
+		 if(element.getAttribute("class")==class1){
+ 		
+ 		System.out.println("Shared Toggle Button is ON ! Let's close it");
+ 		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='On']")));
+ 	}
+ 	}catch(Exception e){
+ 		e.printStackTrace();
+ 	}
+ }
 }

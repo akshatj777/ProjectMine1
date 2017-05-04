@@ -144,5 +144,19 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_On_Save_Button_Under_Permissions_Data_Field();
 	}
 	
+	@Then("^I verify the text under permissions data section$")
+	public void i_Verify_The_Text_Under_Permissions_Data_Section() throws Throwable{
+		UserEdit.i_Verify_The_Text_Under_Permissions_Data_Section();
+	}
+	
+	@Then("^I clicked on Stamford Hospital from dropdown list of Health system Name$")
+	public void i_Clicked_On_Stamford_Hospital_From_Dropdown_List_Of_Health_System_Name() throws Throwable{
+		UserEdit.i_Clicked_On_Stamford_Hospital_From_Dropdown_List_Of_Health_System_Name();
+	}
+	
+	@And("^I verify the share file tile toggle off button$")
+	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws Throwable{
+		UserEdit.i_Verify_The_Share_File_Tile_Toggle_Off_Button();
+	}
 	
 }
