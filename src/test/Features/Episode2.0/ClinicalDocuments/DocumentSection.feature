@@ -44,7 +44,6 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     And I wait for 20000 milli seconds
     When I switch to default window from iframe
     Then I click on the Clinical Documents tab in the patient summary Page
-    Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
     Then I verify that title of document or topic of note should appear as a link in the section
     Then I verify that user should be able to click on title of document
     And I wait for 5000 milli seconds
@@ -54,5 +53,6 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
 Examples:
 
      | First name    |  Last name   | Medicare ID  |
-     |               |    ABRQSXU   |  wa984986    |
+     |      MOR         |    TEST    |  wa984986    |
+
 

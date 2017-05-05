@@ -124,7 +124,8 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     And I wait for 20000 milli seconds
     When I switch to default window from iframe
     Then I click on the Clinical Documents tab in the patient summary Page
-    Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
+ #   Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
+    Then I wait for 10000 milli seconds
     Then I click on the complete CARL on the Patient Summary
     And I wait for 10000 milli seconds
     Then I save and continue the complete CARL form

@@ -44,7 +44,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IverifythatifuserhassavedaformbutnotsubmittedstatusshouldbereadasInProgress() {
-	
+	    
 		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'In Progress')]")));
 		}
 
@@ -56,11 +56,13 @@ public class PatientClinicalDocuments extends BaseClass {
 		Assert.assertTrue(value.equals("ad77b3"));
 	}
 
-	public void IclickonthecompleteCARLonthePatientSummary() {
+	public void IclickonthecompleteCARLonthePatientSummary() throws InterruptedException {
 		// TODO Auto-generated method stub
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
+ 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 	     WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
-	     js.executeScript("arguments[0].click();", element);
+	  //   js.executeScript("arguments[0].scrollIntoView(true);", element);
+	     js.executeScript("window.scrollBy(0,-250)", "");
+	     Thread.sleep(5000);
 		clickElement(element);
 	}
 
@@ -598,6 +600,11 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void Iclickonhidehistorytodisableallthesavedformlist() {
 		// TODO Auto-generated method stub
 		 clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Hide History')]")));
+	}
+
+	public void IverifytheCARLDocumentnotappearontheClinicalDocumentstabinthepatientsummaryPage() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
