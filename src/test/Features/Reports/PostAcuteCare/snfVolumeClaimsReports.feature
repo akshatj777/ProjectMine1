@@ -71,11 +71,6 @@ Feature: Snf volume claims Post Acute Care
     And I wait for 3000 milli seconds
     And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
 
-    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
-    And I double click on current mouse location element
-    And I wait for 5000 milli seconds
-    Then I should see SNF volume reports column Tile text as "CCN"
-
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
