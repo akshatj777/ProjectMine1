@@ -133,18 +133,27 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
  }
  
  public void i_Verify_The_Share_File_Tile_Toggle_Off_Button(){
+	
 	 try
- 	{
-		 String class1="ng-untouched.ng-valid.ng-not-empty";
-		 WebElement element=driver.findElement(By.cssSelector("body > div.modal-open > div > div > div > div.takeover-content.ng-scope > div > div > div > div.layout-area.products > div > products-list > ul > li:nth-child(4)>div>label>input"));
- 	     System.out.println("********the element classs is ******" + element.getAttribute("class"));
-		 if(element.getAttribute("class")==class1){
- 		
+	 {
+		 WebElement element=driver.findElement(By.xpath("//li[span[text()='Share File'] ]/div/label/input[@class='ng-pristine ng-untouched ng-valid ng-not-empty']"));
+ 	    // System.out.println("********the element classs is ******" + element.getAttribute("class"));
+
+		 if(element.isDisplayed()){
+ 		try
+ 		{
+		
  		System.out.println("Shared Toggle Button is ON ! Let's close it");
  		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='On']")));
+		 }catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 }
+	 }	
+ 	       catch(Exception e){
+ 		   e.printStackTrace();
  	}
- 	}catch(Exception e){
- 		e.printStackTrace();
- 	}
+	 }
  }
-}
+

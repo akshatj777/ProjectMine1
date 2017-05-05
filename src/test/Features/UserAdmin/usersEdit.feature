@@ -17,7 +17,8 @@ Feature: User admin edit users details
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
     Then I verify <count1> product tiles appear for user under user edit details page
-    #And I verify the share file tile toggle off button
+    And I verify the share file tile toggle off button
+    And I wait for 3000 milli seconds
     Then I clicked on Edit button under user Role row
     And I wait for 2000 milli seconds
     And I clicked on role tab to edit the user role assigned
@@ -28,7 +29,8 @@ Feature: User admin edit users details
     And I wait for 2000 milli seconds
     And I verify the user role again
     Then I verify <count2> product tiles appear for user under user edit details page
-    #And I verify the share file tile toggle off button
+    And I verify the share file tile toggle off button
+    And I wait for 3000 milli seconds
     Then I clicked on Edit button under user Phone row
     And I wait for 2000 milli seconds
     And I clicked on Phone tab to edit the user Phone number
@@ -58,8 +60,9 @@ Feature: User admin edit users details
     Then I clicked on save button under permissions data field
     And I wait for 3000 milli seconds
     Then I clicked on Edit button under user Role row
-    And I wait for 2000 milli seconds
+    And I wait for 3000 milli seconds
     And I clicked on role tab to edit the user role assigned
+    And I wait for 4000 milli seconds
     And I Wait for dropdown list to select role
     Then I clicked <Role2> under edit user role tab
     Then I clicked on Save
@@ -86,7 +89,7 @@ Feature: User admin edit users details
     Then I clicked on save button under permissions data field
     And I wait for 3000 milli seconds
     Then I clicked on Edit button under user Phone row
-    And I wait for 2000 milli seconds
+    And I wait for 3000 milli seconds
     And I clicked on Phone tab to edit the user Phone number
     And I cleared the textbox field under edit user phone tab
     And I enter valid phone number "8358654789"
