@@ -11,12 +11,10 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     Then I should see performance reports column Tile text as "Participant"
     Then I should see performance reports column Tile text as "Episode Initiator"
-    #Then I should see performance reports column Tile text as "Anchor Facility"
     Then I should see performance reports column Tile text as "Bundle"
     Then I should see performance reports column Tile text as "Anchor Admission Quarter" 
     
@@ -88,7 +86,6 @@ Scenario Outline: Verify that Financial Performance claims report display data b
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
 
     When I switch to default window from iframe
-    #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title

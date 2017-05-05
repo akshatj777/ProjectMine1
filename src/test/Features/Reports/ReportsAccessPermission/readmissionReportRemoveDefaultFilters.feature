@@ -12,16 +12,12 @@ Scenario Outline: User should be able to remove default filters from Readmission
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions" report text for Readmissions Reports 
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Model" field filter under "Model" filter field from default filters
-    Then I remove "Participant ID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "BPID" field filter under "Episode Initiator" filter field from default filters
-    Then I remove "CCN" field filter under "Anchor Facility" filter field from default filters
     
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds

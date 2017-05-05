@@ -11,8 +11,8 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions" report text for Readmissions Reports 
-    And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
+    And I wait for 40000 milli seconds
+    
     When I switch to reports embedded iframe
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
@@ -56,7 +56,6 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "DRG Code" appearing under "level" field
     Then I should see "DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
-    Then I should see "Discharge Category" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
     Then I should see "Episode Status" appearing under "level" field
@@ -140,31 +139,8 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
     
-    When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I wait for 2000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-    And I should see "Participant" in the header text of filter page
-    And I should see "<participant>" in the filter value list
-    And I click on "<participant>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
     
-    When I click to "BPID" field filter under "Episode Initiator" filter field
-    And I wait for 2000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-    And I should see "BPID" in the header text of filter page
-    And I should see "<BPID1>" in the filter value list
-    And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
-       
     Examples:
     
-      | email                         | Menu 1      | participant | BPID1   |
-      | shutestaug231132a@yopmail.com | Patient ID  | Penn        | 2070-021|
+      | email                         |
+      | shutestaug231132a@yopmail.com |

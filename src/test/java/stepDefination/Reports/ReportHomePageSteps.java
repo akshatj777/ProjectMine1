@@ -235,9 +235,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
     }
 
-    @Then("^I should see \"([^\"]*)\" in the Episode Data Issues Patient ID report page header$")
-    public void i_should_see_in_the_Episode_Data_Issues_Patient_ID_report_page_header(String headedText) throws Throwable {
-        reportHomePage.iVerifyEpisodeDataIssuesPatientIDReportPageHeader(headedText);
+    @Then("^I should see \"([^\"]*)\" in the Inpatient Episode Clearing Patient ID report page header$")
+    public void i_should_see_in_the_Inpatient_Episode_Clearing_Patient_ID_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyInpatientEpisodeClearingIssuesPatientIDReportPageHeader(headedText);
     }
     
     @Then("^I should see \"([^\"]*)\" in the Episode DRG Issues Patient ID report page header$")
@@ -870,5 +870,10 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I click on \"([^\"]*)\" under anchor admission month filter$")
     public void i_click_on_under_anchor_admission_month_filter(String month) throws Throwable{
     	reportHomePage.iClickOnAnchorAdmissionMonth(month);
+    }
+    
+    @Then("^I should not see \"([^\"]*)\" report after clicking on next site of care$")
+    public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);
     }
 }
