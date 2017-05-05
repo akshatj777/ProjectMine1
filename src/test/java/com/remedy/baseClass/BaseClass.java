@@ -1,15 +1,19 @@
 package com.remedy.baseClass;
 
-import java.util.List;
-import java.util.Set;
-
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import com.remedy.resources.DriverScript;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import static stepDefination.CommonSteps.actionEvent;
 
 /**
@@ -17,11 +21,12 @@ import static stepDefination.CommonSteps.actionEvent;
  */
 public class BaseClass {
 
-	public WebDriver driver = null;
+
+    public WebDriver driver = null;
     protected static long Wait_Time = 1000L;
     protected static long delay_Time = 2000L;
     protected static long LongDelay_Time = 5000L;
-   
+
     public BaseClass(final WebDriver driver) {
 
         this.driver = driver;
@@ -380,6 +385,5 @@ public class BaseClass {
     }
     
    }
-
 
 
