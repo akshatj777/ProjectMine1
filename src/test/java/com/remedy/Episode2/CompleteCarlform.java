@@ -68,35 +68,53 @@ public class CompleteCarlform extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
+	
+	public void IVerifyLinksUnderCarlFormCaregiverSection(String link) {
+		
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'"+link+"')]")));
+		
+	}
+	
 	public void IVerifythatCarlformshouldappearwithCancellink() {
 		// TODO Auto-generated method stub
-		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Cancel')]")));
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Cancel')]")));
 		
 	}
 
 	public void IVerifythatCarlformshouldappearwithSaveyourprogresslink() {
 		// TODO Auto-generated method stub
 		
-		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Save your progress')]")));	
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Save your progress')]")));	
 		
 		
 	}
 
-	public void IVerifythatCarlformshouldappearwithformlink() {
+	public void IVerifythatCarlformshouldappearwithReviewformlink() {
 		// TODO Auto-generated method stub
-		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'review the form')]")));	
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'review the form')]")));	
 		
 	}
 
 	public void IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections() {
 		// TODO Auto-generated method stub
 		
-		List<String> mylist=getTextForElementfromList("span.label-content.ng-binding");
+		List<String> actualmylist=getTextForElementfromList("span.label-content.ng-binding");
 		String[] expectedvalues={"Caregiver","Independence", "Anticipated Discharge Needs","Discharge"};
-		List<String> requiredcombolisttext=new ArrayList();
+     	List<String> requiredcombolisttext=new ArrayList();
         requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-        verifyarraylist(requiredcombolisttext,mylist);
+        verifyarraylist(requiredcombolisttext,actualmylist);
 	}
+	
+	public void IVerifyThatDoesthePatientHaveACapableCaregiverShouldAppearOnTakeoverPage(String question) {
+		
+		isElementVisible(driver.findElement(By.xpath("//h3[contains(text(),'"+question+"')]")));
+				
+	}
+	
+	public void IVerifythatOptionsShouldbePresentBelowCapableCaregiverQuestion(String option) {
+		verifyTextForElementfromList(".radio.ng-empty.ng-valid>label>span",option);
+	}
+	
 	
 	public void IHoverOn_i_IconOnTakeOverPage(String icon){
 		moveToTheElement(driver.findElement(By.xpath("//i[contains(@uib-tooltip,'"+icon+"')]")));

@@ -62,33 +62,33 @@ public class CompleteCarlformSteps extends DriverScript{
 		 completecarl.IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(lastname,firstname);
 	 }
 	 
-	 @Then ("^I Verify that Carl form should appear with Cancel link$")
-	 public void I_Verify_that_Carl_form_should_appear_with_Cancel_link()
+	 @Then ("^I Verify that Carl form should appear with ([^\"]*) link$")
+	 public void I_Verify_Links_Under_CarlForm_CaregiverSection(String link)
 	 {
-		 completecarl.IVerifythatCarlformshouldappearwithCancellink();
-	 }
-	 
-	 
-	 @Then ("^I Verify that Carl form should appear with Save your progress link$")
-	 public void I_Verify_that_Carl_form_should_appear_with_Save_your_progress_link()
-	 {
-		 completecarl.IVerifythatCarlformshouldappearwithSaveyourprogresslink();
-	 }
-	 
-	 @Then ("^I Verify that Carl form should appear with form link$")
-	 public void I_Verify_that_Carl_form_should_appear_with_form_link()
-	 {
-		 completecarl.IVerifythatCarlformshouldappearwithformlink();
+		 completecarl.IVerifyLinksUnderCarlFormCaregiverSection(link);
 	 }
 	 
 	 
 	 @Then ("^I Verify that Carl form should appear Left navigator displaying four sections$")
 	 public void I_Verify_that_Carl_form_should_appear_Left_navigator_displaying_four_sections()
 	 {
-		 completecarl.IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections();
-		 
+		 completecarl.IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections();	
 	 }
 
+	 @Then ("^I verify that ([^\"]*) should appear on takeover page$")
+	 public void I_Verify_CapableCaregiver_question(String question)
+	 {
+		 completecarl.IVerifyThatDoesthePatientHaveACapableCaregiverShouldAppearOnTakeoverPage(question);
+	 }
+	 
+	 @Then ("^I verfiy that ([^\"]*) option is present under Does the patient have a capable caregiver$")
+	 public void I_Verify_that_option_present_below_CapableCaregiver_question(String option)
+	 {
+		 completecarl.IVerifythatOptionsShouldbePresentBelowCapableCaregiverQuestion(option);
+	 }
+	 	 
+	 
+	 
 	 @Then ("^I hover on i icon present on ([^\"]*) on TakeOver page$")
 	 public void I_hover_on_icon_present_on_TakeOver_page(String icon)
 	 {

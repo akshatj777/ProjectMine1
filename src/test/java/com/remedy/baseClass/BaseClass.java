@@ -225,7 +225,7 @@ public class BaseClass {
 
     public void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
-        	System.out.println(ele.getText());
+        	//System.out.println(ele.getText());
             Assert.assertEquals(ele.getText(), text);
             
         }
