@@ -2,27 +2,26 @@ package com.remedy.baseClass;
 
 import java.util.List;
 import java.util.Set;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.remedy.resources.DriverScript;
+import static stepDefination.CommonSteps.actionEvent;
 
 /**
  * Created by salam on 7/27/15.
  */
-public class BaseClass extends DriverScript{
+public class BaseClass {
 
+	public WebDriver driver = null;
     protected static long Wait_Time = 1000L;
     protected static long delay_Time = 2000L;
     protected static long LongDelay_Time = 5000L;
-    protected WebDriver driver = new DriverScript().getDriver();
-    
-    public Actions actionEvent = new Actions(driver);
-    
+   
     public BaseClass(final WebDriver driver) {
 
         this.driver = driver;

@@ -28,7 +28,7 @@ public class CommonSteps extends DriverScript {
     LandingPage landingPage = new LandingPage(driver);
     BaseClass baseClass = new BaseClass(driver);
 
-    public Actions actionEvent = new Actions(driver);
+    public static Actions actionEvent = new Actions(driver);
 
     @Given("I am on the login page$")
     public void setup() throws Throwable {

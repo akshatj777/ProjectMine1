@@ -81,8 +81,11 @@ public class ReportHomePage extends BaseClass {
         moveToTheElement(driver.findElement(By.xpath(toElementLocator)));
     }
 
-    public void iMoveToElementAndPerformRightClick(String moveToElementLocator){
-		moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
+    public void iMoveToElementAndPerformRightClick(String filterField, String filterTitle){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
+    	delay();
+    	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
+		//moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){

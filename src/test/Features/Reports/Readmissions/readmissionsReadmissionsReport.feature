@@ -57,11 +57,6 @@ Feature: Readmissions readmisisons
     And I wait for 3000 milli seconds
     And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
     
-    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
-    And I double click on current mouse location element
-    And I wait for 5000 milli seconds
-    Then I should see Readmission reports column Tile text as "CCN"
-
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
