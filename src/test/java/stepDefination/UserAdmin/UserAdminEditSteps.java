@@ -54,9 +54,14 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Verify_The_User_Role_Again();
 	}
 	
-	@Then("^I verify ([^\"]*) product tiles appear for user under user edit details page$")
-	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(int Count) throws Throwable{
-		UserEdit.i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(Count);
+	@Then("^I verify product tiles appear for user under user edit details page$")
+	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page() throws Throwable{
+		UserEdit.i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page();
+	}
+	
+	@Then("^I verify product tiles appear for user under user edit details page after role change$")
+	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page_After_Role_Change() throws Throwable{
+		UserEdit.i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page_After_Role_Change();
 	}
 	
 	@Then("^I clicked on Edit button under user Phone row$")

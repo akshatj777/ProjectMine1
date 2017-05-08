@@ -1,5 +1,8 @@
 package com.remedy.userAdmin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,8 +53,15 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
 	 isElementVisible(driver.findElement(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]")));
  }
  
- public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(int Count){
-	 verifyElementCount((".product-item-label.ng-binding"), Count);
+ public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page(){
+	 int count=getElementCount(".product-item-label.ng-binding");
+	 System.out.println("$$$$The count value is "+ count);
+	 //verifyElementCount((".product-item-label.ng-binding"), Count);
+ }
+ 
+ public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page_After_Role_Change() throws Throwable{
+	 int count=getElementCount(".product-item-label.ng-binding");
+	 System.out.println("$$$$The count value is "+ count);
  }
  
  public void i_Clicked_On_Edit_Button_Under_User_Phone_Row(){
@@ -132,28 +142,51 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
 	 clickElement(driver.findElement(By.xpath("//a/span")));
  }
  
- public void i_Verify_The_Share_File_Tile_Toggle_Off_Button(){
+ public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws InterruptedException{
 	
-	 try
-	 {
-		 WebElement element=driver.findElement(By.xpath("//li[span[text()='Share File'] ]/div/label/input[@class='ng-pristine ng-untouched ng-valid ng-not-empty']"));
- 	    // System.out.println("********the element classs is ******" + element.getAttribute("class"));
-
-		 if(element.isDisplayed()){
- 		try
- 		{
-		
- 		System.out.println("Shared Toggle Button is ON ! Let's close it");
- 		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='On']")));
-		 }catch(Exception e)
-		 {
-			 e.printStackTrace();
-		 }
-		 }
-	 }	
- 	       catch(Exception e){
- 		   e.printStackTrace();
- 	}
-	 }
+	 int count=getElementCount("products-list > ul > li > span");
+	 List<String> myclass=new ArrayList<>();
+	 List<String> myclass1=new ArrayList<>();
+	// List<String> listtext=getTextForElementfromList(" products-list > ul > li > i");
+	 List<WebElement> listelements1=getElementsList("products-list > ul > li > i");
+	 System.out.println("$$$$$The list of toggle button"+listelements1);
+//	 System.out.println("$$$$$The Product text list is"+listtext);
+	 List<WebElement> listelements=getElementsList("products-list > ul > li > div > label > input");
+	 List<WebElement> listelements2=getElementsList(".checkbox-switch");
+	 System.out.println("$$$$$The list of toggle button"+listelements);
+	
+	     for(int i=0;i<listelements.size();i++)
+	     {
+	    	 listelements.get(i).getAttribute("class");
+	    	 listelements1.get(i).getAttribute("class");
+	    	 myclass.add(listelements.get(i).getAttribute("class"));
+	    	 myclass1.add(listelements1.get(i).getAttribute("class"));
+	     }
+	     System.out.println("$$$$The class list of toggle button is"+myclass);
+	     System.out.println("$$$$The class list of icons button is"+myclass1);
+	     
+   	for(int i=0;i<listelements.size();i++) 
+	{
+		if(myclass1.get(i).equals("spoe-menu valentino-icon-share-file"))
+		{
+			if(myclass.get(i).equals("ng-pristine ng-untouched ng-valid ng-not-empty"))
+			{
+				Thread.sleep(7000);
+				//listelements2.get(i).click();
+				driver.findElement(By.cssSelector("li.product-item:nth-child(6) > div:nth-child(3) > label:nth-child(1) > span:nth-child(2)")).click();
+				System.out.println("Now on to off");
+			}else 
+			{
+				System.out.println("No need to click ! The Toggle button is already off !!!!!");
+			}
+				
+		} else
+		{
+			System.out.println("Share File not present");
+	     	    }
+		}   		
+   		}	
  }
+	 
+ 
 

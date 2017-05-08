@@ -58,7 +58,7 @@ Feature: Create new User for emblem and verify Login logut of users
     And I enter <Password> to confirm
     Then I click on change password button
     And I wait for 2000 milli seconds
-    And I enter email <Email> for login 
+    And I enter email <Email> for login
     And I enter password field <Password> for Login
     And I click Access button
     And I wait for 10000 milli seconds
