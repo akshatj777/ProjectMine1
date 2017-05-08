@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -53,17 +55,22 @@ public class PatientClinicalDocuments extends BaseClass {
 		
 		isElementVisible(driver.findElement(By.cssSelector(" span.status-tag.status-tag-1")));
 		String value=driver.findElement(By.cssSelector(" span.status-tag.status-tag-1")).getCssValue("background-color");
+		System.out.println("The color of In progress status is"+value);
 		Assert.assertTrue(value.equals("ad77b3"));
 	}
 
 	public void IclickonthecompleteCARLonthePatientSummary() throws InterruptedException {
 		// TODO Auto-generated method stub
- 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-	     WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
+ 	
+		
+		
+		 WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));		
+		 WebDriverWait wait=new WebDriverWait(driver,30);
+	     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Complete CARL')]")));
+	     clickElement(element);
 	  //   js.executeScript("arguments[0].scrollIntoView(true);", element);
-	     js.executeScript("window.scrollBy(0,-250)", "");
-	     Thread.sleep(5000);
-		clickElement(element);
+	    // js.executeScript("window.scrollBy(0,-250)", "");
+	     
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {
@@ -110,21 +117,18 @@ public class PatientClinicalDocuments extends BaseClass {
 	
 	//Updated Table generic functions
 	
-	//span[contains(text(),'All')]
+	
 	public void Iverifythereshouldbefilterlinkonclinicaldocumentsection() {
-		// TODO Auto-generated method stub
-		
 		isElementVisible(driver.findElement(By.cssSelector("div > div.filter-bars.ng-scope>div > div.filter-bar-search > div.filter-bar-search-left > div > search-bar-controls > button-filters-toggle > button ")));
 	}
 
 	public void IclickontheALLTabonPatientpage() {
-		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("div.tabbed-navbar-tabs > button:nth-child(1)")));
 		
 	}
 
 	public void IverifyClinicalDocumentTableshouldcontainthefollowingsections() {
-		// TODO Auto-generated method stub
+	
 		
 		 List<String> actualcombolisttext = new ArrayList();
         List<WebElement> elementtexts = new ArrayList();
@@ -322,16 +326,21 @@ public class PatientClinicalDocuments extends BaseClass {
 		swithToFrame("//*[@id='iFrameEC2PatientTransitions']");
 	}
 
-	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() {
+	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() throws InterruptedException {
 		// TODO Auto-generated method stub
 		
-		
-		
-	}
+		String URL=driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span")).getAttribute("href");
+		boolean Note = URL.contains("note");	
+		boolean CARL=URL.contains("carl");
+		if(CARL)
+		{
+			System.out.println("CARl form is present");
+		}
+		}
 
 	public void Iverifythatusershouldbeabletoclickontitleofdocument() {
 		// TODO Auto-generated method stub
-		WebElement element=driver.findElement(By.cssSelector("//span[contains(text(),'CARL')]"));
+		WebElement element=driver.findElement(By.xpath("//span[contains(text(),'CARL')]"));
 		clickElement(element);
 		isElementVisible(element);
 		System.out.println("The CARL form is successfully clicked");
@@ -510,7 +519,7 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifyLastNameFirstNameanduserroleappearsinlastsavedsection() {
 		// TODO Auto-generated method stub
-		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span")));
+		isElementVisible(driver.findElement(By.xpath("//table/tbody/tr/td[4]/div[1]/span[2]")));
 		
 	}
 
@@ -521,7 +530,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	    Thread.sleep(5000);
 		System.out.println("^^^^List of information for the saved forms^^^^"+getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4) > div> span.time.ng-binding"));
 		List<String> newlist=new ArrayList<String>();
-		List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4) > div> span.time.ng-binding");
+		List<String> mylists=getTextForElementfromList("table > tbody > tr > td:nth-child(4) > div> span.time.ng-binding");
 		for(String mylist:mylists)
 		{
 			String[] values = mylist.split(",");
@@ -532,19 +541,29 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform() throws InterruptedException {
-		// TODO Auto-generated method stub
-		
-		 clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
-		 Thread.sleep(5000);
-		 List<String> mylists=getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4)>div");
-		System.out.println("The list is"+mylists);
-		
-	}
+	     
+		  List<WebElement> listelements=getElementsList("table > tbody > tr > td:nth-child(4) > span > a");
+		  List<String> mylists=getTextForElementfromList("table > tbody > tr > td:nth-child(4)> div");
+		  String info_class=driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(4) > div:nth-child(2)")).getAttribute("class");
+		 for(int i=0;i<listelements.size();i++)
+		  {
+		 clickElement(listelements.get(i));
+		 if(!info_class.equals("doc-edit ng-scope ng-hide"))
+		 {
+			 System.out.println("Complete Information successfully displayed");
+		 }
+		  }
+	    }
 
 	public void Iverifydateandtimeinformationappearsinlastsavedsection() {
-		// TODO Auto-generated method stub
-		
-		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")));
+		try
+		{
+		isElementVisible(driver.findElement(By.cssSelector("div.doc-edit.ng-scope")));
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("Date & Time not present");
+		}
 	}
 
 	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {

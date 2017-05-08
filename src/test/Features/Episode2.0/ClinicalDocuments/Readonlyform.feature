@@ -1,11 +1,9 @@
 Feature: Notes Read-Only
 	
-
-@tag1
 Scenario Outline: Upon selecting the note title in the clinical documents section, user should see a read only version of that note
 
 Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -37,8 +35,8 @@ Given I am on the login page
     Then I verify that there is an Attachments section that should display all attachments
     
     Examples:
-    | First name    | Last name    | Medicare ID |
-    |   PATIENT     |   CROST      | wa984986    |
+    |   First name      |    Last name       | Medicare ID |
+    |   AUTOMATION      |    DO_NOT_USE      | wa984986    |
     
     
     

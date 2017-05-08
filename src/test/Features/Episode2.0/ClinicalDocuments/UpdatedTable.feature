@@ -32,7 +32,7 @@ Scenario Outline: Verify the buttons and text on Clinical Documents
    Then To verify table should be sorted chronologically by activity date most recent first            
   Examples:
       | First name    | Last name    | Medicare ID |
-      |  PATIENT      |   CROST      |  wa984986   |
+      |  AUTOMATION      |   DO_NOT_USE      |  wa984986   |
  
 
  

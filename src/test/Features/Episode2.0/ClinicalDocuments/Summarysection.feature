@@ -30,7 +30,7 @@ Scenario Outline: The "Summary" section of the Clinical Document table should di
 
 Examples:
       | First name    |  Last name    | Medicare ID |
-      |  PATIENT      |   CROST     |   wa984986  |
+      |  AUTOMATION      |  DO_NOT_USE      |   wa984986  |
       
        
       

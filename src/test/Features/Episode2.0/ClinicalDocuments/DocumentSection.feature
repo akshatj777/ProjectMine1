@@ -46,13 +46,10 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify that title of document or topic of note should appear as a link in the section
     Then I verify that user should be able to click on title of document
-    And I wait for 5000 milli seconds
-    
-    
-    
-Examples:
 
-     | First name    |  Last name   | Medicare ID  |
-     |      MOR         |    TEST    |  wa984986    |
+ Examples:
+
+     | First name    |  Last name      | Medicare ID  |
+     | AUTOMATION    |    DO_NOT_USE   |  wa984986    |
 
 

@@ -18,16 +18,14 @@ public class LastSavedSteps extends DriverScript  {
 	 
 	 
 	 
-	 @Then("^Then I verify information of the last user who saved the individual form is displaying on the Last saved section$")
+	 @Then("^I verify information of the last user who saved the individual form is displaying on the Last saved section$")
 	 public void I_verify_information_of_the_last_user_who_saved_the_individual_form_is_displaying_on_the_Last_saved_section()
 	 {
 		 patientclinical.IverifyinformationofthelastuserwhosavedtheindividualformisdisplayingontheLastsavedsection();
 	 }
 	
 	 @Then ("^I verify date and time information appears in last saved section$")
-	 
-	 
-	 public void I_verify_date_and_time_information_appears_in_last_saved_section()
+	  public void I_verify_date_and_time_information_appears_in_last_saved_section()
 	 {
 		 patientclinical.Iverifydateandtimeinformationappearsinlastsavedsection();
 	 }
