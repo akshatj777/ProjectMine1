@@ -58,8 +58,8 @@ Feature: Create new User for emblem and verify Login logut of users
     And I enter <Password> to confirm
     Then I click on change password button
     And I wait for 2000 milli seconds
-    And I enter email <Email> for login 
-    And I enter password field <Password> for Login
+    And I enter email <Email> for login after password mail verification
+    And I enter password field <Password> for Login after password verification
     And I click Access button
     And I wait for 10000 milli seconds
     Then I should see different tiles for different user role <Role>

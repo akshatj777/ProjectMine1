@@ -96,10 +96,17 @@ public class CreateUserSteps extends DriverScript{
 
     }
     
-    @And("^I enter email ([^\"]*) for login$")
-    public void iEnterEmailForLogin(String email) throws Throwable{
-    	createUser.iEnterEmailForLogin(email);
+    @And("^I enter email ([^\"]*) for login after password mail verification$")
+    public void iEnterEmailForLoginAfterPasswordMailVerification(String email) throws Throwable{
+    	createUser.iEnterEmailForLoginAfterPasswordMailVerification(email);
     }
+    
+
+    @And("^I enter password field ([^\"]*) for Login after password verification$")
+    public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password) throws Throwable{
+    	createUser.iEnterPasswordFieldForLoginAfterPasswordVerification(Password);
+    }
+
     
     @When("^I enter the email ([^\"]*) to generate password$")
     public void iEnterTheEmailToGeneratePassword(String email) throws Throwable{

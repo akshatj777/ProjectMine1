@@ -106,9 +106,14 @@ public class CreateUserPage extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
     }
     
-    public void iEnterEmailForLogin(String text){
+    public void iEnterEmailForLoginAfterPasswordMailVerification(String text){
     	iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
     }
+    
+    public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password){
+    	iFillInText(driver.findElement(By.name("password")), Password);
+    }
+    
     public void iEnterPhone( String text){
 
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
