@@ -12,7 +12,7 @@ Scenario Outline: User should be able to see Episodes List under Readmission Rep
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions" report text for Readmissions Reports 
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
+    
     When I switch to reports embedded iframe
     Then I click on a number under episodes column
     And I wait for 5000 milli seconds
@@ -35,7 +35,7 @@ Scenario Outline: User should be able to see Episodes List under Readmission Rep
     Then I should verify "Anchor Admission Month" is appearing under Episodes table
     Then I should verify "Anchor Admission Week" is appearing under Episodes table
     Then I should verify "Anchor Begin Date" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Week (Key)" is appearing under Episodes table
+    Then I should verify "Anchor Discharge Date" is appearing under Episodes table
     Then I should verify "Anchor Facility Type" is appearing under Episodes table
     Then I should verify "CCN" is appearing under Episodes table
     Then I should verify "Anchor Facility" is appearing under Episodes table
@@ -84,5 +84,5 @@ Scenario Outline: User should be able to see Episodes List under Readmission Rep
     
     Examples:
     
-      | email                         | Menu 1      |
-      | shutestaug231132a@yopmail.com | Patient ID  |
+      | email                         |
+      | shutestaug231132a@yopmail.com |

@@ -12,7 +12,6 @@ Scenario Outline: User should be able to see Measures,Levels and Preselected Fil
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "SNF Performance (Claims)" report text for Post Acute Care Reports 
     And I wait for 30000 milli seconds
-    Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
@@ -20,9 +19,6 @@ Scenario Outline: User should be able to see Measures,Levels and Preselected Fil
     
     Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
     Then I should see "Post Acute Category includes SNF" is present under preselected post acute category filter
-    Then I should see "Participant ID includes All" is present under preselected participant id filter
-    Then I should see "BPID includes All" is present under preselected BPID filter
-    Then I should see "Dashboard - Anchor CCN includes All" is present under preselected Dashboard Anchor CCN filter
     Then I should see "Bundle Code includes All" is present under preselected Bundle Code filter
     Then I verify "Bundle Risk" filter is preselected under the filter
     

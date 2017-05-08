@@ -11,7 +11,6 @@ Feature: Snf volume claims Post Acute Care
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "SNF Volume (Claims)" report text for Post Acute Care Reports 
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
 
     Then I should see SNF volume reports column Tile text as "Participant"
@@ -100,7 +99,6 @@ Feature: Snf volume claims Post Acute Care
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     
     When I switch to default window from iframe
-    #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title

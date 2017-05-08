@@ -57,6 +57,11 @@ public class CommonSteps extends DriverScript {
         driver.close();
     }
 
+    @And("^I click on button with text \"([^\"]*)\" on page$")
+    public void iClickOnButtonWithTextOnPage(String textToBeClicked) throws Throwable {
+        driver.findElement(By.xpath("//*[text()='"+textToBeClicked+"']")).click();
+    }
+
 
   /*  @And("^I will verify user ([^\"]*)$")
     public void iWillverifyElementText(String text) throws Throwable {
