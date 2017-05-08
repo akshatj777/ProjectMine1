@@ -691,6 +691,10 @@ public class ReportHomePage extends BaseClass {
     public void iShouldNotSeeReportName(String report){
     	verifyTextNotPresentForElementFromList(".ng-binding.ng-scope", report);
     }
+    
+    public void iSelectFromListOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("#FT_filterTypeSelect")));
+    }
 
 }
 
