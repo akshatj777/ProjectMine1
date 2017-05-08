@@ -6,6 +6,7 @@ import com.remedy.Episode2.PatientClinicalDocuments;
 
 import com.remedy.resources.DriverScript;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class CompleteCarlformSteps extends DriverScript{
@@ -86,8 +87,24 @@ public class CompleteCarlformSteps extends DriverScript{
 	 {
 		 completecarl.IVerifythatOptionsShouldbePresentBelowCapableCaregiverQuestion(option);
 	 }
-	 	 
 	 
+	 @Then ("^I click on ([^\"]*) option under Does the patient have a capable caregiver$")
+	 public void I_ClickOn_Option_Under_DoesThePatientHaveACapableCaregiver_question(String text)
+	 {
+		 completecarl.IClickOnOptionsUnderDoesThePatientHaveACapableCaregiverQuestioin(text);
+	 }
+	 
+	 @Then ("^I verify that Care Network Member drop down should appear under Choose Caregiver section in Caregiver on takeover page$")
+	 public void I_Verify_That_CareNetworkMember_DropDown_Should_Appear_Under_ChooseCaregiverSection()
+	 {
+		 completecarl.IVerifyThatCareNetworkMemberDropDwonAppearsUnderChooseCaregiverSection();
+	 }
+	 
+	 @Then ("^I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page$")
+	 public void I_Verify_That_AddCaregiverLink_Should_Appear_Under_ChooseCaregiverSection()
+	 {
+		 completecarl.IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection();
+	 }
 	 
 	 @Then ("^I hover on i icon present on ([^\"]*) on TakeOver page$")
 	 public void I_hover_on_icon_present_on_TakeOver_page(String icon)
@@ -116,11 +133,63 @@ public class CompleteCarlformSteps extends DriverScript{
 	 @Then ("^I Verify the text hovering i icon on Patients Restoration Potential$")
 	 public void I_Verify_the_text_hovering_icon_on_Patients_Restoration_Potential()
 	 {
-		 completecarl.IVerifyTheTextHoverOnPatientsRestorationPotential();
-	 	 
-	     
-	   
+		 completecarl.IVerifyTheTextHoverOnPatientsRestorationPotential();   
 	 }
+	 
+	 @Then("^I click on ([^\"]*) on navigation bar on patient summary page$")
+	 public void I_click_on_CareTeam_onNavigationBar_On_PatientSummaryPage(String text)
+	 {
+		 completecarl.IClickOnCareTeamOnNavBarOnPatientSummaryPage(text);
+	 }
+	 
+	 @And("^I click on setting icon to remove the patient under Care Team$")
+	 public void I_Click_On_Setting_Icon_To_RemovePatient_Under_CareTeam()
+	 {
+		 completecarl.IClickOnSettingIconToRemovePatientUnderCareTeam();
+	 }
+	 
+	 @And("^I click On Remove to delete the patient$")
+	 public void I_Click_On_Remove_to_delete_the_patient()
+	 {
+		 completecarl.IClickOnRemoveToDeleteThePatient();
+	 }
+	 
+	 @And("^I click on OK button to delete the patient$")
+	 public void I_Click_On_OK_button_To_Delete_ThePatient()
+	 {
+		 completecarl.IClickOnOkToDeleteThePatient();
+	 }
+	 
+	 @And("^I click on Add Caregiver link under Choose Caregiver$")
+	 public void I_Click_On_Add_Caregiver_link_Under_ChooseCaregiver()
+	 {
+		 completecarl.IClickOnAddCaregiverLinkUnderChooseCaregiver();
+	 }
+	 
+	 @Then("^I Enter FirstName and LastName on Add Caregiver form$")
+	 public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm()
+	 {
+		 completecarl.IEnterFisrtAndLastNameOnCarlFormAddCaregiver();
+	 }
+	 
+	 @Then("^I click on Create button to add Caregiver$")
+	 public void I_Click_On_CreateButton_To_AddCaregiver()
+	 {
+		 completecarl.IClickCreateButtonToAddCaregiver();
+	 }
+	 
+	 @Then("^I click on close button in dropdown under Choose Caregiver$")
+	 public void I_Click_On_Close_Button_In_dropdown_Under_Choose_Caregiver()
+	 {
+		 completecarl.IClickOnCloseButtonInDropdownUnderChooseCaregiver();
+	 }
+	 
+	 @Then("^I click on Anticipated Discharge Needs on side menu option$")
+	 public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption()
+	 {
+		 completecarl.IClickOnAnticipatedDischargeNeedsOnSideMenuOption();
+	 }
+	 
 }
 	 
 	 

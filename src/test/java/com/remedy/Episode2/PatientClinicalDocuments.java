@@ -319,7 +319,7 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IswitchtoPatientTransitionsframe() {
 		// TODO Auto-generated method stub
-		swithToFrame("//*[@id='iFrameEC2PatientTransitions']");
+		swithToFrame("//iframe[@class='not-showing ng-scope']");
 	}
 
 	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() {
@@ -328,6 +328,12 @@ public class PatientClinicalDocuments extends BaseClass {
 		
 		
 	}
+	
+	public void IswitchtoPatientCareTeamframe() {
+		// TODO Auto-generated method stub
+		swithToFrame("//iframe[@class='not-showing ng-scope']");
+	}
+
 
 	public void Iverifythatusershouldbeabletoclickontitleofdocument() {
 		// TODO Auto-generated method stub

@@ -147,6 +147,12 @@ public class SummarySectionSteps extends DriverScript{
     
      }
      
+     @Then ("^I switch to Patient Care Team frame$")
+     public void I_switch_to_Patient_CareTeam_frame() throws Throwable
+     {
+    	 patientclinical.IswitchtoPatientCareTeamframe();
+     }
+     
     
      
     

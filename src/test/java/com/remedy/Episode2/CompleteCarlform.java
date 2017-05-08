@@ -17,6 +17,14 @@ public class CompleteCarlform extends BaseClass {
 	public CompleteCarlform(WebDriver driver) {
         super(driver);
     }
+	
+	public void IClickOnAnticipatedDischargeNeedsOnSideMenuOption(){
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 WebElement element = driver.findElement(By.cssSelector("//span[contains(text(),'Anticipated Discharge Needs')]"));
+		 js.executeScript("arguments[0].click();", element);
+		 delay();
+		
+	}
 
 	public void IverifyCARLbuttonsappearsonthepatientsummary() {
 		// TODO Auto-generated method stub
@@ -114,6 +122,22 @@ public class CompleteCarlform extends BaseClass {
 	public void IVerifythatOptionsShouldbePresentBelowCapableCaregiverQuestion(String option) {
 		verifyTextForElementfromList(".radio.ng-empty.ng-valid>label>span",option);
 	}
+
+	public void IClickOnOptionsUnderDoesThePatientHaveACapableCaregiverQuestioin(String text) {
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+	}
+	
+	public void IVerifyThatCareNetworkMemberDropDwonAppearsUnderChooseCaregiverSection() {
+		isElementVisible(driver.findElement(By.cssSelector(".col-md-8")));
+	}
+	
+	public void IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection() {
+		isElementVisible(driver.findElement(By.xpath("//a[text()='Add Caregiver']")));
+	}
+	
+	public void IClickOnAddCaregiverLinkUnderChooseCaregiver() {
+		clickElement(driver.findElement(By.xpath("//a[text()='Add Caregiver']")));
+	}
 	
 	
 	public void IHoverOn_i_IconOnTakeOverPage(String icon){
@@ -145,5 +169,33 @@ public class CompleteCarlform extends BaseClass {
         }
 	}
 	
+	public void IClickOnCareTeamOnNavBarOnPatientSummaryPage(String text){
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+	}
 	
+	public void IClickOnSettingIconToRemovePatientUnderCareTeam() {
+		clickElement(driver.findElement(By.xpath("//div[@class='pull-right pos-relative']//i[@class='fa fa-cog']")));
+	}
+	
+	public void IClickOnRemoveToDeleteThePatient() {
+		clickElement(driver.findElement(By.xpath("//a[contains(@id,'member-delete')]")));
+	}
+	
+	public void IClickOnOkToDeleteThePatient() {
+		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
+	}
+	
+	public void IEnterFisrtAndLastNameOnCarlFormAddCaregiver() {
+		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'firstName')]")), "FirstNameTest");
+		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'lastName')]")), "LastNameTest");
+		
+	}
+	
+	public void IClickCreateButtonToAddCaregiver(){
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Create')]")));
+	}
+	
+	public void IClickOnCloseButtonInDropdownUnderChooseCaregiver(){
+		clickElement(driver.findElement(By.cssSelector(".glyphicon.glyphicon-remove")));
+	}
 }
