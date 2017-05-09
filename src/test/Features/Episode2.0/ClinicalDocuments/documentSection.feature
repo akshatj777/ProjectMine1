@@ -43,6 +43,24 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     Then I click on the Create Transition Button to add a new transition
     And I wait for 20000 milli seconds
     When I switch to default window from iframe
+    Then I click on the cross button to close the CARL document form 
+    Then I verify current page "Remedy Partners" title
+    Then I click on the "<Last name>" searched patient which has the CARL text in it
+    And I wait for 10000 milli seconds
+    Then I click on the complete CARL on the Patient Summary
+    And I wait for 5000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I click on the cross button to close the CARL document form 
+    Then I verify current page "Remedy Partners" title
+    Then I click on the "<Last name>" searched patient which has the CARL text in it
+    Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify that title of document or topic of note should appear as a link in the section
     Then I verify that user should be able to click on title of document
@@ -50,6 +68,9 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
  Examples:
 
      | First name    |  Last name      | Medicare ID  |
-     | AUTOMATION    |    DO_NOT_USE   |  wa984986    |
+     | AUTOMATION1   |   DO NOT USE1    |  wa984986    |
+     
+       
+     
 
 

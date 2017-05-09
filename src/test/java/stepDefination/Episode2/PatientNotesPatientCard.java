@@ -145,7 +145,8 @@ public class PatientNotesPatientCard extends DriverScript {
 	 @Then ("^I verify that user should be able to select and upload files from the computer through Add files link$")
      public void I_verify_that_usershould_be_able_to_select_and_upload_files_from_the_computer_through_Add_files_link() throws AWTException, InterruptedException  	 
      {
-		 noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink("MyFile.txt");
+		 String txt="MyFile.txt";
+		 noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(txt);
      }
 	 
 	 @Then ("^I verify the image is attached or not$")

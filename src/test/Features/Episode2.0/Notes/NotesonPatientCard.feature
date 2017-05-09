@@ -47,7 +47,7 @@ Then I select the "<date>"  from date picker on Add Clinical Document on Patient
 And I enter the Note Text in the textarea on Add Clinical Document on Patient Card
 Then I verify that Add Files link is clickable
 And I wait for 10000 milli seconds
-Then I verify that user should be able to select and upload files from the computer through Add files link
+Then I verify that user should be able to select and upload file "<FileName>" through Add files link
 Then I click on the create Note Button on Add Clinical Document on Patient Card
 Then I verify the image is attached or not
 Then I verify that create Note has been successfully created

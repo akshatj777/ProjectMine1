@@ -232,7 +232,7 @@ public void IverifythatAdd_Fileslinkisclickable()
 
 
 
-public static void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
+public void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
     
 	StringSelection selection = new StringSelection(file);
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

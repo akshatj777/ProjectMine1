@@ -27,7 +27,7 @@ Feature: Updated Filtering
     And I wait for 5000 milli seconds
     Then I Verify that Selecting Filters link when the filters drawer is open should close the drawer
     Then I click on filter link on clinical document section
-    Then I Verify that Clinical Documents Filters link should display filters as below with the correct syntax and sequence
+  #  Then I Verify that Clinical Documents Filters link should display filters as below with the correct syntax and sequence
     Then I Verify that user should be able to select multiple filters by checkbox
    
    Examples:

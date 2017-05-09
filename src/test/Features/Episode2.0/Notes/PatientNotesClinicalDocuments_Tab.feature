@@ -16,10 +16,10 @@ Given I am on the login page
     When I click on "Patients" in the left navigator present on the episode dashboard page
     Then I click on "Patient List" present in the Patients dropdown menu
     And I wait for 8000 milli seconds
-    Then I enter <Patient Name> in the patient search box present on the patient page
+    Then I enter "<Patient Name>" in the patient search box present on the patient page
     Then I click on search button present on the patients page
     And I wait for 10000 milli seconds
-    Then I should see <Patient Name> patient on the patient list present on the patient page
+    Then I should see "<Patient Name>" patient on the patient list present on the patient page
      When I click on Patient under patient list page
     Then I should see "Patients" details
     And I wait for 10000 milli seconds
@@ -49,7 +49,7 @@ Given I am on the login page
     
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter <Patient Name> in the search box on the patients page
+    Then I enter "<Patient Name>" in the search box on the patients page
     And I wait for 2000 milli seconds
     Then I click on the patient card on Patient Card Page
     And I wait for 25000 milli seconds

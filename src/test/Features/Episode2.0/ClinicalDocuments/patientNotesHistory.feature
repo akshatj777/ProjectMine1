@@ -23,7 +23,7 @@ Scenario Outline: The Last saved section on the clinical documents table should 
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And  I select the value from the topic drop down on  Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And I enter the Note Text in the textarea on Add Clinical Document on Patient Card
+     And  I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
     And I wait for 8000 milli seconds
     Then I verify that user should be able to select and upload files from the computer through Add files link
@@ -38,8 +38,8 @@ Scenario Outline: The Last saved section on the clinical documents table should 
     Then I verify information of the last user who saved the individual form is displaying on the Last saved section
    
    Examples:
-      | First name    | Last name    | Medicare ID | date |
-      | DO_NOT_USE  |  AUTOMATION | wa984986    | 12 |
+      | First name    | Last name    | Medicare ID | date | Notetext |
+      | DO_NOT_USE  |  AUTOMATION    | wa984986    | 12   | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat.|
     
     
     Scenario Outline: To verify following details should appear under the last saved section:
@@ -80,6 +80,6 @@ Scenario Outline: The Last saved section on the clinical documents table should 
      
     Examples:
     | First name    | Last name    | Medicare ID | date |
-    | MOR11         | TEST11       | wa984986    | 12   |
+    | AUTOMATION    | DO_NOT_USE      | wa984986    | 12   |
       
     

@@ -88,7 +88,7 @@ Scenario Outline: The "Summary" section of the Clinical Document table should di
     Then I verify forms should not display any message in the summary section and it should be greyed out blank
 Examples:
       | First name    |  Last name    | Medicare ID |  Notetext |
-      |  AUTOMATION      |  DO_NOT_USE      |   wa984986  | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
+      |  AUTOMATION1      |  DO_NOT_USE1      |   wa984986  | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
       
        
       
