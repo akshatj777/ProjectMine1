@@ -196,10 +196,50 @@ public class CompleteCarlform extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
 	}
 	
+	public void IVerifyMandatoryFieldToCreateCaregiver(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
+	}
+	
+	public void IVerifyFieldLabelToCreateCaregiver(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
+	}
+	
 	public void IEnterFisrtAndLastNameOnCarlFormAddCaregiver() {
 		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'firstName')]")), "FirstNameTest");
 		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'lastName')]")), "LastNameTest");
 		
+	}
+	
+	public void IVerifyTheLabelDropdownUnderRelationship() {
+				
+		List<String> actualmylist=getTextForElementfromList("span.ui-select-choices-row-inner");
+		String[] expectedvalues={"Adoptive Parent","Aunt/Uncle","Brother","Child","Daughter","DCF/DSS","Dependent",
+				"Father","Foster Parent","Friend","Grandchild","Grandparent","Guarantor","Legal Guardian","Life Partner",
+				"Mother","Niece/Nephew","Neighbor","Organ Donor","Other","Power of Attorney or Living Will Proxy","Sibling",
+				"Significant Other","Sister","Son","Spouse","Step-Parent","Step-Child","Unknown"};
+     	List<String> requiredcombolisttext=new ArrayList();
+        requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+        verifyarraylist(requiredcombolisttext,actualmylist);
+	}
+	
+	public void IEnterEmailToCreateCaregiver(String email){
+		iFillInText(driver.findElement(By.xpath("//input[@name='email']")),email);	
+	}
+	
+	public void IVerifyOptionsInPrimaryPhoneDropdown(String text){
+		verifyTextForElementFromListByXpath("//div[@ng-bind-html='option']", text);
+	}
+	
+	public void IVerifyHomeShouldbeDefaultOptionForPrimaryPhoneOption(){
+		verifyTextForElementFromListByXpath("//span[text()='Home']","Home");
+	}
+	
+	public void IEnterPrimaryPhoneToCreateCaregiver(String phone){
+		iFillInText(driver.findElement(By.xpath("//input[@name='phone0']")),phone);
+	}
+	
+	public void IClickOnAddPhoneButtonToCreateCaregiver(String phone){
+		clickElement(driver.findElement(By.xpath("//a[text()='"+phone+"']")));
 	}
 	
 	public void IClickCreateButtonToAddCaregiver(){

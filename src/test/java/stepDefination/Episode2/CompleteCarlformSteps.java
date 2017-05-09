@@ -178,6 +178,50 @@ public class CompleteCarlformSteps extends DriverScript{
 		 completecarl.IClickOnAddCaregiverLinkUnderChooseCaregiver();
 	 }
 	 
+	 @Then("^I verify \"([^\"]*)\" is mandatory field to create Caregiver$")
+	 public void I_Verify_MandatoryField_To_Create_Caregiver(String text)
+	 {
+		 completecarl.IVerifyMandatoryFieldToCreateCaregiver(text); 
+	 }
+	 
+	 @Then("^I verify ([^\"]*) field to create Caregiver$")
+	 public void I_Verify_Field_To_Create_Caregiver(String text)
+	 {
+		 completecarl.IVerifyFieldLabelToCreateCaregiver(text); 
+	 }
+	 
+	 @Then("^I verify the label dropdown under Relationship field$")
+	 public void I_Verify_The_Label_Dropdown_Under_Relationship()
+	 {
+		 completecarl.IVerifyTheLabelDropdownUnderRelationship(); 
+	 }
+	 
+	 @Then("^I enter ([^\"]*) in email field$")
+	 public void I_Enter_Email_To_Create_Caregiver(String email){
+		 completecarl.IEnterEmailToCreateCaregiver(email);
+	 }
+	 
+	 @Then("^I verify ([^\"]*) option in primary phone dropdown$")
+	 public void I_Verify_Options_In_PrimaryPhone_Dropdown(String text){
+		 completecarl.IVerifyOptionsInPrimaryPhoneDropdown(text);
+	 }
+	 
+	 @Then("^I verify Home should be as default option$")
+	 public void I_Verify_Home_Shouldbe_Default_Option(){
+		 completecarl.IVerifyHomeShouldbeDefaultOptionForPrimaryPhoneOption();
+	 }
+	 
+	 @Then("^I enter ([^\"]*) in Primary Phone field$")
+	 public void I_Enter_PrimaryPhone_To_Create_Caregiver(String phone){
+		 completecarl.IEnterPrimaryPhoneToCreateCaregiver(phone);
+	 }
+	 
+	 @Then("^I click on ([^\"]*) button for Additional phone number to Create Caredriver$")
+	 public void I_Click_On_Button_For_Additional_PhoneNumber_To_Create_Caredriver(String phone)
+	 {
+		 completecarl.IClickOnAddPhoneButtonToCreateCaregiver(phone);
+	 }
+	 
 	 @Then("^I Enter FirstName and LastName on Add Caregiver form$")
 	 public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm()
 	 {
