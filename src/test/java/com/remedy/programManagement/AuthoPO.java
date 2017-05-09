@@ -19,10 +19,10 @@ public class AuthoPO extends BaseClass {
     }
 
 
-    @FindBy(css = ("[name='email']"))
+    @FindBy(name="email")
     WebElement inputEmail;
 
-    @FindBy(css = ("[name='password']"))
+    @FindBy(name="password")
     WebElement inputPassword;
 
     @FindBy(css = ".auth0-lock-submit")

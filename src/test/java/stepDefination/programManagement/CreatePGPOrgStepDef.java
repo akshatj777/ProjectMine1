@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by aparlapalli on 1/20/17.
  */
-public class CreatePGPOrgNoMorgStepDef extends DriverScript {
+public class CreatePGPOrgStepDef extends DriverScript {
 
     PgpOrgPO createPgpPage = new PgpOrgPO(driver);
     ManagingOrgPO managingOrgPage = new ManagingOrgPO(driver);

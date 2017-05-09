@@ -1,6 +1,8 @@
 package com.remedy.programManagement;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.programManagement.helpers.AddressPO;
+import com.remedy.programManagement.helpers.Commons;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,29 +13,25 @@ import java.util.List;
 /**
  * Created by aparlapalli on 1/20/17.
  */
-public class CreatePGPPO extends BaseClass {
+public class PgpOrgPO extends BaseClass {
 
     WebDriverWait wait = new WebDriverWait(driver, 10);
+    AddressPO address = new AddressPO(driver);
+    Commons commonLib = new Commons(driver);
 
-    public CreatePGPPO(WebDriver driver) {
+
+    public PgpOrgPO(WebDriver driver) {
 
         super(driver);
         PageFactory.initElements(driver, this);
 
     }
 
-    @FindBy(css = "[name ='hasManagementOrg']")
-    List<WebElement> hasManagingOrgButton;
-
-    @FindBy(css = "input[class ='Select-input']")
-    WebElement inputMorg;
+    @FindBy(linkText = "PGP")
+    WebElement pgpTab;
 
     @FindBy(css = "[class ='Select-menu-outer']")
     WebElement selectMenu;
-
-    @FindBy(css = ".error-message")
-    WebElement errorMsg;
-
 
     @FindBy(css = "[name ='organizationName']")
     WebElement inputMOrgName;
@@ -47,48 +45,16 @@ public class CreatePGPPO extends BaseClass {
     @FindBy(css = "[name ='regionMarket.marketSelector']")
     WebElement inputMarket;
 
-    @FindBy(css = "[name ='address.address1']")
-    WebElement inputAddress1;
-
-    @FindBy(css = "[name ='address.address2']")
-    WebElement inputAddress2;
-
-    @FindBy(css = "[name ='address.city']")
-    WebElement inputCity;
-
-    @FindBy(css = "[name ='address.stateSelection']")
-    WebElement inputState;
-
-    @FindBy(css = "[name ='address.postalCode']")
-    WebElement inputPostalCode;
-
     @FindBy(css = "[name ='ein']")
     WebElement inputEin;
 
     @FindBy(css = "[name ='npi']")
     WebElement inputNpi;
 
-    @FindBy(css = "[class ='col-md-1']")
-    WebElement cancelButton;
+    public void clickOnPgpTab() {
 
-    @FindBy(css = "[class='col-md-1 col-md-offset-7']")
-    WebElement submitButton;
+        pgpTab.click();
 
-
-    public void enterAndSelectMorg(int idx, String mOrgName) throws InterruptedException {
-
-        if (idx == 0) {
-
-            hasManagingOrgButton.get(idx).click();
-            inputMorg.sendKeys(mOrgName);
-            selectAnItemFromComboBoxWKeyPress();
-            driver.findElement(By.tagName("body")).click();
-        } else {
-
-            hasManagingOrgButton.get(idx).click();
-
-
-        }
     }
 
 
@@ -102,59 +68,21 @@ public class CreatePGPPO extends BaseClass {
     }
 
 
-    public void addressForm(String addr1, String addr2, String city, String state, String postalCode) {
-
-        inputAddress1.sendKeys(addr1);
-        inputAddress2.sendKeys(addr2);
-        inputCity.sendKeys(city);
-        selectDropdownByValue(inputState, state);
-        inputPostalCode.sendKeys(postalCode);
-
-    }
-
     public void identifiers(String ein, String npi) {
+
         inputEin.sendKeys(ein);
         inputNpi.sendKeys(npi);
 
     }
 
+    public void pgpOrgForm(String pOrgName, String shortName, String region, String market, String addr1, String addr2, String city, String state, String postalCode, String ein, String npi) throws InterruptedException {
 
-    public void createPgpOrgWNMorg(String orgName, String shortName, String region, String market, String addr1, String addr2, String city, String state, String postalCode, String ein, String npi) throws InterruptedException {
-
-
-        enterAndSelectMorg(1, "");
+        String orgName = commonLib.generateRandonName(pOrgName);
         pgpDetailsForm(orgName, shortName, region, market);
-        addressForm(addr1, addr2, city, state, postalCode);
+        address.addressDataForm(addr1, addr2, city, state, postalCode);
         identifiers(ein, npi);
         scrollToBottomOfPageUsingJS();
-        submitButton.click();
-
 
     }
-
-    public void createPgpOrgWMorg(String mOrgName, String orgName, String shortName, String region, String market, String addr1, String addr2, String city, String state, String postalCode, String ein, String npi) throws InterruptedException {
-
-
-        enterAndSelectMorg(0, mOrgName);
-        pgpDetailsForm(orgName, shortName, region, market);
-        addressForm(addr1, addr2, city, state, postalCode);
-        identifiers(ein, npi);
-        scrollToBottomOfPageUsingJS();
-        submitButton.click();
-
-    }
-
-
-    public void cancelCreatePgpOrg(String orgName, String shortName, String region, String market, String addr1, String addr2, String city, String state, String postalCode, String ein, String npi) throws InterruptedException {
-
-        enterAndSelectMorg(1, "");
-        pgpDetailsForm(orgName, shortName, region, market);
-        addressForm(addr1, addr2, city, state, postalCode);
-        identifiers(ein, npi);
-        scrollToBottomOfPageUsingJS();
-        cancelButton.click();
-
-    }
-
 
 }

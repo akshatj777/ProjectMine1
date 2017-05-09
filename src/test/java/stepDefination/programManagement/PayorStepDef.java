@@ -1,16 +1,14 @@
 package stepDefination.programManagement;
 
-import com.remedy.programManagement.CreatePayorPO;
-import com.remedy.programManagement.ManagingOrgPO;
 import com.remedy.programManagement.PayorOrgPO;
+import com.remedy.programManagement.helpers.Commons;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by aparlapalli on 1/19/17.
@@ -19,16 +17,16 @@ public class PayorStepDef extends DriverScript {
 
 
     PayorOrgPO payorOrgPo = new PayorOrgPO(driver);
-    ManagingOrgPO managingOrgPage = new ManagingOrgPO(driver);
-
-    boolean createOrgIsDisplayed;
+    Commons commonLib = new Commons(driver);
     WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @When("^user clicks on payor org tab$")
-    public void userClicksOnManagingOrgTab() throws Throwable {
+    public void userClicksOnPayorOrgTab() throws Throwable {
 
 
-        createOrgIsDisplayed = payorOrgPo.clickOnPayorTab();
+         payorOrgPo.clickOnPayorTab();
+         assertTrue(commonLib.getCreateNewButtonStatus());
+
 
     }
 
@@ -46,7 +44,7 @@ public class PayorStepDef extends DriverScript {
     public void userVerifiesCreateManagementOrgPageHeader(String payorOrgHeaderMsg) throws Throwable {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name ='address.address1']")));
-        String payorOrgTitle = managingOrgPage.getHeader();
+        String payorOrgTitle = commonLib.getHeader();
         assertEquals(payorOrgTitle, payorOrgHeaderMsg);
 
     }

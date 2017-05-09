@@ -1,4 +1,4 @@
-package com.remedy.programManagement.commons;
+package com.remedy.programManagement.helpers;
 
 import com.remedy.baseClass.BaseClass;
 import org.openqa.selenium.WebDriver;
@@ -22,8 +22,6 @@ public class AddressPO extends BaseClass {
     }
 
 
-
-
     @FindBy(css = "[name ='address.address1']")
     WebElement inputAddress1;
 
@@ -43,7 +41,7 @@ public class AddressPO extends BaseClass {
 
 
 
-    public void fillingAddressData(String addr1, String addr2, String city, String state, String postalCode) {
+    public void addressDataForm(String addr1, String addr2, String city, String state, String postalCode) {
 
         inputAddress1.sendKeys(addr1);
         inputAddress2.sendKeys(addr2);

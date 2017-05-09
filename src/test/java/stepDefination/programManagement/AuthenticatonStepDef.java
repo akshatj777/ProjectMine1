@@ -22,6 +22,7 @@ public class AuthenticatonStepDef extends DriverScript {
     AuthoPO authScreen = new AuthoPO(driver);
     HomePagePO homePage = new HomePagePO(driver);
     WebDriverWait wait = new WebDriverWait(driver, 10);
+    static String homePageURL = "https://cdn-qa.remedypartners.com/program-management/index.html#/";
 
     @Given("^User on the home page$")
     public void userOnTheHomePage() throws Throwable {
@@ -54,17 +55,17 @@ public class AuthenticatonStepDef extends DriverScript {
     @Then("^User has to wait for Autho overlay to disappear$")
     public void userHasToWaitForAuthoOverlayToDisappear() throws Throwable {
 
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("auth0-lock-header-welcome")));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("valentino-icon-remedy-connect")));
 
     }
 
-    @Then("^logout button is displayed$")
-    public void logOutButtonIsDisplayed() throws Throwable {
 
-        String buttonText = homePage.getLoginButtonText();
-        assertEquals(buttonText, "Logout");
+    @Then("^Navigate to program management home page$")
+    public void NavigateToHomePage() throws Throwable {
+
+        Thread.sleep(3000);
+       driver.navigate().to(homePageURL);
 
     }
-
 
 }

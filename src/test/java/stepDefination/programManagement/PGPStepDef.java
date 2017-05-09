@@ -1,8 +1,7 @@
 package stepDefination.programManagement;
 
-import com.remedy.programManagement.ManagingOrgPO;
-import com.remedy.programManagement.PGPOrgPO;
-import com.remedy.programManagement.PayorOrgPO;
+import com.remedy.programManagement.PgpOrgPO;
+import com.remedy.programManagement.helpers.Commons;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by aparlapalli on 1/19/17.
@@ -18,17 +18,16 @@ import static org.junit.Assert.assertEquals;
 public class PGPStepDef extends DriverScript {
 
 
-    PGPOrgPO pgpOrgPage = new PGPOrgPO(driver);
-    ManagingOrgPO managingOrgPage = new ManagingOrgPO(driver);
-
-    boolean createOrgIsDisplayed;
+    PgpOrgPO pgpOrgPage = new PgpOrgPO(driver);
+    Commons commonLib = new Commons(driver);
     WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @When("^user clicks on pgp org tab$")
-    public void userClicksOnManagingOrgTab() throws Throwable {
+    public void userClicksOnPgpOrgTab() throws Throwable {
 
 
-        createOrgIsDisplayed = pgpOrgPage.clickOnPgpTab();
+         pgpOrgPage.clickOnPgpTab();
+        assertTrue(commonLib.getCreateNewButtonStatus());
 
     }
 
@@ -45,7 +44,7 @@ public class PGPStepDef extends DriverScript {
     public void userVerifiesCreatePgpPageHeader(String pgpOrgHeaderMsg) throws Throwable {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[name ='address.address1']")));
-        String pgpOrgTitle = managingOrgPage.getHeader();
+        String pgpOrgTitle = commonLib.getHeader();
         assertEquals(pgpOrgTitle, pgpOrgHeaderMsg);
 
     }
