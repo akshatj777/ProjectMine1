@@ -106,6 +106,18 @@ public class CompleteCarlformSteps extends DriverScript{
 		 completecarl.IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection();
 	 }
 	 
+	 @Then ("^I verify that Care Network Member drop down should not appear under Choose Caregiver$")
+	 public void I_Verify_That_CareNetworkMember_DropDown_Should_Not_Appear_Under_ChooseCaregiverSection()
+	 {
+		 completecarl.IVerifyThatCareNetworkMemberDropDwonDoesNotAppearUnderChooseCaregiverSection();
+	 }
+	 
+	 @Then ("^I verify that Add Caregiver link should not appear under Choose Caregiver$")
+	 public void I_Verify_That_AddCaregiverLink_Should_Not_Appear_Under_ChooseCaregiverSection()
+	 {
+		 completecarl.IVerifyAddCaregiverLinkDeosNotAppearUnderChooseCaregiverSection();
+	 }
+	 
 	 @Then ("^I hover on i icon present on ([^\"]*) on TakeOver page$")
 	 public void I_hover_on_icon_present_on_TakeOver_page(String icon)
 	 {

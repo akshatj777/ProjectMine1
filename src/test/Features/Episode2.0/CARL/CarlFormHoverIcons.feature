@@ -35,51 +35,48 @@ Feature: Hover Icon on Carl Form
     And I verfiy that Yes, has caregiver support less than 24 hours a day option is present under Does the patient have a capable caregiver
     And I verfiy that No caregiver available option is present under Does the patient have a capable caregiver
     And I verfiy that No caregiver needed option is present under Does the patient have a capable caregiver
-    
     Then I click on Yes, 24 hours a day option under Does the patient have a capable caregiver
     Then I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page
-    And I wait for 2000 milli seconds 
+    And I wait for 2000 milli seconds
     Then I click on Yes, has caregiver support less than 24 hours a day option under Does the patient have a capable caregiver
     Then I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page
     And I wait for 2000 milli seconds
     Then I click on No caregiver available option under Does the patient have a capable caregiver
+    Then I verify that Add Caregiver link should not appear under Choose Caregiver
     Then I click on No caregiver needed option under Does the patient have a capable caregiver
-    And I wait for 5000 milli seconds
-   
-   
+    Then I verify that Add Caregiver link should not appear under Choose Caregiver
+    And I wait for 2000 milli seconds
     Then I click on Yes, 24 hours a day option under Does the patient have a capable caregiver
     And I click on Add Caregiver link under Choose Caregiver
     Then I Enter FirstName and LastName on Add Caregiver form
     And I click on Create button to add Caregiver
-    And I wait for 20000 milli seconds 
+    And I wait for 5000 milli seconds
     Then I click on close button in dropdown under Choose Caregiver
-    And I wait for 3000 milli seconds 
-    Then I verify that Care Network Member drop down should appear under Choose Caregiver section in Caregiver on takeover page
-    Then I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page
-    And I wait for 7000 milli seconds
-    
-    
-    Then I click on No caregiver needed option under Does the patient have a capable caregiver 
-    
-    Then I click on No caregiver available option under Does the patient have a capable caregiver
-    
-    Then I click on Yes, has caregiver support less than 24 hours a day option under Does the patient have a capable caregiver
+    And I wait for 3000 milli seconds
     Then I verify that Care Network Member drop down should appear under Choose Caregiver section in Caregiver on takeover page
     Then I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page
     And I wait for 2000 milli seconds
-    
+    Then I click on No caregiver needed option under Does the patient have a capable caregiver
+    Then I verify that Care Network Member drop down should not appear under Choose Caregiver
+    Then I verify that Add Caregiver link should not appear under Choose Caregiver
+    Then I click on No caregiver available option under Does the patient have a capable caregiver
+    Then I verify that Care Network Member drop down should not appear under Choose Caregiver
+    Then I verify that Add Caregiver link should not appear under Choose Caregiver
+    And I wait for 2000 milli seconds
+    Then I click on Yes, has caregiver support less than 24 hours a day option under Does the patient have a capable caregiver
+    And I wait for 2000 milli seconds
+    Then I verify that Care Network Member drop down should appear under Choose Caregiver section in Caregiver on takeover page
+    Then I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page
+    And I wait for 2000 milli seconds
     Then I Verify that Carl form should appear with Save & Continue link
-    
-    And I wait for 5000 milli seconds
-    Then I Click on Anticipated Discharge Needs on takeover page
     And I wait for 2000 milli seconds
     Then I click on Anticipated Discharge Needs on side menu option
+    Then I Click on Physical therapy on Anticipated Discharge Needs page
+    And I wait for 2000 milli seconds
     Then I hover on i icon present on Restoration on TakeOver page
     Then I Verify the text hovering i icon on Patients Restoration Potential
-    
     Then I close the patient summary Page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 10000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 10000 milli seconds
     Then I click on Care Team on navigation bar on patient summary page
@@ -93,12 +90,6 @@ Feature: Hover Icon on Carl Form
     And I wait for 10000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
-    
-
-    
-    
-     
-    
 
     Examples: 
       | First name | Last name  |

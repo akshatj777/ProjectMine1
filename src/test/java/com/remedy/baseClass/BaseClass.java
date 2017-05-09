@@ -418,6 +418,16 @@ public class BaseClass {
 //    	System.out.println(value);
 		return value;		
     }
+    
+    public void isElementNotPresentOnPage(String ele) {
+    	    	
+    	try{
+    		driver.findElement(By.cssSelector(ele));
+    	}catch (Exception e){
+    		return;
+    		}
+        
+    }
 
     public void switchToFrameByNameOrId(String nameOrId){
     	driver.switchTo().frame(nameOrId);

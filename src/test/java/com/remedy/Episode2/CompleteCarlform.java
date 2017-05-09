@@ -20,7 +20,10 @@ public class CompleteCarlform extends BaseClass {
 	
 	public void IClickOnAnticipatedDischargeNeedsOnSideMenuOption(){
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		 WebElement element = driver.findElement(By.cssSelector("//span[contains(text(),'Anticipated Discharge Needs')]"));
+		 WebElement element = driver.findElement(By.xpath("//span[contains(text(),'Anticipated Discharge Needs')]"));
+		 WebElement element1 = driver.findElement(By.xpath("//h1[text()='CARL']"));
+		 js.executeScript("arguments[0].scrollIntoView(true);",element1);
+		 delay();
 		 js.executeScript("arguments[0].click();", element);
 		 delay();
 		
@@ -139,6 +142,14 @@ public class CompleteCarlform extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//a[text()='Add Caregiver']")));
 	}
 	
+	public void IVerifyThatCareNetworkMemberDropDwonDoesNotAppearUnderChooseCaregiverSection() {
+		isElementNotPresentOnPage(".col-md-8");
+	}
+	
+	public void IVerifyAddCaregiverLinkDeosNotAppearUnderChooseCaregiverSection() {
+		isElementNotPresentOnPage(".add-icon");
+	
+	}
 	
 	public void IHoverOn_i_IconOnTakeOverPage(String icon){
 		moveToTheElement(driver.findElement(By.xpath("//i[contains(@uib-tooltip,'"+icon+"')]")));
