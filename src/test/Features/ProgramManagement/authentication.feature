@@ -7,4 +7,4 @@ Feature: Authentication Test
     Then User has to wait for the Autho overlay to laod
     And users enters email and passwd lbarinstein+qaadmin@remedypartners.com and Testing1
     Then User has to wait for Autho overlay to disappear
-    Then logout button is displayed
+    Then Navigate to program management home page

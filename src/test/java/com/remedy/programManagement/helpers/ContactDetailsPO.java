@@ -1,6 +1,7 @@
 package com.remedy.programManagement;
 
 import com.remedy.baseClass.BaseClass;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -39,21 +40,6 @@ public class CreateManagingOrgPO extends BaseClass {
     @FindBy(css = "[name ='contactPhone']")
     WebElement inputContactPhone;
 
-    @FindBy(css = "[name ='address.address1']")
-    WebElement inputAddress1;
-
-    @FindBy(css = "[name ='address.address2']")
-    WebElement inputAddress2;
-
-    @FindBy(css = "[name ='address.city']")
-    WebElement inputCity;
-
-    @FindBy(css = "[name ='address.stateSelection']")
-    WebElement inputState;
-
-    @FindBy(css = "[name ='address.postalCode']")
-    WebElement inputPostalCode;
-
     @FindBy(css = "[class ='col-md-1']")
     WebElement cancelButton;
 
@@ -67,7 +53,7 @@ public class CreateManagingOrgPO extends BaseClass {
     WebElement closeButton;
 
 
-    public void enterManOrgDetails(String mOrgName, String contactPerson, String contactEmail, String contactPhone) {
+    public void manOrgDetails(String mOrgName, String contactPerson, String contactEmail, String contactPhone) {
 
         inputMOrgName.sendKeys(mOrgName);
         inputContactPerson.sendKeys(contactPerson);
@@ -76,16 +62,6 @@ public class CreateManagingOrgPO extends BaseClass {
 
     }
 
-
-    public void enterAddress(String addr1, String addr2, String city, String state, String postalCode) {
-
-        inputAddress1.sendKeys(addr1);
-        inputAddress2.sendKeys(addr2);
-        inputCity.sendKeys(city);
-        selectDropdownByValue(inputState, state);
-        inputPostalCode.sendKeys(postalCode);
-
-    }
 
     public String getSucessMessage() {
 
@@ -97,21 +73,25 @@ public class CreateManagingOrgPO extends BaseClass {
         closeButton.click();
     }
 
-    public void createMorg(String mOrgName, String contactPerson, String contactEmail, String contactPhone, String addr1, String addr2, String city, String state, String postalCode) throws InterruptedException {
 
-        enterManOrgDetails(mOrgName, contactPerson, contactEmail, contactPhone);
-        enterAddress(addr1, addr2, city, state, postalCode);
+
+    public void fillMorgForm(String manOrgName, String contactPerson, String contactEmail, String contactPhone, String addr1, String addr2, String city, String state, String postalCode) throws InterruptedException {
+
+        String mOrgName = generateRandonName(manOrgName);
+        manOrgDetails(mOrgName, contactPerson, contactEmail, contactPhone);
+        addressData(addr1, addr2, city, state, postalCode);
+        scrollToBottomOfPageUsingJS();
+    }
+
+    public void submitForm() throws InterruptedException {
+
         submitButton.click();
 
     }
 
+    public void cancelForm() throws InterruptedException {
 
-    public void cancelCreateMorg(String mOrgName, String contactPerson, String contactEmail, String contactPhone, String addr1, String addr2, String city, String state, String postalCode) {
-
-        enterManOrgDetails(mOrgName, contactPerson, contactEmail, contactPhone);
-        enterAddress(addr1, addr2, city, state, postalCode);
         cancelButton.click();
+
     }
-
-
 }
