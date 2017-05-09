@@ -40,13 +40,13 @@ public class LoginPage extends BaseClass {
 
     public void iEnterConfirmPasswordForResetPassword(String text) {
 
-        iFillInText(driver.findElement(By.name("confirmPassword")), text);
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 
     }
 
     public void iClickChangePasswordButton() {
 
-        clickElement(driver.findElement(By.xpath("//button[contains(text(),'Change Password')]")));
+        clickElement(driver.findElement(By.cssSelector(".auth0-lock-submit")));
 
     }
 

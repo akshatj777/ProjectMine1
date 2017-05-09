@@ -41,9 +41,11 @@ Feature: Create new User for emblem and verify Login logut of users
     Then I select the email to check
     And I wait for 2000 milli seconds
     And I click on the confirm account link
+    And I wait for 2000 milli seconds
     And I switch to new window
     When I enter the email <Email> to generate password
     Then I click on send email button
+    And I wait for 5000 milli seconds
     Then I switch back to old window
     And I wait for 10000 milli seconds
     Then I click check for new mails button
@@ -51,6 +53,7 @@ Feature: Create new User for emblem and verify Login logut of users
     And I click on the email received to change your password
     And I wait for 2000 milli seconds
     Then I click on change my password link
+    And I wait for 2000 milli seconds
     And I switch to new window
     And I wait for 10000 milli seconds
     And I enter new <Password>
@@ -73,16 +76,12 @@ Feature: Create new User for emblem and verify Login logut of users
     And I wait for 1000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown
+    And I wait for 2000 milli seconds
     And I should see Log in widget
     
     
     Examples: 
       | NPI        | Email                 | lastName                       | Role                           | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | Episode1 | RemedyU | Reports | Episode2     | TCI       | Physican connect | Administration |
-      |            | PPA                   | Partner Program Administrator  | Partner Program Administrator  | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           | Physican connect |                |
-      |            | RPA                   | Remedy Program Administrator   | Remedy Program Administrator   | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
-      |            | TCMngr                | Transitional Case Manager      | Transitional Case Manager      | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports |              |           |                  |                |
-      | 1234567890 | Phy                   | Physicians                     | Physicians                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           | Physican connect |                |
-      |            | Exe                   | Executive                      | Executive                      | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports |              |           |                  |                |
       |            | RmdyTCS               | Remedy TCS                     | Remedy TCS                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
       |            | RmdyLPN               | Remedy LPN                     | Remedy LPN                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
       |            | RmdyRN                | Remedy RN                      | Remedy RN                      | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
@@ -94,3 +93,8 @@ Feature: Create new User for emblem and verify Login logut of users
       |            | RmdyOthr              | Remedy Other                   | Remedy Other                   | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
       |            | Mngr                  | Manager                        | Manager                        | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           |                  |                |
       |            | CaseMngr              | Case Manager                   | Case Manager                   | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           |                  |                |
+      |            | PPA                   | Partner Program Administrator  | Partner Program Administrator  | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           | Physican connect |                |
+      |            | RPA                   | Remedy Program Administrator   | Remedy Program Administrator   | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
+      |            | TCMngr                | Transitional Case Manager      | Transitional Case Manager      | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports |              |           |                  |                |
+      | 1234567890 | Phy                   | Physicians                     | Physicians                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 |           | Physican connect |                |
+      |            | Exe                   | Executive                      | Executive                      | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports |              |           |                  |                |
