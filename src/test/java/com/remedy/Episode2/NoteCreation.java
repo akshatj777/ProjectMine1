@@ -228,23 +228,22 @@ public void IverifythatAdd_Fileslinkisclickable()
 	clickElement(driver.findElement(By.cssSelector("a.add-icon.ng-pristine.ng-untouched.ng-valid.ng-empty")));
 }
 
-
-
-
-
-public static void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
+public void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
     
-	StringSelection selection = new StringSelection(file);
+	   StringSelection selection = new StringSelection(file);
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	    clipboard.setContents(selection, selection);
         Robot robot = new Robot();
-        Thread.sleep(1000);
-             
         robot.keyPress(KeyEvent.VK_CONTROL);
+        Thread.sleep(1000);
         robot.keyPress(KeyEvent.VK_V);
+        Thread.sleep(1000);
         robot.keyRelease(KeyEvent.VK_V);
+        Thread.sleep(1000);
         robot.keyRelease(KeyEvent.VK_CONTROL);
+        Thread.sleep(1000);
         robot.keyPress(KeyEvent.VK_ENTER);
+        Thread.sleep(1000);
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 }    
@@ -259,6 +258,11 @@ public void Iverifytheimageisattachedornot() {
 public void IverifythatcreateNotehasbeensuccessfullycreated() {
 	// TODO Auto-generated method stub
 	isElementVisible(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")));	
+}
+
+
+public void IclickontheALLTabonPatientpage() {
+	clickElement(driver.findElement(By.cssSelector("div.tabbed-navbar-tabs > button:nth-child(1)")));
 }
 }
 // **************************************************//
