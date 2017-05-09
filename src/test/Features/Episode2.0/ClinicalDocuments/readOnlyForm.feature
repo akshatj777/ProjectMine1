@@ -17,6 +17,18 @@ Given I am on the login page
     Then I should see search box appearing on the patients page
     Then I enter "<Last name> <First name>" in the search box on the patients page
     And I wait for 20000 milli seconds
+    Then I click on quick action button for note creation on Patient Card page
+    Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
+    And  I select the value from the topic drop down on  Add Clinical Document on Patient Card
+    Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    Then I verify that Add Files link is clickable
+    And I wait for 8000 milli seconds
+    Then I verify that user should be able to select and upload files from the computer through Add files link
+    Then I wait for 8000 milli seconds
+    Then I click on the create Note Button on Add Clinical Document on Patient Card
+    Then I verify that create Note has been successfully created
+    Then I wait for 8000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 20000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
@@ -31,12 +43,12 @@ Given I am on the login page
     Then I Verify that User email should be displayed under notes read only form
     
     Then I verify the Activity Date and time of the note under notes read only form
-    Then I Verify that Activity date should displayed date with format MM/DD/YYYY
+    #Then I Verify that Activity date should displayed date with format MM/DD/YYYY
     Then I verify that there is an Attachments section that should display all attachments
     
     Examples:
-    |   First name      |    Last name       | Medicare ID |
-    |   AUTOMATION      |    DO_NOT_USE      | wa984986    |
+    |   First name      |    Last name       | Medicare ID | Notetext |
+    |   AUTOMATION      |    DO_NOT_USE      | wa984986    | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat.|
     
     
     

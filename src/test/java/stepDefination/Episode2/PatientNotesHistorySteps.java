@@ -5,7 +5,7 @@ import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.Then;
 
-public class LastSavedSteps extends DriverScript  {
+public class PatientNotesHistorySteps extends DriverScript  {
 
 	PatientClinicalDocuments patientclinical=new PatientClinicalDocuments(driver);
 	

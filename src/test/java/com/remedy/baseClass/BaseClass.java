@@ -438,6 +438,11 @@ public class BaseClass {
         return webElement.isSelected();
     }
     
+    public void verifytext(String expected,String actual)
+    {
+    	Assert.assertEquals(expected, actual);
+    }
+    
     
     
     
