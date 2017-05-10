@@ -65,6 +65,16 @@ public class CreateUserPage extends BaseClass{
     	//js.executeScript("arguments[0].scrollIntoView(true);", element);
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
+    
+    public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection(){
+    	
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Stamford Hospital']")));
+    }
+    
+    public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection(){
+    	
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
+    }
 
     public void iEnterNPI(String text){
     	
@@ -223,6 +233,42 @@ public class CreateUserPage extends BaseClass{
    public void iClickOnContinueToDashboardMessage(){
 	   clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
    }
+   
+   public void iClickOnEpisodesTileUnderSpecificUserLoginPage() throws InterruptedException{
+	   
+	   if(driver.findElement(By.xpath("//p[text()='Episodes']")).isDisplayed()){
+		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
+		   switchToNewWindow();
+		   Thread.sleep(6000);
+		   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+		   switchBacktoOldWindow();
+   	}else{
+   		
+   		return;
+   	}
+   }
+   
+   public void iVerifyTheHeaderAfterClickingTheEpisodesTile(){
+	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+   }
+   
+   public void iClickOnEpisodes2TileUnderSpecificUserLoginPage() throws InterruptedException{
+	   
+	   if(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")).isDisplayed()){
+		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
+		   switchToNewWindow();
+		   Thread.sleep(6000);
+		   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+		   switchBacktoOldWindow();
+   	}else{
+   		
+   		return;
+   	}
+   
+   }
   
+   public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
+	   clickElement(driver.findElement(By.xpath("//h1[text()='Patients']")));
+   }
 
 }

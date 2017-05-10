@@ -127,6 +127,16 @@ public class CreateUserSteps extends DriverScript{
         createUser.selectPayerFromData(payer);
 
     }
+    
+    @Then("^I verify the first payer field added under permissions section$")
+    public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection() throws Throwable{
+    	createUser.iVerifyTheFirstPayerFieldAddedUnderPermissionsSection();
+    }
+    
+    @Then("^I verify the second payer field added under permissions section$")
+    public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection() throws Throwable{
+    	createUser.iVerifyTheSecondPayerFieldAddedUnderPermissionsSection();
+    }
 
     @Then("^I select a ([^\"]*)$")
     public void iSelectHealthSystem(String healthSystem) throws Throwable {
@@ -283,5 +293,25 @@ public class CreateUserSteps extends DriverScript{
     @And("^I click on continue to dashboard$")
     public void iClickOnContinueToDashboard()throws Throwable {
     	createUser.iClickOnContinueToDashboardMessage();
+    }
+    
+    @And("^I click on Episodes tile under specific user login page$")
+    public void iClickOnEpisodesTileUnderSpecificUserLoginPage() throws Throwable{
+    	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage();
+    }
+    
+    @And("^I verify the header after clicking the episodes tile$")
+    public void iVerifyTheHeaderAfterClickingTheEpisodesTile() throws Throwable{
+    	createUser.iVerifyTheHeaderAfterClickingTheEpisodesTile();
+    }
+    
+    @And("^I click on Episodes 2 tile under specific user login page$")
+    public void iClickOnEpisodes2TileUnderSpecificUserLoginPage() throws Throwable{
+    	createUser.iClickOnEpisodes2TileUnderSpecificUserLoginPage();
+    }
+    
+    @And("^I Verify the header after clicking the episodes 2 tile$")
+    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile() throws Throwable{
+    	createUser.iVerifyTheHeaderAfterClickingTheEpisodes2Tile();
     }
 }
