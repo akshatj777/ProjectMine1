@@ -13,11 +13,11 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 
 	public void iVerifyReportHeaderInGlobalFilter(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".ng-binding.ng-scope")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".container.ng-binding")), text);
 	}
 	
 	public void iSeeUnderGlobalFilterAppliedCount(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".pull-left.ng-binding")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".container h5.ng-scope strong.ng-binding")), text);
 	}
 	
 	public void iClickOnSummaryButtonUnderGlobalFilter(){

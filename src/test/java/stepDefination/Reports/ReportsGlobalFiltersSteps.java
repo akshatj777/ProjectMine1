@@ -16,7 +16,7 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 		globalfilters.iVerifyReportHeaderInGlobalFilter(text);
 	}
 	
-	@When("^I see \"([^\"]*)\" under global filters applied count$")
+	@When("^I see \"([^\"]*)\" filters applied under global filters applied count$")
 	public void i_see_under_global_filters_applied_count(String text)throws Throwable{
 		globalfilters.iSeeUnderGlobalFilterAppliedCount(text);
 	}
