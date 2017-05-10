@@ -6,7 +6,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 
-public class PatientNotes extends DriverScript{
+public class PatientNotesSteps extends DriverScript{
 
 	NoteCreation noteCreation = new NoteCreation(driver);
 	

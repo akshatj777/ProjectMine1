@@ -5,8 +5,8 @@ Feature: Created Patient Note Comparision in EC1 and EC2
 
 Scenario Outline: To verify Notes created in EC1 through i framing should only be accessible on EC2 care plan tab should not be seen under Clinical Documents tab .
 Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field <password> for Login
+    When I enter email field "<email>" for login
+    And I enter password field "<password>" for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes
@@ -49,7 +49,7 @@ Given I am on the login page
     
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter <Patient Name> in the search box on the patients page
+    Then I enter "<Patient Name>" in the search box on the patients page
     And I wait for 2000 milli seconds
     Then I click on the patient card on Patient Card Page
     And I wait for 25000 milli seconds

@@ -38,9 +38,9 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		noteCreation.IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage();
 	}
 	
-	 @And("^I select the value from the topic drop down on  Add Clinical Document on Patient Card$")
-	    public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Card() throws Throwable {
-		 noteCreation.IselectthevaluefromthetopicdropdownonPatientCard("Baseline");
+	 @And ("^I select the \"(.*)\" from the topic drop down on Add Clinical Document on Patient Card$")
+	    public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Card(String dropdownvalue) throws Throwable {
+		 noteCreation.IselectthevaluefromthetopicdropdownonPatientCard(dropdownvalue);
 	    }
 	 
 	 @Then("^I verify Activity Date drop down calendar appears on the Add Clinical Document on Patient Card$")
@@ -142,7 +142,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	 
 	 //Upload file
 	 
-	 @Then ("^I verify that Add Files link is clickable$")
+	 @Then ("^I click on Add Files link on Note Section on Patient Card$")
 	 public void I_verify_that_Add_Files_link_is_clickable()
 	 {
 		 noteCreation.IverifythatAdd_Fileslinkisclickable();    	 
@@ -164,5 +164,33 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		 noteCreation.Iverifytheimageisattachedornot();
 	 }
 	 
+	 @Then ("^I verify that trash icon is available for each file after uploading all file$")
+	 public void I_verify_that_trash_icon_is_available_after_uploading_file()
+	 {
+		 noteCreation.Iverifythattrashiconisavailableafteruploadingfile();
+	 }
 	 
+	 @Then ("^I verify user should be able to remove the file by selecting the trash icon$")
+	 public void I_verify_user_should_be_able_to_remove_the_file_by_selecting_the_trash_icon()
+	 {
+		 noteCreation.Iverifyusershouldbeabletoremovethefilebyselectingthetrashicon();
+	 }
+	 
+	 @Then ("^I click on the Cancel button on the Note Section on Patient Card$")
+	 public void I_click_on_the_Cancel_button_on_the_Note_Section_on_Patient_Card()
+	 {
+		 noteCreation.IclickontheCancelbuttonontheNoteSectiononPatientCard();
+	}
+	 
+	 @Then ("^I verify create note successful message doesnot appear on Patient Card$")
+	 public void I_verify_create_note_successful_message_doesnot_appear_on_Patient_Card()
+	 {
+		 noteCreation.IverifycreatenotesuccessfulmessagedoesnotappearonPatientCard();
+	 }
+	 
+	 @Then ("^I verify on canceling Note creation Note window should get close$")
+	 public void I_verify_on_canceling_Note_creation_Note_window_should_get_close()
+	 {
+		 noteCreation.IverifyoncancelingNotecreationNotewindowshouldgetclose();
+	 }
 }

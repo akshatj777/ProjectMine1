@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -71,6 +72,30 @@ public class BaseClass {
         }
     }
 
+    public List<String> getTextForElementfromList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        List<String> listtexts = new ArrayList<String>();
+        for (WebElement item : listItems) {
+            System.out.println(item.getText());
+         item.getText();
+         listtexts.add(item.getText());
+        }
+  return listtexts;
+         
+        }
+    
+    public List<WebElement> getElementsList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        
+        System.out.println("****The list of elements*****"+listItems);
+  return listItems;
+         
+        }
+    
+     
+    
     public WebElement waitFindElement(WebElement parentElement, By by) {
 
         WebElement ele = null;
@@ -387,6 +412,14 @@ public class BaseClass {
     driver.switchTo().parentFrame();
     }
     
+    public boolean existsElement(String element) {
+    	 try {
+    	 driver.findElement(By.cssSelector(element));
+    	 } catch (NoSuchElementException e) {
+    	 return false;
+    	 }
+    	 return true;
+    	}
   }
     
  

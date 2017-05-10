@@ -225,7 +225,7 @@ public void IclickonoutsideofthecalendaronAddClinicalDocumentonPatientCard() {
 
 public void IverifythatAdd_Fileslinkisclickable()
 {
-	clickElement(driver.findElement(By.cssSelector("a.add-icon.ng-pristine.ng-untouched.ng-valid.ng-empty")));
+	clickElement(driver.findElement(By.cssSelector("a.add-icon")));
 }
 
 public void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
@@ -264,7 +264,119 @@ public void IverifythatcreateNotehasbeensuccessfullycreated() {
 public void IclickontheALLTabonPatientpage() {
 	clickElement(driver.findElement(By.cssSelector("div.tabbed-navbar-tabs > button:nth-child(1)")));
 }
+
+
+public void Iverifythattrashiconisavailableafteruploadingfile() {
+	// TODO Auto-generated method stub
+	
+	List<WebElement> elements=driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
+	System.out.println("$$$$$$$$The List of file uploads is"+elements);
+	int uploadcount=elements.size();
+	System.out.println("$$$$$$$$The upload count is"+uploadcount);
+	for(int i=2;i<=(uploadcount+1);i++)
+	{
+		isElementVisible(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+ i +") > div:nth-child(1) > i.valentino-icon-x")));	
+	}
 }
+
+
+public void Iverifyusershouldbeabletoremovethefilebyselectingthetrashicon() {
+	// TODO Auto-generated method stub
+	List<WebElement> elements=driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
+	int uploadcount=elements.size()+1;
+	clickElement(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+uploadcount+") > div:nth-child(1) > i.valentino-icon-x")));
+	System.out.println("$$$$$$$$$$File is successfully removed");
+	try
+	{
+	isElementVisible(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+uploadcount+") > div:nth-child(1) > i.valentino-icon-x")));
+	}catch(Exception e)
+	{
+		e.printStackTrace();
+		System.out.println("Deleted file will not be uploaded now");
+	}
+}
+
+
+public void IclickontheCancelbuttonontheNoteSectiononPatientCard() {
+	
+	clickElement(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-tertiary') and text() = 'Cancel']")));
+	
+}
+
+
+public void IverifycreatenotesuccessfulmessagedoesnotappearonPatientCard() {
+	try
+	{
+	existsElement("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message");
+	}catch(Exception e) 
+	{
+	    e.printStackTrace();
+		System.out.println("ELement not present");
+	      }
+	}
+
+
+public void IverifyoncancelingNotecreationNotewindowshouldgetclose() {
+	try
+	{
+	existsElement("div.card-footer-content.ng-scope");
+      }catch(Exception e)
+      {
+    	e.printStackTrace();
+    	System.out.println("$$$$$Element nor present");
+      }
+}
+
+
+public String Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage() {
+	
+	String patient_name=driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div > h3")).getText();
+	System.out.println("$$$$$$$The Patient name is"+patient_name);
+	 return patient_name;
+}
+
+
+public void Ienterpatientnameinthesearchboxonthepatientspage() {
+	  String search=Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
+	  iFillInText(driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")), search);
+	  }
+
+
+public void Iclickonthepatientcardtonavigatetothepatientsummarypage() {
+	String search=Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
+	String[] words = search.split(",");
+	String lastname=words[0];
+	System.out.println("$$$$$$$$The last name is"+lastname);
+	clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+lastname+"')]")));
+}
+
+
+public void IclickonthesubbarclinicaldocumentstabinPatientsummaryPage() {
+	
+	clickElement(driver.findElement(By.xpath("//span[contains(text(),'Clinical Documents')]")));
+		
+}
+
+
+public void Iverifynoteshouldbestoredintheclinicaldocumentsectiononceitiscreated() {
+	
+List<WebElement> NoteELements=driver.findElements(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span"));	
+List<String> Notetexts=new ArrayList<String>();
+String[] arr={"Baseline","Bedside Visit","Care Assessment Note"};
+List<String> requiredlist=new ArrayList<>();
+requiredlist.addAll(Arrays.asList(arr));
+for(int i=0;i<=2;i++)
+{
+	
+	Notetexts.add(NoteELements.get(i).getText());
+}
+   Assert.assertEquals(requiredlist,Notetexts);
+}
+
+
+}
+
+
 // **************************************************//
 
 

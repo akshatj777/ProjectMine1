@@ -17,7 +17,7 @@ And I wait for 30000 milli seconds
 Then I click on quick action button for note creation on Patient Card page
 And I wait for 30000 milli seconds
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-And  I select the value from the topic drop down on  Add Clinical Document on Patient Card
+And  I select the "<Baseline>" from the topic drop down on Add Clinical Document on Patient Card
 
 Scenario: Verify that Note>Topic dropdown bar should display the required value
 
@@ -34,7 +34,7 @@ And I wait for 30000 milli seconds
 Then I click on quick action button for note creation on Patient Card page
 And I wait for 30000 milli seconds
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-And  I click the value from the topic drop down on  Add Clinical Document on Patient Card
+And  I select the "<Baseline>" from the topic drop down on Add Clinical Document on Patient Card
 Then I verify Topicdropdownbar has the placeholder Select a topic or not
 And  I verify the drop down values on  Add Clinical Document on Patient Card
 
