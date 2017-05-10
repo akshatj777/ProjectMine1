@@ -561,14 +561,15 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 	}
 
-	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {
-		// TODO Auto-generated method stub
-		if(isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td.empty-cell"))));
-		{
-			isElementVisible(driver.findElement(By.cssSelector("//a[not(contains(text(),'Show History'))]")));
-			
-		}
-	}
+//	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {
+//		// TODO Auto-generated method stub
+//		
+//		
+//			if(isElementVisible(driver.findElement(By.cssSelector("//a[not(contains(text(),'Show History'))]")))==true);
+//			{
+//				
+//			}
+//			}
 
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
 		// TODO Auto-generated method stub
