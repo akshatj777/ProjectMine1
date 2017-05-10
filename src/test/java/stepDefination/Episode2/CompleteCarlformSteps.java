@@ -100,6 +100,48 @@ public class CompleteCarlformSteps extends DriverScript{
 		 completecarl.IVerifyThatCareNetworkMemberDropDwonAppearsUnderChooseCaregiverSection();
 	 }
 	 
+	 @And ("^I verify Select should appear in Care Network Member dropdwon placeholder$")
+	 public void I_Verify_Select_PlaceholderText_In_CareNetworkMember_DropDwon_UnderChooseCaregiver()
+	 {
+		 completecarl.IVerifyPlaceholderTextiCarenNetworkMemberDropDwonUnderChooseCaregiver();
+	 }
+	 
+	 @Then ("^I click on Care Network Members dropdown under Choose Caregiver$")
+	 public void I_Click_On_CareNetworkMembers_Dropdown()
+	 {
+		 completecarl.IClickOnCareNetworkMembersDropdownUnderChooseCaregiver();
+	 }
+	 
+	 @Then ("^I select \"([^\"]*)\" associated Caregiver from the dropdown$")
+	 public void I_Select_User_Associated_To_Caregiver_From_The_Dropdown(String name)
+	 {
+		 completecarl.ISelectTheAssociatedCaregiverFromTheDropdown(name);
+	 }
+	 
+	 @Then ("^I verify the \"([^\"]*)\" is populated in Care Network Member dropdown$")
+	 public void I_Verify_Selected_User_Appears_On_Dropdown_CareNetworkMember(String name)
+	 {
+		 completecarl.IVerifySelectedUserAppearsOnTheDropdownInCareNetworkMembers(name);
+	 }
+	 
+	 @Then ("^I verify the \"([^\"]*)\" on caregiver information card$")
+	 public void I_Verify_Username_Appears_On_CaregiverInformation_Card(String name)
+	 {
+		 completecarl.IVerifyNameOnCaregiverInformationCard(name);
+	 }
+	 
+	 @Then ("^I verify email \"([^\"]*)\" on caregiver information card$")
+	 public void I_Verify_Email_Appears_On_CaregiverInformation_Card(String email)
+	 {
+		 completecarl.IVerifyEmailOnCaregiverInformationCard(email);
+	 }
+	 
+	 @Then ("^I verify phone \"([^\"]*)\" on caregiver information card$")
+	 public void I_Verify_Phone_Appears_On_CaregiverInformation_Card(String phone)
+	 {
+		 completecarl.IVerifyPhoneOnCaregiverInformationCard(phone);
+	 }
+	 
 	 @Then ("^I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page$")
 	 public void I_Verify_That_AddCaregiverLink_Should_Appear_Under_ChooseCaregiverSection()
 	 {
@@ -190,6 +232,16 @@ public class CompleteCarlformSteps extends DriverScript{
 		 completecarl.IVerifyFieldLabelToCreateCaregiver(text); 
 	 }
 	 
+	 @Then("^I verify create button is enabled$")
+	 public void I_Verify_Create_Button_Is_Enabled(){
+		 completecarl.IVerifyCreateButtonIsEnabled();
+	 }
+	 
+	 @Then("^I verify create button is disabled$")
+	 public void I_Verify_Create_Button_Is_Disabled(){
+		 completecarl.IVerifyCreateButtonIsDisabled();
+	 }
+	 
 	 @Then("^I verify the label dropdown under Relationship field$")
 	 public void I_Verify_The_Label_Dropdown_Under_Relationship()
 	 {
@@ -239,6 +291,8 @@ public class CompleteCarlformSteps extends DriverScript{
 	 {
 		 completecarl.IClickOnCloseButtonInDropdownUnderChooseCaregiver();
 	 }
+	 
+	 
 	 
 	 @Then("^I click on Anticipated Discharge Needs on side menu option$")
 	 public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption()

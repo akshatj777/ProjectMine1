@@ -97,7 +97,8 @@ Feature: Hover Icon on Carl Form
       | AUTOMATION | DO_NOT_USE |
       
   
-   Scenario Outline: To verify upon selecting the +Add Caregiver link in the Caregiver page, the user should be able to complete the information on the Caregiver form
+   Scenario Outline: To verify upon selecting the +Add Caregiver link in the Caregiver page, the user should be able to complete the information on the Caregiver form.
+   To add a caregiver by selecting a member from a list of all Care Network Members associated with a patient
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -123,7 +124,9 @@ Feature: Hover Icon on Carl Form
     And I click on Add Caregiver link under Choose Caregiver
     Then I verify "* First Name" is mandatory field to create Caregiver 
     Then I verify "* Last Name" is mandatory field to create Caregiver  
+    Then I verify create button is disabled
     Then I Enter FirstName and LastName on Add Caregiver form
+    Then I verify create button is enabled
     Then I verify Relationship field to create Caregiver
     Then I verify the label dropdown under Relationship field
     And I wait for 10000 milli seconds
@@ -144,8 +147,23 @@ Feature: Hover Icon on Carl Form
     Then I verify Addtional Phone field to create Caregiver
     And I click on Create button to add Caregiver
     And I wait for 5000 milli seconds
-  
-  
+    Then I click on close button in dropdown under Choose Caregiver
+    Then I verify that Care Network Member drop down should appear under Choose Caregiver section in Caregiver on takeover page
+    And I verify Select should appear in Care Network Member dropdwon placeholder 
+    Then I click on Care Network Members dropdown under Choose Caregiver
+    And I wait for 5000 milli seconds
+    Then I select "LASTNAMETEST, FIRSTNAMETEST" associated Caregiver from the dropdown
+    And I wait for 2000 milli seconds
+    Then I verify the "LASTNAMETEST, FIRSTNAMETEST" is populated in Care Network Member dropdown
+    And I wait for 2000 milli seconds
+    Then I verify the "LASTNAMETEST, FIRSTNAMETEST" on caregiver information card
+    Then I verify email "testuser@yopmail.com" on caregiver information card
+    Then I verify phone "987-456-1230" on caregiver information card
+    And I wait for 2000 milli seconds 
+    
+     
   Examples: 
       | First name | Last name  |
       | AUTOMATION | DO_NOT_USE |      
+
+      

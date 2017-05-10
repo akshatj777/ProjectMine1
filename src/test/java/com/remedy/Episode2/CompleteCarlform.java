@@ -134,6 +134,34 @@ public class CompleteCarlform extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(".col-md-8")));
 	}
 	
+	public void IVerifyPlaceholderTextiCarenNetworkMemberDropDwonUnderChooseCaregiver() {
+		verifyTextForElement(driver.findElement(By.xpath("//span[text()='Select']")), "Select");
+	}
+	
+	public void IClickOnCareNetworkMembersDropdownUnderChooseCaregiver() {
+		clickElement(driver.findElement(By.xpath("//span[text()='Select']")));
+	}
+	
+	public void ISelectTheAssociatedCaregiverFromTheDropdown(String text) {
+		clickElement(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]")));
+	}
+	
+	public void IVerifySelectedUserAppearsOnTheDropdownInCareNetworkMembers(String text) {
+		verifyTextForElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")),text);
+	}
+	
+	public void IVerifyNameOnCaregiverInformationCard(String text) {
+		verifyTextForElement(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]")),text);
+	}
+	
+	public void IVerifyEmailOnCaregiverInformationCard(String email) {
+		verifyTextForElement(driver.findElement(By.xpath("//p[text()='"+email+"']")),email);
+	}
+	
+	public void IVerifyPhoneOnCaregiverInformationCard(String phone) {
+		verifyTextForElement(driver.findElement(By.xpath("//p[text()='"+phone+"']")),phone);
+	}
+		
 	public void IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection() {
 		isElementVisible(driver.findElement(By.xpath("//a[text()='Add Caregiver']")));
 	}
@@ -200,6 +228,29 @@ public class CompleteCarlform extends BaseClass {
 		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
 	}
 	
+	public void IVerifyCreateButtonIsEnabled(){
+		boolean value =false;
+		value = driver.findElement(By.xpath("//button[text()='Create']")).isEnabled();
+		if(value==true){
+			return;
+			}
+		else{
+			System.out.println("Disabled");
+		}
+	}
+	
+	public void IVerifyCreateButtonIsDisabled(){
+		boolean value =false;
+		value = driver.findElement(By.xpath("//button[text()='Create']")).isEnabled();
+		if(value==false){
+			return;
+			}
+		else{
+			System.out.println("Enabled");
+		}
+	}
+	
+	
 	public void IVerifyFieldLabelToCreateCaregiver(String text){
 		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
 	}
@@ -211,7 +262,8 @@ public class CompleteCarlform extends BaseClass {
 	}
 	
 	public void IVerifyTheLabelDropdownUnderRelationship() {
-				
+		
+		driver.findElement(By.xpath("html/body/div[5]/div/div/div/div[2]/form/div/div[2]/section/div[5]/form/div[1]/div[3]/div[1]/div/div[1]/span")).click();		
 		List<String> actualmylist=getTextForElementfromList("span.ui-select-choices-row-inner");
 		String[] expectedvalues={"Adoptive Parent","Aunt/Uncle","Brother","Child","Daughter","DCF/DSS","Dependent",
 				"Father","Foster Parent","Friend","Grandchild","Grandparent","Guarantor","Legal Guardian","Life Partner",
