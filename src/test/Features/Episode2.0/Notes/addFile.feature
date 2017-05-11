@@ -11,8 +11,8 @@ Then I should see Tile text Episodes 2.0
 When I click on the "Episodes 2.0" tile
 And  I wait for 8000 milli seconds
 Then I verify current page "Remedy Partners" title
-Then I click on the ALL Tab on Patient page 
-And  I wait for 20000 milli seconds
+Then I click on the Impatient tab on the patient Card Page  
+And  I wait for 10000 milli seconds
 Then I click on quick action button for note creation on Patient Card page
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
 And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
@@ -23,6 +23,10 @@ Then I verify that user should be able to select and upload file "<FileName>" th
 And I wait for 10000 milli seconds
 Then I verify the image is attached or not
 Then I click on the create Note Button on Add Clinical Document on Patient Card
+Then I verify that create Note has been successfully created
+Then I verify Dismiss button should be there on notification message 
+Then I check clicking on cross icon of green bar green bar notification should get removed 
+
 
 Examples:
            |  FileName      |
@@ -47,6 +51,7 @@ And  I wait for 8000 milli seconds
 Then I verify current page "Remedy Partners" title
 Then I click on the ALL Tab on Patient page 
 And  I wait for 20000 milli seconds
+Then I get the name of the first patient from the patient list on patient card page
 Then I click on quick action button for note creation on Patient Card page
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
 And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
@@ -70,6 +75,8 @@ Then I wait for 3000 milli seconds
 Then I click on the create Note Button on Add Clinical Document on Patient Card
 Then I wait for 3000 milli seconds
 Then I verify that create Note has been successfully created
+Then I verify message should display in green color Your clinical document for Angela Pena has been added
+Then I verify on notification there should be link to View clinical document
 
 Scenario:  To verify user should be able to cancel the Note creation
 

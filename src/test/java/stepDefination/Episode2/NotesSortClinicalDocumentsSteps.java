@@ -40,4 +40,50 @@ public class NotesSortClinicalDocumentsSteps extends DriverScript {
 		noteCreation.Iverifynoteshouldbestoredintheclinicaldocumentsectiononceitiscreated();
 		
 	}
+	
+	@Then ("^I click on the created note in the clinical Documents section on patient summary$") 
+	public void I_click_on_the_created_note_in_the_clinical_Documents_section_on_patient_summary()
+	{
+	    noteCreation.IclickonthecreatednoteintheclinicalDocumentssectiononpatientsummary(); 
+	}
+	
+	@Then ("^I click on the cross button Note Read only form to navigate to patient card$")
+	public void I_click_on_the_cross_button_Note_Read_only_form_to_navigate_to_patient_card()
+	{
+		noteCreation.IclickonthecrossbuttonNoteReadonlyformtonavigatetopatientcard();
+	}
+	
+	@Then ("^I click on the Activity tab on the Patient Summary Page$")
+	public void I_click_on_the_Activity_tab_on_the_Patient_Summary_Page() 
+	{
+		noteCreation.IclickontheActivitytabonthePatientSummaryPage();
+	}
+	
+	@Then ("^I click on the Notification button on the Activity frame on Patient Summary Page$")
+	public void I_click_on_the_Notification_button_on_the_Activity_frame_on_Patient_Summary_Page() 
+	{
+		noteCreation.IclickontheNotificationbuttonontheActivityframeonPatientSummaryPage();
+	}
+   
+	@Then ("^I Verify that the notification logs activity date on the Notification on Activity tab on Patient Summary$")
+
+	public void I_Verify_that_the_notification_logs_activity_date_on_the_Notification_on_Activity_tab_on_Patient_Summary()
+	{
+		noteCreation.IVerifythatthenotificationlogsactivitydateontheNotificationonActivitytabonPatientSummary();
+	}
+	 
+	 @Then ("^I Verify that the notification logs activity name  on the Notification on Activity tab on Patient Summary$")
+	 public void I_Verify_that_the_notification_logs_activity_name_on_the_Notification_on_Activity_tab_on_Patient_Summary()
+	 {
+		 noteCreation.IVerifythatthenotificationlogsactivitynameontheNotificationonActivitytabonPatientSummary();
+	 }
+	 
+	 
+	 
+	 @Then ("^I Verify that the notification logs user name  on the Notification on Activity tab on Patient Summary$")
+	 public void I_Verify_that_the_notification_logs_user_name_on_the_Notification_on_Activity_tab_on_Patient_Summary()
+	 {
+		 noteCreation.IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary();
+	 }
+	
 }

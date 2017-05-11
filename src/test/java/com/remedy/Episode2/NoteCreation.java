@@ -16,8 +16,10 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -32,7 +34,7 @@ public class NoteCreation extends BaseClass{
     
     
     public void  I_click_on_the_patient_card_on_Patient_Card_Page() {
-            clickElement(driver.findElement(By.xpath("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div")));
+            clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div")));
            }
     
     public void Iverifyclickonpatientcardtobenavigatedtopatientsummary()
@@ -100,15 +102,25 @@ public class NoteCreation extends BaseClass{
     public void IclickonquickactionbuttonfornotecreationonPatientCardpage()
     {
     	
-    	clickElement(driver.findElement(By.cssSelector("body > div.main-container.container > div > div > div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > button:nth-child(1)")));
+    	clickElement(driver.findElement(By.cssSelector("div > button.quick-action > i.valentino-icon-document")));
  
     }
+    
+    public void IclickonquickactionbuttonfornotecreationonPatientCardpageJavaScript()
+    {
+    	/*JavascriptExecutor js = (JavascriptExecutor)driver;
+    	WebElement element=driver.findElement(By.cssSelector("div > button:nth-child(1).quick-action.ng-scope"));
+    	js.executeScript("arguments[0].click()", element);
+    	clickElement(element);*/
+    	WebElement element=driver.findElement(By.cssSelector("div > button:nth-child(1).quick-action.ng-scope"));
+    	Actions action = new Actions(driver);
+    	action.moveToElement(element).click().perform();
+    	}
 
     public void IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage()
     {
-    	 isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
-    	
-    }
+    	 isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span ")));
+    	}
 
     public void IselectthevaluefromthetopicdropdownonPatientCard(String Topic_dropdown_value) {
         clickElement(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
@@ -147,6 +159,7 @@ public class NoteCreation extends BaseClass{
     	}
     public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard()
     {
+    	
     	iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),"Sample");
     }
     
@@ -162,22 +175,20 @@ public class NoteCreation extends BaseClass{
     
    public void IverifythedropdownvaluesonAddClinicalDocumentonPatientCard() {
     	
-        List<String> actualcombolisttext = new ArrayList();
-        List<WebElement> elementtexts = new ArrayList();
-        List<String> requiredcombolisttext=new ArrayList();
-        String[] expectedvalues={"Baseline","Bedside Visit", "Care Assessment Note","Clinical Note", "Close Call", "Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care", "Patient Call", "Patient Education", "Patient Visit","Psychological Condition", "Transition Note", "TUG/RAPT/CARE Score"};
-        		
-        requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
        
+	   List<String> actualcombolisttext = new ArrayList<String>();
+        List<WebElement> elementtexts = new ArrayList<>();
+        List<String> requiredcombolisttext=new ArrayList<String>();
+        String[] expectedvalues={"Baseline","Bedside Visit", "Care Assessment Note","Clinical Note", "Close Call", "Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care", "Patient Call", "Patient Education", "Patient Visit","Psychological Condition", "Transition Note", "TUG/RAPT/CARE Score"};
+        		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+        clickElement(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
         elementtexts=driver.findElements(By.cssSelector("span.ui-select-choices-row-inner"));
-        
         for(WebElement elementtext:elementtexts )
         {
         actualcombolisttext.add(elementtext.getText());
-        System.out.println("****The drop down value is"+elementtext.getText());
+    
           }
-        System.out.println("*****The drop down values****"+actualcombolisttext);
-        verifyarraylist(requiredcombolisttext,actualcombolisttext);
+       verifyarraylist(requiredcombolisttext,actualcombolisttext);
              }
    
        public void IverifyTopicdropdownbarhastheplaceholderSelectatopicornot()
@@ -258,6 +269,7 @@ public void Iverifytheimageisattachedornot() {
 public void IverifythatcreateNotehasbeensuccessfullycreated() {
 	// TODO Auto-generated method stub
 	isElementVisible(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")));	
+
 }
 
 
@@ -270,9 +282,7 @@ public void Iverifythattrashiconisavailableafteruploadingfile() {
 	// TODO Auto-generated method stub
 	
 	List<WebElement> elements=driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
-	System.out.println("$$$$$$$$The List of file uploads is"+elements);
 	int uploadcount=elements.size();
-	System.out.println("$$$$$$$$The upload count is"+uploadcount);
 	for(int i=2;i<=(uploadcount+1);i++)
 	{
 		isElementVisible(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+ i +") > div:nth-child(1) > i.valentino-icon-x")));	
@@ -281,18 +291,15 @@ public void Iverifythattrashiconisavailableafteruploadingfile() {
 
 
 public void Iverifyusershouldbeabletoremovethefilebyselectingthetrashicon() {
-	// TODO Auto-generated method stub
-	List<WebElement> elements=driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
+    List<WebElement> elements=driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
 	int uploadcount=elements.size()+1;
 	clickElement(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+uploadcount+") > div:nth-child(1) > i.valentino-icon-x")));
-	System.out.println("$$$$$$$$$$File is successfully removed");
 	try
 	{
-	isElementVisible(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+uploadcount+") > div:nth-child(1) > i.valentino-icon-x")));
+	driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+uploadcount+") > div:nth-child(1) > i.valentino-icon-x"));
 	}catch(Exception e)
 	{
-		e.printStackTrace();
-		System.out.println("Deleted file will not be uploaded now");
+		return;
 	}
 }
 
@@ -307,11 +314,10 @@ public void IclickontheCancelbuttonontheNoteSectiononPatientCard() {
 public void IverifycreatenotesuccessfulmessagedoesnotappearonPatientCard() {
 	try
 	{
-	existsElement("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message");
+	driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message"));
 	}catch(Exception e) 
 	{
-	    e.printStackTrace();
-		System.out.println("ELement not present");
+	    return;
 	      }
 	}
 
@@ -319,12 +325,10 @@ public void IverifycreatenotesuccessfulmessagedoesnotappearonPatientCard() {
 public void IverifyoncancelingNotecreationNotewindowshouldgetclose() {
 	try
 	{
-	existsElement("div.card-footer-content.ng-scope");
-      }catch(Exception e)
-      {
-    	e.printStackTrace();
-    	System.out.println("$$$$$Element nor present");
-      }
+	driver.findElement(By.cssSelector("div.card-footer-content.ng-scope"));
+      }catch(Exception e){
+    	return;
+    	}
 }
 
 
@@ -360,18 +364,145 @@ public void IclickonthesubbarclinicaldocumentstabinPatientsummaryPage() {
 
 public void Iverifynoteshouldbestoredintheclinicaldocumentsectiononceitiscreated() {
 	
-List<WebElement> NoteELements=driver.findElements(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span"));	
-List<String> Notetexts=new ArrayList<String>();
-String[] arr={"Baseline","Bedside Visit","Care Assessment Note"};
-List<String> requiredlist=new ArrayList<>();
-requiredlist.addAll(Arrays.asList(arr));
-for(int i=0;i<=2;i++)
-{
+   String NoteText=driver.findElement(By.cssSelector("h1.ng-binding")).getText();
+   if(NoteText.equals("Baseline"))
+   {
+	   System.out.println("Note is successfully present");
+   }else
+   {
+	   return;
+   }
+}
+
+
+public void Irefreshmywebpageonpatientcardpage() {
+	clickElement(driver.findElement(By.cssSelector("i.valentino-icon-reload")));
+
+}
+
+
+public void IverifytosubmittheNoteTopicisthemandatoryfieldtofill() {
 	
-	Notetexts.add(NoteELements.get(i).getText());
+	try
+	{
+	WebElement element=driver.findElement(By.cssSelector("textarea.form-control.ng-pristine"));
+	}catch(Exception e)
+	{
+	 return;
+	}
 }
-   Assert.assertEquals(requiredlist,Notetexts);
+
+
+public void IclickonthecreatednoteintheclinicalDocumentssectiononpatientsummary() {
+	
+	clickElement(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(1) > a > span ")));
+	 
 }
+
+
+public void IverifymessageshoulddisplayingreencolorYourclinicaldocumentforAngelaPenahasbeenadded() {
+	
+	String created_note_message=driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")).getText();
+	String search=Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
+	String[] words = search.split(",");
+	String lastname=words[0];
+	String firstname=words[1];
+    if(created_note_message.equals("Your clinical document for "+firstname+" "+lastname+" has been added"))	
+	{
+		 System.out.println("Message is verified successfully");
+	}
+	}
+
+
+public void IverifyonnotificationthereshouldbelinktoViewclinicaldocument() {
+	
+	clickElement(driver.findElement(By.cssSelector("a.btn.btn-outbound.ng-binding")));
+}
+
+
+public void IverifyDismissbuttonshouldbethereonnotificationmessage() {
+	
+	isElementVisible(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > actions > i")));
+}
+
+
+public void Icheckclickingoncrossiconofgreenbargreenbarnotificationshouldgetremoved() {
+	
+	clickElement(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > actions > i")));
+	try
+	{
+		WebElement ispresent=driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")); 
+	}catch(Exception e)
+	{
+		return;
+	}
+}
+
+
+public void IclickonthecrossbuttonNoteReadonlyformtonavigatetopatientcard() {
+	clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
+	
+}
+
+
+public void IclickontheActivitytabonthePatientSummaryPage() {
+	
+	clickElement(driver.findElement(By.xpath("//span[contains(text(),'Activity')]")));
+
+	
+	
+	
+	
+}
+
+public void IswitchtotheActivityframeonthePatientSummaryPage() {
+	
+	swithToFrame("//*[@id='iFrameEC2PatientActivity']");
+	
+}
+
+
+public void IclickontheNotificationbuttonontheActivityframeonPatientSummaryPage() {
+	
+	clickElement(driver.findElement(By.cssSelector("#notificationsBtn")));
+	
+}
+
+
+public void IVerifythatthenotificationlogsactivitydateontheNotificationonActivitytabonPatientSummary() {
+	
+	isElementVisible(driver.findElement(By.cssSelector("#notificationsTable > tbody > tr > td.sorting_1")));
+}
+
+
+public void IVerifythatthenotificationlogsactivitynameontheNotificationonActivitytabonPatientSummary() {
+	isElementVisible(driver.findElement(By.cssSelector(" #notificationsTable > tbody > tr > td:nth-child(3)")));
+}
+
+public void IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary() {
+     isElementVisible(driver.findElement(By.cssSelector("#notificationsTable > tbody > tr > td:nth-child(4)")));
+}
+
+
+public void IclickontheImpatienttabonthepatientCardPage() {
+	// TODO Auto-generated method stub
+	clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient')]")));
+	
+}
+
+
+public void IVerifythatusershouldnotallowtocreatenotewithoutselectingTopicfield() {
+	
+	try
+	{
+      driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]"));
+	}catch(Exception e)
+	{
+		return;
+	}
+	
+}
+
 
 
 }

@@ -31,7 +31,19 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	{
 		noteCreation.IclickonquickactionbuttonfornotecreationonPatientCardpage();
 		 }
-
+	
+	@Then ("^I click on quick action button for note creation on Patient Card page JavaScript$")
+    public void I_click_on_quick_action_button_for_note_creation_on_Patient_Card_page_JavaScript()
+    {
+		noteCreation.IclickonquickactionbuttonfornotecreationonPatientCardpageJavaScript();
+    }
+	
+	@Then ("^I refresh my webpage on Patient Card Page$")
+	public void I_refresh_my_webpage_on_Patient_Card_Page()
+	{
+	    noteCreation.Irefreshmywebpageonpatientcardpage();
+	}
+	
 	@Then("^I verify whether topic drop down appears on Add Clinical Document on Patient Card page$")
     public void I_verify_whether_topic_drop_down_appears_on_Add_Clinical_Document_on_Patient_Card_page() throws Throwable 
 	{
@@ -119,6 +131,11 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		 noteCreation.IverifyCalendarappearstoselectthedatemanuallyonAddClinicalDocumentonPatientCard();
 	 }
 	 
+	 @Then ("^I Verify that user should not allow to create note without selecting Topic field$")
+	 public void I_Verify_that_user_should_not_allow_to_create_note_without_selecting_Topic_field()
+	 {
+		 noteCreation.IVerifythatusershouldnotallowtocreatenotewithoutselectingTopicfield();
+	 }
 	 @Then ("^I Verify that \"(.*)\"  date as default date$")
 	 public void I_Verify_that_todays_date_should_be_highlighted_in_calendar_as_default_date() throws Throwable 
 	 {
@@ -137,7 +154,29 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		 noteCreation.IverifythatcreateNotehasbeensuccessfullycreated();
 	 }
 	 
+	 @Then ("^I verify message should display in green color Your clinical document for Angela Pena has been added$")
+	 public void I_verify_message_should_display_in_green_color_Your_clinical_document_for_Angela_Pena_has_been_added()
+	 {
+		 noteCreation.IverifymessageshoulddisplayingreencolorYourclinicaldocumentforAngelaPenahasbeenadded();
+	 }
 	 
+	 @Then ("^I verify on notification there should be link to View clinical document$")
+	  public void I_verify_on_notification_there_should_be_link_to_View_clinical_document()
+	 {
+		 noteCreation.IverifyonnotificationthereshouldbelinktoViewclinicaldocument();
+	 }
+	 
+	 @Then ("^I verify Dismiss button should be there on notification message$")
+	 public void I_verify_Dismiss_button_should_be_there_on_notification_message()
+	 {
+		 noteCreation.IverifyDismissbuttonshouldbethereonnotificationmessage();
+	 }
+	 
+	 @Then ("^I check clicking on cross icon of green bar green bar notification should get removed$")
+	 public void I_check_clicking_on_cross_icon_of_green_bar_green_bar_notification_should_get_removed()
+	 {
+		 noteCreation.Icheckclickingoncrossiconofgreenbargreenbarnotificationshouldgetremoved();
+	 }
 	 
 	 
 	 //Upload file
@@ -154,8 +193,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
      {
 		 String importDir=System.getProperty("user.dir");
 		 String newDir=importDir+"\\"+"src"+"\\"+"test"+"\\"+"Imports";
-	     System.out.println("$$$$$$$The Project Directory is"+importDir);
-		 noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(newDir+"\\"+FileName);
+	     noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(newDir+"\\"+FileName);
      }
 	 
 	 @Then ("^I verify the image is attached or not$")
@@ -193,4 +231,26 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	 {
 		 noteCreation.IverifyoncancelingNotecreationNotewindowshouldgetclose();
 	 }
+	 
+	 @And ("^I verify to submit the Note Topic is the mandatory field to fill$")
+	 public void I_verify_to_submit_the_Note_Topic_is_the_mandatory_field_to_fill()
+	 {
+		 noteCreation.IverifytosubmittheNoteTopicisthemandatoryfieldtofill();
+	 }
+	 
+	 @Then ("^I switch to the Activity frame on the Patient Summary Page$")
+	 public void I_switch_to_the_Activity_frame_on_the_Patient_Summary_Page()
+	 {
+		 noteCreation.IswitchtotheActivityframeonthePatientSummaryPage();
+	 }
+	
+	 
+	 
+	 @Then ("^I click on the Impatient tab on the patient Card Page$")
+	 public void I_click_on_the_Impatient_tab_on_the_patient_Card_Page()
+	 {
+		 noteCreation.IclickontheImpatienttabonthepatientCardPage();
+	 }
+	 
+	 
 }
