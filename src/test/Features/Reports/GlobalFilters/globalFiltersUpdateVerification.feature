@@ -15,15 +15,15 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
-    #Then I should see following Reports text for Dashboards reports
-      #| Program Overview |
+    Then I should see following Reports text for Dashboards reports
+      | Program Overview |
       
-    #When I click on "Program Overview" reports text for "Dashboards" report tile
-     Then I click on "Performance (Claims)" report text for Overall Program Reports
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+     #Then I click on "Performance (Claims)" report text for Overall Program Reports
     And I wait for 18000 milli seconds
     
-    #Then I verify "Program Overview" in the reports header page
-     Then I verify "Performance (Claims)" in the reports header page
+    Then I verify "Program Overview" in the reports header page
+     #Then I verify "Performance (Claims)" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Participant" filter is appearing under global filters
@@ -36,10 +36,10 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     
-    Then I click on <episode initiator1> checkbox under participant for global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
     And I verify <episode initiator1> is appearing under applied episode initiator on global filters
     
-    Then I click on <anchor facility1> checkbox under participant for global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
@@ -67,7 +67,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    Then I click on <episode initiator1> checkbox under participant for global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "2" filters applied under global filters applied count
@@ -90,7 +90,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    Then I click on <anchor facility1> checkbox under participant for global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
     And I click on Apply filters button for global filters
     And I wait for 18000 milli seconds
     When I see "1" filters applied under global filters applied count
@@ -212,7 +212,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
     
-    Then I click on <episode initiator1> checkbox under participant for global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "2" filters applied under global filters applied count
@@ -235,14 +235,14 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    Then I click on <anchor facility1> checkbox under participant for global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     When I see "3" filters applied under global filters applied count
     
     When I click on "Readmissions" tile on the top navigation of reports page
     Then I click on "Readmissions (Claims)" report under "Readmissions" reports tile on the top of reports page
-    And I wait for 18000 milli seconds
+    And I wait for 30000 milli seconds
     Then I verify "Readmissions (Claims)" in the reports header page
     When I see "3" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -267,6 +267,6 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     Examples:
     
-      | email                         | Menu 1          | participant1 | episode initiator1               | anchor facility1                   | participantid1 | bpid1    | ccn1   |
-      #| shutestaug231132a@yopmail.com | Dashboards | Penn         | Penn Presbyterian Medical Center | Upenn - Penn Presbyterian Hospital | 441348         | 2070-021 | 390223 |
-      | shutestaug231132a@yopmail.com | Overall Program | Penn         | Penn Presbyterian Medical Center | Upenn - Penn Presbyterian Hospital | 441348         | 2070-021 | 390223 |
+      | email                         | Menu 1     | participant1 | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   |
+      | shutestaug231132a@yopmail.com | Dashboards | Penn         | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 |
+      #| shutestaug231132a@yopmail.com | Overall Program | Penn         | Penn Presbyterian Medical Center | Upenn - Penn Presbyterian Hospital | 441348         | 2070-021 | 390223 |

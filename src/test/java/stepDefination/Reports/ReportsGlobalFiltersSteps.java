@@ -48,7 +48,17 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	
 	@Then("^I click on ([^\"]*) checkbox under participant for global filters$")
 	public void i_click_on_checkbox_under_participant_for_global_filters(String text)throws Throwable{
-		globalfilters.iClickOnCheckboxForGlobalFilters(text);
+		globalfilters.iClickOnCheckboxForParticipantGlobalFilters(text);
+	}
+	
+	@Then("^I click on ([^\"]*) checkbox under episode initiator for global filters$")
+	public void i_click_on_checkbox_under_episode_initiator_for_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnCheckboxForEpisodeInitiatorGlobalFilters(text);
+	}
+	
+	@Then("^I click on ([^\"]*) checkbox under anchor facility for global filters$")
+	public void i_click_on_checkbox_under_anchor_facility_for_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnCheckboxForAnchorFacilityGlobalFilters(text);
 	}
 	
 	@And("^I verify ([^\"]*) is appearing under applied participant on global filters$")

@@ -32,7 +32,15 @@ public class ReportsGlobalFilters extends BaseClass{
 		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+text+"']")), text);
 	}
 	
-	public void iClickOnCheckboxForGlobalFilters(String text){
+	public void iClickOnCheckboxForAnchorFacilityGlobalFilters(String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'facility')]]//span[@class='ng-binding'][text()='"+text+"']")));
+	}
+	
+	public void iClickOnCheckboxForEpisodeInitiatorGlobalFilters(String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'bpid')]]//span[@class='ng-binding'][text()='"+text+"']")));
+	}
+	
+	public void iClickOnCheckboxForParticipantGlobalFilters(String text){
 		clickElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+text+"']")));
 	}
 	
