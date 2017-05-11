@@ -224,8 +224,12 @@ public class CompleteCarlform extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
 	}
 	
-	public void IVerifyMandatoryFieldToCreateCaregiver(String text){
-		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
+	public void IVerifyFirstNameIsMandatoryFieldToCreateCaregiver(){
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='* First Name']")), "* First Name");
+	}
+	
+	public void IVerifyLastNameIsMandatoryFieldToCreateCaregiver(){
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='* Last Name']")), "* Last Name");
 	}
 	
 	public void IVerifyCreateButtonIsEnabled(){
@@ -255,9 +259,9 @@ public class CompleteCarlform extends BaseClass {
 		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
 	}
 	
-	public void IEnterFisrtAndLastNameOnCarlFormAddCaregiver() {
-		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'firstName')]")), "FirstNameTest");
-		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'lastName')]")), "LastNameTest");
+	public void IEnterFisrtAndLastNameOnCarlFormAddCaregiver(String f_Name, String l_Name) {
+		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'firstName')]")), f_Name);
+		iFillInText(driver.findElement(By.xpath("//input[contains(@ng-model,'lastName')]")), l_Name);
 		
 	}
 	
