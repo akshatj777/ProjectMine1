@@ -1,5 +1,5 @@
 
-Feature: Clinical Documents - Last Saved
+Feature: Clinical Documents - Patient Notes History Section 
 	
 
 Scenario Outline: The Last saved section on the clinical documents table should display the information of the last user who saved the individual form
@@ -48,7 +48,6 @@ Scenario Outline: The Last saved section on the clinical documents table should 
                              3)Last Name of user who saved form
                              4)First Name of user who saved form
                              5)User's credentials
-
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
