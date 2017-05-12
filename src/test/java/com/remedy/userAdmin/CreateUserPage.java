@@ -246,18 +246,7 @@ public class CreateUserPage extends BaseClass{
    	}else{
    		return;
    	}
-	   /*
-	   if(driver.findElement(By.xpath("//p[text()='Episodes']")).isDisplayed()){
-		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
-		   switchToNewWindow();
-		   Thread.sleep(6000);
-		   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
-		   switchBacktoOldWindow();
-   	}else{
-   		
-   		return;
-   	} */
-	   
+	 
    }
    
    public void iVerifyTheHeaderAfterClickingTheEpisodesTile(){
@@ -275,18 +264,6 @@ public class CreateUserPage extends BaseClass{
 	  		return;
 	  	}
    
-  
-	  /*
-	  if(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")).isDisplayed()){
-		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
-		   Thread.sleep(6000);
-		   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
-		  
-   	}else{
-   		
-   		return;
-   	}
-   	*/
    }
   
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
