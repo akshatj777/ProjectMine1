@@ -54,6 +54,11 @@ public class PatientNotesHistorySteps extends DriverScript  {
 		 patientclinical.IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved();
 	}
 
+	 @Then ("^I verify that Show History section should not be applicable for note section$")
+	 public void I_verify_that_Show_History_section_should_not_be_applicable_for_note_section()
+	 {
+		 patientclinical.IverifythatShowHistorysectionshouldnotbeapplicablefornotesection();
+	 }
   
      
      @Then ("^I verify that upon selecting Hide History user should only see the information of the last user who saved the form$")

@@ -30,9 +30,9 @@ public class PatientNotesPatientCard extends DriverScript {
 		noteCreation.IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage();
 	}
 	
-	 @And("^I select the value from the topic drop down on  Add Clinical Document on Patient Card$")
-	    public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Card() throws Throwable {
-		 noteCreation.IselectthevaluefromthetopicdropdownonPatientCard("Baseline");
+	 @And("^I select the value \"(.*)\" from the topic drop down on  Add Clinical Document on Patient Card$")
+	    public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Card(String value) throws Throwable {
+		 noteCreation.IselectthevaluefromthetopicdropdownonPatientCard(value);
 	    }
 	 
 	 @Then("^I verify Activity Date drop down calendar appears on the Add Clinical Document on Patient Card$")
@@ -131,7 +131,7 @@ public class PatientNotesPatientCard extends DriverScript {
 		 noteCreation.IverifythatcreateNotehasbeensuccessfullycreated();
 	 }
 	 
-	 
+
 	 
 	 
 	 //Upload file
@@ -145,8 +145,8 @@ public class PatientNotesPatientCard extends DriverScript {
 	 @Then ("^I verify that user should be able to select and upload files from the computer through Add files link$")
      public void I_verify_that_usershould_be_able_to_select_and_upload_files_from_the_computer_through_Add_files_link() throws AWTException, InterruptedException  	 
      {
-		 String txt="MyFile.txt";
-		 noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(txt);
+		 String txt_path="‪MyFile.txt";
+		 noteCreation.IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(txt_path);
      }
 	 
 	 @Then ("^I verify the image is attached or not$")

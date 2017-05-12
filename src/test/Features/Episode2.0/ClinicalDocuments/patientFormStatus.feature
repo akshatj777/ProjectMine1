@@ -42,7 +42,6 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I click on the Create Transition Button to add a new transition
     And I wait for 10000 milli seconds
     When I switch to default window from iframe  
- # Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
     Then I wait for 5000 milli seconds
     Then I click on the cross button to close the CARL document form 
     Then I verify current page "Remedy Partners" title
@@ -132,9 +131,10 @@ Feature:  Patient form status on the status section on clinical Documents
     
   Examples:
 
-     | First name    | Last name    | Medicare ID |
-     |   MOR         | TEST         | wa984986    |
+     | First name            | Last name           | Medicare ID |
+     |   AUTOMATION1         | DO NOT USE1         | wa984986    |
   
       
+     
    
   

@@ -19,7 +19,7 @@ Given I am on the login page
     And I wait for 20000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And  I select the value from the topic drop down on  Add Clinical Document on Patient Card
+    And  I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
@@ -37,13 +37,10 @@ Given I am on the login page
     Then I Verify that Notes - Read only form should be accessible
     Then I verify Topic should be the note title
     Then I verify Body text box should be there on Notes - Read only form
-    
     Then I Verify that Username should be displayed under notes read only form
     Then I Verify that User role should be displayed under notes read only form
     Then I Verify that User email should be displayed under notes read only form
-    
     Then I verify the Activity Date and time of the note under notes read only form
-    #Then I Verify that Activity date should displayed date with format MM/DD/YYYY
     Then I verify that there is an Attachments section that should display all attachments
     
     Examples:

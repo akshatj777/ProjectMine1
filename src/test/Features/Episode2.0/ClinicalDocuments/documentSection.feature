@@ -68,7 +68,8 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
  Examples:
 
      | First name    |  Last name      | Medicare ID  |
-     | AUTOMATION1   |   DO NOT USE1    |  wa984986    |
+     | AUTOMATION   |    PURPOSE   |  wa984986    |
+     
      
        
      

@@ -106,12 +106,12 @@ public class NoteCreation extends BaseClass{
 
     public void IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage()
     {
-    	 isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
+    	 isElementVisible(driver.findElement(By.cssSelector("section > form.ng-pristine.ng-invalid.ng-invalid-required")));
     	
     }
 
     public void IselectthevaluefromthetopicdropdownonPatientCard(String Topic_dropdown_value) {
-        clickElement(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
+        clickElement(driver.findElement(By.cssSelector("section > form.ng-pristine.ng-invalid.ng-invalid-required")));
         selectDropdownVisibleElementSpan("//div[contains(text(),'"+ Topic_dropdown_value +"')]");
     }
     public void IverifyActivityDatedropdowncalendarappearsontheAddClinicalDocumentonPatientCard()

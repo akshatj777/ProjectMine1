@@ -1,7 +1,7 @@
 Feature: Summary Section of the Clinical Documents
 
 Scenario Outline: The "Summary" section of the Clinical Document table should display the message from a created "Note
-   Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -27,7 +27,7 @@ Scenario Outline: The "Summary" section of the Clinical Document table should di
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
-    Then I wait for 8000 milli seconds
+    Then I wait for 12000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 20000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
@@ -86,9 +86,12 @@ Scenario Outline: The "Summary" section of the Clinical Document table should di
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify that if user has saved a form but not submitted, status should be read as In Progress
     Then I verify forms should not display any message in the summary section and it should be greyed out blank
-Examples:
+    Then I verify that upon Selecting Show History should display the information of all users who have saved that form
+    Then I verify that upon selecting Hide History user should only see the information of the last user who saved the form
+
+    Examples:
       | First name    |  Last name    | Medicare ID |  Notetext |
-      |  AUTOMATION1      |  DO_NOT_USE1      |   wa984986  | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
+      |  AUTOMATION1      |  DO NOT USE1      |   wa984986  | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
       
        
       

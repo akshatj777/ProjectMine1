@@ -34,7 +34,7 @@ Scenario Outline: Verify the buttons and text on Clinical Documents
  
   Examples:
       | First name    | Last name    | Medicare ID |
-      |  AUTOMATION   |   DO_NOT_USE |  wa984986   |
+      |  AUTOMATION1   |   DO NOT USE1 |  wa984986   |
  
 
  

@@ -60,7 +60,7 @@ And I wait for 25000 milli seconds
 Then I verify current page "Remedy Partners" title
 Then I click on quick action button for note creation on Patient Card page
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-And  I select the value from the topic drop down on  Add Clinical Document on Patient Card
+And  I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
 Then I click on Activity Date on  Add Clinical Document on Patient Card
 Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
 Then I verify Calendar appears to select the date manually on  Add Clinical Document on Patient Card

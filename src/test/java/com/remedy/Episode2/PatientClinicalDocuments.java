@@ -361,15 +361,10 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IVerifythatClinicalDocumentsFilterslinkshoulddisplayfiltersasbelowwiththecorrectsyntaxandsequence() {
 		List<String> actualcombolisttext = new ArrayList<>();
         List<String> requiredcombolisttext=new ArrayList<>();
-        
         String[] expectedvalues={"Baseline","Bedside Visit", "Care Assessment Note","Clinical Note", "Close Call", "Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care", "Patient Call", "Patient Education", "Patient Visit","Psychological Condition", "Transition Note", "TUG/RAPT/CARE Score"};
-        		
         requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-       
-        actualcombolisttext=getTextForElementfromList("ul > li >div.checkbox > label");
-        
-        System.out.println("The combo text list is"+actualcombolisttext);
-       
+        actualcombolisttext=getTextForElementfromList("checkbox-list > div > div:nth-child(1) > ul > li > div.checkbox > label > span");
+        System.out.println("$$$$$$The combo text list is"+actualcombolisttext);
         verifyarraylist(requiredcombolisttext,actualcombolisttext);
 		
 	}
@@ -391,25 +386,21 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IVerifythatcheckingmultiplefilteroptionsshouldreturnrelevantpatientsinreturn() {
-		// TODO Auto-generated method stub
-		
-		List<String> mytexts=getTextForElementfromList("ul > li >div.checkbox > label > span");
-		System.out.println("****The list of text****"+mytexts);
-		 String Filter=mytexts.get(0);
-		 String Filter1=mytexts.get(1);
+	    List<String> mytexts=getTextForElementfromList("ul > li >div.checkbox > label > span");
+	    String Filter=mytexts.get(0);
+		String Filter1=mytexts.get(1);
 		clickElement(driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'"+ Filter + "')]")));
 		clickElement(driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'"+ Filter1 + "')]")));
-		
 		List<String> newmytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
 		if (newmytexts.contains(Filter) && (newmytexts.contains(Filter1))); 
 		{
 			System.out.println("Mutiple Values returns are relevant as per required");
+			return;
 		}
 	
 	}
 
 	public void IVerifythatclickingonDoneshouldclosethefilterdrawerandprocessthefilter() {
-		// TODO Auto-generated method stub
 		
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Done')]")));
 		List<String> mytexts=getTextForElementfromList("table > tbody > tr > td> a > span");
@@ -419,6 +410,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		if (newmytexts.contains(Filter) & (newmytexts.contains(Filter1))); 
 		{
 			System.out.println("Mutiple Values returns are relevant as per required on clicking on Done");
+		      return;
 		}
 	}
 
@@ -561,24 +553,20 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 	}
 
-//	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {
-//		// TODO Auto-generated method stub
-//		
-//		
-//			if(isElementVisible(driver.findElement(By.cssSelector("//a[not(contains(text(),'Show History'))]")))==true);
-//			{
-//				
-//			}
-//			}
+	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {
+              try{
+		        driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > span > a"));
+		      }catch(Exception e)
+		      {
+		    	  return;
+		      }
+			}
 
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
-		// TODO Auto-generated method stub
-	
 		clickElement(driver.findElement(By.cssSelector("#submitButton")));
 		 }
 
 	public void IclickonthecrossbuttontoclosetheCARLdocumentform() {
-		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 		
 	}
@@ -593,10 +581,13 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IverifythatuponselectingHideHistoryusershouldonlyseetheinformationofthelastuserwhosavedtheform() {
 		// TODO Auto-generated method stub
 		
-		clickElement(driver.findElement(By.cssSelector("//a[contains(text(),'Hide History')]")));
-		if (driver.findElement(By.cssSelector(" table > tbody > tr > td:nth-child(4) > div:nth-child(2)")).getAttribute("class").equals("doc-edit ng-scope ng-hide"));
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Hide History')]")));
+		try
 		{
-			System.out.println("Userseestheinformationofthelastuserwhosavedtheform");
+		driver.findElement(By.cssSelector(" table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(2).doc-edit.ng-scope"));
+		}catch(Exception e)
+		{
+			return;
 		}
 
 		
