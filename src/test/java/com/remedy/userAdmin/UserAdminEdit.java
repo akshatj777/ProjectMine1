@@ -185,7 +185,22 @@ public void iClickOnTheUsernameCardUnderUserAdminPage(){
 			System.out.println("Share File not present");
 	     	    }
 		}   		
-   		}	
+   		}
+ 
+ public void i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field(){
+	 clickElement(driver.findElement(By.xpath("//ul/li[1]/div/div/div/small")));
+ }
+ 
+ public void i_Wait_For_Popup_To_Remove_Stamford_Hospital_Under_Permission_Field(){
+	 isElementVisible(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']")));
+ }
+ 
+ public void i_Clicked_On_Remove_Button_Appearing_On_Popup(){
+	 clickElement(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']/div/div[2]/button[2]")));
+ }
+ 
+ 
+ 
  }
 	 
  
