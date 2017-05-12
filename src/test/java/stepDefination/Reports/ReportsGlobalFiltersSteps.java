@@ -150,4 +150,24 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_click_on_tile_on_the_top_navigation_of_reports_page(String tile)throws Throwable{
 		globalfilters.iClickOnTileOnTheTopNavigationOfReportsPage(tile);
 	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in episode initiator dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_episode_initiator_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyEpisodeInitiatorUnderFilterOptions(text);
+	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in anchor facility dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_anchor_facility_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyAnchorFacilityUnderFilterOptions(text);
+	}
+	
+	@Then("^I verify episode initiator filter is selected with ([^\"]*) and ([^\"]*) in the selected filters$")
+	public void i_verify_episode_initiator_filter_is_selected_with_bpids_in_the_selected_filters(String bpid1,String bpid2) throws Throwable{
+		globalfilters.iVerifyBpidsUnderSelectedFilters(bpid1,bpid2);
+	}
+	
+	@Then("^I verify anchor facility filter is selected with ([^\"]*) and ([^\"]*) in the selected filters$")
+	public void i_verify_anchor_facility_is_selected_with_ccns_in_the_selected_filters(String ccn1,String ccn2) throws Throwable{
+		globalfilters.iVerifyCCNsUnderSelectedFilters(ccn1, ccn2);
+	}
 }

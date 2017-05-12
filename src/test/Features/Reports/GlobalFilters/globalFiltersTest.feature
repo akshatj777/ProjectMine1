@@ -42,10 +42,15 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I verify <anchor facility2> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
     
     When I see "3" filters applied under global filters applied count
     
+    When I switch to reports embedded iframe
+    Then I should see <episode initiator3> is applied under filter options in episode initiator dropdown under program overview report
+    Then I should see <anchor facility2> is applied under filter options in anchor facility dropdown under program overview report
+    When I switch to default window from iframe
+        
     When I click on "Overall Program" tile on the top navigation of reports page
     Then I click on "Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
     And I wait for 18000 milli seconds
@@ -71,6 +76,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
     When I click on Clear button to clear the selected filter
+    And I wait for 3000 milli seconds
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I wait for 3000 milli seconds
@@ -104,14 +110,25 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I verify <anchor facility2> is appearing under applied anchor facility on global filters
     And I verify <episode initiator2> is appearing under applied episode initiator on global filters
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    Then I click on Show Summary button to unhide the available global filters
+    
+        #REP-2895 as per this ticket below steps are commented#
+    #When I switch to reports embedded iframe
+    #When I click on show all filters icon button
+    #And I wait for 4000 milli seconds
+    #Then I verify participant filter is selected with <participantid1> under selected filters
+    #Then I verify episode initiator filter is selected with <bpid1> and <bpid2> in the selected filters
+    #Then I verify anchor facility filter is selected with <ccn1> and <ccn2> in the selected filters
+    #When I switch to default window from iframe
+    
     And I click on reports tile on the top of reports page
     And I wait for 3000 milli seconds
     Then I verify current page "Reports" title
     
     Examples:
        
-      | email                         | Menu 1          | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                | anchor facility2                 | anchor facility3                               | participantid1 | bpid1    | ccn1   |
-      | shutestaug231132a@yopmail.com | Dashboards      | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of Univ Of Pennsylvania| Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | 441348         | 2070-021 | 390223 |
+      | email                         | Menu 1          | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                | anchor facility2                 | anchor facility3                               | participantid1 | bpid1    | ccn1   | bpid2    | ccn2   |
+      | shutestaug231132a@yopmail.com | Dashboards      | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of Univ Of Pennsylvania| Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | 441348         | 2070-021 | 390223 | 2070-020 | 390111 |
       #| shutestaug231132a@yopmail.com | Overall Program | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Upenn - Hospital Of The Univ. Of Pennsylvania| Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | 441348         | 2070-021 | 390223 |
       
      

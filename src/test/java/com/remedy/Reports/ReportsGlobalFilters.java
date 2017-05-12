@@ -115,4 +115,22 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iClickOnTileOnTheTopNavigationOfReportsPage(String tile){
 		clickElement(driver.findElement(By.xpath("//button[text()='"+tile+"']")));
 	}
+	
+	public void iVerifyEpisodeInitiatorUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//div[@id='initiatorFilterObj']//span[@class='selectorValue']")),text);
+	}
+	
+	public void iVerifyAnchorFacilityUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//span[@class='selectorValue']")),text);
+	}
+	
+	public void iVerifyBpidsUnderSelectedFilters(String bpid1,String bpid2){
+		String toVerify = "BPID includes "+bpid1+" and  "+bpid2+"";
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")), toVerify);
+	}
+	
+	public void iVerifyCCNsUnderSelectedFilters(String ccn1,String ccn2){
+		String ccn="CCN includes "+ccn1+" and  "+ccn2+"";
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")), ccn);
+	}
 }

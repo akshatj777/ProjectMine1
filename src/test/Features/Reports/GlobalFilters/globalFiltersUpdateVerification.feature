@@ -47,6 +47,11 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     When I see "3" filters applied under global filters applied count
     
+    When I switch to reports embedded iframe
+    Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
+    Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
+    When I switch to default window from iframe
+    
     When I click on "Overall Program" tile on the top navigation of reports page
     Then I click on "Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
     And I wait for 18000 milli seconds
