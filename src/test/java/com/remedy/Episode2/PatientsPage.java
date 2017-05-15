@@ -390,7 +390,7 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.id("bp_personbundle_bpadmissiontype_drgType")));
     }
 
-    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage() {
+    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage()  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Possible");
     }
 
@@ -486,7 +486,7 @@ public class PatientsPage extends BaseClass {
         switchToFrameByNameOrId("iFrameEC2PatientAdd");
     }
 
-    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
+    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails)  {
         clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
         selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
     }
@@ -517,7 +517,7 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("span.minute.active")));
     }
 
-    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType) {
+    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType)  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", careType);
     }
 
@@ -567,11 +567,11 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector(".btn.default.date-set")));
     }
 
-    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option) {
+    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option)  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory", option);
     }
 
-    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option) {
+    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option)  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", option);
     }
 
@@ -955,6 +955,11 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyTextAfterSelectingFilterToExport(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
 	}NoteCreation noteCreation = new NoteCreation(driver);
+
+	public void IclickonAgreebuttonpresentontheAttestationpage() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
+	}
 	
 }
     

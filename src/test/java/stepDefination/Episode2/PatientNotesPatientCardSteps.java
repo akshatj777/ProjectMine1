@@ -125,6 +125,36 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		 noteCreation.IclickonActivityDateonAddClinicalDocumentonPatientCard();
 	  }
 	 
+	 @Then ("^I click on the centre of the calendar header to select date and month$")
+	 public void I_click_on_the_centre_of_the_calendar_header_to_select_date_and_month()
+	 {
+		 noteCreation.Iclickonthecentreofthecalendarheadertoselectdateandmonth();
+	 }
+	 
+	 @Then ("^I select the \"(.*)\" from the calendar from date picker$")
+	 public void I_select_the_date_from_the_calendar_from_date_picker(String date)
+	 {
+		 noteCreation.Iselectthedatefromthecalendarfromdatepicker(date);
+	 }
+	 @Then ("^I click on the next link to select the required year \"(.*)\" on date picker$")
+	 public void I_click_on_the_next_link_to_select_the_required_year_on_date_picker(String date)
+	 {
+		 System.out.println("$$$$$The date is"+date);
+		 noteCreation.Iclickonthenextlinktoselecttherequiredyearondatepicker(date);
+	 }
+	 
+	 @Then ("^I select the month \"(.*)\" from calendar from date picker$")
+	 public void I_select_the_month_from_calendar_from_date_picker(String date) throws InterruptedException
+	 {
+		 noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
+	 }
+	 
+	 @Then ("^I click on navigation bar to return to remedy connect$")
+	 public void I_click_on_navigation_bar_to_return_to_remedy_connect()
+			 {
+		 noteCreation.Iclickonnavigationbartoreturntoremedyconnect();
+	
+			 }
 	 @Then ("^I verify Calendar appears to select the date manually on  Add Clinical Document on Patient Card$")
 	 public void I_verify_Calendar_appears_to_select_the_date_manually_on_Add_Clinical_Document_on_Patient_Card() throws Throwable 
 	 {

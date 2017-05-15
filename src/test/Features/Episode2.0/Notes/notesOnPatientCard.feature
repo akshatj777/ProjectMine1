@@ -56,8 +56,9 @@ Then I click on the create Note Button on Add Clinical Document on Patient Card
 Then I verify that create Note has been successfully created
 
 Examples:
-         | date  |
-          | 12 |
+         |    date    |  
+         | 12/07/2014 | 
+         
 
 
 

@@ -78,7 +78,7 @@ Then I verify that create Note has been successfully created
 Then I verify message should display in green color Your clinical document for Angela Pena has been added
 Then I verify on notification there should be link to View clinical document
 
-Scenario:  To verify user should be able to cancel the Note creation
+Scenario Outline:  To verify user should be able to cancel the Note creation
 
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
@@ -94,6 +94,10 @@ And  I wait for 20000 milli seconds
 Then I click on quick action button for note creation on Patient Card page
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
 And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
+Then I click on the centre of the calendar header to select date and month
+Then I click on the next link to select the required year "<date>" on date picker
+Then I select the month "<date>" from calendar from date picker
+Then I select the "<date>" from the calendar from date picker
 And I enter the Note Text in the textarea on Add Clinical Document on Patient Card
 Then I click on Add Files link on Note Section on Patient Card
 And I wait for 5000 milli seconds
@@ -104,3 +108,11 @@ Then I wait for 3000 milli seconds
 Then I click on the Cancel button on the Note Section on Patient Card
 Then I verify create note successful message doesnot appear on Patient Card
 Then I verify on canceling Note creation Note window should get close
+
+Examples:
+           | date |  
+         | 12/07/2014 | 
+         | 15/05/2017 |
+         | 26/10/2022 |  
+
+

@@ -772,6 +772,7 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
         // open bug
         // throw new PendingException();
+    	 patientsPage.IclickonAgreebuttonpresentontheAttestationpage();
     }
 
     @And("^I switch to Add Patient embedded iframe$")

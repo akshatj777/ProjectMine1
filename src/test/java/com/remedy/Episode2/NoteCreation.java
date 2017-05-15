@@ -20,6 +20,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -350,8 +352,10 @@ public void Iclickonthepatientcardtonavigatetothepatientsummarypage() {
 	String search=Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
 	String[] words = search.split(",");
 	String lastname=words[0];
-	System.out.println("$$$$$$$$The last name is"+lastname);
-	clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+lastname+"')]")));
+	WebElement element=driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+lastname+"')]"));
+   JavascriptExecutor jse =(JavascriptExecutor)driver;
+	jse.executeScript("scroll(250, 0)");
+	element.click();
 }
 
 
@@ -504,9 +508,66 @@ public void IVerifythatusershouldnotallowtocreatenotewithoutselectingTopicfield(
 }
 
 
-
+public void Iclickonthecentreofthecalendarheadertoselectdateandmonth() {
+	clickElement(driver.findElement(By.cssSelector("th.switch")));
 }
 
+
+public void Iclickonthenextlinktoselecttherequiredyearondatepicker(String dateTime) {
+	
+	
+	String date_dd_MM_yyyy[] = (dateTime.split("/"));
+	int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2])- Calendar.getInstance().get(Calendar.YEAR);
+	System.out.println("$$$$The year difference is"+yearDiff);
+	WebElement nextLink = driver.findElement(By.cssSelector("th.right"));
+	WebElement previousLink = driver.findElement(By.cssSelector("th.left"));
+	if(yearDiff!=0){
+          if(yearDiff>0){
+                   for(int i=0;i<yearDiff;i++){
+                   System.out.println("Year Diff->"+i);
+                   nextLink.click();
+              }}
+
+          else if(yearDiff<0){
+                 
+            for(int i=0;i<(yearDiff*(-1));i++){
+                System.out.println("Year Diff->"+i);
+                previousLink.click();
+
+            }
+	
+}
+
+
+
+}
+}
+
+
+    public void Iselectthemonthfromcalendarfromdatepicker(String dateTime) throws InterruptedException {
+	String date_dd_MM_yyyy[] = (dateTime.split("/"));
+    List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
+    System.out.println("*****List of months***"+list_AllMonthToBook);
+    list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1])-1).click();
+    Thread.sleep(1000);
+	
+}
+
+
+	public void Iselectthedatefromthecalendarfromdatepicker(String dateTime) {
+		String date_dd_MM_yyyy[] = (dateTime.split("/"));
+        List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//table//tbody//td[not(contains(@class,'past')) and not(contains(@class,'future'))]"));
+        list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0])-1).click();
+		}
+
+
+	public void Iclickonnavigationbartoreturntoremedyconnect() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("li.dropdown.dropdown-user")));
+	    clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-logout")));
+		// 
+	}
+}
 
 // **************************************************//
 

@@ -25,11 +25,15 @@ public class PatientCarePlan extends BaseClass
 		WebElement element=driver.findElement(By.cssSelector("#carePlanButton"));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);",element);
-		isElementVisible(element);
+	   isElementVisible(element);
 	}
 	public void iClickOnCarePlan() throws Throwable 
 	{
-		clickElement(driver.findElement(By.cssSelector("#carePlanButton")));
+		WebElement element=driver.findElement(By.cssSelector("#carePlanButton"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		//js.executeScript("arguments[0].scrollIntoView(true);",element);
+		js.executeScript("scroll(250, 0)");
+		clickElement(element);
 	}
 	public void iShouldSeeAssignCarePlanUnderCarePlanPage() throws Throwable 
 	{
