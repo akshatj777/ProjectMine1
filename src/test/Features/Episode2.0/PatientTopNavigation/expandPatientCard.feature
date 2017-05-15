@@ -1,6 +1,6 @@
-Feature: Episode 2.0 Expand Patient Card
+Feature: Episode 2.0 Expand Patient Card  for Patient Summary
 
-  Scenario: verify Expand Patient Card feature is present under patient list Page
+  Scenario: verify Expand Patient Card to verify patient summary
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
