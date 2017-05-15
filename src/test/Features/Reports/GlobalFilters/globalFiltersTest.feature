@@ -19,11 +19,9 @@ Scenario Outline: User should see multiple filters selected in report should red
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-     #Then I click on "Performance (Claims)" report text for Overall Program Reports
     And I wait for 18000 milli seconds
     
     Then I verify "Program Overview" in the reports header page
-     #Then I verify "Performance (Claims)" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Participant" filter is appearing under global filters
@@ -129,9 +127,7 @@ Scenario Outline: User should see multiple filters selected in report should red
        
       | email                         | Menu 1          | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                | anchor facility2                 | anchor facility3                               | participantid1 | bpid1    | ccn1   | bpid2    | ccn2   |
       | shutestaug231132a@yopmail.com | Dashboards      | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of Univ Of Pennsylvania| Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | 441348         | 2070-021 | 390223 | 2070-020 | 390111 |
-      #| shutestaug231132a@yopmail.com | Overall Program | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Upenn - Hospital Of The Univ. Of Pennsylvania| Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital | 441348         | 2070-021 | 390223 |
-      
-     
+          
 Scenario Outline: User should remove the selected global filter using X mark and that should be reflected in other reports
 
     Given I am on the login page
@@ -201,9 +197,7 @@ Scenario Outline: User should remove the selected global filter using X mark and
     
        | email                        | Menu 1      | participant1 | episode initiator1                                                        | anchor facility1                | participantid1 |
        | shutestaug231132a@yopmail.com| Dashboards  | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania| 441348         |
-      #| email                         | Menu 1     | participant1 | episode initiator1                                                        | participantid1 | anchor facility1              |
-      #| shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | 441348         | Upenn - Pennsylvania Hospital |
-    
+      
 Scenario Outline: User should clear the selected filters in global filters
 
     Given I am on the login page
@@ -253,8 +247,7 @@ Scenario Outline: User should clear the selected filters in global filters
     
       | email                         | Menu 1     | participant1 | episode initiator1                                                        | anchor facility1                | participantid1 |
       | shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania| 441348         |
-      #| shutestaug231132a@yopmail.com | Dashboards | Penn         | Penn Presbyterian Medical Center | Upenn - Penn Presbyterian Hospital | 441348         |
-
+      
 Scenario Outline: User should be able to check multiple checkbox under global filters
 
     Given I am on the login page
@@ -360,16 +353,13 @@ Scenario Outline: User should be able to search for multiple fields on global fi
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-     #Then I click on "Performance (Claims)" report text for Overall Program Reports
     And I wait for 18000 milli seconds
     Then I verify "Program Overview" in the reports header page
-     #Then I verify "Performance (Claims)" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Episode Initiator" filter is appearing under global filters
     Then I click on "Episode Initiator" search icon to search existing data on global filters
     And I seach with "Presbyterian" under "Episode Initiator" filter on global filter
-    #Then I see <episode initiator1> appearing under episode initiator filter of global filters
     Then I see <episode initiator3> appearing under episode initiator filter of global filters
     Then I click on <episode initiator3> checkbox under participant for global filters
     And I wait for 5000 milli seconds
@@ -386,5 +376,4 @@ Scenario Outline: User should be able to search for multiple fields on global fi
     
      | email                         | Menu 1     | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | bpid1    |
      | shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | 2070-020 |
-     #| shutestaug231132a@yopmail.com | Overall Program | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | 2070-020 |
      

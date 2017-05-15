@@ -19,11 +19,9 @@ Scenario Outline: User Should be able to see updated global filters in all repor
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-     #Then I click on "Performance (Claims)" report text for Overall Program Reports
     And I wait for 18000 milli seconds
     
     Then I verify "Program Overview" in the reports header page
-     #Then I verify "Performance (Claims)" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Participant" filter is appearing under global filters
@@ -102,7 +100,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     When I click on "Patient ID" tile on the top navigation of reports page
     Then I click on "Episode DRG Issues" report under "Patient ID" reports tile on the top of reports page
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     Then I verify "Episode DRG Issues" in the reports header page
     When I see "1" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -139,7 +137,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     When I click on "Post Acute Care" tile on the top navigation of reports page
     Then I click on "Initial SNF Length of Stay Summary" report under "Post Acute Care" reports tile on the top of reports page
-    And I wait for 18000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Initial SNF Length of Stay Summary" in the reports header page
     When I see "0" filters applied under global filters applied count
     
@@ -192,7 +190,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     Then I click on Show Summary button to unhide the available global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I click on Apply filters button for global filters
-    And I wait for 18000 milli seconds
+    And I wait for 20000 milli seconds
     
     When I switch to reports embedded iframe
     When I click on show all filters icon button
@@ -274,4 +272,3 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
       | email                         | Menu 1     | participant1 | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   |
       | shutestaug231132a@yopmail.com | Dashboards | Penn         | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 |
-      #| shutestaug231132a@yopmail.com | Overall Program | Penn         | Penn Presbyterian Medical Center | Upenn - Penn Presbyterian Hospital | 441348         | 2070-021 | 390223 |

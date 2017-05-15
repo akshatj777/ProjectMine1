@@ -114,6 +114,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iClickOnTileOnTheTopNavigationOfReportsPage(String tile){
 		clickElement(driver.findElement(By.xpath("//button[text()='"+tile+"']")));
+		//driver.navigate().refresh();
 	}
 	
 	public void iVerifyEpisodeInitiatorUnderFilterOptions(String text){
@@ -132,5 +133,9 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iVerifyCCNsUnderSelectedFilters(String ccn1,String ccn2){
 		String ccn="CCN includes "+ccn1+" and  "+ccn2+"";
 		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")), ccn);
+	}
+		
+	public void iVerifyCCNFilterUnderSelectedFilters(String ccn){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")),ccn);
 	}
 }
