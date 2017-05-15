@@ -157,6 +157,18 @@ public class CreateUserPage extends BaseClass{
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role){
     	isElementVisible(driver.findElement(By.cssSelector(".title>p")));
     }
+    
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+    	if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
+			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
+			   Thread.sleep(6000);
+			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+			  
+	  	}else{
+	  		
+	  		return;
+	  	}
+    }
 
     public void iClickCreateButton (){
 

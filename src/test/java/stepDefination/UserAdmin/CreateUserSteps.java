@@ -147,7 +147,10 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iShouldSeeDifferentTilesForDifferentUserRole(role);
     }
     
-    
+    @And("^I click on EC two tile under specific user login page ([^\"]*)$")
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(tile);
+    }
     
     @And("^I verify the dropdown list for user$")
     public void iVerifyTheDropdownListForUser() throws Throwable{
@@ -156,78 +159,53 @@ public class CreateUserSteps extends DriverScript{
 
     @Then("^I click on Create button$")
     public void iClickCreateButton() throws Throwable {
-
-        createUser.iClickCreateButton();
-
+    	createUser.iClickCreateButton();
     }
-
-
-
+    
     @And("^I search for health system with ([^\"]*)$")
     public void ISearchHealthSystem(String text) throws Throwable {
        createUser.iEnterHealthSystemSerachText(text);
     }
 
-
-
     @When("^I click the Organizational Role Field$")
     public void IClickOrganizationalRoleField() throws Throwable {
-
         createUser.iClickOrganizationalField();
-
     }
     
     @When("^I click the payer Field under data$")
     public void IClickPayerFieldUnderData() throws Throwable {
-
         createUser.iClickPayerField();
-
     }
 
     @And("^I click on Health System field$")
     public void IClickHealthSystemField() throws Throwable {
-
         createUser.iClickHealthSystemField();
     }
 
-
-
     @Then("^I verify First Name Required Message \"([^\"]*)\"$")
     public void IVerifyFirstNameRequiredMessage(String message) throws Throwable {
-
         createUser.iVerifyFirstNameRequiredText(message);
-
     }
 
     @And("^I verify Last Name Required Message \"([^\"]*)\"$")
     public void IVerifyNameRequiredMessage(String message) throws Throwable {
-
         createUser.iVerifyLastNameRequiredText(message);
-
     }
 
     @And("^I verify email required message \"([^\"]*)\"$")
     public void IVerifyEemailRequiredMessage(String message) throws Throwable {
-
         createUser.iVerifyEmailRequiredText(message);
-
-
     }
 
     @And("^I click Try Again Button$")
     public void IClickTryAgainButton() throws Throwable {
-
         createUser.iClickTryAgainButton();
     }
 
     @And("^Verify Phone validation message \"([^\"]*)\"$")
     public void VerifyPhoneValidationMessage(String message) throws Throwable {
-
-
         createUser.iVerifyPhoneValidationMessageText(message);
-
     }
-
 
     @And("^I fill in Last Name with text \"([^\"]*)\"$")
     public void IFillLastNameWithText(String lastName) throws Throwable {
@@ -239,30 +217,25 @@ public class CreateUserSteps extends DriverScript{
 //        createUser.iEnterEmail(email);
 //    }
 
-
     @Then("^I verify Organizational Role Required Message \"([^\"]*)\"$")
     public void IVerifyOrganizationalRoleRequiredMessage(String text) throws Throwable {
         createUser.iVerifyOrganizationalRoleRequiredMessageText(text);
     }
-
 
     @Then("^I should see \"([^\"]*)\" on the user creation page$")
     public void iShouldSeeOnTheUserCreationPage(String header) throws Throwable {
         createUser.iverifyCreateUserPageHeader(header);
     }
 
-
     @When("^I enter ([^\"]*) search text$")
     public void iEnterHealthSystemSearchText(String provider) throws Throwable {
         createUser.iEnterProviderSerachText(provider);
     }
 
-
     @Then("^I click the select all Facilites checkbox for the provider$")
     public void iSelectAndFacilitesForTheHealthSystem() throws Throwable {
         createUser.iCheckAllProviderForTheHealthSystem();
     }
-
 
     @Then("^I select all the application for the role$")
     public void iSelectAllTheApplicationForTheRole() throws Throwable {
@@ -272,14 +245,11 @@ public class CreateUserSteps extends DriverScript{
     @And("^I turn off the share file application$")
     public void iTurnOffTheShareFileApplication() throws Throwable{
     	createUser.iTurnOffShareFile();
-    	
     }
 
     @And("^I fill in NPI Field with \"([^\"]*)\"$")
     public void iFillInNPIFieldWith(String text) throws Throwable {
-
         createUser.iEnterNPI(text);
-
     }
 
     @Then("^I verify NPI Required Message \"([^\"]*)\"$")

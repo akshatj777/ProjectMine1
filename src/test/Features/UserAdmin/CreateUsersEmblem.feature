@@ -74,6 +74,8 @@ Feature: Create new User for emblem and verify Login logut of users
     And I should see Tile text <Physican connect>
     And I should see Tile text <TCI>
     And I wait for 1000 milli seconds
+    And I click on EC two tile under specific user login page <Episode2>
+    And I wait for 6000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown
     And I wait for 2000 milli seconds
