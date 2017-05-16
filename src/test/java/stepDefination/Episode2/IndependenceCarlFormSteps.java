@@ -59,5 +59,20 @@ public class IndependenceCarlFormSteps extends DriverScript {
 	public void I_Selct_Option_In_The_DropDown_On_Independence_Section(String option) {
 		independencecarl.ISelectTheOptionInTheDropDownOnIndependenceSection(option);
 	}
+	
+	@Then("^I verify \"([^\"]*)\" radio button on Independence section$")
+	public void I_Verify_Text_For_RadioButtons_Present_On_IndependenceSection(String text) {
+		independencecarl.IVerifyTextForRadioButtonsPresentOnIndependenceSection(text);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" radio button on Independence section$")
+	public void I_Click_On_The_RadioButton_Present_On_IndependenceSection(String text) {
+		independencecarl.IClickOnTheRadioButtonOnIndependenceSection(text);
+	}
+	
+	@And("^I verify \"([^\"]*)\" radio button is seclected on Independence section$")
+	public void I_Verify_The_Selected_RadioButton_Present_On_IndependenceSection(String text) {
+		independencecarl.IVerifyTheSelectedRadioButtonOnIndependenceSection(text);
+	}
 
 }
