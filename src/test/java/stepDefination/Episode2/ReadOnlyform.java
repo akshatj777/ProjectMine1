@@ -1,5 +1,6 @@
 package stepDefination.Episode2;
 
+import java.awt.AWTException;
 import java.text.ParseException;
 
 import com.remedy.Episode2.PatientClinicalDocuments;
@@ -79,5 +80,11 @@ public class ReadOnlyform extends DriverScript{
 		 patientclinical.IverifythatthereisanAttachmentssectionthatshoulddisplayallattachments();
 	
      } 
+      
 	 
+	 @Then ("^I verify that user should be able to download all the attachment attached under the notes by selecting download link$")
+	 public void I_verify_that_user_should_be_able_to_download_all_the_attachment_attached_under_the_notes_by_selecting_download_link() throws AWTException, InterruptedException
+	 {
+		 patientclinical.Iverifythatusershouldbeabletodownloadalltheattachmentattachedunderthenotesbyselectingdownloadlink();
+	 }
 }

@@ -87,7 +87,9 @@ Feature: Updated Filtering
    
    Examples:
       | First name    | Last name    | Medicare ID |
-      | AUTOMATION1    | DO NOT USE1   | wa984986    |
+      | AUTOMATION    | DO_NOT_USE   | wa984986    |
+       
+         
        
     Scenario Outline: Verify the changes with multiple filter selected at the same time
 
@@ -187,7 +189,7 @@ Feature: Updated Filtering
     
 Examples:
       | First name    | Last name    | Medicare ID | Notetext      |
-      | AUTOMATION1    | DO NOT USE1   | wa984986    | Sample Remedy |
+      | AUTOMATIONNEW | DO NOT USENEW        | wa984986    | Sample Remedy |
 
       
         

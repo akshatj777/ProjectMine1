@@ -2,6 +2,14 @@ package com.remedy.Episode2;
 
 
 import org.openqa.selenium.support.Color;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,12 +20,15 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
+
 
 public class PatientClinicalDocuments extends BaseClass {
 
@@ -607,13 +618,53 @@ public class PatientClinicalDocuments extends BaseClass {
 		// TODO Auto-generated method stub
 		 clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Hide History')]")));
 	}
-
-	public void IverifytheCARLDocumentnotappearontheClinicalDocumentstabinthepatientsummaryPage() {
-		// TODO Auto-generated method stub
+ 
+	 public void Iverifythatusershouldbeabletodownloadalltheattachmentattachedunderthenotesbyselectingdownloadlink() throws AWTException, InterruptedException {
+            Actions action = new Actions(driver);
+	      //  action.moveToElement(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer"))).perform();
+	        action.contextClick(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer"))).build().perform();
+	        action.sendKeys(Keys.CONTROL, "v").build().perform();
+	        Thread.sleep(4000);
+	        Robot robot=new Robot();
+	        
+//	        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+//	        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+//	        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+//	        
+//	       
+//	        // press Enter
+//	        robot.keyPress(KeyEvent.VK_ENTER);
+//	        robot.keyRelease(KeyEvent.VK_ENTER);
+//	        Thread.sleep(1000);
+	        StringSelection selection = new StringSelection("C:\\Users\\akshat.jain\\Desktop\\My files");
+		    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		    clipboard.setContents(selection, selection);
+            
+	        robot.keyPress(KeyEvent.VK_CONTROL);
+	        robot.keyPress(KeyEvent.VK_V);
+	        robot.keyRelease(KeyEvent.VK_V);
+	        robot.keyRelease(KeyEvent.VK_CONTROL);
+	        robot.keyPress(KeyEvent.VK_ENTER);
+	        robot.keyRelease(KeyEvent.VK_ENTER);
+	        
+		   Assert.assertTrue(true);
+		  String downloadpath="C:\\Users\\akshat.jain\\Desktop\\My files";
+		  isFileDownloaded(downloadpath, "MyFile.txt");
 		
 	}
 	
-	
+	 public boolean isFileDownloaded(String downloadPath, String fileName) {
+			boolean flag = false;
+		    File dir = new File(downloadPath);
+		    File[] dir_contents = dir.listFiles();
+		  	    
+		    for (int i = 0; i < dir_contents.length; i++) {
+		        if (dir_contents[i].getName().equals(fileName))
+		            return flag=true;
+		            }
+
+		    return flag;
+		}
 	
 	}
 	

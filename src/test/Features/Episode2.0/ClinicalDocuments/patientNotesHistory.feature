@@ -80,8 +80,8 @@ Scenario Outline: The Last saved section on the clinical documents table should 
     Then I verify that Show History section should not be applicable for note section
    
     Examples:
-    | First name    | Last name    | Medicare ID | date | Notetext      |
-    |   AUTOMATION  | PURPOSE      | wa984986    | 12   | Remedy Sample |
+    | First name     | Last name     | Medicare ID | date | Notetext      |
+    | AUTOMATIONNEW  | DO NOT USENEW | wa984986    | 12   | Remedy Sample |
        
       
     

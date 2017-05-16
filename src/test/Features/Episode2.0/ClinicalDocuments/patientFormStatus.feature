@@ -131,9 +131,10 @@ Feature:  Patient form status on the status section on clinical Documents
     
   Examples:
 
-     | First name            | Last name           | Medicare ID |
-     |   AUTOMATION1         | DO NOT USE1         | wa984986    |
+     | First name     | Last name     | Medicare ID |
+     | AUTOMATE       | MINETEST      | wa984986    |
   
+        
       
      
    

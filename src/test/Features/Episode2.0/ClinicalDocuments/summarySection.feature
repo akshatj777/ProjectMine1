@@ -18,7 +18,7 @@ Scenario Outline: The "Summary" section of the Clinical Document table should di
     And I wait for 5000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And  I select the value from the topic drop down on  Add Clinical Document on Patient Card
+    And  I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
     And  I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
@@ -91,7 +91,7 @@ Scenario Outline: The "Summary" section of the Clinical Document table should di
 
     Examples:
       | First name    |  Last name    | Medicare ID |  Notetext |
-      |  AUTOMATION1      |  DO NOT USE1      |   wa984986  | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
+      |  AUTOMATION   |  DO_NOT_USE      |   wa984986  | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
       
-       
+         
       

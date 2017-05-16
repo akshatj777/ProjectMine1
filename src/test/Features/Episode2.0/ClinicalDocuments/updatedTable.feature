@@ -3,7 +3,7 @@ Feature: Clinical Documents - Updated Table
 Scenario Outline: Verify the buttons and text on Clinical Documents
 
  Given I am on the login page
-    When I enter email field qa.emblemprm@yopmail.com for login
+    When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -23,18 +23,15 @@ Scenario Outline: Verify the buttons and text on Clinical Documents
     Then I wait for 5000 milli seconds
     Then I verify there should be filter link on clinical document section  
     Then I verify Clinical Document Table should contain the following sections
-    
-                #Document
-                #Status
-                #Summary
-                #Activity
+     #Document  #Status   #Summary  #Activity
    Then I count the number of documents that appear in the clinical Documents      
    Then To verify table should be sorted chronologically by activity date most recent first            
  
  
   Examples:
       | First name    | Last name    | Medicare ID |
-      |  AUTOMATION1   |   DO NOT USE1 |  wa984986   |
+      |  AUTOMATION   |  DO_NOT_USE |  wa984986   |
+   
  
 
  
