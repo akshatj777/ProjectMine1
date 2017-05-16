@@ -14,14 +14,10 @@ public class EmailVarificationPage extends BaseClass {
         super(driver);
     }
 
-
-
     public void iEnterVerificationEmai(String email){
     	
     	     iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
     }
-
-
 
     public void iClickGoButton(){
 
@@ -31,8 +27,6 @@ public class EmailVarificationPage extends BaseClass {
     public void switchToFrame(String element){
 
         swithToFrame(element);
-
-
     }
 
     public void SelectNewEmail(){
@@ -48,10 +42,9 @@ public class EmailVarificationPage extends BaseClass {
 
     public void deleteAllEmails() {
 
-        clickElement(driver.findElement(By.cssSelector(".igif.lmenudelall")));
+    	clickElement(driver.findElement(By.cssSelector(".igif.lmenudelall")));
         clickElement(driver.findElement(By.xpath("//*[@id='delmenu']/ul/li[3]/a")));
-        //selectElementByDesc("#delmenu>ul>li", desc);
-
+        
     }
 
 
@@ -63,7 +56,7 @@ public class EmailVarificationPage extends BaseClass {
          clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
     	}
     	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
-        //driver.navigate().refresh();
+        
     }
 
 
