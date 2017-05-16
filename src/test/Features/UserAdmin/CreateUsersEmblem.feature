@@ -35,6 +35,7 @@ Feature: Create new User for emblem and verify Login logut of users
     And I click on Create button
     And I wait for 4000 milli seconds
     Then I should see header text "User Management"
+    And I wait for 4000 milli seconds
     Then I go to mail verification page
     When I enter the email for verification for <Email>
     And I click on Go button

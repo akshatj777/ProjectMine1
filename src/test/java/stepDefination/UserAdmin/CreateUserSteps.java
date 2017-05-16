@@ -21,67 +21,44 @@ public class CreateUserSteps extends DriverScript{
     UserAdminHomePage userAdminPage = new UserAdminHomePage(driver);
     CreateUserPage createUser = new CreateUserPage(driver);
 
-
-
     @When("^I log in as super user$")
     public void ILoginWith() throws Throwable {
         loginPage.iLoginAsSupperUser(Config.getProperty("SuperUserEmail"), "Testing1");
     }
 
-
-
     @And("^I click on the \"([^\"]*)\" tile$")
     public void IClickOnApplicatioTile(String tile) throws Throwable {
-
-        //landingPage.iClickOnApplicateTile(tile);
         landingPage.iClickOnApplicateTile("//p[text()='"+tile+"']");
-
     }
-
-
 
     @Then("^I click on Create User button$")
     public void IClickCreateUserButton() throws Throwable {
-
         userAdminPage.clickCreateUserButton();
-
     }
 
     @Then("^I pick a Organizational ([^\"]*)$")
     public void IPickOrganizationalRole(String role) throws Throwable {
-
         createUser.selectOrganizationalRole(role);
-
     }
 
     @And("^I enter NPI field with ([^\"]*)$")
     public void IEnterNPIFieldWith_(String npi) throws Throwable {
-
         createUser.iEnterNPI(npi);
-
     }
 
     @And("^I fill in First Name with \"([^\"]*)\"$")
     public void IFillFirstNameWith(String firstName ) throws Throwable {
-
         createUser.iEnterFirstName(firstName);
     }
 
-
     @Then("^I fill in Last Name with ([^\"]*)$")
     public void iFillInLastName(String lastName) throws Throwable {
-
         createUser.iEnterLasttName(lastName);
-
     }
 
     @Then("^I Generate Email for ([^\"]*)$")
     public void iGenerateEmail(String email) throws Throwable {
-        
-    	
     	createUser.iGenerateEmail(email);
-        
-
     }
     
     @Then("^I enter Email for ([^\"]*)$")
@@ -91,22 +68,18 @@ public class CreateUserSteps extends DriverScript{
     
     @Then("^I enter Phone field with ([^\"]*)$")
     public void iEnterPhone(String phone) throws Throwable {
-
         createUser.iEnterPhone(phone);
-
     }
     
     @And("^I enter email ([^\"]*) for login after password mail verification$")
     public void iEnterEmailForLoginAfterPasswordMailVerification(String email) throws Throwable{
     	createUser.iEnterEmailForLoginAfterPasswordMailVerification(email);
     }
-    
 
     @And("^I enter password field ([^\"]*) for Login after password verification$")
     public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password) throws Throwable{
     	createUser.iEnterPasswordFieldForLoginAfterPasswordVerification(Password);
     }
-
     
     @When("^I enter the email ([^\"]*) to generate password$")
     public void iEnterTheEmailToGeneratePassword(String email) throws Throwable{
@@ -130,16 +103,12 @@ public class CreateUserSteps extends DriverScript{
     
     @Then("^I pick payer type from data section ([^\"]*)$")
     public void IPickPayertypeFromDataSection(String payer) throws Throwable {
-
         createUser.selectPayerFromData(payer);
-
     }
 
     @Then("^I select a ([^\"]*)$")
     public void iSelectHealthSystem(String healthSystem) throws Throwable {
-
         createUser.iSelectHealthSystem(healthSystem);
-
     }
     
     @Then("^I should see different tiles for different user role ([^\"]*)$")
@@ -211,11 +180,6 @@ public class CreateUserSteps extends DriverScript{
     public void IFillLastNameWithText(String lastName) throws Throwable {
         createUser.iEnterLasttName(lastName);
     }
-
-//    @And("^I enter Email with text \"([^\"]*)\"$")
-//    public void IEnterEmailText(String email) throws Throwable {
-//        createUser.iEnterEmail(email);
-//    }
 
     @Then("^I verify Organizational Role Required Message \"([^\"]*)\"$")
     public void IVerifyOrganizationalRoleRequiredMessage(String text) throws Throwable {
