@@ -26,8 +26,7 @@ Then I select the "<date>" from the calendar from date picker
 Examples:
             | date |  
          | 12/07/2014 | 
-         | 15/05/2017 |
-         | 26/10/2022 |  
+          
 
 
          

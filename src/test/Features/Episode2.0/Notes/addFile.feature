@@ -94,6 +94,7 @@ And  I wait for 20000 milli seconds
 Then I click on quick action button for note creation on Patient Card page
 Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
 And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
+Then I click on Activity Date on  Add Clinical Document on Patient Card
 Then I click on the centre of the calendar header to select date and month
 Then I click on the next link to select the required year "<date>" on date picker
 Then I select the month "<date>" from calendar from date picker

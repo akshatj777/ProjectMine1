@@ -57,7 +57,7 @@ Scenario Outline: To verify Notes created in EC1 through i framing should only b
     When I click on Add Transition button present on the Add Patient page
     And I wait for 10000 milli seconds
     And I click on Agree button present on the Attestation page
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
     Then I should see Care Plan present on the student details page
     Then I click on Care Plan
     And I wait for 2000 milli seconds
@@ -70,21 +70,21 @@ Scenario Outline: To verify Notes created in EC1 through i framing should only b
     Then I select value from the topic dropdown
     Then I click on create note button
     And I wait for 15000 milli seconds
-    Then I click on navigation bar to return to remedy connect
-    And  I wait for 2000 milli seconds
+    Then I switch back to old window
+    And  I wait for 8000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
     And  I wait for 8000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page 
+    Then I click on the ALL Tab on Patient page 
     And  I wait for 10000 milli seconds
     Then I should see search box appearing on the patients page
     Then I enter "<patient last name>" in the search box on the patients page
     And I wait for 60000 milli seconds
-
+   
     Examples:
 
       | email                | password  | patient first name | patient last name |
-      | qa.admin@yopmail.com | Episode1! |   Rammmmmmmmmmmmmyyy   | Naaaaaaaaaarrrrreee   |     
+      | qa.admin@yopmail.com | Episode1! |   HHHHZZZZZZ   | KKKKYYYYYYY  |     
 
       
