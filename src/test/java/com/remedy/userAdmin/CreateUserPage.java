@@ -24,50 +24,30 @@ public class CreateUserPage extends BaseClass{
 
 		
     public CreateUserPage(WebDriver driver){
-
         super(driver);
     }
 
     public void iClickOrganizationalField(){
-
         clickElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[1]/div[1]/div[1]/span")));
     }
     
     public void iTurnOffShareFile(){
-    	
-    	try
-    	{
-    	if(driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()){
-    		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
-    	}
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
+    	clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
     }
-    	
-    	    
-    
+   
     public void iClickPayerField(){
     	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
     }
 
-
     public void selectOrganizationalRole(String desc){
-
-
-        selectElementByDesc(".ui-select-choices-row-inner", desc);
+       selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
     
     public void selectPayerFromData(String desc){
-
-    	//JavascriptExecutor js = ((JavascriptExecutor) driver);
-    	//WebElement element = driver.findElement(By.cssSelector(".ui-select-match.ng-scope.btn-default-focus"));  
-    	//js.executeScript("arguments[0].scrollIntoView(true);", element);
-        selectElementByDesc(".ui-select-choices-row-inner", desc);
+      selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
 
     public void iEnterNPI(String text){
-    	
     	 if ("".equals(text)){
     		 return;
     	}
@@ -76,33 +56,23 @@ public class CreateUserPage extends BaseClass{
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
     
     	}
-    	
     }
 
     public void iEnterFirstName(String text){
-
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
     }
 
     public void iEnterLasttName(String text){
-
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[4]/input")), text);
     }
-
-    
     
     public final static String iGenerateEmail(String text){
-
     	final String mail=text+time;
     	final String email="user"+mail+"@mailinator.com";
 		return email;
-	   	    
     }
     
-    
-    
     public void iEnterEmail(String text){
-    	
     	iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
     }
     
@@ -115,7 +85,6 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iEnterPhone( String text){
-
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
     }
     
@@ -132,26 +101,20 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iClickOnChangeMyPasswordLink(){
-    	
     	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
     	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
-        
     }
 
     public void iClickHealthSystemField(){
-
         clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
     }
 
     public void iEnterHealthSystemSerachText(String text){
-
         iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]")), text);
     }
 
     public void iSelectHealthSystem(String desc){
-
         selectElementByDesc(".ui-select-choices-row-inner", desc);
-
     }
     
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role){
@@ -159,60 +122,44 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
-    	if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
-			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
-			   Thread.sleep(6000);
-			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
-			  
-	  	}else{
-	  		
-	  		return;
-	  	}
+    	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
+    	Thread.sleep(6000);
+    	isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
     }
 
     public void iClickCreateButton (){
-
         clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
     }
 
     public void iVerifyOrganizationalRoleRequiredMessageText(String text){
-
         verifyTextForElement(driver.findElement(By.xpath("//form/fieldset/div/div[1]/div[2]/span/span")), text);
     }
 
     public void iVerifyFirstNameRequiredText(String text){
-
         verifyTextForElement(driver.findElement(By.xpath("//form/fieldset/div/div[3]/div/span/span")), text);
     }
 
     public void iVerifyLastNameRequiredText(String text){
-
         verifyTextForElement(driver.findElement(By.xpath("//form/fieldset/div/div[4]/div/span/span")), text);
     }
 
     public void iVerifyEmailRequiredText(String text){
-
         verifyTextForElement(driver.findElement(By.xpath("//form/fieldset/div/div[2]/div/span/span")), text);
     }
 
     public void iVerifyPhoneValidationMessageText(String text){
-
         verifyTextForElement(driver.findElement(By.xpath("//form/fieldset/div/div[5]/div/span/span")), text);
     }
 
     public void iVerifyNPIValidationMessageText(String text){
-
         verifyTextForElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/div/span/span")), text);
     }
 
-
     public void iClickTryAgainButton (){
-
         clickElement(driver.findElement(By.cssSelector(".btn.btn-secondary")));
     }
 
     public void iverifyCreateUserPageHeader (String header){
-
        verifyTextForElement(driver.findElement(By.cssSelector(".ng-scope>h2")), header );
     }
     
@@ -221,18 +168,15 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterProviderSerachText(String text){
-
         clickElement(driver.findElement(By.xpath("//div[@class='table-select-search']//input")));
         iFillInText(driver.findElement(By.xpath("//div[@class='table-select-search']//input")), text);
     }
 
     public void iCheckAllProviderForTheHealthSystem (){
-
         clickElement(driver.findElement(By.cssSelector(".checkbox")));
     }
 
     public void iclickAllAppsfortheRole (){
-
        clickAllElementofAlistbyXpath("//div/label/span[2]");
     }
 
