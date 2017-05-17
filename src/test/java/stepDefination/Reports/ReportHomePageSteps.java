@@ -882,4 +882,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
     	reportHomePage.iShouldNotSeeReportName(report);
     }
+    
+    @When("^I click on select from list option on the filter page$")
+    public void i_click_on_select_from_list_option_on_the_filter_page() throws Throwable{
+    	reportHomePage.iSelectFromListOnFilterPage();
+    }
 }
