@@ -1000,4 +1000,14 @@ public class PatientsPage extends BaseClass {
 	public void iClickOnWorklistOnEpisodeHomePage(String sworklist,String mworklist){
 		clickElement(driver.findElement(By.xpath("//button[span[contains(text(),'"+sworklist+"')]]")));
 	}
+
+	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
+		
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+	}
+
+	public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+lastname+"')]")));
+	}
 }
