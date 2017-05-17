@@ -75,13 +75,14 @@ public class ReportHomePageSteps extends DriverScript {
 
     @And("I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
-        reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
+    	reportHomePage.iMoveToElementAndPerformRightClick(filterField, filterTitle);
+    	//reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
     
-    @And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
+    /*@And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
     public void iClickOnParticipantFilterUnderEpisodeInitiatorFilterField(String text) throws Throwable {
         reportHomePage.iMoveToElementAndPerformRightClick(".//div[@id='fieldlist'] //div[text()='"+text+"']");
-    }
+    }*/
     
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
     public void iChooseOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
@@ -740,6 +741,11 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I click on show all filters icon button$")
     public void i_click_on_show_all_filters_icon_button() throws Throwable{
     	reportHomePage.iClickOnShowAllFiltersIcon();
+    }
+    
+    @When("^I click on filter count label to see preselected filters$")
+    public void i_click_on_filter_count_label_to_see_preselected_filters() throws Throwable{
+    	reportHomePage.iClickOnFiltersCountLabel();
     }
     
     @Then("^I verify \"([^\"]*)\" filter is preselected under the filter$")

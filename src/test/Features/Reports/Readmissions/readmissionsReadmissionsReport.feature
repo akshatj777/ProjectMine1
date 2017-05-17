@@ -56,7 +56,7 @@ Feature: Readmissions readmisisons
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
-
+    
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field

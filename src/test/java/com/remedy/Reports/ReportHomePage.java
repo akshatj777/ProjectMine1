@@ -1,7 +1,9 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import cucumber.api.DataTable;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 import java.util.Random;
 
@@ -78,8 +81,11 @@ public class ReportHomePage extends BaseClass {
         moveToTheElement(driver.findElement(By.xpath(toElementLocator)));
     }
 
-    public void iMoveToElementAndPerformRightClick(String moveToElementLocator){
-        moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
+    public void iMoveToElementAndPerformRightClick(String filterField, String filterTitle){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
+    	delay();
+    	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
+		//moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
@@ -575,6 +581,10 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnShowAllFiltersIcon(){
     	clickElement(driver.findElement(By.xpath(".//div[@class='pentaho-filterbutton']")));
+    }
+    
+    public void iClickOnFiltersCountLabel(){
+    	clickElement(driver.findElement(By.cssSelector("#RPT001FilterCountLabel")));
     }
     
     public void iVerifyPreselectedModelFilter(String text){

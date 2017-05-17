@@ -1,4 +1,4 @@
-Feature: Readmission claims Overall Program
+Feature: Readmission claims
 
   Scenario Outline: Verify that Readmission claims report display data based on provisioning
     Given I am on the login page
@@ -40,11 +40,11 @@ Feature: Readmission claims Overall Program
     And I should see "Anchor Facility" in the header text of filter page
     And I should see "<anchorFacility1>" in the filter value list
     And I should see "<anchorFacility2>" in the filter value list
-    And I click on "<anchorFacility2>" in the filter value list
+    And I click on "<anchorFacility1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-    And I should see "<anchorFacility2>" result in "Anchor Facility" field column for "Anchor Facility" filter field
+    And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
 
     When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
     And I wait for 2000 milli seconds
@@ -69,12 +69,7 @@ Feature: Readmission claims Overall Program
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
-
-    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
-    And I double click on current mouse location element
-    And I wait for 5000 milli seconds
-    Then I should see Readmission reports column Tile text as "CCN"
-
+    
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
@@ -103,9 +98,9 @@ Feature: Readmission claims Overall Program
     Then I verify current page "Reports" title
 
     Examples:
-      | email                              | participant | anchorFacility1                  | anchorFacility2                                | episodeInitiator1                                                         | ccn1   | BPID1    |
-      | shutestaug231132a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center               | Penn Presbyterian Medical Center                                          | 390223 | 2070-021 |
-      | shutestaug221130a@yopmail.com      | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | The Pennsylvania Hospital Of The University Of Pennsylvania Health System | 390226 | 2070-022 |
-      | reptestachmodel2opsfin@yopmail.com | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | The Pennsylvania Hospital Of The University Of Pennsylvania Health System | 390226 | 2070-022 |
-      | shutestaug15240p@yopmail.com       | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center                                          | 390223 | 2070-021 |
-      | shutestaug221145a@yopmail.com      | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center                                          | 390223 | 2070-021 |
+      | email                              | participant | anchorFacility1                  | anchorFacility2                                | episodeInitiator1                | ccn1   | BPID1    |
+      | shutestaug231132a@yopmail.com      | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | shutestaug221130a@yopmail.com      | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | reptestachmodel2opsfin@yopmail.com | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | shutestaug15240p@yopmail.com       | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+      | shutestaug221145a@yopmail.com      | Penn        | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | Penn Presbyterian Medical Center | 390223 | 2070-021 |

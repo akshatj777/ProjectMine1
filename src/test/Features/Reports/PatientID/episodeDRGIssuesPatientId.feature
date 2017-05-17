@@ -86,7 +86,7 @@ Scenario Outline: Verify that Episode drg issues report display data based on pr
     Then I verify current page "Reports" title  
     
     Examples:
-    | email                              | participant |	anchorFacility1       	          | anchorFacility2                |	episodeInitiator1               | ccn1   | BPID1    |
-    | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital	 |	Penn Presbyterian Medical Center| 390223 | 2070-021 |
-    | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
+    | email                              | participant |	anchorFacility1       	          | anchorFacility2                | episodeInitiator1               | ccn1   | BPID1    |
+    | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital	 | Penn Presbyterian Medical Center| 390223 | 2070-021 |
+    | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center| 390223 | 2070-021 |
      
