@@ -57,11 +57,37 @@ Feature: Model 2 Readmission
     And I wait for 60000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 15000 milli seconds
+     And I wait for 20000 milli seconds
+    Then I click on the Transitions sub tab on the Patient Summary Page
+    And I wait for 5000 milli seconds
+    Then I switch to PatientTransitions frame on Patient Summary Page
+    Then I click on add a new transition to add a new transition on Patient Summary
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition on Patient Summary
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the date from the datepicker on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care setting value "<CareSettingValue>" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "<Care type>" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "<facility value>" on add a new transition
+    Then I wait for 12000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "<DRG type>" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "<DRG>" DRG on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 10000 milli seconds
+    When I switch to default window from iframe
+    Then I wait for 5000 milli seconds
+    Then I close the patient summary Page
     
 
     Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | AutomationC         | CaseD            |
+      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | DRG type | DRG |   
+      | qa.admin@yopmail.com | Episode1! | AutomationC         | CaseD            |   HHH - Hospital  | Inpatient | Stamford Hospital |  Working | 65  |
 
 

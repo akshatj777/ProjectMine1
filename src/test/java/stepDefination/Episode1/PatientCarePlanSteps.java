@@ -1,5 +1,7 @@
 package stepDefination.Episode1;
 
+import org.openqa.selenium.By;
+
 import com.remedy.episode1.PatientCarePlan;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
@@ -203,5 +205,17 @@ public class PatientCarePlanSteps extends DriverScript
 	public void i_agree_the_attestation_if_available(){
 		patientcare.iAcceptAttestation();
 		
+	}
+	
+	@Then ("^I click on QA PRM on navigation bar on EC1$")
+	public void I_click_on_QA_PRM_on_navigation_bar_on_EC1()
+	{
+		patientcare.IclickonQAPRMonnavigationbaronEC1();
+	}
+	
+	@Then ("^I click on Return to Remedy from dropdown on QA PRM on navigation bar on EC1$")
+	public void I_click_on_Return_to_Remedy_from_dropdown_on_QA_PRM_on_navigation_bar_on_EC1()
+	{
+		patientcare.IclickonReturntoRemedyfromdropdownonQAPRMonnavigationbaronEC1();	
 	}
 }
