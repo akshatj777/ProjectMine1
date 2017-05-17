@@ -19,36 +19,14 @@ public class Readmission extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Transitions')]")));
 	}
 	
-	public void IswitchtoPatientTransitionsframe() {
-		// TODO Auto-generated method stub
-		swithToFrame("//iframe[@class='not-showing ng-scope']");
-	}
-	
-	public void IclickontheCreateTransitionButtontoaddanewtransition() {
-		// TODO Auto-generated method stub
-		  JavascriptExecutor js = ((JavascriptExecutor) driver);
-		  WebElement element = driver.findElement(By.cssSelector("#btnNewTransition"));
-		  js.executeScript("arguments[0].click();", element);
-		  clickElement(element);
-	}
-	
-	public void IclickontheTransitionInfoonaddanewtransition() {
-		// TODO Auto-generated method stub
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-		  // ((JavascriptExecutor) driver).executeScript("scroll(0,-250);");
-		  WebElement element = driver.findElement(By.xpath("//a[contains(text(), 'Transition Info')]"));
-		  js.executeScript("arguments[0].click();", element);
-		  clickElement(element);
-	}
-
-	public void Iselectthecaresettingvalueonaddanewtransition(String caresetting) {
+      public void Iselectthecaresettingvalueonaddanewtransition(String caresetting) {
 		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory",caresetting);
 	}
 
 	public void Iselectthecaretypevalueonaddanewtransition(String caretypevalue) {
 		
 
-		  selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", "Inpatient");
+		  selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType",caretypevalue);
 	}
 
 	public void Iselectthefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
@@ -63,30 +41,25 @@ public class Readmission extends BaseClass {
 		  WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen9_search"));
 
 		  js.executeScript("arguments[0].click();", element2);
-		  element2.sendKeys("Allentown");
+		  element2.sendKeys(facilityvalue);
 		  Thread.sleep(10000);
-		  WebElement element3 = driver.findElement(By.xpath("//div[contains(text(), 'Allentown - St Luke')]"));
+		  WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
 		  js.executeScript("arguments[0].click();", element3);
 		  clickElement(element3);		
 	}
 
-	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG(String DRGtype) {
-		// TODO Auto-generated method stub
-	
 
-	}
 
 	public void IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition(String DRGtype) {
 		// TODO Auto-generated method stub
-		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Working");
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType",DRGtype);
 	}
 
 	public void IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
 		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		  iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")), "61");
-		  clickElement(driver.findElement(By.cssSelector(
-		    "#select2-results-8 > li.select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
+		  iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),DRG);
+		  clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
 		 }
 	
 

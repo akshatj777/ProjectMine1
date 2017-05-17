@@ -9,12 +9,7 @@ public class UpdatedTableSteps extends DriverScript{
 
 	PatientClinicalDocuments patientclinical=new PatientClinicalDocuments(driver);
 	
-	@Then ("^I click on the ALL Tab on Patient page$")
-	public void I_click_on_the_ALL_Tab_on_Patient_page()
-	{
-		patientclinical.IclickontheALLTabonPatientpage();
 	
-	}
 	
 	@Then ("^I verify there should be filter link on clinical document section$")
 	public void I_verify_there_should_be_filter_link_on_clinical_document_section()

@@ -57,13 +57,13 @@ Feature: Model 2 Readmission
     And I wait for 60000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 15000 milli seconds
-     And I wait for 20000 milli seconds
-    Then I click on the Transitions sub tab on the Patient Summary Page
+    And I wait for 20000 milli seconds
+    Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 5000 milli seconds
-    Then I switch to PatientTransitions frame on Patient Summary Page
-    Then I click on add a new transition to add a new transition on Patient Summary
+    Then I switch to PatientTransitions frame
+    Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition on Patient Summary
+    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the date from the datepicker on add a new transition
     Then I wait for 5000 milli seconds
@@ -88,6 +88,6 @@ Feature: Model 2 Readmission
     Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | DRG type | DRG |   
-      | qa.admin@yopmail.com | Episode1! | AutomationC         | CaseD            |   HHH - Hospital  | Inpatient | Stamford Hospital |  Working | 65  |
+      | qa.admin@yopmail.com | Episode1! | AutomationD         | CaseE            |   HHH - Hospital  | Inpatient | Stamford Hospital |  Working | 65  |
 
 
