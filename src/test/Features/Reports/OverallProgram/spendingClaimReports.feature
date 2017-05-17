@@ -11,7 +11,6 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Spending (Claims)" report text for Overall Program Reports
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe 
     
     Then I should see performance reports column Tile text as "Participant"
@@ -22,7 +21,7 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
-    	
+    
 		When I click to "Participant" field filter under "Episode Initiator" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
@@ -57,7 +56,7 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     And I click on "<episodeInitiator1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
     
     When I click to "CCN" field filter under "Anchor Facility" filter field
@@ -83,7 +82,6 @@ Scenario Outline: Verify that Spending claims report display data based on provi
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
 
     When I switch to default window from iframe
-    #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
     And I wait for 2000 milli seconds
     Then I verify current page "Reports" title
@@ -93,5 +91,4 @@ Scenario Outline: Verify that Spending claims report display data based on provi
       | shutestaug231132a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
       | shutestaug221130a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
       | reptestachmodel2opsfin@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug15240p@yopmail.com       | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
       | shutestaug221145a@yopmail.com      | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center  | Penn Presbyterian Medical Center | 390223 | 2070-021 |

@@ -11,7 +11,6 @@ Feature: Readmissions readmisisons
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions" report text for Readmissions Reports
     And I wait for 30000 milli seconds
-    #Then I should see "Report" in the reports header page
     When I switch to reports embedded iframe
 
     Then I should see Readmissions reports column Tile text as "Participant"
@@ -57,7 +56,7 @@ Feature: Readmissions readmisisons
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
-
+    
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
@@ -83,7 +82,6 @@ Feature: Readmissions readmisisons
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
 
     When I switch to default window from iframe
-    #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title

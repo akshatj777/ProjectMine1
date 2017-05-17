@@ -190,11 +190,6 @@ Scenario Outline: User should click on zoom in and zoom out under post accute ut
     Then I verify "Zoom out" text appearing on the "inpatient rehab" graph
     And I click on "Zoom out" button under inpatient rehab graph for post accute utilization report
     And I wait for 3000 milli seconds
-    And I click on "Zoom In" button under home health graph for post accute utilization report
-    And I wait for 3000 milli seconds
-    Then I verify "Zoom out" text appearing on the "home health" graph
-    And I click on "Zoom out" button under home health graph for post accute utilization report
-    And I wait for 3000 milli seconds
     And I click on "Zoom In" button under home graph for post accute utilization report
     And I wait for 3000 milli seconds
     Then I verify "Zoom out" text appearing on the "home" graph

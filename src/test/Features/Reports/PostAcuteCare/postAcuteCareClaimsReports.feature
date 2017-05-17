@@ -10,8 +10,7 @@ Feature: Post acute care claims
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for 30000 milli seconds 
-    #Then I should see "Report" in the reports header page
+    And I wait for 30000 milli seconds
     When I switch to reports embedded iframe
 
     Then I should see Post Acute Care (Claims) reports column Tile text as "Participant"
@@ -19,7 +18,6 @@ Feature: Post acute care claims
     Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Facility"
     Then I should see Post Acute Care (Claims) reports column Tile text as "Bundle"
     Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Admission Quarter"
-    Then I should see performance reports column Tile text as "Anchor Admission Quarter"
 
     When I click on field-panel-icon button
     And I wait for 4000 milli seconds
@@ -74,11 +72,6 @@ Feature: Post acute care claims
     And I wait for 3000 milli seconds
     And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
 
-    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
-    And I double click on current mouse location element
-    And I wait for 5000 milli seconds
-    Then I should see performance reports column Tile text as "CCN"
-
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
@@ -102,7 +95,6 @@ Feature: Post acute care claims
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     
     When I switch to default window from iframe
-    #When I click on close reports cross icon on report page
     When I click on reports tab appearing on reports page
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
