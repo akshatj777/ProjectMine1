@@ -22,11 +22,18 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iShouldSeeCarePlanpresentonthestudentdetailspage() throws Throwable 
 	{
-		isElementVisible(driver.findElement(By.cssSelector("#carePlanButton")));
+		WebElement element=driver.findElement(By.cssSelector("#carePlanButton"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
+	   isElementVisible(element);
 	}
 	public void iClickOnCarePlan() throws Throwable 
 	{
-		clickElement(driver.findElement(By.cssSelector("#carePlanButton")));
+		WebElement element=driver.findElement(By.cssSelector("#carePlanButton"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		//js.executeScript("arguments[0].scrollIntoView(true);",element);
+		js.executeScript("scroll(250, 0)");
+		clickElement(element);
 	}
 	public void iShouldSeeAssignCarePlanUnderCarePlanPage() throws Throwable 
 	{
@@ -104,7 +111,10 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnNewNoteButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.xpath("//*[@id='notesList']/div/div[2]/a")));
+		WebElement element=driver.findElement(By.cssSelector("#notesList > div > div.buttons.pull-right > a"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
+		clickElement(element);
 	}
 	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable
 	{
@@ -120,7 +130,7 @@ public class PatientCarePlan extends BaseClass
 	}
 	public void iClickOnCreateNoteButton() throws Throwable
 	{
-		clickElement(driver.findElement(By.cssSelector("#submitButton")));
+		clickElement(driver.findElement(By.id("submitButton")));
 	}
 	public void iClickOnActionsColumnInNotes() throws Throwable
 	{
@@ -177,4 +187,15 @@ public class PatientCarePlan extends BaseClass
 			
 		}
 	}
+
+	public void IclickonQAPRMonnavigationbaronEC1() {
+	
+		clickElement(driver.findElement(By.cssSelector("li.dropdown.dropdown-user")));	
+	}
+	public void IclickonReturntoRemedyfromdropdownonQAPRMonnavigationbaronEC1() {
+		// TODO Auto-generated method stub
+		clickElement(driver.findElement(By.cssSelector("a#navbar-dropdown-menu-logout")));	
+	}
+	
+	
 }

@@ -16,10 +16,11 @@ import stepDefination.Hooks.*;
 @CucumberOptions(
         plugin = { "html:target/cucumber-results", "usage:target/cucumber-results/cucumber-usage.json",
                 "junit:target/cucumber-results/cucumber-results.xml", "json:target/cucumber-results/cucumber.json"},
-        features = { "src/test/Features/"},
+        features = { "src/test/Features/Episode2.0/Notes"},
         //glue = { "./src/test/java/stepDefination" },
         tags = {}
-)
+)C:\Users\akshat.jain\automation\src\test\Imports\Sample.csv
+
 
 
 public class TestRunner {

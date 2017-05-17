@@ -9,8 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -71,6 +72,30 @@ public class BaseClass {
         }
     }
 
+    public List<String> getTextForElementfromList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        List<String> listtexts = new ArrayList<String>();
+        for (WebElement item : listItems) {
+            System.out.println(item.getText());
+         item.getText();
+         listtexts.add(item.getText());
+        }
+  return listtexts;
+         
+        }
+    
+    public List<WebElement> getElementsList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        
+        System.out.println("****The list of elements*****"+listItems);
+  return listItems;
+         
+        }
+    
+     
+    
     public WebElement waitFindElement(WebElement parentElement, By by) {
 
         WebElement ele = null;
@@ -139,6 +164,7 @@ public class BaseClass {
     public void selectElementByDesc(String element, String desc) {
         //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        System.out.println("****The list of webelements is"+listItems);
         for (WebElement item : listItems) {
             //System.out.println(item.getText());
             if (item.getText().equalsIgnoreCase(desc)) {
@@ -167,7 +193,9 @@ public class BaseClass {
         }
     }
 
-    public void selectDropdownVisibleElement(String selectElement, String desc) {
+
+    public void selectDropdownVisibleElement(String selectElement, String desc)  {
+
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);
     }
@@ -202,8 +230,19 @@ public class BaseClass {
 
     public void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
+        	System.out.println(ele.getText());
             Assert.assertEquals(ele.getText(), text);
+            
         }
+    }
+    
+    public String getTextForElement(WebElement ele) {
+        if (isElementVisible(ele)) {
+        	System.out.println(ele.getText());
+            
+            
+        }
+		return ele.getText();
     }
     
  
@@ -215,6 +254,15 @@ public class BaseClass {
     	
     }
 
+    public int getElementCount(String element) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        delay();
+            System.out.println(countelement);
+			return countelement;
+            
+        }
+    
     public void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
@@ -384,7 +432,25 @@ public class BaseClass {
     driver.switchTo().parentFrame();
     }
     
+
+    public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
+   {
+	   Assert.assertEquals(requiredcombolisttext,actualcombolisttext);
    }
 
+    public boolean existsElement(String element) {
+    	 try {
+    	 driver.findElement(By.cssSelector(element));
+    	 } catch (NoSuchElementException e) {
+    	 return false;
+    	 }
+    	 return true;
+    	}
 
+  }
+    
+ 
+   
+
+  
 
