@@ -1393,10 +1393,7 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.IclickontheImpatientTabonPatientpage();
 
     }
+   
     
-    @Then ("^I click on the \"([^\"]*)\" searched patient on the Patient Card Page$")
-    public void I_click_on_last_name_the_searched_patient_on_the_Patient_Card_Page(String last_name)
-    {
-    	patientsPage.IclickonlastnamethesearchedpatientonthePatientCardPage(last_name);
-    }
+  
 }

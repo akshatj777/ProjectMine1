@@ -928,10 +928,7 @@ public class PatientsPage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 	}
 
-	public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
-		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+lastname+"')]")));
-	}
+	
 
     public void iShouldSeeFacilityAppearingUnderTransitionsPage() {
         isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")));
@@ -1031,6 +1028,8 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
 
     }
+
+
 
 }
     

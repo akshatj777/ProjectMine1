@@ -28,8 +28,11 @@ public class Model2ReadmissionSteps extends DriverScript {
     {
     	admission.Iselectthefacilityvalueonaddanewtransition(facilityvalue); 
 }
-   
-   
+    @Then ("^I select the \"([^\"]*)\" LOS days on Discharge date on Add Transition$")
+    public void I_select_the_LOS_days_on_Discharge_date_on_Add_Transition(String days)
+    {
+    	admission.IselecttheLOSdaysonDischargedateonAddTransition(days);
+    }
      @Then ("^I select the \"([^\"]*)\" DRG type on the Diagnosis and DRG tab on add a new transition$")
     public void I_select_the_DRG_type_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRGtype) throws Throwable
     {
@@ -43,13 +46,80 @@ public class Model2ReadmissionSteps extends DriverScript {
     }
    
     
+    @Then ("^I click on the agree button on the Patient Card page$")
+    public void I_click_on_the_agree_button_on_the_Patient_Card_page()
+    {
+    	admission.IclickontheagreebuttononthePatientCardpage();
+    }
     
+      @Then ("^I click on the \"([^\"]*)\" searched patient on the Patient Card Page$")
+      public void I_click_on_last_name_the_searched_patient_on_the_Patient_Card_Page(String last_name)
+      {
+    	  admission.IclickonlastnamethesearchedpatientonthePatientCardPage(last_name);
+      }
+       
+      @Then ("^I click on the centre of the calendar header on Discharge datepicker to select date and month on Transition Page$")
+      public void I_click_on_the_centre_of_the_calendar_header_on_Discharge_datepicker_to_select_date_and_month_on_Transition_Page()
+      {
+    	  admission.IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage();
+      }
+      
+      @Then ("^I click on the previous next link to select the required year \"(.*)\" on date picker$")
+ 	 public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(String date)
+ 	 {
+ 		 System.out.println("$$$$$The date is"+date);
+ 		admission.Iclickonthenextlinktoselecttherequiredyearondatepicker(date);
+ 	 }
 
-
+      @Then ("^I click on the centre of the calendar header to select date and month on Transition Page$")
+ 	 public void I_click_on_the_centre_of_the_calendar_header_to_select_date_and_month()
+ 	 {
+    	  admission.IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage();
+ 	 }
+      
+     @Then ("^I select the \"(.*)\" from the calendar from date picker on Transition Page$")
+ 	 public void I_select_the_date_from_the_calendar_from_date_picker_on_Transition_Page(String date)
+ 	 {
+ 		admission.Iselectthedatefromthecalendarfromdatepicker(date);
+ 	 }
     
+     @Then ("^I select the \"(.*)\" time from the calendar from date picker on Transition Page$")
+    public void I_select_the_time_from_the_calendar_from_date_picker_on_Transition_Page(String date)
+    {
+    	 admission.IselectthetimefromthecalendarfromdatepickeronTransitionPage(date);
+    }
+    
+     @Then ("^I click on the Readmissions sub tab on Impatient tab on patient Card Page$")
+     public void I_click_on_the_Readmissions_sub_tab_on_Impatient_tab_on_patient_Card_Page()
+   
+     {
+    	 admission.IclickontheReadmissionssubtabonImpatienttabonpatientCardPage();
+     }
+     
+     @Then ("^I verify the \"([^\"]*)\" patient present or not on the Patient Card Page$")
+     public void I_verify_the_patient_present_or_not_on_the_Patient_Card_Page(String last_name)
+     {
+   	  admission. IverifythepatientpresentornotonthePatientCardPage(last_name);
+     }
+     
+     @Then ("^I get the discharge date of the previous transition added from transition list$")
+     public void I_get_the_discharge_date_of_the_previous_transition_added_from_transition_list()
+     {
+    	 admission.Igetthedischargedateoftheprevioustransitionaddedfromtransitionlist();
+     }
+     
+     @Then ("^I click on the edit button to edit the Active transition$")
+     public void I_click_on_the_edit_button_to_edit_the_Active_transition()
+     {
+    	 admission.IclickontheeditbuttontoedittheActivetransition();
+     
+     }
+     @Then ("I click on datepicker button to select the discharge date on add a new transition$")
+     public void I_click_on_datepicker_button_to_select_the_discharge_date() throws Throwable
+     {
+    	 admission.Iclickondatepickerbuttontoselectthedischargedate();
+     }
   
-    
-    
-    
-    
+     
+     
 }
