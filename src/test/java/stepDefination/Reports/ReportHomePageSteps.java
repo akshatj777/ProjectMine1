@@ -887,4 +887,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_select_from_list_option_on_the_filter_page() throws Throwable{
     	reportHomePage.iSelectFromListOnFilterPage();
     }
+    
+    @Then("^I click on \"([^\"]*)\" graph point under overall program of program overview report$")
+    public void i_click_on_graph_point_under_overall_program_overview_report(String npra) throws Throwable{
+    	reportHomePage.iClickOnNPRAGraphPoint(npra);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" in the new window after clicking on the graph point$")
+    public void i_verify_in_the_new_window_after_clicking_on_the_graph_point(String text) throws Throwable{
+    	reportHomePage.iVerifyInTheNewWindowAfterClickingOnGraph(text);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" graph point under post acute utilization of program overview report$")
+    public void i_click_on_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
 }

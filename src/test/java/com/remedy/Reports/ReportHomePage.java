@@ -695,6 +695,20 @@ public class ReportHomePage extends BaseClass {
     public void iSelectFromListOnFilterPage(){
     	clickElement(driver.findElement(By.cssSelector("#FT_filterTypeSelect")));
     }
+    
+    public void iClickOnNPRAGraphPoint(String npra){
+    	String nprapath=".//*[@id='"+npra+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][5]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(nprapath)));
+    }
+    
+    public void iVerifyInTheNewWindowAfterClickingOnGraph(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+    
+    public void iClickOnGrpahPointForPostAcuteUtilization(String text){
+    	String path=".//*[@id='SNFChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
 
 }
 
