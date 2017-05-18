@@ -123,8 +123,8 @@ public class CreateUserPage extends BaseClass{
     
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
     	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
-    	Thread.sleep(6000);
-    	isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+    	//Thread.sleep(6000);
+    	isElementVisible(driver.findElement(By.xpath("//h1")));
     }
 
     public void iClickCreateButton (){
