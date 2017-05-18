@@ -52,7 +52,7 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
       | First name | Last name  |
       | AUTOMATION | DO_NOT_USE |
 
-  Scenario Outline: To Select the options present on the Anticicpated section of the Carl Form
+  Scenario Outline: To Select the options present under Therapies Needed on the Anticicpated section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -76,6 +76,19 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     And I wait for 4000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator
     And I wait for 4000 milli seconds
+    Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
+    And I wait for 3000 milli seconds
+    Then I verify "Physical therapy" checkbox is clickable
+    Then I verify "Speech and language" checkbox is clickable
+    Then I verify "Occupational therapy" checkbox is clickable
+    Then I verify "None" checkbox is not clickable
+    Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
+    And I wait for 3000 milli seconds
+    Then I click "None" checkbox under Therapies Needed on Anticipated Discharge Needs section 
+    Then I verify "Physical therapy" checkbox is not clickable
+    Then I verify "Speech and language" checkbox is not clickable
+    Then I verify "Occupational therapy" checkbox is not clickable
+    Then I click "None" checkbox under Therapies Needed on Anticipated Discharge Needs section 
 
     Examples: 
       | First name | Last name  |
