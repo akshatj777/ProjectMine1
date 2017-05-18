@@ -39,8 +39,8 @@ public class LoginPageSteps extends DriverScript{
         loginPage.iEnterConfirmPasswordForResetPassword(newPassword);
     }
 
-    @Then("^I click on chnage password button$")
-    public void iClickChnagePasswordButton() throws Throwable {
+    @Then("^I click on change password button$")
+    public void iClickChangePasswordButton() throws Throwable {
 
         loginPage.iClickChangePasswordButton();
 
