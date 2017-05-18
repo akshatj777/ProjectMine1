@@ -43,7 +43,4 @@ public class AnticipatedCarlForm extends BaseClass{
 		Assert.assertTrue(isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"+checkbox+"')]/ancestor::div[@disabled='disabled']"))));
 	}
 	
-	public void IClickOnCheckBox() {
-		clickElement(driver.findElement(By.xpath("//input[contains(@class,'ng-untouched ng-valid ng-dirty ng-valid-parse ng-not-empty')]/following-sibling::label//span")));
 	}
-}

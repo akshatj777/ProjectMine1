@@ -40,9 +40,6 @@ public class AnticipatedCarlFormSteps extends DriverScript {
 		anticipatedcarlform.IVerifyTheDisabledCheckboxForTherapiesNeededOnAnticipatedDischargeNeedsSection(checkbox);
 	}
 	
-	@And("^I uncheck the checkbox$")
-	public void Iuncheckthecheckbox(){
-		anticipatedcarlform.IClickOnCheckBox();
-	}
+	
 		
 }
