@@ -43,4 +43,32 @@ public class AnticipatedCarlForm extends BaseClass{
 		Assert.assertTrue(isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"+checkbox+"')]/ancestor::div[@disabled='disabled']"))));
 	}
 	
+	public void IVerifyPatientsRestorationPotentialSectionOnSelectingPhysicalTherapy(){
+		Assert.assertTrue(isElementVisible(driver.findElement(By.cssSelector(".restoration-potential.ng-scope"))));
+	}
+	
+	public void IVerifyTheSelectTextInPlaceHolderOfPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(String text) {
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='restoration-potential ng-scope']//span[@class='ui-select-placeholder text-muted ng-binding']")), text);
+	}
+	
+	public void IClickOnPhysicalTherapyDropDownOnPatientRestorationPotentialSection(){
+		clickElement(driver.findElement(By.xpath("//div[@class='restoration-potential ng-scope']//span[@tabindex='-1']")));
+	}
+	
+	public void IVerifyTheOtionsInPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(String text) {
+		verifyTextForElementFromListByXpath("//div[@class='restoration-potential ng-scope']//li//div[@class='ng-binding ng-scope']", text);
+	}
+	
+	public void ISelectTheOptionInPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(String text){
+		clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+	}
+	
+	public void IVerifyOptionSelectedInPhysicalTherapyPlaceHolderOnAnticipatedDischargeNeeds(String text) {
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='restoration-potential ng-scope']//span[@class='ui-select-match-text pull-left']")), text);
+	}
+	
+	public void ISelectTheCheckBoxOptionUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text){
+		clickElement(driver.findElement(By.xpath("//label[@for='"+text+"']")));
+	}
+	
 	}

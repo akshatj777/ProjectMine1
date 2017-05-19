@@ -40,6 +40,34 @@ public class AnticipatedCarlFormSteps extends DriverScript {
 		anticipatedcarlform.IVerifyTheDisabledCheckboxForTherapiesNeededOnAnticipatedDischargeNeedsSection(checkbox);
 	}
 	
+	@Then("^I verify Patients Restoration Potential section on selecting PhysicalTherapy$")
+	public void I_Verify_PatientsRstorationPotential_Section_On_Selecting_PhysicalTherapy(){
+		anticipatedcarlform.IVerifyPatientsRestorationPotentialSectionOnSelectingPhysicalTherapy();
+	}
 	
+	@Then("^I verify \"([^\"]*)\" text in place holder of Physical Therapy dropdown on Patients Restoration Potential$")
+	public void I_Verify_Select_Text_In_PlaceHolder_Of_PhysicalTherapy_DropDown_On_PatientsRestorationPotential(String text){
+		anticipatedcarlform.IVerifyTheSelectTextInPlaceHolderOfPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(text);
+	}
+	
+	@Then("^I click on Physical Therapy dropdown on Patients Restoration Potential$")
+	public void I_Click_On_PhysicalTherapy_DropDown_On_PatientsRestorationPotential(){
+		anticipatedcarlform.IClickOnPhysicalTherapyDropDownOnPatientRestorationPotentialSection();
+	}
+	
+	@Then("^I verify \"([^\"]*)\" option in Physical Therapy dropdown on Anticipated Discharge Needs$")
+	public void I_Verify_Options_In_PhysicalTherapy_DropDown_On_AnticipatedDischargeNeeds(String text){
+		anticipatedcarlform.IVerifyTheOtionsInPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(text);
+	}
+	
+	@Then("^I select \"([^\"]*)\" in Physical Therapy dropdown on Anticipated Discharge Needs$")
+	public void I_Select_Option_In_PhysicalTherapy_DropDown_On_AnticipatedDischargeNeeds(String text){
+		anticipatedcarlform.ISelectTheOptionInPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(text);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" is selected in Physical Therapy place holder on Anticipated Discharge Needs$")
+	public void I_Verify_Option_Selected_I_nPhysicalTherapy_PlaceHolder_On_AnticipatedDischargeNeeds(String text){
+		anticipatedcarlform.IVerifyOptionSelectedInPhysicalTherapyPlaceHolderOnAnticipatedDischargeNeeds(text);
+	}
 		
 }
