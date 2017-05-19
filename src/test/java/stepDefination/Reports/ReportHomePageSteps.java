@@ -888,7 +888,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iSelectFromListOnFilterPage();
     }
     
-    @Then("^I click on \"([^\"]*)\" graph point under overall program of program overview report$")
+    @Then("^I click on \"([^\"]*)\" claims graph point under overall program of program overview report$")
     public void i_click_on_graph_point_under_overall_program_overview_report(String npra) throws Throwable{
     	reportHomePage.iClickOnNPRAGraphPoint(npra);
     }
@@ -898,8 +898,53 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyInTheNewWindowAfterClickingOnGraph(text);
     }
     
-    @Then("^I click on \"([^\"]*)\" graph point under post acute utilization of program overview report$")
-    public void i_click_on_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    @Then("^I click on skilled nursing \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_skilled_nursing_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
     	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on long term acute care \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_long_term_acute_care_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on inpatient rehab \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_inpatient_rehab_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on home health \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_home_health_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnPostAcuteUtilizationGraphPoint(text);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" graph point of claims under post acute utilization of program overview report$")
+    public void i_click_on_graph_point_of_claims_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnOtherGraphPostAcuteUtilizationGraphPoint(text);
+    }
+    
+    @Then("^I click on initial snf length of stay \"([^\"]*)\" claims graph point under snf length of stay of program overview report$")
+    public void i_click_on_initial_snf_length_of_stay_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForSNFLengthOfStay(text);
+    }
+    
+    @Then("^I click on snf days \"([^\"]*)\" claims graph point under snf length of stay of program overview report$")
+    public void i_click_on_snf_days_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForSNFLengthOfStay(text);
+    }
+    
+    @Then("^I click on episodes w readmit \"([^\"]*)\" claims graph point under readmissions of program overview report$")
+    public void i_click_on_episodes_w_readmit_claims_graph_point_under_readmissions_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForReadmissions(text);
+    }
+    
+    @Then("^I click on readmits per episode \"([^\"]*)\" claims graph point under readmissions of program overview report$")
+    public void i_click_on_readmits_per_episodes_claims_graph_point_under_readmissions_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForReadmissions(text);
     }
 }

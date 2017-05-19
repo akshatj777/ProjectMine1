@@ -706,7 +706,27 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnGrpahPointForPostAcuteUtilization(String text){
-    	String path=".//*[@id='SNFChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnPostAcuteUtilizationGraphPoint(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnOtherGraphPostAcuteUtilizationGraphPoint(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForSNFLengthOfStay(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForReadmissions(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
     	clickElement(driver.findElement(By.xpath(path)));
     }
 
