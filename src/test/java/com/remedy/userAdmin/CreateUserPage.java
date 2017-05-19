@@ -31,26 +31,27 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iTurnOffShareFile(){
-    	try
-    	{
-    	if(driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()){
-    		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
-    	}
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
+        try {
+            if (driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()) {
+                clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
+
     public void iClickPayerField(){
     	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
     }
 
     public void selectOrganizationalRole(String desc){
+
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
     
     public void selectPayerFromData(String desc){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
+
     }
 
     public void iEnterNPI(String text){
@@ -80,11 +81,15 @@ public class CreateUserPage extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
     }
     
-    public void iEnterEmailForLogin(String text){
+    public void iEnterEmailForLoginAfterPasswordMailVerification(String text){
     	iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
     }
+    
+    public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password){
+    	iFillInText(driver.findElement(By.name("password")), Password);
+    }
+    
     public void iEnterPhone( String text){
-
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
     }
     
@@ -124,6 +129,12 @@ public class CreateUserPage extends BaseClass{
     
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role){
     	isElementVisible(driver.findElement(By.cssSelector(".title>p")));
+    }
+    
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+    	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
+    	//Thread.sleep(6000);
+    	isElementVisible(driver.findElement(By.xpath("//h1")));
     }
 
     public void iClickCreateButton (){

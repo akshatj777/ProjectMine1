@@ -29,11 +29,13 @@ public class LoginPageSteps extends DriverScript{
     @Then("^I enter new ([^\"]*)$")
     public void iEnterNewPassword(String newPassword) throws Throwable {
         loginPage.iEnterNewPasswordForResetPassword(newPassword);
+
     }
     
     @And("^I enter password ([^\"]*) to set new password$")
     public void iEnterPasswordToSetNewPassword(String newPassword) throws Throwable{
     	loginPage.iEnterPasswordToSetNewPassword(newPassword);
+
     }
 
     @Then("^I enter ([^\"]*) to confirm$")
@@ -50,7 +52,7 @@ public class LoginPageSteps extends DriverScript{
     public void iClickChangePasswordButton() throws Throwable {
         loginPage.iClickChangePasswordButton();
     }
-    
+
     @Then("^I click on change password button to set new password$")
     public void iClickOnChangePasswordButtonToSetNewPassword() throws Throwable{
     	loginPage.iClickOnChangePasswordButtonToSetNewPassword();
@@ -65,11 +67,13 @@ public class LoginPageSteps extends DriverScript{
     public void iShouldSee(String resetPassword) throws Throwable {
         loginPage.iVerifyResetPasswordText(resetPassword);
     }
+
     
     @And("^I click Okay button for reset password popup")
     public void iClickOkayButtonForResetPasswordPopup() throws Throwable {
         loginPage.iClickOkayButtonForResetPasswordPopupFromAccountLink();
     }
+
 
     @And("^I enter email field ([^\"]*) for login$")
     public void IEnterEmailForLogin(String email) throws Throwable {
@@ -78,7 +82,8 @@ public class LoginPageSteps extends DriverScript{
     
     @And("^I enter email ([^\"]*) for login after mail verification$")
     public void iEnterEmailForLoginAfterMailVerification(String email) throws Throwable{
-    	createUser.iEnterEmailForLogin(email);
+    	//createUser.iEnterEmailForLogin(email);
+
     }
 
     @And("^I enter password field ([^\"]*) for Login$")
@@ -104,5 +109,6 @@ public class LoginPageSteps extends DriverScript{
     @And("^I should see Log in widget$")
     public void iShouldSeeLogInWidget() throws Throwable {
         loginPage.iVerifyLogInWidget();
+
     }
 }

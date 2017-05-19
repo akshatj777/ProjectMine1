@@ -75,9 +75,7 @@ public class LoginPage extends BaseClass {
 		iFillInText(driver.findElement(By.name("email")), userName);
 	}
 	
-//	public void iEnterEmailForLoginAfterMailVerification(String text){
-//		iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
-//	}
+
 
 	public void iEnterPassword(String passWord) {
 		iFillInText(driver.findElement(By.name("password")), passWord);
@@ -95,4 +93,5 @@ public class LoginPage extends BaseClass {
 	public void iVerifyLogInWidget() {
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
 	}
+
 }

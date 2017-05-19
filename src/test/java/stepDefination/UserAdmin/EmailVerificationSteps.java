@@ -19,62 +19,40 @@ public class EmailVerificationSteps extends DriverScript{
    EmailVarificationPage popMail = new EmailVarificationPage(driver);
    CreateUserPage createUser = new CreateUserPage(driver);
 
-
     @And("^I enter the email for verification for ([^\"]*)$")
     public void ISearchFacilityWith(String email) throws Throwable {
-    	
     	popMail.iEnterVerificationEmai(createUser.iGenerateEmail(email));
-    	
-    	//createUser.iEnterEmail(email);
-     //  popMail.iEnterVerificationEmai(createUser.emailValue);
     }
 
     @And("^I click on Go button$")
     public void IClickGoButton() throws Throwable {
-
         popMail.iClickGoButton();
     }
 
     @And("^I select the email to check$")
     public void ISelectEmailToCheck() throws Throwable {
-
       popMail.SelectNewEmail();
-
     }
-
 
     @And("^I click on the confirm account link$")
     public void I_click_on_the_confirm_account_link() throws Throwable {
-
-                popMail.switchToFrame("//*[@id='publicshowmaildivcontent']");
-                popMail.clickConfirmAccountLink();
-
+      popMail.switchToFrame("//*[@id='publicshowmaildivcontent']");
+      popMail.clickConfirmAccountLink();
     }
-
-
 
     @And("^I delete all emails$")
     public void IDeleteAllEmails() throws Throwable {
-
-        popMail.switchToFrame("//*[@id='ifinbox']");
+       popMail.switchToFrame("//*[@id='ifinbox']");
        popMail.deleteAllEmails();
-
     }
-
 
     @Then("^I click check for new mails button$")
     public void IClickCheckForNewNailsButton() throws Throwable {
-
         popMail.iClickCheckForNewMail();
-
     }
-
 
     @And("^I click on Confirm Password Link$")
     public void IClickConfirmPasswordLink() throws Throwable {
-
-        //popMail.switchToFrame("//*[@id='ifmail']");
-    	
     	popMail.iClickOnConfirmPasswordLink();
     }
 }

@@ -1,6 +1,6 @@
 Feature: Episode 2.0 Anchor Facility Filters
 
-  Scenario: verify Admit Reason filter is present under list of Filter options on Patient Page
+  Scenario Outline: verify Admit Reason filter is present under list of Filter options on Patient Page
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -18,9 +18,24 @@ Feature: Episode 2.0 Anchor Facility Filters
     When I click on Anchor Facility Filter present on Filter Page 
     And I wait for 3000 milli seconds
     And I click on Anchor Facility dropdown to select the Facilty on the Filter Page
-    When I type "Stamford Hospital" in the search field to search the Anchor Facility  
+    When I type <Anchor Facility> in the search field to search the Anchor Facility  
     And I wait for 5000 milli seconds
     And I select Stamford hospital checkbox as Anchor Facility present in the Filter Page 
     And I wait for 9000 milli seconds
-    Then I verify the total number of patients present on the Patients Page 
-    Then I click on Done button present on the Filter Page   
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
+    Then I verify the total number of patients present on the Patients Page
+    And I wait for 5000 milli seconds
+    Then I verify <Anchor Facility> is appearing under selected filters for Anchor Facility
+    Then I click on "Agree" button appearing on the patient card after applying filter
+    And I wait for 5000 milli seconds
+    Then I verify "(HHH) Stamford Hospital" is appearing on patient card under "anchorFacility" on patient home page
+    When I click on the Expand button on the patient card on the patient page
+    And I wait for 5000 milli seconds
+    Then I Verify "anchorFacility" value is containing "(HHH) Stamford Hospital" under patient summary page
+    And I wait for 2000 milli seconds
+    
+    Examples:
+    
+    | Anchor Facility  |
+    | Stamford Hospital| 

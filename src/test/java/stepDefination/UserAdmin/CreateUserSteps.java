@@ -70,9 +70,14 @@ public class CreateUserSteps extends DriverScript{
         createUser.iEnterPhone(phone);
     }
     
-    @And("^I enter email ([^\"]*) for login$")
-    public void iEnterEmailForLogin(String email) throws Throwable{
-    	createUser.iEnterEmailForLogin(email);
+    @And("^I enter email ([^\"]*) for login after password mail verification$")
+    public void iEnterEmailForLoginAfterPasswordMailVerification(String email) throws Throwable{
+    	createUser.iEnterEmailForLoginAfterPasswordMailVerification(email);
+    }
+
+    @And("^I enter password field ([^\"]*) for Login after password verification$")
+    public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password) throws Throwable{
+    	createUser.iEnterPasswordFieldForLoginAfterPasswordVerification(Password);
     }
     
     @When("^I enter the email ([^\"]*) to generate password$")
@@ -114,7 +119,12 @@ public class CreateUserSteps extends DriverScript{
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role) throws Throwable{
     	createUser.iShouldSeeDifferentTilesForDifferentUserRole(role);
     }
-    
+
+    @And("^I click on EC two tile under specific user login page ([^\"]*)$")
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(tile);
+    }
+
     @And("^I verify the dropdown list for user$")
     public void iVerifyTheDropdownListForUser() throws Throwable{
     	createUser.iVerifyTheDropdownListForUser();
