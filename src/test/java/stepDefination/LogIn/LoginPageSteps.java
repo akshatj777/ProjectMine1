@@ -80,11 +80,11 @@ public class LoginPageSteps extends DriverScript{
         loginPage.iEnteruserEmail(email);
     }
     
-    @And("^I enter email ([^\"]*) for login after mail verification$")
-    public void iEnterEmailForLoginAfterMailVerification(String email) throws Throwable{
-    	//createUser.iEnterEmailForLogin(email);
-
-    }
+//    @And("^I enter email ([^\"]*) for login after mail verification$")
+//    public void iEnterEmailForLoginAfterMailVerification(String email) throws Throwable{
+//    	//createUser.iEnterEmailForLogin(email);
+//
+//    }
 
     @And("^I enter password field ([^\"]*) for Login$")
     public void IEnterPasswordForLogin(String password) throws Throwable {
