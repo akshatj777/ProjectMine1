@@ -65,7 +65,6 @@ Feature: Create new User and verify Login logut of user
     And I should see Tile text <Reports>
     And I should see Tile text <Administration>
     And I should see Tile text <Episode2>
-    And I should see Tile text <Institute>
     And I should see Tile text <Physican connect>
     And I wait for 1000 milli seconds
     Then I click on Hamburgur menu on top right of homepage
