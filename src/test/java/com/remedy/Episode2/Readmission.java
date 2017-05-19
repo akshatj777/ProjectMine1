@@ -167,10 +167,25 @@ public void IclickontheReadmissionssubtabonImpatienttabonpatientCardPage() {
 }
 
 
-public void IverifythepatientpresentornotonthePatientCardPage(String last_name) {
+public void IverifythepatientpresentonthePatientCardPage(String last_name) {
 	// TODO Auto-generated method stub
-	String newname=last_name.toUpperCase();
+String newname=last_name.toUpperCase();
+	
 	isElementVisible(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+newname+"')]")));
+	
+	
+	 }
+
+public void IverifythepatientnotpresentonthePatientCardPage(String last_name) {
+	// TODO Auto-generated method stub
+	try
+	{
+	driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+last_name+"')]"));
+	}catch(Exception e)
+	{
+	return;	
+	}
+	
 	 }
 
 
@@ -181,18 +196,21 @@ public String Igetthedischargedateoftheprevioustransitionaddedfromtransitionlist
 }
 
 
-public void IclickontheeditbuttontoedittheActivetransition() {
+public void IclickontheeditbuttontoedittheActivetransition(String transition_value) throws InterruptedException {
 	// TODO Auto-generated method stub
-	clickElement(driver.findElement(By.cssSelector("a.btn.btn-default.dropdown-toggle")));
-	clickElement(driver.findElement(By.cssSelector("i.fa.fa-edit")));
+	clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div")));
+	System.out.println("Successfully clicked on toggle button");
+	Thread.sleep(5000);
+	clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
+	System.out.println("Successfully click on Edit button");
 }
 
 public void IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage() {
 	
 	         WebElement element=driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
-			JavascriptExecutor js = (JavascriptExecutor)driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			clickElement(element);
+             JavascriptExecutor js = (JavascriptExecutor)driver;
+	         js.executeScript("arguments[0].click();", element);
+			 clickElement(element);
 }
 
 
@@ -202,6 +220,16 @@ public void Iclickondatepickerbuttontoselectthedischargedate() {
 	JavascriptExecutor js = (JavascriptExecutor)driver;
 	js.executeScript("arguments[0].scrollIntoView(true);", element);
 	clickElement(element);
+}
+
+
+public void Iclickonupdatetransitiontoaddanewepisode() {
+	// TODO Auto-generated method stub
+	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    WebElement element = driver.findElement(By.cssSelector("#submitButton"));
+    js.executeScript("arguments[0].scrollIntoView(true);", element);
+	clickElement(element);
+	
 }
 }
 

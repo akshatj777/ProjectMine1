@@ -52,6 +52,14 @@ public class Model2ReadmissionSteps extends DriverScript {
     	admission.IclickontheagreebuttononthePatientCardpage();
     }
     
+    @Then ("^I click on update transition to add a new episode$")
+    public void I_click_on_update_transition_to_add_a_new_episode()
+    {
+    	admission.Iclickonupdatetransitiontoaddanewepisode();
+    }
+    
+    
+    
       @Then ("^I click on the \"([^\"]*)\" searched patient on the Patient Card Page$")
       public void I_click_on_last_name_the_searched_patient_on_the_Patient_Card_Page(String last_name)
       {
@@ -96,10 +104,16 @@ public class Model2ReadmissionSteps extends DriverScript {
     	 admission.IclickontheReadmissionssubtabonImpatienttabonpatientCardPage();
      }
      
-     @Then ("^I verify the \"([^\"]*)\" patient present or not on the Patient Card Page$")
-     public void I_verify_the_patient_present_or_not_on_the_Patient_Card_Page(String last_name)
+     @Then ("^I verify the \"([^\"]*)\" patient present on the Patient Card Page$")
+     public void I_verify_the_patient_present_on_the_Patient_Card_Page(String last_name)
      {
-   	  admission. IverifythepatientpresentornotonthePatientCardPage(last_name);
+   	  admission. IverifythepatientpresentonthePatientCardPage(last_name);
+     }
+     
+     @Then ("^I verify the \"([^\"]*)\" patient not present on the Patient Card Page$")     
+     public void I_verify_the_patient_not_present_on_the_Patient_Card_Page(String last_name)
+     {
+   	  admission. IverifythepatientnotpresentonthePatientCardPage(last_name);
      }
      
      @Then ("^I get the discharge date of the previous transition added from transition list$")
@@ -108,10 +122,11 @@ public class Model2ReadmissionSteps extends DriverScript {
     	 admission.Igetthedischargedateoftheprevioustransitionaddedfromtransitionlist();
      }
      
-     @Then ("^I click on the edit button to edit the Active transition$")
-     public void I_click_on_the_edit_button_to_edit_the_Active_transition()
+     @Then ("^I click on the edit button on the \"([^\"]*)\" transition to edit the Active transition$")
+     public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException
      {
-    	 admission.IclickontheeditbuttontoedittheActivetransition();
+    	 System.out.println("$$$$$$The transition value is"+transition_value);
+    	 admission.IclickontheeditbuttontoedittheActivetransition(transition_value);
      
      }
      @Then ("I click on datepicker button to select the discharge date on add a new transition$")
