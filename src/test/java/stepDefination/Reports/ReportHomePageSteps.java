@@ -920,7 +920,7 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I click on \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
     public void i_click_on_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
-    	reportHomePage.iClickOnPostAcuteUtilizationGraphPoint(text);
+    	reportHomePage.iClickOnGrpahPointForHome(text);
     }
     
     @Then("^I click on \"([^\"]*)\" graph point of claims under post acute utilization of program overview report$")
@@ -945,6 +945,6 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I click on readmits per episode \"([^\"]*)\" claims graph point under readmissions of program overview report$")
     public void i_click_on_readmits_per_episodes_claims_graph_point_under_readmissions_of_program_overview_report(String text) throws Throwable{
-    	reportHomePage.iClickOnGrpahPointForReadmissions(text);
+    	reportHomePage.iClickOnGrpahPointForreadmitperepisodeunderReadmissions(text);
     }
 }

@@ -726,9 +726,18 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnGrpahPointForReadmissions(String text){
-    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
     	clickElement(driver.findElement(By.xpath(path)));
     }
-
+    
+    public void iClickOnGrpahPointForHome(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][3]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForreadmitperepisodeunderReadmissions(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][2]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
 }
 
