@@ -19,10 +19,10 @@ Feature: User admin edit users details
     Then I clicked on Edit button under user Role row
     And I wait for 2000 milli seconds
     And I clicked on role tab to edit the user role assigned
-    And I Wait for dropdown list to select role 
+    And I should see dropdown list to select role 
     Then I clicked <Role1> under edit user role tab
     And I wait for 3000 milli seconds
-    Then I clicked on Save
+    Then I clicked on Save button under edit user role tab
     And I wait for 6000 milli seconds
     And I verify the user role again
     Then I verify product tiles appear for user under user edit details page after role change
@@ -60,9 +60,9 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
     And I clicked on role tab to edit the user role assigned
     And I wait for 6000 milli seconds
-    And I Wait for dropdown list to select role
+    And I should see dropdown list to select role
     Then I clicked <Role2> under edit user role tab
-    Then I clicked on Save
+    Then I clicked on Save button under edit user role tab
     And I wait for 4000 milli seconds
     And I verify the user role again
     Then I verify the text under permissions data section
@@ -110,12 +110,4 @@ Feature: User admin edit users details
     |AutoPProgramadmin1      | Remedy Other                  | Partner Program Administrator|
     |Autorpadmin1            | Transitional Case Manager     | Remedy Program Administrator |
     |AutotcaseManager1       | Remedy Program Administrator  | Transitional Case Manager    |
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
