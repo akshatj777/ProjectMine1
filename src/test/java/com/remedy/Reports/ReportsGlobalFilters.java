@@ -13,11 +13,11 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 
 	public void iVerifyReportHeaderInGlobalFilter(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".ng-binding.ng-scope")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".container.ng-binding")), text);
 	}
 	
 	public void iSeeUnderGlobalFilterAppliedCount(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".pull-left.ng-binding")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".container h5.ng-scope strong.ng-binding")), text);
 	}
 	
 	public void iClickOnSummaryButtonUnderGlobalFilter(){
@@ -32,7 +32,15 @@ public class ReportsGlobalFilters extends BaseClass{
 		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+text+"']")), text);
 	}
 	
-	public void iClickOnCheckboxForGlobalFilters(String text){
+	public void iClickOnCheckboxForAnchorFacilityGlobalFilters(String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'facility')]]//span[@class='ng-binding'][text()='"+text+"']")));
+	}
+	
+	public void iClickOnCheckboxForEpisodeInitiatorGlobalFilters(String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'bpid')]]//span[@class='ng-binding'][text()='"+text+"']")));
+	}
+	
+	public void iClickOnCheckboxForParticipantGlobalFilters(String text){
 		clickElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+text+"']")));
 	}
 	
@@ -106,5 +114,28 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iClickOnTileOnTheTopNavigationOfReportsPage(String tile){
 		clickElement(driver.findElement(By.xpath("//button[text()='"+tile+"']")));
+		//driver.navigate().refresh();
+	}
+	
+	public void iVerifyEpisodeInitiatorUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//div[@id='initiatorFilterObj']//span[@class='selectorValue']")),text);
+	}
+	
+	public void iVerifyAnchorFacilityUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//span[@class='selectorValue']")),text);
+	}
+	
+	public void iVerifyBpidsUnderSelectedFilters(String bpid1,String bpid2){
+		String toVerify = "BPID includes "+bpid1+" and  "+bpid2+"";
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")), toVerify);
+	}
+	
+	public void iVerifyCCNsUnderSelectedFilters(String ccn1,String ccn2){
+		String ccn="CCN includes "+ccn1+" and  "+ccn2+"";
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")), ccn);
+	}
+		
+	public void iVerifyCCNFilterUnderSelectedFilters(String ccn){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")),ccn);
 	}
 }

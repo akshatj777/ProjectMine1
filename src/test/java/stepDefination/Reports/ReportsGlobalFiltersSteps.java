@@ -16,7 +16,7 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 		globalfilters.iVerifyReportHeaderInGlobalFilter(text);
 	}
 	
-	@When("^I see \"([^\"]*)\" under global filters applied count$")
+	@When("^I see \"([^\"]*)\" filters applied under global filters applied count$")
 	public void i_see_under_global_filters_applied_count(String text)throws Throwable{
 		globalfilters.iSeeUnderGlobalFilterAppliedCount(text);
 	}
@@ -48,7 +48,17 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	
 	@Then("^I click on ([^\"]*) checkbox under participant for global filters$")
 	public void i_click_on_checkbox_under_participant_for_global_filters(String text)throws Throwable{
-		globalfilters.iClickOnCheckboxForGlobalFilters(text);
+		globalfilters.iClickOnCheckboxForParticipantGlobalFilters(text);
+	}
+	
+	@Then("^I click on ([^\"]*) checkbox under episode initiator for global filters$")
+	public void i_click_on_checkbox_under_episode_initiator_for_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnCheckboxForEpisodeInitiatorGlobalFilters(text);
+	}
+	
+	@Then("^I click on ([^\"]*) checkbox under anchor facility for global filters$")
+	public void i_click_on_checkbox_under_anchor_facility_for_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnCheckboxForAnchorFacilityGlobalFilters(text);
 	}
 	
 	@And("^I verify ([^\"]*) is appearing under applied participant on global filters$")
@@ -139,5 +149,30 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	@When("^I click on \"([^\"]*)\" tile on the top navigation of reports page$")
 	public void i_click_on_tile_on_the_top_navigation_of_reports_page(String tile)throws Throwable{
 		globalfilters.iClickOnTileOnTheTopNavigationOfReportsPage(tile);
+	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in episode initiator dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_episode_initiator_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyEpisodeInitiatorUnderFilterOptions(text);
+	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in anchor facility dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_anchor_facility_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyAnchorFacilityUnderFilterOptions(text);
+	}
+	
+	@Then("^I verify episode initiator filter is selected with ([^\"]*) and ([^\"]*) in the selected filters$")
+	public void i_verify_episode_initiator_filter_is_selected_with_bpids_in_the_selected_filters(String bpid1,String bpid2) throws Throwable{
+		globalfilters.iVerifyBpidsUnderSelectedFilters(bpid1,bpid2);
+	}
+	
+	@Then("^I verify anchor facility filter is selected with ([^\"]*) and ([^\"]*) in the selected filters$")
+	public void i_verify_anchor_facility_is_selected_with_ccns_in_the_selected_filters(String ccn1,String ccn2) throws Throwable{
+		globalfilters.iVerifyCCNsUnderSelectedFilters(ccn1, ccn2);
+	}
+	
+	@Then("^I verify anchor facility filter is selected with ([^\"]*) under selected filters$")
+	public void i_verify_anchor_facility_filter_is_selected_with_ccn_under_selected_filters(String ccn) throws Throwable{
+		globalfilters.iVerifyCCNFilterUnderSelectedFilters("CCN includes "+ccn);
 	}
 }
