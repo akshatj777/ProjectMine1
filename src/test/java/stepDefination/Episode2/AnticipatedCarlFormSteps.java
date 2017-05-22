@@ -69,5 +69,45 @@ public class AnticipatedCarlFormSteps extends DriverScript {
 	public void I_Verify_Option_Selected_I_nPhysicalTherapy_PlaceHolder_On_AnticipatedDischargeNeeds(String text){
 		anticipatedcarlform.IVerifyOptionSelectedInPhysicalTherapyPlaceHolderOnAnticipatedDischargeNeeds(text);
 	}
-		
+	
+	@Then("^I select \"([^\"]*)\" checkbox for Transition of Care Needs on Anticipated Discharge Needs$")
+	public void I_Select_Option_In_Checkbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String text){
+		anticipatedcarlform.ISelectTheCheckBoxOptionUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(text);
+	}
+	
+	@Then("^I uncheck \"([^\"]*)\" checkbox for Transition of Care Needs on Anticipated Discharge Needs$")
+	public void I_UnCheck_Option_In_Checkbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String text){
+		anticipatedcarlform.IUnCheckTheCheckBoxOptionUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(text);
+	}
+	
+	@Then("^I verify upon select \"([^\"]*)\" checkbox sub field section appears for Transition of Care Needs$")
+	public void I_Verify_Upon_Select_Checkbox_SubFieldSection_Appears_Under_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String text){
+		anticipatedcarlform.IVeriyUponSelectTheCheckBoxOptionSubFieldSectionAppearUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(text);
+	}
+	
+	@Then("^I verify on selecting \"([^\"]*)\" requierd field \"([^\"]*)\" appears for Transition of Care Needs$")
+	public void I_Verify_Text_For_RequiredField_Upon_Selecting_Checkbox_Under_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String text, String label){
+		anticipatedcarlform.IVeriyTextForRequiredFieldUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(text, label);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" radio option appears under \"([^\"]*)\" for Transition Care Needs$")
+	public void I_Verify_Radio_Option_Appears_Field_Upon_Selecting_Checkbox_Under_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text){
+		anticipatedcarlform.IVeriyRadioOptionsUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
+	}
+	
+	@Then("^I click \"([^\"]*)\" radio option under \"([^\"]*)\" for Transition Care Needs$")
+	public void I_Click_Radio_Option_After_Selecting_Checkbox_Under_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text){
+		anticipatedcarlform.IClickRadioOptionAfterSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
+	}
+	
+	@Then("^I verify \"([^\"])*\" radio option is checked under \"([^\"])*\" for Transition Care Needs$")
+	public void I_Verify_Checked_Radio_Option_UnderCheckbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text){
+		anticipatedcarlform.IVerifyCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
+	}
+	
+	@Then("^I verify \"([^\"])*\" radio option is not checked under \"([^\"])*\" for Transition Care Needs$")
+	public void I_Verify_UnChecked_Radio_Option_UnderCheckbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text){
+		anticipatedcarlform.IVerifyUnCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
+	}
+	
 }

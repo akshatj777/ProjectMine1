@@ -71,4 +71,34 @@ public class AnticipatedCarlForm extends BaseClass{
 		clickElement(driver.findElement(By.xpath("//label[@for='"+text+"']")));
 	}
 	
+	public void IUnCheckTheCheckBoxOptionUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text){
+		Assert.assertTrue((driver.findElement(By.xpath("//input[@id='"+text+"' and (contains(@class,'ng-not-empty'))]")).isSelected()));
+		clickElement(driver.findElement(By.xpath("//label[@for='"+text+"']")));
+	}
+	
+	public void IVeriyUponSelectTheCheckBoxOptionSubFieldSectionAppearUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text){
+		Assert.assertTrue((driver.findElement(By.xpath("//input[@id='"+text+"' and (contains(@class,'ng-not-empty'))]")).isSelected()));
+		Assert.assertTrue((driver.findElement(By.xpath("//div[div[input[@id='"+text+"']]]/following-sibling::div[contains(@class,'survey-section')]")).isDisplayed()));
+	}
+	
+	public void IVeriyTextForRequiredFieldUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text, String label){
+		verifyTextForElement(driver.findElement(By.xpath("//div[div[input[@id='"+text+"']]]/following-sibling::div[contains(@class,'survey-section')]//label[@class='required-field ng-binding']")), label);
+	}
+	
+	public void IVeriyRadioOptionsUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
+		Assert.assertTrue(driver.findElement(By.xpath("//div[input[contains(@id,'"+text+"')]]//label//span[contains(text(),'"+radio+"')]")).isDisplayed());
+	}
+	
+	public void IClickRadioOptionAfterSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'"+text+"')]]//label//span[contains(text(),'"+radio+"')]")));	
+	}
+	
+	public void IVerifyCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
+		Assert.assertTrue(driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div[input[contains(@id,'"+text+"')]]")).isSelected());
+	}
+	
+	public void IVerifyUnCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
+		Assert.assertFalse(driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div[input[contains(@id,'"+text+"')]]")).isSelected());
+	}
+	
 	}
