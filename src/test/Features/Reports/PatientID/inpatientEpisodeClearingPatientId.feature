@@ -54,11 +54,6 @@ Scenario Outline: Verify that Inpatient Episode Clearing report display data bas
     And I wait for 3000 milli seconds
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
     
-    When I move the mouse to "CCN" field filter under "Anchor Facility" filter field
-    And I double click on current mouse location element
-    And I wait for 5000 milli seconds
-    Then I should see Readmission reports column Tile text as "CCN"
-
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 3000 milli seconds
     And I choose "Filter" option from select options of filter field
@@ -80,6 +75,20 @@ Scenario Outline: Verify that Inpatient Episode Clearing report display data bas
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
+    
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I wait for 1000 milli seconds
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<anchor admission quarter1>" result in "Anchor Admission Quarter" field column for "Anchor Begin Date" filter field
 
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
@@ -87,10 +96,10 @@ Scenario Outline: Verify that Inpatient Episode Clearing report display data bas
     Then I verify current page "Reports" title
 
     Examples:
-      | email                              | participant | anchorFacility1                		| anchorFacility2                | episodeInitiator1                | ccn1   | BPID1    | 
-      | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital	 | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | reptestachmodel2opsfin@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 |
-      | repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 
+      | email                              | participant | anchorFacility1                		| anchorFacility2                | episodeInitiator1                | ccn1   | BPID1    | anchor admission quarter1 | 
+      | shutestaug231132a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital	 | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      | shutestaug221130a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      | reptestachmodel2opsfin@yopmail.com | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      | shutestaug15240p@yopmail.com       | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      | shutestaug221145a@yopmail.com      | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    |
+      | repopsnofintest@yopmail.com        | Penn        | Upenn - Penn Presbyterian Hospital | Upenn - Pennsylvania Hospital  | Penn Presbyterian Medical Center | 390223 | 2070-021 | 2017Q2                    | 

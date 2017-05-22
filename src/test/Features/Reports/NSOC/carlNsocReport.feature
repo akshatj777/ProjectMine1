@@ -91,6 +91,20 @@ Feature: Next site of care Carl
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     And I should see "<Month>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
+    
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I wait for 1000 milli seconds
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<anchor admission quarter1>" result in "Anchor Admission Quarter" field column for "Anchor Begin Date" filter field
       
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
@@ -98,18 +112,18 @@ Feature: Next site of care Carl
     Then I verify current page "Reports" title  
       
     Examples:
-    | email                              | participant      |	anchorFacility1       	              | anchorFacility2                 |	episodeInitiator1                   | Time										  |			Range									 |	Month	| ccn1   | BPID1    |
-    | shutestaug231132a@yopmail.com      | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 |
-    | shutestaug221130a@yopmail.com      | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 |
-    | shutestaug15252p@yopmail.com       | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 |
-    | shutestaug15220p@yopmail.com       | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 |
-    | reptestachmodel2opsfin@yopmail.com | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 |
-    | shutestaug26212p@yopmail.com       | Sound Physicians | Saint Alphonsus Medical Center - Nampa|                                 | Sound Physicians Of Idaho, Pllc     | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 130013 | 6005-063 |
-    | shutestaug15240p@yopmail.com       | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 |
-    | shutestjul26420p@yopmail.com       | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 |
-    | shutestjul26415@yopmail.com        | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 |
-    | repopsnofintest@yopmail.com        | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 |
-    | shutestaug221150a@yopmail.com      | Sound Physicians | Wyoming Medical Center                |                                 | Sound Physicians Of Wyoming, Llc    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 530012 | 6005-062 |
+    | email                              | participant      |	anchorFacility1       	              | anchorFacility2                 |	episodeInitiator1                   | Time										  |			Range									 |	Month	| ccn1   | BPID1    | anchor admission quarter1 |
+    | shutestaug231132a@yopmail.com      | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 | 2017Q2                    |
+    | shutestaug221130a@yopmail.com      | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 | 2017Q2                    |
+    | shutestaug15252p@yopmail.com       | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 | 2017Q2                    |
+    | shutestaug15220p@yopmail.com       | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 | 2017Q2                    |
+    | reptestachmodel2opsfin@yopmail.com | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 | 2017Q2                    |
+    | shutestaug26212p@yopmail.com       | Sound Physicians | Saint Alphonsus Medical Center - Nampa|                                 | Sound Physicians Of Idaho, Pllc     | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 130013 | 6005-063 | 2017Q2                    |
+    | shutestaug15240p@yopmail.com       | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 | 2017Q2                    |
+    | shutestjul26420p@yopmail.com       | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 | 2017Q2                    |
+    | shutestjul26415@yopmail.com        | Sound Physicians | Hackensack University Medical Center  |                                 | Cogent Healthcare Of New Jersey, Pc | Anchor Begin Date         |     Between (and incl.)    |  Jan   | 310001 | 6005-169 | 2017Q2                    |
+    | repopsnofintest@yopmail.com        | Penn             | Upenn - Penn Presbyterian Hospital    | Upenn - Pennsylvania Hospital	  |	Penn Presbyterian Medical Center    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 390223 | 2070-021 | 2017Q2                    |
+    | shutestaug221150a@yopmail.com      | Sound Physicians | Wyoming Medical Center                |                                 | Sound Physicians Of Wyoming, Llc    | Anchor Begin Date					|			Between (and incl.)		 |	Jan		| 530012 | 6005-062 | 2017Q2                    |
     
 Scenario Outline: Verify CARL report is appearing for the users with Acitve M2 for both ACH and PGP Facility Users
 

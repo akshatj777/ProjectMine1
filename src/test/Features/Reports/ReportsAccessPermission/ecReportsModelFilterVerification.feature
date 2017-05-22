@@ -21,7 +21,7 @@ Given I am on the login page
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
     And I wait for 2000 milli seconds
     And I switch to reports embedded iframe
-    And I wait for 4000 milli seconds
+    And I wait for 20000 milli seconds
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I wait for 2000 milli seconds
     
@@ -36,7 +36,7 @@ Given I am on the login page
     And I click on ok button from filter
     And I wait for 3000 milli seconds
     
-    When I click on show all filters icon button
+    When I click on filter count label to see preselected filters
     And I wait for 2000 milli seconds
     Then I verify "Model" filter is preselected under the filter
     Then I should see "Model includes 2" is present under preselected model filter
