@@ -75,13 +75,14 @@ public class ReportHomePageSteps extends DriverScript {
 
     @And("I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
-        reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
+    	reportHomePage.iMoveToElementAndPerformRightClick(filterField, filterTitle);
+    	//reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
     
-    @And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
+    /*@And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
     public void iClickOnParticipantFilterUnderEpisodeInitiatorFilterField(String text) throws Throwable {
         reportHomePage.iMoveToElementAndPerformRightClick(".//div[@id='fieldlist'] //div[text()='"+text+"']");
-    }
+    }*/
     
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
     public void iChooseOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
@@ -235,9 +236,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
     }
 
-    @Then("^I should see \"([^\"]*)\" in the Episode Data Issues Patient ID report page header$")
-    public void i_should_see_in_the_Episode_Data_Issues_Patient_ID_report_page_header(String headedText) throws Throwable {
-        reportHomePage.iVerifyEpisodeDataIssuesPatientIDReportPageHeader(headedText);
+    @Then("^I should see \"([^\"]*)\" in the Inpatient Episode Clearing Patient ID report page header$")
+    public void i_should_see_in_the_Inpatient_Episode_Clearing_Patient_ID_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyInpatientEpisodeClearingIssuesPatientIDReportPageHeader(headedText);
     }
     
     @Then("^I should see \"([^\"]*)\" in the Episode DRG Issues Patient ID report page header$")
@@ -742,6 +743,11 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnShowAllFiltersIcon();
     }
     
+    @When("^I click on filter count label to see preselected filters$")
+    public void i_click_on_filter_count_label_to_see_preselected_filters() throws Throwable{
+    	reportHomePage.iClickOnFiltersCountLabel();
+    }
+    
     @Then("^I verify \"([^\"]*)\" filter is preselected under the filter$")
     public void i_verify_preselected_under_the_filter(String text) throws Throwable{
     	reportHomePage.iVerifyPreselectedModelFilter(text);
@@ -870,5 +876,15 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I click on \"([^\"]*)\" under anchor admission month filter$")
     public void i_click_on_under_anchor_admission_month_filter(String month) throws Throwable{
     	reportHomePage.iClickOnAnchorAdmissionMonth(month);
+    }
+    
+    @Then("^I should not see \"([^\"]*)\" report after clicking on next site of care$")
+    public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);
+    }
+    
+    @When("^I click on select from list option on the filter page$")
+    public void i_click_on_select_from_list_option_on_the_filter_page() throws Throwable{
+    	reportHomePage.iSelectFromListOnFilterPage();
     }
 }

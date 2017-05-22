@@ -37,6 +37,7 @@ public class CreateUserPage extends BaseClass{
     	}catch(Exception e){
     		e.printStackTrace();
     	}
+    	clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
     }
    
     public void iClickPayerField(){
@@ -51,14 +52,23 @@ public class CreateUserPage extends BaseClass{
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
 
+//    public void iEnterNPI(String text){
+//     	 if ("".equals(text)){
+//       selectElementByDesc(".ui-select-choices-row-inner", desc);
+//    }
+    
+//    public void selectPayerFromData(String desc){
+//      selectElementByDesc(".ui-select-choices-row-inner", desc);
+//    }
+
     public void iEnterNPI(String text){
-     	 if ("".equals(text)){
+    	 if ("".equals(text)){
     		 return;
     	}
     	else{
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
       	}
-    }
+    	}
 
     public void iEnterFirstName(String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
@@ -67,21 +77,25 @@ public class CreateUserPage extends BaseClass{
     public void iEnterLasttName(String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[4]/input")), text);
     }
-   
+
     public final static String iGenerateEmail(String text){
     	final String mail=text+time;
     	final String email="user"+mail+"@mailinator.com";
 		return email;
     }
-  
+    
     public void iEnterEmail(String text){
     	iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
     }
     
-    public void iEnterEmailForLogin(String text){
+    public void iEnterEmailForLoginAfterPasswordMailVerification(String text){
     	iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
     }
-    
+
+    public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password){
+    	iFillInText(driver.findElement(By.name("password")), Password);
+    }
+
     public void iEnterPhone( String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
     }
@@ -117,6 +131,12 @@ public class CreateUserPage extends BaseClass{
     
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role){
     	isElementVisible(driver.findElement(By.cssSelector(".title>p")));
+    }
+    
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+    	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
+    	//Thread.sleep(6000);
+    	isElementVisible(driver.findElement(By.xpath("//h1")));
     }
 
     public void iClickCreateButton (){

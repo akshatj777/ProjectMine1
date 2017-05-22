@@ -22,7 +22,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iClickForgotPassword() {
-		clickElement(driver.findElement(By.cssSelector("a.forgot-password")));
+		clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
 	}
 
 	public void iEnterEmailForResetPssword(String text) {
@@ -38,7 +38,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iClickChangePasswordButton() {
-		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+		clickElement(driver.findElement(By.cssSelector(".auth0-lock-submit")));
 	}
 
 	public void iClickChangePasswordCancleButton() {
