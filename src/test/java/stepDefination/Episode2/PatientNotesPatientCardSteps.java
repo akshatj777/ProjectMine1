@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.remedy.Episode2.NoteCreation;
 import com.remedy.Episode2.PatientsPage;
+import com.remedy.Episode2.Readmission;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
@@ -139,15 +140,16 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	 @Then ("^I click on the next link to select the required year \"(.*)\" on date picker$")
 	 public void I_click_on_the_next_link_to_select_the_required_year_on_date_picker(String date)
 	 {
-		 System.out.println("$$$$$The date is"+date);
 		 noteCreation.Iclickonthenextlinktoselecttherequiredyearondatepicker(date);
 	 }
 	 
+	 
 	 @Then ("^I select the month \"(.*)\" from calendar from date picker$")
-	 public void I_select_the_month_from_calendar_from_date_picker(String date) throws InterruptedException
+	 public void I_select_the_month_from_calendar_from_date_picker(int date) throws InterruptedException
 	 {
 		 noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
 	 }
+	 
 	 
 	 @Then ("^I click on navigation bar to return to remedy connect$")
 	 public void I_click_on_navigation_bar_to_return_to_remedy_connect()

@@ -1,6 +1,7 @@
 
 Feature: Verify Readmission status without anchor discharge readmission
 
+#Scenario 4 Part 1 
 Scenario Outline: Verify Readmission status without anchor discharge, readmission in different facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -67,10 +68,10 @@ Scenario Outline: Verify Readmission status without anchor discharge, readmissio
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<date1>" on date picker
-    Then I select the month "<Admitdate>" from calendar from date picker 
-    Then I select the "<Admitdate>" from the calendar from date picker on Transition Page
-    Then I select the "<Admitdate>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "<days1>" on date picker
+    Then I select the month "<days1>" from calendar from date picker 
+    Then I select the "<days1>" from the calendar from date picker on Transition Page
+    Then I select the "<days1>" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "<CareSettingValue>" on add a new transition
     Then I wait for 5000 milli seconds
@@ -99,10 +100,10 @@ Scenario Outline: Verify Readmission status without anchor discharge, readmissio
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<date2>" on date picker
-    Then I select the month "<AdmitDate2>" from calendar from date picker 
-    Then I select the "<AdmitDate2>" from the calendar from date picker on Transition Page
-    Then I select the "<AdmitDate2>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "<days2>" on date picker
+    Then I select the month "<days2>" from calendar from date picker 
+    Then I select the "<days2>" from the calendar from date picker on Transition Page
+    Then I select the "<days2>" time from the calendar from date picker on Transition Page
     
     Then I wait for 5000 milli seconds
     Then I select the care setting value "<CareSettingValue>" on add a new transition
@@ -125,11 +126,11 @@ Scenario Outline: Verify Readmission status without anchor discharge, readmissio
  
     Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | Admitdate |  Dischargedate | AdmitDate2 | new facility value |
-      | qa.admin@yopmail.com | Episode1! | PURPOSEIS           | TOAUTOMATED            |   HHH - Hospital  | Inpatient | Stamford Hospital | 3 |Working | 65  | 2/5/2017//14:00-14:30 | 4/5/2017//14:00-14:30 | 3/5/2017//14:00-14:30 | Allentown  |
+      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | Admitdate |  Dischargedate | AdmitDate2 | new facility value | days1  | days2 |
+      | qa.admin@yopmail.com | Episode1! | PURPOSEIS           | TOAUTOMATED            |   HHH - Hospital  | Inpatient | Stamford Hospital | 3 |Working | 65  | 2/5/2017//14:00-14:30 | 4/5/2017//14:00-14:30 | 3/5/2017//14:00-14:30 | Allentown  | 20 | 18 |
       
-      
-      Scenario Outline: Readmission status without anchor discharge, readmission in same facility
+#Scenario 4 Part 2      
+    Scenario Outline: Readmission status without anchor discharge, readmission in same facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -195,10 +196,10 @@ Scenario Outline: Verify Readmission status without anchor discharge, readmissio
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<date1>" on date picker
-    Then I select the month "<Admitdate>" from calendar from date picker 
-    Then I select the "<Admitdate>" from the calendar from date picker on Transition Page
-    Then I select the "<Admitdate>" time from the calendar from date picker on Transition Page
+     Then I click on the previous next link to select the required year "<days1>" on date picker
+    Then I select the month "<days1>" from calendar from date picker 
+    Then I select the "<days1>" from the calendar from date picker on Transition Page
+    Then I select the "<days1>" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "<CareSettingValue>" on add a new transition
     Then I wait for 5000 milli seconds
@@ -227,10 +228,10 @@ Scenario Outline: Verify Readmission status without anchor discharge, readmissio
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<date2>" on date picker
-    Then I select the month "<AdmitDate2>" from calendar from date picker 
-    Then I select the "<AdmitDate2>" from the calendar from date picker on Transition Page
-    Then I select the "<AdmitDate2>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "<days2>" on date picker
+    Then I select the month "<days2>" from calendar from date picker 
+    Then I select the "<days2>" from the calendar from date picker on Transition Page
+    Then I select the "<days2>" time from the calendar from date picker on Transition Page
     
     Then I wait for 5000 milli seconds
     Then I select the care setting value "<CareSettingValue>" on add a new transition
@@ -253,7 +254,7 @@ Scenario Outline: Verify Readmission status without anchor discharge, readmissio
  
     Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | Admitdate |  Dischargedate | AdmitDate2 | new facility value |
-      | qa.admin@yopmail.com | Episode1! | PURPOSEIS           | TOAUTOMATED            |   HHH - Hospital  | Inpatient | Stamford Hospital | 3 |Working | 65  | 2/5/2017//14:00-14:30 | 4/5/2017//14:00-14:30 | 3/5/2017//14:00-14:30 | Allentown  |
+      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | Admitdate |  Dischargedate | AdmitDate2 | new facility value |days1 | days2 | 
+      | qa.admin@yopmail.com | Episode1! | PURPOSEIS           | TOAUTOMATED            |   HHH - Hospital  | Inpatient | Stamford Hospital | 3 |Working | 65  | 2/5/2017//14:00-14:30 | 4/5/2017//14:00-14:30 | 3/5/2017//14:00-14:30 | Allentown  | 20   |  19  |
       
       

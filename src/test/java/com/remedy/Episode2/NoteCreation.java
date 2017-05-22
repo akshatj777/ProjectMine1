@@ -7,6 +7,9 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -515,6 +518,15 @@ public void Iclickonthecentreofthecalendarheadertoselectdateandmonth() {
 	clickElement(driver.findElement(By.cssSelector("th.switch")));
 }
 
+public String getcurrentdate(int days)
+{
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	LocalDate localDate = LocalDate.now();
+	LocalDate b=localDate.minus(Period.ofDays(days));
+	String date=dtf.format(b);
+	System.out.println(dtf.format(b));
+	return date;
+}
 
 public void Iclickonthenextlinktoselecttherequiredyearondatepicker(String dateTime) {
 	
@@ -536,21 +548,13 @@ public void Iclickonthenextlinktoselecttherequiredyearondatepicker(String dateTi
             for(int i=0;i<(yearDiff*(-1));i++){
                 System.out.println("Year Diff->"+i);
                 previousLink.click();
-
             }
-	
-}
-
-
-
+      }
 }
 }
-
-
-
-
-
-    public void Iselectthemonthfromcalendarfromdatepicker(String dateTime) throws InterruptedException {
+    public void Iselectthemonthfromcalendarfromdatepicker(int days) throws InterruptedException {
+    	
+    String dateTime=getcurrentdate(days);
 	String date_dd_MM_yyyy[] = (dateTime.split("/"));
     List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
     System.out.println("*****List of months***"+list_AllMonthToBook);

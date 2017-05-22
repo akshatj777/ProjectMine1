@@ -44,7 +44,23 @@ public class Model2ReadmissionSteps extends DriverScript {
     {
     	admission.IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition(DRG);
     }
-   
+	@Then ("^I select the Discharge care setting value \"([^\"]*)\" on add a new transition$")
+    public void I_select_the_discharge_care_setting_value_on_add_a_new_transition(String caresetting) throws Throwable
+    {
+     admission.Iselectthedischargecaresettingvalueonaddanewtransition(caresetting);
+    }
+
+    @Then ("^I select the Discharge care type value \"([^\"]*)\" on add a new transition$")
+   public void I_select_the_discharge_care_type_value_on_add_a_new_transition(String caretypevalue) throws Throwable
+   {
+    	admission.Iselectthedischargecaretypevalueonaddanewtransition(caretypevalue);
+   }
+    
+    @Then ("^I select the discharge facility value \"([^\"]*)\" on add a new transition$")
+    public void I_select_the_discharge_facility_value_on_add_a_new_transition(String facilityvalue) throws Throwable
+    {
+    	admission.Iselectthedischargefacilityvalueonaddanewtransition(facilityvalue); 
+}
     
     @Then ("^I click on the agree button on the Patient Card page$")
     public void I_click_on_the_agree_button_on_the_Patient_Card_page()
@@ -58,9 +74,7 @@ public class Model2ReadmissionSteps extends DriverScript {
     	admission.Iclickonupdatetransitiontoaddanewepisode();
     }
     
-    
-    
-      @Then ("^I click on the \"([^\"]*)\" searched patient on the Patient Card Page$")
+    @Then ("^I click on the \"([^\"]*)\" searched patient on the Patient Card Page$")
       public void I_click_on_last_name_the_searched_patient_on_the_Patient_Card_Page(String last_name)
       {
     	  admission.IclickonlastnamethesearchedpatientonthePatientCardPage(last_name);
@@ -73,22 +87,21 @@ public class Model2ReadmissionSteps extends DriverScript {
       }
       
       @Then ("^I click on the previous next link to select the required year \"(.*)\" on date picker$")
- 	 public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(String date)
+ 	  public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(int days)
  	 {
- 		 System.out.println("$$$$$The date is"+date);
- 		admission.Iclickonthenextlinktoselecttherequiredyearondatepicker(date);
- 	 }
+ 	    admission.Iclickonthenextlinktoselecttherequiredyearondatepicker(days);
+ 	  }
 
-      @Then ("^I click on the centre of the calendar header to select date and month on Transition Page$")
+     @Then ("^I click on the centre of the calendar header to select date and month on Transition Page$")
  	 public void I_click_on_the_centre_of_the_calendar_header_to_select_date_and_month()
  	 {
     	  admission.IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage();
  	 }
       
      @Then ("^I select the \"(.*)\" from the calendar from date picker on Transition Page$")
- 	 public void I_select_the_date_from_the_calendar_from_date_picker_on_Transition_Page(String date)
+ 	 public void I_select_the_date_from_the_calendar_from_date_picker_on_Transition_Page(int days)
  	 {
- 		admission.Iselectthedatefromthecalendarfromdatepicker(date);
+ 		admission.Iselectthedatefromthecalendarfromdatepicker(days);
  	 }
     
      @Then ("^I select the \"(.*)\" time from the calendar from date picker on Transition Page$")

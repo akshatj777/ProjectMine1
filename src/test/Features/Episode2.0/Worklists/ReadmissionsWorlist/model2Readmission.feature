@@ -67,10 +67,10 @@ Feature: Model 2 Readmission
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<date1>" on date picker
-    Then I select the month "<date1>" from calendar from date picker 
-    Then I select the "<date1>" from the calendar from date picker on Transition Page
-    Then I select the "<date1>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "<days1>" on date picker
+    Then I select the month "<days1>" from calendar from date picker 
+    Then I select the "<days1>" from the calendar from date picker on Transition Page
+    Then I select the "<days1>" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "<CareSettingValue>" on add a new transition
     Then I wait for 5000 milli seconds
@@ -100,10 +100,10 @@ Feature: Model 2 Readmission
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<date2>" on date picker
-    Then I select the month "<date2>" from calendar from date picker 
-    Then I select the "<date2>" from the calendar from date picker on Transition Page
-    Then I select the "<date2>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "<days2>" on date picker
+    Then I select the month "<days2>" from calendar from date picker 
+    Then I select the "<days2>" from the calendar from date picker on Transition Page
+    Then I select the "<days2>" time from the calendar from date picker on Transition Page
     
     Then I wait for 5000 milli seconds
     Then I select the care setting value "<CareSettingValue>" on add a new transition
@@ -122,12 +122,12 @@ Feature: Model 2 Readmission
      Then I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page 
      Then I wait for 5000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present or not on the Patient Card Page     
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
  
     Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 |
-      | qa.admin@yopmail.com | Episode1! | THREAD              | SLEEP            |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |
+      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | days1 | days2 |
+      | qa.admin@yopmail.com | Episode1! | THREAD              | SLEEP            |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 20 | 12 |
 
 
 Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
@@ -209,7 +209,9 @@ Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I click on the Impatient tab on the patient Card Page 
+    And I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page 
+    And I wait for 5000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
  
  Examples:
