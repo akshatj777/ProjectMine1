@@ -100,12 +100,12 @@ public class AnticipatedCarlFormSteps extends DriverScript {
 		anticipatedcarlform.IClickRadioOptionAfterSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
 	}
 	
-	@Then("^I verify \"([^\"])*\" radio option is checked under \"([^\"])*\" for Transition Care Needs$")
+	@Then("^I verify \"([^\"]*)\" radio option is checked under \"([^\"]*)\" for Transition Care Needs$")
 	public void I_Verify_Checked_Radio_Option_UnderCheckbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text){
 		anticipatedcarlform.IVerifyCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
 	}
 	
-	@Then("^I verify \"([^\"])*\" radio option is not checked under \"([^\"])*\" for Transition Care Needs$")
+	@Then("^I verify \"([^\"]*)\" radio option is not checked under \"([^\"]*)\" for Transition Care Needs$")
 	public void I_Verify_UnChecked_Radio_Option_UnderCheckbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text){
 		anticipatedcarlform.IVerifyUnCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
 	}

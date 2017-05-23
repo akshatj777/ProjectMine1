@@ -3,7 +3,6 @@ package com.remedy.Episode2;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.remedy.baseClass.BaseClass;
 
 public class AnticipatedCarlForm extends BaseClass{
@@ -94,11 +93,13 @@ public class AnticipatedCarlForm extends BaseClass{
 	}
 	
 	public void IVerifyCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
-		Assert.assertTrue(driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div[input[contains(@id,'"+text+"')]]")).isSelected());
+		String value = driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div/input")).getAttribute("class");
+		Assert.assertTrue(value.contains("ng-valid-parse"));
 	}
 	
 	public void IVerifyUnCheckedRadioOptionUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
-		Assert.assertFalse(driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div[input[contains(@id,'"+text+"')]]")).isSelected());
+		String value = driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div/input")).getAttribute("class");
+		Assert.assertTrue(value.contains("ng-valid ng-not-empty ng-dirty ng-touched"));
 	}
 	
 	}
