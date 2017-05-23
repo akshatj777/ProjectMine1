@@ -80,6 +80,7 @@ Feature: Create new User and verify Login logut of user
     Then I select Internal Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
+    And I wait for 6000 milli seconds
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
     And I wait for 1000 milli seconds
@@ -98,12 +99,12 @@ Feature: Create new User and verify Login logut of user
       |            | PPA                   | Partner Program Administrator | Partner Program Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
       |            | RPA                   | Remedy Program Administrator  | Remedy Program Administrator  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
       |            | Exe                   | Executive                     | Executive                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyTCS             | Remedy TCS                    | Remedy TCS                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyLPN             | Remedy LPN                    | Remedy LPN                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyRN              | Remedy RN                     | Remedy RN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyFieldRN         | Remedy Field RN               | Remedy Field RN               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyPM              | Remedy PM                     | Remedy PM                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RemedyExe             | Remedy Executive              | Remedy Executive              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RTCS                  | Remedy TCS                    | Remedy TCS                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RLPN                  | Remedy LPN                    | Remedy LPN                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RRN                   | Remedy RN                     | Remedy RN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RFRN                  | Remedy Field RN               | Remedy Field RN               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RPM                   | Remedy PM                     | Remedy PM                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | RExe                  | Remedy Executive              | Remedy Executive              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
    
    Scenario Outline: Super Administrator can create user role Remedy Sales Team and verify login and navigation of internal support and reset password logout of created user
     
@@ -259,6 +260,7 @@ Feature: Create new User and verify Login logut of user
     And I should see Tile text <RemedyU>
     And I should see Tile text <Reports>
     And I wait for 2000 milli seconds
+    And I click on the top user account link
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -342,13 +344,13 @@ Feature: Create new User and verify Login logut of user
     And I should see Tile text <Episode2>
     And I should see Tile text <Physican connect>
     And I wait for 2000 milli seconds
-    Then I click on Hamburgur menu on top right of homepage
-    Then I select <Episode1> option from the dropdown
+    And I click on Episodes tile under specific user login page <Episode1>
     And I wait for 3000 milli seconds
     When I switch to new window
     And I wait for 5000 milli seconds
     Then I switch back to old window
     And I wait for 2000 milli seconds
+    And I click on the top user account link
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -444,6 +446,7 @@ Feature: Create new User and verify Login logut of user
     Then I select Internal Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
+    And I wait for 6000 milli seconds
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
     And I wait for 1000 milli seconds
@@ -459,5 +462,5 @@ Feature: Create new User and verify Login logut of user
 
     Examples: 
       | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | RmdyOthr              | Remedy Other                  | Remedy Other                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      |            | ROthr                 | Remedy Other                  | Remedy Other                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
         

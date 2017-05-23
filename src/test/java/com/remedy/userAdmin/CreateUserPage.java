@@ -131,6 +131,10 @@ public class CreateUserPage extends BaseClass{
     	isElementVisible(driver.findElement(By.cssSelector(".title>p")));
     }
     
+    public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String text){
+    clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
+    }
+    
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
     	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
     	//Thread.sleep(6000);

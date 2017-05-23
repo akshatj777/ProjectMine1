@@ -119,6 +119,11 @@ public class CreateUserSteps extends DriverScript{
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role) throws Throwable{
     	createUser.iShouldSeeDifferentTilesForDifferentUserRole(role);
     }
+    
+    @And("^I click on Episodes tile under specific user login page ([^\"]*)$")
+    public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage(tile);
+    }
 
     @And("^I click on EC two tile under specific user login page ([^\"]*)$")
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
