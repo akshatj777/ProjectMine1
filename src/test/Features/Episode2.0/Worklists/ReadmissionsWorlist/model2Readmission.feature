@@ -1,7 +1,8 @@
 
 Feature: Model 2 Readmission
 
-  Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
+Scenario 1
+  Scenario Outline: Patient with Active episode having readmission to an ACH facility as HHH-I without DRG
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -58,7 +59,7 @@ Feature: Model 2 Readmission
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
-    And I wait for 30000 milli seconds
+    And I wait for 45000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
@@ -90,7 +91,7 @@ Feature: Model 2 Readmission
     Then I wait for 5000 milli seconds
     Then I close the patient summary Page
      Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
-    And I wait for 15000 milli seconds
+    And I wait for 35000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 5000 milli seconds
     Then I switch to PatientTransitions frame
@@ -119,18 +120,20 @@ Feature: Model 2 Readmission
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I click on the Impatient tab on the patient Card Page 
-     Then I wait for 5000 milli seconds
+    Then I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page 
-     Then I wait for 5000 milli seconds
+    Then I wait for 5000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 5000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
- 
+    
     Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | days1 | days2 |
-      | qa.admin@yopmail.com | Episode1! | THREAD              | SLEEP            |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 20 | 12 |
+      | qa.admin@yopmail.com | Episode1! | AUTOMATE            | Scenarios            |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 20 | 12 |
 
-
-Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
+#Scenario 2
+Scenario Outline: Patient with Pending Cancellation episode having readmission to an ACH facility as HHH-I without DRG
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -165,13 +168,16 @@ Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
     Then I click on the Impatient tab on the patient Card Page 
     Then I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page 
-     Then I wait for 5000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
- 
+    Then I wait for 5000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
+    
+     
  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | transition |
-      | qa.admin@yopmail.com | Episode1! |  THREAD             |  SLEEP           |   HHH - Hospital  | Inpatient | Stamford Hospital | 6 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 1 |
+      | qa.admin@yopmail.com | Episode1! |  AUTOMATE           |  Scenarios           |   HHH - Hospital  | Inpatient | Stamford Hospital | 6 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 1 |
 
    Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
 
@@ -212,10 +218,24 @@ Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
     And I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page 
     And I wait for 5000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
- 
+    Then I wait for 5000 milli seconds
+    Then I click on the ALL Tab on Patient page
+    And I wait for 8000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    And I wait for 10000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    And I wait for 30000 milli seconds
+    Then I click on the Transitions tab on the Patient Summary Page
+    And I wait for 25000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I click on the delete button on the transition to delete all the transitions
+   
+    
  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | transition |
-      | qa.admin@yopmail.com | Episode1! |  THREAD          | SLEEP           |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 63  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  2   |    
+      | qa.admin@yopmail.com | Episode1! |  AUTOMATE           | Scenarios           |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 63  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  2   |    
       

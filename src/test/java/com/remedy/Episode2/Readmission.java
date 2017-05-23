@@ -89,6 +89,7 @@ public class Readmission extends BaseClass {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate localDate = LocalDate.now();
 		LocalDate b=localDate.minus(Period.ofDays(days));
+		System.out.println("$$$$Local Date is"+b);
 		String date=dtf.format(b);
 		System.out.println(dtf.format(b));
 		return date;
@@ -235,6 +236,30 @@ public void Iselectthedischargefacilityvalueonaddanewtransition(String facilityv
 	  js.executeScript("arguments[0].click();", element3);
 	  clickElement(element3);
 	
+}
+
+
+public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
+	int count =getElementCount("td.settings-column.center.cursor-default > div");
+	System.out.println("The transition count is"+count);
+	for(int i=1;i<count;i++)
+	{
+	clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
+	System.out.println("Successfully clicked on toggle button");
+	Thread.sleep(5000);
+	clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
+	System.out.println("Successfully click on Edit button");
+	Thread.sleep(5000);
+	clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
+	Thread.sleep(10000);
+	}
+}
+
+
+public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search) {
+	
+	 iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")), search);
+	 
 }
 }
 

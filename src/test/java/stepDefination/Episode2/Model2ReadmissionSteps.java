@@ -138,7 +138,6 @@ public class Model2ReadmissionSteps extends DriverScript {
      @Then ("^I click on the edit button on the \"([^\"]*)\" transition to edit the Active transition$")
      public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException
      {
-    	 System.out.println("$$$$$$The transition value is"+transition_value);
     	 admission.IclickontheeditbuttontoedittheActivetransition(transition_value);
      
      }
@@ -148,6 +147,15 @@ public class Model2ReadmissionSteps extends DriverScript {
     	 admission.Iclickondatepickerbuttontoselectthedischargedate();
      }
   
-     
-     
+     @Then ("^I click on the delete button on the transition to delete all the transitions$")
+     public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions() throws InterruptedException
+     {
+    	 admission.Iclickonthedeletebuttononthetransitiontodeleteallthetransitions();
+     }
+    
+     @Then("^I enter \"([^\"]*)\" in the search box on the admission tab on patients page$")
+     public void i_enter_and_in_the_searchbox_on_the_admission_tab_on_patients_page(String search) throws Throwable {
+    	 admission.ienterandinthesearchboxontheadmissiontabonpatientspage(search);
+     }
+    
 }

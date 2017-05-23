@@ -523,6 +523,7 @@ public String getcurrentdate(int days)
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDate localDate = LocalDate.now();
 	LocalDate b=localDate.minus(Period.ofDays(days));
+	System.out.println("$$$$$Local Date is"+b);
 	String date=dtf.format(b);
 	System.out.println(dtf.format(b));
 	return date;
