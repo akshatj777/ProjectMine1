@@ -245,6 +245,7 @@ Feature: Create new User and verify Login logut of user
     And I wait for 10000 milli seconds
     And I click on the email received to change your password
     And I wait for 2000 milli seconds
+    And I switch to frame under received mail content
     Then I click on change my password link under recieved mail content
     And I switch to new window
     And I wait for 10000 milli seconds

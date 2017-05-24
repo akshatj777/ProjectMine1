@@ -3,9 +3,7 @@ package com.remedy.userAdmin;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import com.remedy.baseClass.BaseClass;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -16,7 +14,6 @@ import org.openqa.selenium.WebElement;
  * Created by salam on 7/30/15.
  */
 public class CreateUserPage extends BaseClass{
-
 
 	public final static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	public final static Date timestamp = new Date();
@@ -45,13 +42,11 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc){
-
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
     
     public void selectPayerFromData(String desc){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
-
     }
 
     public void iEnterNPI(String text){
@@ -110,8 +105,11 @@ public class CreateUserPage extends BaseClass{
     	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
     }
     
-    public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent(){
+    public void iSwitchToFrameUnderReceivedMailContent(){
     	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
+    }
+    
+    public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent(){
     	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
     }
 
@@ -135,9 +133,8 @@ public class CreateUserPage extends BaseClass{
     clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
     }
     
-    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text){
     	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
-    	//Thread.sleep(6000);
     	isElementVisible(driver.findElement(By.xpath("//h1")));
     }
 

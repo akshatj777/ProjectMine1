@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
  * Created by salam on 7/29/15.
  */
 public class LoginPage extends BaseClass {
-	
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -74,8 +73,6 @@ public class LoginPage extends BaseClass {
 	public void iEnteruserEmail(String userName) {
 		iFillInText(driver.findElement(By.name("email")), userName);
 	}
-	
-
 
 	public void iEnterPassword(String passWord) {
 		iFillInText(driver.findElement(By.name("password")), passWord);
@@ -93,5 +90,4 @@ public class LoginPage extends BaseClass {
 	public void iVerifyLogInWidget() {
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
 	}
-
 }

@@ -100,6 +100,11 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iClickOnChangeMyPasswordLink();
     }
     
+    @And("^I switch to frame under received mail content$")
+    public void iSwitchToFrameUnderReceivedMailContent() throws Throwable{
+       createUser.iSwitchToFrameUnderReceivedMailContent();
+    }
+    
     @Then("^I click on change my password link under recieved mail content$")
     public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent() throws Throwable{
     	createUser.iClickOnChangeMyPasswordLinkUnderRecievedMailContent();
