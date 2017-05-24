@@ -947,4 +947,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_readmits_per_episodes_claims_graph_point_under_readmissions_of_program_overview_report(String text) throws Throwable{
     	reportHomePage.iClickOnGrpahPointForreadmitperepisodeunderReadmissions(text);
     }
+    
+    @And("^I enter \"([^\"]*)\" in the search field textbox after clicking on list option$")
+    public void i_enter_anchoradmissionquarter_in_the_search_field_textbox_after_clicking_on_list_option(String text)throws Throwable{
+    	reportHomePage.iEnterAnchorAdmissionQuarterInSearchField(text);
+    }
+    
+    @Then("^I click on find button after entering anchor admission quarter in the textbox$")
+    public void i_click_on_find_button_after_entering_anchor_admission_quarter_in_the_textbox()throws Throwable{
+    	reportHomePage.iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter();
+    }
 }
