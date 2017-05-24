@@ -2,6 +2,7 @@ package stepDefination;
 
 
 //import com.github.mkolisnyk.cucumber.runner.ExtendedCucumberOptions;
+import com.remedy.resources.DriverScript;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -24,7 +25,6 @@ import stepDefination.Hooks.*;
 
 @RunWith(ExtendedCucumberRunner.class)
 @CucumberOptions(features = { "src/test/Features/UserAdmin/LogIn.feature" },
-        monochrome = true,
         format = { "pretty", "html:target/cucumber" },
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"}
 )
@@ -43,7 +43,10 @@ public class TestRunner {
                testReportFinal.generateFeatureOverviewReport();
                 testReportFinal.testGenerateDetailedAggregatedReport();
                 testReportFinal.generateCoverageOverviewReport();*/
-                AutoReportEmailSender sendReportEmailAutomatically = new AutoReportEmailSender();
-                sendReportEmailAutomatically.autoSendReportMail("aranjan@remedypartners.com", new String[]{"qa@remedypartners.com"}, "Test Email:- Automatic Test Automation Report !!");
+                if (DriverScript.Config.getProperty("wantToSendReportViaAutoEmail").equalsIgnoreCase("true")){
+                        //System.out.println("control should move here only if I want to send email- cheers !!");
+                        AutoReportEmailSender sendReportEmailAutomatically = new AutoReportEmailSender();
+                        sendReportEmailAutomatically.autoSendReportMail("aranjan@remedypartners.com", new String[]{"qa@remedypartners.com"}, "Test Email:- Automatic Test Automation Report !!");
+                }
         }
 }
