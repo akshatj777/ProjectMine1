@@ -81,7 +81,7 @@ public class AnticipatedCarlForm extends BaseClass{
 	}
 	
 	public void IVeriyTextForRequiredFieldUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text, String label){
-		verifyTextForElement(driver.findElement(By.xpath("//div[div[input[@id='"+text+"']]]/following-sibling::div[contains(@class,'survey-section')]//label[@class='required-field ng-binding']")), label);
+		verifyTextForElementFromListByXpath("//div[div[input[@id='"+text+"']]]/following-sibling::div[contains(@class,'survey-section')]//label[@class='required-field ng-binding']", label);
 	}
 	
 	public void IVeriyRadioOptionsUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
@@ -101,5 +101,18 @@ public class AnticipatedCarlForm extends BaseClass{
 		String value = driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div/input")).getAttribute("class");
 		Assert.assertTrue(value.contains("ng-valid ng-not-empty ng-dirty ng-touched"));
 	}
+	
+	public void IVeriyUponUnSelectTheCheckBoxOptionSubFieldSectionDisAppearUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text){
+		Assert.assertFalse((driver.findElement(By.xpath("//input[@id='"+text+"' and (contains(@class,'ng-empty'))]")).isSelected()));
+		//System.out.println(driver.findElement(By.xpath("//input[@id='"+text+"' and (contains(@class,'ng-empty'))]")).isSelected());
+		boolean value = isElementPresentOnPage(By.xpath("//div[div[input[@id='"+text+"']]]/following-sibling::div[contains(@class,'survey-section')]"));
+		Assert.assertFalse(value);
+	}
+	
+	public void IVerifyRadioOptionIsAtDefaultStateUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text){
+		String value = driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div/input")).getAttribute("class");
+		Assert.assertTrue(value.contains("ng-pristine ng-untouched ng-valid ng-not-empty"));
+	}
+	
 	
 	}

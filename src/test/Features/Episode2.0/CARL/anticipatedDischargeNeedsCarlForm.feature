@@ -132,8 +132,8 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I verify "Good restoration potential" is selected in Physical Therapy place holder on Anticipated Discharge Needs
     And I wait for 2000 milli seconds
 
-    Then I hover on i icon present on Restoration on TakeOver page
-    Then I Verify the text hovering i icon on Patients Restoration Potential
+    #Then I hover on i icon present on Restoration on TakeOver page
+    #Then I Verify the text hovering i icon on Patients Restoration Potential
     Examples: 
       | First name | Last name  |
       | AUTOMATION | DO_NOT_USE |
@@ -159,169 +159,101 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I click on the complete CARL on the Patient Summary
     And I wait for 3000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
-    And I wait for 4000 milli seconds
+    And I wait for 2000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator
     And I wait for 2000 milli seconds
-    Then I select "Injectable Meds" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    And I wait for 2000 milli seconds
-    Then I verify upon select "Injectable Meds" checkbox sub field section appears for Transition of Care Needs
-    Then I verify on selecting "Injectable Meds" requierd field "How often?" appears for Transition of Care Needs
-    Then I verify "Once daily or less often" radio option appears under "Injectable Meds" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than once daily" radio option appears under "Injectable Meds" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I click "Once daily or less often" radio option under "Injectable Meds" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Once daily or less often" radio option is checked under "Injectable Meds" for Transition Care Needs
-    Then I click "More than once daily" radio option under "Injectable Meds" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than once daily" radio option is checked under "Injectable Meds" for Transition Care Needs
-    Then I verify "Once daily or less often" radio option is not checked under "Injectable Meds" for Transition Care Needs
-   
-    Then I uncheck "Injectable Meds" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    
-    And I wait for 2000 milli seconds
-    Then I select "Blood Testing" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily or less often" radio option under "Blood Testing" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Once daily or less often" radio option is checked under "Blood Testing" for Transition Care Needs
-    Then I click "More than once daily" radio option under "Blood Testing" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than once daily" radio option is checked under "Blood Testing" for Transition Care Needs
-    Then I verify "Once daily or less often" radio option is not checked under "Blood Testing" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "Finger Stick" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily" radio option under "Finger Stick" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Once daily" radio option is checked under "Finger Stick" for Transition Care Needs
-    Then I click "More than once daily" radio option under "Finger Stick" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than once daily" radio option is checked under "Finger Stick" for Transition Care Needs
-    Then I verify "Once daily" radio option is not checked under "Finger Stick" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "Wound Care" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily or less often" radio option under "Wound Care" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Once daily or less often" radio option is checked under "Wound Care" for Transition Care Needs
-    Then I click "More than once daily" radio option under "Wound Care" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than once daily" radio option is checked under "Wound Care" for Transition Care Needs
-    Then I verify "Once daily or less often" radio option is not checked under "Wound Care" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I click "New" radio option under "Wound Care" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "Wound Care" for Transition Care Needs
-    Then I click "Existing" radio option under "Wound Care" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "Wound Care" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "Wound Care" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "Ostomy" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "New" radio option under "Ostomy" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "Ostomy" for Transition Care Needs
-    Then I click "Existing" radio option under "Ostomy" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "Ostomy" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "Ostomy" for Transition Care Needs
-    And I wait for 2000 milli seconds
+    Then I select "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
+    And I wait for 1000 milli seconds
+    Then I verify upon select "<Check>" checkbox sub field section appears for Transition of Care Needs
+    Then I verify on selecting "<Check>" requierd field "<Label>" appears for Transition of Care Needs
+    Then I verify "<Radio1>" radio option appears under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I verify "<Radio2>" radio option appears under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I click "<Radio1>" radio option under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I verify "<Radio1>" radio option is checked under "<Check>" for Transition Care Needs
+    Then I click "<Radio2>" radio option under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I verify "<Radio2>" radio option is checked under "<Check>" for Transition Care Needs
+    Then I verify "<Radio1>" radio option is not checked under "<Check>" for Transition Care Needs
+    Then I uncheck "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
+    Then I verify on uncheck "<Check>" checkbox subbar with options disaapear On Anticipated Discharge Needs
+    Then I select "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
+    Then I verify "<Radio1>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
+    Then I verify "<Radio2>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
 
-    
-    Then I select "Tracheostomy" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "New" radio option under "Tracheostomy" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "Tracheostomy" for Transition Care Needs
-    Then I click "Existing" radio option under "Tracheostomy" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "Tracheostomy" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "Tracheostomy" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "Catheter" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "New" radio option under "Catheter" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "Catheter" for Transition Care Needs
-    Then I click "Existing" radio option under "Catheter" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "Catheter" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "Catheter" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "Tube Feeding" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Partial nutritional support" radio option under "Tube Feeding" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Partial nutritional support" radio option is checked under "Tube Feeding" for Transition Care Needs
-    Then I click "Complete nutritional support" radio option under "Tube Feeding" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Complete nutritional support" radio option is checked under "Tube Feeding" for Transition Care Needs
-    Then I verify "Partial nutritional support" radio option is not checked under "Tube Feeding" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I click "New" radio option under "Tube Feeding" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "Tube Feeding" for Transition Care Needs
-    Then I click "Existing" radio option under "Tube Feeding" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "Tube Feeding" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "Tube Feeding" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "Oxygen" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "New" radio option under "Oxygen" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "Oxygen" for Transition Care Needs
-    Then I click "Existing" radio option under "Oxygen" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "Oxygen" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "Oxygen" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "CPAP" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "New" radio option under "CPAP" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "CPAP" for Transition Care Needs
-    Then I click "Existing" radio option under "CPAP" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "CPAP" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "CPAP" for Transition Care Needs
-    And I wait for 2000 milli seconds 
-    
-    
-    Then I select "BIPAP" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "New" radio option under "BIPAP" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "New" radio option is checked under "BIPAP" for Transition Care Needs
-    Then I click "Existing" radio option under "BIPAP" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "Existing" radio option is checked under "BIPAP" for Transition Care Needs
-    Then I verify "New" radio option is not checked under "BIPAP" for Transition Care Needs
-    And I wait for 2000 milli seconds 
-    
-    Then I select "New disease process or diagnosis" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "One" radio option under "New disease process or diagnosis" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "One" radio option is checked under "New disease process or diagnosis" for Transition Care Needs
-    Then I click "More than one" radio option under "New disease process or diagnosis" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than one" radio option is checked under "New disease process or diagnosis" for Transition Care Needs
-    Then I verify "One" radio option is not checked under "New disease process or diagnosis" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    Then I select "New discharge medication" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "One" radio option under "New discharge medication" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "One" radio option is checked under "New discharge medication" for Transition Care Needs
-    Then I click "More than one" radio option under "New discharge medication" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    Then I verify "More than one" radio option is checked under "New discharge medication" for Transition Care Needs
-    Then I verify "One" radio option is not checked under "New discharge medication" for Transition Care Needs
-    And I wait for 2000 milli seconds
-    
-    
     Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
-      
+      | First name | Last name  | Check                            | Label                  | Radio1                   | Radio2               |
+      | AUTOMATION | DO_NOT_USE | Injectable Meds                  | How often?             | Once daily or less often | More than once daily |
+      | AUTOMATION | DO_NOT_USE | Blood Testing                    | How often?             | Once daily or less often | More than once daily |
+      | AUTOMATION | DO_NOT_USE | Finger Stick                     | How often?             | Once daily               | More than once daily |
+      | AUTOMATION | DO_NOT_USE | Ostomy                           | Is it New or existing? | New                      | Existing             |
+      | AUTOMATION | DO_NOT_USE | Tracheostomy                     | Is it New or existing? | New                      | Existing             |
+      | AUTOMATION | DO_NOT_USE | Catheter                         | Is it New or existing? | New                      | Existing             |
+      | AUTOMATION | DO_NOT_USE | Oxygen                           | Is it New or existing? | New                      | Existing             |
+      | AUTOMATION | DO_NOT_USE | CPAP                             | Is it New or existing? | New                      | Existing             |
+      | AUTOMATION | DO_NOT_USE | BIPAP                            | Is it New or existing? | New                      | Existing             |
+      | AUTOMATION | DO_NOT_USE | New disease process or diagnosis | How Many?              | One                      | More than one        |
+      | AUTOMATION | DO_NOT_USE | New discharge medication         | How Many?              | One                      | More than one        |
 
+ 
+  Scenario Outline: To verify the multiple options and labels present under checkbox  for Transition of Care Needs on the Anticicpated section of the Carl Form
+    Given I am on the login page
+    When I enter email field qa.emblemrn@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    And I wait for 4000 milli seconds
+    Then I verify current page "Remedy Partners" title
+    Then I click on the ALL Tab on Patient page
+    And I wait for 10000 milli seconds
+    Then I should see search box appearing on the patients page
+    Then I enter "<Last name>" in the search box on the patients page
+    And I wait for 20000 milli seconds
+    Then I click on the "<Last name>" searched patient which has the CARL text in it
+    And I wait for 3000 milli seconds
+    Then I verify CARL buttons appears on the patient summary
+    Then I click on the complete CARL on the Patient Summary
+    And I wait for 3000 milli seconds
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    And I wait for 2000 milli seconds
+    Then I click on "Anticipated Discharge Needs" section on left navigator
+    And I wait for 2000 milli seconds
+    Then I select "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
+    And I wait for 1000 milli seconds
+    Then I verify upon select "<Check>" checkbox sub field section appears for Transition of Care Needs
+    Then I verify on selecting "<Check>" requierd field "<Label1>" appears for Transition of Care Needs
+    Then I verify "<Radio11>" radio option appears under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I verify "<Radio12>" radio option appears under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I click "<Radio11>" radio option under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I verify "<Radio11>" radio option is checked under "<Check>" for Transition Care Needs
+    Then I click "<Radio12>" radio option under "<Check>" for Transition Care Needs
+    And I wait for 1000 milli seconds
+    Then I verify "<Radio12>" radio option is checked under "<Check>" for Transition Care Needs
+    Then I verify "<Radio11>" radio option is not checked under "<Check>" for Transition Care Needs
+    Then I verify on selecting "<Check>" requierd field "<Label2>" appears for Transition of Care Needs
+    Then I click "<Radio21>" radio option under "<Check>" for Transition Care Needs
+    And I wait for 2000 milli seconds
+    Then I verify "<Radio21>" radio option is checked under "<Check>" for Transition Care Needs
+    Then I click "<Radio22>" radio option under "<Check>" for Transition Care Needs
+    And I wait for 2000 milli seconds
+    Then I verify "<Radio22>" radio option is checked under "<Check>" for Transition Care Needs
+    Then I verify "<Radio21>" radio option is not checked under "<Check>" for Transition Care Needs
+    Then I uncheck "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
+    Then I verify on uncheck "<Check>" checkbox subbar with options disaapear On Anticipated Discharge Needs
+    Then I select "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
+    Then I verify "<Radio11>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
+    Then I verify "<Radio12>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
+    Then I verify "<Radio21>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
+    Then I verify "<Radio22>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
+
+    Examples: 
+      | First name | Last name  | Check        | Label1     | Radio11                     | Radio12                      | Label2                 | Radio21 | Radio22  |
+      | AUTOMATION | DO_NOT_USE | Wound Care   | How often? | Once daily or less often    | More than once daily         | Is it New or existing? | New     | Existing |
+      | AUTOMATION | DO_NOT_USE | Tube Feeding | What kind? | Partial nutritional support | Complete nutritional support | Is it New or existing? | New     | Existing |
