@@ -9,38 +9,36 @@ import org.openqa.selenium.WebDriver;
  */
 public class EmailVarificationPage extends BaseClass {
 
-    public EmailVarificationPage(WebDriver driver){
+
+    public EmailVarificationPage(WebDriver driver) {
 
         super(driver);
     }
 
 
+    public void iEnterVerificationEmai(String email) {
 
-    public void iEnterVerificationEmai(String email){
-    	
-    	     iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
+        iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
     }
 
 
-
-    public void iClickGoButton(){
+    public void iClickGoButton() {
 
         clickElement(driver.findElement(By.cssSelector(".input-group-btn .btn.btn-dark")));
     }
 
-    public void switchToFrame(String element){
+    public void switchToFrame(String element) {
 
         swithToFrame(element);
 
-
     }
 
-    public void SelectNewEmail(){
+    public void SelectNewEmail() {
 
-       clickElement(driver.findElement(By.xpath("//div[contains(text(),'Remedy Partners - Verify your account')]")));
+        clickElement(driver.findElement(By.xpath("//div[contains(text(),'Remedy Partners - Verify your account')]")));
     }
 
-    public void clickConfirmAccountLink(){
+    public void clickConfirmAccountLink() {
 
         clickElement(driver.findElement(By.xpath("//a[text()='Confirm my account!']")));
 
@@ -54,24 +52,20 @@ public class EmailVarificationPage extends BaseClass {
 
     }
 
+    public void iClickCheckForNewMail() {
 
-
-    public void iClickCheckForNewMail (){
-    	
-    	for(int i=0;i<=20;i++)
-    	{
-        clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
-    	}
+        for (int i = 0; i <= 20; i++) {
+            clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
+        }
         //isElementVisible(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
         driver.navigate().refresh();
-        
+
     }
 
+    public void iClickOnConfirmPasswordLink() {
 
-    public void iClickOnConfirmPasswordLink(){
-    	
-    	clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
-    	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
+        clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
+        driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
         driver.findElement(By.xpath("//a[text()='click here']")).click();
     }
 
