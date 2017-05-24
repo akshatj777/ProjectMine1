@@ -1,7 +1,7 @@
 
 Feature: Model 2 Readmission
 
-Scenario 1
+#Scenario 1
   Scenario Outline: Patient with Active episode having readmission to an ACH facility as HHH-I without DRG
     Given I am on the login page
     When I enter email field <email> for login
@@ -130,7 +130,7 @@ Scenario 1
     Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | days1 | days2 |
-      | qa.admin@yopmail.com | Episode1! | AUTOMATE            | Scenarios            |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 20 | 12 |
+      | qa.admin@yopmail.com | Episode1! | AKSJAIN             |  AutomateScenarios            |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 20 | 12 |
 
 #Scenario 2
 Scenario Outline: Patient with Pending Cancellation episode having readmission to an ACH facility as HHH-I without DRG
@@ -177,7 +177,7 @@ Scenario Outline: Patient with Pending Cancellation episode having readmission t
  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | transition |
-      | qa.admin@yopmail.com | Episode1! |  AUTOMATE           |  Scenarios           |   HHH - Hospital  | Inpatient | Stamford Hospital | 6 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 1 |
+      | qa.admin@yopmail.com | Episode1! |  AKSJAIN           |   AutomateScenarios          |   HHH - Hospital  | Inpatient | Stamford Hospital | 6 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 1 |
 
    Scenario Outline: Model 2 Readmission(Adding 2nd tranistion without DRG)
 
@@ -208,9 +208,9 @@ Scenario Outline: Patient with Pending Cancellation episode having readmission t
     And I wait for 5000 milli seconds
     Then I select the "<DRG type>" DRG type on the Diagnosis and DRG tab on add a new transition
     And I wait for 5000 milli seconds
-    Then I select the "<DRG>" DRG on the Diagnosis and DRG tab on add a new transition
+    Then I select the "<DRG>" 63 DRG on the Diagnosis and DRG tab on add a new transition
     And I wait for 5000 milli seconds
-    Then I click on add a new transition to add a new episode
+    Then I click on update transition to add a new episode
     And I wait for 10000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
@@ -237,5 +237,5 @@ Scenario Outline: Patient with Pending Cancellation episode having readmission t
  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | transition |
-      | qa.admin@yopmail.com | Episode1! |  AUTOMATE           | Scenarios           |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 63  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  2   |    
+      | qa.admin@yopmail.com | Episode1! |  AKSJAIN            |  AutomateScenarios          |   HHH - Hospital  | Inpatient | Stamford Hospital | 5 |Working | 63  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  2   |    
       

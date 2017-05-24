@@ -28,3 +28,5 @@ Scenario Outline: User should be able to see patient cards as per acceptance cri
     
        | email                |
        | qa.admin@yopmail.com |
+       
+       

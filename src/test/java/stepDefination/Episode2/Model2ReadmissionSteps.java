@@ -44,6 +44,13 @@ public class Model2ReadmissionSteps extends DriverScript {
     {
     	admission.IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition(DRG);
     }
+    
+    @Then ("^I select the \"([^\"]*)\" 63 DRG on the Diagnosis and DRG tab on add a new transition$")
+    public void I_select_the_DRG_63_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRG)
+    {
+    	admission.Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(DRG);
+    }
+    
 	@Then ("^I select the Discharge care setting value \"([^\"]*)\" on add a new transition$")
     public void I_select_the_discharge_care_setting_value_on_add_a_new_transition(String caresetting) throws Throwable
     {

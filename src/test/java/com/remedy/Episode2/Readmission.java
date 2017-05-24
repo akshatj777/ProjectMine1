@@ -261,6 +261,14 @@ public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search
 	 iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")), search);
 	 
 }
+
+
+public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
+	// TODO Auto-generated method stub
+	clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
+	  iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),DRG);
+	  clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+}
 }
 
 
