@@ -22,7 +22,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iClickForgotPassword() {
-		clickElement(driver.findElement(By.cssSelector("a.forgot-password")));
+		clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
 	}
 
 	public void iEnterEmailForResetPssword(String text) {
@@ -32,7 +32,7 @@ public class LoginPage extends BaseClass {
 	public void iEnterNewPasswordForResetPassword(String text) {
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
-	
+
 	public void iEnterPasswordToSetNewPassword(String text){
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
@@ -40,7 +40,7 @@ public class LoginPage extends BaseClass {
 	public void iEnterConfirmPasswordForResetPassword(String text) {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
-	
+
 	public void iReenterNewPasswordToSetNewPassword(String text){
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
@@ -62,12 +62,14 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iVerifyResetPasswordText(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//h1[text()='Password Reset']")), text);
+
+		verifyTextForElement(driver.findElement(By.cssSelector("h1.page-auth-title.divider-horz")), text);
 	}
 	
 	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
 		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
 		delay();
+
 	}
 
 	public void iEnteruserEmail(String userName) {
@@ -77,7 +79,7 @@ public class LoginPage extends BaseClass {
 	public void iEnterPassword(String passWord) {
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
-	
+
 	public void iEnterPasswordFieldForLoginAfterMailVerification(String passWord){
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
