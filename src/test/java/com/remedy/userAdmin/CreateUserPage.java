@@ -16,8 +16,6 @@ import org.openqa.selenium.WebElement;
  * Created by salam on 7/30/15.
  */
 public class CreateUserPage extends BaseClass{
-
-
 	public final static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	public final static Date timestamp = new Date();
 	public final static String time = df.format(timestamp);
@@ -45,7 +43,6 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc){
-
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
     
@@ -54,13 +51,21 @@ public class CreateUserPage extends BaseClass{
 
     }
 
-    public void iEnterNPI(String text){
-    	 if ("".equals(text)){
-    		 return;
-    	}
-    	else{
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
-    	}
+//    public void iEnterNPI(String text){
+//     	 if ("".equals(text)){
+//       selectElementByDesc(".ui-select-choices-row-inner", desc);
+//    }
+    
+//    public void selectPayerFromData(String desc){
+//      selectElementByDesc(".ui-select-choices-row-inner", desc);
+//    }
+
+    public void iEnterNPI(String text) {
+        if ("".equals(text)) {
+            return;
+        } else {
+            iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
+        }
     }
 
     public void iEnterFirstName(String text){
@@ -70,7 +75,7 @@ public class CreateUserPage extends BaseClass{
     public void iEnterLasttName(String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[4]/input")), text);
     }
-    
+
     public final static String iGenerateEmail(String text){
     	final String mail=text+time;
     	final String email="user"+mail+"@mailinator.com";
@@ -84,11 +89,11 @@ public class CreateUserPage extends BaseClass{
     public void iEnterEmailForLoginAfterPasswordMailVerification(String text){
     	iFillInText(driver.findElement(By.xpath("//input[@type='email']")), iGenerateEmail(text));
     }
-    
+
     public void iEnterPasswordFieldForLoginAfterPasswordVerification(String Password){
     	iFillInText(driver.findElement(By.name("password")), Password);
     }
-    
+
     public void iEnterPhone( String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
     }
@@ -193,4 +198,5 @@ public class CreateUserPage extends BaseClass{
    public void iClickOnContinueToDashboardMessage(){
 	   clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
    }
-}
+
+ }

@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
  * Created by salam on 7/29/15.
  */
 public class LoginPage extends BaseClass {
-	
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -23,7 +22,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iClickForgotPassword() {
-		clickElement(driver.findElement(By.cssSelector("a.forgot-password")));
+		clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
 	}
 
 	public void iEnterEmailForResetPssword(String text) {
@@ -33,7 +32,7 @@ public class LoginPage extends BaseClass {
 	public void iEnterNewPasswordForResetPassword(String text) {
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
-	
+
 	public void iEnterPasswordToSetNewPassword(String text){
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
@@ -41,7 +40,7 @@ public class LoginPage extends BaseClass {
 	public void iEnterConfirmPasswordForResetPassword(String text) {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
-	
+
 	public void iReenterNewPasswordToSetNewPassword(String text){
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
@@ -49,8 +48,8 @@ public class LoginPage extends BaseClass {
 	public void iClickChangePasswordButton() {
 		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
-	
-	public void iClickOnChangePasswordButtonToSetNewPassword(){
+
+	public void iClickOnChangePasswordButtonToSetNewPassword() {
 		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
 
@@ -74,13 +73,11 @@ public class LoginPage extends BaseClass {
 	public void iEnteruserEmail(String userName) {
 		iFillInText(driver.findElement(By.name("email")), userName);
 	}
-	
-
 
 	public void iEnterPassword(String passWord) {
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
-	
+
 	public void iEnterPasswordFieldForLoginAfterMailVerification(String passWord){
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}

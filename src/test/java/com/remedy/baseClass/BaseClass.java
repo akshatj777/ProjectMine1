@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -222,6 +222,14 @@ public class BaseClass {
             System.out.println(countelement);
             Assert.assertEquals( countelement, count);
         }
+    
+
+    public int getElementCount(String element) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        return countelement;
+       
+        }
 
     public void elementInformation(WebElement ele) {
         System.out.println("  ");
@@ -383,6 +391,28 @@ public class BaseClass {
     public void switchToParentFrame(){
     driver.switchTo().parentFrame();
     }
+    
+    public List<String> getTextForElementfromList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        List<String> listtexts = new ArrayList<String>();
+        for (WebElement item : listItems) {
+            System.out.println(item.getText());
+         item.getText();
+         listtexts.add(item.getText());
+        }
+         return listtexts;
+         
+        }
+    
+    public List<WebElement> getElementsList(String element) {
+
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        
+        System.out.println("****The list of elements*****"+listItems);
+  return listItems;
+         
+        }
     
    }
 
