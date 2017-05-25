@@ -739,5 +739,13 @@ public class ReportHomePage extends BaseClass {
     	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][2]";
     	clickElement(driver.findElement(By.xpath(path)));
     }
+    
+    public void iEnterAnchorAdmissionQuarterInSearchField(String text){
+    	iFillInText(driver.findElement(By.cssSelector("#FT_searchText")), text);
+    }
+    
+    public void iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter(){
+    	clickElement(driver.findElement(By.cssSelector("#FT_searchBy")));
+    }
 }
 

@@ -28,7 +28,7 @@ public class CreateUserPage extends BaseClass {
         clickElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[1]/div[1]/div[1]/span")));
     }
 
-    public void iTurnOffShareFile() {
+    public void iTurnOffShareFile(){
 
         try {
             if (driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()) {
@@ -37,43 +37,42 @@ public class CreateUserPage extends BaseClass {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void iClickPayerField() {
         clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
     }
 
-    public void selectOrganizationalRole(String desc) {
-
+    public void selectOrganizationalRole(String desc){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
-
-    public void selectPayerFromData(String desc) {
-
+    
+    public void selectPayerFromData(String desc){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
+
+    }
+    
+    public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection(){
+    	
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Stamford Hospital']")));
+    }
+    
+    public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection(){
+    	
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
     }
 
-//    public void iEnterNPI(String text){
-//     	 if ("".equals(text)){
-//       selectElementByDesc(".ui-select-choices-row-inner", desc);
-//    }
-
-//    public void selectPayerFromData(String desc){
-//      selectElementByDesc(".ui-select-choices-row-inner", desc);
-//    }
 
     public void iEnterNPI(String text) {
         if ("".equals(text)) {
             return;
         } else {
             iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
-
         }
-
     }
 
-    public void iEnterFirstName(String text) {
+
+    public void iEnterFirstName(String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
     }
 
@@ -150,7 +149,6 @@ public class CreateUserPage extends BaseClass {
         clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='" + text + "']")));
     }
 
-    
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text){
     	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
     	isElementVisible(driver.findElement(By.xpath("//h1")));
@@ -209,7 +207,28 @@ public class CreateUserPage extends BaseClass {
         clickAllElementofAlistbyXpath("//div/label/span[2]");
     }
 
+
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
     }
-}
+
+   public void iVerifyTheHeaderAfterClickingTheEpisodesTile(){
+	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+   }
+   
+   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
+			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
+			   Thread.sleep(6000);
+			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+			  
+	  	}else{
+	  		return;
+	  	}
+   }
+  
+   public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
+	   clickElement(driver.findElement(By.xpath("//h1[text()='Patients']")));
+   }
+ }
+

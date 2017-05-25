@@ -114,6 +114,16 @@ public class CreateUserSteps extends DriverScript{
     public void IPickPayertypeFromDataSection(String payer) throws Throwable {
         createUser.selectPayerFromData(payer);
     }
+    
+    @Then("^I verify the first payer field added under permissions section$")
+    public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection() throws Throwable{
+    	createUser.iVerifyTheFirstPayerFieldAddedUnderPermissionsSection();
+    }
+    
+    @Then("^I verify the second payer field added under permissions section$")
+    public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection() throws Throwable{
+    	createUser.iVerifyTheSecondPayerFieldAddedUnderPermissionsSection();
+    }
 
     @Then("^I select a ([^\"]*)$")
     public void iSelectHealthSystem(String healthSystem) throws Throwable {
@@ -238,5 +248,25 @@ public class CreateUserSteps extends DriverScript{
     @And("^I click on continue to dashboard$")
     public void iClickOnContinueToDashboard()throws Throwable {
     	createUser.iClickOnContinueToDashboardMessage();
+    }
+    
+    @And("^I click on Episodes ([^\"]*) tile under specific user login page$")
+    public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage(tile);
+    }
+    
+    @And("^I verify the header after clicking the episodes tile$")
+    public void iVerifyTheHeaderAfterClickingTheEpisodesTile() throws Throwable{
+    	createUser.iVerifyTheHeaderAfterClickingTheEpisodesTile();
+    }
+    
+    @And("^I click on Episodes two tile under specific user login page ([^\"]*)$")
+    public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(tile);
+    }
+    
+    @And("^I Verify the header after clicking the episodes 2 tile$")
+    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile() throws Throwable{
+    	createUser.iVerifyTheHeaderAfterClickingTheEpisodes2Tile();
     }
 }
