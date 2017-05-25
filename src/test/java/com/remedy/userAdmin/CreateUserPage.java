@@ -50,15 +50,16 @@ public class CreateUserPage extends BaseClass{
         selectElementByDesc(".ui-select-choices-row-inner", desc);
 
     }
-
-//    public void iEnterNPI(String text){
-//     	 if ("".equals(text)){
-//       selectElementByDesc(".ui-select-choices-row-inner", desc);
-//    }
     
-//    public void selectPayerFromData(String desc){
-//      selectElementByDesc(".ui-select-choices-row-inner", desc);
-//    }
+    public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection(){
+    	
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='Stamford Hospital']")));
+    }
+    
+    public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection(){
+    	
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
+    }
 
     public void iEnterNPI(String text) {
         if ("".equals(text)) {
@@ -138,7 +139,6 @@ public class CreateUserPage extends BaseClass{
     
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
     	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
-    	//Thread.sleep(6000);
     	isElementVisible(driver.findElement(By.xpath("//h1")));
     }
 
@@ -197,6 +197,39 @@ public class CreateUserPage extends BaseClass{
 
    public void iClickOnContinueToDashboardMessage(){
 	   clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
+   }
+
+   public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+	   
+	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
+		   Thread.sleep(3000);
+		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
+		   switchToNewWindow();
+		   Thread.sleep(6000);
+		   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+		   switchBacktoOldWindow();
+       } else {
+           return;
+       }
+   }
+   
+   public void iVerifyTheHeaderAfterClickingTheEpisodesTile(){
+	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+   }
+   
+   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
+			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
+			   Thread.sleep(6000);
+			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+			  
+	  	}else{
+	  		return;
+	  	}
+   }
+  
+   public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
+	   clickElement(driver.findElement(By.xpath("//h1[text()='Patients']")));
    }
 
  }
