@@ -18,7 +18,8 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 	
 	public void IVerifySelectedSectionOnTheCarlFormUponClickingOnIt(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//h2[contains(text(),'"+text+"')]")),text);
+		String section = driver.findElement(By.xpath("//h2[@class='ng-binding']")).getText();
+		Assert.assertTrue(section.contains(text));
 	}
 	
 	public void IVerifyThatSelectedSectionOnCarlFormGetsHihlightedInLeftNavigatorUponClick(String text) {
