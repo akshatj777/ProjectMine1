@@ -59,18 +59,18 @@ Feature: Spending claims Physician
     And I wait for 3000 milli seconds
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
 
-    When I click to "Bundle" field filter under "Bundle" filter field
-    And I wait for 3000 milli seconds
-    And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-    And I should see "Bundle" in the header text of filter page
-    And I should see "Amputation" in the filter value list
-    And I should see "Atherosclerosis" in the filter value list
-    And I click on "Amputation" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait for 3000 milli seconds
-    And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
+    #When I click to "Bundle" field filter under "Bundle" filter field
+    #And I wait for 3000 milli seconds
+    #And I choose "Filter" option from select options of filter field
+    #And I wait for 2000 milli seconds
+    #And I should see "Bundle" in the header text of filter page
+    #And I should see "Amputation" in the filter value list
+    #And I should see "Atherosclerosis" in the filter value list
+    #And I click on "Amputation" in the filter value list
+    #And I click on add selected in the filter modal
+    #And I click on ok button from filter
+    #And I wait for 3000 milli seconds
+    #And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
 
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I wait for 3000 milli seconds
@@ -101,6 +101,9 @@ Feature: Spending claims Physician
     And I wait for 2000 milli seconds
     And I should see "Anchor Admission Quarter" in the header text of filter page
     When I click on select from list option on the filter page
+    And I wait for 1000 milli seconds
+    And I enter "<anchor admission quarter1>" in the search field textbox after clicking on list option
+    Then I click on find button after entering anchor admission quarter in the textbox
     And I wait for 1000 milli seconds
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list

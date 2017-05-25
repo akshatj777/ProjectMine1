@@ -126,12 +126,12 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iVerifyBpidsUnderSelectedFilters(String bpid1,String bpid2){
-		String toVerify = "BPID includes "+bpid1+" and  "+bpid2+"";
+		String toVerify = "BPID includes "+bpid2+" and "+bpid1+"";
 		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Episode Initiator].[BPID]']/span")), toVerify);
 	}
 	
 	public void iVerifyCCNsUnderSelectedFilters(String ccn1,String ccn2){
-		String ccn="CCN includes "+ccn1+" and  "+ccn2+"";
+		String ccn="CCN includes "+ccn2+" and "+ccn1+"";
 		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")), ccn);
 	}
 		

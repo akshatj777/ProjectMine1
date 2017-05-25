@@ -110,14 +110,13 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     Then I click on Show Summary button to unhide the available global filters
     
-        #REP-2895 as per this ticket below steps are commented#
-    #When I switch to reports embedded iframe
-    #When I click on show all filters icon button
-    #And I wait for 4000 milli seconds
-    #Then I verify participant filter is selected with <participantid1> under selected filters
-    #Then I verify episode initiator filter is selected with <bpid1> and <bpid2> in the selected filters
-    #Then I verify anchor facility filter is selected with <ccn1> and <ccn2> in the selected filters
-    #When I switch to default window from iframe
+    When I switch to reports embedded iframe
+    When I click on show all filters icon button
+    And I wait for 4000 milli seconds
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> and <bpid2> in the selected filters
+    Then I verify anchor facility filter is selected with <ccn1> and <ccn2> in the selected filters
+    When I switch to default window from iframe
     
     And I click on reports tile on the top of reports page
     And I wait for 3000 milli seconds
