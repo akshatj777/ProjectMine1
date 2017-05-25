@@ -33,12 +33,24 @@ public class LoginPage extends BaseClass {
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
 
+	public void iEnterPasswordToSetNewPassword(String text){
+		iFillInText(driver.findElement(By.name("password")), text);
+	}
+
 	public void iEnterConfirmPasswordForResetPassword(String text) {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 
+	public void iReenterNewPasswordToSetNewPassword(String text){
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
+	}
+
 	public void iClickChangePasswordButton() {
-		clickElement(driver.findElement(By.cssSelector(".auth0-lock-submit")));
+		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+	}
+
+	public void iClickOnChangePasswordButtonToSetNewPassword() {
+		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
 
 	public void iClickChangePasswordCancleButton() {
@@ -50,7 +62,12 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iVerifyResetPasswordText(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector("h1.page-auth-title.divider-horz")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//h1[text()='Password Reset']")), text);
+	}
+	
+	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
+		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
+		delay();
 	}
 
 	public void iEnteruserEmail(String userName) {
@@ -58,6 +75,10 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iEnterPassword(String passWord) {
+		iFillInText(driver.findElement(By.name("password")), passWord);
+	}
+
+	public void iEnterPasswordFieldForLoginAfterMailVerification(String passWord){
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
 
@@ -69,4 +90,5 @@ public class LoginPage extends BaseClass {
 	public void iVerifyLogInWidget() {
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
 	}
+
 }

@@ -15,7 +15,6 @@ import cucumber.api.java.en.When;
  * Created by salam on 7/29/15.
  */
 public class CreateUserSteps extends DriverScript{
-
     LoginPage loginPage = new LoginPage(driver);
     LandingPage landingPage = new LandingPage(driver);
     UserAdminHomePage userAdminPage = new UserAdminHomePage(driver);
@@ -101,6 +100,11 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iClickOnChangeMyPasswordLink();
     }
     
+    @Then("^I click on change my password link under recieved mail content$")
+    public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent() throws Throwable{
+    	createUser.iClickOnChangeMyPasswordLinkUnderRecievedMailContent();
+    }
+    
     @Then("^I pick payer type from data section ([^\"]*)$")
     public void IPickPayertypeFromDataSection(String payer) throws Throwable {
         createUser.selectPayerFromData(payer);
@@ -115,12 +119,12 @@ public class CreateUserSteps extends DriverScript{
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role) throws Throwable{
     	createUser.iShouldSeeDifferentTilesForDifferentUserRole(role);
     }
-    
+
     @And("^I click on EC two tile under specific user login page ([^\"]*)$")
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
     	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(tile);
     }
-    
+
     @And("^I verify the dropdown list for user$")
     public void iVerifyTheDropdownListForUser() throws Throwable{
     	createUser.iVerifyTheDropdownListForUser();
@@ -128,9 +132,9 @@ public class CreateUserSteps extends DriverScript{
 
     @Then("^I click on Create button$")
     public void iClickCreateButton() throws Throwable {
-    	createUser.iClickCreateButton();
+        createUser.iClickCreateButton();
     }
-    
+
     @And("^I search for health system with ([^\"]*)$")
     public void ISearchHealthSystem(String text) throws Throwable {
        createUser.iEnterHealthSystemSerachText(text);

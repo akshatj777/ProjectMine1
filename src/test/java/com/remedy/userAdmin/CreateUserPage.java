@@ -29,17 +29,15 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iTurnOffShareFile(){
-    	try
-    	{
-    	if(driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()){
-    		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
-    	}
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
-    	clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+        try {
+            if (driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()) {
+                clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-   
+
     public void iClickPayerField(){
     	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
     }
@@ -50,6 +48,7 @@ public class CreateUserPage extends BaseClass{
     
     public void selectPayerFromData(String desc){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
+
     }
 
 //    public void iEnterNPI(String text){
@@ -61,14 +60,13 @@ public class CreateUserPage extends BaseClass{
 //      selectElementByDesc(".ui-select-choices-row-inner", desc);
 //    }
 
-    public void iEnterNPI(String text){
-    	 if ("".equals(text)){
-    		 return;
-    	}
-    	else{
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
-      	}
-    	}
+    public void iEnterNPI(String text) {
+        if ("".equals(text)) {
+            return;
+        } else {
+            iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
+        }
+    }
 
     public void iEnterFirstName(String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
@@ -113,6 +111,11 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iClickOnChangeMyPasswordLink(){
+    	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
+    	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
+    }
+    
+    public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent(){
     	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
     	clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
     }
@@ -195,4 +198,5 @@ public class CreateUserPage extends BaseClass{
    public void iClickOnContinueToDashboardMessage(){
 	   clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
    }
+
  }
