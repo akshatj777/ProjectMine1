@@ -33,7 +33,7 @@ public class LoginPage extends BaseClass {
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
 
-	public void iEnterPasswordToSetNewPassword(String text){
+	public void iEnterPasswordToSetNewPassword(String text) {
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
 
@@ -41,7 +41,7 @@ public class LoginPage extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 
-	public void iReenterNewPasswordToSetNewPassword(String text){
+	public void iReenterNewPasswordToSetNewPassword(String text) {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 
@@ -64,7 +64,7 @@ public class LoginPage extends BaseClass {
 	public void iVerifyResetPasswordText(String text) {
 		verifyTextForElement(driver.findElement(By.xpath("//h1[text()='Password Reset']")), text);
 	}
-	
+
 	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
 		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
 		delay();
@@ -78,7 +78,7 @@ public class LoginPage extends BaseClass {
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
 
-	public void iEnterPasswordFieldForLoginAfterMailVerification(String passWord){
+	public void iEnterPasswordFieldForLoginAfterMailVerification(String passWord) {
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
 
@@ -90,5 +90,5 @@ public class LoginPage extends BaseClass {
 	public void iVerifyLogInWidget() {
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
 	}
-
 }
+

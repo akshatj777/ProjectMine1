@@ -100,6 +100,11 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iClickOnChangeMyPasswordLink();
     }
     
+    @And("^I switch to frame under received mail content$")
+    public void iSwitchToFrameUnderReceivedMailContent() throws Throwable{
+       createUser.iSwitchToFrameUnderReceivedMailContent();
+    }
+    
     @Then("^I click on change my password link under recieved mail content$")
     public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent() throws Throwable{
     	createUser.iClickOnChangeMyPasswordLinkUnderRecievedMailContent();
@@ -128,6 +133,11 @@ public class CreateUserSteps extends DriverScript{
     @Then("^I should see different tiles for different user role ([^\"]*)$")
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role) throws Throwable{
     	createUser.iShouldSeeDifferentTilesForDifferentUserRole(role);
+    }
+    
+    @And("^I click on Episodes tile under specific user login page ([^\"]*)$")
+    public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage(tile);
     }
 
     @And("^I click on EC two tile under specific user login page ([^\"]*)$")
