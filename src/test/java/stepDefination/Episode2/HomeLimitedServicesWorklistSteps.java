@@ -32,5 +32,9 @@ public class HomeLimitedServicesWorklistSteps extends DriverScript {
 		homeworklist.IselecttheDRGvalueontheDiagnosisandDRGtabonaddanewtransition(DRG);
 	}
 	
-	
+	@Then ("^I select the facility value Stamford \"([^\"]*)\" on add a new transition$")
+	public void I_select_the_facility_value_Stamford_on_add_a_new_transition(String facility) throws InterruptedException
+	{
+		homeworklist.IselectthefacilityvalueStamfordonaddanewtransition(facility);
+	}
 }
