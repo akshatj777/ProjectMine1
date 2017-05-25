@@ -10,44 +10,33 @@ import org.openqa.selenium.WebDriver;
 public class EmailVarificationPage extends BaseClass {
 
     public EmailVarificationPage(WebDriver driver){
-
         super(driver);
     }
 
     public void iEnterVerificationEmai(String email){
-    	
-    	     iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
+ 	    iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
     }
 
     public void iClickGoButton(){
-
         clickElement(driver.findElement(By.cssSelector(".input-group-btn .btn.btn-dark")));
     }
 
     public void switchToFrame(String element){
-
         swithToFrame(element);
     }
 
     public void SelectNewEmail(){
-
        clickElement(driver.findElement(By.xpath("//div[contains(text(),'Remedy Partners - Verify your account')]")));
     }
 
     public void clickConfirmAccountLink(){
-
         clickElement(driver.findElement(By.xpath("//a[text()='Confirm my account!']")));
-
     }
 
     public void deleteAllEmails() {
-
     	clickElement(driver.findElement(By.cssSelector(".igif.lmenudelall")));
         clickElement(driver.findElement(By.xpath("//*[@id='delmenu']/ul/li[3]/a")));
-        
     }
-
-
 
     public void iClickCheckForNewMail (){
     	driver.navigate().refresh();
@@ -56,15 +45,11 @@ public class EmailVarificationPage extends BaseClass {
          clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
     	}
     	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
-        
     }
 
-
     public void iClickOnConfirmPasswordLink(){
-    	
     	clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
     	driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
         driver.findElement(By.xpath("//a[text()='click here']")).click();
     }
-
 }

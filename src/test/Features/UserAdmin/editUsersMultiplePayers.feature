@@ -21,7 +21,7 @@ Scenario Outline: Super Administrator can edit users with multiple payers and re
    And I Wait for dropdown list to select role
    Then I clicked <Role1> under edit user role tab
    And I wait for 3000 milli seconds
-   Then I clicked on Save
+   Then I clicked on Save button under edit user role tab
    And I wait for 6000 milli seconds
    And I verify the user role again
    Then I verify product tiles appear for user under user edit details page after role change
@@ -57,7 +57,7 @@ Scenario Outline: Super Administrator can edit users with multiple payers and re
    And I wait for 6000 milli seconds
    And I Wait for dropdown list to select role
    Then I clicked <Role2> under edit user role tab
-   Then I clicked on Save
+   Then I clicked on Save button under edit user role tab
    And I wait for 4000 milli seconds
    And I verify the user role again
    And I wait for 6000 milli seconds
@@ -66,18 +66,18 @@ Scenario Outline: Super Administrator can edit users with multiple payers and re
    
     | Search                 | Role1                         | Role2                        |
     |MultipleManager         | Executive                     | Manager                      |
-    #|MultipleExecutive1      | Manager                       | Executive                    |
-    #|MultipleRemedyTcs       | Remedy LPN                    | Remedy TCS                   |
-    #|MultipleRemedyLpn       | Remedy TCS                    | Remedy LPN                   |
-    #|MultipleRemedyRn        | Remedy Field RN               | Remedy RN                    |
-    #|MultipleRemedyFieldRn   | Remedy RN                     | Remedy Field RN              |
-    #|MultipleRemedyPm        | Remedy Sales Team             | Remedy PM                    |
-    #|MultipleRemedySalesTeam | Remedy PM                     | Remedy Sales Team            |
-    #|MultipleRemedyExecutive | Prospective Partner Executive | Remedy Executive             |
-    #|MultiplePPE             | Remedy Executive              | Prospective Partner Executive|
-    #|MultipleRemedyOther     | Partner Program Administrator | Remedy Other                 |
-    #|MultiplePPA             | Remedy Other                  | Partner Program Administrator|
-    #|MultipleRPA             | Transitional Case Manager     | Remedy Program Administrator |
-    #|MultipleTCM             | Remedy Program Administrator  | Transitional Case Manager    |
+    |MultipleExecutive1      | Manager                       | Executive                    |
+    |MultipleRemedyTcs       | Remedy LPN                    | Remedy TCS                   |
+    |MultipleRemedyLpn       | Remedy TCS                    | Remedy LPN                   |
+    |MultipleRemedyRn        | Remedy Field RN               | Remedy RN                    |
+    |MultipleRemedyFieldRn   | Remedy RN                     | Remedy Field RN              |
+    |MultipleRemedyPm        | Remedy Sales Team             | Remedy PM                    |
+    |MultipleRemedySalesTeam | Remedy PM                     | Remedy Sales Team            |
+    |MultipleRemedyExecutive | Prospective Partner Executive | Remedy Executive             |
+    |MultiplePPE             | Remedy Executive              | Prospective Partner Executive|
+    |MultipleRemedyOther     | Partner Program Administrator | Remedy Other                 |
+    |MultiplePPA             | Remedy Other                  | Partner Program Administrator|
+    |MultipleRPA             | Transitional Case Manager     | Remedy Program Administrator |
+    |MultipleTCM             | Remedy Program Administrator  | Transitional Case Manager    |
 
 

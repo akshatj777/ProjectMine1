@@ -44,7 +44,7 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_Under_Edit_User_Role_Tab(role);
 	}
 	
-	@Then("^I clicked on Save$")
+	@Then("^I clicked on Save button under edit user role tab$")
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() throws Throwable{
 		UserEdit.i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab();
 	}

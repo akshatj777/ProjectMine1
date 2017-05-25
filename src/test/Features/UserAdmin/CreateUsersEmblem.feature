@@ -4,7 +4,7 @@ Feature: Create new User for emblem and verify Login logut of users
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Adming
+    Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When I click on Create User button
