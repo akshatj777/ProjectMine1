@@ -34,9 +34,9 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_On_Role_Tab_To_Edit_The_User_Role_Assigned();
 	}
 	
-	@And("^I Wait for dropdown list to select role$")
-	public void i_Wait_For_Dropdown_List_To_Select_Role() throws Throwable{
-		UserEdit.i_Wait_For_Dropdown_List_To_Select_Role();
+	@And("^I should see dropdown list to select role$")
+	public void i_Should_See_Dropdown_List_To_Select_Role() throws Throwable{
+		UserEdit.i_Should_See_Dropdown_List_To_Select_Role();
 	}
 	
 	@Then("^I clicked ([^\"]*) under edit user role tab$")
@@ -44,7 +44,7 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_Under_Edit_User_Role_Tab(role);
 	}
 	
-	@Then("^I clicked on Save$")
+	@Then("^I clicked on Save button under edit user role tab$")
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() throws Throwable{
 		UserEdit.i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab();
 	}
@@ -163,5 +163,4 @@ public class UserAdminEditSteps extends DriverScript {
 	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws Throwable{
 		UserEdit.i_Verify_The_Share_File_Tile_Toggle_Off_Button();
 	}
-	
 }
