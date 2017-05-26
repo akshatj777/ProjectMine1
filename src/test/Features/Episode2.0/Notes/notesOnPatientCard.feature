@@ -1,15 +1,6 @@
-
 Feature: Patient Note on the Patient Card
 
-Scenario: To Verify Quick Action has the following criteria on Patient Summary 
-                 a)Topic drop down
-                 b)Activity Date drop down calendar
-                 c)Body text box 
-                 d)Attach files link
-                 e)Cancel link
-                 f)create note link
-                 
-
+Scenario: To Verify Quick Action has the following criteria on Patient Summary Topic drop down
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
 And I enter password field Episode1! for Login
@@ -29,9 +20,7 @@ And I verify attach files link appears on the Add Clinical Document on Patient C
 And I verify Cancel button appears on the Add Clinical Document on Patient Card
 And I verify Create note appears on the Add Clinical Document on Patient Card
 
-
-
-Scenario Outline: To verify user should be able to add a new note
+Scenario: To verify user should be able to add a new note
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
 And  I enter password field Episode1! for Login
@@ -54,16 +43,3 @@ And I wait for 10000 milli seconds
 Then I verify the image is attached or not
 Then I click on the create Note Button on Add Clinical Document on Patient Card
 Then I verify that create Note has been successfully created
-
-Examples:
-         |    date    |  
-         | 12/07/2014 | 
-         
-
-
-
-
-
-
-
-

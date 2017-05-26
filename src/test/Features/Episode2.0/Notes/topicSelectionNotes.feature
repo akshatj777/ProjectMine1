@@ -1,4 +1,3 @@
-
 Feature: Notes - Selecting a topic
 
 Scenario: Verify that Note>Topic dropdown bar should display the required value
@@ -20,6 +19,3 @@ Then I Verify that user should not allow to create note without selecting Topic 
 And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
 Then I verify Topicdropdownbar has the placeholder Select a topic or not
 And  I verify the drop down values on  Add Clinical Document on Patient Card
-
-
-

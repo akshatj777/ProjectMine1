@@ -1,7 +1,6 @@
 Feature: Note - Add files
 
 Scenario Outline: To verify that user should be able to upload the file with different extensions or not
-
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
 And  I enter password field Episode1! for Login
@@ -27,19 +26,16 @@ Then I verify that create Note has been successfully created
 Then I verify Dismiss button should be there on notification message 
 Then I check clicking on cross icon of green bar green bar notification should get removed 
 
-
 Examples:
            |  FileName      |
            |  Sample.csv    |
            |  sample.doc    |
-           |  Sample.docx   |
            |  Sample.gif    |
            |  Sample.txt    |
            |  Sample.xls    |
            |  Sample.xlsx   |
 
 Scenario: To verify that User should be able upload multiple files at once on Notes on Patient Card
-
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
 And  I enter password field Episode1! for Login
@@ -79,7 +75,6 @@ Then I verify message should display in green color Your clinical document for A
 Then I verify on notification there should be link to View clinical document
 
 Scenario Outline:  To verify user should be able to cancel the Note creation
-
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
 And  I enter password field Episode1! for Login
@@ -115,5 +110,3 @@ Examples:
          | 12/07/2014 | 
          | 15/05/2017 |
          | 26/10/2022 |  
-
-

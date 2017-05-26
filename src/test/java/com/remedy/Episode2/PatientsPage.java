@@ -841,7 +841,6 @@ public class PatientsPage extends BaseClass {
     public boolean isAllCorrectPatientsReturnAfterPatientSearch(String fName, String lName) {
         List<WebElement> allNames = driver.findElements(By.cssSelector(".card-view-body .card-header .card-header-content h3"));
         boolean isPresent = false;
-
         for (int i = 0; i < allNames.size(); i++) {
            String allText = allNames.get(i).getText();
            String[] patientName = allText.split(",\n");
