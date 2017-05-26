@@ -132,8 +132,6 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I verify "Good restoration potential" is selected in Physical Therapy place holder on Anticipated Discharge Needs
     And I wait for 2000 milli seconds
 
-    #Then I hover on i icon present on Restoration on TakeOver page
-    #Then I Verify the text hovering i icon on Patients Restoration Potential
     Examples: 
       | First name | Last name  |
       | AUTOMATION | DO_NOT_USE |
@@ -197,7 +195,6 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
       | AUTOMATION | DO_NOT_USE | New disease process or diagnosis | How Many?              | One                      | More than one        |
       | AUTOMATION | DO_NOT_USE | New discharge medication         | How Many?              | One                      | More than one        |
 
- 
   Scenario Outline: To verify the multiple options and labels present under checkbox  for Transition of Care Needs on the Anticicpated section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
