@@ -26,7 +26,8 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     And I wait for 2000 milli seconds
     And I verify the "Discharge" section of the carl form upon clicking on it
     Then I verify that "Discharge" section on carl form should be highlighted in left navigator upon clicking
-    #Then I verify "CARL Recommendation" field under "Next Site of Care" on Discharge section
+    Then I verify "Next Site of Care" appears on Discharge section of carl form
+    Then I verify "No CARL Recommendation. Please complete the following sections" field under Next Site of Care on Discharge section
     Then I verify "Actual Care Setting" subform field under CARL Recommendation on Discharge section
     Then I click on "Actual Care Setting" subform dropdown under CARL Recommendation on Discharge section
     And I wait for 2000 milli seconds
@@ -34,11 +35,15 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     Then I verify "Care Type" subform field under CARL Recommendation on Discharge section
     Then I verify "Discharge Location" subform field under CARL Recommendation on Discharge section
     Then I verify "Discharge Date" subform field under CARL Recommendation on Discharge section
+    Then I verify Done button under subform is disabled on Discharge section
+    
+    
+    #Then I verify Done button under subform is enabled on Discharge section
     Then I verify first question "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     And I verify "Yes" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     And I verify "No" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     #Then I verify "Additional Comments" section below Have you discussed the proposal with the Interdisciplinary Team question under Discharge section
-    And I wait for 2000 milli seconds
+    Then I click on "Cancel" button under subform on Discharge section
     #Then I verify second question "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
     #Then I verify "Who disagrees?" dropdown for "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
     #Then I verify "Reason for Disagreement" dropdown for "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
