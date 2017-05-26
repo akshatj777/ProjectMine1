@@ -43,7 +43,7 @@ public class Readmission extends BaseClass {
 		  clickElement(element1);
 		  Thread.sleep(5000);
 
-		  WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen8_search"));
+		  WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 
 		  js.executeScript("arguments[0].click();", element2);
 		  element2.sendKeys(facilityvalue);

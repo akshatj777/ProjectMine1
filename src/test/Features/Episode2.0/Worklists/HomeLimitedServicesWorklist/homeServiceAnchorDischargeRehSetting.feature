@@ -76,7 +76,7 @@ Scenario Outline: Add an active anchore discharge transition
     Then I wait for 5000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-   Then I select the facility value Stamford "Stamford Hospital" on add a new transition 
+   Then I select the facility value "Stamford Hospital" on add a new transition 
   
  
     Then I wait for 8000 milli seconds
