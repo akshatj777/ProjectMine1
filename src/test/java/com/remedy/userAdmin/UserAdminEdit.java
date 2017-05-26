@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import com.remedy.baseClass.BaseClass;
 
 public class UserAdminEdit extends BaseClass {
+	
 	public UserAdminEdit(WebDriver driver) {
 		super(driver);
 	}
@@ -18,6 +19,19 @@ public class UserAdminEdit extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector(".elastic-input")), search);
 	}
 
+	public void i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field(){
+		clickElement(driver.findElement(By.xpath("//ul/li[1]/div/div/div/small")));
+	}
+	
+	public void i_Wait_For_Popup_To_Remove_Stamford_Hospital_Under_Permission_Field(){
+		isElementVisible(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']")));
+	}
+	
+	public void i_Clicked_On_Remove_Button_Appearing_On_Popup(){
+		clickElement(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']/div/div[2]/button[2]")));
+	} 
+
+	 
 	public void iClickOnTheUsernameCardUnderUserAdminPage() {
 		clickElement(driver.findElement(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)")));
 	}

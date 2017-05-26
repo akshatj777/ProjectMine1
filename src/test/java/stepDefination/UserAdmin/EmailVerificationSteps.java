@@ -22,7 +22,7 @@ public class EmailVerificationSteps extends DriverScript{
     @And("^I enter the email for verification for ([^\"]*)$")
     public void ISearchFacilityWith(String email) throws Throwable {
     	popMail.iEnterVerificationEmai(createUser.iGenerateEmail(email));
-    }
+     }
 
     @And("^I click on Go button$")
     public void IClickGoButton() throws Throwable {
@@ -36,8 +36,8 @@ public class EmailVerificationSteps extends DriverScript{
 
     @And("^I click on the confirm account link$")
     public void I_click_on_the_confirm_account_link() throws Throwable {
-      popMail.switchToFrame("//*[@id='publicshowmaildivcontent']");
-      popMail.clickConfirmAccountLink();
+    	popMail.switchToFrame("//*[@id='publicshowmaildivcontent']");
+    	popMail.clickConfirmAccountLink();
     }
 
     @And("^I delete all emails$")

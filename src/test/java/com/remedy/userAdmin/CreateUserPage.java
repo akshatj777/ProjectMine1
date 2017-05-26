@@ -13,14 +13,14 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by salam on 7/30/15.
  */
-public class CreateUserPage extends BaseClass {
-    public final static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-    public final static Date timestamp = new Date();
-    public final static String time = df.format(timestamp);
 
-		
+public class CreateUserPage extends BaseClass{
+
+	public final static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
+	public final static Date timestamp = new Date();
+	public final static String time = df.format(timestamp);
+
     public CreateUserPage(WebDriver driver){
-
         super(driver);
     }
 
@@ -29,14 +29,14 @@ public class CreateUserPage extends BaseClass {
     }
 
     public void iTurnOffShareFile(){
-
-        try {
-            if (driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()) {
-                clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+     	try
+    	{
+    	if(driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()){
+    		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
+    	}
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
     }
 
     public void iClickPayerField() {
@@ -53,24 +53,21 @@ public class CreateUserPage extends BaseClass {
     }
     
     public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection(){
-    	
     	isElementVisible(driver.findElement(By.xpath("//label[text()='Stamford Hospital']")));
     }
     
     public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection(){
-    	
     	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
     }
 
-
-    public void iEnterNPI(String text) {
-        if ("".equals(text)) {
-            return;
-        } else {
-            iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
-        }
+    public void iEnterNPI(String text){
+    	 if ("".equals(text)){
+    		 return;
+    	}
+    	else{
+        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
+    	}
     }
-
 
     public void iEnterFirstName(String text){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
@@ -145,10 +142,6 @@ public class CreateUserPage extends BaseClass {
         isElementVisible(driver.findElement(By.cssSelector(".title>p")));
     }
 
-    public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String text) {
-        clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='" + text + "']")));
-    }
-
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text){
     	clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
     	isElementVisible(driver.findElement(By.xpath("//h1")));
@@ -199,6 +192,19 @@ public class CreateUserPage extends BaseClass {
         iFillInText(driver.findElement(By.xpath("//div[@class='table-select-search']//input")), text);
     }
 
+   public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
+	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
+		   Thread.sleep(3000);
+		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
+		   switchToNewWindow();
+		   Thread.sleep(6000);
+		   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+		   switchBacktoOldWindow();
+   	}else{
+   		return;
+   	}
+   }
+
     public void iCheckAllProviderForTheHealthSystem() {
         clickElement(driver.findElement(By.cssSelector(".checkbox")));
     }
@@ -221,7 +227,6 @@ public class CreateUserPage extends BaseClass {
 			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
 			   Thread.sleep(6000);
 			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
-			  
 	  	}else{
 	  		return;
 	  	}
@@ -230,5 +235,4 @@ public class CreateUserPage extends BaseClass {
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
 	   clickElement(driver.findElement(By.xpath("//h1[text()='Patients']")));
    }
- }
-
+}
