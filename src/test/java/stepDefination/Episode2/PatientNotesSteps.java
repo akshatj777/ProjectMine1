@@ -65,7 +65,7 @@ public class PatientNotesSteps extends DriverScript {
 	}
 
 	@Then("^I attach file on the Add Clinical Document on Note Creation$")
-	public void I_attach_file_on_the_Add_Clinical_Document_on_Note_Creation() {
+	public void I_attach_file_on_the_Add_Clinical_Document_on_Note_Creation() throws Throwable {
 		noteCreation.IattachfileontheAddClinicalDocumentonNoteCreation();
 	}
 }

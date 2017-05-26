@@ -953,10 +953,9 @@ public class PatientsPage extends BaseClass {
 	
 	public void iVerifyTextAfterSelectingFilterToExport(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
-	}NoteCreation noteCreation = new NoteCreation(driver);
+	}
 
 	public void IclickonAgreebuttonpresentontheAttestationpage() {
-		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
 	}
 	
