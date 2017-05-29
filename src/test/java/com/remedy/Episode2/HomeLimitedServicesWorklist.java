@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
+
+
 public class HomeLimitedServicesWorklist extends BaseClass {
 
 	public HomeLimitedServicesWorklist(WebDriver driver) {
@@ -53,6 +55,12 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 		  js.executeScript("arguments[0].click();", element3);
 		  clickElement(element3);		
 	}
+
+	public void Iscrolldownthepagetomaketheelementvisible() {
+		  
+		   JavascriptExecutor jse = (JavascriptExecutor)driver;
+		  jse.executeScript("window.scrollBy(0,100)", "");
+		}
 		
 	
 	

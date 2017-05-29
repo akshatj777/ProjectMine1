@@ -37,4 +37,11 @@ public class HomeLimitedServicesWorklistSteps extends DriverScript {
 	{
 		homeworklist.IselectthefacilityvalueStamfordonaddanewtransition(facility);
 	}
+   @Then ("^I scroll down the page to make the element visible$")
+	public void I_scroll_down_the_page_to_make_the_element_visible()
+	{
+		homeworklist.Iscrolldownthepagetomaketheelementvisible();
+		
+ 
+	}
 }
