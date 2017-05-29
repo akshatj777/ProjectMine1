@@ -1,3 +1,4 @@
+@sanity
 Feature: Performance claims Physician
 
   Scenario Outline: Verify that Performance claims report display data based on provisioning

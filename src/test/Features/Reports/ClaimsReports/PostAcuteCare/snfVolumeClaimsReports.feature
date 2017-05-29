@@ -1,3 +1,4 @@
+@sanity
 Feature: Snf volume claims Post Acute Care
 
   Scenario Outline: Verify that Snf volume claims report display data based on provisioning

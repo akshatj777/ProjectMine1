@@ -1,3 +1,4 @@
+@sanity
 Feature: Spending claims Physician
 
   Scenario Outline: Verify that Spending claims report display data based on provisioning

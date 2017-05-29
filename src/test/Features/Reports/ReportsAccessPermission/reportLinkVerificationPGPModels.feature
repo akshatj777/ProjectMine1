@@ -1,3 +1,4 @@
+@sanity
 Feature: User only see reports per report tiles based on their role (external and internal roles),PGP MODEL 2 facility
 
 Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for the respective reports links functionality

@@ -1,3 +1,4 @@
+@sanity
 Feature: Spending claims Overall Program
 
 Scenario Outline: Verify that Spending claims report display data based on provisioning

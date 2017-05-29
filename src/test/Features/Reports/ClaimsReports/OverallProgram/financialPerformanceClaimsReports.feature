@@ -1,3 +1,4 @@
+@sanity
 Feature: Financial Performance claims Overall Program
 
 Scenario Outline: Verify that Financial Performance claims report display data based on provisioning

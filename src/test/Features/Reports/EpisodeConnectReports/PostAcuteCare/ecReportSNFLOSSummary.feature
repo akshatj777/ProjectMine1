@@ -1,3 +1,4 @@
+@sanity
 Feature: Verification of Initial SNF Length of Stay Summary EC Report
 
   Scenario Outline: User should be able to see Level and Measures on Left Side of Initial SNF Length of Stay Summary Report

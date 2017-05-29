@@ -1,3 +1,4 @@
+@sanity
 Feature: Readmission claims
 
   Scenario Outline: Verify that Readmission claims report display data based on provisioning
