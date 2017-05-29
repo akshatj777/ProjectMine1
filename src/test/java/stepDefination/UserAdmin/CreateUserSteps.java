@@ -249,12 +249,7 @@ public class CreateUserSteps extends DriverScript{
     public void iClickOnContinueToDashboard()throws Throwable {
     	createUser.iClickOnContinueToDashboardMessage();
     }
-    
-    @And("^I click on Episodes ([^\"]*) tile under specific user login page$")
-    public void iClickOnEpisodesTileUnderSpecificUserLoginPage(String tile) throws Throwable{
-    	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage(tile);
-    }
-    
+
     @And("^I verify the header after clicking the episodes tile$")
     public void iVerifyTheHeaderAfterClickingTheEpisodesTile() throws Throwable{
     	createUser.iVerifyTheHeaderAfterClickingTheEpisodesTile();
