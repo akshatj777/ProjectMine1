@@ -8,7 +8,7 @@ import cucumber.api.java.en.Then;
 public class DischargeCarlFormSteps extends DriverScript {
 	DischargeCarlForm dischargecarlform = new DischargeCarlForm(driver);
 	
-	@Then("^I verify \"([^\"])*\" appears on Discharge section of carl form$")
+	@Then("^I verify \"([^\"]*)\" appears on Discharge section of carl form$")
 	public void I_Verify_Subtitle_Field_Appears_under_on_Discharge_section(String text) throws Throwable {
 	    dischargecarlform.IVerifySubtitleUnderDischargeSectionOnDishargeTabOfTheCarlForm(text);
 	}
@@ -73,5 +73,18 @@ public class DischargeCarlFormSteps extends DriverScript {
 	    dischargecarlform.IClickOnButtonUnderSubFormOnDischargeSectionOnCarlForm(button);
 	}
 	
+	@Then("^I enter \"([^\"]*)\" and select location in the Discharge Location search box$")
+	public void I_Enter_And_Selct_Location_In_DischargeLocation_Under_SubForm_On_Discharge_section(String text) throws Throwable {
+	    dischargecarlform.IEnterAndSelectDischargeLocationeUnderSubFormOnDischargeSectionOnCarlForm(text);
+	}
 	
+	@Then("^I click on Calendar Icon On Discharge date under subform on Discharge section$")
+	public void I_Click_On_CalendarIcon_On_DischargeDate_Under_SubForm_On_Discharge_section() throws Throwable {
+	    dischargecarlform.IClickOnCalednarIconOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
+	}    
+	
+	@Then("^I select todays Date on Calendar Discahrge Date under subform on Discharge section$")
+	public void I_Select_TodaysDate_On_Calendar_DischargeDate_Under_SubForm_On_Discharge_section() throws Throwable {
+	    dischargecarlform.ISelectTodaysDateOnCalednarOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
+	} 
 }

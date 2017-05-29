@@ -36,9 +36,18 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     Then I verify "Discharge Location" subform field under CARL Recommendation on Discharge section
     Then I verify "Discharge Date" subform field under CARL Recommendation on Discharge section
     Then I verify Done button under subform is disabled on Discharge section
-    
-    
-    #Then I verify Done button under subform is enabled on Discharge section
+    Then I click on "Care Type" subform dropdown under CARL Recommendation on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "Skilled Services" in subform dropdown for "Care Type" on Discharge section
+    And I wait for 2000 milli seconds
+  
+    Then I click on "Discharge Location" subform dropdown under CARL Recommendation on Discharge section
+    Then I enter "A Helping Hand Hha" and select location in the Discharge Location search box 
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select todays Date on Calendar Discahrge Date under subform on Discharge section
+        
+    Then I verify Done button under subform is enabled on Discharge section
     Then I verify first question "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     And I verify "Yes" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     And I verify "No" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section

@@ -1,5 +1,9 @@
 package com.remedy.Episode2;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +12,10 @@ import com.remedy.baseClass.BaseClass;
 
 public class DischargeCarlForm extends BaseClass {
 
+	public final static DateFormat df = new SimpleDateFormat("dd");
+	public final static Date timestamp = new Date();
+	public final static String time = df.format(timestamp);
+	
 	public DischargeCarlForm(WebDriver driver) {
 		super(driver);
 	}
@@ -23,7 +31,7 @@ public class DischargeCarlForm extends BaseClass {
 	}
 	
 	public void IVerifySubFormFieldUnderCARLRecommendationOnDischargeSectionOnCarlForm(String subForm) {
-		verifyTextForElementFromListByXpath("//div[p[text()='CARL Recommendation']]/following-sibling::form[@name='dischargeForm']//label[contains(text(),'"+subForm+"')]",subForm);	
+		verifyTextForElementFromListByXpath("//div[p[contains(text(),'CARL Recommendation')]]/following-sibling::form[@name='dischargeForm']//label[contains(text(),'"+subForm+"')]",subForm);	
 	}
 	
 	public void IClickOnSubFormDropDownUnderCARLRecommendationOnDischargeSectionOnCarlForm(String text) {
@@ -64,5 +72,19 @@ public class DischargeCarlForm extends BaseClass {
 	
 	public void IClickOnButtonUnderSubFormOnDischargeSectionOnCarlForm(String button) {
 		clickElement(driver.findElement(By.xpath("//div[@class='controls ng-scope']//button[text()='"+button+"']")));
+	}
+	
+	public void IClickOnCalednarIconOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm() {
+		clickElement(driver.findElement(By.xpath("//i[@class='valentino-icon-calendar']")));
+	}
+	
+	public void ISelectTodaysDateOnCalednarOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm() {
+		clickElement(driver.findElement(By.xpath("//div[text()='"+time+"']")));
+	}
+	
+	public void IEnterAndSelectDischargeLocationeUnderSubFormOnDischargeSectionOnCarlForm(String text) {
+		driver.findElement(By.xpath("html/body/div[5]/div/div/div/div[2]/form/div/div[2]/section/form[1]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div/input[1]")).sendKeys(text);
+		delay();
+		selectElementByDesc(".ng-binding.ng-scope", "A Helping Hand Hha (Wickenbury, AZ) (HHA)");
 	}
 }
