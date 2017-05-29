@@ -264,4 +264,9 @@ public class CreateUserSteps extends DriverScript{
     public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile() throws Throwable{
     	createUser.iVerifyTheHeaderAfterClickingTheEpisodes2Tile();
     }
+    
+    @And("^I turn off the lessons tile application$")
+    public void iTurnOffTheLessonsTileApplication() throws Throwable{
+    	createUser.iTurnOffTheLessonsTileApplication();
+    }
 }

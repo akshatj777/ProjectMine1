@@ -29,14 +29,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iTurnOffShareFile(){
-     	try
-    	{
-    	if(driver.findElement(By.xpath("//span[text()='Share File']")).isDisplayed()){
-    		clickElement(driver.findElement(By.xpath("//span[text()='Share File']/following-sibling::div//span[text()='Off']")));
-    	}
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
+   		clickElement(driver.findElement(By.xpath("//div/label[@for='sharefile']")));
     }
 
     public void iClickPayerField() {
@@ -49,7 +42,6 @@ public class CreateUserPage extends BaseClass{
     
     public void selectPayerFromData(String desc){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
-
     }
     
     public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection(){
@@ -121,9 +113,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickOnChangeMyPasswordLinkUnderRecievedMailContent() {
-       
         clickElement(driver.findElement(By.xpath("//a[contains(text(),'Change my password')]")));
-
     }
 
     public void iClickHealthSystemField() {
@@ -210,9 +200,8 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iclickAllAppsfortheRole() {
-        clickAllElementofAlistbyXpath("//div/label/span[2]");
+        clickAllElementofAlistbyXpath("//fieldset[2]/div[4]/div/ul/li/div/label");
     }
-
 
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
@@ -234,5 +223,9 @@ public class CreateUserPage extends BaseClass{
   
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
 	   clickElement(driver.findElement(By.xpath("//h1[text()='Patients']")));
+   }
+   
+   public void iTurnOffTheLessonsTileApplication(){
+	   clickElement(driver.findElement(By.xpath("//div/label[@for='lessons']")));
    }
 }

@@ -29,9 +29,11 @@ Feature: Create new User and verify Login logut of user
     When I enter <Provider> search text
     And I wait for 3000 milli seconds
     Then I click the select all Facilites checkbox for the provider
-    And I wait for 2000 milli seconds
+    And I wait for 6000 milli seconds
     Then I select all the application for the role
     And I turn off the share file application
+    And I turn off the lessons tile application
+    And I wait for 3000 milli seconds
     And I click on Create button
     And I wait for 10000 milli seconds
     Then I should see header text "User Management"
@@ -50,6 +52,7 @@ Feature: Create new User and verify Login logut of user
     And I wait for 10000 milli seconds
     And I click on the email received to change your password
     And I wait for 2000 milli seconds
+    And I switch to frame under received mail content
     Then I click on change my password link under recieved mail content
     And I switch to new window
     And I wait for 10000 milli seconds
@@ -107,7 +110,6 @@ Feature: Create new User and verify Login logut of user
       |            | RExe                  | Remedy Executive              | Remedy Executive              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
    
    Scenario Outline: Super Administrator can create user role Remedy Sales Team and verify login and navigation of internal support and reset password logout of created user
-    
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -139,6 +141,8 @@ Feature: Create new User and verify Login logut of user
     And I wait for 2000 milli seconds
     Then I select all the application for the role
     And I turn off the share file application
+    And I turn off the lessons tile application
+    And I wait for 3000 milli seconds
     And I click on Create button
     And I wait for 10000 milli seconds
     Then I should see header text "User Management"
@@ -157,6 +161,7 @@ Feature: Create new User and verify Login logut of user
     And I wait for 10000 milli seconds
     And I click on the email received to change your password
     And I wait for 4000 milli seconds
+    And I switch to frame under received mail content
     Then I click on change my password link under recieved mail content
     And I switch to new window
     And I wait for 10000 milli seconds
@@ -180,7 +185,7 @@ Feature: Create new User and verify Login logut of user
     Then I select Internal Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
-    And I wait for 2000 milli seconds
+    And I wait for 8000 milli seconds
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
     And I wait for 2000 milli seconds
@@ -227,6 +232,8 @@ Feature: Create new User and verify Login logut of user
     Then I click the select all Facilites checkbox for the provider
     And I wait for 2000 milli seconds
     Then I select all the application for the role
+    And I turn off the lessons tile application
+    And I wait for 3000 milli seconds
     And I click on Create button
     And I wait for 10000 milli seconds
     Then I should see header text "User Management"
@@ -275,7 +282,6 @@ Feature: Create new User and verify Login logut of user
       |            | PPExe                 | Prospective Partner Executive | Prospective Partner Executive | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU |         |              | Institute |                  |                |
       |            | TCMngr                | Transitional Case Manager     | Transitional Case Manager     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports |              | Institute |                  |                |
       
-      
     Scenario Outline: Super Administrator can create user role with Manager case manager physicians and verify login and navigation to Episodes tiles and reset password and logout of created user
     Given I am on the login page
     When I log in as super user
@@ -308,6 +314,8 @@ Feature: Create new User and verify Login logut of user
     And I wait for 2000 milli seconds
     Then I select all the application for the role
     And I turn off the share file application
+    And I turn off the lessons tile application
+    And I wait for 3000 milli seconds
     And I click on Create button
     And I wait for 10000 milli seconds
     Then I should see header text "User Management"
@@ -326,6 +334,7 @@ Feature: Create new User and verify Login logut of user
     And I wait for 10000 milli seconds
     And I click on the email received to change your password
     And I wait for 2000 milli seconds
+    And I switch to frame under received mail content
     Then I click on change my password link under recieved mail content
     And I switch to new window
     And I wait for 10000 milli seconds
@@ -399,6 +408,8 @@ Feature: Create new User and verify Login logut of user
     Then I click the select all Facilites checkbox for the provider
     And I wait for 2000 milli seconds
     Then I select all the application for the role
+    And I turn off the lessons tile application
+    And I wait for 3000 milli seconds
     And I click on Create button
     And I wait for 10000 milli seconds
     Then I should see header text "User Management"
@@ -417,6 +428,7 @@ Feature: Create new User and verify Login logut of user
     And I wait for 10000 milli seconds
     And I click on the email received to change your password
     And I wait for 2000 milli seconds
+    And I switch to frame under received mail content
     Then I click on change my password link under recieved mail content
     And I switch to new window
     And I wait for 10000 milli seconds
@@ -447,7 +459,7 @@ Feature: Create new User and verify Login logut of user
     Then I select Internal Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
-    And I wait for 6000 milli seconds
+    And I wait for 8000 milli seconds
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
     And I wait for 1000 milli seconds
