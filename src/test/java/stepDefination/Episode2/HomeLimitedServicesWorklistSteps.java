@@ -44,4 +44,11 @@ public class HomeLimitedServicesWorklistSteps extends DriverScript {
 		
  
 	}
+   
+   @Then ("I click on datepicker button to select the admit date on add a new transition on Patient Summary$")
+   public void I_click_on_datepicker_button_to_select_the_admit_date() throws Throwable
+   {
+	   homeworklist.Iclickondatepickerbuttontoselecttheadmitdate();
+   }
+   
 }

@@ -127,6 +127,7 @@ public void Iselectthedatefromthecalendarfromdatepicker(int days) {
 	
 }
 public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage() {
+	
 	clickElement(driver.findElement(By.xpath("/html/body/div[12]/div[3]/table/thead/tr[1]/th[2]")));	
 }
 public void IselectthetimefromthecalendarfromdatepickeronTransitionPage(String date) {
@@ -242,13 +243,11 @@ public void Iselectthedischargefacilityvalueonaddanewtransition(String facilityv
 public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
 	int count =getElementCount("td.settings-column.center.cursor-default > div");
 	System.out.println("The transition count is"+count);
-	for(int i=1;i<count;i++)
+	for(int i=1;i<=count;i++)
 	{
 	clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
-	System.out.println("Successfully clicked on toggle button");
 	Thread.sleep(5000);
 	clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
-	System.out.println("Successfully click on Edit button");
 	Thread.sleep(5000);
 	clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
 	Thread.sleep(10000);
@@ -264,10 +263,20 @@ public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search
 
 
 public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
-	// TODO Auto-generated method stub
+	
 	clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
 	  iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),DRG);
 	  clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+}
+
+
+public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPageJavascript() {
+	WebElement element2=driver.findElement(By.cssSelector("body > div:nth-child(17) >div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
+	/*JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("window.scrollBy(100,0)", "");*/
+	JavascriptExecutor js = (JavascriptExecutor)driver;
+	js.executeScript("arguments[0].scrollIntoView(true);", element2);
+	clickElement(element2);	
 }
 }
 

@@ -59,8 +59,14 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	public void Iscrolldownthepagetomaketheelementvisible() {
 		  
 		   JavascriptExecutor jse = (JavascriptExecutor)driver;
-		  jse.executeScript("window.scrollBy(0,100)", "");
+		  jse.executeScript("window.scrollBy(100,0)", "");
 		}
+
+	public void Iclickondatepickerbuttontoselecttheadmitdate() {
+		WebElement element=driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
+		clickElement(element);
+		
+	}
 		
 	
 	

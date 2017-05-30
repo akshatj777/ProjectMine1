@@ -73,6 +73,7 @@ public class SummarySectionSteps extends DriverScript{
     	 patientclinical.Iclickondatepickerbuttontoselecttheadmitdate();
      }
      
+     
      @Then ("^I click on the date from the datepicker on add a new transition$")
      public void I_click_on_the_date_from_the_datepicker_on_add_a_new_transition() throws Throwable
      {

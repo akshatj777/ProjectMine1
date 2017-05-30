@@ -56,9 +56,7 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     When I switch to default window from iframe
    
     
-    
-
- Examples:
+  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | ABHIS               | KUMAutomate       |  

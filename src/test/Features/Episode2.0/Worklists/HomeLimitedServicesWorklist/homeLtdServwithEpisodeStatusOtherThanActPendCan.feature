@@ -21,36 +21,36 @@ Feature: Patient has an episode status other than Active or Pending Cancellation
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 50000 milli seconds
     Then I switch to PatientTransitions frame
-    #Then I click on add a new transition to add a new episode
-    #Then I wait for 7000 milli seconds
-    #Then I click on the Transition Info on add a new transition
-    #Then I click on datepicker button to select the admit date on add a new transition
-    #Then I click on the centre of the calendar header to select date and month on Transition Page
-    #Then I click on the previous next link to select the required year "98" on date picker
-    #Then I select the month "98" from calendar from date picker 
-    #Then I select the "98" from the calendar from date picker on Transition Page
-    #Then I select the "98" time from the calendar from date picker on Transition Page
-    #Then I wait for 5000 milli seconds
-    #Then I select the care setting value "HHH - Hospital" on add a new transition
-    #Then I wait for 5000 milli seconds
-    #Then I select the care type value "Inpatient" on add a new transition
-    #Then I wait for 5000 milli seconds
-    #Then I select the facility value "Stamford Hospital" on add a new transition 
-    #Then I wait for 8000 milli seconds
-    #Then I select the "1" LOS days on Discharge date on Add Transition
-    #Then I wait for 4000 milli seconds
-    #Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    #Then I wait for 5000 milli seconds
-    #Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    #Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    #Then I wait for 5000 milli seconds
-    #Then I click on the Create Transition Button to add a new transition
-    #And I wait for 15000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "98" on date picker
+    Then I select the month "98" from calendar from date picker 
+    Then I select the "98" from the calendar from date picker on Transition Page
+    Then I select the "98" time from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Stamford Hospital" on add a new transition 
+    Then I wait for 8000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 4000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 15000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 10000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I wait for 5000 milli seconds
-    Then I scroll down the page to make the element visible
+   
     Then I wait for 5000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page

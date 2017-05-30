@@ -104,6 +104,12 @@ public class Model2ReadmissionSteps extends DriverScript {
  	 {
     	  admission.IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage();
  	 }
+     
+     @Then ("^I click on the centre of the calendar header to select date and month on Transition Page Javascript$")
+   	 public void I_click_on_the_centre_of_the_calendar_header_to_select_date_and_month_Javascript()
+   	 {
+      	  admission.IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPageJavascript();
+   	 }
       
      @Then ("^I select the \"(.*)\" from the calendar from date picker on Transition Page$")
  	 public void I_select_the_date_from_the_calendar_from_date_picker_on_Transition_Page(int days)
