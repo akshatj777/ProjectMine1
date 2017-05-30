@@ -30,15 +30,19 @@ public class DischargeCarlForm extends BaseClass {
 		Assert.assertTrue(value);
 	}
 	
-	public void IVerifySubFormFieldUnderCARLRecommendationOnDischargeSectionOnCarlForm(String subForm) {
-		verifyTextForElementFromListByXpath("//div[p[contains(text(),'CARL Recommendation')]]/following-sibling::form[@name='dischargeForm']//label[contains(text(),'"+subForm+"')]",subForm);	
+	public void IVerifySubFormFieldUnderRecommendationOnDischargeSectionOnCarlForm(String subForm) {
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[contains(text(),'"+subForm+"')]")));	
 	}
 	
-	public void IClickOnSubFormDropDownUnderCARLRecommendationOnDischargeSectionOnCarlForm(String text) {
+	public void IVerifySubFormFieldNotAppearingUnderRecommendationOnDischargeSectionOnCarlForm(String subForm) {
+		Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[contains(text(),'"+subForm+"')]")));	
+	}
+	
+	public void IClickOnSubFormDropDownUnderRecommendationOnDischargeSectionOnCarlForm(String text) {
 		clickElement(driver.findElement(By.xpath("//label[text()='"+text+"']/preceding-sibling::div")));
 	}
 	
-	public void ISelectOptionFromSubFormDropDownUnderCARLRecommendationOnDischargeSectionOnCarlForm(String dropdown, String subForm) {
+	public void ISelectOptionFromSubFormDropDownUnderRecommendationOnDischargeSectionOnCarlForm(String dropdown, String subForm) {
 		clickElement(driver.findElement(By.xpath("//label[text()='"+subForm+"']/preceding-sibling::div//div[text()='"+dropdown+"']")));
 	}
 	
@@ -56,6 +60,10 @@ public class DischargeCarlForm extends BaseClass {
 	
 	public void IVerifyRadioOptionForFirstQuestionUnderDischargeSectionOnCarlForm(String radio, String text) {
 		isElementPresentOnPage(By.xpath("//strong[text()='"+text+"']/parent::form//div[@class='radio ng-not-empty ng-valid']//span[text()='"+radio+"']"));
+	}
+	
+	public void IVerifyAdditionalCommentsSectionUnderDischargeOnCarlForm() {
+		isElementPresentOnPage(By.xpath("//label[text()='Additional Comments']/preceding-sibling::div//textarea"));
 	}
 	
 	public void IVerifySecondQuestionUnderDischargeSectionOnCarlForm(String text) {
@@ -79,12 +87,14 @@ public class DischargeCarlForm extends BaseClass {
 	}
 	
 	public void ISelectTodaysDateOnCalednarOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm() {
-		clickElement(driver.findElement(By.xpath("//div[text()='"+time+"']")));
+		clickElement(driver.findElement(By.xpath("//td[@class='day ng-scope']//div[text()='"+time+"']")));
 	}
 	
 	public void IEnterAndSelectDischargeLocationeUnderSubFormOnDischargeSectionOnCarlForm(String text) {
-		driver.findElement(By.xpath("html/body/div[5]/div/div/div/div[2]/form/div/div[2]/section/form[1]/div[1]/div/div[1]/div[1]/div[2]/div[2]/div/input[1]")).sendKeys(text);
+		driver.findElement(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']")).sendKeys(text);
 		delay();
 		selectElementByDesc(".ng-binding.ng-scope", "A Helping Hand Hha (Wickenbury, AZ) (HHA)");
 	}
+	
+	
 }

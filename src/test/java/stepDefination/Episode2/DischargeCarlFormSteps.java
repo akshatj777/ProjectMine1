@@ -18,19 +18,25 @@ public class DischargeCarlFormSteps extends DriverScript {
 	    dischargecarlform.IVerifyRecommendationUnderDischargeSectionOnDishargeTabOfTheCarlForm(text);
 	}
 
-	@Then("^I verify \"([^\"]*)\" subform field under CARL Recommendation on Discharge section$")
-	public void I_Verify_SUbform_Field_Under_CARL_Recommendation_On_Discharge_Section(String subForm) throws Throwable {
-		dischargecarlform.IVerifySubFormFieldUnderCARLRecommendationOnDischargeSectionOnCarlForm(subForm);	
+	@Then("^I verify \"([^\"]*)\" subform field under Recommendation on Discharge section$")
+	public void I_Verify_SUbform_Field_Under_Recommendation_On_Discharge_Section(String subForm) throws Throwable {
+		dischargecarlform.IVerifySubFormFieldUnderRecommendationOnDischargeSectionOnCarlForm(subForm);	
+	}
+	
+	@Then("^I verify Additional Comments section under Discharge on Carl form$")
+	public void I_Verify__AdditionalComments_Under_DischargeSection() throws Throwable {
+		dischargecarlform.IVerifyAdditionalCommentsSectionUnderDischargeOnCarlForm();	
 	}
 
-	@Then("^I click on \"([^\"]*)\" subform dropdown under CARL Recommendation on Discharge section$")
-	public void I_Click_On_Subform_Dropdown_Under_CARL_Recommendation_On_Discharge_Section(String text) throws Throwable {
-		dischargecarlform.IClickOnSubFormDropDownUnderCARLRecommendationOnDischargeSectionOnCarlForm(text);	
+
+	@Then("^I click on \"([^\"]*)\" subform dropdown under Recommendation on Discharge section$")
+	public void I_Click_On_Subform_Dropdown_Under_Recommendation_On_Discharge_Section(String text) throws Throwable {
+		dischargecarlform.IClickOnSubFormDropDownUnderRecommendationOnDischargeSectionOnCarlForm(text);	
 	}
 
 	@Then("^I select \"([^\"]*)\" in subform dropdown for \"([^\"]*)\" on Discharge section$")
-	public void I_Select_Option_In_Subform_Dropdown_For_On_Discharge_Section(String dropdown, String subForm) throws Throwable {
-	    dischargecarlform.ISelectOptionFromSubFormDropDownUnderCARLRecommendationOnDischargeSectionOnCarlForm(dropdown, subForm);
+	public void I_Select_Option_From_Subform_Dropdown_Under_Recommendation_On_Discharge_Section(String dropdown, String subForm) throws Throwable {
+	    dischargecarlform.ISelectOptionFromSubFormDropDownUnderRecommendationOnDischargeSectionOnCarlForm(dropdown, subForm);
 	}
 	
 	@Then("^I verify Done button under subform is disabled on Discharge section$")
@@ -87,4 +93,9 @@ public class DischargeCarlFormSteps extends DriverScript {
 	public void I_Select_TodaysDate_On_Calendar_DischargeDate_Under_SubForm_On_Discharge_section() throws Throwable {
 	    dischargecarlform.ISelectTodaysDateOnCalednarOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
 	} 
+	
+	@Then("^I verify \"([^\"]*)\" subform field is not appearing under Recommendation on Discharge section$")
+	public void I_Verify_Subform_Field_Is_Not_Appearing_Under_Recommendation_On_Discharge_Section(String subForm) throws Throwable {
+		dischargecarlform.IVerifySubFormFieldNotAppearingUnderRecommendationOnDischargeSectionOnCarlForm(subForm);	
+	}
 }
