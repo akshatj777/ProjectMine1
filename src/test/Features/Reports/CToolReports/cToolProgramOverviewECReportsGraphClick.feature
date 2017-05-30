@@ -1,3 +1,4 @@
+@sanity
 Feature: Clicking on Program Overview report graphs for EPisode Connect reports
 
 Scenario Outline: User should be able to click on program overview episode connect reports graphs under post acute utilization

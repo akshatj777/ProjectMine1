@@ -1,5 +1,6 @@
 Feature: CTool Report Links Verification
 
+@sanity
 Scenario Outline: User should not see program overview under dashboard for OPSNOFIN,OPSPEND and ECREPORTS Roles for ACH and PGP Provider Type
 
     Given I am on the login page
@@ -23,7 +24,8 @@ Scenario Outline: User should not see program overview under dashboard for OPSNO
       | shutestaug221150a@yopmail.com | Dashboard  |
       | shutestaug221145a@yopmail.com | Dashboard  |
       | shutestjul26415@yopmail.com   | Dashboard  |
-      
+ 
+@sanity         
 Scenario Outline: User should see Program Overview under Dashboard and verify sanity for program overview reports for RPFIN,RPFNOFIN and OPSFIN Roles with ACH Provider Type
     
     Given I am on the login page
