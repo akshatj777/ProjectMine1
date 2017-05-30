@@ -228,4 +228,16 @@ public class CreateUserPage extends BaseClass{
    public void iTurnOffTheLessonsTileApplication(){
 	   clickElement(driver.findElement(By.xpath("//div/label[@for='lessons']")));
    }
+   
+   public void iClickOnInstituteTileUnderSpecificUserLoginPage(String text){
+	  clickElement(driver.findElement(By.xpath("//p[text()='Institute']")));
+   }
+   
+   public void iClickOnReportsTileUnderSpecificUserLoginPage(String text){
+	  clickElement(driver.findElement(By.xpath("//p[text()='Reports']")));
+   }
+   
+   public void iNavigateBackToSpecificUserLoginPage(){
+	   driver.navigate().back();
+   }
 }

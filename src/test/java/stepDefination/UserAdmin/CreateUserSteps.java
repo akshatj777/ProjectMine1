@@ -269,4 +269,19 @@ public class CreateUserSteps extends DriverScript{
     public void iTurnOffTheLessonsTileApplication() throws Throwable{
     	createUser.iTurnOffTheLessonsTileApplication();
     }
+    
+    @And("^I click on Institute tile under specific user login page ([^\"]*)$")
+    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile);
+    }
+    
+    @And("^I click on Reports tile under specific user login page ([^\"]*)$")
+    public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile);
+    }
+    
+    @And("^I navigate back to specific user login page$")
+    public void iNavigateBackToSpecificUserLoginPage() throws Throwable{
+    	createUser.iNavigateBackToSpecificUserLoginPage();
+    }
 }
