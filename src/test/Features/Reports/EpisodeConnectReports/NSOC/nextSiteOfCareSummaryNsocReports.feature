@@ -1,3 +1,4 @@
+@sanity
 Feature: Nsoc next site of care summary
 
   Scenario Outline: Verify that Next site of care summary report display data based on provisioning

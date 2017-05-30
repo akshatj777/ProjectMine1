@@ -1,5 +1,6 @@
 Feature: Global Filters Verification for Multiple Scenarios
 
+@sanity
 Scenario Outline: User should see multiple filters selected in report should redirect in other reports when selected more than 3 filters
 
     Given I am on the login page
@@ -126,7 +127,8 @@ Scenario Outline: User should see multiple filters selected in report should red
        
       | email                         | Menu 1          | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                | anchor facility2                 | anchor facility3                               | participantid1 | bpid1    | ccn1   | bpid2    | ccn2   |
       | shutestaug231132a@yopmail.com | Dashboards      | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of Univ Of Pennsylvania| Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | 441348         | 2070-021 | 390223 | 2070-020 | 390111 |
-          
+
+@sanity          
 Scenario Outline: User should remove the selected global filter using X mark and that should be reflected in other reports
 
     Given I am on the login page
@@ -333,6 +335,7 @@ Scenario Outline: User should be able to search for one field on global filters
       | email                         | Menu 1     | participant1 |
       | shutestaug231132a@yopmail.com | Dashboards | Penn         |
 
+@sanity
 Scenario Outline: User should be able to search for multiple fields on global filters
 
     Given I am on the login page

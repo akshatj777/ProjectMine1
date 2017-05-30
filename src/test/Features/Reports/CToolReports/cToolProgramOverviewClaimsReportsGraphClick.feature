@@ -1,3 +1,4 @@
+@sanity
 Feature: Clicking on Program Overview report graphs for claims reports
 
 Scenario Outline: User should be able to click on program overview claims reports graphs under overall program

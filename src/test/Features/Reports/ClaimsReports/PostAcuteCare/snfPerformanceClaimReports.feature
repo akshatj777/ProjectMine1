@@ -1,3 +1,4 @@
+@sanity
 Feature: SNF Performance claims post acute care
 
   Scenario Outline: Verify that SNF Performance claims report display data based on provisioning

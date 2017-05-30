@@ -82,7 +82,7 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
+     
 Scenario Outline: User should remove the existing default filters
 
     Given I am on the login page

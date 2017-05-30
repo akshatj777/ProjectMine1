@@ -1,6 +1,7 @@
+@sanity
 Feature: Volume claims Physician
 
-  Scenario Outline: Verify that Volume claims report display data based on provisioning
+Scenario Outline: Verify that Volume claims report display data based on provisioning
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

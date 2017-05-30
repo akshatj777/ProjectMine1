@@ -1,3 +1,4 @@
+@sanity
 Feature: Inpatient Episode Clearing Patient ID
 
 Scenario Outline: Verify that Inpatient Episode Clearing report display data based on provisioning

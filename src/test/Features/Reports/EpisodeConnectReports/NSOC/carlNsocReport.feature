@@ -1,3 +1,4 @@
+@sanity
 Feature: Next site of care Carl
 
   Scenario Outline: Verify that Next site of care report display data based on provisioning

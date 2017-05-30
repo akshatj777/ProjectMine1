@@ -1,3 +1,4 @@
+@sanity
 Feature: Episode DRG Issues Under patient id
 
 Scenario Outline: Verify that Episode drg issues report display data based on provisioning

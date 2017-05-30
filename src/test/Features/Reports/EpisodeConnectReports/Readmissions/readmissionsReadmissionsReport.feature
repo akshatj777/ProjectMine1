@@ -1,3 +1,4 @@
+@sanity
 Feature: Readmissions readmisisons
 
   Scenario Outline: Verify that readmissions with readmissions report display data based on provisioning

@@ -1,3 +1,4 @@
+@sanity
 Feature: Post acute care claims 
 
   Scenario Outline: Verify that Post acute care claims report display data based on provisioning

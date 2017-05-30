@@ -1,3 +1,4 @@
+@sanity
 Feature: Global Filter Verification After Update
 
 Scenario Outline: User Should be able to see updated global filters in all reports

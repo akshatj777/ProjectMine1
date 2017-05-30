@@ -1,3 +1,4 @@
+@sanity
 Feature: Initial SNF Length of Stay Summary Post Acute Care
 
   Scenario Outline: Verify that Initial SNF Length of Stay Summary report display data based on provisioning
