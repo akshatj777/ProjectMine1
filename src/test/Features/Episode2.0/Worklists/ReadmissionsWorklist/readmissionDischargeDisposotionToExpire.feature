@@ -67,22 +67,23 @@
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<days1>" on date picker
-    Then I select the month "<days1>" from calendar from date picker 
-    Then I select the "<days1>" from the calendar from date picker on Transition Page
-    Then I select the "<days1>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "20" on date picker
+    Then I select the month "20" from calendar from date picker 
+    Then I select the "20" from the calendar from date picker on Transition Page
+    Then I select the "20" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "<CareSettingValue>" on add a new transition
+    Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the care type value "<Care type>" on add a new transition
+    Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "<facility value>" on add a new transition
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I wait for 12000 milli seconds
     Then I wait for 8000 milli seconds
-    Then I select the "<LOS>" LOS days on Discharge date on Add Transition
+    Then I select the "4" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
-    Then I select the "<DRG type>" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "<DRG>" DRG on the Diagnosis and DRG tab on add a new transition
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
@@ -91,20 +92,20 @@
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-     Then I click on the previous next link to select the required year "<days2>" on date picker
-    Then I select the month "<days2>" from calendar from date picker 
-    Then I select the "<days2>" from the calendar from date picker on Transition Page
-    Then I select the "<days2>" time from the calendar from date picker on Transition Page
+     Then I click on the previous next link to select the required year "18" on date picker
+    Then I select the month "18" from calendar from date picker 
+    Then I select the "18" from the calendar from date picker on Transition Page
+    Then I select the "18" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "<CareSettingValue>" on add a new transition
+     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the care type value "<Care type>" on add a new transition
+    Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "<facility value>" on add a new transition
+    Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 8000 milli seconds
-    Then I select the "<LOS2>" LOS days on Discharge date on Add Transition
-    Then I select the Discharge care setting value "<Discharge CareSettingValue>" on add a new transition
-    Then I select the Discharge care type value "<Discharge CareTypeValue>" on add a new transition
+    Then I select the "4" LOS days on Discharge date on Add Transition
+    Then I select the Discharge care setting value "EXPIRED - Expired" on add a new transition
+    Then I select the Discharge care type value " Expired as Inpatient" on add a new transition
      Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     Then I wait for 8000 milli seconds
@@ -131,8 +132,8 @@
     
  Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name | CareSettingValue  | Care type | facility value     | LOS | DRG type  | DRG | Admitdate             |  Dischargedate          | AdmitDate2             | new facility value       |  LOS2   | Discharge CareSettingValue | Discharge CareTypeValue | days1 | days2 |
-      | qa.admin@yopmail.com | Episode1! | ABHIS               | KUMAutomate       |   HHH - Hospital  | Inpatient | Stamford Hospital  | 4   | Working   | 65  | 1/5/2017//14:00-14:30 | 5/5/2017//14:00-14:30   | 3/5/2017//14:00-14:30  | Allentown                |  4      |   EXPIRED - Expired        | Expired as Inpatient    |  20   |  18   |                            
+      | email                | password  | Patient First Name  | Patient Last Name | 
+      | qa.admin@yopmail.com | Episode1! | ABHIS               | KUMAutomate       |                        
       
 
 

@@ -1,17 +1,16 @@
 package stepDefination.Episode2;
 
-import com.remedy.Episode2.Readmission;
+
+import com.remedy.Episode2.PatientReadmission;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.Then;
 
-public class Model2ReadmissionSteps extends DriverScript {
+public class ReadmissionWorklistSteps extends DriverScript {
 
-	Readmission admission=new Readmission(driver);
+	PatientReadmission admission=new PatientReadmission(driver);
 	
-
-	 
-	@Then ("^I select the care setting value \"([^\"]*)\" on add a new transition$")
+    @Then ("^I select the care setting value \"([^\"]*)\" on add a new transition$")
     public void I_select_the_care_setting_value_on_add_a_new_transition(String caresetting) throws Throwable
     {
      admission.Iselectthecaresettingvalueonaddanewtransition(caresetting);
@@ -127,7 +126,7 @@ public class Model2ReadmissionSteps extends DriverScript {
      @Then ("^I verify the \"([^\"]*)\" patient present on the Patient Card Page$")
      public void I_verify_the_patient_present_on_the_Patient_Card_Page(String last_name)
      {
-   	  admission. IverifythepatientpresentonthePatientCardPage(last_name);
+   	  admission.IverifythepatientpresentonthePatientCardPage(last_name);
      }
      
      @Then ("^I verify the \"([^\"]*)\" patient not present on the Patient Card Page$")     
