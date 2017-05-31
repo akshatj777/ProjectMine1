@@ -1,18 +1,8 @@
 package stepDefination.Episode2;
 
 import java.awt.AWTException;
-import java.io.File;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
 import com.remedy.Episode2.NoteCreation;
-import com.remedy.Episode2.PatientsPage;
-
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
