@@ -125,8 +125,13 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAnchorDischargeFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
     }
 
-    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Discharge Facilty$")
+    @When("^I type ([^\"]*) in the search field to search the Anchor Discharge Facility$")
     public void i_type_in_the_search_field_to_search_the_Anchor_Discharge_Facilty(String Facility) throws Throwable {
+        patientsPage.iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(Facility);
+    }
+    
+    @When("^I type ([^\"]*) in the search field to search the Current Facility$")
+    public void i_type_in_the_search_field_to_search_the_current_Facilty(String Facility) throws Throwable {
         patientsPage.iTypeInTheSearchFieldToSearchTheAnchorDischargeFacilty(Facility);
     }
 
@@ -145,7 +150,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAnchorFacilityDropdownToSelectTheFaciltyOnTheFilterPage();
     }
 
-    @When("^I type \"([^\"]*)\" in the search field to search the Anchor Facility$")
+    @When("^I type ([^\"]*) in the search field to search the Anchor Facility$")
     public void i_type_in_the_search_field_to_search_the_Anchor_Facilty(String facility) throws Throwable {
         patientsPage.iTypeInTheSearchFieldToSearchTheAnchorFacilty(facility);
     }
@@ -479,9 +484,19 @@ public class PatientsPageSteps extends DriverScript {
     public void i_select_RESPIRATORY_INFECTIONS_INFLAMATIONS_from_the_DRG_list_present_on_the_patient_overview_page() throws Throwable {
         patientsPage.iSelectRespiratoryInfectionsInflationsFromTheDRGListPresentOnThePatientOverviewPage();
     }
+    
+    @Then("^I select MAJOR JOINT REPLACE OR REATTACH OF LOWER EXTRE from the DRG list present on the patient overview page$")
+    public void i_select_MAJOR_JOINT_REPLACE_OR_REATTACH_OF_LOWER_EXTRE_from_the_DRG_list_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iSelectMajorJointReplaceOrReattachOfLowerExtreFromTheDRGListPresentOnThePatientOverviewPage();
+    }
 
     @Then("^I click on Update Transition button present on the patient overview page$")
     public void i_click_on_Update_Transition_button_present_on_the_patient_overview_page() throws Throwable {
+        patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
+    }
+    
+    @Then("^I click on Create Transition button present on the patient overview page$")
+    public void i_click_on_Create_Transition_button_present_on_the_patient_overview_page() throws Throwable {
         patientsPage.iClickOnUpdateTransitionButtonPresentOnThePatientOverviewPage();
     }
 
@@ -500,7 +515,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnSelectAllCheckboxPresentOnThePatientPage();
     }
 
-    @When("^I click on Export button present on the Patient Page to export the Patient List$")
+    @When("^I click on Export button present on export drawer box to export the Patient List$")
     public void i_click_on_Export_button_present_on_the_Patient_Page_to_export_the_Patient_List() throws Throwable {
         patientsPage.iClickOnExportButtonPresentOnThePatientPagetoExportThePatientList();
     }
@@ -638,7 +653,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnAdmitReasonFilterPresentOnFilterPage();
     }
 
-    @When("^I type \"([^\"]*)\" in the search field on patients page$")
+    @When("^I type ([^\"]*) in the search field on patients page$")
     public void i_type_in_the_search_field_on_patients_page(String admitReason) throws Throwable {
         patientsPage.i_type_in_the_search_field_on_patients_page(admitReason);
     }
@@ -668,9 +683,9 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnCooperationMetricFilterPresentOnTheFilterPage();
     }
 
-    @When("^I Click on Not assigned checkbox under Cooperation Metric present on the Filter Page$")
-    public void i_Click_on_Not_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page() throws Throwable {
-        patientsPage.iClickOnNotAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage();
+    @When("^I Click on \"([^\"]*)\" checkbox under Cooperation Metric present on the Filter Page$")
+    public void i_Click_on_assigned_checkbox_under_Cooperation_Metric_present_on_the_Filter_Page(String text) throws Throwable {
+        patientsPage.iClickOnAssignedCheckboxUnderCooperationMetricPresentOnTheFilterPage(text);
     }
 
     @When("^I click on Current Facility Filter present on Filter Page$")
@@ -737,6 +752,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_Select_from_the_list_of_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
         patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
     }
+    
+    @When("^I Select \"([^\"]*)\" from the admitting facility present on the Add Patient page$")
+    public void i_Select_from_the_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
+        patientsPage.iSelectFromTheAdmittingFacilityPresentOnTheAddPatientPage(facility);
+    }
 
     @When("^I enter \"([^\"]*)\" in the Medicare ID present on the Add Patient page$")
     public void i_enter_in_the_Medicare_ID_present_on_the_Add_Patient_page(String medicareID) throws Throwable {
@@ -770,10 +790,9 @@ public class PatientsPageSteps extends DriverScript {
 
     @When("^I click on Agree button present on the Attestation page$")
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
-        // open bug
-        // throw new PendingException();
-    	 patientsPage.IclickonAgreebuttonpresentontheAttestationpage();
-    }
+
+       	 patientsPage.IclickonAgreebuttonpresentontheAttestationpage();
+ 	}
 
     @And("^I switch to Add Patient embedded iframe$")
     public void iSwitchToAddPatientEmbeddedIframe() throws Throwable {
@@ -845,7 +864,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnEpisodeStatusFilterPresentOnFilterPage();
     }
 
-    @Then("^I click on episode status checkbox under filter option$")
+    @Then("^I click on active checkbox under episode status filter option$")
     public void i_click_on_episode_status_checkbox_under_filter_option() throws Throwable {
         patientsPage.iClickOnEpisodeStatusCheckboxUnderFilterOption();
     }
@@ -860,7 +879,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnFirstNameFilterPresentOnFilterPage();
     }
 
-    @Then("^I enter \"([^\"]*)\" under first name filter$")
+    @Then("^I enter ([^\"]*) under first name filter$")
     public void i_enter_under_first_name_filter(String patient) throws Throwable {
         patientsPage.iEnterUnderFirstNameFilter(patient);
     }
@@ -890,7 +909,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnInpatientLocationFilterPresentOnFilterPage();
     }
 
-    @When("^I enter \"([^\"]*)\" under inpatient location filter$")
+    @When("^I enter ([^\"]*) under inpatient location filter$")
     public void i_enter_under_inpatient_location_Filter(String text) throws Throwable {
         patientsPage.iEnterUnderInpatientLocationFilter(text);
     }
@@ -915,7 +934,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnMedicareidFilter();
     }
 
-    @Then("^I enter \"([^\"]*)\" under medicareid filter$")
+    @Then("^I enter ([^\"]*) under medicareid filter$")
     public void i_enter_under_medicareid_filter(String medicareid) throws Throwable {
         patientsPage.iEnterUnderMedicareidFilter(medicareid);
     }
@@ -925,7 +944,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnPayerFilter();
     }
 
-    @Then("^I enter \"([^\"]*)\" under payer filter$")
+    @Then("^I enter ([^\"]*) under payer filter$")
     public void i_enter_under_payer_filter(String payer) throws Throwable {
         patientsPage.iEnterUnderPayerFilter(payer);
     }
@@ -945,7 +964,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnReadmissionCountFilter();
     }
 
-    @Then("^I enter from \"([^\"]*)\" to \"([^\"]*)\" under readmission filter$")
+    @Then("^I enter from ([^\"]*) to ([^\"]*) under readmission filter$")
     public void i_enter_from_to_under_readmission_filter(String arg1, String arg2) throws Throwable {
         patientsPage.iEnterFromToUnderReadmissionFilter(arg1, arg2);
     }
@@ -965,7 +984,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iClickOnSSNFilter();
     }
 
-    @Then("^I enter \"([^\"]*)\" under ssn filter$")
+    @Then("^I enter ([^\"]*) under ssn filter$")
     public void i_enter_under_ssn_filter(String ssn) throws Throwable {
         patientsPage.iEnterUnderSSNFilter(ssn);
     }
@@ -1225,5 +1244,305 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I verify \"([^\"]*)\" message is appearing after selecting the filter to export$")
     public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Admit Reason$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Admit_Reason(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Admit Reason: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Anchor Discharge Facility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_anchor_discharge_facility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Anchor Discharge Facility: "+text+" (STAMFORD, CT) (OTHER)");
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Anchor Facility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_anchor_facility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Anchor Facility: "+text+" - Stamford (STAMFORD, CT) (HHH)");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Care Plan$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_care_plan(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Care Plan: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for care setting$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_care_setting(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Care Setting: (Hospital) "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Cooperation Metrics$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_cooperation_metrics(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Cooperation Metrics: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Current Facility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_current_facility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Current Facility: "+text+" (STAMFORD, CT) (OTHER)");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Daily Report$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_daily_report(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Daily Report: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Date Range$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_date_range(String text) throws Throwable{
+    	patientsPage.iSeeSelectedFilterText(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for DRG Type$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_drg_type(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("DRG Type: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Eligibility$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_eligibility(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Eligibility: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Episode DRG$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_episode_drg(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Episode DRG: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Episode Status$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_episode_status(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Episode Status: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for First Name$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_First_Name(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("First Name: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Gender$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_gender(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Gender: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Initiator$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_initiator(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Initiator: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Inpatient Location$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_inpatient_location(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Inpatient Location: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Last Name$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Last_Name(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Last Name: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Medicare ID$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_medicare_id(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Medicare ID: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Payer$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_payer(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Payer: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Quality Metrics$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_quality_metrics(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Quality Metrics: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for Readmission Count$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_readmission_count(String arg1) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Readmission Count: "+arg1);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Risk Assessment$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_risk_assessment(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Risk Assessment: "+text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing under selected filters for SSN$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_ssn(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("SSN: "+text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected filters for Tags$")
+    public void i_verify_filter_is_appearing_under_selected_filters_for_selected_filters_for_tags(String text) throws Throwable{
+    	patientsPage.iVerifySelectedFilterText("Tags: "+text);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" button appearing on the patient card after applying filter$")
+    public void i_click_agree_button_on_patient_card_after_applying_filter(String button) throws Throwable{
+    	patientsPage.iClickOnAgreeAfterApplyingFilter(button);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on patient card on patient home page$")
+    public void i_verify_admit_reason_is_appearing_on_patient_card_on_patient_home_page(String admitreason) throws Throwable{
+    	patientsPage.iSeeAdmitReasonFilterOnPatientCard(admitreason);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page of patient$")
+    public void i_verify_admit_reason_is_appearing_on_the_patient_summary_page_of_patient(String admitreason) throws Throwable{
+    	patientsPage.iSeeAdmitReasonFilterOnPatientSummaryPage(admitreason);
+    }
+    
+    @Then("^I Verify \"([^\"]*)\" value is containing \"([^\"]*)\" under patient summary page$")
+    public void i_verify_anchor_facility_value_is_containing_under_patient_summary_page(String text,String facility) throws Throwable{
+    	patientsPage.iVerifyAnchorFacilityFilterOnPatientSummary(text, facility);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on patient card under \"([^\"]*)\" on patient home page$")
+    public void i_verify_is_appearing_on_patient_card_under_on_patient_home_page(String text,String facility) throws Throwable{
+    	patientsPage.IVerifyAnchorFaciltyOnPatientCard(text, facility);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" tab appearing under patient summary page to verify care plan created$")
+    public void i_click_on_tab_appearing_under_patient_summary_page_to_verify_care_paln_created(String careplan) throws Throwable{
+    	patientsPage.IClickOnCarePlanOnPatientSummary(careplan);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" tab appearing under patient summary page to verify medicareid$")
+    public void i_click_on_tab_appearing_under_patient_summary_page_to_verify_medicareid(String medicareid) throws Throwable{
+    	patientsPage.IClickOnPatientDetailsOnPatientSummary(medicareid);
+    }
+    
+    @Then("^I verify care plan is appearing inside care plan tab on patient summary page$")
+    public void i_verify_care_plan_is_appearing_inside_care_plan_tab_on_patient_summary_page() throws Throwable{
+    	patientsPage.iVerifyCarePlanOnPatientSummary();
+    }
+    
+    @Then("^I switch to ec2 patient summary iframe$")
+    public void i_switch_to_ec2_patient_summary_careplan_iframe() throws Throwable{
+    	patientsPage.iSwitchtoEc2PatientSummaryCarePlan("//iframe[@class='not-showing ng-scope']");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under admit type column under patient summary transitions$")
+    public void i_verify_is_appearing_under_admit_type_column_under_patient_summary_transitions(String text) throws Throwable{
+    	patientsPage.iVerifyInpatientForCareSeting(text);
+    }
+    
+    @Then("^I click on forms tab under careplan on patient summary page$")
+    public void i_click_on_forms_tab_under_careplan_on_patient_summary_page() throws Throwable{
+    	patientsPage.iClickOnFormsUnderCarePlan();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in forms under careplan on patient summary page$")
+    public void i_verify_is_appearing_in_forms_under_careplan_on_patient_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyassignedInFormsUnderCarePlan(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under facility column under patient summary transitions$")
+    public void i_verify_is_appearing_under_facility_column_under_patient_summary_transitions(String facility) throws Throwable{
+    	patientsPage.iVerifyFacilityColumnUnderTransitions(facility);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under drg status column under transitions on patient summary page$")
+    public void i_verify_is_appearing_under_drg_status_column_under_transitions_on_patient_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyDrgStatusInPatientSummary(text);
+    }
+    
+    @When("^I switch to iframe of patient eligibility on patient summary page$")
+    public void i_switch_to_iframe_of_patient_eligibility_on_patient_summary_page() throws Throwable{
+    	patientsPage.iSwitchtoEligibilityFrameOnPatuentSummaryPage("//iframe[@id='iFrameEC2PatientEligibility']");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in eligibility dropdown on patient summary page$")
+    public void i_verify_is_appearing_in_eligibility_dropdown_on_patient_summary_page(String eligibility) throws Throwable{
+    	patientsPage.iVerifyEligibilityStatusOnPatientSummary(eligibility);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under episode drg column under transitions on patient summary page$")
+    public void i_verify_is_appearing_under_episode_drg_column_under_transitions_on_patienT_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyTextEpisodeDrgOnPatientSummaryPage(text);
+    }
+    
+    @Then("^I search with ([^\"]*) in the episode drg searchbox$")
+    public void i_search_with_in_the_episode_drg_searchbox(String drgid) throws Throwable{
+    	patientsPage.iSearchWithDrgIdInEpisodeDrg(drgid);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient cards on the patient list page$")
+    public void i_verify_firstname_is_appearing_on_the_patient_cards_on_the_patient_list_page(String firstname) throws Throwable{
+    	patientsPage.iVerifyFirstNameOnPatientCardsOnPatientListPage(firstname);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient cards on the patient list page for lastname$")
+    public void i_verify_lastname_is_appearing_on_the_patient_cards_on_the_patient_list_page(String lastname) throws Throwable{
+    	patientsPage.iVerifyLastNameOnPatientCardsOnPatientListPage(lastname);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page$")
+    public void i_verify_is_appearing_on_the_patient_summary_page(String fname) throws Throwable{
+    	patientsPage.iVerifyFirstNameOnPatientSummaryPage(", "+fname);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page for lastname$")
+    public void i_verify_lastname_is_appearing_on_the_patient_summary_page(String lname) throws Throwable{
+    	patientsPage.iVerifyLastNameOnPatientSummaryPage(lname);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the patient cards on the patients home page$")
+    public void i_verify_is_appearing_on_the_patient_cards_on_the_patients_home_page(String gender) throws Throwable{
+    	patientsPage.iVerifyGenderOnPatientCards(gender);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the patient summary page$")
+    public void i_verify_gender_is_appearing_on_the_patient_summary_page(String gender) throws Throwable{
+    	patientsPage.iVerifyGenderOnPatientSumamry(gender);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under initiator on the patient summary page$")
+    public void i_verify_is_appearing_under_initiator_on_the_patient_summary_page(String initiator) throws Throwable{
+    	patientsPage.iVerifyInitiatorOnPatientSummary(initiator);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" initiator is appearing on the patient card on patient list home page$")
+    public void i_verify_initiator_is_appearing_on_the_patient_card_on_patient_list_home_page(String initiator) throws Throwable{
+    	patientsPage.iVerifyInitiatorOnPatientCard(initiator);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page to verify medicareid$")
+    public void i_verify_is_appearing_on_the_patient_summary_page_to_verify_medicareid(String memberid) throws Throwable{
+    	patientsPage.iVerifyMemberIdOnPatientSummaryPage(memberid);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page to verify ssn$")
+    public void i_verify_is_appearing_on_the_patient_summary_page_to_verify_ssn(String ssn) throws Throwable{
+    	patientsPage.iVerifySsnOnPatientSummaryPage(ssn);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient card readmission count$")
+    public void i_verify_is_appearing_on_the_patient_card_readmission_count(String count) throws Throwable{
+    	patientsPage.iVerifyReadmissionCountOnPatientCard(count);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" label is appearing on the patient card beside readmission count$")
+    public void i_verify_label_is_appearing_on_the_patient_card_beside_readmission_count(String text) throws Throwable{
+    	patientsPage.iVerifyReadmissionTextOnPatientCard(text);
+    }
+    
+    @Then("^I verify ([^\"]*) is appearing on the patient summary page for readmission count$")
+    public void i_verify_is_appearing_on_the_patient_summary_page_for_readmission_count(String count) throws Throwable{
+    	patientsPage.iVerifyReadmissionCountOnPatientCard(count);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" label is appearing on the patient summary page beside readmission count$")
+    public void i_verify_label_is_appearing_on_the_patient_summary_page_beside_readmission_count(String text) throws Throwable{
+    	patientsPage.iVerifyReadmissionTextOnPatientCard(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" risk status is appearing on the patient summary page$")
+    public void i_verify_risk_status_is_appearing_on_the_patient_summary_page(String text) throws Throwable{
+    	patientsPage.iVerifyRiskStatusOnPatientSummary(text);
+    }
+    
+    @Then("^I swich to patient tags iframe on patient summary page$")
+    public void i_switch_to_patient_tags_iframe_on_patient_summary_page() throws Throwable{
+    	patientsPage.iSitchtoPatientTagsIframe("//iframe[@id='iFrameEC2PatientTags']");
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on patient summary page below tags$")
+    public void i_verify_is_appearing_on_patient_summary_page_below_tags(String tags) throws Throwable{
+    	patientsPage.iVerifyPatientTags(tags);
     }
 }
