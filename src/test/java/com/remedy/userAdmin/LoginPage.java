@@ -90,5 +90,11 @@ public class LoginPage extends BaseClass {
 	public void iVerifyLogInWidget() {
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
 	}
+	
+	public void iLogInAsRTAUser(String userName, String passWord){
+		iEnteruserEmail(userName);
+		iEnterPassword(passWord);
+		iClickLogInButton();
+	}
 }
 
