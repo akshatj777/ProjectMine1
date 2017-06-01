@@ -14,6 +14,14 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I wait for 50000 milli seconds
     
     When I switch to reports embedded iframe
+    
+    Then I should see Episode DRG Issues reports column Tile text as "Participant"
+    Then I should see Episode DRG Issues reports column Tile text as "Episode Initiator"
+    Then I should see Episode DRG Issues reports column Tile text as "Anchor Facility"
+    Then I should see Episode DRG Issues reports column Tile text as "Bundle"
+    Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
+    Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
+    
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
     

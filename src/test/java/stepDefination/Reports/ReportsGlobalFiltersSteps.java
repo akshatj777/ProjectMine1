@@ -175,4 +175,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_verify_anchor_facility_filter_is_selected_with_ccn_under_selected_filters(String ccn) throws Throwable{
 		globalfilters.iVerifyCCNFilterUnderSelectedFilters("CCN includes "+ccn);
 	}
+	
+	@Then("^I verify participant is selected with ([^\"]*) under selected filters$")
+	public void i_verify_participant_is_selected_with_under_selected_filters(String participant)throws Throwable{
+		globalfilters.iVerifyParticipantAppearingInSelectedFilter("Participant includes "+participant);
+	}
 }
