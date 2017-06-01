@@ -747,5 +747,9 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter(){
     	clickElement(driver.findElement(By.cssSelector("#FT_searchBy")));
     }
+    
+    public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Begin Date].[Anchor Admission Year]']/span")),text);
+    }
 }
 

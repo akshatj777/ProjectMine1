@@ -957,4 +957,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_find_button_after_entering_anchor_admission_quarter_in_the_textbox()throws Throwable{
     	reportHomePage.iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter();
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    public void i_verify_anchor_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
+    }
 }

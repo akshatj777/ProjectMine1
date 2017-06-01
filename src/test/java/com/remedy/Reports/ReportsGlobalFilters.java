@@ -138,4 +138,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iVerifyCCNFilterUnderSelectedFilters(String ccn){
 		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")),ccn);
 	}
+	
+	public void iVerifyParticipantAppearingInSelectedFilter(String participant){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant]']/span")),participant);
+	}
 }

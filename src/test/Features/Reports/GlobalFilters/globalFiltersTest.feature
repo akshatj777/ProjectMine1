@@ -379,3 +379,55 @@ Scenario Outline: User should be able to search for multiple fields on global fi
      | email                         | Menu 1     | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | bpid1    |
      | shutestaug231132a@yopmail.com | Dashboards | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | 2070-020 |
      
+@sanity
+Scenario Outline: User should should not be able to see global filters applied if applying filters from report
+  
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    
+    When I click on the "Reports" tile
+    And I wait for 1000 milli seconds
+    Then I verify current page "Reports" title
+    And I wait for 2000 milli seconds
+    
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
+    And I wait for 50000 milli seconds
+    
+    When I switch to reports embedded iframe
+    
+    When I click on field-panel-icon button
+    And I wait for 4000 milli seconds
+    
+    When I click to "Participant" field filter under "Episode Initiator" filter field
+    And I wait for 3000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Participant" in the header text of filter page
+    And I should see "<participant>" in the filter value list
+    And I click on "<participant>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 5000 milli seconds
+    And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
+    
+    When I click on filter count label to see preselected filters
+    And I wait for 2000 milli seconds
+    Then I verify participant is selected with <participant> under selected filters
+    When I switch to default window from iframe
+    Then I scroll the page to bottom by "-250"
+    And I wait for 2000 milli seconds
+    When I see "0" filters applied under global filters applied count
+    
+    And I click on reports tile on the top of reports page
+    And I wait for 5000 milli seconds
+    Then I verify current page "Reports" title
+    
+    Examples:
+    
+      | email                         | participant |
+      | shutestaug231132a@yopmail.com | Penn        | 
+     
