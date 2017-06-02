@@ -393,7 +393,7 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.id("bp_personbundle_bpadmissiontype_drgType")));
     }
 
-    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage()  {
+    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage() {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Possible");
     }
 
@@ -493,7 +493,7 @@ public class PatientsPage extends BaseClass {
         switchToFrameByNameOrId("iFrameEC2PatientAdd");
     }
 
-    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails)  {
+    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
         clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
         selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
     }
@@ -517,7 +517,8 @@ public class PatientsPage extends BaseClass {
     public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("button#submitButton")));
     }
-
+   
+    
     public void iClickOnCalenderButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_admitDate")));
     }
@@ -532,7 +533,7 @@ public class PatientsPage extends BaseClass {
     	js.executeScript("arguments[0].click();", element);
     }
 
-    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType)  {
+    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType) {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", careType);
     }
 
@@ -582,11 +583,11 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector(".btn.default.date-set")));
     }
 
-    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option)  {
+    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option) {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory", option);
     }
 
-    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option)  {
+    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option) {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", option);
     }
 
@@ -860,12 +861,12 @@ public class PatientsPage extends BaseClass {
         List<WebElement> allNames = driver.findElements(By.cssSelector(".card-view-body .card-header .card-header-content h3"));
         boolean isPresent = false;
         for (int i = 0; i < allNames.size(); i++) {
-           String allText = allNames.get(i).getText();
-           String[] patientName = allText.split(",\n");
+            String allText = allNames.get(i).getText();
+            String[] patientName = allText.split(",\n");
 
-            if(patientName[0].equalsIgnoreCase(fName) || patientName[0].equalsIgnoreCase(lName)) {
+            if (patientName[0].equalsIgnoreCase(fName) || patientName[0].equalsIgnoreCase(lName)) {
                 isPresent = true;
-            } else if(patientName[1].equalsIgnoreCase(fName) || patientName[1].equalsIgnoreCase(lName)){
+            } else if (patientName[1].equalsIgnoreCase(fName) || patientName[1].equalsIgnoreCase(lName)) {
                 isPresent = true;
             } else {
                 isPresent = false;
@@ -886,8 +887,14 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
-	}
+
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
+    }
+
+
+    public void IclickontheImpatientTabonPatientpage() {
+        clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
+    }
 	public void iShouldVerifyIsAppearingUnderTransitionsPage() {
 		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
     }

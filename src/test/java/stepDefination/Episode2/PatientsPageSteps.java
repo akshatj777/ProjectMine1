@@ -1246,6 +1246,12 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
     
+
+    @Then ("^I click on the Impatient Tab on Patient page$")
+    public void I_click_on_the_Impatient_Tab_on_Patient_page() {
+        patientsPage.IclickontheImpatientTabonPatientpage();
+    }
+
     @Then("^I verify ([^\"]*) is appearing under selected filters for Admit Reason$")
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Admit_Reason(String text) throws Throwable{
     	patientsPage.iVerifySelectedFilterText("Admit Reason: "+text);

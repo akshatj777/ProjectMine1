@@ -227,12 +227,17 @@ public class BaseClass {
 
     public void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
-            System.out.println(ele.getText());
             Assert.assertEquals(ele.getText(), text);
-
         }
     }
 
+    public String getTextForElement(WebElement ele) {
+        if (isElementVisible(ele)) {
+        	System.out.println(ele.getText());
+            
+        }
+		return ele.getText();
+    }
 
     public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text) {
         if (isElementVisible(ele)) {
@@ -401,8 +406,22 @@ public class BaseClass {
             value = false;
         }
 //    	System.out.println(value);
-        return value;
+		return value;
     }
+
+    public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
+   {
+	   Assert.assertEquals(requiredcombolisttext,actualcombolisttext);
+   }
+
+    public boolean existsElement(String element) {
+    	 try {
+    	 driver.findElement(By.cssSelector(element));
+    	 } catch (NoSuchElementException e) {
+    	 return false;
+    	 }
+    	 return true;
+   	}
 
     public void switchToFrameByNameOrId(String nameOrId) {
         driver.switchTo().frame(nameOrId);
@@ -411,7 +430,6 @@ public class BaseClass {
     public void switchToParentFrame() {
         driver.switchTo().parentFrame();
     }
-
 }
 
   
