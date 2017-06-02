@@ -24,7 +24,6 @@ Feature: Clinical Documents - Updated Table
     Then I count the number of documents that appear in the clinical Documents
     Then To verify table should be sorted chronologically by activity date most recent first
 
-    Examples:
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
-
+    Examples: 
+      | First name | Last name  | Medicare ID |
+      | AUTOMATION | DO_NOT_USE | wa984986    |

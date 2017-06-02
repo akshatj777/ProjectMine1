@@ -18,7 +18,6 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
-
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
@@ -32,13 +31,13 @@ Feature: Clinical Documents - Patient Notes History Section
     And I wait for 20000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     And I wait for 5000 milli seconds
-    Then I verify information of the last user who saved the individual form is displaying on the Last saved section
+    Then I verify information of the last user who saved the individual form is displaying on the Last saved section
 
-    Examples:
-      | First name | Last name |  date |
-      | PATIENT    | CROST     |    12 |
+    Examples: 
+      | First name | Last name  | Medicare ID | date | Notetext                                                                                                                                                                    |
+      | DO_NOT_USE | AUTOMATION | wa984986    |   12 | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
 
-  Scenario Outline: To verify information Activity column in Clinical Documents table
+  Scenario Outline: To verify information Activity column in Clinical Documents table
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -72,8 +71,7 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I verify date and time information appears in last saved section
     Then I verify LastName FirstName and userrole appears in last saved section
     Then I verify that Show History section should not be applicable for note section
-    Then I verify that upon selecting Hide History user should only see the information of the last user who saved the form
 
     Examples: 
-      | First name    | Last name     |  date | Notetext      |
-      | AUTOMATIONNEW | DO NOT USENEW |    12 | Remedy Sample |
+      | First name    | Last name     | Medicare ID | date | Notetext      |
+      | AUTOMATIONNEW | DO NOT USENEW | wa984986    |   12 | Remedy Sample |
