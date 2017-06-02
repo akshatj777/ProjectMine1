@@ -289,4 +289,9 @@ public class CreateUserSteps extends DriverScript{
     public void iLogInAsRTAUser() throws Throwable{
     	loginPage.iLogInAsRTAUser(Config.getProperty("RtaUserEmail"), "Testing1");
     }
+    
+    @When("^I log in as PTA user$")
+    public void iLogInAsPTAUser() throws Throwable{
+    	loginPage.iLogInAsPTAUser(Config.getProperty("PtaUserEmail"), "Testing1");
+    }
 }

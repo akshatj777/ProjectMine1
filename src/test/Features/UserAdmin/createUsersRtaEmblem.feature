@@ -1,8 +1,8 @@
-Feature: Create new User role with Remedy Technical Admin and verify Login logout of user
+Feature: Create new User role with Remedy Technical Admin and emblem payer and verify Login logout of user
 
-Scenario Outline: Remedy Technical Administrator can create user and verify login and navigation of different tiles and logout of created user
+  Scenario Outline: Remedy Technical Admin can create user and verify login and navigation of different tiles and logout of created user
     Given I am on the login page
-    When I enter email field RTAUSER@mailinator.com for login
+     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -107,18 +107,18 @@ Scenario Outline: Remedy Technical Administrator can create user and verify logi
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | PPA                   | Partner Program Administrator | Partner Program Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
-      |            | RPA                   | Remedy Program Administrator  | Remedy Program Administrator  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
-      |            | Exe                   | Executive                     | Executive                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RTCS                  | Remedy TCS                    | Remedy TCS                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RLPN                  | Remedy LPN                    | Remedy LPN                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RRN                   | Remedy RN                     | Remedy RN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RFRN                  | Remedy Field RN               | Remedy Field RN               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RPM                   | Remedy PM                     | Remedy PM                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | RExe                  | Remedy Executive              | Remedy Executive              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect |
+      |            | PPA                   | Partner Program Administrator | Partner Program Administrator | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |
+      |            | RPA                   | Remedy Program Administrator  | Remedy Program Administrator  | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |
+      |            | Exe                   | Executive                     | Executive                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | RTCS                  | Remedy TCS                    | Remedy TCS                    | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | RLPN                  | Remedy LPN                    | Remedy LPN                    | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | RRN                   | Remedy RN                     | Remedy RN                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | RFRN                  | Remedy Field RN               | Remedy Field RN               | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | RPM                   | Remedy PM                     | Remedy PM                     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | RExe                  | Remedy Executive              | Remedy Executive              | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
    
-   Scenario Outline: Remedy Technical Administrator can create user role Remedy Sales Team and verify login and navigation of internal support and reset password logout of created user
+   Scenario Outline: Remedy Technical Admin can create user role Remedy Sales Team and verify login and navigation of internal support and reset password logout of created user
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
@@ -213,14 +213,14 @@ Scenario Outline: Remedy Technical Administrator can create user and verify logi
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | RSalesTm              | Remedy Sales Team             | Remedy Sales Team             | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU | Reports |              | Institute |                  |                |
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | RemedyU | Reports | Institute |
+      |            | RSalesTm              | Remedy Sales Team             | Remedy Sales Team             | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | RemedyU | Reports | Institute |
       
-   Scenario Outline: Remedy Technical Administrator can create user role with PPE and verify login and navigation of product tiles and reset password and logout of created user
+   Scenario Outline: Remedy Technical Admin can create user role with PPE and verify login and navigation of product tiles and reset password and logout of created user
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
+    Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When I click on Create User button
@@ -298,14 +298,14 @@ Scenario Outline: Remedy Technical Administrator can create user and verify logi
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | PPExe                 | Prospective Partner Executive | Prospective Partner Executive | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU |         |              | Institute |                  |                |
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | RemedyU | Institute |
+      |            | PPExe                 | Prospective Partner Executive | Prospective Partner Executive | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | RemedyU | Institute |
       
-   Scenario Outline: Remedy Technical Administrator can create user role with TCM and verify login and different product tiles navigation and logout of created user
+   Scenario Outline: Remedy Technical Admin can create user role with TCM and verify login and different product tiles navigation and logout of created user
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
+    Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When I click on Create User button
@@ -396,14 +396,14 @@ Scenario Outline: Remedy Technical Administrator can create user and verify logi
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | TCMngr                | Transitional Case Manager     | Transitional Case Manager     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports |              | Institute |                  |                |
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | Episode1 | RemedyU | Reports | Institute |
+      |            | TCMngr                | Transitional Case Manager     | Transitional Case Manager     | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Institute |
         
-    Scenario Outline: Remedy Technical Administrator can create user role with Manager case manager physicians and verify login and navigation to Episodes tiles and reset password and logout of created user
+    Scenario Outline: Remedy Technical Admin can create user role with Manager case manager physicians and verify login and navigation to Episodes tiles and reset password and logout of created user
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
+    Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When I click on Create User button
@@ -497,16 +497,16 @@ Scenario Outline: Remedy Technical Administrator can create user and verify logi
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      | 1234567890 | Phy                   | Physicians                    | Physicians                    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |                |
-      |            | Mngr                  | Manager                       | Manager                       | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
-      |            | CaseMngr              | Case Manager                  | Case Manager                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect |
+      | 1234567890 | Phy                   | Physicians                    | Physicians                    | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Physican connect |
+      |            | Mngr                  | Manager                       | Manager                       | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
+      |            | CaseMngr              | Case Manager                  | Case Manager                  | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |
 	      
-    Scenario Outline: Remedy Technical Administrator can create user role with remedy other which have no share file tile and verify login and navigation to different tiles reset password and logout of created user
+    Scenario Outline: Remedy Technical Admin can create user role with remedy other which have no share file tile and verify login and navigation to different tiles reset password and logout of created user
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
+    Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     When I click on Create User button
@@ -602,6 +602,6 @@ Scenario Outline: Remedy Technical Administrator can create user and verify logi
     And I should see Log in widget
 
     Examples: 
-      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
-      |            | ROthr                 | Remedy Other                  | Remedy Other                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU |         | Episodes 2.0 | Institute |                  |                |
-    
+      | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer         | Password | Episode1 | RemedyU | Episode2     | Institute |
+      |            | ROthr                 | Remedy Other                  | Remedy Other                  | RP Payer Test A     | RP Payer Test A   | *        | 302-459-1143 | Emblem Health | Testing1 | Episodes | RemedyU | Episodes 2.0 | Institute |
+        

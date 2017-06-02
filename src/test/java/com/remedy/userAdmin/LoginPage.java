@@ -96,5 +96,11 @@ public class LoginPage extends BaseClass {
 		iEnterPassword(passWord);
 		iClickLogInButton();
 	}
+	
+	public void iLogInAsPTAUser(String userName, String passWord){
+		iEnteruserEmail(userName);
+		iEnterPassword(passWord);
+		iClickLogInButton();
+	}
 }
 
