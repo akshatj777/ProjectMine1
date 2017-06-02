@@ -39,5 +39,40 @@ public class IndependenceCarlFormSteps extends DriverScript {
 	public void I_Verify_Options_Prsesent_Below_PatientHaveHistoryFalls_Question_On_Independence_Section(String text) {
 		independencecarl.IVerifyOptionsPresentBelowPatientHaveHistoryFallsQuestionInIndependenceSection(text);
 	}
+	
+	@Then("I verify \"([^\"]*)\" selected appears in the place holder of \"([^\"]*)\" dropdown on Independence section$")
+	public void I_Verify_Option_Selected_Appears_In_The_PlaceHolder_Of_DropDown_On_Independence_Section(String text1, String text2) {
+		independencecarl.IVerifyOptionSelectedAppearsInThePlaceHolderOfDropDownOnIndependenceSection(text1, text2);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" dropdown on Independece Section$")
+	public void I_Click_On_The_DropDown_On_Independence_Section(String text) {
+		independencecarl.IClickOnTheDropDownOnIndependenceSection(text);
+	}	
+	
+	@Then("^I verify \"([^\"]*)\" option present in dropdown for cognitive status on Independece Section$")
+	public void I_Verify_Options_Present_In_DropDown_On_Independence_Section(String option) {
+		independencecarl.IVerifyOptionsPresentInDropDownOnIndependeceSection(option);
+	}
+	
+	@Then("^I select \"([^\"]*)\" option in dropdown for cognitive status$")
+	public void I_Selct_Option_In_The_DropDown_On_Independence_Section(String option) {
+		independencecarl.ISelectTheOptionInTheDropDownOnIndependenceSection(option);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" radio button on Independence section$")
+	public void I_Verify_Text_For_RadioButtons_Present_On_IndependenceSection(String text) {
+		independencecarl.IVerifyTextForRadioButtonsPresentOnIndependenceSection(text);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" radio button on Independence section$")
+	public void I_Click_On_The_RadioButton_Present_On_IndependenceSection(String text) {
+		independencecarl.IClickOnTheRadioButtonOnIndependenceSection(text);
+	}
+	
+	@And("^I verify \"([^\"]*)\" radio button is seclected on Independence section$")
+	public void I_Verify_The_Selected_RadioButton_Present_On_IndependenceSection(String text) {
+		independencecarl.IVerifyTheSelectedRadioButtonOnIndependenceSection(text);
+	}
 
 }

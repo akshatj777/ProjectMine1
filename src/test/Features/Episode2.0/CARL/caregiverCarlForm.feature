@@ -1,4 +1,4 @@
-Feature: Hover Icon on Carl Form
+Feature: To verify the options and functionality of Caregiver section of Carl form
 
   Scenario Outline: Hover icon should be present on the Carl form and display the message on hovering
     Given I am on the login page

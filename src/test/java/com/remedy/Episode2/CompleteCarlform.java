@@ -173,12 +173,7 @@ public class CompleteCarlform extends BaseClass {
 	
 	public void IVerifyTheTextHoverOnPatientsRestorationPotential(){
 		String HoverOnPatientsRestorationText = "Restoration potential is defined as the extent to which a patient's condition will improve materially in a reasonable and generally predictable period of time";
-		WebElement item = driver.findElement(By.xpath("//i[contains(@uib-tooltip,'Restoration potential')]"));
-        try {
-            Assert.assertEquals(item.getAttribute("uib-tooltip"),HoverOnPatientsRestorationText);
-        } catch (Exception e) {
-
-        }
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='tooltip ng-scope ng-isolate-scope bottom white-background fade in']//div[@ng-bind='content']")), HoverOnPatientsRestorationText);
 	}
 	
 	public void IClickOnCareTeamOnNavBarOnPatientSummaryPage(String text){
