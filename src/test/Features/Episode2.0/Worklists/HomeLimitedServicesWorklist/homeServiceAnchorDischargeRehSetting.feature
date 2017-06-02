@@ -1,4 +1,4 @@
-Feature: I want to use this template for my feature file
+Feature: Anchor discharge reh settings in home limited services worklist
 
   Scenario Outline: Add an active anchore discharge transition
     Given I am on the login page

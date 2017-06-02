@@ -1,4 +1,4 @@
-Feature: Use this template for my feature file
+Feature: Admission discharge care setting in home limited services worklist
 
   Scenario Outline: Add an active anchore discharge transition
     Given I am on the login page
