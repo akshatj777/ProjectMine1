@@ -23,11 +23,12 @@ import stepDefination.Hooks.*;
         tags = {}
 )*/
 
-
 @RunWith(ExtendedCucumberRunner.class)
-@CucumberOptions(format = { "pretty", "html:target/cucumber" },
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"},
-        features = { "src/test/Features/" },
+@CucumberOptions(
+        plugin = {"html:target/cucumber-results", "usage:target/cucumber-results/cucumber-usage.json",
+                "junit:target/cucumber-results/cucumber-results.xml", "json:target/cucumber-results/cucumber.json",
+                "com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"},
+        features = { "src/test/Features/UserAdmin/LogIn.feature" },
         //glue = { "./src/test/java/stepDefination" },
         tags = {}
 )
@@ -38,6 +39,7 @@ public class TestRunner {
                 // TODO: Add your pre-processing
 
         }
+
         @AfterSuite
         public static void tearDown () throws Exception {
 
