@@ -30,85 +30,59 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IverifyCARLbuttonsappearsonthepatientsummary() {
-		// TODO Auto-generated method stub
-		//JavascriptExecutor js = ((JavascriptExecutor) driver);
 	     WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));
-	   //  js.executeScript("arguments[0].click();", element);
 	     delay();
 		 isElementVisible(element);
 	}
 
 	public void IclosethepatientsummaryPage() {
-		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
 	public void IverifyCARLbuttonisappearingonthepatientcardornot() {
-		// TODO Auto-generated method stub
 		 isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
 	}
 
 
 	public void Iselectonthebuttontodeletethetransition() {
-		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.cssSelector("a.btn.btn-default.dropdown-toggle")));
-		
 	}
 
 	public void Iclickonthebuttontodeletethetransition() {
-		// TODO Auto-generated method stub
-		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Delete')]")));
-
-		
-	}
+	    clickElement(driver.findElement(By.xpath("//a[contains(text(),'Delete')]")));
+    }
 
 	public void IclickonOktodeletethetransition() {
-		// TODO Auto-generated method stub
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
 	}
 
 	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
-		
 		 isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
-		
 	}
 
 	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname,String firstname) {
-		// TODO Auto-generated method stub
 		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+lastname+", "+firstname+"')]")));
 		isElementVisible(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
 	
 	public void IVerifyLinksUnderCarlFormCaregiverSection(String link) {
-		
 		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'"+link+"')]")));
-		
 	}
 	
 	public void IVerifythatCarlformshouldappearwithCancellink() {
-		// TODO Auto-generated method stub
 		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Cancel')]")));
-		
 	}
 
 	public void IVerifythatCarlformshouldappearwithSaveyourprogresslink() {
-		// TODO Auto-generated method stub
-		
-		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Save your progress')]")));	
-		
-		
+	    isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Save your progress')]")));	
 	}
 
 	public void IVerifythatCarlformshouldappearwithReviewformlink() {
-		// TODO Auto-generated method stub
 		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'review the form')]")));	
-		
 	}
 
 	public void IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections() {
-		// TODO Auto-generated method stub
-		
 		List<String> actualmylist=getTextForElementfromList("span.label-content.ng-binding");
 		String[] expectedvalues={"Caregiver","Independence", "Anticipated Discharge Needs","Discharge"};
      	List<String> requiredcombolisttext=new ArrayList();

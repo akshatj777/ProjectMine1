@@ -30,14 +30,14 @@ Feature: Clinical Documents - Last Saved
     And I wait for 20000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     And I wait for 5000 milli seconds
-    Then I verify information of the last user who saved the individual form is displaying on the Last saved section
+    Then I verify information of the last user who saved the individual form is displaying on the Last saved section
 
     Examples: 
       | First name | Last name | Medicare ID | date |
       | PATIENT    | CROST     | wa984986    |   12 |
 
-  Scenario Outline: To verify following details should appear under the last saved section:
-                     Date the form was saved, Time form was saved, Last Name of user who saved form, First Name of user who saved form, User's credentials
+  Scenario Outline: To verify following details should appear under the last saved section:
+                     Date the form was saved, Time form was saved, Last Name of user who saved form, First Name of user who saved form, User's credentials
 
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
