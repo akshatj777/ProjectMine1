@@ -50,8 +50,9 @@ public class PatientFormStatusSteps extends DriverScript {
 		patientclinical.IverifythatInprogressstatusshouldbeinpurplecolorwithColorcodeAD77B3();
 	}
 
-	@Then("^I click on the complete CARL on the Patient Summary$")
-	public void I_click_on_the_complete_CARL_on_the_Patient_Summary() {
+	@Then ("^I click on the complete CARL on the Patient Summary$")
+	public void I_click_on_the_complete_CARL_on_the_Patient_Summary() throws InterruptedException
+	{
 		patientclinical.IclickonthecompleteCARLonthePatientSummary();
 	}
 

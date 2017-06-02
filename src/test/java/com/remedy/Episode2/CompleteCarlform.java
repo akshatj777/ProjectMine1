@@ -43,25 +43,26 @@ public class CompleteCarlform extends BaseClass {
 		 isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
 	}
 
-
 	public void Iselectonthebuttontodeletethetransition() {
 		clickElement(driver.findElement(By.cssSelector("a.btn.btn-default.dropdown-toggle")));
 	}
 
 	public void Iclickonthebuttontodeletethetransition() {
-	    clickElement(driver.findElement(By.xpath("//a[contains(text(),'Delete')]")));
-    }
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Delete')]")));
+
+	}
 
 	public void IclickonOktodeletethetransition() {
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
 	}
 
 	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
+
 		 isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
 	}
 
-	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname,String firstname) {
-		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+lastname+", "+firstname+"')]")));
+	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname, String firstname) {
+		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'" + lastname + ", " + firstname + "')]")));
 		isElementVisible(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
@@ -74,22 +75,10 @@ public class CompleteCarlform extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Cancel')]")));
 	}
 
-	public void IVerifythatCarlformshouldappearwithSaveyourprogresslink() {
-	    isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Save your progress')]")));	
-	}
-
 	public void IVerifythatCarlformshouldappearwithReviewformlink() {
 		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'review the form')]")));	
 	}
 
-	public void IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections() {
-		List<String> actualmylist=getTextForElementfromList("span.label-content.ng-binding");
-		String[] expectedvalues={"Caregiver","Independence", "Anticipated Discharge Needs","Discharge"};
-     	List<String> requiredcombolisttext=new ArrayList();
-        requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-        verifyarraylist(requiredcombolisttext,actualmylist);
-	}
-	
 	public void IVerifyThatDoesthePatientHaveACapableCaregiverShouldAppearOnTakeoverPage(String question) {
 		
 		isElementVisible(driver.findElement(By.xpath("//h3[contains(text(),'"+question+"')]")));
@@ -138,6 +127,16 @@ public class CompleteCarlform extends BaseClass {
 		
 	public void IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection() {
 		isElementVisible(driver.findElement(By.xpath("//a[text()='Add Caregiver']")));
+		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Cancel')]")));
+	}
+
+	public void IVerifythatCarlformshouldappearwithSaveyourprogresslink() {
+		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Save your progress')]")));
+
+	}
+
+	public void IVerifythatCarlformshouldappearwithformlink() {
+		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'review the form')]")));
 	}
 	
 	public void IClickOnAddCaregiverLinkUnderChooseCaregiver() {
@@ -247,7 +246,7 @@ public class CompleteCarlform extends BaseClass {
 				"Father","Foster Parent","Friend","Grandchild","Grandparent","Guarantor","Legal Guardian","Life Partner",
 				"Mother","Niece/Nephew","Neighbor","Organ Donor","Other","Power of Attorney or Living Will Proxy","Sibling",
 				"Significant Other","Sister","Son","Spouse","Step-Parent","Step-Child","Unknown"};
-     	List<String> requiredcombolisttext=new ArrayList();
+     	List<String> requiredcombolisttext= new ArrayList();
         requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
         verifyarraylist(requiredcombolisttext,actualmylist);
 	}
@@ -279,4 +278,14 @@ public class CompleteCarlform extends BaseClass {
 	public void IClickOnCloseButtonInDropdownUnderChooseCaregiver(){
 		clickElement(driver.findElement(By.cssSelector(".glyphicon.glyphicon-remove")));
 	}
+
+	public void IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections() {
+
+		List<String> mylist = getTextForElementfromList("span.label-content.ng-binding");
+		String[] expectedvalues = { "Caregiver", "Independence", "Anticipated Discharge Needs", "Discharge" };
+		List<String> requiredcombolisttext = new ArrayList();
+		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+		verifyarraylist(requiredcombolisttext, mylist);
+	}
+
 }

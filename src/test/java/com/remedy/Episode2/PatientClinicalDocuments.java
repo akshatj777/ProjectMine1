@@ -1,5 +1,14 @@
 package com.remedy.Episode2;
 
+import org.openqa.selenium.support.Color;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,8 +19,12 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -56,19 +69,17 @@ public class PatientClinicalDocuments extends BaseClass {
 		Assert.assertTrue(value.equals("ad77b3"));
 	}
 
-	public void IclickonthecompleteCARLonthePatientSummary() {
+	public void IclickonthecompleteCARLonthePatientSummary() throws InterruptedException {
 
-		// JavascriptExecutor js = ((JavascriptExecutor) driver);
-		WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));
-		// js.executeScript("arguments[0].click();", element);
-		// delay();
+		WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Complete CARL')]")));
 		clickElement(element);
-		// delay();
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {
-
-		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope")));
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Save & Continue')]")));
 	}
 
 	public void IverifythatifusersubmitsapatientformstatusshouldbereadasActive() {
@@ -81,7 +92,8 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector("span.status-tag.status-tag-2.active")));
 		String value = driver.findElement(By.cssSelector(" span.status-tag.status-tag-2.active"))
 				.getCssValue("background-color");
-		Assert.assertTrue(value.equals("4EB96F"));
+		String hex = Color.fromString(value).asHex();
+		Assert.assertTrue(hex.equals("#4eb96f"));
 	}
 
 	public void IclickoncrossbuttontoclosethePatientSummaryPage() {
@@ -114,9 +126,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IclickontheALLTabonPatientpage() {
-
 		clickElement(driver.findElement(By.cssSelector("div.tabbed-navbar-tabs > button:nth-child(1)")));
-
 	}
 
 	public void IverifyClinicalDocumentTableshouldcontainthefollowingsections() {
@@ -151,9 +161,6 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst() {
-
-		System.out.println("^^^^List of information for the saved forms^^^^" + getTextForElementfromList(
-				"table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding"));
 		List<String> mylists = getTextForElementfromList(
 				"table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding");
 		List<String> newlist = new ArrayList<String>();
@@ -161,7 +168,6 @@ public class PatientClinicalDocuments extends BaseClass {
 			String[] values = mylist.split(",");
 			newlist.add(values[0]);
 		}
-		System.out.println("The new list is" + newlist);
 	}
 
 	public void IverifythepresenceofSummarysectionoftheClinicalDocumenttable() {
@@ -303,7 +309,6 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IswitchtoPatientTransitionsframe() {
-
 		swithToFrame("//iframe[@class='not-showing ng-scope']");
 	}
 
@@ -312,12 +317,22 @@ public class PatientClinicalDocuments extends BaseClass {
 		swithToFrame("//iframe[@class='not-showing ng-scope']");
 	}
 
-	public void Iverifythatusershouldbeabletoclickontitleofdocument() {
+	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() throws InterruptedException {
 
-		WebElement element = driver.findElement(By.cssSelector("//span[contains(text(),'CARL')]"));
+		String URL = driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span"))
+				.getAttribute("href");
+		boolean Note = URL.contains("note");
+		boolean CARL = URL.contains("carl");
+		if (CARL) {
+			System.out.println("CARl form is present");
+		}
+	}
+
+	public void Iverifythatusershouldbeabletoclickontitleofdocument() throws InterruptedException {
+		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'CARL')]"));
 		clickElement(element);
-		isElementVisible(element);
-		System.out.println("The CARL form is successfully clicked");
+		Thread.sleep(9000);
+		isElementVisible(driver.findElement(By.cssSelector("h2.ng-binding")));
 	}
 
 	public void Iclickonfilterlinkonclinicaldocumentsection() {
@@ -339,10 +354,10 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IVerifythatClinicalDocumentsFilterslinkshoulddisplayfiltersasbelowwiththecorrectsyntaxandsequence() {
-
 		List<String> actualcombolisttext = new ArrayList();
 		List<WebElement> elementtexts = new ArrayList();
 		List<String> requiredcombolisttext = new ArrayList();
+
 		String[] expectedvalues = { "Baseline", "Bedside Visit", "Care Assessment Note", "Clinical Note", "Close Call",
 				"Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care",
 				"Patient Call", "Patient Education", "Patient Visit", "Psychological Condition", "Transition Note",
@@ -356,7 +371,10 @@ public class PatientClinicalDocuments extends BaseClass {
 			actualcombolisttext.add(elementtext.getText());
 
 		}
-		System.out.println("The combo text list is" + actualcombolisttext);
+
+		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+		actualcombolisttext = getTextForElementfromList(
+				"checkbox-list > div > div:nth-child(1) > ul > li > div.checkbox > label > span");
 
 		verifyarraylist(requiredcombolisttext, actualcombolisttext);
 
@@ -380,7 +398,6 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IVerifythatcheckingmultiplefilteroptionsshouldreturnrelevantpatientsinreturn() {
 
 		List<String> mytexts = getTextForElementfromList("ul > li >div.checkbox > label > span");
-		System.out.println("****The list of text****" + mytexts);
 		String Filter = mytexts.get(0);
 		String Filter1 = mytexts.get(1);
 		clickElement(driver.findElement(
@@ -392,7 +409,8 @@ public class PatientClinicalDocuments extends BaseClass {
 		if (newmytexts.contains(Filter) && (newmytexts.contains(Filter1)))
 			;
 		{
-			System.out.println("Mutiple Values returns are relevant as per required");
+
+			return;
 		}
 
 	}
@@ -407,13 +425,12 @@ public class PatientClinicalDocuments extends BaseClass {
 		if (newmytexts.contains(Filter) & (newmytexts.contains(Filter1)))
 			;
 		{
-			System.out.println("Mutiple Values returns are relevant as per required on clicking on Done");
+			return;
 		}
 	}
 
 	public void IclickonthedocumenttoopentheNotesontheClinicalDocuments() {
-
-		clickElement(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(1) > a")));
+		clickElement(driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span")));
 		isElementVisible(driver.findElement(By.cssSelector(" div > section ")));
 	}
 
@@ -431,7 +448,6 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IverifyBodytextboxshouldbethereonNotesReadonlyform() {
 
 		isElementVisible(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")));
-		System.out.println("Body text box exists on Notes - Read only form");
 	}
 
 	public void IVerifythatUserroleshouldbedisplayedundernotesreadonlyform() {
@@ -459,7 +475,6 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Changing_Date_Format(String date_s) throws ParseException {
 
-		// *** note that it's "yyyy-MM-dd hh:mm:ss" not "yyyy-mm-dd hh:mm:ss"
 		SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy | hh:mm aa");
 		Date date = dt.parse(date_s); // Converting String to Date
 		// *** same for the format String below
@@ -468,14 +483,16 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IVerifythatActivitydateshoulddisplayeddatewithformatMMDDYYYY() throws ParseException {
-
-		String date = getTextForElement(driver.findElement(By.cssSelector("// article > div:nth-child(5) > strong")));
+		String date = getTextForElement(driver.findElement(By.cssSelector("article > div:nth-child(5) > strong")));
 		Changing_Date_Format(date);
 	}
 
 	public void IverifythatthereisanAttachmentssectionthatshoulddisplayallattachments() {
-
-		isElementVisible(driver.findElement(By.cssSelector("div.attachments.ng-scope")));
+		try {
+			isElementVisible(driver.findElement(By.cssSelector("div.attachments.ng-scope")));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -489,14 +506,12 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Baseline')]")));
 		isElementVisible(driver.findElement(By.cssSelector(
 				"table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding")));
-
 	}
 
 	public void IverifyLastNameFirstNameanduserroleappearsinlastsavedsection() {
 
 		isElementVisible(driver.findElement(
 				By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span")));
-
 	}
 
 	public void IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved()
@@ -505,17 +520,13 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
 		Thread.sleep(5000);
-		System.out.println("^^^^List of information for the saved forms^^^^" + getTextForElementfromList(
-				"table > tbody > tr:nth-child(2) > td:nth-child(4) > div> span.time.ng-binding"));
 		List<String> newlist = new ArrayList<String>();
 		List<String> mylists = getTextForElementfromList(
-				"table > tbody > tr:nth-child(2) > td:nth-child(4) > div> span.time.ng-binding");
+				"table > tbody > tr > td:nth-child(4) > div> span.time.ng-binding");
 		for (String mylist : mylists) {
 			String[] values = mylist.split(",");
 			newlist.add(values[0]);
 		}
-		System.out.println("The new list is" + newlist);
-
 	}
 
 	public void IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform()
@@ -535,17 +546,11 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IverifythatShowHistorysectionshouldnotbeapplicablefornotesection() {
-
-		if (isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td.empty-cell"))))
-			;
-		{
-			isElementVisible(driver.findElement(By.cssSelector("//a[not(contains(text(),'Show History'))]")));
-
+		try {
+			driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > span > a"));
+		} catch (Exception e) {
+			return;
 		}
-	}
-	
-	public void Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection() {
-		
 	}
 
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
@@ -556,7 +561,6 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IclickonthecrossbuttontoclosetheCARLdocumentform() {
 
 		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
-
 	}
 
 	public void IclickontheSubmitbuttontosubmittheCARLform() {
@@ -567,29 +571,79 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifythatuponselectingHideHistoryusershouldonlyseetheinformationofthelastuserwhosavedtheform() {
 
-		clickElement(driver.findElement(By.cssSelector("//a[contains(text(),'Hide History')]")));
-		if (driver.findElement(By.cssSelector(" table > tbody > tr > td:nth-child(4) > div:nth-child(2)"))
-				.getAttribute("class").equals("doc-edit ng-scope ng-hide"))
-			;
-		{
-			System.out.println("Userseestheinformationofthelastuserwhosavedtheform");
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Hide History')]")));
+		try {
+			driver.findElement(By.cssSelector(
+					" table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(2).doc-edit.ng-scope"));
+		} catch (Exception e) {
+			return;
 		}
 
 	}
 
 	public void IclickontheTransitionInfoonaddanewtransition() {
-
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// ((JavascriptExecutor) driver).executeScript("scroll(0,-250);");
 		WebElement element = driver.findElement(By.xpath("//a[contains(text(), 'Transition Info')]"));
 		js.executeScript("arguments[0].click();", element);
 		clickElement(element);
-
 	}
 
 	public void Iclickonhidehistorytodisableallthesavedformlist() {
-
 		clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Hide History')]")));
 	}
 
+	public void Iverifythatusershouldbeabletodownloadalltheattachmentattachedunderthenotesbyselectingdownloadlink()
+			throws AWTException, InterruptedException {
+		Actions action = new Actions(driver);
+
+		action.contextClick(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer"))).build()
+				.perform();
+		action.sendKeys(Keys.CONTROL, "v").build().perform();
+		Thread.sleep(4000);
+		Robot robot = new Robot();
+
+		//
+		StringSelection selection = new StringSelection("C:\\Users\\akshat.jain\\Desktop\\My files");
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(selection, selection);
+
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+
+		Assert.assertTrue(true);
+		String importDir = System.getProperty("user.dir");
+		String newDir = importDir + "\\" + "src" + "\\" + "test" + "\\" + "Imports";
+		isFileDownloaded(newDir, "MyFile.txt");
+
+	}
+
+	public boolean isFileDownloaded(String downloadPath, String fileName) {
+		boolean flag = false;
+		File dir = new File(downloadPath);
+		File[] dir_contents = dir.listFiles();
+
+		for (int i = 0; i < dir_contents.length; i++) {
+			if (dir_contents[i].getName().equals(fileName))
+				return flag = true;
+		}
+
+		return flag;
+	}
+
+	public void IclickontheCancelbuttononEpisodepresentontheAddPatientpage() {
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+	}
+
+	public void Iclickontheagreebuttonforthepatientonpatientcardpage() {
+		try {
+			clickElement(driver.findElement(By.xpath("//span[contains(text(),'Agree')]")));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
+
