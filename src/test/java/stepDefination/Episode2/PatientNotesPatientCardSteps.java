@@ -70,11 +70,6 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		noteCreation.IselectthedatefromdatepickeronAddClinicalDocumentonPatientCard(date);
 	}
 
-	@And("^I enter the Note Text in the textarea on Add Clinical Document on Patient Card$")
-	public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card() throws Throwable {
-		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard();
-	}
-
 	@Then("^I click on the create Note Button on Add Clinical Document on Patient Card$")
 	public void I_click_on_the_create_Note_Button_on_Add_Clinical_Document_on_Patient_Card() throws Throwable {
 		noteCreation.IclickonthecreateNoteButtononAddClinicalDocumentonPatientCard();

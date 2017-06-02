@@ -1,5 +1,7 @@
 package stepDefination.Episode2;
 
+import org.openqa.selenium.By;
+
 import com.remedy.Episode2.PatientClinicalDocuments;
 import com.remedy.Episode2.PatientsPage;
 import com.remedy.resources.DriverScript;
@@ -48,8 +50,10 @@ public class SummarySectionSteps extends DriverScript{
     	patientclinical.Iverifyformsshouldnotdisplayanymessageinthesummarysectionanditshouldbegreyedoutblank();
 	}
     
-    
-    //Document section
+    @Then ("^I click on the Cancel button on Episode present on the Add Patient page$")
+    public void  I_click_on_the_Cancel_button_on_Episode_present_on_the_Add_Patient_page(){   	
+    patientclinical.IclickontheCancelbuttononEpisodepresentontheAddPatientpage();
+   }
     
      @Then ("^I click on the Transitions tab on the Patient Summary Page$")
 	
@@ -65,8 +69,12 @@ public class SummarySectionSteps extends DriverScript{
     	 patientclinical.ThenIclickonaddanewtransitiontoaddanewepisode();	 
      }
      
+     @Then ("^I click on the agree button for the patient on patient card page$")
+     public void I_click_on_the_agree_button_for_the_patient_on_patient_card_page()
+     {
+    	 patientclinical.Iclickontheagreebuttonforthepatientonpatientcardpage();
+     }
     
-     
      @Then ("I click on datepicker button to select the admit date on add a new transition$")
      public void I_click_on_datepicker_button_to_select_the_admit_date() throws Throwable
      {

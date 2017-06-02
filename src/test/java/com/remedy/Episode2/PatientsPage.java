@@ -517,7 +517,8 @@ public class PatientsPage extends BaseClass {
     public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("button#submitButton")));
     }
-
+   
+    
     public void iClickOnCalenderButtonPresentOnTheAddPatientPage() {
         clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_admitDate")));
     }

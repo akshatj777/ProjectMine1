@@ -124,8 +124,8 @@ public class NoteCreation extends BaseClass {
 		selectElementByDesc("td.day.ng-scope", date_element);
 	}
 
-	public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard() {
-         iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),"Sample");
+	public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(String NoteText) {
+         iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),NoteText);
 	}
 
 	public void IclickonthecreateNoteButtononAddClinicalDocumentonPatientCard() {

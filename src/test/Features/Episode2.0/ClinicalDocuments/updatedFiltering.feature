@@ -1,28 +1,27 @@
-
 Feature: Updated Filtering
-	
-	Scenario Outline:Verify that user should be able to select multiple filters by checkbox
 
+  Scenario Outline: Verify that user should be able to select multiple filters by checkbox
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the ALL Tab on Patient page
     And I wait for 20000 milli seconds
     Then I should see search box appearing on the patients page
-    Then I enter "<Last name> <First name>" in the search box on the patients page
+   Then I enter last name in the search box on the patients Card page
+    And I wait for 20000 milli seconds
+    Then I click on the agree button for the patient on patient card page
     And I wait for 10000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-   And  I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
+    And I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And  I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
     And I wait for 8000 milli seconds
     Then I verify that user should be able to select and upload files from the computer through Add files link
@@ -56,10 +55,10 @@ Feature: Updated Filtering
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 10000 milli seconds
-    When I switch to default window from iframe  
-  Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
+    When I switch to default window from iframe
+    Then I verify the CARL Document on the Clinical Documents tab in the patient summary Page
     Then I wait for 5000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I click on the complete CARL on the Patient Summary
@@ -72,7 +71,7 @@ Feature: Updated Filtering
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I wait for 12000 milli seconds
@@ -84,36 +83,34 @@ Feature: Updated Filtering
     Then I click on filter link on clinical document section
     Then I Verify that Clinical Documents Filters link should display filters as below with the correct syntax and sequence
     Then I Verify that user should be able to select multiple filters by checkbox
-   
-   Examples:
-      | First name    | Last name    | Medicare ID |
-      | AUTOMATION    | DO_NOT_USE   | wa984986    |
-       
-         
-       
-    Scenario Outline: Verify the changes with multiple filter selected at the same time
 
+    Examples: 
+      | First name | Last name  | Medicare ID |
+      | AUTOMATION | DO_NOT_USE | wa984986    |
+
+  Scenario Outline: Verify the changes with multiple filter selected at the same time
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I should see search box appearing on the patients page
-    Then I enter "<Last name> <First name>" in the search box on the patients page
+    Then I enter last name in the search box on the patients Card page
+    And I wait for 20000 milli seconds
+    Then I click on the agree button for the patient on patient card page
     And I wait for 8000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     And I wait for 5000 milli seconds
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And  I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
+    And I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And  I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
     And I wait for 8000 milli seconds
     Then I verify that user should be able to select and upload files from the computer through Add files link
@@ -121,11 +118,11 @@ Feature: Updated Filtering
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
     Then I wait for 12000 milli seconds
-     Then I click on quick action button for note creation on Patient Card page
+    Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And  I select the value "Baseline" from the topic drop down on  Add Clinical Document on Patient Card
+    And I select the value "Baseline" from the topic drop down on  Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And  I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
     And I wait for 8000 milli seconds
     Then I verify that user should be able to select and upload files from the computer through Add files link
@@ -157,9 +154,9 @@ Feature: Updated Filtering
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 10000 milli seconds
-    When I switch to default window from iframe  
+    When I switch to default window from iframe
     Then I wait for 5000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I click on the complete CARL on the Patient Summary
@@ -172,7 +169,7 @@ Feature: Updated Filtering
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I wait for 12000 milli seconds
@@ -181,15 +178,10 @@ Feature: Updated Filtering
     Then I verify there should be filter link on clinical document section
     Then I click on filter link on clinical document section
     And I wait for 5000 milli seconds
-    Then I Verify that checking multiple filter options should return relevant patients in return 
-    And I wait for 5000 milli seconds 
+    Then I Verify that checking multiple filter options should return relevant patients in return
+    And I wait for 5000 milli seconds
     Then I Verify that clicking on Done should close the filter drawer and process the filter
-    
-   
-    
-Examples:
-      | First name    | Last name    | Medicare ID | Notetext      |
-      | AUTOMATIONNEW | DO NOT USENEW        | wa984986    | Sample Remedy |
 
-      
-        
+    Examples: 
+      | First name    | Last name     | Medicare ID | Notetext      |
+      | AUTOMATIONNEW | DO NOT USENEW | wa984986    | Sample Remedy |
