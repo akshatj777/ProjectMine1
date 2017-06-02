@@ -3,7 +3,6 @@ package com.remedy.Episode2;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -94,7 +93,5 @@ public class DischargeCarlForm extends BaseClass {
 		driver.findElement(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']")).sendKeys(text);
 		delay();
 		selectElementByDesc(".ng-binding.ng-scope", "A Helping Hand Hha (Wickenbury, AZ) (HHA)");
-	}
-	
-	
+	}	
 }

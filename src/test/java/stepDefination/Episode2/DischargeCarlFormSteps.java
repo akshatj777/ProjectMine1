@@ -2,7 +2,6 @@ package stepDefination.Episode2;
 
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.Then;
 
 public class DischargeCarlFormSteps extends DriverScript {
@@ -27,7 +26,6 @@ public class DischargeCarlFormSteps extends DriverScript {
 	public void I_Verify__AdditionalComments_Under_DischargeSection() throws Throwable {
 		dischargecarlform.IVerifyAdditionalCommentsSectionUnderDischargeOnCarlForm();	
 	}
-
 
 	@Then("^I click on \"([^\"]*)\" subform dropdown under Recommendation on Discharge section$")
 	public void I_Click_On_Subform_Dropdown_Under_Recommendation_On_Discharge_Section(String text) throws Throwable {
