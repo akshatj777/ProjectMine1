@@ -37,7 +37,7 @@ Feature: Clinical Documents - Last Saved
       | PATIENT    | CROST     | wa984986    |   12 |
 
   Scenario Outline: To verify following details should appear under the last saved section:
-                     Date the form was saved, Time form was saved, Last Name of user who saved form, First Name of user who saved form, User's credentials
+                     Date the form was saved,Time form was saved, Last Name of user who saved form, First Name of user who saved form, User's credentials
 
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login

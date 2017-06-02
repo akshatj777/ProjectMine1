@@ -15,7 +15,7 @@ public class LastSavedSteps extends DriverScript  {
 		patientclinical.IclickontheCareAssessmentNotedocumenttoopentheNotesontheClinicalDocuments();
 	}
 
-	@Then("^I verify information of the last user who saved the individual form is displaying on the Last saved section$")
+	@Then("^I verify information of the last user who saved the individual form is displaying on the Last saved section$")
 	public void I_verify_information_of_the_last_user_who_saved_the_individual_form_is_displaying_on_the_Last_saved_section() {
 		patientclinical.IverifyinformationofthelastuserwhosavedtheindividualformisdisplayingontheLastsavedsection();
 	}
