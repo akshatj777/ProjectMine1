@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+
 /**
  * Created by ashish.ranjan on 24-11-2016.
  */
@@ -143,7 +144,7 @@ public class PatientsPage extends BaseClass {
         isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[4]")));
     }
 
-    public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage() {
+    public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage1() {
         isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/div[3]/a")));
     }
 
@@ -251,7 +252,7 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage() {
-        isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible – ESRD')]")));
+        isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible ï¿½ ESRD')]")));
     }
 
     public void iVerifyErrorIsPresentInTheEligibilityDropdownOnThePatientSummaryPage() {
@@ -392,7 +393,7 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.id("bp_personbundle_bpadmissiontype_drgType")));
     }
 
-    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage() {
+    public void iSelectPossibleFromTheDRGTypeDropdownPresentOnThePatientOverviewPage()  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Possible");
     }
 
@@ -492,7 +493,7 @@ public class PatientsPage extends BaseClass {
         switchToFrameByNameOrId("iFrameEC2PatientAdd");
     }
 
-    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
+    public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails)  {
         clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
         selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
     }
@@ -531,7 +532,7 @@ public class PatientsPage extends BaseClass {
     	js.executeScript("arguments[0].click();", element);
     }
 
-    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType) {
+    public void iSelectInpatientFromAdmissionCareTypeDropdownPresentOnAddPatientPage(String careType)  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", careType);
     }
 
@@ -581,11 +582,11 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector(".btn.default.date-set")));
     }
 
-    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option) {
+    public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option)  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory", option);
     }
 
-    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option) {
+    public void iSelectFromAdmissionCareTypeDropdownPresentOnTheAddTransitionPage(String option)  {
         selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", option);
     }
 
@@ -858,7 +859,6 @@ public class PatientsPage extends BaseClass {
     public boolean isAllCorrectPatientsReturnAfterPatientSearch(String fName, String lName) {
         List<WebElement> allNames = driver.findElements(By.cssSelector(".card-view-body .card-header .card-header-content h3"));
         boolean isPresent = false;
-
         for (int i = 0; i < allNames.size(); i++) {
            String allText = allNames.get(i).getText();
            String[] patientName = allText.split(",\n");
@@ -972,11 +972,11 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyTextAfterSelectingFilterToExport(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
 	}
-	
-	public void iClickOnAgreeButtonOnAttestationPage(){
+
+	public void IclickonAgreebuttonpresentontheAttestationpage() {
 		clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
 	}
-	
+
 	public void iVerifySelectedFilterText(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".margin-left.ng-binding")), text);
 	}
@@ -1122,4 +1122,7 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyPatientTags(String tags){
 		verifyTextForElementfromList(".tag-label.ng-binding", tags);
 	}
+
 }
+    
+

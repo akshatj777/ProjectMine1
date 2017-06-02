@@ -79,5 +79,5 @@ Feature: Patent care plan and care team
 
     Examples:
 
-      | email                | password  | Patient Name   |
-      | qa.admin@yopmail.com | Episode1! | Mypat Aaacyysa |
+      | email                | password  |  Patient Name      |
+      | qa.admin@yopmail.com | Episode1! | FQTTQSU ABRSSATZBY |
