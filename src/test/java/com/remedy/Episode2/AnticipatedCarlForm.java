@@ -112,6 +112,4 @@ public class AnticipatedCarlForm extends BaseClass{
 		String value = driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div/input")).getAttribute("class");
 		Assert.assertTrue(value.contains("ng-pristine ng-untouched ng-valid ng-not-empty"));
 	}
-	
-	
-	}
+}

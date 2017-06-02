@@ -2,7 +2,6 @@ package stepDefination.Episode2;
 
 import com.remedy.Episode2.AnticipatedCarlForm;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -119,5 +118,4 @@ public class AnticipatedCarlFormSteps extends DriverScript {
 	public void I_Verify_Radio_Option_IsSet_To_Default_Under_Selected_Checkbox_For_TransitionOfCareNeeds_On_AnticipatedDischargeNeeds(String radio, String text) throws Throwable {
 		anticipatedcarlform.IVerifyRadioOptionIsAtDefaultStateUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(radio, text);
 	}
-	
 }
