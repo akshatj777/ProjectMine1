@@ -11,81 +11,85 @@ import org.openqa.selenium.WebDriver;
  */
 public class LoginPage extends BaseClass {
 
-    public LoginPage(WebDriver driver) {
+	public LoginPage(WebDriver driver) {
+		super(driver);
+	}
 
-        super(driver);
-    }
+	public void iLoginAsSupperUser(String userName, String passWord) {
+		iEnteruserEmail(userName);
+		iEnterPassword(passWord);
+		iClickLogInButton();
+	}
 
-    public void iLoginAsSupperUser(String userName, String passWord) {
+	public void iClickForgotPassword() {
+		clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
+	}
 
-        iEnteruserEmail(userName);
-        iEnterPassword(passWord);
-        iClickLogInButton();
+	public void iEnterEmailForResetPssword(String text) {
+		iFillInText(driver.findElement(By.name("email")), text);
+	}
 
-    }
+	public void iEnterNewPasswordForResetPassword(String text) {
+		iFillInText(driver.findElement(By.name("password")), text);
+	}
 
-    public void iClickForgotPassword() {
-        clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
-    }
+	public void iEnterPasswordToSetNewPassword(String text) {
+		iFillInText(driver.findElement(By.name("password")), text);
+	}
 
-    public void iEnterEmailForResetPssword(String text) {
+	public void iEnterConfirmPasswordForResetPassword(String text) {
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
+	}
 
-        iFillInText(driver.findElement(By.name("email")), text);
-    }
+	public void iReenterNewPasswordToSetNewPassword(String text) {
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
+	}
 
-    public void iEnterNewPasswordForResetPassword(String text) {
+	public void iClickChangePasswordButton() {
+		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+	}
 
-        iFillInText(driver.findElement(By.name("password")), text);
-    }
+	public void iClickOnChangePasswordButtonToSetNewPassword() {
+		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+	}
 
-    public void iEnterConfirmPasswordForResetPassword(String text) {
+	public void iClickChangePasswordCancleButton() {
+		clickElement(driver.findElement(By.linkText("Return to Login")));
+	}
 
-        iFillInText(driver.findElement(By.name("confirmPassword")), text);
+	public void iVerifyChagePasswordConfirmation(String text) {
+		verifyTextForElement(driver.findElement(By.cssSelector(".a0-success")), text);
+	}
 
-    }
+	public void iVerifyResetPasswordText(String text) {
+		verifyTextForElement(driver.findElement(By.xpath("//h1[text()='Password Reset']")), text);
+	}
 
-    public void iClickChangePasswordButton() {
+	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
+		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
+		delay();
+	}
 
-        clickElement(driver.findElement(By.xpath("//button[contains(text(),'Change Password')]")));
+	public void iEnteruserEmail(String userName) {
 
-    }
+		iFillInText(driver.findElement(By.name("email")), userName);
+	}
 
-    public void iClickChangePasswordCancleButton() {
+	public void iEnterPassword(String passWord) {
+		iFillInText(driver.findElement(By.name("password")), passWord);
+	}
 
-        clickElement(driver.findElement(By.linkText("Return to Login")));
+	public void iEnterPasswordFieldForLoginAfterMailVerification(String passWord) {
+		iFillInText(driver.findElement(By.name("password")), passWord);
+	}
 
-    }
+	public void iClickLogInButton() {
+		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
+		delay();
+	}
 
-    public void iVerifyChagePasswordConfirmation(String text) {
-
-        verifyTextForElement(driver.findElement(By.cssSelector(".a0-success")), text);
-    }
-
-    public void iVerifyResetPasswordText(String text) {
-
-        verifyTextForElement(driver.findElement(By.cssSelector("h1.page-auth-title.divider-horz")), text);
-    }
-
-    public void iEnteruserEmail(String userName) {
-
-        iFillInText(driver.findElement(By.name("email")), userName);
-    }
-
-    public void iEnterPassword(String passWord) {
-
-        iFillInText(driver.findElement(By.name("password")), passWord);
-    }
-
-    public void iClickLogInButton() {
-
-        clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
-        delay();
-    }
-
-    public void iVerifyLogInWidget() {
-
-        isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
-    }
-
-
+	public void iVerifyLogInWidget() {
+		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
+	}
 }
+

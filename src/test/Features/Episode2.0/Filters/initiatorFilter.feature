@@ -17,6 +17,16 @@ Feature: Episode 2.0 Initiator Filter
     
     When I click "Unassigned" initiator from filter list
     And I wait for 10000 milli seconds
-    Then I verify the total number of patients present on the Patients Page
-    Then I click on Done button present on the Filter Page 
-    And I wait for 4000 milli seconds
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
+    Then I verify the total number of patients present on the Patients Page  
+    And I wait for 5000 milli seconds
+    Then I verify "Unassigned" is appearing under selected filters for Initiator
+    Then I click on "Agree" button appearing on the patient card after applying filter
+    And I wait for 5000 milli seconds
+    Then I verify "Initiator Not Assigned" initiator is appearing on the patient card on patient list home page
+    When I click on the Expand button on the patient card on the patient page
+    And I wait for 5000 milli seconds
+    Then I verify "Initiator Not Assigned" is appearing under initiator on the patient summary page
+    And I wait for 2000 milli seconds
+    

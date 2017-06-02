@@ -23,10 +23,13 @@ import stepDefination.Hooks.*;
         tags = {}
 )*/
 
+
 @RunWith(ExtendedCucumberRunner.class)
-@CucumberOptions(features = { "src/test/Features/UserAdmin/LogIn.feature" },
-        format = { "pretty", "html:target/cucumber" },
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"}
+@CucumberOptions(format = { "pretty", "html:target/cucumber" },
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/vimalSelvam-cucumberReport/report.html"},
+        features = { "src/test/Features/" },
+        //glue = { "./src/test/java/stepDefination" },
+        tags = {}
 )
 public class TestRunner {
 
@@ -43,6 +46,7 @@ public class TestRunner {
                testReportFinal.generateFeatureOverviewReport();
                 testReportFinal.testGenerateDetailedAggregatedReport();
                 testReportFinal.generateCoverageOverviewReport();*/
+
                 if (DriverScript.Config.getProperty("wantToSendReportViaAutoEmail").equalsIgnoreCase("true")){
                         //System.out.println("control should move here only if I want to send email- cheers !!");
                         AutoReportEmailSender sendReportEmailAutomatically = new AutoReportEmailSender();

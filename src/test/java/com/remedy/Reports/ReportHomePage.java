@@ -1,7 +1,9 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import cucumber.api.DataTable;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 import java.util.Random;
 
@@ -78,8 +81,11 @@ public class ReportHomePage extends BaseClass {
         moveToTheElement(driver.findElement(By.xpath(toElementLocator)));
     }
 
-    public void iMoveToElementAndPerformRightClick(String moveToElementLocator){
-        moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
+    public void iMoveToElementAndPerformRightClick(String filterField, String filterTitle){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
+    	delay();
+    	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
+		//moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
@@ -577,6 +583,10 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath(".//div[@class='pentaho-filterbutton']")));
     }
     
+    public void iClickOnFiltersCountLabel(){
+    	clickElement(driver.findElement(By.cssSelector("#RPT001FilterCountLabel")));
+    }
+    
     public void iVerifyPreselectedModelFilter(String text){
     	isElementVisible(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='["+text+"].["+text+"]']/span")));
     }
@@ -676,6 +686,70 @@ public class ReportHomePage extends BaseClass {
 
     public void iClickOnAnchorAdmissionMonth(String month){
     	clickElement(driver.findElement(By.xpath(".//*[@id='FT_"+month+"_TIME']")));
+    }
+    
+    public void iShouldNotSeeReportName(String report){
+    	verifyTextNotPresentForElementFromList(".ng-binding.ng-scope", report);
+    }
+    
+    public void iSelectFromListOnFilterPage(){
+    	clickElement(driver.findElement(By.cssSelector("#FT_filterTypeSelect")));
+    }
+    
+    public void iClickOnNPRAGraphPoint(String npra){
+    	String nprapath=".//*[@id='"+npra+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][5]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(nprapath)));
+    }
+    
+    public void iVerifyInTheNewWindowAfterClickingOnGraph(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
+    }
+    
+    public void iClickOnGrpahPointForPostAcuteUtilization(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnPostAcuteUtilizationGraphPoint(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnOtherGraphPostAcuteUtilizationGraphPoint(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForSNFLengthOfStay(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForReadmissions(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForHome(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][3]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iClickOnGrpahPointForreadmitperepisodeunderReadmissions(String text){
+    	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g'][3]/*[name()='circle'][2]";
+    	clickElement(driver.findElement(By.xpath(path)));
+    }
+    
+    public void iEnterAnchorAdmissionQuarterInSearchField(String text){
+    	iFillInText(driver.findElement(By.cssSelector("#FT_searchText")), text);
+    }
+    
+    public void iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter(){
+    	clickElement(driver.findElement(By.cssSelector("#FT_searchBy")));
+    }
+    
+    public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Begin Date].[Anchor Admission Year]']/span")),text);
     }
 }
 

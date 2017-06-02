@@ -19,6 +19,15 @@ Feature: Episode 2.0 Risk Assessment Filter
      And I wait for 2000 milli seconds
      Then I click on "Low Risk" checkbox under risk assessment filter
      And I wait for 9000 milli seconds
-     Then I verify the total number of patients present on the Patients Page  
      Then I click on Done button present on the Filter Page
+     Then I scroll the page to bottom by "-100"
+     Then I verify the total number of patients present on the Patients Page  
+     And I wait for 5000 milli seconds
+     Then I verify "Low Risk" is appearing under selected filters for Risk Assessment
+     Then I click on "Agree" button appearing on the patient card after applying filter
+     And I wait for 5000 milli seconds
+     When I click on the Expand button on the patient card on the patient page
+     And I wait for 5000 milli seconds
+     Then I verify "Low Risk" risk status is appearing on the patient summary page
      And I wait for 2000 milli seconds
+     
