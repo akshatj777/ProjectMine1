@@ -221,4 +221,10 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	public void I_click_on_the_Impatient_tab_on_the_patient_Card_Page() throws Throwable {
 		noteCreation.IclickontheImpatienttabonthepatientCardPage();
 	}
+
+	@And("^I enter the Note Text \"(.*)\" in the textarea on Add Clinical Document on Patient Card$")
+	public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card(String Notetext)throws Throwable {
+		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(Notetext);
+	}
+
 }
