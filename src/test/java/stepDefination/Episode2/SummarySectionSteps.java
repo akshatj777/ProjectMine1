@@ -155,15 +155,4 @@ public class SummarySectionSteps extends DriverScript{
     
      }
      
-     
-     @Then ("^I verify the CARL Document not appear on the Clinical Documents tab in the patient summary Page$")
-     public void  I_verify_the_CARL_Document_not_appear_on_the_Clinical_Documents_tab_in_the_patient_summary_Page()
-     {
-    	 
-  //  	 patientclinical.IverifytheCARLDocumentnotappearontheClinicalDocumentstabinthepatientsummaryPage();
-     }
-     
-    
-     
-    
-}
+   }

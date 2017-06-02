@@ -13,9 +13,7 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I should see search box appearing on the patients page
-   Then I enter last name in the search box on the patients Card page
-    And I wait for 20000 milli seconds
-    Then I click on the agree button for the patient on patient card page
+    Then I enter "<Last name> <First name>" in the search box on the patients page
     And I wait for 20000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
@@ -24,7 +22,7 @@ Feature: Clinical Documents - Patient Notes History Section
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
     And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload files from the computer through Add files link
+    Then I verify that user should be able to select and upload files "Sample.txt" from the computer through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
@@ -52,9 +50,7 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I should see search box appearing on the patients page
-    Then I enter last name in the search box on the patients Card page
-    And I wait for 20000 milli seconds
-    Then I click on the agree button for the patient on patient card page
+    Then I enter "<Last name> <First name>" in the search box on the patients page
     And I wait for 20000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
@@ -63,7 +59,7 @@ Feature: Clinical Documents - Patient Notes History Section
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
     Then I verify that Add Files link is clickable
     And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload files from the computer through Add files link
+    Then I verify that user should be able to select and upload files "Sample.txt" from the computer through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
