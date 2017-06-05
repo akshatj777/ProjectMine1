@@ -39,7 +39,7 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Should_See_Dropdown_List_To_Select_Role();
 	}
 	
-	@Then("^I clicked ([^\"]*) under edit user role tab$")
+	@Then("^I clicked ([^\"]*) under edit user role tab again$")
 	public void i_Clicked_Under_Edit_User_Role_Tab(String role) throws Throwable{
 		UserEdit.i_Clicked_Under_Edit_User_Role_Tab(role);
 	}
@@ -109,11 +109,6 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Enter_Text_Under_Payer_Field(Text);
 	 }
 	
-	@Then("^I clicked on payer dropdown$")
-	public void i_Clicked_On_Payer_Dropdown() throws Throwable{
-		UserEdit.i_Clicked_On_Payer_Dropdown();
-	}
-	
 	@Then("^I clicked on search field under Health system Name$")
 	public void i_Clicked_On_Search_Field_Under_Health_System_Name() throws Throwable{
 		UserEdit.i_Clicked_On_Search_Field_Under_Health_System_Name();
@@ -177,5 +172,40 @@ public class UserAdminEditSteps extends DriverScript {
 	@And("^I clicked on remove button appearing on popup$")
 	public void i_Clicked_On_Remove_Button_Appearing_On_Popup() throws Throwable{
 		UserEdit.i_Clicked_On_Remove_Button_Appearing_On_Popup();
+	}
+	
+	@Then("^I clicked ([^\"]*) under edit user role tab to edit the role$")
+	public void iClickedUnderEditUserRoleTabToEditTheRole(String role) throws Throwable{
+		UserEdit.iClickedUnderEditUserRoleTabToEditTheRole(role);
+	}
+	
+	@Then("^I clicked on Save button under edit user role tab after editing$")
+	public void iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing() throws Throwable{
+		UserEdit.iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing();
+	}
+	
+	@Then("^I clicked on Emblem Health from dropdown list of payer$")
+	public void iClickedOnEmblemHealthFromDropdownListOfPayer() throws Throwable{
+		UserEdit.iClickedOnEmblemHealthFromDropdownListOfPayer();
+	}
+	
+	@Then("^I clicked on Medicare from dropdown list of payer$")
+	public void iClickedOnMedicareFromDropdownListOfPayer() throws Throwable{
+		UserEdit.iClickedOnMedicareFromDropdownListOfPayer();
+	}
+	
+	@And("^I clicked on remove button of RP Payer Test B row under permission field$")
+	public void iClickedOnRemoveButtonOfRPPayerTestBRowUnderPermissionField() throws Throwable{
+		UserEdit.iClickedOnRemoveButtonOfRPPayerTestBRowUnderPermissionField();
+	}
+	
+	@And("^I wait for popup to remove RP Payer Test B under permission field$")
+	public void iWaitForPopupToRemoveRPPayerTestBUnderPermissionField() throws Throwable{
+		UserEdit.iWaitForPopupToRemoveRPPayerTestBUnderPermissionField();
+	}
+	
+	@And("^I clicked on remove button appearing on popup for RP Payer Test B$")
+	public void iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestB() throws Throwable{
+		UserEdit.iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestB();
 	}
 }

@@ -45,11 +45,11 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Role_Tab_To_Edit_The_User_Role_Assigned() {
-		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[3]")));
+		clickElement(driver.findElement(By.xpath("//form/div[2]/div[1]/div[1]/div[1]/span")));
 	}
 
 	public void i_Should_See_Dropdown_List_To_Select_Role() {
-		isElementVisible(driver.findElement(By.xpath("(//ul[@role='listbox'])[1]")));
+		isElementVisible(driver.findElement(By.xpath("(//form/div[2]/div[1]/div[1]/ul/li)[1]")));
 	}
 
 	public void i_Clicked_Under_Edit_User_Role_Tab(String Text) {
@@ -65,7 +65,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page() {
-		getElementCount(".product-item-label.ng-binding");
+		getElementCount(".checkbox.checkbox-single.ng-not-empty.ng-valid");
 	}
 
 	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page_After_Role_Change(){
@@ -102,15 +102,11 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Payer_Field_To_Edit_The_Payer() {
-		clickElement(driver.findElement(By.xpath("(//span[@class='ui-select-match-text pull-left'])[2]")));
+		clickElement(driver.findElement(By.xpath("//form/div[1]/div[1]/div/div/div[1]/div[1]/span")));
 	}
 
 	public void i_Enter_Text_Under_Payer_Field(String Text) {
 		iFillInText(driver.findElement(By.xpath("(//input[@role='button'])[2]")), Text);
-	}
-
-	public void i_Clicked_On_Payer_Dropdown() {
-		clickElement(driver.findElement(By.xpath("//a/div[@class='ng-binding ng-scope']")));
 	}
 
 	public void i_Clicked_On_Search_Field_Under_Health_System_Name() {
@@ -122,7 +118,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_RP_Payer_Test_B_From_Dropdown_List_Of_Health_System_Name() {
-		clickElement(driver.findElement(By.xpath("//a/span")));
+		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
 	}
 
 	public void i_Clicked_On_Search_Field_Under_Provider_Name() {
@@ -176,5 +172,33 @@ public class UserAdminEdit extends BaseClass {
 				System.out.println("Share File not present");
 			}
 		}
+	}
+	
+	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
+		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
+	}
+	
+	public void iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing(){
+		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
+	}
+	
+	public void iClickedOnEmblemHealthFromDropdownListOfPayer(){
+		clickElement(driver.findElement(By.xpath("//div[text()='Emblem Health']")));
+	}
+	
+	public void iClickedOnMedicareFromDropdownListOfPayer(){
+		clickElement(driver.findElement(By.xpath("//div[text()='Medicare']")));
+	}
+	
+	public void iClickedOnRemoveButtonOfRPPayerTestBRowUnderPermissionField(){
+		clickElement(driver.findElement(By.xpath("//form/div[2]/ul/li[2]/div/div/div/small")));
+	}
+	
+	public void iWaitForPopupToRemoveRPPayerTestBUnderPermissionField(){
+		isElementVisible(driver.findElement(By.xpath("//ul/li[2]/div/div/div/div[@group-close='remove-participant']")));
+	}
+	
+	public void iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestB(){
+		clickElement(driver.findElement(By.xpath("//ul/li[2]/div/div/div/div[@group-close='remove-participant']/div/div[2]/button[2]")));	
 	}
 }
