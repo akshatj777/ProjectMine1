@@ -53,8 +53,8 @@ Scenario Outline: The ‘Complete CARL’ button should appear on the patient card w
     Then I Verify that Carl form should appear with White bar with Patient Name "<Last name>" "<First name>" and x icon on the page
     Then I Verify that Carl form should appear with Cancel link
     Then I Verify that Carl form should appear with Save your progress link 
-    #Then I Verify that Carl form should appear with review the form link
-    #Then I Verify that Carl form should appear with review the form link
+    Then I Verify that Carl form should appear with review the form link
+    Then I Verify that Carl form should appear with review the form link
     Then I Verify that Carl form should appear Left navigator displaying four sections
     Then I save and continue the complete CARL form
     Then I save and continue the complete CARL form
