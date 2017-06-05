@@ -11,9 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.remedy.baseClass.BaseClass;
 
-public class PatientReadmission extends BaseClass {
+public class ReadmissionWorklist extends BaseClass {
 
-	public PatientReadmission(WebDriver driver) {
+	public ReadmissionWorklist(WebDriver driver) {
 		super(driver);
 	}
 

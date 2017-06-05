@@ -1,12 +1,12 @@
 package stepDefination.Episode2;
 
-import com.remedy.Episode2.PatientReadmission;
+import com.remedy.Episode2.ReadmissionWorklist;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 
 public class ReadmissionWorklistSteps extends DriverScript {
 
-	PatientReadmission admission = new PatientReadmission(driver);
+	ReadmissionWorklist admission = new ReadmissionWorklist(driver);
 
 	@Then("^I select the care setting value \"([^\"]*)\" on add a new transition$")
 	public void I_select_the_care_setting_value_on_add_a_new_transition(String caresetting) throws Throwable {

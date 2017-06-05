@@ -1,4 +1,4 @@
-Feature: Readmission
+Feature: Patient Status with Active/Pending Cancellation episode having readmission as HHH-I without facility
 
   Scenario Outline: Patient with Active/Pending Cancellation episode having readmission as HHH-I without facility
     Given I am on the login page
