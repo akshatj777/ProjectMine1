@@ -1,14 +1,12 @@
 Feature: Readmssion Worklist Acceptamce Criteria
 
-Scenario Outline: User should be able to see patient cards as per acceptance criteria
-
+  Scenario Outline: User should be able to see patient cards as per acceptance criteria
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -22,11 +20,7 @@ Scenario Outline: User should be able to see patient cards as per acceptance cri
     And I verify episode progress knob appearing on patient cards under readmission worklist
     Then I verify "Readmitted" is appearing on patient cards under readmission worklist
     Then I see number of days as inpatient section is appearing on patient cards on readmission worklist
-    
-    
-    Examples:
-    
-       | email                |
-       | qa.admin@yopmail.com |
-       
-       
+
+    Examples: 
+      | email                |
+      | qa.admin@yopmail.com |

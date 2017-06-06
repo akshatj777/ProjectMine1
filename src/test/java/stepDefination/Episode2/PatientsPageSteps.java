@@ -1249,7 +1249,7 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
-    
+
     @Then("^I verify ([^\"]*) is appearing under selected filters for Admit Reason$")
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Admit_Reason(String text) throws Throwable{
     	patientsPage.iVerifySelectedFilterText("Admit Reason: "+text);
@@ -1390,7 +1390,7 @@ public class PatientsPageSteps extends DriverScript {
     {
     	patientsPage.IclickontheImpatientTabonPatientpage();
     }
-    
+
     @Then("^I verify ([^\"]*) is appearing on patient card on patient home page$")
     public void i_verify_admit_reason_is_appearing_on_patient_card_on_patient_home_page(String admitreason) throws Throwable{
     	patientsPage.iSeeAdmitReasonFilterOnPatientCard(admitreason);
@@ -1560,7 +1560,5 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_is_appearing_on_patient_summary_page_below_tags(String tags) throws Throwable{
     	patientsPage.iVerifyPatientTags(tags);
     }
-   
-    
-  
+
 }

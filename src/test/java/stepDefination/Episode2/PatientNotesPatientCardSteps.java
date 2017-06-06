@@ -36,7 +36,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	public void I_verify_whether_topic_drop_down_appears_on_Add_Clinical_Document_on_Patient_Card_page()throws Throwable {
 		noteCreation.IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage();
 	}
-	 
+
 	 @And ("^I enter the Note Text in the textarea on Add Clinical Document on Patient Card$")	 
 	 public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card() throws Throwable 
 	 {
@@ -50,7 +50,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	 }
 
 	 //Upload file
-
+	 
 	@And("^I select the \"(.*)\" from the topic drop down on Add Clinical Document on Patient Card$")
 	public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Card(String dropdownvalue) throws Throwable {
 		noteCreation.IselectthevaluefromthetopicdropdownonPatientCard(dropdownvalue);

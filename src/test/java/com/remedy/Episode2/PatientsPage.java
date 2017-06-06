@@ -1033,7 +1033,7 @@ public class PatientsPage extends BaseClass {
         clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
 
     }
-
+    
 	public void iSeeAdmitReasonFilterOnPatientCard(String admitreason){
 		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")), admitreason);
 	}
