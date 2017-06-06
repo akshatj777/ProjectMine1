@@ -1,7 +1,7 @@
+
 Feature: Patient status on Home Health Worklist
 
-#Scenario1
-Scenario Outline: Create an M2 Active Patient
+Scenario Outline: Create an M2 Pending Cancellation Patient
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -43,7 +43,16 @@ Scenario Outline: Create an M2 Active Patient
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
+    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    Then I wait for 15000 milli seconds
     When I switch to default window from iframe
+   
     
     
  Examples:
@@ -52,7 +61,7 @@ Scenario Outline: Create an M2 Active Patient
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  
 
       
- Scenario Outline: Patient's current Admit Care Setting is HHA with Episode status as Active M2     
+ Scenario Outline: Patient's current Admit Care Setting is HHA with Episode status as Pending Cancellation M2     
  
     Given I am on the login page
     When I enter email field <email> for login
@@ -60,6 +69,7 @@ Scenario Outline: Create an M2 Active Patient
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
+
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -113,5 +123,5 @@ Scenario Outline: Create an M2 Active Patient
      Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  
-    
+      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  	
+

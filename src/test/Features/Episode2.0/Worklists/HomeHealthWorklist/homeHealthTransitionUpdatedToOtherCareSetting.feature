@@ -1,13 +1,13 @@
 Feature: Patient status on Home Health Worklist
 
-#Scenario1
-Scenario Outline: Create an M2 Active Patient
+ Scenario Outline: Create patient with Potential M3 episode status.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
+
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -34,26 +34,25 @@ Scenario Outline: Create an M2 Active Patient
     Then I wait for 5000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "Stamford Hospital" on add a new transition 
+    Then I select the facility value "Emanuel County Hospital Authority" on add a new transition 
     Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
+   
     
-    
- Examples:
+  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  
-
       
- Scenario Outline: Patient's current Admit Care Setting is HHA with Episode status as Active M2     
- 
+   Scenario Outline: While patient in worklist,transition get updated with other care setting
+
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -108,10 +107,32 @@ Scenario Outline: Create an M2 Active Patient
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I select the care setting value "HPC - Hospice" on add a new transition
+    Then I wait for 4000 milli seconds
+    Then I click on update transition to add a new episode
+    Then I wait for 15000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I click on the Post Acute tab on the patient Card Page 
+    Then I wait for 5000 milli seconds
+    Then I click on Home Health sub tab on the patient Card Page
+    Then I wait for 10000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
+    Then I wait for 10000 milli seconds
+    Then I click on the ALL Tab on Patient page
+    And I wait for 8000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    And I wait for 20000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    And I wait for 30000 milli seconds
+    Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
-    
-     Examples:
+   
+    Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  
-    

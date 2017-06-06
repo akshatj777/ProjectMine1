@@ -1,6 +1,5 @@
 Feature: Patient status on Home Health Worklist
 
-#Scenario1
 Scenario Outline: Create an M2 Active Patient
     Given I am on the login page
     When I enter email field <email> for login
@@ -43,6 +42,24 @@ Scenario Outline: Create an M2 Active Patient
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "19" on date picker
+    Then I select the month "19" from calendar from date picker 
+    Then I select the "19" from the calendar from date picker on Transition Page
+    Then I select the "19" time from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
+    Then I select the care setting value "HHA - Home Health Agency" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Skilled services" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Amedisys Home Health - Stamford" on add a new transition 
+    Then I wait for 8000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 15000 milli seconds
     When I switch to default window from iframe
     
     
@@ -77,16 +94,37 @@ Scenario Outline: Create an M2 Active Patient
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "19" on date picker
-    Then I select the month "19" from calendar from date picker 
-    Then I select the "19" from the calendar from date picker on Transition Page
-    Then I select the "19" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "-90" on date picker
+    Then I select the month "-90" from calendar from date picker 
+    Then I select the "-90" from the calendar from date picker on Transition Page
+    Then I select the "-90" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "HHA - Home Health Agency" on add a new transition
+    Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the care type value "Skilled services" on add a new transition
+    Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "Amedisys Home Health - Stamford" on add a new transition 
+    Then I select the facility value "Stamford Hospital" on add a new transition 
+    Then I wait for 8000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 15000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "-92" on date picker
+    Then I select the month "-92" from calendar from date picker 
+    Then I select the "-92" from the calendar from date picker on Transition Page
+    Then I select the "-92" time from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
@@ -98,20 +136,21 @@ Scenario Outline: Create an M2 Active Patient
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
+    Then I wait for 10000 milli seconds
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 30000 milli seconds
-    Then I click on the Transitions tab on the Patient Summary Page
-    And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
-    
-     Examples:
+   
+    Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  
+      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |    
     
+
+
