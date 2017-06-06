@@ -93,7 +93,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_The_Permissions_Field() {
-		isElementVisible(driver.findElement(By.xpath("//div[@class='layout-area']")));
+		isElementPresentOnPage(By.xpath("//div[@class='layout-area']"));
 	}
 
 	public void i_Clicked_On_Edit_Button_Under_Permissions_Data_Field() {
