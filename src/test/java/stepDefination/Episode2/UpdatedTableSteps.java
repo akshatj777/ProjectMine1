@@ -31,8 +31,5 @@ public class UpdatedTableSteps extends DriverScript{
 	public void I_count_the_number_of_documents_that_appear_in_the_clinical_Documents()
 	{
 		patientclinical.IcountthenumberofdocumentsthatappearintheclinicalDocuments();
-	}
-	
-	
-	
+	}	
 }

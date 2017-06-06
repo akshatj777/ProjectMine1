@@ -893,103 +893,17 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
-
 		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
 	}
 
 	public void iClickOnAgreeButtonOnAttestationPage(){
         isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
     }
-
-
-    public void IclickontheImpatientTabonPatientpage() {
-        clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
-    }
+	
 	public void iShouldVerifyIsAppearingUnderTransitionsPage() {
 		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
     }
-	public void iShouldSeeFacilityAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")));
-	}
-	public void iShouldSeeAdmitDateAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[3]")));
-	}
-	public void iShouldSeeAdmitReasonAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[4]")));
-	}
-	public void iShouldSeeAdmitTypeAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[5]")));
-	}
-	public void iShouldSeeDischargeDateAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[6]")));
-	}
-	public void iShouldSeeDischargeLocationAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[7]")));
-	}
-	public void iShouldSeePAPsAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[8]")));
-	}
-	public void iShouldSeeDRGsAppearingUnderTransitionsPage() {
-		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[9]")));
-	}
-	public void iClickOnEditPresentUnderActionsSymbol() {
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[1]/a")));
-	}
-	public void iShouldSeeEditTranisitionOnTransitionsPage(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
-	}
-	public void iClickOnActionsSymbol() {
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
-	}
-	public void iClickOnDeleteoftransition() {
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[3]/a")));
-	}
-	
-	public void iVerifyHideSummaryText(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")),text);
-	}
-	
-	public void iVerifyShowSummaryText(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")),text);
-	}
-	
-	public void iSeeFirstNameMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector("h2.ng-scope>span:nth-child(1)")));
-	}
-	
-	public void iSeeLastNameMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector("h2.ng-scope>span:nth-child(2)")));
-	}
-	
-	public void iSeeDateOfBirthMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(1)")));
-	}
-	
-	public void iSeeAgeMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(2)")));
-	}
-	
-	public void iSeeGenderMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(3)")));
-	}
-	
-	public void iSeeSSNMinimizedMode(){
-		isElementVisible(driver.findElement(By.xpath("//div[@class='card-datum ng-scope']//span[label[text()='SSN']]")));
-	}
-	
-	public void iSeeLanguageMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector("em.ng-binding")));
-	}
-	
-	public void iSeeRiskScoreMinimizedMode(){
-		isElementVisible(driver.findElement(By.cssSelector(".ng-binding.ng-scope.risk-unknown-risk")));
-	}
-	
-	public void iVerifyTextAfterSelectingFilterToExport(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")),text);
-	}
-
+		
 	public void IclickonAgreebuttonpresentontheAttestationpage() {
 		clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
 	}
@@ -1021,6 +935,105 @@ public class PatientsPage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 	}
 
+    public void iShouldSeeFacilityAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")));
+    }
+
+    public void iShouldSeeAdmitDateAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[3]")));
+    }
+
+    public void iShouldSeeAdmitReasonAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[4]")));
+    }
+
+    public void iShouldSeeAdmitTypeAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[5]")));
+    }
+
+    public void iShouldSeeDischargeDateAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[6]")));
+    }
+
+    public void iShouldSeeDischargeLocationAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[7]")));
+    }
+
+    public void iShouldSeePAPsAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[8]")));
+    }
+
+    public void iShouldSeeDRGsAppearingUnderTransitionsPage() {
+        isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[9]")));
+    }
+
+    public void iClickOnEditPresentUnderActionsSymbol() {
+        clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+        clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[1]/a")));
+    }
+
+    public void iShouldSeeEditTranisitionOnTransitionsPage(String text) {
+        verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")), text);
+    }
+
+    public void iClickOnActionsSymbol() {
+        clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
+    }
+
+    public void iClickOnDeleteoftransition() {
+        clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div/ul/li[3]/a")));
+    }
+
+    public void iVerifyHideSummaryText(String text) {
+        verifyTextForElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")), text);
+    }
+
+    public void iVerifyShowSummaryText(String text) {
+        verifyTextForElement(driver.findElement(By.cssSelector(".toggle-page-summary.ng-binding")), text);
+    }
+
+    public void iSeeFirstNameMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector("h2.ng-scope>span:nth-child(1)")));
+    }
+
+    public void iSeeLastNameMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector("h2.ng-scope>span:nth-child(2)")));
+    }
+
+    public void iSeeDateOfBirthMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(1)")));
+    }
+
+    public void iSeeAgeMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(2)")));
+    }
+
+    public void iSeeGenderMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector(".card-header-subtext.ng-scope>span:nth-child(3)")));
+    }
+
+    public void iSeeSSNMinimizedMode() {
+        isElementVisible(driver.findElement(By.xpath("//div[@class='card-datum ng-scope']//span[label[text()='SSN']]")));
+    }
+
+    public void iSeeLanguageMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector("em.ng-binding")));
+    }
+
+    public void iSeeRiskScoreMinimizedMode() {
+        isElementVisible(driver.findElement(By.cssSelector(".ng-binding.ng-scope.risk-unknown-risk")));
+    }
+
+    public void iVerifyTextAfterSelectingFilterToExport(String text) {
+        verifyTextForElement(driver.findElement(By.cssSelector(".message-informative.icon-large>span")), text);
+    }
+
+    public void IclickontheImpatientTabonPatientpage() {
+        // TODO Auto-generated method stub
+        clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
+
+    }
+    
 	public void iSeeAdmitReasonFilterOnPatientCard(String admitreason){
 		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")), admitreason);
 	}
@@ -1149,7 +1162,6 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyPatientTags(String tags){
 		verifyTextForElementfromList(".tag-label.ng-binding", tags);
 	}
-
 }
     
 

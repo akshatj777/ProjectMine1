@@ -89,7 +89,6 @@ public class BaseClass {
     public List<WebElement> getElementsList(String element) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-
         return listItems;
          
         }

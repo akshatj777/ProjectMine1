@@ -21,6 +21,8 @@ import stepDefination.Hooks.*;
         features = { "src/test/Features/"},
         //glue = { "./src/test/java/stepDefination" },
         tags = {}
+<<<<<<< HEAD
+
 )*/
 
 @RunWith(ExtendedCucumberRunner.class)

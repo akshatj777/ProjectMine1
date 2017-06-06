@@ -62,16 +62,28 @@ Feature: Model 2 Readmission
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
+<<<<<<< HEAD:src/test/Features/Episode2.0/Worklists/ReadmissionsWorlist/model2Readmission.feature
+    Then I select the month "20" from calendar from date picker 
+    Then I select the "20" from the calendar from date picker on Transition Page
+    Then I select the "20" time from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
+    Then I select the care setting value "HHH - Hospital " on add a new transition
+=======
     Then I select the month "20" from calendar from date picker
     Then I select the "20" from the calendar from date picker on Transition Page
     Then I select the "20" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
+>>>>>>> develop:src/test/Features/Episode2.0/Worklists/ReadmissionsWorklist/model2Readmission.feature
     Then I wait for 5000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
+<<<<<<< HEAD:src/test/Features/Episode2.0/Worklists/ReadmissionsWorlist/model2Readmission.feature
+    Then I select the "<LOS>" LOS days on Discharge date on Add Transition
+=======
     Then I select the "5" LOS days on Discharge date on Add Transition
+>>>>>>> develop:src/test/Features/Episode2.0/Worklists/ReadmissionsWorklist/model2Readmission.feature
     Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -122,9 +134,17 @@ Feature: Model 2 Readmission
     Then I wait for 5000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
+<<<<<<< HEAD:src/test/Features/Episode2.0/Worklists/ReadmissionsWorlist/model2Readmission.feature
+      | email                | password  | Patient First Name  | Patient Last Name  | Care type | facility value    | LOS | DRG type | DRG | date1 |  date2 | days1 | days2 |
+      | qa.admin@yopmail.com | Episode1! | AKSJAIN             |  AutomateScenarios            | Inpatient | Stamford Hospital | 5 |Working | 65  | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 | 20 | 12 |
+
+#Scenario 2
+Scenario Outline: Patient with Pending Cancellation episode having readmission to an ACH facility as HHH-I without DRG
+=======
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name | days1 | days2 |
       | qa.admin@yopmail.com | Episode1! | AKSJAIN            | AutomateScenarios |    20 |    12 |
+>>>>>>> develop:src/test/Features/Episode2.0/Worklists/ReadmissionsWorklist/model2Readmission.feature
 
   Scenario Outline: Patient with Pending Cancellation episode having readmission to an ACH facility as HHH-I without DRG
     Given I am on the login page

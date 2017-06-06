@@ -795,7 +795,6 @@ public class PatientsPageSteps extends DriverScript {
 
     @When("^I click on Agree button present on the Attestation page$")
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
-
     	 patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
     }
 
@@ -1251,11 +1250,6 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
 
-    @Then ("^I click on the Impatient Tab on Patient page$")
-    public void I_click_on_the_Impatient_Tab_on_Patient_page() {
-        patientsPage.IclickontheImpatientTabonPatientpage();
-    }
-
     @Then("^I verify ([^\"]*) is appearing under selected filters for Admit Reason$")
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Admit_Reason(String text) throws Throwable{
     	patientsPage.iVerifySelectedFilterText("Admit Reason: "+text);
@@ -1389,6 +1383,12 @@ public class PatientsPageSteps extends DriverScript {
     @Then("^I click on \"([^\"]*)\" worklist under \"([^\"]*)\" worklist on episode home page$")
     public void i_click_on_worklist_under_worklist_On_episode_home_page(String sworklist,String mworklist) throws Throwable {
         patientsPage.iClickOnWorklistOnEpisodeHomePage(sworklist, mworklist);
+    }
+
+    @Then ("^I click on the Impatient Tab on Patient page$")
+    public void I_click_on_the_Impatient_Tab_on_Patient_page()
+    {
+    	patientsPage.IclickontheImpatientTabonPatientpage();
     }
 
     @Then("^I verify ([^\"]*) is appearing on patient card on patient home page$")

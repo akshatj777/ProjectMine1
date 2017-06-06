@@ -363,8 +363,8 @@ public class NoteCreation extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(" #notificationsTable > tbody > tr > td:nth-child(3)")));
 	}
 
-public String getcurrentdate(int days)
-{
+    public String getcurrentdate(int days)
+    {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDate localDate = LocalDate.now();
 	LocalDate b=localDate.minus(Period.ofDays(days));
@@ -372,7 +372,7 @@ public String getcurrentdate(int days)
 	String date=dtf.format(b);
 	System.out.println(dtf.format(b));
 	return date;
-}
+    }
 
     public void Iselectthemonthfromcalendarfromdatepicker(int days) throws InterruptedException {
     	
@@ -382,8 +382,7 @@ public String getcurrentdate(int days)
     System.out.println("*****List of months***"+list_AllMonthToBook);
     list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1])-1).click();
     Thread.sleep(1000);
-	
-}
+    }
 
 	public void IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary() {
 		isElementVisible(driver.findElement(By.cssSelector("#notificationsTable > tbody > tr > td:nth-child(4)")));
@@ -391,7 +390,6 @@ public String getcurrentdate(int days)
 
 	public void IclickontheImpatienttabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient')]")));
-
 	}
 
 	public void IVerifythatusershouldnotallowtocreatenotewithoutselectingTopicfield() {
@@ -400,7 +398,6 @@ public String getcurrentdate(int days)
 		} catch (Exception e) {
 			return;
 		}
-
 	}
 
 	public void Iclickonthecentreofthecalendarheadertoselectdateandmonth() {
