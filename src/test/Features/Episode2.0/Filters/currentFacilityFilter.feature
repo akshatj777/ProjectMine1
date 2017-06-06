@@ -30,7 +30,11 @@ Feature: Episode 2.0 Current Facility Filter
     Then I click on "Agree" button appearing on the patient card after applying filter
     And I wait for 5000 milli seconds
     When I click on the Expand button on the patient card on the patient page
-    And I wait for 5000 milli seconds
+    And I wait for 10000 milli seconds
+    When I click on Hide Summary button present on the patient summary page
+    And I switch to ec2 patient summary iframe
+    Then I verify "(OTHER) Stamford Hospital" is appearing under facility column under patient summary transitions
+    And I wait for 4000 milli seconds
     
     Examples:
     

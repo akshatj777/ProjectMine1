@@ -1,14 +1,12 @@
-Feature:  Patient form status on the status section on clinical Documents
-	
-   Scenario Outline:The Status section of the "Clinical Documents" table for a new patient(emblem user)
+Feature: Patient form status on the status section on clinical Documents
 
+  Scenario Outline: The Status section of the "Clinical Documents" table for a new patient(emblem user)
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -41,9 +39,9 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 10000 milli seconds
-    When I switch to default window from iframe  
+    When I switch to default window from iframe
     Then I wait for 5000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I click on the complete CARL on the Patient Summary
@@ -56,14 +54,14 @@ Feature:  Patient form status on the status section on clinical Documents
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
-    Then I verify that if user has saved a form but not submitted, status should be read as In Progress 
-    Then I verify that Inprogress status should be in purple color with Color code AD77B3  
-    Then I click on the cross button to close the CARL document form 
+    Then I verify that if user has saved a form but not submitted, status should be read as In Progress
+    Then I verify that Inprogress status should be in purple color with Color code AD77B3
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I click on the complete CARL on the Patient Summary
@@ -75,9 +73,9 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
-    And I wait for 1000 milli seconds  
-    Then I click on the Submit button to submit the CARL form 
-    And I wait for 7000 milli seconds 
+    And I wait for 1000 milli seconds
+    Then I click on the Submit button to submit the CARL form
+    And I wait for 7000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 8000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
@@ -106,7 +104,7 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I click on the Create Transition Button to add a new transition
     And I wait for 10000 milli seconds
     When I switch to default window from iframe
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I click on the complete CARL on the Patient Summary
@@ -118,24 +116,15 @@ Feature:  Patient form status on the status section on clinical Documents
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
-    And I wait for 1000 milli seconds  
-    Then I click on the Submit button to submit the CARL form 
-    And I wait for 7000 milli seconds 
+    And I wait for 1000 milli seconds
+    Then I click on the Submit button to submit the CARL form
+    And I wait for 7000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 8000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify that if patient has has a formed assigned that is the same as an existing form the status of the already existing form should be read as Archived
     Then I verify that Archived status should be in Grey color with Color code 959595
-    
-    
-    
-  Examples:
 
-     | First name     | Last name     | Medicare ID |
-     | AUTOMATE       | MINETEST      | wa984986    |
-  
-        
-      
-     
-   
-  
+    Examples: 
+      | First name | Last name | Medicare ID |
+      | AUTOMATE   | MINETEST  | wa984986    |

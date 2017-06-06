@@ -1,15 +1,12 @@
 Feature: Document Section
-	
 
-Scenario Outline:The "Document" section of the "Clinical Documents" table should house the individual forms and notes assigned to patients
-
+  Scenario Outline: The "Document" section of the "Clinical Documents" table should house the individual forms and notes assigned to patients
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -20,7 +17,7 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     And I wait for 20000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 20000 milli seconds
-   Then I click on the Transitions tab on the Patient Summary Page
+    Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 5000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
@@ -43,7 +40,7 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     Then I click on the Create Transition Button to add a new transition
     And I wait for 20000 milli seconds
     When I switch to default window from iframe
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 10000 milli seconds
@@ -57,7 +54,7 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
-    Then I click on the cross button to close the CARL document form 
+    Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     Then I wait for 12000 milli seconds
@@ -65,15 +62,6 @@ Scenario Outline:The "Document" section of the "Clinical Documents" table should
     Then I verify that title of document or topic of note should appear as a link in the section
     Then I verify that user should be able to click on title of document
 
- Examples:
-
-     | First name    |  Last name      | Medicare ID  |
-     | AUTOMATIONNEW |   DO NOT USENEW |  wa984986    |
-     
-      
-     
-     
-       
-     
-
-
+    Examples: 
+      | First name    | Last name     | Medicare ID |
+      | AUTOMATIONNEW | DO NOT USENEW | wa984986    |

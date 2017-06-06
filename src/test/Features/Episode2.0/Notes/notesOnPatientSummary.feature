@@ -1,13 +1,6 @@
-
 Feature: Patient Notes on Patient Summary
 
 Scenario: To Verify Quick Action has the following criteria on Patient Summary 
-                 a)Topic drop down
-                 b)Activity Date drop down calendar
-                 c)Body text box 
-                 d)Attach files link
-                 e)create note link
-                 f)Cancel link
 Given I am on the login page
 When I enter email field qa.admin@yopmail.com for login
 And I enter password field Episode1! for Login
@@ -30,4 +23,3 @@ And I verify Activity Body text box appears on the Add Clinical Document on Note
 And I verify attach files link appears on the Add Clinical Document on Note Creation
 And I verify Cancel button appears on the Add Clinical Document on Note Creation
 And I verify Create note appears on the Add Clinical Document on Note Creation
-

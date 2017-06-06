@@ -28,8 +28,10 @@ Feature: Episode 2.0 MedicareID Filter
      And I wait for 5000 milli seconds
      When I click on the Expand button on the patient card on the patient page
      And I wait for 5000 milli seconds
+     Then I verify <memberid> is appearing on the patient summary page to verify medicareid
+     
      
      Examples:
      
-        | medicareid |
-        | 168273732A |
+        | medicareid | memberid  |
+        | 003056161A | 003056161 |
