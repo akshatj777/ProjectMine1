@@ -126,11 +126,6 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		noteCreation.Iclickonthenextlinktoselecttherequiredyearondatepicker(date);
 	}
 
-	@Then("^I select the month \"(.*)\" from calendar from date picker$")
-	public void I_select_the_month_from_calendar_from_date_picker(String date) throws InterruptedException, Throwable {
-		noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
-	}
-
 	@Then("^I click on navigation bar to return to remedy connect$")
 	public void I_click_on_navigation_bar_to_return_to_remedy_connect() throws Throwable {
 		noteCreation.Iclickonnavigationbartoreturntoremedyconnect();
