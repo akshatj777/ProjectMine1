@@ -524,10 +524,16 @@ public class PatientsPage extends BaseClass {
     }
 
     public void iSelectTodaysDateAsTheAdmissionDate() {
-        clickElement(driver.findElement(By.cssSelector("td.day.active")));
-        delay();
-        clickElement(driver.findElement(By.cssSelector("span.hour.active")));
-        delay();
+    	JavascriptExecutor jsdate = ((JavascriptExecutor) driver);
+    	WebElement elementdate = driver.findElement(By.cssSelector("td.day.active"));  
+    	jsdate.executeScript("arguments[0].click();", elementdate);
+        //clickElement(driver.findElement(By.cssSelector("td.day.active")));
+        //delay();
+        JavascriptExecutor jshour = ((JavascriptExecutor) driver);
+    	WebElement elementhour = driver.findElement(By.cssSelector("span.hour.active"));  
+    	jshour.executeScript("arguments[0].click();", elementhour);
+        //clickElement(driver.findElement(By.cssSelector("span.hour.active")));
+        //delay();
         JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.cssSelector("span.minute.active"));  
     	js.executeScript("arguments[0].click();", element);
@@ -888,6 +894,10 @@ public class PatientsPage extends BaseClass {
 
     public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
 
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
+	}
+
+	public void iClickOnAgreeButtonOnAttestationPage(){
         isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
     }
 
@@ -1000,7 +1010,17 @@ public class PatientsPage extends BaseClass {
 			   clickElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='"+button+"']]")));
 			 }
 	    }
-	
+
+	public void iClickOnWorklistOnEpisodeHomePage(String sworklist,String mworklist){
+		clickElement(driver.findElement(By.xpath("//button[span[contains(text(),'"+sworklist+"')]]")));
+	}
+
+
+	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
+		
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+	}
+
 	public void iSeeAdmitReasonFilterOnPatientCard(String admitreason){
 		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")), admitreason);
 	}

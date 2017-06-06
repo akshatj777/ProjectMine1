@@ -77,9 +77,10 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         List<String> listtexts = new ArrayList<String>();
         for (WebElement item : listItems) {
-            System.out.println(item.getText());
-            item.getText();
-            listtexts.add(item.getText());
+
+         item.getText();
+         listtexts.add(item.getText());
+
         }
         return listtexts;
 
@@ -89,11 +90,9 @@ public class BaseClass {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 
-        System.out.println("****The list of elements*****" + listItems);
         return listItems;
-
-    }
-
+         
+        }
 
     public WebElement waitFindElement(WebElement parentElement, By by) {
 
@@ -161,11 +160,10 @@ public class BaseClass {
     }
 
     public void selectElementByDesc(String element, String desc) {
-        //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
+        
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-        System.out.println("****The list of webelements is" + listItems);
         for (WebElement item : listItems) {
-            //System.out.println(item.getText());
+           
             if (item.getText().equalsIgnoreCase(desc)) {
                 item.click();
                 delay();
@@ -179,7 +177,7 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 
         for (WebElement item : listItems) {
-            //System.out.println(item.getText());
+            
             item.getText().equalsIgnoreCase(itemtext);
 
             /*if (item.getText().equalsIgnoreCase(itemtext)) {

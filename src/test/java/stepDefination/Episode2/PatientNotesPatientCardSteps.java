@@ -226,5 +226,4 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card(String Notetext)throws Throwable {
 		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(Notetext);
 	}
-
 }

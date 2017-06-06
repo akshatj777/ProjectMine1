@@ -6,6 +6,9 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -360,6 +363,28 @@ public class NoteCreation extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(" #notificationsTable > tbody > tr > td:nth-child(3)")));
 	}
 
+public String getcurrentdate(int days)
+{
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	LocalDate localDate = LocalDate.now();
+	LocalDate b=localDate.minus(Period.ofDays(days));
+	System.out.println("$$$$$Local Date is"+b);
+	String date=dtf.format(b);
+	System.out.println(dtf.format(b));
+	return date;
+}
+
+    public void Iselectthemonthfromcalendarfromdatepicker(int days) throws InterruptedException {
+    	
+    String dateTime=getcurrentdate(days);
+	String date_dd_MM_yyyy[] = (dateTime.split("/"));
+    List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
+    System.out.println("*****List of months***"+list_AllMonthToBook);
+    list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1])-1).click();
+    Thread.sleep(1000);
+	
+}
+
 	public void IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary() {
 		isElementVisible(driver.findElement(By.cssSelector("#notificationsTable > tbody > tr > td:nth-child(4)")));
 	}
@@ -405,7 +430,6 @@ public class NoteCreation extends BaseClass {
 		List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
 		list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1]) - 1).click();
 		Thread.sleep(1000);
-
 	}
 
 	public void Iselectthedatefromthecalendarfromdatepicker(String dateTime) {

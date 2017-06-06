@@ -772,7 +772,12 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_Calender_button_present_on_the_Add_Patient_page() throws Throwable {
         patientsPage.iClickOnCalenderButtonPresentOnTheAddPatientPage();
     }
-
+   
+    @Then ("^I click on the Cancel Button on the New Transition on Add Patient page$")
+    public void I_click_on_the_Cancel_Button_on_the_New_Transition_on_Add_Patient_page()
+    {
+    	patientsPage.IclickontheCancelButtonontheNewTransitiononAddPatientpage();
+    }
     @When("^I select today's date as the admission date$")
     public void i_select_today_s_date_as_the_admission_date() throws Throwable {
         patientsPage.iSelectTodaysDateAsTheAdmissionDate();
@@ -791,8 +796,8 @@ public class PatientsPageSteps extends DriverScript {
     @When("^I click on Agree button present on the Attestation page$")
     public void i_click_on_Agree_button_present_on_the_Attestation_page() throws Throwable {
 
-       	 patientsPage.IclickonAgreebuttonpresentontheAttestationpage();
- 	}
+    	 patientsPage.iClickOnAttestationButtonPresentOnThePatientCard();
+    }
 
     @And("^I switch to Add Patient embedded iframe$")
     public void iSwitchToAddPatientEmbeddedIframe() throws Throwable {
@@ -1245,7 +1250,6 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
-    
 
     @Then ("^I click on the Impatient Tab on Patient page$")
     public void I_click_on_the_Impatient_Tab_on_Patient_page() {
@@ -1382,6 +1386,11 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iClickOnAgreeAfterApplyingFilter(button);
     }
     
+    @Then("^I click on \"([^\"]*)\" worklist under \"([^\"]*)\" worklist on episode home page$")
+    public void i_click_on_worklist_under_worklist_On_episode_home_page(String sworklist,String mworklist) throws Throwable {
+        patientsPage.iClickOnWorklistOnEpisodeHomePage(sworklist, mworklist);
+    }
+
     @Then("^I verify ([^\"]*) is appearing on patient card on patient home page$")
     public void i_verify_admit_reason_is_appearing_on_patient_card_on_patient_home_page(String admitreason) throws Throwable{
     	patientsPage.iSeeAdmitReasonFilterOnPatientCard(admitreason);
@@ -1551,4 +1560,5 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_is_appearing_on_patient_summary_page_below_tags(String tags) throws Throwable{
     	patientsPage.iVerifyPatientTags(tags);
     }
+
 }
