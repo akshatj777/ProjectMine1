@@ -29,8 +29,11 @@ Feature: Episode 2.0 Anchor Facility Filters
     Then I verify <Anchor Facility> is appearing under selected filters for Anchor Facility
     Then I click on "Agree" button appearing on the patient card after applying filter
     And I wait for 5000 milli seconds
+    Then I verify "(HHH) Stamford Hospital" is appearing on patient card under "anchorFacility" on patient home page
     When I click on the Expand button on the patient card on the patient page
     And I wait for 5000 milli seconds
+    Then I Verify "anchorFacility" value is containing "(HHH) Stamford Hospital" under patient summary page
+    And I wait for 2000 milli seconds
     
     Examples:
     

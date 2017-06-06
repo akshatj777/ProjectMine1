@@ -2,7 +2,7 @@ Feature: Episode 2.0 Eligibility Filter
 
    Scenario: verify Eligibility filter is present under list of Filter options on Patient Page
      Given I am on the login page
-     When I enter email field qa.admin@yopmail.com for login
+     When I enter email field qa.tcs@yopmail.com for login
      And I enter password field Episode1! for Login
      Then I click Access button
      And I wait for 2000 milli seconds
@@ -27,6 +27,9 @@ Feature: Episode 2.0 Eligibility Filter
      Then I click on "Agree" button appearing on the patient card after applying filter
      And I wait for 5000 milli seconds
      When I click on the Expand button on the patient card on the patient page
-     And I wait for 5000 milli seconds
+     And I wait for 10000 milli seconds
+     When I switch to iframe of patient eligibility on patient summary page
+     Then I verify "Eligible" is appearing in eligibility dropdown on patient summary page
+     And I wait for 3000 milli seconds
      
      

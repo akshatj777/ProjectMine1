@@ -26,11 +26,14 @@ Feature: Episode 2.0 Anchor Discharge Facility Filters
     Then I scroll the page to bottom by "-100"
     Then I verify the total number of patients present on the Patients Page
     And I wait for 5000 milli seconds
-    Then I verify <anchor discharge facility> is appearing under selected filters for Anchor Discharge Facility
     Then I click on "Agree" button appearing on the patient card after applying filter
     And I wait for 5000 milli seconds
+    Then I verify <anchor discharge facility> is appearing under selected filters for Anchor Discharge Facility
+    Then I verify "(HHH) Stamford Hospital" is appearing on patient card under "anchorFacility" on patient home page
     When I click on the Expand button on the patient card on the patient page
     And I wait for 5000 milli seconds
+    Then I Verify "anchorFacility" value is containing "(HHH) Stamford Hospital" under patient summary page
+    And I wait for 2000 milli seconds
     
     Examples:
     

@@ -2,3 +2,6 @@ Browser = UR_BROWSER
 OS = UR_OS
 BaseUrl = UR_BaseUrl
 SuperUserEmail = UR_SuperUserEmail
+EmailUserName = UR_GMAIL_ID
+EmailUserPwd = UR_GMAIL_PWD
+wantToSendReportViaAutoEmail = UR_BOOLEAN_VALUE

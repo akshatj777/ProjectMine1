@@ -51,14 +51,14 @@ public class BaseClass {
         }
     }
 
-    public boolean isElementVisible (final WebElement ele) {
+    public boolean isElementVisible(final WebElement ele) {
         long start = System.currentTimeMillis();
         while (true) {
             if (ele.isDisplayed()) {
                 return true;
             } else {
                 if (System.currentTimeMillis() - start >= Wait_Time) {
-                    throw new Error("Timeout reached element not visible");
+                    throw new Error("Timeout reached element not visiblie");
                 } else {
                     try {
                         synchronized (this) {
@@ -78,24 +78,21 @@ public class BaseClass {
         List<String> listtexts = new ArrayList<String>();
         for (WebElement item : listItems) {
             System.out.println(item.getText());
-         item.getText();
-         listtexts.add(item.getText());
+            item.getText();
+            listtexts.add(item.getText());
         }
-  return listtexts;
-         
-        }
-    
+        return listtexts;
+
+    }
+
     public List<WebElement> getElementsList(String element) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-        
-        System.out.println("****The list of elements*****"+listItems);
+        System.out.println("****The list of elements*****" + listItems);
         return listItems;
-         
-        }
-    
-     
-    
+
+    }
+
     public WebElement waitFindElement(WebElement parentElement, By by) {
 
         WebElement ele = null;
@@ -164,7 +161,7 @@ public class BaseClass {
     public void selectElementByDesc(String element, String desc) {
         //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-        System.out.println("****The list of webelements is"+listItems);
+        System.out.println("****The list of webelements is" + listItems);
         for (WebElement item : listItems) {
             //System.out.println(item.getText());
             if (item.getText().equalsIgnoreCase(desc)) {
@@ -193,9 +190,7 @@ public class BaseClass {
         }
     }
 
-
-    public void selectDropdownVisibleElement(String selectElement, String desc)  {
-
+    public void selectDropdownVisibleElement(String selectElement, String desc) {
         Select select = new Select(driver.findElement(By.cssSelector(selectElement)));
         select.selectByVisibleText(desc);
     }
@@ -230,46 +225,40 @@ public class BaseClass {
 
     public void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
-        	System.out.println(ele.getText());
             Assert.assertEquals(ele.getText(), text);
-            
         }
     }
-    
+
     public String getTextForElement(WebElement ele) {
         if (isElementVisible(ele)) {
         	System.out.println(ele.getText());
             
-            
         }
 		return ele.getText();
     }
-    
- 
-    
-    public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text){
-    	if (isElementVisible(ele)) {
+
+    public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text) {
+        if (isElementVisible(ele)) {
             Assert.assertEquals(ele.getText().replaceAll("\\s+", " "), text);
         }
-    	
+
     }
 
-    public int getElementCount(String element) {
-        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-        int countelement = listItems.size();
-        delay();
-            System.out.println(countelement);
-			return countelement;
-            
-        }
-    
     public void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
-            System.out.println(countelement);
-            Assert.assertEquals( countelement, count);
-        }
+        System.out.println(countelement);
+        Assert.assertEquals(countelement, count);
+    }
+
+
+    public int getElementCount(String element) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        return countelement;
+
+    }
 
     public void elementInformation(WebElement ele) {
         System.out.println("  ");
@@ -288,29 +277,25 @@ public class BaseClass {
 
     }
 
-    public void swithToFrame (String element){
+    public void swithToFrame(String element) {
 
         driver.switchTo().frame(driver.findElement(By.xpath(element)));
     }
 
-   
 
-
-    public void switchToNewWindow(){
+    public void switchToNewWindow() {
 
         String parentWindow = driver.getWindowHandle();
-        Set<String> handles =  driver.getWindowHandles();
-        for(String windowHandle  : handles)
-        {
-            if(!windowHandle.equals(parentWindow))
-            {
+        Set<String> handles = driver.getWindowHandles();
+        for (String windowHandle : handles) {
+            if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);
                 //
             }
         }
     }
 
-    public void switchBacktoOldWindow () {
+    public void switchBacktoOldWindow() {
 
         String parentWindow = driver.getWindowHandle();
         Set<String> handles = driver.getWindowHandles();
@@ -324,9 +309,7 @@ public class BaseClass {
         delay();
     }
 
-    
-    
-    
+
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
@@ -385,17 +368,17 @@ public class BaseClass {
         }
     }
 
-    public void moveToTheElement(WebElement toElement){
+    public void moveToTheElement(WebElement toElement) {
         actionEvent.moveToElement(toElement).perform();
     }
 
-    public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement){
+    public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
         //actionEvent.moveToElement(toElement).click().build().perform();
         actionEvent.moveToElement(moveToElement).perform();
         clickToElement.click();
     }
 
-    public void moveToTheElementAndRightClick(WebElement moveToElementToRightClick){
+    public void moveToTheElementAndRightClick(WebElement moveToElementToRightClick) {
         actionEvent.contextClick(moveToElementToRightClick).build().perform();
     }
 
@@ -403,35 +386,36 @@ public class BaseClass {
         //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
         List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
         for (WebElement item : listItems) {
-                item.click();
-            }
+            item.click();
         }
+    }
 
     public void verifyElementAttributeContainsValue(WebElement element, String attribute, String contains) {
         String attr = element.getAttribute(attribute);
         Assert.assertTrue(attr.contains(contains));
     }
-    
+
     public boolean isElementPresentOnPage(By locatorKey) {
-    	boolean value = true;
-    	try {
+        boolean value = true;
+        try {
             driver.findElement(locatorKey);
-            
+
         } catch (org.openqa.selenium.NoSuchElementException e) {
-        	value = false;
+            value = false;
         }
 //    	System.out.println(value);
-		return value;		
-    }
-
-    public void switchToFrameByNameOrId(String nameOrId){
-    	driver.switchTo().frame(nameOrId);
+		return value;
     }
     
-    public void switchToParentFrame(){
-    driver.switchTo().parentFrame();
+    public void isElementNotPresentOnPage(String ele) {
+    	    	
+    	try{
+    		driver.findElement(By.cssSelector(ele));
+    	}catch (Exception e){
+    		return;
+    		}
+        
     }
-    
 
     public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
    {
@@ -445,12 +429,16 @@ public class BaseClass {
     	 return false;
     	 }
     	 return true;
-    	}
+   	}
 
-  }
-    
- 
-   
+    public void switchToFrameByNameOrId(String nameOrId) {
+        driver.switchTo().frame(nameOrId);
+    }
+
+    public void switchToParentFrame() {
+        driver.switchTo().parentFrame();
+    }
+}
 
   
 

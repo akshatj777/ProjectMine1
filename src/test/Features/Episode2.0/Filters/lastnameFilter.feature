@@ -24,12 +24,15 @@ Feature: Episode 2.0 Last Name Filter
      Then I verify the total number of patients present on the Patients Page  
      And I wait for 5000 milli seconds
      Then I verify <lastname> is appearing under selected filters for Last Name
+     Then I verify <lastname> is appearing on the patient cards on the patient list page for lastname
      Then I click on "Agree" button appearing on the patient card after applying filter
      And I wait for 5000 milli seconds
      When I click on the Expand button on the patient card on the patient page
      And I wait for 5000 milli seconds
+     Then I verify <lastname> is appearing on the patient summary page for lastname
+     And I wait for 2000 milli seconds
      
      Examples:
     
        | lastname |
-       | patient  |
+       | TEST     |

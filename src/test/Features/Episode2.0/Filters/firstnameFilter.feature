@@ -24,12 +24,15 @@ Feature: Episode 2.0 First Name Filter
      Then I verify the total number of patients present on the Patients Page  
      And I wait for 5000 milli seconds
      Then I verify <firstname> is appearing under selected filters for First Name
+     Then I verify <firstname> is appearing on the patient cards on the patient list page
      Then I click on "Agree" button appearing on the patient card after applying filter
      And I wait for 5000 milli seconds
      When I click on the Expand button on the patient card on the patient page
      And I wait for 5000 milli seconds
-    
+     Then I verify <firstname> is appearing on the patient summary page
+     And I wait for 2000 milli seconds
+     
     Examples:
     
        | firstname |
-       | patient   |
+       | PATIENT   |

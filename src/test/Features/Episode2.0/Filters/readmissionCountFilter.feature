@@ -23,14 +23,18 @@ Feature: Episode 2.0 Readmission Count Filter
      Then I scroll the page to bottom by "-100"
      Then I verify the total number of patients present on the Patients Page  
      And I wait for 5000 milli seconds
-     Then I verify <count1> and <count2> is appearing under selected filters for Readmission Count
+     Then I verify <count1> is appearing under selected filters for Readmission Count
      Then I click on "Agree" button appearing on the patient card after applying filter
      And I wait for 5000 milli seconds
+     Then I verify <count1> is appearing on the patient card readmission count
+     Then I verify "Readmissions" label is appearing on the patient card beside readmission count
      When I click on the Expand button on the patient card on the patient page
      And I wait for 5000 milli seconds
+     Then I verify <count1> is appearing on the patient summary page for readmission count
+     Then I verify "Readmissions" label is appearing on the patient summary page beside readmission count
      
      Examples:
         
         | count1 | count2 |
-        | 2      | 4      |
+        | 2      | 2      |
      
