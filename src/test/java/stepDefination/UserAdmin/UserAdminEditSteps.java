@@ -119,9 +119,9 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Enter_On_Search_Field_Under_Health_System_Name(Text);
 	}
 	
-	@Then("^I clicked on RP Payer Test B from dropdown list of Health system Name$")
-	public void i_Clicked_On_RP_Payer_Test_B_From_Dropdown_List_Of_Health_System_Name() throws Throwable{
-		UserEdit.i_Clicked_On_RP_Payer_Test_B_From_Dropdown_List_Of_Health_System_Name();
+	@Then("^I clicked on RP Payer Test A from dropdown list of Health system Name$")
+	public void i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name() throws Throwable{
+		UserEdit.i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name();
 	}
 	
 	@Then("^I clicked on search field under Provider Name$")
@@ -194,18 +194,18 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.iClickedOnMedicareFromDropdownListOfPayer();
 	}
 	
-	@And("^I clicked on remove button of RP Payer Test B row under permission field$")
-	public void iClickedOnRemoveButtonOfRPPayerTestBRowUnderPermissionField() throws Throwable{
-		UserEdit.iClickedOnRemoveButtonOfRPPayerTestBRowUnderPermissionField();
+	@And("^I clicked on remove button of RP Payer Test A row under permission field$")
+	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField() throws Throwable{
+		UserEdit.iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField();
 	}
 	
-	@And("^I wait for popup to remove RP Payer Test B under permission field$")
-	public void iWaitForPopupToRemoveRPPayerTestBUnderPermissionField() throws Throwable{
-		UserEdit.iWaitForPopupToRemoveRPPayerTestBUnderPermissionField();
+	@And("^I wait for popup to remove RP Payer Test A under permission field$")
+	public void iWaitForPopupToRemoveRPPayerTestAUnderPermissionField() throws Throwable{
+		UserEdit.iWaitForPopupToRemoveRPPayerTestAUnderPermissionField();
 	}
 	
-	@And("^I clicked on remove button appearing on popup for RP Payer Test B$")
-	public void iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestB() throws Throwable{
-		UserEdit.iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestB();
+	@And("^I clicked on remove button appearing on popup for RP Payer Test A$")
+	public void iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestA() throws Throwable{
+		UserEdit.iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestA();
 	}
 }

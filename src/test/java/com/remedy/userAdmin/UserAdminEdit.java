@@ -117,7 +117,7 @@ public class UserAdminEdit extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("(//input[@type='search'])[3]")), Text);
 	}
 
-	public void i_Clicked_On_RP_Payer_Test_B_From_Dropdown_List_Of_Health_System_Name() {
+	public void i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name() {
 		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
 	}
 
@@ -138,7 +138,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_The_Text_Under_Permissions_Data_Section() {
-		isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
+		isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test A']")));
 	}
 
 	public void i_Clicked_On_Stamford_Hospital_From_Dropdown_List_Of_Health_System_Name() {
@@ -190,15 +190,15 @@ public class UserAdminEdit extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//div[text()='Medicare']")));
 	}
 	
-	public void iClickedOnRemoveButtonOfRPPayerTestBRowUnderPermissionField(){
+	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField(){
 		clickElement(driver.findElement(By.xpath("//form/div[2]/ul/li[2]/div/div/div/small")));
 	}
 	
-	public void iWaitForPopupToRemoveRPPayerTestBUnderPermissionField(){
+	public void iWaitForPopupToRemoveRPPayerTestAUnderPermissionField(){
 		isElementVisible(driver.findElement(By.xpath("//ul/li[2]/div/div/div/div[@group-close='remove-participant']")));
 	}
 	
-	public void iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestB(){
+	public void iClickedOnRemoveButtonAppearingOnPopupForRPPayerTestA(){
 		clickElement(driver.findElement(By.xpath("//ul/li[2]/div/div/div/div[@group-close='remove-participant']/div/div[2]/button[2]")));	
 	}
 }
