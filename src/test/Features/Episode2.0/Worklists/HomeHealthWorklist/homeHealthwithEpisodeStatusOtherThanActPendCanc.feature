@@ -7,7 +7,6 @@ Feature: Patient status on Home Health Worklist
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -24,14 +23,11 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
-    
-   
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "98" on date picker
-    Then I select the month "98" from calendar from date picker 
-    Then I select the "98" from the calendar from date picker on Transition Page
-    Then I select the "98" time from the calendar from date picker on Transition Page
-   
+    Then I click on the previous next link to select the required year "90" on date picker
+    Then I select the month "91" from calendar from date picker 
+    Then I select the "91" from the calendar from date picker on Transition Page
+    Then I select the "91" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -48,25 +44,6 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 10000 milli seconds
-    Then I click on the Transition Info on add a new transition
-    Then I wait for 10000 milli seconds
-    Then I zoom out my browser by "80" pixels
-    Then I wait for 10000 milli seconds
-    Then I click on datepicker button to select the admit date on add a new transition
-    Then I wait for 7000 milli seconds
-    Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "3" on date picker
-    Then I select the month "3" from calendar from date picker 
-    Then I select the "3" from the calendar from date picker on Transition Page
-    Then I select the "3" time from the calendar from date picker on Transition Page
-    Then I wait for 7000 milli seconds
-    Then I zoom out my browser by "100" pixels
-    Then I wait for 5000 milli seconds
-    Then I wait for 7000 milli seconds
-    Then I click on update transition to add a new episode
-    Then I wait for 10000 milli seconds
     When I switch to default window from iframe
    
    Examples:
@@ -81,7 +58,6 @@ Feature: Patient status on Home Health Worklist
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -119,16 +95,14 @@ Feature: Patient status on Home Health Worklist
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
-   
     Then I close the patient summary Page
     Then I click on the Post Acute tab on the patient Card Page 
     Then I wait for 5000 milli seconds
-   
     Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page

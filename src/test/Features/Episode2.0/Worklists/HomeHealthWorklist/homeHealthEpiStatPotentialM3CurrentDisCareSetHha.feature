@@ -1,7 +1,6 @@
 Feature: Patient status on Home Health Worklist
 	
-	#Scenario 6
-   Scenario Outline: Create patient with potential M3 episode status.
+ Scenario Outline: Create patient with potential M3 episode status.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login

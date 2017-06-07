@@ -117,10 +117,10 @@ Scenario Outline: Create an M2 Active Patient
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "-92" on date picker
-    Then I select the month "-92" from calendar from date picker 
-    Then I select the "-92" from the calendar from date picker on Transition Page
-    Then I select the "-92" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "-89" on date picker
+    Then I select the month "-89" from calendar from date picker 
+    Then I select the "-89" from the calendar from date picker on Transition Page
+    Then I select the "-89" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -151,6 +151,3 @@ Scenario Outline: Create an M2 Active Patient
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |    
-    
-
-

@@ -1,14 +1,12 @@
 Feature: Patient status on Home Health Worklist
 
-
-Scenario Outline: Create M3 Active Episode
+  Scenario Outline: Create M3 Active Episode
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -36,8 +34,6 @@ Scenario Outline: Create M3 Active Episode
     Then I select the care type value "Skilled Nursing" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the facility value "Coosa valley health care - Coosa valley health care" on add a new transition 
-  
- 
     Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -49,10 +45,7 @@ Scenario Outline: Create M3 Active Episode
     When I switch to default window from iframe
     
     
-    
-
- Examples:
-
+    Examples:
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |   
 
@@ -64,7 +57,6 @@ Scenario Outline: Create M3 Active Episode
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -92,18 +84,13 @@ Scenario Outline: Create M3 Active Episode
     Then I select the care type value "Skilled services" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the facility value "Amedisys Home Health - Stamford" on add a new transition 
-  
- 
     Then I wait for 8000 milli seconds
-   
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
-   
     Then I close the patient summary Page
     Then I click on the Post Acute tab on the patient Card Page 
     Then I wait for 5000 milli seconds
-   
     Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
@@ -141,8 +128,7 @@ Scenario Outline: Create M3 Active Episode
     Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
 
-    
-     Examples:
+    Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  

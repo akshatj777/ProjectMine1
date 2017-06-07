@@ -104,11 +104,9 @@ Scenario Outline: Create Patient with M3 Pending Cancellation
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
-   
     Then I close the patient summary Page
     Then I click on the Post Acute tab on the patient Card Page 
     Then I wait for 5000 milli seconds
-   
     Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
@@ -129,5 +127,3 @@ Scenario Outline: Create Patient with M3 Pending Cancellation
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |     
-      
-      

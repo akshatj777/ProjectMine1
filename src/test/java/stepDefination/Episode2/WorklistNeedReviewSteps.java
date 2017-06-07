@@ -9,7 +9,7 @@ public class WorklistNeedReviewSteps extends DriverScript {
 	WorklistNeedReview needreview = new WorklistNeedReview(driver);
 
 	@Then("^I click on the Needs Review tab on the patient Card Page$")
-	public void I_click_on_the_Needs_Review_tab_on_the_patient_Card_Page() throws Throwable{
+	public void I_click_on_the_Needs_Review_tab_on_the_patient_Card_Page() throws Throwable {
 		needreview.IclickontheNeedsReviewtabonthepatientCardPage();
 	}
 

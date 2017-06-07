@@ -7,7 +7,6 @@ Feature: Patient status on Home Health Worklist
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -101,7 +100,9 @@ Feature: Patient status on Home Health Worklist
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
+    And I wait for 30000 milli seconds
+    Then I click on the agree button on the Patient Card page
+    Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 30000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page

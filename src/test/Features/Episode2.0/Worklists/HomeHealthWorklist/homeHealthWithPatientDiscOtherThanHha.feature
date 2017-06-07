@@ -1,7 +1,6 @@
 Feature: Patient status on Home Health Worklist
 	
-
-Scenario Outline: Patient's with Active M3 Episode
+	 Scenario Outline: Patient's with Active M3 Episode
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -34,7 +33,7 @@ Scenario Outline: Patient's with Active M3 Episode
     Then I wait for 5000 milli seconds
     Then I select the care type value "Skilled Nursing" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "Coosa valley health care - Coosa valley health care" on add a new transition 
+    Then I select the facility value "Coosa valley health care" on add a new transition 
     Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -45,10 +44,7 @@ Scenario Outline: Patient's with Active M3 Episode
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     
-    
-    
-
- Examples:
+    Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
       | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |   
@@ -64,6 +60,7 @@ Scenario Outline: Patient's with Active M3 Episode
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
+    Then I click on the ALL Tab on Patient page
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the patients page
     And I wait for 30000 milli seconds
@@ -113,7 +110,5 @@ Scenario Outline: Patient's with Active M3 Episode
     Then I click on the delete button on the transition to delete all the transitions
      
  Examples:
-
       | email                | password  | Patient First Name  | Patient Last Name      |     care setting           |
-      | qa.admin@yopmail.com | Episode1! |  PATIENT            |  TESTAUTOMATEUSER      |  REH - Rehabilitation      |    
       | qa.admin@yopmail.com | Episode1! |  PATIENT            |  TESTAUTOMATEUSER      |  HPC - Hospice             |                
