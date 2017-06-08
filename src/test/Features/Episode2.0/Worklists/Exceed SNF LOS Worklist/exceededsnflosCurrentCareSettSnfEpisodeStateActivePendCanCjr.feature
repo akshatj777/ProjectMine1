@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
-	
-Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU) 
+
+Scenario Outline: Admit with current care setting is SNF (Skilled Nursing, TCU) Episode state Active and pending cancellation CJR
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -46,10 +46,10 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "65" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 8000 milli seconds
+    Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
@@ -70,9 +70,36 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    Then I wait for 10000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I click on the Post Acute tab on the patient Card Page 
+    Then I wait for 5000 milli seconds
+    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I wait for 10000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I click on the ALL Tab on Patient page
+    And I wait for 8000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    And I wait for 10000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    And I wait for 30000 milli seconds
+    Then I click on the Transitions tab on the Patient Summary Page
+    And I wait for 25000 milli seconds
+    Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
+   
     
-     Examples:
+  Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  	
+      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  

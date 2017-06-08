@@ -1,5 +1,5 @@
 Feature: Patient status on Exceed SNF LOS Work List
-	
+
 Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU) 
     Given I am on the login page
     When I enter email field <email> for login

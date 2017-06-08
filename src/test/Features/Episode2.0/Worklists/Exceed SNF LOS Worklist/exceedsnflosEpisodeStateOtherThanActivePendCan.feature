@@ -1,7 +1,7 @@
 Feature: Patient status on Exceed SNF LOS Work List
 	
-Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU) 
-    Given I am on the login page
+Scenario Outline: Episode state other than Active and pending cancellation
+	  Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -13,21 +13,21 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 30000 milli seconds
+    And I wait for 40000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
-    And I wait for 15000 milli seconds
+    And I wait for 50000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "30" on date picker
-    Then I select the month "30" from calendar from date picker 
-    Then I select the "30" from the calendar from date picker on Transition Page
-    Then I select the "30" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "90" on date picker
+    Then I select the month "91" from calendar from date picker 
+    Then I select the "91" from the calendar from date picker on Transition Page
+    Then I select the "91" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -49,7 +49,25 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 8000 milli seconds
+    Then I wait for 8000 milli seconds
+    Then I click on the Cancel Button on Add a new transition
+    Then I wait for 8000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "0" on date picker
+    Then I select the month "0" from calendar from date picker 
+    Then I select the "0" from the calendar from date picker on Transition Page
+    Then I select the "0" time from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
+    Then I select the care setting value "SNF - Skilled Nursing Facility" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Skilled Nursing" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Coosa valley health care" on add a new transition 
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
@@ -60,7 +78,7 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
@@ -71,8 +89,10 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
-    
-     Examples:
+  
+   Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  	
+      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |   
+    
+   

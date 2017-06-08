@@ -61,6 +61,7 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I wait for 5000 milli seconds
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
@@ -70,6 +71,39 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I wait for 7000 milli seconds
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I select the most recent date from the date picker
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 3000 milli seconds
+    Then I click on update transition to add a new episode
+    And I wait for 15000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 8000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I click on the Post Acute tab on the patient Card Page 
+    Then I wait for 5000 milli seconds
+    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I wait for 10000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
+    Then I wait for 5000 milli seconds
+    Then I click on the ALL Tab on Patient page
+    And I wait for 8000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    And I wait for 10000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    And I wait for 30000 milli seconds
+    Then I click on the Transitions tab on the Patient Summary Page
+    And I wait for 25000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     
      Examples:

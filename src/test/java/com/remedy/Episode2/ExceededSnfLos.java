@@ -43,4 +43,19 @@ public class ExceededSnfLos extends BaseClass {
 		
 	}
 
+	public void ISelectadmittingfacilitylistpresentontheAddPatientpage(String facility) {
+		iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
+        longDelay();
+        clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+	}
+
+	public void IclickontheAnticipatedquickactionbuttonontheExceededSNFLOS() {
+		clickElement(driver.findElement(By.xpath("//button[contains(@uib-tooltip,'Anticipated Discharge')]")));
+	}
+
+	public void Iselectthemostrecentdatefromthedatepicker() {
+		
+		clickElement(driver.findElement(By.cssSelector("td.day.active")));
+    }
+
 }

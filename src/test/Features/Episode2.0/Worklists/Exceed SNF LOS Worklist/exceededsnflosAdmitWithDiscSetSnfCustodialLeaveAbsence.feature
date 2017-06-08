@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
-	
-Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU) 
+
+Scenario Outline: Admit with discharge care setting is SNF (Custodial care, Leave of absence)
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -39,7 +39,7 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Skilled Nursing" on add a new transition
+    Then I select the Discharge care type value "Custodial Care" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition 
     Then I wait for 5000 milli seconds
@@ -60,7 +60,31 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
+    Then I click on the ALL Tab on Patient page
+    And I wait for 8000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    And I wait for 10000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    And I wait for 30000 milli seconds
+    Then I click on the Transitions tab on the Patient Summary Page
+    And I wait for 25000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I select the care type value "Leave of Absence" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on update transition to add a new episode
+    Then I wait for 10000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I click on the Post Acute tab on the patient Card Page 
+    Then I wait for 5000 milli seconds
+    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I wait for 10000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
@@ -71,7 +95,7 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
-    
+  
      Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 

@@ -39,7 +39,7 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Skilled Nursing" on add a new transition
+    Then I select the Discharge care type value "TCU" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition 
     Then I wait for 5000 milli seconds
@@ -50,8 +50,6 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
-    Then I select the care type value "TCU" on add a new transition
-    Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
