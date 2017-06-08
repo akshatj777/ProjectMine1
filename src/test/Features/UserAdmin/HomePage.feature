@@ -20,6 +20,11 @@ Feature: HomePage test for Users
     And I should see User card on page
     And I should see First Name on user card
     And I wait for 1000 milli seconds
+    Then I should be able to click on DropDown list for sorting Newest to Oldest
+    Then I verify the filter for Newest to Oldest
+    Then I should be able to sort the users with Newest - Oldest sorting option
+    Then I verify "30" users cards under user admin page
+    And I wait for 3000 milli seconds
     And I should see Last Name on user card
     And I should see Expand button on user card
     And I wait for 1000 milli seconds
@@ -38,5 +43,5 @@ Feature: HomePage test for Users
     Examples: 
       | Email                                  |
       | lbarinstein+qaadmin@remedypartners.com |
-      | RTAUSER@mailinator.com           |
-      | PTAUSER@mailinator.com           |
+      | RTAUSER@mailinator.com                 |
+      | PTAUSER@mailinator.com                 |

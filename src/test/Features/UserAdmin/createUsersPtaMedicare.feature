@@ -4,6 +4,9 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
     Given I am on the login page
     When I enter email field PTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
@@ -89,6 +92,13 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
     And I navigate back to specific user login page
     And I wait for 5000 milli seconds
     And I click on the top user account link
+    Then I select Support option from the dropdown
+    And I wait for 1000 milli seconds
+    When I switch to new window
+    And I wait for 6000 milli seconds
+    And I verify current page "Login - Service Desk" title
+    Then I switch back to old window
+    And I wait for 1000 milli seconds
     Then I select Internal Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
@@ -114,6 +124,9 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
    Scenario Outline: Partner Technical Administrator can create user role with PPE and verify login and navigation of product tiles and reset password and logout of created user
     Given I am on the login page
     When I enter email field PTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -200,6 +213,9 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
     Given I am on the login page
     When I enter email field PTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
@@ -282,6 +298,13 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
     And I navigate back to specific user login page
     And I wait for 5000 milli seconds
     And I click on the top user account link
+    Then I select Support option from the dropdown
+    And I wait for 1000 milli seconds
+    When I switch to new window
+    And I wait for 6000 milli seconds
+    And I verify current page "Login - Service Desk" title
+    Then I switch back to old window
+    And I wait for 1000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -297,6 +320,9 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
     Scenario Outline: Partner Technical Administrator can create user role with Manager case manager physicians and verify login and navigation to Episodes tiles and reset password and logout of created user
     Given I am on the login page
     When I enter email field PTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -381,6 +407,13 @@ Scenario Outline: Partner Technical Administrator can create user and verify log
     And I navigate back to specific user login page
     And I wait for 5000 milli seconds
     And I click on the top user account link
+    Then I select Support option from the dropdown
+    And I wait for 1000 milli seconds
+    When I switch to new window
+    And I wait for 6000 milli seconds
+    And I verify current page "Login - Service Desk" title
+    Then I switch back to old window
+    And I wait for 1000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup

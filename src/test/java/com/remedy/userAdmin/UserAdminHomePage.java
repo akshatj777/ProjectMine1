@@ -205,5 +205,4 @@ public class UserAdminHomePage extends BaseClass {
 	public void iShouldSeeImportUsersButton(String Importusers){
 		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/user/import']")), Importusers);
 	}
-	
 }
