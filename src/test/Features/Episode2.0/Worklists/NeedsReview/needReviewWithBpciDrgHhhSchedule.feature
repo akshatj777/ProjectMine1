@@ -1,7 +1,5 @@
 Feature: Patient status in Need Review Worklist
   
-  #Scenario9
-
   Scenario Outline: Verify patient status not included on need review worklist with patient having HHH-Outpatient with Non-BPCI possible DRG and No Episode
     Given I am on the login page
     When I enter email field <email> for login
