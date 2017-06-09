@@ -22,10 +22,21 @@ Feature: Patient status in Need Review Worklist
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
+    Then I click on datepicker button to select the discharge date on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the centre of the calendar header to select discharge date and month on Transition Page
+    Then I click on the previous next link to select the required year "7" on date picker
+    Then I wait for 5000 milli seconds
+    Then I select the month "7" from calendar from date picker on Discharge
+    Then I wait for 5000 milli seconds
+    Then I select the "7" from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
+    Then I select the midnight time from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "9" on date picker
-    Then I select the month "9" from calendar from date picker
+    Then I select the month "9" from calendar from date picker 
     Then I select the "9" from the calendar from date picker on Transition Page
     Then I select the "9" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
@@ -35,23 +46,10 @@ Feature: Patient status in Need Review Worklist
     Then I wait for 5000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 8000 milli seconds
-    Then I click on datepicker button to select the discharge date on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I zoom out my browser by "80" pixels
-    Then I wait for 5000 milli seconds
-    Then I click on the centre of the calendar header to select discharge date and month on Transition Page
-    Then I wait for 5000 milli seconds
-    Then I click on the previous next link to select the required year "7" on date picker
-    Then I wait for 5000 milli seconds
-    Then I select the month "7" from calendar from date picker
-    Then I wait for 5000 milli seconds
-    Then I select the "7" from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
-    Then I select the midnight time from the calendar from date picker on Transition Page
+   
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
-    Then I zoom out my browser by "100" pixels
-    Then I wait for 5000 milli seconds
+    
     When I switch to default window from iframe
     Then I close the patient summary Page
     And I wait for 5000 milli seconds

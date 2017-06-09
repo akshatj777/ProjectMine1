@@ -1,7 +1,7 @@
 Feature: Patient status on Exceed SNF LOS Work List
-	
-Scenario Outline: SNF LOS is above the ELOS range(For Active Episode)
-    Given I am on the login page
+
+Scenario Outline: If SNF admission LOS is equal or below to ELOS range, If SNF admission LOS is equal or below to ELOS range  patient should not be in Exceed SNF LOS Work List.
+   Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -24,10 +24,10 @@ Scenario Outline: SNF LOS is above the ELOS range(For Active Episode)
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "30" on date picker
-    Then I select the month "30" from calendar from date picker 
-    Then I select the "30" from the calendar from date picker on Transition Page
-    Then I select the "30" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "8" on date picker
+    Then I select the month "8" from calendar from date picker 
+    Then I select the "8" from the calendar from date picker on Transition Page
+    Then I select the "8" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -35,18 +35,23 @@ Scenario Outline: SNF LOS is above the ELOS range(For Active Episode)
     Then I wait for 5000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition 
     Then I wait for 8000 milli seconds
-    Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I wait for 4000 milli seconds
-    Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
-    Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Skilled Nursing" on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I select the Discharge facility value "Coosa valley health care" on add a new transition 
-    Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 8000 milli seconds
+    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 4000 milli seconds
+    Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
+    Then I wait for 4000 milli seconds
+    Then I select the Discharge care type value "TCU" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the Discharge facility value "Coosa valley health care" on add a new transition 
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
@@ -60,12 +65,13 @@ Scenario Outline: SNF LOS is above the ELOS range(For Active Episode)
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
     Then I wait for 5000 milli seconds
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
+    And I wait for 20000 milli seconds
+    Then I verify LOS is below the ELOS on the patient card page
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 30000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page

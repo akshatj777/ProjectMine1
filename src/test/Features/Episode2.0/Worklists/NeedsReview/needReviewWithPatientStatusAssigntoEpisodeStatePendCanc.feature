@@ -1,6 +1,6 @@
 Feature: Patient status in Need Review Worklist
 
-  #Scenario 10.2
+  
   Scenario Outline: Verify Patient in Needs Review Work List when assigned to Episode state(Active/Pending Cancellation)
     Given I am on the login page
     When I enter email field <email> for login

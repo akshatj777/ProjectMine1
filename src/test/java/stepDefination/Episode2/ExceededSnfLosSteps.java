@@ -26,22 +26,29 @@ public class ExceededSnfLosSteps extends DriverScript {
 	}
 
 	@And("^I Select \"([^\"]*)\" from admitting facility list present on the Add Patient page$")
-	public void I_Select_admitting_facility_list_present_on_the_Add_Patient_page(String facility)
-	{
+	public void I_Select_admitting_facility_list_present_on_the_Add_Patient_page(String facility) {
 		exceed.ISelectadmittingfacilitylistpresentontheAddPatientpage(facility);
 	}
-	
+
 	@And("^I click on the Anticipated quick action button on the Exceeded SNF LOS$")
-	public void I_click_on_the_Anticipated_quick_action_button_on_the_Exceeded_SNF_LOS(String facility)
-	{
+	public void I_click_on_the_Anticipated_quick_action_button_on_the_Exceeded_SNF_LOS(String facility) {
 		exceed.IclickontheAnticipatedquickactionbuttonontheExceededSNFLOS();
-		
+
 	}
-	
-	@Then ("^I select the most recent date from the date picker$")
-	public void I_select_the_most_recent_date_from_the_date_picker()
-	{
+
+	@Then("^I select the most recent date from the date picker$")
+	public void I_select_the_most_recent_date_from_the_date_picker() {
 		exceed.Iselectthemostrecentdatefromthedatepicker();
 	}
-	
+
+	@Then("^I click on datepicker button to select the admit date on new transition$")
+	public void I_click_on_datepicker_button_to_select_the_admit_date_on_new_transition() throws Throwable {
+		exceed.Iclickondatepickerbuttontoselecttheadmitdateonnewtransition();
+	}
+
+	@Then("^I verify LOS is below the ELOS on the patient card page$")
+	public void I_verify_LOS_is_below_the_ELOS_on_the_patient_card_page() {
+		exceed.IverifyLOSisbelowtheELOSonthepatientcardpage();
+	}
+
 }

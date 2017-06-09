@@ -1,6 +1,5 @@
 Feature: Patient status in Need Review Worklist
 
-  #Scenario 10
   Scenario Outline: Verify Patient in Needs Review Work List when assigned to Episode state(Active/Pending Cancellation)
     Given I am on the login page
     When I enter email field <email> for login
@@ -64,6 +63,7 @@ Feature: Patient status in Need Review Worklist
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     Then I wait for 10000 milli seconds
     When I switch to default window from iframe

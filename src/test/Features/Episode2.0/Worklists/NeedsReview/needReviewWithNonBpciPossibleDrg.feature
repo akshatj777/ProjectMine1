@@ -1,6 +1,6 @@
 Feature: Patient status in Need Review Worklist
 
-  #Scenario 3,4,5
+ 
   Scenario Outline: Verify patient status not included on need review worklist with patient having HHH-inpatient with Non-BPCI possible/Working/Final DRG and No Episode
     Given I am on the login page
     When I enter email field <email> for login
@@ -56,7 +56,7 @@ Feature: Patient status in Need Review Worklist
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
+    And I wait for 30000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 30000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page

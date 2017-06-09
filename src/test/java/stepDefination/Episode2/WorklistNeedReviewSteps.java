@@ -32,4 +32,19 @@ public class WorklistNeedReviewSteps extends DriverScript {
 	public void I_zoom_out_my_browser(String pixels) throws Throwable {
 		needreview.Izoomoutmybrowser(pixels);
 	}
+	
+	 @Then ("^I select the month \"(.*)\" from calendar from date picker on Discharge$")
+	 public void I_select_the_month_from_calendar_from_date_picker_Discharge(int date) throws InterruptedException
+	 {
+		 needreview.IselectthemonthfromcalendarfromdatepickerDischarge(date);
+	 }
+	 
+     @Then ("^I select the \"(.*)\" from the calendar from date picker on Transition Page$")
+ 	 public void I_select_the_date_from_the_calendar_from_date_picker_Discharge_on_Transition_Page(int days)
+ 	 {
+    	 needreview.IselectthedatefromthecalendarDischargefromdatepicker(days);
+ 	 }
+    
+	 
+	
 }
