@@ -2,8 +2,15 @@ package com.remedy.userAdmin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import com.remedy.baseClass.BaseClass;
+
+import edu.emory.mathcs.backport.java.util.Arrays;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -37,6 +44,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc){
+        getTextForElementfromList(".ui-select-choices-row-inner");
         selectElementByDesc(".ui-select-choices-row-inner", desc);
     }
     
@@ -240,4 +248,131 @@ public class CreateUserPage extends BaseClass{
    public void iNavigateBackToSpecificUserLoginPage(){
 	   driver.navigate().back();
    }
+   
+   public void iVerifyThePrductTileForTheSelectedUserRole(){
+	   getTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span");
+   }
+   
+   public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String role) {
+		   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Remedy TCS", "Remedy LPN", "Remedy RN",
+				   "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator","Remedy Executive", "Remedy Other", 
+				   "Partner Program Administrator" , "Partner Technical Administrator"};
+		   ArrayList<String> aray = new ArrayList<>();
+		   aray.addAll(Arrays.asList(orgRole));
+		   if (aray.contains(role)) {
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='internal_support']")));
+	       }
+	   else {
+		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='internal_support']")));
+	   }
+   }
+   
+   public void iVerifyThePhysicanConnectProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator", "Physicans", "Remedy Program Administrator",
+			   "Partner Program Administrator" , "Partner Technical Administrator"};
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
+      }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
+      }
+  }
+   
+   public void iVerifyTheEpisodesProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
+			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='episode_connect']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='episode_connect']")));
+    }
+ }
+   
+   public void iVerifyTheLessonsProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
+			   "Prospective Partner Executive", "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='lessons']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='lessons']")));
+    }
+ }
+  
+   public void iVerifyTheReportsProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
+			     "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='reports']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='reports']")));
+    }
+ }
+   
+   public void iVerifyTheAdministrationProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator","Partner Technical Administrator"};
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='admin']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='admin']")));
+    }
+ }
+   
+   public void iVerifyTheShareFileProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM","Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
+			     "Partner Program Administrator" , "Partner Technical Administrator" };
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='sharefile']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='sharefile']")));
+    }
+ }
+   
+   public void iVerifyTheEpispdes2ProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
+			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Downstream Provider " };
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='episode_connect_2']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='episode_connect_2']")));
+    }
+ }
+   
+   public void iVerifyTheInstituteProductTileForSelectedUserRole(String role) {
+	   String orgRole[] ={"Remedy Technical Administrator","Remedy TCS", "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM",
+			   "Remedy Sales Team", "Remedy Executive", "Remedy Other", "Remedy Program Administrator"};
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   if (aray.contains(role)) {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
+   }
+   else {
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
+    }
+ }
+   
 }

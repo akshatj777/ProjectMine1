@@ -284,4 +284,54 @@ public class CreateUserSteps extends DriverScript{
     public void iNavigateBackToSpecificUserLoginPage() throws Throwable{
     	createUser.iNavigateBackToSpecificUserLoginPage();
     }
+    
+    @Then("^I verify the Product tile for selected user role$")
+    public void i_Verify_The_Product_Tile_For_The_Selected_UserRole() throws Throwable {
+    	createUser.iVerifyThePrductTileForTheSelectedUserRole();
+    }
+    
+    @Then("^I verify the Internal Support tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Internal_Support_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheInternalSupportProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Physican Connect tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_PhysicanConnect_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyThePhysicanConnectProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Episodes tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Episodes_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheEpisodesProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Lessons tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Lessons_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheLessonsProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Reports tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Reports_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheReportsProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Administration tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Administration_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheAdministrationProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Share File tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_ShareFile_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheShareFileProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Episodes 2.0 tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Episodes2_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheEpispdes2ProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Institute tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Institute_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheInstituteProductTileForSelectedUserRole(role);
+    }
 }
