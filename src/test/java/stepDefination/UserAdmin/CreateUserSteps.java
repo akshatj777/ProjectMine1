@@ -334,4 +334,14 @@ public class CreateUserSteps extends DriverScript{
     public void i_Verify_The_Institute_Tile_For_The_Selected_UserRole(String role) throws Throwable {
     	createUser.iVerifyTheInstituteProductTileForSelectedUserRole(role);
     }
+    
+    @Then("^I verify the userrole under ec1 dashboard page after specific user login$")
+    public void iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin() throws Throwable{
+    	createUser.iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin();
+    }
+    
+    @Then("^I verify the institute dashboard page after clicking on Institute tile under specific user login page$")
+    public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage() throws Throwable{
+    	createUser.iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage();
+    }
 }

@@ -268,20 +268,22 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyThePhysicanConnectProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Physicans", "Remedy Program Administrator",
+	   String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
 			   "Partner Program Administrator" , "Partner Technical Administrator"};
 	   ArrayList<String> aray = new ArrayList<>();
 	   aray.addAll(Arrays.asList(orgRole));
 	   if (aray.contains(role)) {
+		   System.out.println("Physican");
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
       }
    else {
+	   System.out.println("Physican Else");
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
       }
   }
    
    public void iVerifyTheEpisodesProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
 			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -295,7 +297,7 @@ public class CreateUserPage extends BaseClass{
  }
    
    public void iVerifyTheLessonsProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
 			   "Prospective Partner Executive", "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -309,7 +311,7 @@ public class CreateUserPage extends BaseClass{
  }
   
    public void iVerifyTheReportsProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
 			     "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -335,7 +337,7 @@ public class CreateUserPage extends BaseClass{
  }
    
    public void iVerifyTheShareFileProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM","Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
 			     "Partner Program Administrator" , "Partner Technical Administrator" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -349,9 +351,9 @@ public class CreateUserPage extends BaseClass{
  }
    
    public void iVerifyTheEpispdes2ProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicans", "Remedy TCS",
+	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Downstream Provider " };
+			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Downstream Provider" };
 	   ArrayList<String> aray = new ArrayList<>();
 	   aray.addAll(Arrays.asList(orgRole));
 	   if (aray.contains(role)) {
@@ -374,5 +376,21 @@ public class CreateUserPage extends BaseClass{
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
     }
  }
+   
+   public void iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin(){
+	   isElementPresentOnPage(By.cssSelector(".username"));
+	   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
+	   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
+	   delay();
+	   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/a[1]")));
+	   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
+	   delay();
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'ROLE_ADMIN')]")));
+	   
+   }
+   
+   public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage(){
+	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
+   }
    
 }
