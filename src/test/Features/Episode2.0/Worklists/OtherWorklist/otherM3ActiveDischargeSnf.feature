@@ -1,6 +1,6 @@
-Feature: Patient status on Exceed SNF LOS Work List
+Feature: Patient status on Other Work List
 
-Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU) 
+Scenario Outline: M3 Active episode patient discharge to SNF
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -39,14 +39,14 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Skilled Nursing" on add a new transition
+    Then I select the Discharge care type value "Leave of Absence" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition 
     Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "66" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
@@ -56,7 +56,7 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Then I close the patient summary Page
     Then I click on the Post Acute tab on the patient Card Page 
     Then I wait for 5000 milli seconds
-    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I click on Other sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
@@ -75,4 +75,4 @@ Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
      Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  	
+      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |  

@@ -24,7 +24,7 @@ Scenario Outline: Episode state other than Active and pending cancellation
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "90" on date picker
+    Then I click on the previous next link to select the required year "91" on date picker
     Then I select the month "91" from calendar from date picker 
     Then I select the "91" from the calendar from date picker on Transition Page
     Then I select the "91" time from the calendar from date picker on Transition Page
