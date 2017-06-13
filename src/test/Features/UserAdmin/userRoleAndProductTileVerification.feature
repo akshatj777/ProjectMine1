@@ -80,33 +80,16 @@ Feature: Verification of corresponding Product tile as per user role
     And I should see Tile text <Administration>
     And I should see Tile text <Episode2>
     And I should see Tile text <Physican connect>
+    And I should see Tile text <Institute>
     And I wait for 2000 milli seconds
-    Then I click on Hamburgur menu on top right of homepage
-    Then I select <Episode1> option from the dropdown
-    And I wait for 3000 milli seconds
-    When I switch to new window
-    And I wait for 5000 milli seconds
-    Then I verify the userrole under ec1 dashboard page after specific user login
-    Then I switch back to old window
-    And I wait for 5000 milli seconds
-    And I click on Institute tile under specific user login page <Institute>
-    When I switch to new window
-    And I wait for 10000 milli seconds
-    Then I verify the institute dashboard page after clicking on Institute tile under specific user login page
-    Then I switch back to old window
-    And I wait for 6000 milli seconds
-    And I click on Reports tile under specific user login page <Reports>
-    And I wait for 8000 milli seconds
-    And I navigate back to specific user login page
-    And I wait for 5000 milli seconds
+    And I click on Episode1 tile under specific user login page <Episode1> for <Role> and verify the userrole <userroletext>
+    And I click on Institute tile under specific user login page <Institute> for <Role>
+    And I click on Reports tile under specific user login page <Reports> for <Role>
+    And I click on EC two tile under specific user login page <Episode2> for <Role>
+    And I click on RemedyU tile under specific user login page <RemedyU> for <Role>
+    And I click on Physican connect tile under specific user login page <Physican connect> for <Role>
     And I click on the top user account link
-    Then I select Internal Support option from the dropdown
-    And I wait for 1000 milli seconds
-    When I switch to new window
-    And I wait for 6000 milli seconds
-    And I verify current page "Login - Service Desk" title
-    Then I switch back to old window
-    And I wait for 1000 milli seconds
+    And I click on Internal Support option from dropdown under specific user login page <Internal Support> for <Role>
     Then I select Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
@@ -118,30 +101,28 @@ Feature: Verification of corresponding Product tile as per user role
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
     And I wait for 2000 milli seconds
-    And I click on EC two tile under specific user login page <Episode2>
-    And I wait for 6000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown
     And I should see Log in widget
     
     Examples: 
-      | Role                            | Email                 | lastName                       | HealthSystem Search | Health System     | Provider | Phone        | payer    | NPI         | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect             | Administration |
-      | Remedy Technical Administrator  | RTA                   | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |             | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     |
-      | Executive                       | EXE                   | Executive                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Manager                         | MNGR                  | Manager                        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Case Manager                    | CMNGR                 | Case Manager                   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Physicians                      | PHY                   | Physicians                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | 1234567890 | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Remedy TCS                      | RTCS                  | Remedy TCS                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Remedy LPN                      | RLPN                  | Remedy LPN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Remedy RN                       | RRN                   | Remedy RN                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Remedy Field RN                 | RFRN                  | Remedy Field RN                | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Remedy PM                       | RPM                   | Remedy PM                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Remedy Sales Team               | RST                   | Remedy Sales Team              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 |          | RemedyU | Reports |              | Institute |                              |                |
-      | Remedy Executive                | REXE                  | Remedy Executive               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                |
-      | Prospective Partner Executive   | PPE                   | Prospective Partner Executive  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 |          | RemedyU |         |              | Institute |                              |                |
-      | Remedy Other                    | RO                    | Remedy Other                   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU |         | Episodes 2.0 | Institute |                              |                |
-      | Partner Program Administrator   | PPA                   | Partner Program Administrator  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                |
-      | Remedy Program Administrator    | RPA                   | Remedy Program Administrator   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                |
-      | Partner Technical Administrator | PTA                   | Partner Technical Administrator| Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     |
-      | Transitional Case Manager       | TCM                   | Transitional Case Manager      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports |              | Institute |                              |                |
-      | Downstream Provider             | DP                    | Downstream Provider            | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 |          |         |         | Episodes 2.0 | Institute |                              |                |
+      | Role                            | Email                 | lastName                       | HealthSystem Search | Health System     | Provider | Phone        | payer    | NPI        | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect             | Administration | userroletext   | Internal Support |
+      | Remedy Technical Administrator  | RTA                   | Remedy Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_ADMIN     | Internal Support |
+      | Executive                       | EXE                   | Executive                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       | Internal Support |
+      | Manager                         | MNGR                  | Manager                        | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  |
+      | Case Manager                    | CMNGR                 | Case Manager                   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       |                  |
+      | Physicians                      | PHY                   | Physicians                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | 1234567890 | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |  Gainsharing Physician Survey|                | ROLE_CLINICIAN |                  |
+      | Remedy TCS                      | RTCS                  | Remedy TCS                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       | Internal Support |
+      | Remedy LPN                      | RLPN                  | Remedy LPN                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_LPN       | Internal Support |
+      | Remedy RN                       | RRN                   | Remedy RN                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_RN        | Internal Support |
+      | Remedy Field RN                 | RFRN                  | Remedy Field RN                | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_FRN       | Internal Support |
+      | Remedy PM                       | RPM                   | Remedy PM                      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PM        | Internal Support |
+      | Remedy Sales Team               | RST                   | Remedy Sales Team              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 |          | RemedyU | Reports |              | Institute |                              |                |                | Internal Support |
+      | Remedy Executive                | REXE                  | Remedy Executive               | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PM        | Internal Support |
+      | Prospective Partner Executive   | PPE                   | Prospective Partner Executive  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 |          | RemedyU |         |              | Institute |                              |                |                |                  |
+      | Remedy Other                    | RO                    | Remedy Other                   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU |         | Episodes 2.0 | Institute |                              |                | ROLE_PM        | Internal Support |
+      | Partner Program Administrator   | PPA                   | Partner Program Administrator  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PM        | Internal Support |
+      | Remedy Program Administrator    | RPA                   | Remedy Program Administrator   | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PM        | Internal Support |
+      | Partner Technical Administrator | PTA                   | Partner Technical Administrator| Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_PM        | Internal Support |
+      | Transitional Case Manager       | TCM                   | Transitional Case Manager      | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 | Episodes | RemedyU | Reports |              | Institute |                              |                | ROLE_TCS       |                  |
+      | Downstream Provider             | DP                    | Downstream Provider            | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Testing1 |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  |

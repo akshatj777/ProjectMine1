@@ -140,9 +140,9 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage(tile);
     }
 
-    @And("^I click on EC two tile under specific user login page ([^\"]*)$")
-    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
-    	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(tile);
+    @And("^I click on EC two tile under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text, String role) throws Throwable{
+    	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(text,role);
     }
 
     @And("^I verify the dropdown list for user$")
@@ -270,14 +270,30 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iTurnOffTheLessonsTileApplication();
     }
     
-    @And("^I click on Institute tile under specific user login page ([^\"]*)$")
-    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile) throws Throwable{
-    	createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile);
+    
+    @And("^I click on Episode1 tile under specific user login page ([^\"]*) for ([^\"]*) and verify the userrole ([^\"]*)$")
+    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String tile, String role , String userroletext) throws Throwable{
+    	createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(tile,role,userroletext);
     }
     
-    @And("^I click on Reports tile under specific user login page ([^\"]*)$")
-    public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile) throws Throwable{
-    	createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile);
+    @And("^I click on Institute tile under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile, String role) throws Throwable{
+    	createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile,role);
+    }
+    
+    @And("^I click on Reports tile under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile, String role) throws Throwable{
+    	createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile,role);
+    }
+    
+    @And("^I click on RemedyU tile under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text,String role) throws Throwable{
+    	createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(text, role);
+    }
+    
+    @And("^I click on Physican connect tile under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text,String role) throws Throwable{
+    	createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(text, role);
     }
     
     @And("^I navigate back to specific user login page$")
