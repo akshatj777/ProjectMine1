@@ -1,6 +1,6 @@
-Feature: Patient status on Other Work List
+Feature: Patient status on Other/Alternative Work List
 
-  Scenario Outline: CJR Active episode patient discharge to SNF
+  Scenario Outline: M2 Active episode patient discharge and then admitted to discharge facility to SNF
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -17,17 +17,20 @@ Feature: Patient status on Other Work List
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 25000 milli seconds
+    And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "30" on date picker
-    Then I select the month "30" from calendar from date picker
-    Then I select the "30" from the calendar from date picker on Transition Page
-    Then I select the "30" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "-20" on date picker
+    Then I select the month "-20" from calendar from date picker
+    Then I select the "-20" from the calendar from date picker on Transition Page
+    Then I select the "-20" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -39,14 +42,14 @@ Feature: Patient status on Other Work List
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Leave of Absence" on add a new transition
+    Then I select the Discharge care type value "Custodial Care" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "65" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     Then I wait for 8000 milli seconds
@@ -70,9 +73,8 @@ Feature: Patient status on Other Work List
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
-    And I wait for 8000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name | 
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | 

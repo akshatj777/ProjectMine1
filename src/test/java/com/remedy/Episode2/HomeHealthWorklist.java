@@ -8,11 +8,11 @@ import com.remedy.baseClass.BaseClass;
 public class HomeHealthWorklist extends BaseClass {
 
 	public HomeHealthWorklist(WebDriver driver) {
-        super(driver);
-    }
+		super(driver);
+	}
 
 	public void IclickonHomeHealthsubtabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Home Health')]")));
-		
+
 	}
 }

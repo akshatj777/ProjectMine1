@@ -28,16 +28,16 @@ public class WorklistNeedReview extends BaseClass {
 
 	public void IselectthemidinighttimefromthecalendarfromdatepickeronTransitionPage() {
 		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(1)")));
+				"body > div:nth-child(18) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(1)")));
 		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(1)")));
+				"body > div:nth-child(18) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(1)")));
 	}
 
 	public void IselectthebeforemidinighttimefromthecalendarfromdatepickeronTransitionPage() {
 		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(24)")));
+				"body > div:nth-child(18) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(24)")));
 		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
+				"body > div:nth-child(18) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
 	}
 
 	public void Izoomoutmybrowser(String pix) {
@@ -97,6 +97,15 @@ public class WorklistNeedReview extends BaseClass {
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
 		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath(
 				"//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
+		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
+
+	}
+
+	public void IselectthecalendardatefromthecalendarfromdatepickeronTransitionPage(int days) {
+		String dateTime = getcurrentdate(days);
+		String date_dd_MM_yyyy[] = (dateTime.split("/"));
+		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath(
+				"//body//div[13]//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
 		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
 
 	}

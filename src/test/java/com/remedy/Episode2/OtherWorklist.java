@@ -2,7 +2,6 @@ package com.remedy.Episode2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.remedy.baseClass.BaseClass;
 
 public class OtherWorklist extends BaseClass {
@@ -18,10 +17,8 @@ public class OtherWorklist extends BaseClass {
 		}
 
 	public void IclickontheCancelbuttononDischargeInfoonAddatransition() {
-		 clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+		
+		 clickElement(driver.findElement(By.cssSelector("button.btn.btn-default")));
 	}
 		
 	}
-
-	
-

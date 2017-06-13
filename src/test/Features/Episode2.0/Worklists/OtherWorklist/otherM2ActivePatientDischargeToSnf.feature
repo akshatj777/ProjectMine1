@@ -20,6 +20,8 @@ Feature: Patient status on Other/Alternative Work List
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition

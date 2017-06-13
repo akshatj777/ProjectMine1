@@ -20,6 +20,9 @@ Scenario Outline:  M2 Active episode patient discharge to UNK
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -40,8 +43,6 @@ Scenario Outline:  M2 Active episode patient discharge to UNK
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "UNK - Unknown" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge facility value "Allied Rehab Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition

@@ -19,15 +19,18 @@ Scenario Outline: Pot M3 Active episode patient discharge to SNF
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "30" on date picker
-    Then I select the month "30" from calendar from date picker 
-    Then I select the "30" from the calendar from date picker on Transition Page
-    Then I select the "30" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "20" on date picker
+    Then I select the month "20" from calendar from date picker 
+    Then I select the "20" from the calendar from date picker on Transition Page
+    Then I select the "20" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds

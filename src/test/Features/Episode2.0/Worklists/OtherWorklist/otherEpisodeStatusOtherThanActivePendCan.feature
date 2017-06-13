@@ -21,13 +21,15 @@ Feature: Patient status on Other/Alternative Work List
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "90" on date picker
-    Then I select the month "90" from calendar from date picker
-    Then I select the "90" from the calendar from date picker on Transition Page
-    Then I select the "90" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "70" on date picker
+    Then I select the month "70" from calendar from date picker
+    Then I select the "70" from the calendar from date picker on Transition Page
+    Then I select the "70" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -47,28 +49,46 @@ Feature: Patient status on Other/Alternative Work List
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     Then I wait for 8000 milli seconds
-    Then I click on the Cancel Button on Add a new transition
+    Then I click on the Create Transition Button to add a new transition
     Then I wait for 8000 milli seconds
-    Then I click on add a new transition to add a new episode
-    Then I wait for 7000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 5000 milli seconds
+    Then I click on Other sub tab on the patient Card Page
+    Then I wait for 10000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    Then I wait for 10000 milli seconds
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I click on the ALL Tab on Patient page
+    And I wait for 8000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    And I wait for 10000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
+    And I wait for 30000 milli seconds
+    Then I click on the Transitions tab on the Patient Summary Page
+    And I wait for 25000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I wait for 5000 milli seconds
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
     Then I click on the Transition Info on add a new transition
-    Then I click on datepicker button to select the admit date on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on datepicker button to select the admit date on new transition
+    Then I wait for 5000 milli seconds
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "0" on date picker
-    Then I select the month "0" from calendar from date picker
-    Then I select the "0" from the calendar from date picker on Transition Page
-    Then I select the "0" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "110" on date picker
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "SNF - Skilled Nursing Facility" on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I select the care type value "Skilled Nursing" on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I select the facility value "Coosa valley health care" on add a new transition
+    Then I select the month "110" from calendar from date picker
+    Then I select the "110" from the calendar from date picker on Transition Page
+    Then I select the "110" time from the calendar from date picker on Transition Page
     Then I wait for 8000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 5000 milli seconds
+    Then I click on update transition to add a new episode
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page

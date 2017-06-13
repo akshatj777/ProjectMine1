@@ -19,17 +19,20 @@ Feature: Patient status in Need Review Worklist
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 35000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the discharge date on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the centre of the calendar header to select discharge date and month on Transition Page
-    Then I click on the previous next link to select the required year "7" on date picker
+    Then I click on the previous next link to select the required year "6" on date picker
     Then I wait for 5000 milli seconds
-    Then I select the month "7" from calendar from date picker on Discharge
+    Then I select the month "6" from calendar from date picker on Discharge
     Then I wait for 5000 milli seconds
-    Then I select the "7" from the calendar from date picker on Transition Page
+    Then I select the calendar date "6" from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the midnight time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
@@ -58,7 +61,7 @@ Feature: Patient status in Need Review Worklist
     Then I click on the Needs Review tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
+    Then I wait for 40000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
@@ -72,10 +75,14 @@ Feature: Patient status in Need Review Worklist
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 8000 milli seconds
     Then I click on datepicker button to select the discharge date on add a new transition
+    Then I wait for 5000 milli seconds
     Then I click on the centre of the calendar header to select discharge date and month on Transition Page
-    Then I click on the previous next link to select the required year "8" on date picker
-    Then I select the month "8" from calendar from date picker
-    Then I select the "8" from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "7" on date picker
+    Then I wait for 5000 milli seconds
+    Then I select the month "7" from calendar from date picker on Discharge
+    Then I wait for 5000 milli seconds
+    Then I select the calendar date "7" from the calendar from date picker on Transition Page
+    Then I wait for 5000 milli seconds
     Then I select the before midinight time from the calendar from datepicker on Transition Page
     And I wait for 5000 milli seconds
     Then I click on update transition to add a new episode
@@ -88,7 +95,7 @@ Feature: Patient status in Need Review Worklist
     Then I click on the Needs Review tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
+    Then I wait for 30000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
