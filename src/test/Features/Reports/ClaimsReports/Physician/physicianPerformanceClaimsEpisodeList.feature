@@ -1,4 +1,4 @@
-Feature: Verfication of performance claims reports episode list drill through under physician
+Feature: Verification of performance claims reports episode list drill through under physician
 
   Scenario Outline: User should be able to click on episode list column and verify the drill through
     Given I am on the login page
