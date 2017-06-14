@@ -1,7 +1,7 @@
 Feature: Patient status on Exceed SNF LOS Work List
 
 Scenario Outline: Patient's current care setting is SNF (Skilled Nursing, TCU) Episode state Future Active
-   Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
