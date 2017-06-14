@@ -230,6 +230,11 @@ public class CreateUserSteps extends DriverScript{
        createUser.iclickAllAppsfortheRole();
     }
     
+    @Then("^I select ([^\"]*) product tile for user creation$")
+    public void iSelectTileForTheRole(String tile) throws Throwable{
+    	createUser.iSelectTileForTheRole(tile);
+    }
+    
     @And("^I turn off the share file application$")
     public void iTurnOffTheShareFileApplication() throws Throwable{
     	createUser.iTurnOffShareFile();
@@ -294,6 +299,16 @@ public class CreateUserSteps extends DriverScript{
     @And("^I click on Physican connect tile under specific user login page ([^\"]*) for ([^\"]*)$")
     public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text,String role) throws Throwable{
     	createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(text, role);
+    }
+    
+    @And("^I click on Internal Support option from dropdown under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text,String role) throws Throwable{
+    	createUser.iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(text,role);
+    }
+    
+    @Then("^I select Support option from the dropdown under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text,String role) throws Throwable{
+    	createUser.iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(text,role);
     }
     
     @And("^I navigate back to specific user login page$")

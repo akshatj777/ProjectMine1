@@ -228,6 +228,10 @@ public class CreateUserPage extends BaseClass{
     public void iclickAllAppsfortheRole() {
         clickAllElementofAlistbyXpath("//fieldset[2]/div[4]/div/ul/li/div/label");
     }
+    
+    public void iSelectTileForTheRole(String tile){
+    	clickElement(driver.findElement(By.xpath("//label[@for='"+tile+"']")));
+    }
 
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
@@ -256,8 +260,22 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String role, String userrole){
-	   
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
+	   if(text.isEmpty()!=true){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   switchToNewWindow();
+		   delay();
+		   isElementPresentOnPage(By.cssSelector(".username"));
+		   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
+		   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
+		   delay();
+		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/a[1]")));
+		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
+		   delay();
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+		   switchBacktoOldWindow();
+	   }
+	   /*String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
 			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -282,13 +300,21 @@ public class CreateUserPage extends BaseClass{
    else {
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 	   System.out.println("EC1 Not Present");
-    }
+    }*/
  }
 		  
 
    
    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String text, String role){
-	   String orgRole[] ={"Remedy Technical Administrator","Remedy TCS", "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM",
+	   if(text.isEmpty()!=true){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   switchToNewWindow();
+		   delay();
+		   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
+		   switchBacktoOldWindow(); 
+	   }
+	   /*String orgRole[] ={"Remedy Technical Administrator","Remedy TCS", "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM",
 			   "Remedy Sales Team", "Remedy Executive", "Remedy Other", "Remedy Program Administrator", "Executive", "Manager",
 			   "Case Maanger", "Physicians", "Partner Program Administrator", "Prospective Partner Executive","Partner Technical Administrator",
 			   "Transitional Case Manager","Downstream Provider"};
@@ -305,12 +331,19 @@ public class CreateUserPage extends BaseClass{
    }
    else {
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-    }
+    }*/
 	   
    }
    
    public void iClickOnReportsTileUnderSpecificUserLoginPage(String text, String role){
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
+	   if(text.isEmpty()!=true){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
+		   clickAllElementofAlistbyXpath("//div/div/div/div/label");
+		   driver.navigate().back(); 
+	   }
+	   /*String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
 			     "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -325,12 +358,22 @@ public class CreateUserPage extends BaseClass{
    }
    else {
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-    }
+    }*/
 	   
    }
    
    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text,String role){
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
+	   
+	   if(text.isEmpty()!=true){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
+		   switchToNewWindow();
+		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
+		   switchBacktoOldWindow();
+   	}
+	   
+	   /*String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
 			   "Prospective Partner Executive", "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
 	   ArrayList<String> aray = new ArrayList<>();
@@ -345,11 +388,18 @@ public class CreateUserPage extends BaseClass{
    }
    else {
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-    }
+    }*/
    }
    
    public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text,String role){
-	   String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
+	   if(text.isEmpty()!=true){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
+		   driver.navigate().back(); 
+	   }
+	   
+	   /*String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
 			   "Partner Program Administrator" , "Partner Technical Administrator"};
 	   ArrayList<String> aray = new ArrayList<>();
 	   aray.addAll(Arrays.asList(orgRole));
@@ -363,13 +413,56 @@ public class CreateUserPage extends BaseClass{
    else {
 	   
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-      }
+      }*/
    }
    
    
    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text,String role){
-	   String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
-			   "Partner Program Administrator" , "Partner Technical Administrator"};
+	   clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+	   if(text.isEmpty()!=true){
+		     
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
+		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+		   switchToNewWindow();
+		   switchBacktoOldWindow(); 
+   	}
+	   /*String orgRole[] ={"Remedy Technical Administrator", "Remedy Program Administrator", 
+			   "Partner Program Administrator" , "Partner Technical Administrator", "Executive", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy Sales Team", "Remedy PM", "Remedy Executive",
+			   "Remedy Other"};
+	   ArrayList<String> aray = new ArrayList<>();
+	   aray.addAll(Arrays.asList(orgRole));
+	   System.out.println("Internal support not present" + text);
+	   System.out.println("Internal support not present" + role);
+	   if (aray.contains(role)) {
+	  clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));  
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
+	   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+	   switchToNewWindow();
+	   switchBacktoOldWindow();  
+	   
+      }
+   else {
+	   
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
+      }*/
+   }
+   
+   public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text,String role){
+	  
+	   //clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+	   if(text.isEmpty()!=true){
+		     
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
+		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+		   switchToNewWindow();
+		   switchBacktoOldWindow(); 
+   	}  
+	   
+	   /*String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
+			   "Partner Program Administrator" , "Partner Technical Administrator", "Executive", "Remedy TCS",
+			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Executive","Remedy Other",
+			   "Transitional Case Manager", "Downstream Provider"};
 	   ArrayList<String> aray = new ArrayList<>();
 	   aray.addAll(Arrays.asList(orgRole));
 	   if (aray.contains(role)) {
@@ -383,8 +476,10 @@ public class CreateUserPage extends BaseClass{
    else {
 	   
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
-      }
+      }*/
+   
    }
+   
    public void iNavigateBackToSpecificUserLoginPage(){
 	   driver.navigate().back();
    }
