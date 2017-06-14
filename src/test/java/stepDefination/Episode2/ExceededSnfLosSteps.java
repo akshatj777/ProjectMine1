@@ -25,7 +25,7 @@ public class ExceededSnfLosSteps extends DriverScript {
 	}
 
 	@And("^I Select \"([^\"]*)\" from admitting facility list present on the Add Patient page$")
-	public void I_Select_admitting_facility_list_present_on_the_Add_Patient_page(String facility) {
+	public void I_Select_admitting_facility_list_present_on_the_Add_Patient_page(String facility) throws Throwable {
 		exceed.ISelectadmittingfacilitylistpresentontheAddPatientpage(facility);
 	}
 
@@ -36,7 +36,7 @@ public class ExceededSnfLosSteps extends DriverScript {
 	}
 
 	@Then("^I select the most recent date from the date picker$")
-	public void I_select_the_most_recent_date_from_the_date_picker() {
+	public void I_select_the_most_recent_date_from_the_date_picker() throws Throwable {
 		exceed.Iselectthemostrecentdatefromthedatepicker();
 	}
 
@@ -46,7 +46,7 @@ public class ExceededSnfLosSteps extends DriverScript {
 	}
 
 	@Then("^I verify LOS is below the ELOS on the patient card page$")
-	public void I_verify_LOS_is_below_the_ELOS_on_the_patient_card_page() {
+	public void I_verify_LOS_is_below_the_ELOS_on_the_patient_card_page() throws Throwable {
 		exceed.IverifyLOSisbelowtheELOSonthepatientcardpage();
 	}
 

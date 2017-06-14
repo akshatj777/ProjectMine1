@@ -42,7 +42,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     Then I click on add a new transition to add a new episode

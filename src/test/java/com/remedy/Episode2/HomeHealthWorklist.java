@@ -15,10 +15,10 @@ public class HomeHealthWorklist extends BaseClass {
 
 	}
 
-	public void Ideletetheactivetransitiontomakethepatientcancelled() throws InterruptedException {
-		clickElement(driver.findElement(By.cssSelector("#ui-transitions-table > tbody > tr:nth-child(2) > td:nth-child(10) > div")));
+	public void Ideletetheactivetransitiontomakethepatientcancelled(String transition_value) throws InterruptedException {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div")));
 		Thread.sleep(5000);
-		clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div/ul/li[3]/a")));
 		Thread.sleep(5000);
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
 		Thread.sleep(10000);

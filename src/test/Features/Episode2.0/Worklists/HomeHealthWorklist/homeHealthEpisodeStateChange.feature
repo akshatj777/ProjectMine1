@@ -36,7 +36,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 5000 milli seconds
     Then I select the care type value "Skilled Nursing" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "Coosa valley health care - Coosa valley health care" on add a new transition
+    Then I select the facility value "Coosa valley health care" on add a new transition
     Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -82,7 +82,7 @@ Feature: Patient status on Home Health Worklist
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
     And I wait for 8000 milli seconds
-    Then I delete the active transition to make the patient cancelled
+    Then I delete the active transition no "2" to make the patient cancelled
     And I wait for 5000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page

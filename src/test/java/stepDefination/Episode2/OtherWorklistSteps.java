@@ -14,7 +14,7 @@ public class OtherWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the Cancel button on Discharge Info on Add a transition$")
-	public void I_click_on_the_Cancel_button_on_Discharge_Info_on_Add_a_transition() {
+	public void I_click_on_the_Cancel_button_on_Discharge_Info_on_Add_a_transition() throws Throwable {
 		other.IclickontheCancelbuttononDischargeInfoonAddatransition();
 	}
 
