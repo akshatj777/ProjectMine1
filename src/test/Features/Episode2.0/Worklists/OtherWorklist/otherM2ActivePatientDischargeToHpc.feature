@@ -1,6 +1,6 @@
 Feature: Patient status on Other/Alternative Work List
 
-  Scenario Outline: M2 Active episode patient discharge to UNK
+  Scenario Outline: M2 Active episode patient discharge to HPC
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login

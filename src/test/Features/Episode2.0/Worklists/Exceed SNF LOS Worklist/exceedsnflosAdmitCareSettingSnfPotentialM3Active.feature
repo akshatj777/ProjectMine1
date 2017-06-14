@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
 
-  Scenario Outline: Create patient with Potential M3 episode status.
+  Scenario Outline: Exceed SNF Los woth admit care setting snf and potential M2 active patient
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -19,6 +19,9 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition

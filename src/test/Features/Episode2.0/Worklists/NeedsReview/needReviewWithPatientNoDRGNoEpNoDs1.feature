@@ -1,6 +1,5 @@
 Feature: Patient status in Need Review Worklist
 
-
   Scenario Outline: Verify patient status on need review worklist with current care setting as HHH-inpatient with No DRG , No Episode and no discharge
     Given I am on the login page
     When I enter email field <email> for login
@@ -55,6 +54,9 @@ Feature: Patient status in Need Review Worklist
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -96,5 +98,5 @@ Feature: Patient status in Need Review Worklist
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name      |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSERREVIEW |

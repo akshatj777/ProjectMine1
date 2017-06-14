@@ -76,5 +76,5 @@ Feature: Patient status on Other/Alternative Work List
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |

@@ -1,6 +1,5 @@
 Feature: Patient status in Need Review Worklist
 
-  
   Scenario Outline: Verify patient status not included on need review worklist with patient having HHH-Outpatient with Non-BPCI possible DRG and No Episode
     Given I am on the login page
     When I enter email field <email> for login
@@ -20,6 +19,9 @@ Feature: Patient status in Need Review Worklist
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition

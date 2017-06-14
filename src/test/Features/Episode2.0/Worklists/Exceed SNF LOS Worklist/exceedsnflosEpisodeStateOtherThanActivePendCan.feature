@@ -19,6 +19,9 @@ Scenario Outline: Episode state other than Active and pending cancellation
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
     And I wait for 50000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -93,6 +96,4 @@ Scenario Outline: Episode state other than Active and pending cancellation
    Examples:
 
       | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |   
-    
-   
+      | qa.admin@yopmail.com | Episode1! | PATIENT             | TESTAUTOMATEUSER  |    

@@ -13,4 +13,10 @@ public class HomeHealthWorklistSteps extends DriverScript {
 		homehealth.IclickonHomeHealthsubtabonthepatientCardPage();
 	}
 
+	@Then("^$I delete the active transition to make the patient cancelled$")
+	public void I_delete_the_active_transition_to_make_the_patient_cancelled() throws Throwable {
+		homehealth.Ideletetheactivetransitiontomakethepatientcancelled();
+
+	}
+
 }

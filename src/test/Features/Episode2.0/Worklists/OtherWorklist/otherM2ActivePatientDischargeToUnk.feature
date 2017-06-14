@@ -1,7 +1,6 @@
 Feature: Patient status on Other/Alternative Work List
 
-Scenario Outline:  M2 Active episode patient discharge to UNK
-
+  Scenario Outline: M2 Active episode patient discharge to UNK
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -71,6 +70,7 @@ Scenario Outline:  M2 Active episode patient discharge to UNK
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
-Examples:
-     | email                | password  | Patient First Name | Patient Last Name |
-     | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |    
+
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
