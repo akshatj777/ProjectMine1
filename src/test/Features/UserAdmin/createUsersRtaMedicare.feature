@@ -1,8 +1,11 @@
-Feature: Create new User and verify Login logut of user
+Feature: Create new User role with Remedy Technical Admin and verify Login logout of user
 
-  Scenario Outline: Super Administrator can create all user and verify login and navigation of different tiles and logout of created user
+Scenario Outline: Remedy Technical Administrator can create user and verify login and navigation of different tiles and logout of created user
     Given I am on the login page
-    When I log in as super user
+    When I enter email field RTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -89,14 +92,14 @@ Feature: Create new User and verify Login logut of user
     And I navigate back to specific user login page
     And I wait for 5000 milli seconds
     And I click on the top user account link
-    Then I select Internal Support option from the dropdown
+    Then I select Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
     And I wait for 6000 milli seconds
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
     And I wait for 1000 milli seconds
-    Then I select Support option from the dropdown
+    Then I select Internal Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
     And I wait for 6000 milli seconds
@@ -125,9 +128,12 @@ Feature: Create new User and verify Login logut of user
       |            | RPM                   | Remedy PM                     | Remedy PM                     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
       |            | RExe                  | Remedy Executive              | Remedy Executive              | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
    
-   Scenario Outline: Super Administrator can create user role Remedy Sales Team and verify login and navigation of internal support and reset password logout of created user
+   Scenario Outline: Remedy Technical Administrator can create user role Remedy Sales Team and verify login and navigation of internal support and reset password logout of created user
     Given I am on the login page
-    When I log in as super user
+    When I enter email field RTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -223,9 +229,12 @@ Feature: Create new User and verify Login logut of user
       | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
       |            | RSalesTm              | Remedy Sales Team             | Remedy Sales Team             | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU | Reports |              | Institute |                  |                |
       
-   Scenario Outline: Super Administrator can create user role with PPE and verify login and navigation of product tiles and reset password and logout of created user
+   Scenario Outline: Remedy Technical Administrator can create user role with PPE and verify login and navigation of product tiles and reset password and logout of created user
     Given I am on the login page
-    When I log in as super user
+    When I enter email field RTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -308,9 +317,12 @@ Feature: Create new User and verify Login logut of user
       | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
       |            | PPExe                 | Prospective Partner Executive | Prospective Partner Executive | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 |          | RemedyU |         |              | Institute |                  |                |
       
-   Scenario Outline: Super Administrator can create user role with TCM and verify login and different product tiles navigation and logout of created user
+   Scenario Outline: Remedy Technical Administrator can create user role with TCM and verify login and different product tiles navigation and logout of created user
     Given I am on the login page
-    When I log in as super user
+    When I enter email field RTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -413,9 +425,12 @@ Feature: Create new User and verify Login logut of user
       | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
       |            | TCMngr                | Transitional Case Manager     | Transitional Case Manager     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports |              | Institute |                  |                |
         
-    Scenario Outline: Super Administrator can create user role with Manager case manager physicians and verify login and navigation to Episodes tiles and reset password and logout of created user
+    Scenario Outline: Remedy Technical Administrator can create user role with Manager case manager physicians and verify login and navigation to Episodes tiles and reset password and logout of created user
     Given I am on the login page
-    When I log in as super user
+    When I enter email field RTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -523,9 +538,12 @@ Feature: Create new User and verify Login logut of user
       |            | Mngr                  | Manager                       | Manager                       | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
       |            | CaseMngr              | Case Manager                  | Case Manager                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                  |                |
 	      
-    Scenario Outline: Super Administrator can create user role with remedy other which have no share file tile and verify login and navigation to different tiles reset password and logout of created user
+    Scenario Outline: Remedy Technical Administrator can create user role with remedy other which have no share file tile and verify login and navigation to different tiles reset password and logout of created user
     Given I am on the login page
-    When I log in as super user
+    When I enter email field RTAUSER@mailinator.com for login
+    And I wait for 1000 milli seconds
+    And I enter password field Testing1 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -605,17 +623,17 @@ Feature: Create new User and verify Login logut of user
     Then I switch back to old window
     And I wait for 6000 milli seconds
     And I click on the top user account link
-    Then I select Internal Support option from the dropdown
-    And I wait for 1000 milli seconds
-    When I switch to new window
-    And I wait for 8000 milli seconds
-    And I verify current page "Login - Service Desk" title
-    Then I switch back to old window
-    And I wait for 1000 milli seconds
     Then I select Support option from the dropdown
     And I wait for 1000 milli seconds
     When I switch to new window
     And I wait for 6000 milli seconds
+    And I verify current page "Login - Service Desk" title
+    Then I switch back to old window
+    And I wait for 1000 milli seconds
+    Then I select Internal Support option from the dropdown
+    And I wait for 1000 milli seconds
+    When I switch to new window
+    And I wait for 8000 milli seconds
     And I verify current page "Login - Service Desk" title
     Then I switch back to old window
     And I wait for 1000 milli seconds
@@ -632,4 +650,4 @@ Feature: Create new User and verify Login logut of user
     Examples: 
       | NPI        | Email                 | lastName                      | Role                          | HealthSystem Search | Health System     | Provider | Phone        | payer    | Password | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect | Administration |
       |            | ROthr                 | Remedy Other                  | Remedy Other                  | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare | Testing1 | Episodes | RemedyU |         | Episodes 2.0 | Institute |                  |                |
-        
+    

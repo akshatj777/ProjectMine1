@@ -13,12 +13,18 @@ Feature: HomePage test for Users
     Then I should see header text "User Management"
     And I wait for 1000 milli seconds
     Then I should see "Create User" Button
+    Then I should see Import Users Button
     And I should see total Users Count on page
     Then I should see sort order default option "Last Name A-Z"
     And I should see Refresh icon on page
     And I should see User card on page
     And I should see First Name on user card
     And I wait for 1000 milli seconds
+    Then I should be able to click on DropDown list for sorting Newest to Oldest
+    Then I verify the filter for Newest to Oldest
+    Then I should be able to sort the users with Newest - Oldest sorting option
+    Then I verify "30" users cards under user admin page
+    And I wait for 3000 milli seconds
     And I should see Last Name on user card
     And I should see Expand button on user card
     And I wait for 1000 milli seconds
@@ -37,5 +43,5 @@ Feature: HomePage test for Users
     Examples: 
       | Email                                  |
       | lbarinstein+qaadmin@remedypartners.com |
-      | rtanewuserrta@mailinator.com           |
-      | ptanewuserpta@mailinator.com           |
+      | RTAUSER@mailinator.com                 |
+      | PTAUSER@mailinator.com                 |

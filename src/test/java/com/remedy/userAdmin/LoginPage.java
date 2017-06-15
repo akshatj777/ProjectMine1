@@ -66,7 +66,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
-		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
+		clickElement(driver.findElement(By.xpath("//button[text()='Okay']")));
 		delay();
 	}
 
@@ -90,6 +90,18 @@ public class LoginPage extends BaseClass {
 
 	public void iVerifyLogInWidget() {
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
+	}
+	
+	public void iLogInAsRTAUser(String userName, String passWord){
+		iEnteruserEmail(userName);
+		iEnterPassword(passWord);
+		iClickLogInButton();
+	}
+	
+	public void iLogInAsPTAUser(String userName, String passWord){
+		iEnteruserEmail(userName);
+		iEnterPassword(passWord);
+		iClickLogInButton();
 	}
 }
 

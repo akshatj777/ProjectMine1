@@ -2,6 +2,8 @@ package com.remedy.userAdmin;
 
 
 import com.remedy.baseClass.BaseClass;
+
+import org.apache.commons.collections.set.SynchronizedSet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,22 +16,16 @@ public class LandingPage extends BaseClass{
 
         super(driver);}
 
-
-    public void iVerifyTextforTiles( String text){
-        
-    	if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).isEmpty()){
-    		return;
-    	}else{
+    public void iVerifyTextforTiles(String text){
+    
+       	if(text.isEmpty()!=true){
     		verifyTextForElementfromList(".title>p", text);
     	}
-    	    	
     }
-    
+       
     public void iClickOnApplicateTile(String tile){
         delay();
         clickElement(driver.findElement(By.xpath(tile)));
-        //selectElementByDesc(".title>p", tile);
-        //longDelay();
     }
 
     public void iSwitchToNewWindow(){
@@ -58,11 +54,10 @@ public class LandingPage extends BaseClass{
 
     public void iVerifyTextNotForTiles( String text){
         verifyTextNotPresentForElementFromList(".title>p", text);
-
     }
+    
     public void iClickOnHamburgurMenuOnTop(){
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
-
 }
 

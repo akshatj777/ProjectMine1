@@ -209,4 +209,9 @@ public class UserAdminHomeSteps extends DriverScript{
         public void i_verify_is_appearing_for_the_useradmin_cards_which_are_on_useradmin_home_page(String text,String button) throws Throwable{
         	userAdminHome.iVerifyUnlockCardsInformation(text, button);
         }
+        
+        @Then("^I should see ([^\"]*) Button$")
+        public void iShouldSeeImportUsersButton(String text) throws Throwable{
+        	userAdminHome.iShouldSeeImportUsersButton(text);
+        }
 }

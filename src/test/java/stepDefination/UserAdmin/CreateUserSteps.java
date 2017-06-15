@@ -140,9 +140,9 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iClickOnEpisodesTileUnderSpecificUserLoginPage(tile);
     }
 
-    @And("^I click on EC two tile under specific user login page ([^\"]*)$")
-    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
-    	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(tile);
+    @And("^I click on EC two tile under specific user login page ([^\"]*) for ([^\"]*)$")
+    public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text, String role) throws Throwable{
+    	createUser.iClickOnECTwoTileUnderSpecificUserLoginPage(text,role);
     }
 
     @And("^I verify the dropdown list for user$")
@@ -219,15 +219,25 @@ public class CreateUserSteps extends DriverScript{
     public void iEnterHealthSystemSearchText(String provider) throws Throwable {
         createUser.iEnterProviderSerachText(provider);
     }
-
+    
     @Then("^I click the select all Facilites checkbox for the provider$")
     public void iSelectAndFacilitesForTheHealthSystem() throws Throwable {
         createUser.iCheckAllProviderForTheHealthSystem();
     }
 
+    @Then("^I select the facility ([^\"]*) checkbox for the ([^\"]*)$")
+    public void iSelectTheFacilityForTheHealthSystem(String facility, String provider) throws Throwable {
+        createUser.iCheckTheProviderForTheHealthSystem(facility,provider);
+    }
+
     @Then("^I select all the application for the role$")
     public void iSelectAllTheApplicationForTheRole() throws Throwable {
        createUser.iclickAllAppsfortheRole();
+    }
+    
+    @Then("^I select ([^\"]*) product tile for user creation$")
+    public void iSelectTileForTheRole(String tile) throws Throwable{
+    	createUser.iSelectTileForTheRole(tile);
     }
     
     @And("^I turn off the share file application$")
@@ -263,5 +273,111 @@ public class CreateUserSteps extends DriverScript{
     @And("^I Verify the header after clicking the episodes 2 tile$")
     public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile() throws Throwable{
     	createUser.iVerifyTheHeaderAfterClickingTheEpisodes2Tile();
+    }
+    
+    @And("^I turn off the lessons tile application$")
+    public void iTurnOffTheLessonsTileApplication() throws Throwable{
+    	createUser.iTurnOffTheLessonsTileApplication();
+    }
+    
+    
+    @And("^I click on Episode1 tile under specific user login page ([^\"]*) and verify the userrole ([^\"]*)$")
+    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String tile, String userroletext) throws Throwable{
+    	createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(tile,userroletext);
+    }
+    
+    @And("^I click on Institute tile under specific user login page ([^\"]*)$")
+    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile);
+    }
+    
+    @And("^I click on Reports tile under specific user login page ([^\"]*)$")
+    public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile);
+    }
+    
+    @And("^I click on RemedyU tile under specific user login page ([^\"]*)$")
+    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(text);
+    }
+    
+    @And("^I click on Physican connect tile under specific user login page ([^\"]*)$")
+    public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(text);
+    }
+    
+    @And("^I click on Internal Support option from dropdown under specific user login page ([^\"]*)$")
+    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(text);
+    }
+    
+    @Then("^I select Support option from the dropdown under specific user login page ([^\"]*)$")
+    public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(text);
+    }
+    
+    @And("^I navigate back to specific user login page$")
+    public void iNavigateBackToSpecificUserLoginPage() throws Throwable{
+    	createUser.iNavigateBackToSpecificUserLoginPage();
+    }
+    
+    @Then("^I verify the Product tile for selected user role$")
+    public void i_Verify_The_Product_Tile_For_The_Selected_UserRole() throws Throwable {
+    	createUser.iVerifyThePrductTileForTheSelectedUserRole();
+    }
+    
+    @Then("^I verify the Internal Support tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Internal_Support_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheInternalSupportProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Physican Connect tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_PhysicanConnect_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyThePhysicanConnectProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Episodes tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Episodes_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheEpisodesProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Lessons tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Lessons_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheLessonsProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Reports tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Reports_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheReportsProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Administration tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Administration_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheAdministrationProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Share File tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_ShareFile_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheShareFileProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Episodes 2.0 tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Episodes2_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheEpispdes2ProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the Institute tile for selected user role ([^\"]*)$")
+    public void i_Verify_The_Institute_Tile_For_The_Selected_UserRole(String role) throws Throwable {
+    	createUser.iVerifyTheInstituteProductTileForSelectedUserRole(role);
+    }
+    
+    @Then("^I verify the userrole under ec1 dashboard page after specific user login$")
+    public void iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin() throws Throwable{
+    	createUser.iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin();
+    }
+    
+    @Then("^I verify the institute dashboard page after clicking on Institute tile under specific user login page$")
+    public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage() throws Throwable{
+    	createUser.iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage();
     }
 }

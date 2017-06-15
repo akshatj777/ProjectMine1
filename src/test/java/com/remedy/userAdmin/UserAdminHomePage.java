@@ -60,7 +60,7 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void iSeeCreateUserText(String createUser) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".btn.btn-primary")), createUser);
+		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/user/create']")), createUser);
 	}
 	
 	public void iSeeUserAdminPageLogo() {
@@ -103,11 +103,11 @@ public class UserAdminHomePage extends BaseClass {
 	}
 	
 	public void iSeeLastNameOnUserCard() {
-		isElementVisible(driver.findElement(By.cssSelector("span.ng-scope[binding-id$='user.lastName']>span")));
+		isElementVisible(driver.findElement(By.cssSelector("span[binding-id$='user.lastName']")));
 	}
 	
 	public void iSeeExpandButtonOnUserCard() {
-		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='expand']")));
+		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-quaternary.valentino-icon-expand.pull-right")));
 		
 	}
 	
@@ -202,4 +202,7 @@ public class UserAdminHomePage extends BaseClass {
    	}   	
 	}
 	
+	public void iShouldSeeImportUsersButton(String Importusers){
+		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/user/import']")), Importusers);
+	}
 }
