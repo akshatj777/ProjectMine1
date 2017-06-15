@@ -1,6 +1,5 @@
 Feature: Complete CARL button
 
-
   Scenario Outline: The Complete CARL button should appear on the patient card with active Episodes
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
