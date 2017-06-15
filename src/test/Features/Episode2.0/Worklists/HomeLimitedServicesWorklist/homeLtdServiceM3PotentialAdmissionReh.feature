@@ -1,13 +1,12 @@
 Feature: Patient has Potential M3 Active Episode
 
-Scenario Outline: Create patient with pending cancellation M3 episode status.
+  Scenario Outline: Create patient with pending cancellation M3 episode status.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -17,7 +16,7 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     And I wait for 30000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
@@ -26,7 +25,7 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
-    Then I select the month "20" from calendar from date picker 
+    Then I select the month "20" from calendar from date picker
     Then I select the "20" from the calendar from date picker on Transition Page
     Then I select the "20" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
@@ -34,9 +33,7 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     Then I wait for 5000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "Emanuel County Hospital Authority" on add a new transition 
-  
- 
+    Then I select the facility value "Emanuel County Hospital Authority" on add a new transition
     Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -46,14 +43,12 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
-   
-    
-  Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name | 
-      | qa.admin@yopmail.com | Episode1! | ABHIS               | KUMAutomate       |  
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
 
- Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor current admission's with discharge care setting as HOM/REH(outpatient).    
+  Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor current admission's with discharge care setting as HOM/REH(outpatient).
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -69,7 +64,7 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     And I wait for 30000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 30000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
@@ -78,7 +73,7 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
-    Then I select the month "20" from calendar from date picker 
+    Then I select the month "20" from calendar from date picker
     Then I select the "20" from the calendar from date picker on Transition Page
     Then I select the "20" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
@@ -96,21 +91,19 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I click on the Post Acute tab on the patient Card Page 
+    Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
-   
-    Then I click on Home with Limited Services sub tab on the patient Card Page 
+    Then I click on Home with Limited Services sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page     
-    
-  Examples:
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-      | email                | password  | Patient First Name  | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! |  ABHIS           |  KUMAutomate          |   
-   
-   Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor future admission's with discharge care setting as HOM/REH(outpatient).       
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+
+  Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor future admission's with discharge care setting as HOM/REH(outpatient).
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -126,48 +119,41 @@ Scenario Outline: Create patient with pending cancellation M3 episode status.
     And I wait for 40000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 50000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 20000 milli seconds
- 
     Then I wait for 5000 milli seconds
     Then I switch to PatientTransitions frame
-    
     Then I click on the edit button on the "1" transition to edit the Active transition
     And I wait for 8000 milli seconds
-    
-    
     Then I click on datepicker button to select the admit date on add a new transition
     And I wait for 6000 milli seconds
     Then I scroll down the page to make the element visible
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "16" on date picker
-    Then I select the month "16" from calendar from date picker 
+    Then I select the month "16" from calendar from date picker
     Then I select the "16" from the calendar from date picker on Transition Page
     Then I select the "16" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I wait for 5000 milli seconds
     Then I click on update transition to add a new episode
     And I wait for 10000 milli seconds
-    
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I click on the Post Acute tab on the patient Card Page 
+    Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
-    Then I click on Home with Limited Services sub tab on the patient Card Page 
+    Then I click on Home with Limited Services sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page         
-    
-     
- Examples:
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-      | email                | password  | Patient First Name  | Patient Last Name  |
-      | qa.admin@yopmail.com | Episode1! |  ABHIS              |   KUMAutomate      |     
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
 
-Scenario Outline: Verify While patient in Home With Limited Services worklist add another admission within episode dates with care setting apart from HOM or REH (outpatient).
+  Scenario Outline: Verify While patient in Home With Limited Services worklist add another admission within episode dates with care setting apart from HOM or REH (outpatient).
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -183,7 +169,7 @@ Scenario Outline: Verify While patient in Home With Limited Services worklist ad
     And I wait for 30000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 30000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on add a new transition to add a new episode
@@ -192,7 +178,7 @@ Scenario Outline: Verify While patient in Home With Limited Services worklist ad
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "14" on date picker
-    Then I select the month "14" from calendar from date picker 
+    Then I select the month "14" from calendar from date picker
     Then I select the "14" from the calendar from date picker on Transition Page
     Then I select the "14" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
@@ -210,28 +196,26 @@ Scenario Outline: Verify While patient in Home With Limited Services worklist ad
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I click on the Post Acute tab on the patient Card Page 
+    Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
-   
-    Then I click on Home with Limited Services sub tab on the patient Card Page 
+    Then I click on Home with Limited Services sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page     
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 30000 milli seconds
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     And I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page 
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 30000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 25000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the delete button on the transition to delete all the transitions
-     
- Examples:
 
-      | email                | password  | Patient First Name  | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! |  ABHIS           |  KUMAutomate          |   
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |

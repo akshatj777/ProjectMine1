@@ -1249,7 +1249,6 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
-    
 
     @Then("^I verify ([^\"]*) is appearing under selected filters for Admit Reason$")
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_Admit_Reason(String text) throws Throwable{
@@ -1380,7 +1379,7 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_agree_button_on_patient_card_after_applying_filter(String button) throws Throwable{
     	patientsPage.iClickOnAgreeAfterApplyingFilter(button);
     }
-   
+
     @Then("^I click on \"([^\"]*)\" worklist under \"([^\"]*)\" worklist on episode home page$")
     public void i_click_on_worklist_under_worklist_On_episode_home_page(String sworklist,String mworklist) throws Throwable {
         patientsPage.iClickOnWorklistOnEpisodeHomePage(sworklist, mworklist);
@@ -1390,9 +1389,8 @@ public class PatientsPageSteps extends DriverScript {
     public void I_click_on_the_Impatient_Tab_on_Patient_page()
     {
     	patientsPage.IclickontheImpatientTabonPatientpage();
-
     }
-   
+
     @Then("^I verify ([^\"]*) is appearing on patient card on patient home page$")
     public void i_verify_admit_reason_is_appearing_on_patient_card_on_patient_home_page(String admitreason) throws Throwable{
     	patientsPage.iSeeAdmitReasonFilterOnPatientCard(admitreason);

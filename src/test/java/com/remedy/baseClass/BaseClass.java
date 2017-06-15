@@ -77,9 +77,10 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         List<String> listtexts = new ArrayList<String>();
         for (WebElement item : listItems) {
-            System.out.println(item.getText());
-            item.getText();
-            listtexts.add(item.getText());
+
+         item.getText();
+         listtexts.add(item.getText());
+
         }
         return listtexts;
 
@@ -157,10 +158,10 @@ public class BaseClass {
     }
 
     public void selectElementByDesc(String element, String desc) {
-        //  WebElement drpDwn = getVisibleDropDownParentElement(parent);
+        
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
-            //System.out.println(item.getText());
+           
             if (item.getText().equalsIgnoreCase(desc)) {
                 item.click();
                 delay();
@@ -174,7 +175,7 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 
         for (WebElement item : listItems) {
-            //System.out.println(item.getText());
+            
             item.getText().equalsIgnoreCase(itemtext);
 
             /*if (item.getText().equalsIgnoreCase(itemtext)) {
@@ -222,29 +223,24 @@ public class BaseClass {
 
     public void verifyTextForElement(WebElement ele, String text) {
         if (isElementVisible(ele)) {
-            System.out.println(ele.getText());
             Assert.assertEquals(ele.getText(), text);
-
         }
     }
-    
+
     public String getTextForElement(WebElement ele) {
         if (isElementVisible(ele)) {
-        	System.out.println(ele.getText());
-            
-            
+        	System.out.println(ele.getText());     
         }
 		return ele.getText();
     }
-    
- 
+
     public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text) {
         if (isElementVisible(ele)) {
             Assert.assertEquals(ele.getText().replaceAll("\\s+", " "), text);
         }
 
     }
-    
+
     public void verifyElementCount(String element, int count) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
@@ -403,8 +399,16 @@ public class BaseClass {
         } catch (org.openqa.selenium.NoSuchElementException e) {
             value = false;
         }
-//    	System.out.println(value);
 		return value;		
+    }
+    
+    public void isElementNotPresentOnPage(String ele) {
+    	    	
+    	try{
+    		driver.findElement(By.cssSelector(ele));
+    	}catch (Exception e){
+    		return;
+    		}
     }
 
     public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
@@ -427,5 +431,5 @@ public class BaseClass {
 
     public void switchToParentFrame() {
         driver.switchTo().parentFrame();
-    }
+        }
 }

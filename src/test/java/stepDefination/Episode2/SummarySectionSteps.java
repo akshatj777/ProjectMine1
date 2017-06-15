@@ -1,9 +1,9 @@
 package stepDefination.Episode2;
 
+import org.openqa.selenium.By;
 import com.remedy.Episode2.PatientClinicalDocuments;
 import com.remedy.Episode2.PatientsPage;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.Then;
 
 public class SummarySectionSteps extends DriverScript{
@@ -59,13 +59,10 @@ public class SummarySectionSteps extends DriverScript{
 	}
      
      @Then ("^I click on add a new transition to add a new episode$")
-    
      public void I_click_on_add_a_new_transition_to_add_a_new_episode() throws Throwable
      {
     	 patientclinical.ThenIclickonaddanewtransitiontoaddanewepisode();	 
      }
-     
-    
      
      @Then ("I click on datepicker button to select the admit date on add a new transition$")
      public void I_click_on_datepicker_button_to_select_the_admit_date() throws Throwable
@@ -155,8 +152,19 @@ public class SummarySectionSteps extends DriverScript{
     	 
   //  	 patientclinical.IverifytheCARLDocumentnotappearontheClinicalDocumentstabinthepatientsummaryPage();
      }
-     
-    
-     
-    
+       
+    @Then("^I click on the Cancel button on Episode present on the Add Patient page$")
+    public void I_click_on_the_Cancel_button_on_Episode_present_on_the_Add_Patient_page() {
+        patientclinical.IclickontheCancelbuttononEpisodepresentontheAddPatientpage();
+    }
+
+    @Then("^I click on the agree button for the patient on patient card page$")
+    public void I_click_on_the_agree_button_for_the_patient_on_patient_card_page() {
+        patientclinical.Iclickontheagreebuttonforthepatientonpatientcardpage();
+    }
+
+    @Then("^I switch to Patient Care Team frame$")
+    public void I_switch_to_Patient_CareTeam_frame() throws Throwable {
+        patientclinical.IswitchtoPatientCareTeamframe();
+    }
 }

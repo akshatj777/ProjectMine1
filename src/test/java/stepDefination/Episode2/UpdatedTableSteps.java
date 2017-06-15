@@ -8,9 +8,7 @@ import cucumber.api.java.en.Then;
 public class UpdatedTableSteps extends DriverScript{
 
 	PatientClinicalDocuments patientclinical=new PatientClinicalDocuments(driver);
-	
-	
-	
+
 	@Then ("^I verify there should be filter link on clinical document section$")
 	public void I_verify_there_should_be_filter_link_on_clinical_document_section()
 	{
@@ -33,8 +31,5 @@ public class UpdatedTableSteps extends DriverScript{
 	public void I_count_the_number_of_documents_that_appear_in_the_clinical_Documents()
 	{
 		patientclinical.IcountthenumberofdocumentsthatappearintheclinicalDocuments();
-	}
-	
-	
-	
+	}	
 }

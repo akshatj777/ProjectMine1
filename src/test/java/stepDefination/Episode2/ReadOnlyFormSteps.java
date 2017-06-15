@@ -9,7 +9,7 @@ import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.Then;
 
-public class ReadOnlyform extends DriverScript{
+public class ReadOnlyFormSteps extends DriverScript{
 
 	PatientClinicalDocuments patientclinical=new PatientClinicalDocuments(driver);
 	

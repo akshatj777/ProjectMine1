@@ -36,13 +36,19 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	public void I_verify_whether_topic_drop_down_appears_on_Add_Clinical_Document_on_Patient_Card_page()throws Throwable {
 		noteCreation.IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage();
 	}
-	  
+
+	 @And ("^I enter the Note Text in the textarea on Add Clinical Document on Patient Card$")	 
+	 public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card() throws Throwable 
+	 {
+		 noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard("test");
+	 }
+
 	 @Then ("^I select the month \"(.*)\" from calendar from date picker$")
 	 public void I_select_the_month_from_calendar_from_date_picker(int date) throws InterruptedException
 	 {
 		 noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
 	 }   
-	 
+
 	@And("^I select the \"(.*)\" from the topic drop down on Add Clinical Document on Patient Card$")
 	public void I_select_the_value_from_the_topic_drop_down_on_Add_Clinical_Document_on_Patient_Card(String dropdownvalue) throws Throwable {
 		noteCreation.IselectthevaluefromthetopicdropdownonPatientCard(dropdownvalue);
@@ -76,11 +82,6 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	@Then("^I select the \"(.*)\"  from date picker on Add Clinical Document on Patient Card$")
 	public void I_select_the_date_from_date_picker_on_Add_Clinical_Document_on_Patient_Card(String date)throws Throwable {
 		noteCreation.IselectthedatefromdatepickeronAddClinicalDocumentonPatientCard(date);
-	}
-
-	@And("^I enter the Note Text in the textarea on Add Clinical Document on Patient Card$")
-	public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card() throws Throwable {
-		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard();
 	}
 
 	@Then("^I click on the create Note Button on Add Clinical Document on Patient Card$")
@@ -121,11 +122,6 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	@Then("^I click on the next link to select the required year \"(.*)\" on date picker$")
 	public void I_click_on_the_next_link_to_select_the_required_year_on_date_picker(String date) throws Throwable {
 		noteCreation.Iclickonthenextlinktoselecttherequiredyearondatepicker(date);
-	}
-
-	@Then("^I select the month \"(.*)\" from calendar from date picker$")
-	public void I_select_the_month_from_calendar_from_date_picker(String date) throws InterruptedException, Throwable {
-		noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
 	}
 
 	@Then("^I click on navigation bar to return to remedy connect$")
@@ -233,5 +229,10 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	@Then("^I click on the Impatient tab on the patient Card Page$")
 	public void I_click_on_the_Impatient_tab_on_the_patient_Card_Page() throws Throwable {
 		noteCreation.IclickontheImpatienttabonthepatientCardPage();
+	}
+
+	@And("^I enter the Note Text \"(.*)\" in the textarea on Add Clinical Document on Patient Card$")
+	public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card(String Notetext)throws Throwable {
+		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(Notetext);
 	}
 }

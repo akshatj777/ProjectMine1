@@ -180,4 +180,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_verify_participant_is_selected_with_under_selected_filters(String participant)throws Throwable{
 		globalfilters.iVerifyParticipantAppearingInSelectedFilter("Participant includes "+participant);
 	}
+	
+	@Then("^I click on hide Summary button to unhide the available global filters$")
+	public void i_click_on_hide_summary_button_to_unhide_the_available_global_filters()throws Throwable{
+		globalfilters.iClickOnSummaryButtonUnderGlobalFilter();
+	}
 }

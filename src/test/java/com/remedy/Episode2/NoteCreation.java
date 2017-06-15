@@ -30,13 +30,8 @@ public class NoteCreation extends BaseClass {
 	public void I_click_on_the_patient_card_on_Patient_Card_Page() {
 		clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div")));
 	}
-         
-    public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(String Notetext)
-    {
-    	iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),Notetext);
-    }
-
-   	public void Iverifyclickonpatientcardtobenavigatedtopatientsummary() {
+        
+	public void Iverifyclickonpatientcardtobenavigatedtopatientsummary() {
 		isElementVisible(driver.findElement(By.cssSelector(".card-view-expanded-header.ng-scope")));
 	}
 
@@ -131,8 +126,8 @@ public class NoteCreation extends BaseClass {
 		selectElementByDesc("td.day.ng-scope", date_element);
 	}
 
-	public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard() {
-         iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),"Sample");
+	public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(String NoteText) {
+         iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),NoteText);
 	}
 
 	public void IclickonthecreateNoteButtononAddClinicalDocumentonPatientCard() {
@@ -280,7 +275,7 @@ public class NoteCreation extends BaseClass {
 		String date=dtf.format(b);
 		System.out.println(dtf.format(b));return date;
 	}
-	
+
 	public void Iclickonthepatientcardtonavigatetothepatientsummarypage() {
 		String search = Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
 		String[] words = search.split(",");
@@ -294,6 +289,7 @@ public class NoteCreation extends BaseClass {
 	public void IclickonthesubbarclinicaldocumentstabinPatientsummaryPage() {
         clickElement(driver.findElement(By.xpath("//span[contains(text(),'Clinical Documents')]")));
         }
+
 
     public void Iselectthemonthfromcalendarfromdatepicker(int days) throws InterruptedException {	
     String dateTime=getcurrentdate(days);
@@ -383,13 +379,23 @@ public class NoteCreation extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(" #notificationsTable > tbody > tr > td:nth-child(3)")));
 	}
 
+    public String getcurrentdate1(int days)
+    {
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	LocalDate localDate = LocalDate.now();
+	LocalDate b=localDate.minus(Period.ofDays(days));
+	System.out.println("$$$$$Local Date is"+b);
+	String date=dtf.format(b);
+	System.out.println(dtf.format(b));
+	return date;
+    }
+
 	public void IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary() {
 		isElementVisible(driver.findElement(By.cssSelector("#notificationsTable > tbody > tr > td:nth-child(4)")));
 	}
 
 	public void IclickontheImpatienttabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient')]")));
-
 	}
 
 	public void IVerifythatusershouldnotallowtocreatenotewithoutselectingTopicfield() {
@@ -398,7 +404,6 @@ public class NoteCreation extends BaseClass {
 		} catch (Exception e) {
 			return;
 		}
-
 	}
 
 	public void Iclickonthecentreofthecalendarheadertoselectdateandmonth() {
@@ -422,14 +427,6 @@ public class NoteCreation extends BaseClass {
             }
          }
 	  }
-
-	public void Iselectthemonthfromcalendarfromdatepicker(String dateTime) throws InterruptedException {
-		String date_dd_MM_yyyy[] = (dateTime.split("/"));
-		List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
-		list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1]) - 1).click();
-		Thread.sleep(1000);
-
-	}
 
 	public void Iselectthedatefromthecalendarfromdatepicker(String dateTime) {
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
