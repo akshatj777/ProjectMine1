@@ -895,7 +895,7 @@ public class PatientsPage extends BaseClass {
     public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
 		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
 	}
-
+	
 	public void iClickOnAgreeButtonOnAttestationPage(){
         isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[1]")));
     }
@@ -928,7 +928,6 @@ public class PatientsPage extends BaseClass {
 	public void iClickOnWorklistOnEpisodeHomePage(String sworklist,String mworklist){
 		clickElement(driver.findElement(By.xpath("//button[span[contains(text(),'"+sworklist+"')]]")));
 	}
-
 
 	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
 		
@@ -1029,11 +1028,9 @@ public class PatientsPage extends BaseClass {
     }
 
     public void IclickontheImpatientTabonPatientpage() {
-        // TODO Auto-generated method stub
         clickElement(driver.findElement(By.cssSelector("button.btn.btn-indicator.ng-scope.active")));
-
     }
-    
+
 	public void iSeeAdmitReasonFilterOnPatientCard(String admitreason){
 		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")), admitreason);
 	}

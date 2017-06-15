@@ -30,10 +30,9 @@ public class NoteCreation extends BaseClass {
 	public void I_click_on_the_patient_card_on_Patient_Card_Page() {
 		clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div")));
 	}
-
+        
 	public void Iverifyclickonpatientcardtobenavigatedtopatientsummary() {
 		isElementVisible(driver.findElement(By.cssSelector(".card-view-expanded-header.ng-scope")));
-
 	}
 
 	public void IverifyPatientSummaryincludesquickactionbuttonfornotecreation() {
@@ -269,6 +268,14 @@ public class NoteCreation extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),search);
 	}
 
+	public String getcurrentdate(int days) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate localDate = LocalDate.now();
+		LocalDate b=localDate.minus(Period.ofDays(days));
+		String date=dtf.format(b);
+		System.out.println(dtf.format(b));return date;
+	}
+
 	public void Iclickonthepatientcardtonavigatetothepatientsummarypage() {
 		String search = Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
 		String[] words = search.split(",");
@@ -281,9 +288,18 @@ public class NoteCreation extends BaseClass {
 
 	public void IclickonthesubbarclinicaldocumentstabinPatientsummaryPage() {
         clickElement(driver.findElement(By.xpath("//span[contains(text(),'Clinical Documents')]")));
+        }
 
+
+    public void Iselectthemonthfromcalendarfromdatepicker(int days) throws InterruptedException {	
+    String dateTime=getcurrentdate(days);
+	String date_dd_MM_yyyy[] = (dateTime.split("/"));
+    List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
+    System.out.println("*****List of months***"+list_AllMonthToBook);
+    list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1])-1).click();
+    Thread.sleep(1000);
 	}
-
+    
 	public void Iverifynoteshouldbestoredintheclinicaldocumentsectiononceitiscreated() {
         String NoteText = driver.findElement(By.cssSelector("h1.ng-binding")).getText();
 		if (NoteText.equals("Baseline")) {
@@ -363,7 +379,7 @@ public class NoteCreation extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(" #notificationsTable > tbody > tr > td:nth-child(3)")));
 	}
 
-    public String getcurrentdate(int days)
+    public String getcurrentdate1(int days)
     {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDate localDate = LocalDate.now();
@@ -372,16 +388,6 @@ public class NoteCreation extends BaseClass {
 	String date=dtf.format(b);
 	System.out.println(dtf.format(b));
 	return date;
-    }
-
-    public void Iselectthemonthfromcalendarfromdatepicker(int days) throws InterruptedException {
-    	
-    String dateTime=getcurrentdate(days);
-	String date_dd_MM_yyyy[] = (dateTime.split("/"));
-    List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
-    System.out.println("*****List of months***"+list_AllMonthToBook);
-    list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1])-1).click();
-    Thread.sleep(1000);
     }
 
 	public void IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary() {
@@ -421,13 +427,6 @@ public class NoteCreation extends BaseClass {
             }
          }
 	  }
-
-	public void Iselectthemonthfromcalendarfromdatepicker(String dateTime) throws InterruptedException {
-		String date_dd_MM_yyyy[] = (dateTime.split("/"));
-		List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
-		list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1]) - 1).click();
-		Thread.sleep(1000);
-	}
 
 	public void Iselectthedatefromthecalendarfromdatepicker(String dateTime) {
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));

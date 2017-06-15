@@ -6,8 +6,8 @@ import cucumber.api.java.en.Then;
 
 public class HomeLimitedServicesWorklistSteps extends DriverScript {
 
-	HomeLimitedServicesWorklist homeworklist = new HomeLimitedServicesWorklist(driver);
-
+	HomeLimitedServicesWorklist homeworklist=new HomeLimitedServicesWorklist(driver);
+	
 	@Then("^I click on the Post Acute tab on the patient Card Page$")
 	public void I_click_on_the_Post_Acute_tab_on_the_patient_Card_Page() throws Throwable {
 		homeworklist.IclickonthePostAcutetabonthepatientCardPage();
