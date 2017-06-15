@@ -35,7 +35,7 @@ public class ReadmissionWorklist extends BaseClass {
 		js.executeScript("arguments[0].click();", element1);
 		clickElement(element1);
 		Thread.sleep(5000);
-		WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen8_search"));
+		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
 		Thread.sleep(10000);
@@ -50,7 +50,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7_search")),DRG);
+		iFillInText(driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input")),DRG);
 		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
 	}
 
@@ -176,7 +176,7 @@ public class ReadmissionWorklist extends BaseClass {
 		js.executeScript("arguments[0].click();", element1);
 		clickElement(element1);
 		Thread.sleep(5000);
-		WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen8_search"));
+		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
 		Thread.sleep(10000);
@@ -203,7 +203,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),DRG);
+		iFillInText(driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input")),DRG);
 		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
 	}
 }
