@@ -19,10 +19,10 @@ Feature: Patient status on Other/Alternative Work List
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 50000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
+    Then I click on add a new transition to add a new episode
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page

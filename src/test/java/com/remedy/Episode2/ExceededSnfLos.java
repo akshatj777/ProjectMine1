@@ -13,37 +13,29 @@ public class ExceededSnfLos extends BaseClass {
 
 	public ExceededSnfLos(WebDriver driver) {
 		super(driver);
-
 	}
 
 	public void IclickonExceedSnflossubtabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Exceeded SNF LOS')]")));
-
 	}
 
 	public void Iselectthedischargefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement element1 = driver
-				.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_dischargeFacility"));
-
+		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_dischargeFacility"));
 		js.executeScript("arguments[0].click();", element1);
 		clickElement(element1);
 		Thread.sleep(5000);
-
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
-
 		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
 		Thread.sleep(10000);
 		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
 		js.executeScript("arguments[0].click();", element3);
 		clickElement(element3);
-
 	}
 
 	public void IclickontheCancelButtononAddanewtransition() {
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
-
 	}
 
 	public void ISelectadmittingfacilitylistpresentontheAddPatientpage(String facility) {
@@ -64,10 +56,8 @@ public class ExceededSnfLos extends BaseClass {
 	public void Iclickondatepickerbuttontoselecttheadmitdateonnewtransition() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")));
-			wait.until(ExpectedConditions
-					.elementToBeClickable(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"))).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"))).click();
 		} catch (WebDriverException wde) {
 			scrollToElement(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")));
 			driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")).click();
@@ -83,13 +73,11 @@ public class ExceededSnfLos extends BaseClass {
 	public void IverifyLOSisbelowtheELOSonthepatientcardpage() {
 		boolean flag;
 		String Los_value = driver.findElement(By.cssSelector("span.text-large.ng-binding.ng-scope")).getText();
-		String minimum_Elos_value = driver.findElement(By.cssSelector("span.text-emphasized.ng-binding.ng-scope"))
-				.getText();
+		String minimum_Elos_value = driver.findElement(By.cssSelector("span.text-emphasized.ng-binding.ng-scope")).getText();
 		int Los = Integer.parseInt(Los_value);
 		int Elos = Integer.parseInt(minimum_Elos_value);
 		if (Los < Elos) {
 			flag = true;
 		}
-
 	}
 }

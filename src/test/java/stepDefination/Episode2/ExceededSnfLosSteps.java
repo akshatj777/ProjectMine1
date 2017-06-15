@@ -30,9 +30,8 @@ public class ExceededSnfLosSteps extends DriverScript {
 	}
 
 	@And("^I click on the Anticipated quick action button on the Exceeded SNF LOS$")
-	public void I_click_on_the_Anticipated_quick_action_button_on_the_Exceeded_SNF_LOS(String facility) {
+	public void I_click_on_the_Anticipated_quick_action_button_on_the_Exceeded_SNF_LOS(String facility) throws Throwable {
 		exceed.IclickontheAnticipatedquickactionbuttonontheExceededSNFLOS();
-
 	}
 
 	@Then("^I select the most recent date from the date picker$")
