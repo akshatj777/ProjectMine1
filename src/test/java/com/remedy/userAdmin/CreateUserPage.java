@@ -45,7 +45,10 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickPayerField() {
-        clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
+    	boolean value= isElementPresentOnPage(By.xpath("//div[@placeholder='Select']/span"));
+    	if(value==true){
+    	clickElement(driver.findElement(By.xpath("//div[@placeholder='Select']/span")));
+    	}
     }
 
     public void selectOrganizationalRole(String desc){
@@ -54,7 +57,10 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void selectPayerFromData(String desc){
+    	boolean value= isElementPresentOnPage(By.cssSelector(".ui-select-choices-row-inner"));
+    	if(value==true){
         selectElementByDesc(".ui-select-choices-row-inner", desc);
+    	}
     }
     
     public void iVerifyTheFirstPayerFieldAddedUnderPermissionsSection(){
@@ -130,15 +136,24 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickHealthSystemField() {
+    	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
+    	if(value==true){
         clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
+    	}
     }
 
     public void iEnterHealthSystemSerachText(String text) {
+    	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]"));
+    	if(value==true){
         iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]")), text);
+    	}
     }
 
     public void iSelectHealthSystem(String desc) {
-        selectElementByDesc(".ui-select-choices-row-inner", desc);
+    	boolean value = isElementPresentOnPage(By.cssSelector(".ui-select-choices-row-inner"));
+    	if(value==true){
+        clickElement(driver.findElement(By.cssSelector(".ui-select-choices-row-inner")));
+    	}
     }
 
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role) {
@@ -146,21 +161,13 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickOnECTwoTileUnderSpecificUserLoginPage(String text,String role){
-    	String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
- 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
- 			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Downstream Provider" };
- 	   ArrayList<String> aray = new ArrayList<>();
- 	   aray.addAll(Arrays.asList(orgRole));
- 	   if (aray.contains(role)) {
- 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
- 	  clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
- 	  delay();
- 	  clickElement(driver.findElement(By.cssSelector(".btn.valentino-icon-table")));
-    }
-    else {
- 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
-     }
-    	
+    	if(text.isEmpty()!=true){
+    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
+    	 	  clickElement(driver.findElement(By.xpath("//div[@class='title']/p[text()='"+text+"']")));
+    	 	  delay();
+    	 	  clickElement(driver.findElement(By.cssSelector(".btn.valentino-icon-table")));
+    	 	  driver.navigate().back();
+    	}
     }
 
     public void iClickCreateButton() {
@@ -220,9 +227,20 @@ public class CreateUserPage extends BaseClass{
    		return;
    	}
    }
+   
+   public void iCheckAllProviderForTheHealthSystem() {
+   	delay();
+       clickElement(driver.findElement(By.cssSelector(".checkbox")));
+   }	
 
-    public void iCheckAllProviderForTheHealthSystem() {
+    public void iCheckTheProviderForTheHealthSystem(String facility,String provider) {
+    	delay();
+    	if(provider.contains("*")){
         clickElement(driver.findElement(By.cssSelector(".checkbox")));
+    	}
+    	else {
+    	clickElement(driver.findElement(By.xpath("//span[(contains(@ng-bind,'providerName')) and text()='"+facility+"']")));	
+    	}
     }
 
     public void iclickAllAppsfortheRole() {
@@ -230,7 +248,9 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iSelectTileForTheRole(String tile){
-    	clickElement(driver.findElement(By.xpath("//label[@for='"+tile+"']")));
+    	if(tile.isEmpty()!=true){
+    		clickElement(driver.findElement(By.xpath("//label[@for='"+tile+"']")));
+    	}
     }
 
     public void iClickOnContinueToDashboardMessage() {
@@ -259,7 +279,7 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//div/label[@for='lessons']")));
    }
    
-   public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String role, String userrole){
+   public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String userrole){
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
@@ -275,37 +295,9 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
 		   switchBacktoOldWindow();
 	   }
-	   /*String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   System.out.println(text+ "and"+ role);
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-	   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-	   switchToNewWindow();
-	   delay();
-	   isElementPresentOnPage(By.cssSelector(".username"));
-	   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
-	   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
-	   delay();
-	   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/a[1]")));
-	   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
-	   delay();
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
-	   switchBacktoOldWindow();
-	      
    }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-	   System.out.println("EC1 Not Present");
-    }*/
- }
-		  
 
-   
-   public void iClickOnInstituteTileUnderSpecificUserLoginPage(String text, String role){
+   public void iClickOnInstituteTileUnderSpecificUserLoginPage(String text){
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
@@ -314,28 +306,9 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
 		   switchBacktoOldWindow(); 
 	   }
-	   /*String orgRole[] ={"Remedy Technical Administrator","Remedy TCS", "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM",
-			   "Remedy Sales Team", "Remedy Executive", "Remedy Other", "Remedy Program Administrator", "Executive", "Manager",
-			   "Case Maanger", "Physicians", "Partner Program Administrator", "Prospective Partner Executive","Partner Technical Administrator",
-			   "Transitional Case Manager","Downstream Provider"};
-	   
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-	   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-	   switchToNewWindow();
-	   delay();
-	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
-	   switchBacktoOldWindow();
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-    }*/
-	   
    }
    
-   public void iClickOnReportsTileUnderSpecificUserLoginPage(String text, String role){
+   public void iClickOnReportsTileUnderSpecificUserLoginPage(String text){
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
@@ -343,26 +316,9 @@ public class CreateUserPage extends BaseClass{
 		   clickAllElementofAlistbyXpath("//div/div/div/div/label");
 		   driver.navigate().back(); 
 	   }
-	   /*String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			     "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-	   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-	   delay();
-	   clickAllElementofAlistbyXpath("//div/div/div/div/label");
-	   driver.navigate().back();
-	   
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-    }*/
-	   
-   }
+    }
    
-   public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text,String role){
+   public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text){
 	   
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
@@ -372,52 +328,19 @@ public class CreateUserPage extends BaseClass{
 		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
 		   switchBacktoOldWindow();
    	}
-	   
-	   /*String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			   "Prospective Partner Executive", "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-	   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-	   delay();
-	   switchToNewWindow();
-	   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
-	   switchBacktoOldWindow();
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-    }*/
    }
    
-   public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text,String role){
+   public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text){
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
 		   delay();
 		   driver.navigate().back(); 
 	   }
-	   
-	   /*String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
-			   "Partner Program Administrator" , "Partner Technical Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-		  
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-	   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-	   delay();
-	   driver.navigate().back();
-      }
-   else {
-	   
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-      }*/
    }
    
    
-   public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text,String role){
+   public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text){
 	   clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
 	   if(text.isEmpty()!=true){
 		     
@@ -426,58 +349,15 @@ public class CreateUserPage extends BaseClass{
 		   switchToNewWindow();
 		   switchBacktoOldWindow(); 
    	}
-	   /*String orgRole[] ={"Remedy Technical Administrator", "Remedy Program Administrator", 
-			   "Partner Program Administrator" , "Partner Technical Administrator", "Executive", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy Sales Team", "Remedy PM", "Remedy Executive",
-			   "Remedy Other"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   System.out.println("Internal support not present" + text);
-	   System.out.println("Internal support not present" + role);
-	   if (aray.contains(role)) {
-	  clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));  
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
-	   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
-	   switchToNewWindow();
-	   switchBacktoOldWindow();  
-	   
-      }
-   else {
-	   
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
-      }*/
    }
    
-   public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text,String role){
-	  
-	   //clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+   public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text){
 	   if(text.isEmpty()!=true){
-		     
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
 		   switchBacktoOldWindow(); 
    	}  
-	   
-	   /*String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
-			   "Partner Program Administrator" , "Partner Technical Administrator", "Executive", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Executive","Remedy Other",
-			   "Transitional Case Manager", "Downstream Provider"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	  clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));  
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
-	   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
-	   switchToNewWindow();
-	   switchBacktoOldWindow();  
-	   
-      }
-   else {
-	   
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
-      }*/
-   
    }
    
    public void iNavigateBackToSpecificUserLoginPage(){
@@ -508,11 +388,9 @@ public class CreateUserPage extends BaseClass{
 	   ArrayList<String> aray = new ArrayList<>();
 	   aray.addAll(Arrays.asList(orgRole));
 	   if (aray.contains(role)) {
-		   System.out.println("Physican");
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
       }
    else {
-	   System.out.println("Physican Else");
 	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
       }
   }

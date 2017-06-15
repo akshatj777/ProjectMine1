@@ -66,7 +66,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
-		clickElement(driver.findElement(By.cssSelector("button.btn.btn-primary")));
+		clickElement(driver.findElement(By.xpath("//button[text()='Okay']")));
 		delay();
 	}
 

@@ -219,10 +219,15 @@ public class CreateUserSteps extends DriverScript{
     public void iEnterHealthSystemSearchText(String provider) throws Throwable {
         createUser.iEnterProviderSerachText(provider);
     }
-
+    
     @Then("^I click the select all Facilites checkbox for the provider$")
     public void iSelectAndFacilitesForTheHealthSystem() throws Throwable {
         createUser.iCheckAllProviderForTheHealthSystem();
+    }
+
+    @Then("^I select the facility ([^\"]*) checkbox for the ([^\"]*)$")
+    public void iSelectTheFacilityForTheHealthSystem(String facility, String provider) throws Throwable {
+        createUser.iCheckTheProviderForTheHealthSystem(facility,provider);
     }
 
     @Then("^I select all the application for the role$")
@@ -276,39 +281,39 @@ public class CreateUserSteps extends DriverScript{
     }
     
     
-    @And("^I click on Episode1 tile under specific user login page ([^\"]*) for ([^\"]*) and verify the userrole ([^\"]*)$")
-    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String tile, String role , String userroletext) throws Throwable{
-    	createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(tile,role,userroletext);
+    @And("^I click on Episode1 tile under specific user login page ([^\"]*) and verify the userrole ([^\"]*)$")
+    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String tile, String userroletext) throws Throwable{
+    	createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(tile,userroletext);
     }
     
-    @And("^I click on Institute tile under specific user login page ([^\"]*) for ([^\"]*)$")
-    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile, String role) throws Throwable{
-    	createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile,role);
+    @And("^I click on Institute tile under specific user login page ([^\"]*)$")
+    public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile);
     }
     
-    @And("^I click on Reports tile under specific user login page ([^\"]*) for ([^\"]*)$")
-    public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile, String role) throws Throwable{
-    	createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile,role);
+    @And("^I click on Reports tile under specific user login page ([^\"]*)$")
+    public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile) throws Throwable{
+    	createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile);
     }
     
-    @And("^I click on RemedyU tile under specific user login page ([^\"]*) for ([^\"]*)$")
-    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text,String role) throws Throwable{
-    	createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(text, role);
+    @And("^I click on RemedyU tile under specific user login page ([^\"]*)$")
+    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(text);
     }
     
-    @And("^I click on Physican connect tile under specific user login page ([^\"]*) for ([^\"]*)$")
-    public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text,String role) throws Throwable{
-    	createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(text, role);
+    @And("^I click on Physican connect tile under specific user login page ([^\"]*)$")
+    public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(text);
     }
     
-    @And("^I click on Internal Support option from dropdown under specific user login page ([^\"]*) for ([^\"]*)$")
-    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text,String role) throws Throwable{
-    	createUser.iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(text,role);
+    @And("^I click on Internal Support option from dropdown under specific user login page ([^\"]*)$")
+    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(text);
     }
     
-    @Then("^I select Support option from the dropdown under specific user login page ([^\"]*) for ([^\"]*)$")
-    public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text,String role) throws Throwable{
-    	createUser.iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(text,role);
+    @Then("^I select Support option from the dropdown under specific user login page ([^\"]*)$")
+    public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text) throws Throwable{
+    	createUser.iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(text);
     }
     
     @And("^I navigate back to specific user login page$")
