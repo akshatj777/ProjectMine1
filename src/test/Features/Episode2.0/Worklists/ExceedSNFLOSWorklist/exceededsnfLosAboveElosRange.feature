@@ -6,11 +6,6 @@ Feature: Patient status on Exceed SNF LOS Work List
     And I enter password field <password> for Login
     Then I click Access button
     And I wait for 2000 milli seconds
-     Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field <password> for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
