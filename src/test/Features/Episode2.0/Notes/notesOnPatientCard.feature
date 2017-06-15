@@ -61,7 +61,6 @@ Feature: Patient Note on the Patient Card
       | date       |
       | 12/07/2014 |
 
-<<<<<<< HEAD
 Scenario Outline: To verify user should be able to add a new note
 
 Given I am on the login page
@@ -101,5 +100,3 @@ Then I verify that create Note has been successfully created
 Examples:
          |    date    |
          | 12/07/2014 | 
-=======
->>>>>>> develop
