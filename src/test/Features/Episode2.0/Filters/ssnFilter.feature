@@ -28,8 +28,9 @@ Feature: Episode 2.0 SSN Filter
      And I wait for 5000 milli seconds
      When I click on the Expand button on the patient card on the patient page
      And I wait for 5000 milli seconds
+     Then I verify <ssn1> is appearing on the patient summary page to verify ssn
      
      Examples:
      
-     |ssn      |
-     |168273732|
+     |ssn      | ssn1        |
+     |156562129| XXX-XX-2129 |

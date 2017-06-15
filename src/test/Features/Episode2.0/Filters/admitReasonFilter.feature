@@ -25,10 +25,13 @@ Feature: Episode 2.0 Admit reason Filters
     Then I verify <admit reason> is appearing under selected filters for Admit Reason
     Then I click on "Agree" button appearing on the patient card after applying filter
     And I wait for 5000 milli seconds
+    Then I verify <admit reason> is appearing on patient card on patient home page
     When I click on the Expand button on the patient card on the patient page
     And I wait for 5000 milli seconds
+    Then I verify <admit reason> is appearing on the patient summary page of patient
+    And I wait for 3000 milli seconds
     
     Examples:
     
-       | admit reason |
-       | sick         |
+       | admit reason                                |
+       | SICKLE CELL PAINFUL CRISIS INTRACTABLE PAIN |

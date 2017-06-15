@@ -27,5 +27,9 @@ Feature: Episode 2.0 Tags Filter
      Then I click on "Agree" button appearing on the patient card after applying filter
      And I wait for 5000 milli seconds
      When I click on the Expand button on the patient card on the patient page
-     And I wait for 5000 milli seconds
+     And I wait for 10000 milli seconds
+     Then I swich to patient tags iframe on patient summary page
+     And I wait for 3000 milli seconds
+     Then I verify "ACO" is appearing on patient summary page below tags
+     
      

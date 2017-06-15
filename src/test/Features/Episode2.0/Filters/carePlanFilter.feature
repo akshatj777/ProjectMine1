@@ -17,7 +17,7 @@ Feature: Episode 2.0 Care Plan Filters
     
     When I click on Care Plan Filter present on Filter Page 
     When I click on created radio button present on Filter Page  
-    And I wait for 9000 milli seconds
+    And I wait for 15000 milli seconds
     Then I click on Done button present on the Filter Page
     Then I scroll the page to bottom by "-100"
     Then I verify the total number of patients present on the Patients Page  
@@ -26,5 +26,13 @@ Feature: Episode 2.0 Care Plan Filters
     Then I click on "Agree" button appearing on the patient card after applying filter
     And I wait for 5000 milli seconds
     When I click on the Expand button on the patient card on the patient page
+    And I wait for 10000 milli seconds
+    Then I scroll the page to bottom by "250"
+    Then I click on "Care Plan" tab appearing under patient summary page to verify care plan created
     And I wait for 5000 milli seconds
+    And I switch to ec2 patient summary iframe
+    And I wait for 2000 milli seconds
+    Then I verify care plan is appearing inside care plan tab on patient summary page
+    And I wait for 2000 milli seconds
+    
     
