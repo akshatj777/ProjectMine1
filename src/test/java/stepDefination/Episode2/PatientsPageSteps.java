@@ -1379,7 +1379,7 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_agree_button_on_patient_card_after_applying_filter(String button) throws Throwable{
     	patientsPage.iClickOnAgreeAfterApplyingFilter(button);
     }
-    
+
     @Then("^I click on \"([^\"]*)\" worklist under \"([^\"]*)\" worklist on episode home page$")
     public void i_click_on_worklist_under_worklist_On_episode_home_page(String sworklist,String mworklist) throws Throwable {
         patientsPage.iClickOnWorklistOnEpisodeHomePage(sworklist, mworklist);
@@ -1560,5 +1560,4 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_is_appearing_on_patient_summary_page_below_tags(String tags) throws Throwable{
     	patientsPage.iVerifyPatientTags(tags);
     }
-
 }

@@ -89,8 +89,7 @@ public class BaseClass {
     public List<WebElement> getElementsList(String element) {
 
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-        return listItems;
-         
+        return listItems;       
         }
 
     public WebElement waitFindElement(WebElement parentElement, By by) {
@@ -230,8 +229,7 @@ public class BaseClass {
 
     public String getTextForElement(WebElement ele) {
         if (isElementVisible(ele)) {
-        	System.out.println(ele.getText());
-            
+        	System.out.println(ele.getText());     
         }
 		return ele.getText();
     }
@@ -352,7 +350,6 @@ public class BaseClass {
     public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
 
         List<WebElement> listItems = driver.findElements(By.xpath(element));
-
         for (WebElement item : listItems) {
             //System.out.println(item.getText());
             item.getAttribute(attribute).equalsIgnoreCase(itemtext);
@@ -402,8 +399,7 @@ public class BaseClass {
         } catch (org.openqa.selenium.NoSuchElementException e) {
             value = false;
         }
-//    	System.out.println(value);
-		return value;
+		return value;		
     }
     
     public void isElementNotPresentOnPage(String ele) {
@@ -413,7 +409,6 @@ public class BaseClass {
     	}catch (Exception e){
     		return;
     		}
-        
     }
 
     public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext)
@@ -428,7 +423,7 @@ public class BaseClass {
     	 return false;
     	 }
     	 return true;
-   	}
+    	}
 
     public void switchToFrameByNameOrId(String nameOrId) {
         driver.switchTo().frame(nameOrId);
@@ -436,8 +431,5 @@ public class BaseClass {
 
     public void switchToParentFrame() {
         driver.switchTo().parentFrame();
-    }
+        }
 }
-
-  
-
