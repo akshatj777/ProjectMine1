@@ -1032,4 +1032,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_snf_length_of_stay(String color) throws Throwable{
     	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(color);
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under readmissions table view data$")
+    public void i_verify_is_appearing_under_readmissions_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandEcTextUnderReadmissions(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for all columns under readmissions$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_all_columns_under_readmissions(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for all columns under readmissions$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_readmissions(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(color);
+    }
 }
