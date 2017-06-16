@@ -1,49 +1,64 @@
 Feature: Verification of corresponding Product tile as per user role
 
-  Scenario Outline: Product tile verification for all role on Create user page
-    Given I am on the login page
-    When I log in as super user
-    And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
-    When I click on Create User button
-    Then I should see "Create User" on the user creation page
-    When I click the Organizational Role Field
-    Then I pick a Organizational <Role>
-    Then I verify the Internal Support tile for selected user role <Role>
-    Then I verify the Physican Connect tile for selected user role <Role>
-    Then I verify the Episodes tile for selected user role <Role>
-    Then I verify the Lessons tile for selected user role <Role>
-    Then I verify the Reports tile for selected user role <Role>
-    Then I verify the Administration tile for selected user role <Role>
-    Then I verify the Share File tile for selected user role <Role>
-    Then I verify the Episodes 2.0 tile for selected user role <Role>
-    Then I verify the Institute tile for selected user role <Role>
-
-    Examples: 
-      | Role                            |
-      | Remedy Technical Administrator  |
-      | Executive                       |
-      | Manager                         |
-      | Case Manager                    |
-      | Physicians                      |
-      | Remedy TCS                      |
-      | Remedy LPN                      |
-      | Remedy RN                       |
-      | Remedy Field RN                 |
-      | Remedy PM                       |
-      | Remedy Sales Team               |
-      | Remedy Executive                |
-      | Prospective Partner Executive   |
-      | Remedy Other                    |
-      | Partner Program Administrator   |
-      | Remedy Program Administrator    |
-      | Partner Technical Administrator |
-      | Transitional Case Manager       |
-      | Downstream Provider             |
+  #Scenario Outline: Product tile verification for all role on Create user page
+    #Given I am on the login page
+    #When I log in as super user
+    #And I wait for 1000 milli seconds
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "User Management"
+    #When I click on Create User button
+    #Then I should see "Create User" on the user creation page
+    #When I click the Organizational Role Field
+    #Then I pick a Organizational <Role>
+    #Then I verify the Internal Support tile for selected user role <Role>
+    #Then I verify the Physican Connect tile for selected user role <Role>
+    #Then I verify the Episodes tile for selected user role <Role>
+    #Then I verify the Lessons tile for selected user role <Role>
+    #Then I verify the Reports tile for selected user role <Role>
+    #Then I verify the Administration tile for selected user role <Role>
+    #Then I verify the Share File tile for selected user role <Role>
+    #Then I verify the Episodes 2.0 tile for selected user role <Role>
+    #Then I verify the Institute tile for selected user role <Role>
+#
+    #Examples: 
+      #| Role                            |
+      #| Remedy Technical Administrator  |
+      #| Executive                       |
+      #| Manager                         |
+      #| Case Manager                    |
+      #| Physicians                      |
+      #| Remedy TCS                      |
+      #| Remedy LPN                      |
+      #| Remedy RN                       |
+      #| Remedy Field RN                 |
+      #| Remedy PM                       |
+      #| Remedy Sales Team               |
+      #| Remedy Executive                |
+      #| Prospective Partner Executive   |
+      #| Remedy Other                    |
+      #| Partner Program Administrator   |
+      #| Remedy Program Administrator    |
+      #| Partner Technical Administrator |
+      #| Transitional Case Manager       |
+      #| Downstream Provider             |
 
   Scenario Outline: Super Admin create all User and verifies the Product tile as per selected user role
+   
+    Given I am on mail login page
+    Then I enter username to login mail account
+    And I wait for 2000 milli seconds
+    Then I enter password to login mail account
+    Then I click on Mail icon in my account
+    And I wait for 2000 milli seconds
+    Then I click on Inbox in mail
+    Then I click on select all checkbox in mail
+    Then I click on delete icon in mail
+    And I wait for 2000 milli seconds
+    Then I signout form mail account
+    And I wait for 2000 milli seconds
+    Then I open new tab and close the last tab
+    
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -56,8 +71,7 @@ Feature: Verification of corresponding Product tile as per user role
     Then I pick a Organizational <Role>
     And I fill in First Name with "Newuser"
     Then I fill in Last Name with <lastName>
-    And I Generate Email for <Email>
-    And I enter Email for <Email>
+    And I enter Email to Create user
     And I wait for 2000 milli seconds
     Then I enter Phone field with <Phone>
     And I enter NPI field with <NPI>
@@ -77,35 +91,55 @@ Feature: Verification of corresponding Product tile as per user role
     And I turn off the share file application
     And I wait for 3000 milli seconds
     And I click on Create button
-    And I wait for 10000 milli seconds
-    Then I should see header text "User Management"
-    And I wait for 6000 milli seconds
-    Then I go to mail verification page
-    When I enter the email for verification for <Email>
-    And I click on Go button
-    Then I select the email to check
-    And I click on the confirm account link
+    
+    And I wait for 5000 milli seconds
+    And I click on the top user account link
+    Then I select Log Out option from the dropdown
+    And I should see Log in widget
+    Then I open new tab and close the last tab
+    And I wait for 2000 milli seconds
     And I switch to new window
-    When I enter the email <Email> to generate password
-    Then I click on send email button
+    And I wait for 2000 milli seconds
+    Given I am on mail login page
+    And I wait for 2000 milli seconds
+    Then I enter password to login mail account
+    Then I click on Mail icon in my account
+    And I wait for 5000 milli seconds
+    Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
+    Then I verify Account Verification in Inbox in my account
+    And I wait for 2000 milli seconds
+    Then I click on Account Verification mail in Inbox
+    Then I verify "Confirm my account!" link in mail content
+    And I wait for 2000 milli seconds
+    Then I click on "Confirm my account!" link in mail content
+    And I wait for 3000 milli seconds
+    And I switch to new window
+    And I wait for 3000 milli seconds
+    Then I enter email to generate password link
+    And I wait for 3000 milli seconds
+    And I click on send mail button
+    And I wait for 3000 milli seconds
     Then I switch back to old window
     And I wait for 10000 milli seconds
-    Then I click check for new mails button
-    And I wait for 10000 milli seconds
-    And I click on the email received to change your password
+    Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
+    Then I verify Change Password mail in Inbox in my account
+    Then I click on Change Password mail in Inbox
     And I wait for 2000 milli seconds
-    And I switch to frame under received mail content
-    Then I click on change my password link under recieved mail content
+    Then I verify "Change my password" link in mail content
+    Then I click on "Change my password" link in mail content
     And I switch to new window
     And I wait for 10000 milli seconds
-    And I enter password <Password> to set new password
+    And I enter new password "Testing1" to set new password
     And I wait for 1000 milli seconds
-    And I reenter new <Password> password to set new password
-    Then I click on change password button to set new password
-    And I wait for 2000 milli seconds
-    And I enter email <Email> for login after password mail verification
-    And I enter password field <Password> for Login after mail verification
+    And I enter confirm new password "Testing1" to set new password
+    And I click on submit button to set new password
+    And I wait for 3000 milli seconds
+    Then I enter newuser email for login to Remedy
+    Then I enter newuser password for login to Remedy
     And I click Access button
+    
     And I wait for 10000 milli seconds
     Then I should see Tile text <Episode1>
     And I should see Tile text <RemedyU>
