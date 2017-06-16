@@ -187,7 +187,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions()throws InterruptedException {
 		int count = getElementCount("td.settings-column.center.cursor-default > div");
-		for (int i = 1; i < count; i++) {
+		for (int i = 1; i <= count; i++) {
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
 			Thread.sleep(5000);
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));

@@ -1,7 +1,6 @@
 Feature: Patient status on Post Acute Facility Work List
-	
 
-Scenario Outline: Patient's current Care Setting is REH(Inpatient) with M3 Episode status as Pending cancellation
+  Scenario Outline: Patient with different Episode status with a Readmission to HHH-I with discharge to different care setting respectively
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -14,12 +13,15 @@ Scenario Outline: Patient's current Care Setting is REH(Inpatient) with M3 Episo
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 30000 milli seconds
+    And I wait for 40000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -34,23 +36,9 @@ Scenario Outline: Patient's current Care Setting is REH(Inpatient) with M3 Episo
     Then I wait for 5000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I select the facility value "<Admit facility value>" on add a new transition
     Then I wait for 8000 milli seconds
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 5000 milli seconds
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "66" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 15000 milli seconds
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 10000 milli seconds
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 5000 milli seconds
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on the Create Transition Button to add a new transition
-    Then I wait for 10000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -61,12 +49,20 @@ Scenario Outline: Patient's current Care Setting is REH(Inpatient) with M3 Episo
     Then I select the "19" from the calendar from date picker on Transition Page
     Then I select the "19" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "REH - Rehabilitation" on add a new transition
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 3000 milli seconds
-    Then I select the Discharge care type value "Inpatient" on add a new transition
-    Then I wait for 3000 milli seconds
-    Then I select the facility value "CHI Saint Luke's Health Memorial Lufkin IRF" on add a new transition
-    Then I wait for 8000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 4000 milli seconds
+    Then I select the Discharge care setting value "<Dis care setting>" on add a new transition
+    Then I wait for 4000 milli seconds
+    Then I select the Discharge care type value "<Dis care type>" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the Discharge facility value "<Discharge facility value>" on add a new transition
+    Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
@@ -90,5 +86,7 @@ Scenario Outline: Patient's current Care Setting is REH(Inpatient) with M3 Episo
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name | Admit facility value              | Dis care setting               | Dis care type   | Discharge facility value                    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Emanuel County Hospital Authority | REH - Rehabilitation           | Inpatient       | CHI Saint Luke's Health Memorial Lufkin IRF |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Stamford Hospital                 | SNF - Skilled Nursing Facility | Skilled Nursing | Coosa valley health care                    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Stamford Hospital                 | SNF - Skilled Nursing Facility | TCU             | Coosa valley health care                    |
