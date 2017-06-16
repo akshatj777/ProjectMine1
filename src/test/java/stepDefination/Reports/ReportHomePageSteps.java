@@ -962,4 +962,74 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_anchor_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
     	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
+    
+    @Then("^I click on \"([^\"]*)\" filter under filter options$")
+    public void i_click_on_facility_filter_under_filter_options(String facility) throws Throwable{
+    	reportHomePage.iClickOnFacilityFilterUnderFilterOptions(facility);
+    }
+    
+    @Then("^I uncheck selected All options under \"([^\"]*)\" filter options$")
+    public void i_uncheck_selected_all_options_under_filter_options(String text) throws Throwable{
+    	reportHomePage.iUncheckAllOptionForFacilityFilter(text);
+    }
+    
+    @Then("^I select \"([^\"]*)\" from the facility filter dropdown under filter options$")
+    public void i_select_from_the_facility_filter_dropdown_under_filter_options(String text) throws Throwable{
+    	reportHomePage.iSelectFaciltyFromFacilityFilterUnderProgramOverviewReport(text);
+    }
+    
+    @Then("^I click on apply button for facility filter under filter options$")
+    public void i_click_on_apply_button_for_facility_filter_under_filter_options() throws Throwable{
+    	reportHomePage.iClickOnApplyButtonUnderFaciltyFilterOptions();
+    }
+    
+    @Then("^I click on \"([^\"]*)\" button for view filter under filter options$")
+    public void i_click_on_button_for_view_filter_under_filter_options(String text) throws Throwable{
+    	reportHomePage.iClickOnTableViewOptionUnderViewFilter(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under overall program table view data$")
+    public void i_verify_is_appearing_under_overall_program_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandeEcTextUnderOverallProgram(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for episodes column under overall program$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_episodes_column_under_overall_program(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderOverallProgram(color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under post acute utilization table view data$")
+    public void i_verify_is_appearing_under_post_acute_utilization_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandEcTextUnderPostAcuteUtilization(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for all columns under post acute utilization$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_all_columns_under_post_acute_utilization(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderPostAcuteUtilization(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for episodes column under overall program$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_episodes_column_under_overall_program(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderOverallProgram(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for all columns under post acute utilization$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_post_acute_utilization(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderPostAcuteUtilization(color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under snf length of stay table view data$")
+    public void i_verify_is_appearing_under_snf_length_of_stay_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandEcTextUnderSnfLengthOfStay(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for all columns under snf length of stay$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_all_columns_under_snf_length_of_stay(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for all columns under snf length of stay$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_snf_length_of_stay(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(color);
+    }
 }

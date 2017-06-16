@@ -751,5 +751,48 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Begin Date].[Anchor Admission Year]']/span")),text);
     }
+    
+    public void iClickOnFacilityFilterUnderFilterOptions(String facility){
+    	clickElement(driver.findElement(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected")));
+    }
+    
+    public void iUncheckAllOptionForFacilityFilter(String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
+    }
+    
+    public void iSelectFaciltyFromFacilityFilterUnderProgramOverviewReport(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
+    }
+    
+    public void iClickOnApplyButtonUnderFaciltyFilterOptions(){
+    	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    }
+    
+    public void iClickOnTableViewOptionUnderViewFilter(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iVerifyClaimsandeEcTextUnderOverallProgram(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#episodesTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderOverallProgram(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='episodesNPRATableClaimsECObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
+    
+    public void iVerifyClaimsandEcTextUnderPostAcuteUtilization(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#utilizationTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderPostAcuteUtilization(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='utilizationTableClaimsECObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
+    
+    public void iVerifyClaimsandEcTextUnderSnfLengthOfStay(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#daysSNFTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='daysSNFClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
 }
-

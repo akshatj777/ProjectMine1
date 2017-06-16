@@ -17,13 +17,13 @@ Scenario Outline: User should not see program overview under dashboard for OPSNO
     
     Examples:
     
-      | email                         | Menu 1     |
-      | shutestaug15240p@yopmail.com  | Dashboard  |
-      | shutestjul26420p@yopmail.com  | Dashboard  |
-      | repopsnofintest@yopmail.com   | Dashboard  |
-      | shutestaug221150a@yopmail.com | Dashboard  |
-      | shutestaug221145a@yopmail.com | Dashboard  |
-      | shutestjul26415@yopmail.com   | Dashboard  |
+      | email                         | Menu 1      |
+      | shutestaug15240p@yopmail.com  | Dashboards  |
+      | shutestjul26420p@yopmail.com  | Dashboards  |
+      | repopsnofintest@yopmail.com   | Dashboards  |
+      | shutestaug221150a@yopmail.com | Dashboards  |
+      | shutestaug221145a@yopmail.com | Dashboards  |
+      | shutestjul26415@yopmail.com   | Dashboards  |
  
 @sanity         
 Scenario Outline: User should see Program Overview under Dashboard and verify sanity for program overview reports for RPFIN,RPFNOFIN and OPSFIN Roles with ACH Provider Type

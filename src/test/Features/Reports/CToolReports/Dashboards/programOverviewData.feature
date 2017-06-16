@@ -25,6 +25,11 @@ Scenario Outline: User should be able to verify data after selecting facility fo
     And I wait for 5000 milli seconds
     Then I select "Claims" radio button under data source filter
     And I wait for 5000 milli seconds
+    Then I click on "facility" filter under filter options
+    Then I uncheck selected All options under "facility" filter options
+    Then I select "Upenn - Penn Presbyterian Hospital" from the facility filter dropdown under filter options
+    Then I click on apply button for facility filter under filter options
+    And I wait for 5000 milli seconds
     Then I click on skilled nursing "SNF" claims graph point under post acute utilization of program overview report
     And I switch to new window
     And I wait for 30000 milli seconds
