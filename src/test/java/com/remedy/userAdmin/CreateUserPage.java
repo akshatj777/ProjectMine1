@@ -364,10 +364,6 @@ public class CreateUserPage extends BaseClass{
 	   driver.navigate().back();
    }
    
-   public void iVerifyThePrductTileForTheSelectedUserRole(){
-	   getTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span");
-   }
-   
    public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String role) {
 		   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Remedy TCS", "Remedy LPN", "Remedy RN",
 				   "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator","Remedy Executive", "Remedy Other", 

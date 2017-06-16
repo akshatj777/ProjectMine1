@@ -321,11 +321,6 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iNavigateBackToSpecificUserLoginPage();
     }
     
-    @Then("^I verify the Product tile for selected user role$")
-    public void i_Verify_The_Product_Tile_For_The_Selected_UserRole() throws Throwable {
-    	createUser.iVerifyThePrductTileForTheSelectedUserRole();
-    }
-    
     @Then("^I verify the Internal Support tile for selected user role ([^\"]*)$")
     public void i_Verify_The_Internal_Support_Tile_For_The_Selected_UserRole(String role) throws Throwable {
     	createUser.iVerifyTheInternalSupportProductTileForSelectedUserRole(role);
