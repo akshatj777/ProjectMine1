@@ -1047,4 +1047,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_readmissions(String color) throws Throwable{
     	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(color);
     }
+    
+    @Then("^I click on skilled nursing \"([^\"]*)\" ec graph point under post acute utilization of program overview report$")
+    public void i_click_on_skilled_nursing_ec_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @And("^I choose add to report option from select options of filter field$")
+    public void iChooseAddToReportOptionFromSelectOptionsFilterField() throws Throwable {
+        reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdFieldAdd_text']");
+    }
+    
+    @Then("^I verify the DOB column format is in YYYY-MM-DD for \"([^\"]*)\"$")
+    public void i_Verify_the_DOB_Column_Format_is_in_yyyy_mm_dd(String text) throws Throwable{
+    	reportHomePage.iVerifyDOBColumnValueFormat(text);
+    }
+    
+    @Then("^I enter \"([^\"]*)\" in the search field textbox for filters$")
+    public void i_Enter_dob_in_the_search_field_textbox_for_filters(String dob) throws Throwable{
+    	reportHomePage.iEnterInTheSearchFieldForFilters(dob);
+    }
 }

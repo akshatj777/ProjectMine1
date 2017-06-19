@@ -13,6 +13,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -803,4 +806,22 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(String color){
     	isElementVisible(driver.findElement(By.xpath("//table[@id='readmitionsClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
     }
+    
+    public void iVerifyDOBColumnValueFormat(String text) throws ParseException{
+        String DOB=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='["+text+"].[DOB]']/div)[1]")));
+    	validateDateFormat(DOB);
+    }
+    
+    public void validateDateFormat(String dateToValdate) throws ParseException {
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    formatter.setLenient(false);
+	    Date parsedDate = null;
+	    parsedDate = formatter.parse(dateToValdate);
+    }
+    
+    public void iEnterInTheSearchFieldForFilters(String dob){
+    	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
+    }
+    
+    
 }

@@ -153,6 +153,7 @@ Feature: Verification of multiple test scenarios for table view
     And I wait for 10000 milli seconds
     And I click on "Overall Program" under program overview reports
     And I click on "Post Acute Utilization" under program overview reports
+    And I click on "SNF Length of Stay" under program overview reports
     And I wait for 2000 milli seconds
     Then I select "Episode Connect" radio button under data source filter
     And I wait for 10000 milli seconds
