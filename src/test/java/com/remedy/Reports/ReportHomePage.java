@@ -821,7 +821,5 @@ public class ReportHomePage extends BaseClass {
     
     public void iEnterInTheSearchFieldForFilters(String dob){
     	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
-    }
-    
-    
+    }    
 }
