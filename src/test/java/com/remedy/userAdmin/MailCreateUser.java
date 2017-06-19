@@ -32,14 +32,14 @@ public class MailCreateUser extends BaseClass{
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);   
 	}
 	
-	public void iEnterUserNameToLoginMailAccount() {
-		driver.findElement(By.xpath("//input[@type='email']")).sendKeys("test.automatemail");
+	public void iEnterUserNameToLoginMailAccount(String username) {
+		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(username);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
 		delay();
 	}
 	
-	public void iEnterPasswordToLoginMailAccount() {	
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("Intel@01");
+	public void iEnterPasswordToLoginMailAccount(String password) {	
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
 		delay();
 	}
@@ -59,14 +59,10 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnDeleteIconInMail() {
-		System.out.println("Before Delete");
 		boolean value = driver.findElement(By.xpath("//div[@aria-label='Delete']")).isDisplayed();
-		System.out.println(value);
 		if(value == true)
 		{
-			System.out.println("Inside If");
 			clickElement(driver.findElement(By.xpath("//div[@aria-label='Delete']")));
-			System.out.println("Delete");
 		}
 	}
 	
@@ -134,7 +130,6 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException {
-		System.out.println("1");
 		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.SHIFT,"n"); 
 		driver.findElement(By.cssSelector("body")).sendKeys(selectLinkOpeninNewTab);
        

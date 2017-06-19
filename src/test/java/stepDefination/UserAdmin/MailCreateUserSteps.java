@@ -15,14 +15,14 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iAmOnMailLoginPage();
 	}
 	
-	@Then("^I enter username to login mail account$") 
-	public void i_Enter_UserName_To_LoginMail() throws Throwable {
-		mailcreateuser.iEnterUserNameToLoginMailAccount();
+	@Then("^I enter username \"([^\"]*)\" to login mail account$") 
+	public void i_Enter_UserName_To_LoginMail(String username) throws Throwable {
+		mailcreateuser.iEnterUserNameToLoginMailAccount(username);
 	}
 	
-	@Then("^I enter password to login mail account$") 
-	public void i_Enter_Password_To_LoginMail() throws Throwable {
-		mailcreateuser.iEnterPasswordToLoginMailAccount();
+	@Then("^I enter password \"([^\"]*)\" to login mail account$") 
+	public void i_Enter_Password_To_LoginMail(String password) throws Throwable {
+		mailcreateuser.iEnterPasswordToLoginMailAccount(password);
 	}
 	
 	@Then("^I click on Inbox in mail$") 
