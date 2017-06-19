@@ -1,6 +1,6 @@
 Feature: Patient status on Post Acute Facility Work List
 
-  Scenario Outline: Patient's current Discharge Care Setting is IRF with Episode status as Active M2
+Scenario Outline: While patient in worklist,transition get updated with other care setting
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -38,11 +38,6 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait for 5000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 8000 milli seconds
-    Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the Discharge care setting value "IRF - Inpatient Rehabilitation" on add a new transition
-    Then I wait for 4000 milli seconds
-    Then I select the Discharge facility value "CHI Saint Luke's Health Memorial Lufkin IRF" on add a new transition
-    Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -50,47 +45,6 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait for 7000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
-    When I switch to default window from iframe
-    Then I close the patient summary Page
-    Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 5000 milli seconds
-    Then I click on Post Acute Facility sub tab on the patient Card Page
-    Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
-
-  Scenario Outline: Patient's current Care Setting is IRF with Episode status as Pending Cancellation M2
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field <password> for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
-    Then I should see Tile text Episodes 2.0
-    When I click on the "Episodes 2.0" tile
-    And I wait for 10000 milli seconds
-    Then I verify current page "Remedy Partners" title
-    And I should see "All" tab in the filter bar on patients page
-    Then I should see search box appearing on the patients page
-    Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 40000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 15000 milli seconds
-    Then I switch to PatientTransitions frame
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 5000 milli seconds
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 7000 milli seconds
-    Then I click on update transition to add a new episode
-    Then I wait for 10000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -115,41 +69,25 @@ Feature: Patient status on Post Acute Facility Work List
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
-
-  Scenario Outline: While patient in worklist,Episode state changes
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field <password> for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
-    Then I should see Tile text Episodes 2.0
-    When I click on the "Episodes 2.0" tile
-    And I wait for 10000 milli seconds
-    Then I verify current page "Remedy Partners" title
-    And I should see "All" tab in the filter bar on patients page
+     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 40000 milli seconds
+    And I wait for 30000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I delete the active transition no "1" to make the patient cancelled
-    And I wait for 5000 milli seconds
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 5000 milli seconds
-    Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I select the care setting value "HHA - Home Health Agency" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Custodial Care" on add a new transition
+    Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the Discharge facility value "Coosa valley health care" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I wait for 8000 milli seconds
     Then I click on update transition to add a new episode
+    Then I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I click on the Post Acute tab on the patient Card Page
@@ -159,7 +97,7 @@ Feature: Patient status on Post Acute Facility Work List
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-
-    Examples: 
+   Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      
