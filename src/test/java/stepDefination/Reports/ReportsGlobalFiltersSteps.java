@@ -185,4 +185,19 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_click_on_hide_summary_button_to_unhide_the_available_global_filters()throws Throwable{
 		globalfilters.iClickOnSummaryButtonUnderGlobalFilter();
 	}
+	
+	@Then("^I click on ([^\"]*) checkbox under payer for global filters$")
+	public void i_click_on_checkbox_under_payer_for_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnCheckboxForPayerGlobalFilters(text);
+	}
+	
+	@And("^I verify ([^\"]*) is appearing under applied payer on global filters$")
+	public void i_verify_is_appearing_under_applied_payer_on_global_filters(String text)throws Throwable{
+		globalfilters.iShouldSeeUnderPayerAppliedFilterOfGlobalFilter("Payer: "+text);
+	}
+	
+	@Then("^I verify payer filter is selected with ([^\"]*) under selected filters$")
+	public void i_verify_payer_filter_is_selected_with_under_selected_filters(String payer)throws Throwable{
+		globalfilters.iVerifyPayerAppearingInSelectedFilter("Payer includes "+payer);
+	}
 }

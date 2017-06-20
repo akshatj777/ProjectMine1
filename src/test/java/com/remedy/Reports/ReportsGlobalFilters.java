@@ -142,4 +142,16 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iVerifyParticipantAppearingInSelectedFilter(String participant){
 		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant]']/span")),participant);
 	}
+	
+	public void iClickOnCheckboxForPayerGlobalFilters(String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'payer')]]//span[@class='ng-binding'][text()='"+text+"']")));
+	}
+	
+	public void iShouldSeeUnderPayerAppliedFilterOfGlobalFilter(String text){
+		verifyTextForElementfromList(".margin-left.ng-binding", text);
+	}
+	
+	public void iVerifyPayerAppearingInSelectedFilter(String ccn){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Payer]']/span")),ccn);
+	}
 }
