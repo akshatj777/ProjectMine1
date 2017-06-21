@@ -131,8 +131,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iVerifyCCNsUnderSelectedFilters(String ccn1,String ccn2){
-		String ccn="CCN includes "+ccn2+" and "+ccn1+"";
-		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")), ccn);
+		String ccn="Dashboard - Anchor CCN includes "+ccn2+" and "+ccn1+"";
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Dashboard - Anchor Facility].[CCN]']/span")), ccn);
 	}
 		
 	public void iVerifyCCNFilterUnderSelectedFilters(String ccn){
@@ -153,5 +153,9 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iVerifyPayerAppearingInSelectedFilter(String ccn){
 		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Payer]']/span")),ccn);
+	}
+	
+	public void iClickOnCrossMarkForSelectedPayerFilter(String participant){
+		clickElement(driver.findElement(By.xpath("//span[text()='Payer: "+participant+"']/preceding-sibling::i")));
 	}
 }

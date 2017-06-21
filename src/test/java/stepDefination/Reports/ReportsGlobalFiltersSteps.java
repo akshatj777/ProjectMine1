@@ -200,4 +200,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_verify_payer_filter_is_selected_with_under_selected_filters(String payer)throws Throwable{
 		globalfilters.iVerifyPayerAppearingInSelectedFilter("Payer includes "+payer);
 	}
+	
+	@When("^I click on cross mark beside the selected payer filter with ([^\"]*)$")
+	public void i_click_on_cross_mark_beside_the_selected_payer_filter_with(String payer)throws Throwable{
+		globalfilters.iClickOnCrossMarkForSelectedPayerFilter(payer);
+	}
 }

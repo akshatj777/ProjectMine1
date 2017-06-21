@@ -27,6 +27,9 @@ Scenario Outline: User should be able to verify Global Filters
     Then I verify "Anchor Facility" filter is appearing under global filters
     Then I see <anchor facility1> appearing under anchor facility filter of global filters
     
+    Then I click on <payer1> checkbox under payer for global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     
@@ -35,9 +38,6 @@ Scenario Outline: User should be able to verify Global Filters
     
     Then I click on <anchor facility1> checkbox under anchor facility for global filters
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
-    
-    Then I click on <payer1> checkbox under payer for global filters
-    And I verify <payer1>  is appearing under applied payer on global filters
     
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
@@ -106,6 +106,7 @@ Scenario Outline: User should be able to verify Global Filters
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payerid> under selected filters
     When I switch to default window from iframe
     
     When I click on "Next Site of Care" tile on the top navigation of reports page
@@ -131,7 +132,7 @@ Scenario Outline: User should be able to verify Global Filters
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payerid> under selected filters
     When I switch to default window from iframe
     
