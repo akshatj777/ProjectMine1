@@ -88,5 +88,3 @@ Feature: Verification of filters under Spending Claims reports
       | emblemrpnofin@yopmail.com     | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
       | Emblemachopsfin@yopmail.com   | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
       | emblemachopsspend@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
-      | emblemecreportach@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
-      | emblemachopsnofin@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
