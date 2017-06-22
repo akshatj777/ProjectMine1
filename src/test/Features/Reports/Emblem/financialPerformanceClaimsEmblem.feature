@@ -1,8 +1,7 @@
 Feature: Verification of filters under Financial Performance Claims reports
 
-Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under financial performance claims reports
-
-   Given I am on the login page
+  Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under financial performance claims reports
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
@@ -84,8 +83,7 @@ Scenario Outline: Verification of participant,anchor facility,episode initiator,
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                         | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   | BPID1    | payer1 |
-      | emblemachrpfin@yopmail.com    | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
-      | emblemrpnofin@yopmail.com     | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
-      | Emblemachopsfin@yopmail.com   | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
-   
+      | email                       | participant | anchorFacility1                  | anchorFacility2                  | episodeInitiator1                | ccn1   | BPID1    | payer1 |
+      | emblemachrpfin@yopmail.com  | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
+      | emblemrpnofin@yopmail.com   | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |
+      | Emblemachopsfin@yopmail.com | Penn        | Hospital Of Univ Of Pennsylvania | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 999999 | 7000-000 | 100002 |

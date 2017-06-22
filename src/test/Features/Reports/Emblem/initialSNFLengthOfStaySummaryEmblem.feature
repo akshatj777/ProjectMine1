@@ -1,7 +1,6 @@
 Feature: Verification of filters under Initial SNF Length of Stay Summary report
 
-Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under initial snf legth of stay summary report
-  
+  Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under initial snf legth of stay summary report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

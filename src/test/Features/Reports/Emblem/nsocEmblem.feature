@@ -1,7 +1,6 @@
 Feature: Verification of filters under Next Site of Care Summary report
 
-Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under next site of care summary report
-  
+  Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under next site of care summary report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

@@ -1,8 +1,7 @@
 Feature: Verification of filters under Episode DRG Issues report
 
-Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under episode drg issue report
-  
-  Given I am on the login page
+  Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under episode drg issue report
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
