@@ -1,48 +1,5 @@
 Feature: Creation of User with Emblem Payer and product tiles verification on create user page and navigation of product tiles after create user Login
 
-  Scenario Outline: Super Admin verifies product tiles on create user page for all user role
-    Given I am on the login page
-    When I log in as super user
-    And I wait for 1000 milli seconds
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
-    When I click on Create User button
-    Then I should see "Create User" on the user creation page
-    When I click the Organizational Role Field
-    Then I pick a Organizational <Role>
-    Then I verify the Internal Support tile for selected user role <Role>
-    Then I verify the Physican Connect tile for selected user role <Role>
-    Then I verify the Episodes tile for selected user role <Role>
-    Then I verify the Lessons tile for selected user role <Role>
-    Then I verify the Reports tile for selected user role <Role>
-    Then I verify the Administration tile for selected user role <Role>
-    Then I verify the Share File tile for selected user role <Role>
-    Then I verify the Episodes 2.0 tile for selected user role <Role>
-    Then I verify the Institute tile for selected user role <Role>
-
-    Examples: 
-      | Role                            |
-      | Remedy Technical Administrator  |
-      | Executive                       |
-      | Manager                         |
-      | Case Manager                    |
-      | Physicians                      |
-      | Remedy TCS                      |
-      | Remedy LPN                      |
-      | Remedy RN                       |
-      | Remedy Field RN                 |
-      | Remedy PM                       |
-      | Remedy Sales Team               |
-      | Remedy Executive                |
-      | Prospective Partner Executive   |
-      | Remedy Other                    |
-      | Partner Program Administrator   |
-      | Remedy Program Administrator    |
-      | Partner Technical Administrator |
-      | Transitional Case Manager       |
-      | Downstream Provider             |
-
   Scenario Outline: Super Admin create all user and verify product tiles of created user on login and navigation of product tiles
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
@@ -69,8 +26,7 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     Then I pick a Organizational <Role>
     And I fill in First Name with "Newuser"
     Then I fill in Last Name with <lastName>
-    And I Generate Email for <Email>
-    And I enter Email for <Email>
+    And I enter Email to Create user
     And I wait for 2000 milli seconds
     Then I enter Phone field with <Phone>
     And I enter NPI field with <NPI>
@@ -88,7 +44,6 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I wait for 6000 milli seconds
     Then I select all the application for the role
     And I turn off the share file application
-    And I turn off the lessons tile application
     And I wait for 3000 milli seconds
     And I click on Create button
     And I wait for 5000 milli seconds
@@ -211,8 +166,7 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     Then I pick a Organizational <Role>
     And I fill in First Name with "Newuser"
     Then I fill in Last Name with <lastName>
-    And I Generate Email for <Email>
-    And I enter Email for <Email>
+    And I enter Email to Create user
     And I wait for 2000 milli seconds
     Then I enter Phone field with <Phone>
     And I enter NPI field with <NPI>
@@ -278,6 +232,7 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I wait for 3000 milli seconds
     Then I enter newuser email for login to Remedy
     Then I enter newuser password for login to Remedy
+    And I click Access button
     And I wait for 10000 milli seconds
     Then I should see Tile text <Episode1>
     Then I should see Tile text <Administration>
@@ -286,7 +241,6 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I should see Tile text <RemedyU>
     And I should see Tile text <Reports>
     And I should see Tile text <Institute>
-    And I wait for 2000 milli seconds
     And I wait for 2000 milli seconds
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
     And I click on Institute tile under specific user login page <Institute>
