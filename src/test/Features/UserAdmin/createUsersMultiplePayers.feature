@@ -198,21 +198,21 @@ Feature: Create new User for multiple payers and product tiles verification on c
     Then I select <Label1> product tile for user creation
     Then I select <Label2> product tile for user creation
     And I wait for 6000 milli seconds
-    #When I click the payer Field under data
-    #Then I pick payer type from data section <payer2>
-    #And I wait for 5000 milli seconds
-    #And I click on Health System field
-    #And I search for health system with <HealthSystem2 Search2>
-    #And I wait for 1000 milli seconds
-    #And I select a <Health2 System2>
-    #And I wait for 1000 milli seconds
-    #When I enter <Provider2> search text
-    #And I wait for 3000 milli seconds
-    #Then I select the facility <Facility2> checkbox for the <Provider2>
-    #And I wait for 6000 milli seconds
-    #Then I select <Label1> product tile for user creation
-    #Then I select <Label2> product tile for user creation
-    #Then I verify the second payer field added under permissions section
+    When I click the payer Field under data
+    Then I pick payer type from data section <payer2>
+    And I wait for 5000 milli seconds
+    And I click on Health System field
+    And I search for health system with <HealthSystem2 Search2>
+    And I wait for 1000 milli seconds
+    And I select a <Health2 System2>
+    And I wait for 1000 milli seconds
+    When I enter <Provider2> search text
+    And I wait for 3000 milli seconds
+    Then I select the facility <Facility2> checkbox for the <Provider2>
+    And I wait for 6000 milli seconds
+    Then I select <Label1> product tile for user creation
+    Then I select <Label2> product tile for user creation
+    Then I verify the second payer field added under permissions section
     And I click on Create button
     And I wait for 5000 milli seconds
     And I click on the top user account link
