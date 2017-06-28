@@ -85,7 +85,6 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iVerifyLinkInMailContentInInboxInMyAccount(String text) {
-		System.out.println(text);
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
 	
@@ -109,7 +108,6 @@ public class MailCreateUser extends BaseClass{
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
 		System.out.println("Print::" +driver.findElement(By.xpath("//b[text()='Remedy Partners - Change Your Password']")).getText());
 		System.out.println("Print::" +driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).getText());
-		
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
 	}
 	
@@ -132,9 +130,5 @@ public class MailCreateUser extends BaseClass{
 	public void iOpenNewTabAndCloseLastTab() throws AWTException {
 		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.SHIFT,"n"); 
 		driver.findElement(By.cssSelector("body")).sendKeys(selectLinkOpeninNewTab);
-       
 	}
-	
-	
-
 }

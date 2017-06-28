@@ -265,7 +265,7 @@ public class CreateUserPage extends BaseClass{
 	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
 			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
 			   Thread.sleep(6000);
-			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
+			   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
 	  	}else{
 	  		return;
 	  	}
@@ -319,7 +319,6 @@ public class CreateUserPage extends BaseClass{
     }
    
    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text){
-	   
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
@@ -338,8 +337,7 @@ public class CreateUserPage extends BaseClass{
 		   driver.navigate().back(); 
 	   }
    }
-   
-   
+    
    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text){
 	   clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
 	   if(text.isEmpty()!=true){
@@ -347,6 +345,8 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
+		   delay();
+		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   switchBacktoOldWindow(); 
    	}
    }
@@ -356,6 +356,10 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
+		   delay();
+		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
+		   delay();
+		   isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  
    }
@@ -495,11 +499,9 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
 	   delay();
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'ROLE_ADMIN')]")));
-	   
    }
    
    public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage(){
 	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
    }
-   
 }
