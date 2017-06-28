@@ -83,12 +83,24 @@ Feature: Verification of filters under Spending Claims report under Physicain
     And I wait for 3000 milli seconds
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     
+    When I click to "Participant ID" field filter under "Episode Initiator" filter field
+    And I wait for 2000 milli seconds
+    And I choose "Filter" option from select options of filter field
+    And I wait for 2000 milli seconds
+    And I should see "Participant ID" in the header text of filter page
+    And I should see "<participant id>" in the filter value list
+    And I click on "<participant id>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait for 3000 milli seconds
+    And I should see "<participant id>" result in "Participant ID" field column for "Episode Initiator" filter field
+    
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
     And I wait for 2000 milli seconds
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                      | participant   | anchorFacility1      | episodeInitiator1    | ccn1   | BPID1    | payer1       |
-      | emblemachrpfin@yopmail.com | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health|
-      | emblemrpnofin@yopmail.com  | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health|
+      | email                      | participant   | anchorFacility1      | episodeInitiator1    | ccn1   | BPID1    | payer1       | participant id |
+      | emblemachrpfin@yopmail.com | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
+      | emblemrpnofin@yopmail.com  | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
