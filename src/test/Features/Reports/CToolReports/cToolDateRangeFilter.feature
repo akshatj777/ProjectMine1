@@ -37,8 +37,12 @@ Scenario Outline: User should click on date range filter less than four months f
     Examples:
     
       | email                              | Menu 1     |
-      | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Medicare Payer Users| 
+      #| shutestaug231132a@yopmail.com      | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
 Scenario Outline: User should click on date range filter more than four months for Claims reports
 
@@ -77,5 +81,9 @@ Scenario Outline: User should click on date range filter more than four months f
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |

@@ -1,6 +1,6 @@
 Feature: C Tool Filter Verification
 
-Scenario Outline: User should be able to select participant filters and changed in Graphs for RPFIN and OPSFIN Roles
+Scenario Outline: User should be able to select participant filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payers
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -27,10 +27,14 @@ Scenario Outline: User should be able to select participant filters and changed 
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should be able to select Episode Iniatiator filters and changed in Graphs for RPFIN and OPSFIN Roles
+Scenario Outline: User should be able to select Episode Iniatiator filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -58,10 +62,14 @@ Scenario Outline: User should be able to select Episode Iniatiator filters and c
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should be able to select Facility filters and changed in Graphs for RPFIN and OPSFIN Roles
+Scenario Outline: User should be able to select Facility filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -89,10 +97,14 @@ Scenario Outline: User should be able to select Facility filters and changed in 
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should be able to select Bundle filters and changed in Graphs for RPFIN and OPSFIN Roles
+Scenario Outline: User should be able to select Bundle filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -120,5 +132,9 @@ Scenario Outline: User should be able to select Bundle filters and changed in Gr
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |

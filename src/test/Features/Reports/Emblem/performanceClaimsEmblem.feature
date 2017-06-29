@@ -1,7 +1,7 @@
 Feature: Verification of filters under Performance Claims report under Overall program
 
   Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under performance claims reports
-                    for user with single payer
+                    for user with emblem payer
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

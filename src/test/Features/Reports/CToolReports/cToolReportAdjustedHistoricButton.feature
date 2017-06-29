@@ -1,6 +1,6 @@
 Feature: CTool Report Adjusted Historic Button Is not clickable
 
-Scenario Outline: User should not be able to click on adjusted historic button for RPFIN and OPSFIN Roles
+Scenario Outline: User should not be able to click on adjusted historic button for RPFIN Role users with Medicare,Emblem and Multiple payers
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -28,5 +28,9 @@ Scenario Outline: User should not be able to click on adjusted historic button f
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |

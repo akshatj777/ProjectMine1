@@ -17,8 +17,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     Then I verify "Current AtRisk" filter is preselected under the filter
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to see default measures for physician spending claims reports
     Given I am on the login page
@@ -43,8 +48,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     Then I should see "Total Spending" under "measures" field
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to see levels fields for physician spending claims reports
     Given I am on the login page
@@ -128,8 +138,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     Then I should see "Spending Category" appearing under "level" field
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to remove the default filters from physician spending claims reports
     Given I am on the login page
@@ -148,5 +163,10 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     Then I remove "Current AtRisk" field filter under "Current AtRisk" filter field from default filters
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |

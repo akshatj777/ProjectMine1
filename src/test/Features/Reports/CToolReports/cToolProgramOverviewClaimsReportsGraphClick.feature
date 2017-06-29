@@ -35,8 +35,12 @@ Scenario Outline: User should be able to click on program overview claims report
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
  
 Scenario Outline: User should be able to click on program overview claims reports graphs under post acute utilization
     
@@ -111,8 +115,12 @@ Scenario Outline: User should be able to click on program overview claims report
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
     
 Scenario Outline: User should be able to click on program overview claims reports graphs under snf length of stay
     
@@ -156,8 +164,12 @@ Scenario Outline: User should be able to click on program overview claims report
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
     
 Scenario Outline: User should be able to click on program overview claims reports graphs under readmissions
     
@@ -203,5 +215,9 @@ Scenario Outline: User should be able to click on program overview claims report
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      #| emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
