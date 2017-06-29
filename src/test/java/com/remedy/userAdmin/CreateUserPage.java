@@ -261,14 +261,14 @@ public class CreateUserPage extends BaseClass{
 	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
    }
    
-   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
-	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
-			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
-			   Thread.sleep(6000);
-			   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
-	  	}else{
-	  		return;
-	  	}
+   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text){
+	   if(text.isEmpty()!=true){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
+		   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
+		   driver.navigate().back();
+	   }	   
    }
   
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){

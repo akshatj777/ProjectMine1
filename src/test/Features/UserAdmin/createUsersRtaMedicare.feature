@@ -42,9 +42,9 @@ Feature: RTA create new user role with medicare and product tiles verification o
     And I select a <Health System>
     And I wait for 1000 milli seconds
     When I enter <Provider> search text
-    And I wait for 3000 milli seconds
-    Then I click the select all Facilites checkbox for the provider
     And I wait for 6000 milli seconds
+    Then I click the select all Facilites checkbox for the provider
+    And I wait for 8000 milli seconds
     Then I select all the application for the role
     And I turn off the share file application
     And I wait for 3000 milli seconds

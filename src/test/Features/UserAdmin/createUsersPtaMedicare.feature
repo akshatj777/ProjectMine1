@@ -174,9 +174,9 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
     And I select a <Health System>
     And I wait for 1000 milli seconds
     When I enter <Provider> search text
-    And I wait for 3000 milli seconds
-    Then I select the facility <Facility> checkbox for the <Provider>
     And I wait for 6000 milli seconds
+    Then I select the facility <Facility> checkbox for the <Provider>
+    And I wait for 8000 milli seconds
     Then I select <Label1> product tile for user creation
     Then I select <Label2> product tile for user creation
     And I wait for 3000 milli seconds
@@ -260,5 +260,5 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
       | Case Manager                  | Case Manager                  | St. Lukes Health Network | St. Lukes Health Network | 2070-023 | Allentown          | 302-459-1143 | Medicare |            | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       |                  | Support |
       | Physicians                    | Physicians                    | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital  | 302-459-1143 | Medicare | 1234567890 | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_CLINICIAN |                  | Support |
       | Prospective Partner Executive | Prospective Partner Executive | Stamford                 | Stamford Hospital        | *        |                    | 302-459-1143 | Medicare |            | lessons          |                   |          | RemedyU |         |              | Institute |                              |                |                |                  |         |
-      | Partner Program Administrator | Partner Program Administrator | Sound                    | Sound Physician          | 6005-196 | Samaritan Hospital | 302-459-1143 | Medicare |            | physician_portal | internal_support  |          |         |         |              | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support |         |
+      | Partner Program Administrator | Partner Program Administrator | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital | 302-459-1143 | Medicare |            | physician_portal | internal_support  |          |         |         |              | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support |         |
       | Transitional Case Manager     | Transitional Case Manager     | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital  | 302-459-1143 | Medicare |            | episode_connect  | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
