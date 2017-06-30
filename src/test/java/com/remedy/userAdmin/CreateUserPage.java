@@ -268,7 +268,9 @@ public class CreateUserPage extends BaseClass{
 		   delay();
 		   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
 		   driver.navigate().back();
-	   }	   
+	   }else{
+		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
+	   }
    }
   
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){

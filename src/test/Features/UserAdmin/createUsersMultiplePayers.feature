@@ -39,7 +39,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I select a <Health1 System1>
     And I wait for 1000 milli seconds
     When I enter <Provider1> search text
-    And I wait for 3000 milli seconds
+    And I wait for 8000 milli seconds
     Then I click the select all Facilites checkbox for the provider
     Then I verify the first payer field added under permissions section
     And I wait for 6000 milli seconds
@@ -52,7 +52,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I select a <Health2 System2>
     And I wait for 1000 milli seconds
     When I enter <Provider2> search text
-    And I wait for 3000 milli seconds
+    And I wait for 8000 milli seconds
     Then I click the select all Facilites checkbox for the provider
     And I wait for 4000 milli seconds
     Then I verify the second payer field added under permissions section
@@ -122,7 +122,9 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 3000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 3000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup

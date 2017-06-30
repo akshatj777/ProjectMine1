@@ -42,7 +42,7 @@ Feature: Create new User role with RTA and emblem payer and product tiles verifi
     And I select a <Health System>
     And I wait for 1000 milli seconds
     When I enter <Provider> search text
-    And I wait for 3000 milli seconds
+    And I wait for 8000 milli seconds
     Then I click the select all Facilites checkbox for the provider
     And I wait for 6000 milli seconds
     Then I select all the application for the role
@@ -112,7 +112,9 @@ Feature: Create new User role with RTA and emblem payer and product tiles verifi
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 3000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 3000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -183,7 +185,7 @@ Feature: Create new User role with RTA and emblem payer and product tiles verifi
     And I select a <Health System>
     And I wait for 1000 milli seconds
     When I enter <Provider> search text
-    And I wait for 3000 milli seconds
+    And I wait for 8000 milli seconds
     Then I select the facility <Facility> checkbox for the <Provider>
     And I wait for 6000 milli seconds
     Then I select <Label1> product tile for user creation
@@ -253,7 +255,9 @@ Feature: Create new User role with RTA and emblem payer and product tiles verifi
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 3000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 3000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
