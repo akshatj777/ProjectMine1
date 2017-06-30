@@ -1,7 +1,7 @@
-Feature: Verification of filters under Performance Claims report under Overall program
+Feature: Verification of filters under Spending Claims report under Physicain for Emblem payer
 
-  Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under performance claims reports
-                    for user with emblem payer
+  Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under spending claims report under physicain
+                    for user with Emblem Payer
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -9,8 +9,8 @@ Feature: Verification of filters under Performance Claims report under Overall p
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Spending (Claims)" report text for Physician Reports
     And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on field-panel-icon button
@@ -59,7 +59,7 @@ Feature: Verification of filters under Performance Claims report under Overall p
     And I click on "<episodeInitiator1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
     
     When I click to "CCN" field filter under "Anchor Facility" filter field
@@ -71,7 +71,7 @@ Feature: Verification of filters under Performance Claims report under Overall p
     And I click on "<ccn1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
-    And I wait for 3000 milli seconds
+    And I wait for 4000 milli seconds
     And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
     
     When I click to "BPID" field filter under "Episode Initiator" filter field
@@ -98,18 +98,15 @@ Feature: Verification of filters under Performance Claims report under Overall p
     
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
-    And I wait for 1000 milli seconds
+    And I wait for 2000 milli seconds
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                         | participant   | anchorFacility1      | episodeInitiator1    | ccn1   | BPID1    | payer1       | participant id |
-      | emblemachrpfin@yopmail.com    | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
-      | emblemrpnofin@yopmail.com     | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
-      | Emblemachopsfin@yopmail.com   | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
-      | emblemachopsspend@yopmail.com | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
-      | emblemachopsnofin@yopmail.com | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
+      | email                      | participant     | anchorFacility1      | episodeInitiator1    | ccn1   | BPID1    | payer1       | participant id |
+      | emblemachrpfin@yopmail.com | RP Payer Test A | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
+      | emblemrpnofin@yopmail.com  | RP Payer Test A | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| 222222         |
       
-Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under performance claims reports 
+Scenario Outline: Verification of participant,anchor facility,episode initiator,bpid and ccn filters under spending claims reports under physician
                   for user with multiple payer
     Given I am on the login page
     When I enter email field <email> for login
@@ -118,8 +115,8 @@ Scenario Outline: Verification of participant,anchor facility,episode initiator,
     And I wait for 2000 milli seconds
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Spending (Claims)" report text for Physician Reports
     And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on field-panel-icon button
@@ -252,9 +249,6 @@ Scenario Outline: Verification of participant,anchor facility,episode initiator,
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                            | participant   | anchorFacility1      | episodeInitiator1    | ccn1   | BPID1    | payer1       | payer2   | participant id1 | participant id2 | BPID2    | BPID3    | BPID4    | ccn2   | ccn3   | ccn4   |
-      | multipayerachrpfin@yopmail.com   | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
-      | multipayerachrpnofin@yopmail.com | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
-      | multipayerachopsfin@yopmail.com  | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
-      | multipayeachopsnofin@yopmail.com | Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
-      | multipayerachopsspend@yopmail.com| Not Available | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
+      | email                            | participant     | anchorFacility1      | episodeInitiator1    | ccn1   | BPID1    | payer1       | payer2   | participant id1 | participant id2 | BPID2    | BPID3    | BPID4    | ccn2   | ccn3   | ccn4   |
+      | multipayerachrpfin@yopmail.com   | RP Payer Test A | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
+      | multipayerachrpnofin@yopmail.com | RP Payer Test A | Rp Test Hospital Two | Rp Test Hospital Two | 999999 | 7000-000 | Emblem Health| Medicare | 222222          | 441348          | 2070-020 | 2070-021 | 2070-022 | 390111 | 390223 | 390226 |
