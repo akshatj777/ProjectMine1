@@ -131,7 +131,7 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Anchor Admission Quarter" appearing under "Time" field
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Begin Date" appearing under "Time" field
+    #Then I should see "Anchor Begin Date" appearing under "Time" field
     Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
@@ -142,5 +142,8 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     
     Examples:
     
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |

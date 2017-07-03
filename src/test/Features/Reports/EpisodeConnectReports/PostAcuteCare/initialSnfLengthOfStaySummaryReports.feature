@@ -1,7 +1,7 @@
 @sanity
 Feature: Initial SNF Length of Stay Summary Post Acute Care
 
-  Scenario Outline: Verify that Initial SNF Length of Stay Summary report display data based on provisioning
+  Scenario Outline: Verify that Initial SNF Length of Stay Summary report display data based on provisioning for Medicare payer users
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

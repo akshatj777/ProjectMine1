@@ -1,6 +1,6 @@
 Feature: User Only See Reports of the particular participant
 
-Scenario Outline: Before Adding Penn participant user should see reports of PGP,Model 2 and RPFIN
+Scenario Outline: Before Adding Penn participant user should see reports of PGP,Model 2 and RPFIN for Medicare payer users
 
  Given I am on the login page
     When I enter email field <email> for login

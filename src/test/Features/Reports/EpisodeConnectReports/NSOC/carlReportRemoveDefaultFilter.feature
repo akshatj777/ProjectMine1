@@ -33,5 +33,8 @@ Scenario Outline: User should be able to remove default filters from CARL Report
     
     Examples:
     
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
