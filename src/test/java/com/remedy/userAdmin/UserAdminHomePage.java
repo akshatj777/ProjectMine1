@@ -66,12 +66,6 @@ public class UserAdminHomePage extends BaseClass {
 	public void iSeeUserAdminPageLogo() {
 		isElementVisible(driver.findElement(By.cssSelector(".flex-item.order-2.btn.logo.valentino-icon-program-admin")));
 	}
-	/*
-	 * public void iSeeFirstNameinUserCard(String firstname){
-	 * 
-	 * verifyContainTextForanElement(driver.findElement(By.cssSelector(
-	 * ".card-header-content>div>h3>span:nth-of-type(2)")), firstname); }
-	 */
 
 	public void iSelectSortOption(String desc) {
 		clickElement(driver.findElement(By.cssSelector(".sort-select")));
@@ -130,41 +124,32 @@ public class UserAdminHomePage extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='unlock']")));
 		
 	}
-	
 
 	public void iClickLoadMoreButton() {
 		clickElement(driver.findElement(By.cssSelector(".btn.btn-auto-rounded")));
 	}
 
 	public void iverifyFirstNameText(String firstName) {
-
 		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[1]/div[2]/div/h3/span[1]/span")), firstName);
 		longDelay();
 	}
 
 	public void iverifyLastNameText(String lastName) {
-
 		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[1]/div[2]/div/h3/span[2]/span")), lastName);
 		longDelay();
 	}
 
 	public void iverifyOrganizationalRoleForAUser(String OrganizationalRole) {
-
 		delay();
 		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[2]/div[1]/div/div")),	OrganizationalRole);
 		longDelay();
 	}
 
-
-
 	public void iverifyUserSearchResult(String userCount) {
-
 		verifyTextForElement(driver.findElement(By.xpath("//div[6]/div/div/div[3]/div[1]/strong")), userCount);
-
 	}
 	
 	public void iSeePagination() {
-
 		delay();
 		isElementVisible(driver.findElement(By.cssSelector(".page-selector.ng-binding")));
 	}
@@ -203,6 +188,10 @@ public class UserAdminHomePage extends BaseClass {
 	}
 	
 	public void iShouldSeeImportUsersButton(String Importusers){
-		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/user/import']")), Importusers);
+		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/import']")), Importusers);
+	}
+	
+	public void iShouldSeeMigrateUsersButtonOnUserAdminHomepage(){
+		isElementVisible(driver.findElement(By.xpath("//button[@href='#/migrate']")));
 	}
 }

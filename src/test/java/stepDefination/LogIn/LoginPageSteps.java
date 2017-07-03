@@ -100,4 +100,49 @@ public class LoginPageSteps extends DriverScript{
     public void iShouldSeeLogInWidget() throws Throwable {
         loginPage.iVerifyLogInWidget();
     }
+    
+    @Then("^I should see email textbox field$")
+    public void iShouldSeeEmailTextboxField() throws Throwable{
+    	loginPage.iShouldSeeEmailTextboxField();
+    }
+    
+    @Then("^I should verify watermark text appearing under email textbox field$")
+    public void iShouldVerifyWatermarkTextAppearingUnderEmailTextboxField() throws Throwable{
+    	loginPage.iShouldVerifyWatermarkTextAppearingUnderEmailTextboxField();
+    }
+    
+    @Then("^I should see password textbox field$")
+    public void iShouldSeePasswordTextboxField() throws Throwable{
+    	loginPage.iShouldSeePasswordTextboxField();
+    }
+    
+    @Then("^I should verify watermark text appearing under password textbox field$")
+    public void iShouldVerifyWatermarkTextAppearingUnderPasswordTextboxField() throws Throwable{
+    	loginPage.iShouldVerifyWatermarkTextAppearingUnderPasswordTextboxField();
+    }
+    
+    @Then("^I should see forgot password link$")
+    public void iShouldSeeForgotPasswordLink() throws Throwable{
+    	loginPage.iShouldSeeForgotPasswordLink();
+    }
+    
+    @Then("^I should see Log In button$")
+    public void iShouldSeeLogInButton() throws Throwable{
+    	loginPage.iShouldSeeLogInButton();
+    }
+    
+    @Then("^I verify the validation message \"([^\"]*)\"$")
+    public void iVerifyTheValidationMessage(String text) throws Throwable{
+    	loginPage.iVerifyTheValidationMessage(text);
+    }
+    
+    @Then("^I cleared password field textbox")
+    public void iClearedPasswordFieldTextbox() throws Throwable{
+    	loginPage.iClearedPasswordFieldTextbox();
+    }
+    
+    @Then("^I enter email \"([^\"]*)\" for Login$")
+    public void iEnterEmailForLogin(String UserName) throws Throwable{
+    	loginPage.iEnterEmailForLogin(UserName);
+    }
 }

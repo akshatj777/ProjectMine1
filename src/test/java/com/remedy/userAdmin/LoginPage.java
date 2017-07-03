@@ -5,6 +5,7 @@ import com.remedy.baseClass.BaseClass;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by salam on 7/29/15.
@@ -102,6 +103,44 @@ public class LoginPage extends BaseClass {
 		iEnteruserEmail(userName);
 		iEnterPassword(passWord);
 		iClickLogInButton();
+	}
+	
+	public void iShouldSeeEmailTextboxField(){
+		isElementVisible(driver.findElement(By.xpath("//input[@name='email']")));
+	}
+	
+	public void iShouldVerifyWatermarkTextAppearingUnderEmailTextboxField(){
+		Assert.assertTrue(isElementVisible(driver.findElement(By.xpath("//input[@placeholder='name@domain.com']"))));
+	}
+	
+	public void iShouldSeePasswordTextboxField(){
+		isElementVisible(driver.findElement(By.xpath("//input[@name='password']")));
+	}
+	
+	public void iShouldVerifyWatermarkTextAppearingUnderPasswordTextboxField(){
+		Assert.assertTrue(isElementVisible(driver.findElement(By.xpath("//input[@placeholder='your password']"))));
+	}
+	
+	public void iShouldSeeForgotPasswordLink(){
+		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-alternative-link")));
+	}
+	
+	public void iShouldSeeLogInButton(){
+		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-submit")));
+	}
+	
+	public void iVerifyTheValidationMessage(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".auth0-lock-error-msg>span")), text);
+	}
+	
+	public void iClearedPasswordFieldTextbox(){
+		WebElement textbox = driver.findElement(By.xpath("//input[@name='password']"));
+		textbox.click();
+		textbox.clear();
+	}
+	
+	public void iEnterEmailForLogin(String userName){
+		iFillInText(driver.findElement(By.name("email")), userName);
 	}
 }
 

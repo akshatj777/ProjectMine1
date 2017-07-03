@@ -5,21 +5,22 @@ Feature: HomePage test for Users
     When I enter email field <Email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 1000 milli seconds
+    And I wait for 4000 milli seconds
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see Program Administration logo on Top
-    And I wait for 1000 milli seconds
+    And I wait for 2000 milli seconds
     Then I should see header text "User Management"
-    And I wait for 1000 milli seconds
+    And I wait for 2000 milli seconds
     Then I should see "Create User" Button
     Then I should see Import Users Button
+    Then I should see Migrate Users Button on user admin homepage
     And I should see total Users Count on page
     Then I should see sort order default option "Last Name A-Z"
     And I should see Refresh icon on page
     And I should see User card on page
     And I should see First Name on user card
-    And I wait for 1000 milli seconds
+    And I wait for 2000 milli seconds
     Then I should be able to click on DropDown list for sorting Newest to Oldest
     Then I verify the filter for Newest to Oldest
     Then I should be able to sort the users with Newest - Oldest sorting option

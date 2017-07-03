@@ -68,7 +68,7 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection(){
-    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test A']")));
     }
 
     public void iEnterNPI(String text){
@@ -230,7 +230,7 @@ public class CreateUserPage extends BaseClass{
    
    public void iCheckAllProviderForTheHealthSystem() {
    	delay();
-       clickElement(driver.findElement(By.cssSelector(".checkbox")));
+       clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
    }	
 
     public void iCheckTheProviderForTheHealthSystem(String facility,String provider) {
@@ -361,7 +361,7 @@ public class CreateUserPage extends BaseClass{
 		   delay();
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   delay();
-		   isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
+		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  
    }
