@@ -50,7 +50,7 @@ Scenario Outline: User should be able to verify Global Filters
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    Then I verify payer filter is selected with <payerid> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
     
     When I switch to default window from iframe
     
@@ -78,7 +78,7 @@ Scenario Outline: User should be able to verify Global Filters
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    Then I verify payer filter is selected with <payerid> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
     
     When I switch to default window from iframe
     
@@ -106,7 +106,7 @@ Scenario Outline: User should be able to verify Global Filters
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    Then I verify payer filter is selected with <payerid> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     
     When I click on "Next Site of Care" tile on the top navigation of reports page
@@ -132,8 +132,8 @@ Scenario Outline: User should be able to verify Global Filters
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    Then I verify payer filter is selected with <payerid> under selected filters
+    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     
     When I click on "Readmissions" tile on the top navigation of reports page
@@ -159,7 +159,7 @@ Scenario Outline: User should be able to verify Global Filters
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
-    Then I verify payer filter is selected with <payerid> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
     
     When I switch to default window from iframe
     And I click on reports tile on the top of reports page
