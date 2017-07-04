@@ -236,7 +236,7 @@ public class CreateUserPage extends BaseClass{
     public void iCheckTheProviderForTheHealthSystem(String facility,String provider) {
     	delay();
     	if(provider.contains("*")){
-        clickElement(driver.findElement(By.cssSelector(".checkbox")));
+        clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
     	}
     	else {
     	clickElement(driver.findElement(By.xpath("//span[(contains(@ng-bind,'providerName')) and text()='"+facility+"']")));	
@@ -261,15 +261,18 @@ public class CreateUserPage extends BaseClass{
 	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
    }
    
-   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text){
-	   if(text.isEmpty()!=true){
+   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text, String payer){
+	   if((text.isEmpty()!=true) && ((payer.equals("Medicare")))){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
 		   delay();
 		   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
 		   driver.navigate().back();
-	   }else{
+	   }else if((text.isEmpty()!=true) && ((payer.equals("Emblem Health")))){
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
 		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
+		   driver.navigate().back();
 	   }
    }
   

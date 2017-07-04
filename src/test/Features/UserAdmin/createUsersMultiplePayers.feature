@@ -119,7 +119,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
     And I wait for 2000 milli seconds
-    And I click on Episodes two tile under specific user login page <Episode2>
+    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1>
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
@@ -197,9 +197,6 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I wait for 3000 milli seconds
     Then I select the facility <Facility1> checkbox for the <Provider1>
     And I wait for 6000 milli seconds
-    Then I select <Label1> product tile for user creation
-    Then I select <Label2> product tile for user creation
-    And I wait for 6000 milli seconds
     When I click the payer Field under data
     Then I pick payer type from data section <payer2>
     And I wait for 5000 milli seconds
@@ -262,6 +259,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I wait for 3000 milli seconds
     Then I enter newuser email for login to Remedy
     Then I enter newuser password for login to Remedy
+    And I click Access button
     And I wait for 10000 milli seconds
     Then I should see Tile text <Episode1>
     Then I should see Tile text <Administration>
@@ -274,11 +272,13 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
     And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2>
+    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1> 
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 3000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 3000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup

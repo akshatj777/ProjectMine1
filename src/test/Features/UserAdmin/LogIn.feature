@@ -33,7 +33,28 @@ Feature: User admin Login Logout test
     Then I click Access button
     Then I verify the validation message "Can't be blank"
     
-  Scenario: Change password for user
+    Scenario: Login with blank email or password and verify the validation message
+    Given I am on the login page
+    And I should see Log in widget
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I verify the validation message "Can't be blank"
+    Then I refresh the page
+    And I wait for 2000 milli seconds
+    Then I enter email "abc@mailinator.com" for Login
+    And I wait for 2000 milli seconds
+    Then I click Access button
+    Then I verify the validation message "Can't be blank"
+    
+    Scenario: Login with valid email and invalid password and verify the error message
+    Given I am on the login page
+    And I should see Log in widget
+    Then I enter email "abc@mailinator.com" for Login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I verify the error message "Invalid credentials"
+       
+ Scenario: Change password for user
     Given I am on the login page
     When I click on the forgot password button
     #And I should see text for reset password "Reset Password"
@@ -51,4 +72,3 @@ Feature: User admin Login Logout test
     #And I should see text for reset password "Reset Password"
     #Then I click on cancel button
     #And I should see Log in widget
-   

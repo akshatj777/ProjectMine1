@@ -133,14 +133,15 @@ public class LoginPage extends BaseClass {
 		verifyTextForElement(driver.findElement(By.cssSelector(".auth0-lock-error-msg>span")), text);
 	}
 	
-	public void iClearedPasswordFieldTextbox(){
-		WebElement textbox = driver.findElement(By.xpath("//input[@name='password']"));
-		textbox.click();
-		textbox.clear();
-	}
-	
+	public void IRefreshThePage(){
+		 driver.navigate().refresh();
+	 }
 	public void iEnterEmailForLogin(String userName){
 		iFillInText(driver.findElement(By.name("email")), userName);
+	}
+	
+	public void iVerifyTheErrorMessage(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='animated fadeInUp']")), text);
 	}
 }
 

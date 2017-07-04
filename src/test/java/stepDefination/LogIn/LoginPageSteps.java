@@ -136,13 +136,18 @@ public class LoginPageSteps extends DriverScript{
     	loginPage.iVerifyTheValidationMessage(text);
     }
     
-    @Then("^I cleared password field textbox")
-    public void iClearedPasswordFieldTextbox() throws Throwable{
-    	loginPage.iClearedPasswordFieldTextbox();
+    @Then("^I refresh the page$")
+    public void IRefreshThePage() throws Throwable{
+    	loginPage.IRefreshThePage();
     }
     
     @Then("^I enter email \"([^\"]*)\" for Login$")
     public void iEnterEmailForLogin(String UserName) throws Throwable{
     	loginPage.iEnterEmailForLogin(UserName);
+    }
+    
+    @Then("^I verify the error message \"([^\"]*)\"$")
+    public void iVerifyTheErrorMessage(String text) throws Throwable{
+    	loginPage.iVerifyTheErrorMessage(text);
     }
 }

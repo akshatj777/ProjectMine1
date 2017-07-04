@@ -105,7 +105,7 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
     And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2>
+    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
@@ -247,7 +247,7 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
     And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2>
+    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
