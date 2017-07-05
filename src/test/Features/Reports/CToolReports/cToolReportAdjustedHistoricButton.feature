@@ -31,6 +31,6 @@ Scenario Outline: User should not be able to click on adjusted historic button f
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |

@@ -38,7 +38,7 @@ Scenario Outline: User should be able to click on program overview claims report
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
  
@@ -118,7 +118,7 @@ Scenario Outline: User should be able to click on program overview claims report
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
     
@@ -167,7 +167,7 @@ Scenario Outline: User should be able to click on program overview claims report
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
     
@@ -218,6 +218,6 @@ Scenario Outline: User should be able to click on program overview claims report
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |

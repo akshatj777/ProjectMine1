@@ -65,7 +65,7 @@ Scenario Outline: User should be able to select Episode Iniatiator filters and c
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -100,7 +100,7 @@ Scenario Outline: User should be able to select Facility filters and changed in 
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -135,6 +135,6 @@ Scenario Outline: User should be able to select Bundle filters and changed in Gr
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |

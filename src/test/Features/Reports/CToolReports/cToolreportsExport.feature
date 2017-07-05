@@ -57,7 +57,7 @@ Scenario Outline: User should click on export Episodes graphs for RPFIN Role use
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -118,7 +118,7 @@ Scenario Outline: User should click on export NPRA graphs for RPFIN Role users w
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -180,7 +180,7 @@ Scenario Outline: User should click on export SNF graphs for RPFIN Role users wi
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
 
@@ -241,7 +241,7 @@ Scenario Outline: User should click on export Long Term Acute Care graphs for RP
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -303,7 +303,7 @@ Scenario Outline: User should click on export Long Term Acute Care graphs for RP
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -367,7 +367,7 @@ Scenario Outline: User should click on export Home Health graphs for RPFIN Role 
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -432,7 +432,7 @@ Scenario Outline: User should click on export Home graphs for RPFIN Role users w
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
      
@@ -496,7 +496,7 @@ Scenario Outline: User should click on export Other graphs for RPFIN Role users 
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -561,7 +561,7 @@ Scenario Outline: User should click on export Initial SNF Length of Stay graphs 
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -626,6 +626,6 @@ Scenario Outline: User should click on export SNF Days graphs for RPFIN Role use
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |

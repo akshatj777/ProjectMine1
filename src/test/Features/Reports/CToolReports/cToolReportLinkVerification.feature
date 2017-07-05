@@ -154,7 +154,7 @@ Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmis
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
     
@@ -213,6 +213,6 @@ Scenario Outline: User should click on zoom in and zoom out under post accute ut
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
