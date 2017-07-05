@@ -109,7 +109,9 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 2000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 2000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -245,11 +247,13 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
     And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2>  with payer <payer>
+    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 2000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 2000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
