@@ -205,4 +205,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_click_on_cross_mark_beside_the_selected_payer_filter_with(String payer)throws Throwable{
 		globalfilters.iClickOnCrossMarkForSelectedPayerFilter(payer);
 	}
+	
+	@Then("^I see ([^\"]*) appearing under payer filter of global filters$")
+	public void i_see_payer_name_appearing_under_participant_filter_of_global_filters(String text)throws Throwable{
+		globalfilters.iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(text);
+	}
 }

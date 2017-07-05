@@ -158,4 +158,11 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iClickOnCrossMarkForSelectedPayerFilter(String participant){
 		clickElement(driver.findElement(By.xpath("//span[text()='Payer: "+participant+"']/preceding-sibling::i")));
 	}
+	
+	public void iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(String text){
+		if(text!=null)
+		{
+		verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']", text);
+		}
+	}
 }

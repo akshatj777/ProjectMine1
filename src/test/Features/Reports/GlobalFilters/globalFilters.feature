@@ -19,7 +19,8 @@ Scenario Outline: User should be able to verify Global Filters
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Payer" filter is appearing under global filters
-    Then I see <payer1> appearing under participant filter of global filters
+    Then I see <payer1> appearing under payer filter of global filters
+    Then I see <payer2> appearing under payer filter of global filters
     Then I verify "Participant" filter is appearing under global filters
     Then I see <participant1> appearing under participant filter of global filters
     Then I verify "Episode Initiator" filter is appearing under global filters
@@ -132,7 +133,7 @@ Scenario Outline: User should be able to verify Global Filters
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    #Then I verify anchor facility filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     
@@ -168,5 +169,7 @@ Scenario Outline: User should be able to verify Global Filters
     
     Examples:
     
-      | email                         | participant1 | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1   | payerid |
-      | shutestaug231132a@yopmail.com | Penn         | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare | 100001  |
+      | email                         | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2   |
+      | shutestaug231132a@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |          |
+      | emblemachrpfin@yopmail.com    | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |          |
+      | multipayerachrpfin@yopmail.com| RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health | Medicare |
