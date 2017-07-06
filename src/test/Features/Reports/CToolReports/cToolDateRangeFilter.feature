@@ -38,9 +38,9 @@ Scenario Outline: User should click on date range filter less than four months f
     
       | email                              | Menu 1     |
       #| Medicare Payer Users| 
-      #| shutestaug231132a@yopmail.com      | Dashboards |
+      | shutestaug231132a@yopmail.com      | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
+      | emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
