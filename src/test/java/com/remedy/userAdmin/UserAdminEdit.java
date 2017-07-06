@@ -58,6 +58,7 @@ public class UserAdminEdit extends BaseClass {
 
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() {
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
 	}
 
 	public void i_Verify_The_User_Role_Again() {
@@ -73,7 +74,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Edit_Button_Under_User_Phone_Row() {
-		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[4]")));
+		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[5]")));
 	}
 
 	public void i_Clicked_On_Phone_Tab_To_Edit_The_User_Phone_number() {
@@ -89,7 +90,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Phone_Tab() {
-		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[4]")));
+		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[5]")));
 	}
 
 	public void i_Verify_The_Permissions_Field() {
@@ -102,7 +103,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Payer_Field_To_Edit_The_Payer() {
-		clickElement(driver.findElement(By.xpath("//form/div[1]/div[1]/div/div/div[1]/div[1]/span")));
+		clickElement(driver.findElement(By.xpath("//div[@name='payer']")));
 	}
 
 	public void i_Enter_Text_Under_Payer_Field(String Text) {
@@ -122,15 +123,15 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Search_Field_Under_Provider_Name() {
-		clickElement(driver.findElement(By.xpath("(//input[@placeholder='Search'])[2]")));
+		clickElement(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")));
 	}
 
 	public void i_Enter_On_Search_Field_Under_Provider_Name(String Text) {
-		iFillInText(driver.findElement(By.xpath("(//input[@placeholder='Search'])[2]")), Text);
+		iFillInText(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")), Text);
 	}
 
 	public void i_Clicked_On_Select_All_Facilities_Under_Provider_Name() {
-		clickElement(driver.findElement(By.cssSelector(".checkbox")));
+		clickElement(driver.findElement(By.xpath("(//label[@for='select-all-checkbox'])[2]")));
 	}
 
 	public void i_Clicked_On_Save_Button_Under_Permissions_Data_Field() {
@@ -146,32 +147,45 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws InterruptedException {
-		getElementCount("products-list > ul > li > span");
-		List<String> myclass = new ArrayList<>();
-		List<String> myclass1 = new ArrayList<>();
-		List<WebElement> listelements1 = getElementsList("products-list > ul > li > i");
-		System.out.println("$$$$$The list of toggle button" + listelements1);
-		List<WebElement> listelements = getElementsList("products-list > ul > li > div > label > input");
-		List<WebElement> listelements2 = getElementsList(".checkbox-switch");
-		for (int i = 0; i < listelements.size(); i++) {
-			listelements.get(i).getAttribute("class");
-			listelements1.get(i).getAttribute("class");
-			myclass.add(listelements.get(i).getAttribute("class"));
-			myclass1.add(listelements1.get(i).getAttribute("class"));
+		getElementCount(".row>ul>li>div>label");
+		List<WebElement> tiles = getElementsList(".row>ul>li>div>label");
+		if(tiles.equals("sharefile")){
+		WebElement value = driver.findElement(By.xpath("//div/input[@id='sharefile']"));
+		value.getClass();		
+		if(value.equals("ng-pristine ng-untouched ng-valid ng-not-empty")){
+			driver.findElement(By.xpath("//div/label[@for='sharefile']")).click();
+		}else{
+			return;
 		}
-		for (int i = 0; i < listelements.size(); i++){
-			if (myclass1.get(i).equals("spoe-menu valentino-icon-share-file")){
-				if (myclass.get(i).equals("ng-pristine ng-untouched ng-valid ng-not-empty")){
-					Thread.sleep(7000);
-					driver.findElement(By.cssSelector("li.product-item:nth-child(6) > div:nth-child(3) > label:nth-child(1) > span:nth-child(2)")).click();
-					System.out.println("Now on to off");
-				} else {
-					System.out.println("No need to click ! The Toggle button is already off !!!!!");
-				}
-			} else{
-				System.out.println("Share File not present");
-			}
 		}
+		else{
+			return;
+		}
+//		List<String> myclass = new ArrayList<>();
+//		List<String> myclass1 = new ArrayList<>();
+//		List<WebElement> listelements1 = getElementsList("products-list > ul > li > i");
+//		System.out.println("$$$$$The list of toggle button" + listelements1);
+//		List<WebElement> listelements = getElementsList("products-list > ul > li > div > label > input");
+//		List<WebElement> listelements2 = getElementsList(".checkbox-switch");
+//		for (int i = 0; i < listelements.size(); i++) {
+//			listelements.get(i).getAttribute("class");
+//			listelements1.get(i).getAttribute("class");
+//			myclass.add(listelements.get(i).getAttribute("class"));
+//			myclass1.add(listelements1.get(i).getAttribute("class"));
+//		}
+//		for (int i = 0; i < listelements.size(); i++){
+//			if (myclass1.get(i).equals("spoe-menu valentino-icon-share-file")){
+//				if (myclass.get(i).equals("ng-pristine ng-untouched ng-valid ng-not-empty")){
+//					Thread.sleep(7000);
+//					driver.findElement(By.cssSelector("li.product-item:nth-child(6) > div:nth-child(3) > label:nth-child(1) > span:nth-child(2)")).click();
+//					System.out.println("Now on to off");
+//				} else {
+//					System.out.println("No need to click ! The Toggle button is already off !!!!!");
+//				}
+//			} else{
+//				System.out.println("Share File not present");
+//			}
+//		}
 	}
 	
 	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
@@ -180,6 +194,7 @@ public class UserAdminEdit extends BaseClass {
 	
 	public void iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing(){
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
 	}
 	
 	public void iClickedOnEmblemHealthFromDropdownListOfPayer(){
@@ -191,7 +206,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField(){
-		clickElement(driver.findElement(By.xpath("//form/div[2]/ul/li[2]/div/div/div/small")));
+		clickElement(driver.findElement(By.xpath("(//div/small)[2]")));
 	}
 	
 	public void iWaitForPopupToRemoveRPPayerTestAUnderPermissionField(){

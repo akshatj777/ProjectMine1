@@ -30,7 +30,7 @@ Feature: User admin edit users details
     Then I verify product tiles appear for user under user edit details page after role change
     And I wait for 6000 milli seconds
     And I verify the share file tile toggle off button
-    And I wait for 3000 milli seconds
+    And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Phone row
     And I wait for 4000 milli seconds
     And I clicked on Phone tab to edit the user Phone number
@@ -53,7 +53,7 @@ Feature: User admin edit users details
     Then I clicked on search field under Provider Name
     And I wait for 2000 milli seconds
     Then I enter "*" on search field under Provider Name
-    And I wait for 4000 milli seconds
+    And I wait for 6000 milli seconds
     Then I clicked on select all facilities under Provider Name
     And I wait for 2000 milli seconds
     Then I clicked on save button under permissions data field
@@ -489,6 +489,4 @@ Feature: User admin edit users details
       | Autoexecutive1         | Manager                       | Executive                     |
       | AutoPPartnerexecutive1 | Partner Program Administrator | Prospective Partner Executive |
       | AutoPProgramadmin1     | Prospective Partner Executive | Partner Program Administrator |
-      | AutotcaseManager1      | Case Manager                  | Transitional Case Manager     |
-      
-  
+      | AutotcaseManager1      | Case Manager                  | Transitional Case Manager     |  
