@@ -133,7 +133,7 @@ Scenario Outline: User should be able to verify Global Filters
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    #Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    Then I verify anchor facility filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     
