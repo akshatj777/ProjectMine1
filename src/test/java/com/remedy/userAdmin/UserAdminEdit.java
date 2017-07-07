@@ -147,45 +147,19 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws InterruptedException {
-		getElementCount(".row>ul>li>div>label");
 		List<WebElement> tiles = getElementsList(".row>ul>li>div>label");
 		if(tiles.equals("sharefile")){
-		WebElement value = driver.findElement(By.xpath("//div/input[@id='sharefile']"));
-		value.getClass();		
-		if(value.equals("ng-pristine ng-untouched ng-valid ng-not-empty")){
-			driver.findElement(By.xpath("//div/label[@for='sharefile']")).click();
-		}else{
-			return;
-		}
-		}
-		else{
-			return;
-		}
-//		List<String> myclass = new ArrayList<>();
-//		List<String> myclass1 = new ArrayList<>();
-//		List<WebElement> listelements1 = getElementsList("products-list > ul > li > i");
-//		System.out.println("$$$$$The list of toggle button" + listelements1);
-//		List<WebElement> listelements = getElementsList("products-list > ul > li > div > label > input");
-//		List<WebElement> listelements2 = getElementsList(".checkbox-switch");
-//		for (int i = 0; i < listelements.size(); i++) {
-//			listelements.get(i).getAttribute("class");
-//			listelements1.get(i).getAttribute("class");
-//			myclass.add(listelements.get(i).getAttribute("class"));
-//			myclass1.add(listelements1.get(i).getAttribute("class"));
-//		}
-//		for (int i = 0; i < listelements.size(); i++){
-//			if (myclass1.get(i).equals("spoe-menu valentino-icon-share-file")){
-//				if (myclass.get(i).equals("ng-pristine ng-untouched ng-valid ng-not-empty")){
-//					Thread.sleep(7000);
-//					driver.findElement(By.cssSelector("li.product-item:nth-child(6) > div:nth-child(3) > label:nth-child(1) > span:nth-child(2)")).click();
-//					System.out.println("Now on to off");
-//				} else {
-//					System.out.println("No need to click ! The Toggle button is already off !!!!!");
-//				}
-//			} else{
-//				System.out.println("Share File not present");
-//			}
-//		}
+			System.out.println("Sharefile is present");
+			String value = "ng-pristine ng-untouched ng-valid ng-empty";
+			if((value.contains("ng-empty"))){
+				System.out.println("the sharefile class value is ON "+ value.contains("ng-empty"));
+				return;
+			}else{
+				System.out.println("the class file is OFF");
+				driver.findElement(By.xpath("//div/input[@id='sharefile']")).click();
+				System.out.println("sharefile tile turned off");
+			}			
+		}		
 	}
 	
 	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
