@@ -51,8 +51,10 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I see "4" filters applied under global filters applied count
     
     When I switch to reports embedded iframe
-    Then I should see <episode initiator3> is applied under filter options in episode initiator dropdown under program overview report
-    Then I should see <anchor facility2> is applied under filter options in anchor facility dropdown under program overview report
+    Then I should see <selectedpayer> is applied under filter options in payer dropdown under program overview report
+    #Then I should see <participant1> is applied under filter options in participant dropdown under program overview report
+    Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
+    #Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
     When I switch to default window from iframe
         
     When I click on "Overall Program" tile on the top navigation of reports page
@@ -140,8 +142,8 @@ Scenario Outline: User should see multiple filters selected in report should red
     
     Examples:
        
-      | email                         | Menu 1          | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                | anchor facility2                 | anchor facility3                               | participantid1 | bpid1    | ccn1   | bpid2    | ccn2   | payer1   | payer2 |
-      | shutestaug231132a@yopmail.com | Dashboards      | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of Univ Of Pennsylvania| Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | 441348         | 2070-021 | 390223 | 2070-020 | 390111 | Medicare |        |
+      | email                         | Menu 1          | participant1 | episode initiator1                                                        | episode initiator2                         | episode initiator3               | anchor facility1                | anchor facility2                 | anchor facility3                               | participantid1 | bpid1    | ccn1   | bpid2    | ccn2   | payer1   | payer2 | selectedpayer |
+      | shutestaug231132a@yopmail.com | Dashboards      | Penn         | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital of The University of Pennsylvania | Penn Presbyterian Medical Center | Hospital Of Univ Of Pennsylvania| Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys | 441348         | 2070-021 | 390223 | 2070-020 | 390111 | Medicare |        | All           |
 
 @sanity          
 Scenario Outline: User should remove the selected global filter using X mark and that should be reflected in other reports
@@ -229,7 +231,7 @@ Scenario Outline: User should remove the selected global filter using X mark and
        | email                         | Menu 1     | participant1    | episode initiator1                                                        | anchor facility1                | payer1        | payer2        | participantid1 |
        | shutestaug231132a@yopmail.com | Dashboards | Penn            | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania| Medicare      |               | 441348         |
        | emblemachrpfin@yopmail.com    | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2               | Emblem Health |               | 222222         |
-       | multipayerachrpfin@yopmail.com| Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2               | Medicare      | Emblem Health | 222222         |   
+       | multipayerachrpfin@yopmail.com| Dashboards | Penn            | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania| Medicare      | Emblem Health | 441348         |   
       
 Scenario Outline: User should clear the selected filters in global filters
 

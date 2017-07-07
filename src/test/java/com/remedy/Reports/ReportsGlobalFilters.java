@@ -165,4 +165,12 @@ public class ReportsGlobalFilters extends BaseClass{
 		verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']", text);
 		}
 	}
+	
+	public void iVerifyPayerUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#payerFilterObj .selectorValue")),text);
+	}
+	
+	public void iVerifyParticipantUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#participantFilterObj .selectorValue")),text);
+	}
 }

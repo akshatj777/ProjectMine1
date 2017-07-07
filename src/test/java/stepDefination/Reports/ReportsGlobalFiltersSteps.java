@@ -210,4 +210,14 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_see_payer_name_appearing_under_participant_filter_of_global_filters(String text)throws Throwable{
 		globalfilters.iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(text);
 	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in payer dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_payer_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyPayerUnderFilterOptions(text);
+	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in participant dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_participant_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyParticipantUnderFilterOptions(text);
+	}
 }

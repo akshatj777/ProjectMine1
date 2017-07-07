@@ -53,8 +53,10 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I see "4" filters applied under global filters applied count
     
     When I switch to reports embedded iframe
+    Then I should see <selectedpayer> is applied under filter options in payer dropdown under program overview report
+    #Then I should see <participant1> is applied under filter options in participant dropdown under program overview report
     Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
-    Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
+    #Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
     When I switch to default window from iframe
     
     When I click on "Overall Program" tile on the top navigation of reports page
@@ -319,7 +321,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     Examples:
     
-      | email                         | Menu 1          | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2   |
-      | shutestaug231132a@yopmail.com | Dashboards      | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |          |
-      | emblemachrpfin@yopmail.com    | Dashboards      | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |          |
-      | multipayerachrpfin@yopmail.com| Dashboards      | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health | Medicare |
+      | email                         | Menu 1          | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2        | selectedpayer |
+      | shutestaug231132a@yopmail.com | Dashboards      | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |               | All           |
+      | emblemachrpfin@yopmail.com    | Dashboards      | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |               | All           |
+      | multipayerachrpfin@yopmail.com| Dashboards      | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 222222         | 7000-000 | 999999 | Medicare      | Emblem Health | Medicare      |

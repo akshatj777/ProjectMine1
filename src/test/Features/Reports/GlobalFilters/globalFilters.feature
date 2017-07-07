@@ -169,7 +169,7 @@ Scenario Outline: User should be able to verify Global Filters
     
     Examples:
     
-      | email                         | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2   |
-      | shutestaug231132a@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |          |
-      | emblemachrpfin@yopmail.com    | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |          |
-      | multipayerachrpfin@yopmail.com| RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health | Medicare |
+      | email                         | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2        |
+      | shutestaug231132a@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |               |
+      | emblemachrpfin@yopmail.com    | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |               |
+      | multipayerachrpfin@yopmail.com| Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      | Emblem Health |

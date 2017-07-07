@@ -59,10 +59,10 @@ Scenario Outline: Applied global filters are getting selected on Re-opening Glob
     
     Examples:
     
-      | email                         | participant1    | episode initiator1               | anchor facility1                 | payer1        | payer2   |
-      | shutestaug231132a@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      |          |
-      | emblemachrpfin@yopmail.com    | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |          |
-      | multipayerachrpfin@yopmail.com| RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Medicare      |          |
+      | email                         | participant1    | episode initiator1               | anchor facility1                 | payer1        | payer2        |
+      | shutestaug231132a@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      |               |
+      | emblemachrpfin@yopmail.com    | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
+      | multipayerachrpfin@yopmail.com| Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |
           
 Scenario Outline: Filters applied should be displayed after clearing global filters but not applying the changes.
 
@@ -125,4 +125,4 @@ Scenario Outline: Filters applied should be displayed after clearing global filt
       | email                         | participant1    | episode initiator1               | anchor facility1                 | payer1        | payer2        |
       | shutestaug231132a@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      |               |
       | emblemachrpfin@yopmail.com    | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
-      | multipayerachrpfin@yopmail.com| RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Medicare      | Emblem Health |    
+      | multipayerachrpfin@yopmail.com| Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |    
