@@ -154,11 +154,6 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_On_Stamford_Hospital_From_Dropdown_List_Of_Health_System_Name();
 	}
 	
-	@And("^I verify the share file tile toggle off button$")
-	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws Throwable{
-		UserEdit.i_Verify_The_Share_File_Tile_Toggle_Off_Button();
-	}
-
 	@And("^I clicked on remove button of stamford hospital row under permission field$")
 	public void i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field() throws Throwable{
 		UserEdit.i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field();

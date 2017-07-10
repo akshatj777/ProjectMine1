@@ -188,10 +188,7 @@ public class UserAdminHomePage extends BaseClass {
 	}
 	
 	public void iShouldSeeImportUsersButton(String Importusers){
-		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/import']")), Importusers);
+		verifyTextForElement(driver.findElement(By.cssSelector(".btn.btn-primary[feature='ua.importUsers']")), Importusers);
 	}
-	
-	public void iShouldSeeMigrateUsersButtonOnUserAdminHomepage(){
-		isElementVisible(driver.findElement(By.xpath("//button[@href='#/migrate']")));
-	}
+
 }

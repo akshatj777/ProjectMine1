@@ -3,6 +3,7 @@ package com.remedy.userAdmin;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,7 +59,7 @@ public class UserAdminEdit extends BaseClass {
 
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() {
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
-		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
+//		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
 	}
 
 	public void i_Verify_The_User_Role_Again() {
@@ -146,29 +147,12 @@ public class UserAdminEdit extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//a/span")));
 	}
 
-	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws InterruptedException {
-		List<WebElement> tiles = getElementsList(".row>ul>li>div>label");
-		if(tiles.equals("sharefile")){
-			System.out.println("Sharefile is present");
-			String value = "ng-pristine ng-untouched ng-valid ng-empty";
-			if((value.contains("ng-empty"))){
-				System.out.println("the sharefile class value is ON "+ value.contains("ng-empty"));
-				return;
-			}else{
-				System.out.println("the class file is OFF");
-				driver.findElement(By.xpath("//div/input[@id='sharefile']")).click();
-				System.out.println("sharefile tile turned off");
-			}			
-		}		
-	}
-	
 	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
 		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
 	}
 	
 	public void iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing(){
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
-		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
 	}
 	
 	public void iClickedOnEmblemHealthFromDropdownListOfPayer(){

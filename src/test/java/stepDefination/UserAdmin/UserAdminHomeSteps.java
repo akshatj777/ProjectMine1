@@ -213,9 +213,4 @@ public class UserAdminHomeSteps extends DriverScript{
         public void iShouldSeeImportUsersButton(String text) throws Throwable{
         	userAdminHome.iShouldSeeImportUsersButton(text);
         }
-        
-        @Then("^I should see Migrate Users Button on user admin homepage$")
-        public void iShouldSeeMigrateUsersButtonOnUserAdminHomepage() throws Throwable{
-        	userAdminHome.iShouldSeeMigrateUsersButtonOnUserAdminHomepage();
-        }
-}
+    }
