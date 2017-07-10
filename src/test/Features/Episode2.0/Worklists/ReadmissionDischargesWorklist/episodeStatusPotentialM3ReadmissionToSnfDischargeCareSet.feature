@@ -1,6 +1,6 @@
 Feature: Patient status on Readmission Discharges Work List
 
-  Scenario Outline:  
+  Scenario Outline: Patient with Episode status as Potential M3 with a Readmission to SNF (any care type) discharge care setting facility within last 7 days
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -38,6 +38,8 @@ Feature: Patient status on Readmission Discharges Work List
     Then I wait for 5000 milli seconds
     Then I select the facility value "Emanuel County Hospital Authority" on add a new transition
     Then I wait for 3000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 3000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -55,14 +57,6 @@ Feature: Patient status on Readmission Discharges Work List
     Then I select the "7" from the calendar from date picker on Transition Page
     Then I select the "7" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I select the facility value "Stamford Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
-    Then I click on datepicker button to select the discharge date on add a new transition
-    Then I wait for 5000 milli seconds
     Then I click on the centre of the calendar header to select discharge date and month on Transition Page
     Then I click on the previous next link to select the required year "6" on date picker
     Then I wait for 5000 milli seconds
@@ -71,6 +65,14 @@ Feature: Patient status on Readmission Discharges Work List
     Then I select the calendar date "6" from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the midnight time from the calendar from date picker on Transition Page
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on datepicker button to select the discharge date on add a new transition
+    Then I wait for 5000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 4000 milli seconds
     Then I select the Discharge care type value "Skilled Nursing" on add a new transition
@@ -90,4 +92,3 @@ Feature: Patient status on Readmission Discharges Work List
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
-    

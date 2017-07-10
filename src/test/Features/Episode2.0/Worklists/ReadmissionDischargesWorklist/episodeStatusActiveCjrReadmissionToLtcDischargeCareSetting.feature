@@ -1,6 +1,6 @@
 Feature: Patient status on Readmission Discharges Work List
 
-  Scenario Outline: Patient with Episode status as Active through CJR with a Readmission with discharge care setting facility SNF (any care type) within last 7 days
+  Scenario Outline: Patient with Episode status as Pend Cancellation through CJR with a Readmission with discharge care setting facility SNF (any care type) within last 7 days
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -20,6 +20,24 @@ Feature: Patient status on Readmission Discharges Work List
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I wait for 7000 milli seconds
+     Then I click on the Transitions tab on the Patient Summary Page
+    And I wait for 25000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    Then I wait for 15000 milli seconds
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait for 10000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
@@ -64,11 +82,11 @@ Feature: Patient status on Readmission Discharges Work List
     Then I click on datepicker button to select the discharge date on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the centre of the calendar header to select discharge date and month on Transition Page
-    Then I click on the previous next link to select the required year "6" on date picker
+    Then I click on the previous next link to select the required year "5" on date picker
     Then I wait for 5000 milli seconds
-    Then I select the month "6" from calendar from date picker on Discharge
+    Then I select the month "5" from calendar from date picker on Discharge
     Then I wait for 5000 milli seconds
-    Then I select the calendar date "6" from the calendar from date picker on Transition Page
+    Then I select the calendar date "5" from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the midnight time from the calendar from date picker on Transition Page
     Then I select the Discharge care setting value "LTC - Long-Term Care Hospital" on add a new transition
