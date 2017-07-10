@@ -31,7 +31,7 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table
-    Then I should verify "DOB (Key)" is appearing under Episodes table
+    #Then I should verify "DOB (Key)" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table
