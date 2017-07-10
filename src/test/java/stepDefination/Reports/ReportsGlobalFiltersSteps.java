@@ -185,4 +185,39 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_click_on_hide_summary_button_to_unhide_the_available_global_filters()throws Throwable{
 		globalfilters.iClickOnSummaryButtonUnderGlobalFilter();
 	}
+	
+	@Then("^I click on ([^\"]*) checkbox under payer for global filters$")
+	public void i_click_on_checkbox_under_payer_for_global_filters(String text)throws Throwable{
+		globalfilters.iClickOnCheckboxForPayerGlobalFilters(text);
+	}
+	
+	@And("^I verify ([^\"]*) is appearing under applied payer on global filters$")
+	public void i_verify_is_appearing_under_applied_payer_on_global_filters(String text)throws Throwable{
+		globalfilters.iShouldSeeUnderPayerAppliedFilterOfGlobalFilter("Payer: "+text);
+	}
+	
+	@Then("^I verify payer filter is selected with ([^\"]*) under selected filters$")
+	public void i_verify_payer_filter_is_selected_with_under_selected_filters(String payer)throws Throwable{
+		globalfilters.iVerifyPayerAppearingInSelectedFilter("Payer includes "+payer);
+	}
+	
+	@When("^I click on cross mark beside the selected payer filter with ([^\"]*)$")
+	public void i_click_on_cross_mark_beside_the_selected_payer_filter_with(String payer)throws Throwable{
+		globalfilters.iClickOnCrossMarkForSelectedPayerFilter(payer);
+	}
+	
+	@Then("^I see ([^\"]*) appearing under payer filter of global filters$")
+	public void i_see_payer_name_appearing_under_participant_filter_of_global_filters(String text)throws Throwable{
+		globalfilters.iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(text);
+	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in payer dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_payer_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyPayerUnderFilterOptions(text);
+	}
+	
+	@Then("^I should see ([^\"]*) is applied under filter options in participant dropdown under program overview report$")
+	public void i_should_see_is_applied_under_filter_options_in_participant_dropdown_under_program_overview_report(String text) throws Throwable{
+		globalfilters.iVerifyParticipantUnderFilterOptions(text);
+	}
 }
