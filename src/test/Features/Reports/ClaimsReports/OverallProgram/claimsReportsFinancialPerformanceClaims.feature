@@ -11,7 +11,7 @@ Scenario Outline: User should be able to see Measures,Levels and Preselected Fil
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Overall Program"
     Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     
     When I click on show all filters icon button
@@ -99,6 +99,10 @@ Scenario Outline: User should be able to see Measures,Levels and Preselected Fil
         
     Examples:
     
-      | email                         | participant | BPID1   |
-      | shutestaug231132a@yopmail.com | Penn        | 2070-021|
-      | shutest467Jul20@yopmail.com   | Hackensack  | 2070-005|   
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |

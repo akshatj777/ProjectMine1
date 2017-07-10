@@ -1,7 +1,7 @@
 @sanity
 Feature: Inpatient Episode Clearing Patient ID
 
-Scenario Outline: Verify that Inpatient Episode Clearing report display data based on provisioning
+Scenario Outline: Verify that Inpatient Episode Clearing report display data based on provisioning for Medicare payer users
     
     Given I am on the login page
     When I enter email field <email> for login

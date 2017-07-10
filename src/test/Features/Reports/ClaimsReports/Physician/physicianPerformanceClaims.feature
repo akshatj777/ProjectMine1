@@ -10,15 +10,20 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on show all filters icon button
     And I wait for 1000 milli seconds
     Then I verify "Bundle Risk" filter is preselected under the filter
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to see default measures for performance claims report under physician
     Given I am on the login page
@@ -30,7 +35,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on field-panel-icon button
     And I wait for 1000 milli seconds
@@ -57,8 +62,13 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Then I should see "SNF Days" under "measures" field
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to see levels fields for performance claims report under physician
     Given I am on the login page
@@ -70,7 +80,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on field-panel-icon button
     And I wait for 1000 milli seconds
@@ -142,8 +152,13 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Then I should see "SNF Network Tier" appearing under "level" field
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to remove the default filters for performance claims report under physician
     Given I am on the login page
@@ -162,6 +177,11 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
     
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
       

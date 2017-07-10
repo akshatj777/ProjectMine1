@@ -1,7 +1,7 @@
 @sanity
 Feature: Nsoc next site of care summary
 
-  Scenario Outline: Verify that Next site of care summary report display data based on provisioning
+  Scenario Outline: Verify that Next site of care summary report display data based on provisioning for Medicare payer users
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

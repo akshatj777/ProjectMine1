@@ -1,6 +1,6 @@
 Feature: Ctool Reports Export to PNG,CSV and XLS
 
-Scenario Outline: User should click on export Episodes graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export Episodes graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -54,10 +54,14 @@ Scenario Outline: User should click on export Episodes graphs for RPFIN and OPSF
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should click on export NPRA graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export NPRA graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -111,10 +115,14 @@ Scenario Outline: User should click on export NPRA graphs for RPFIN and OPSFIN R
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should click on export SNF graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export SNF graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -169,10 +177,14 @@ Scenario Outline: User should click on export SNF graphs for RPFIN and OPSFIN Ro
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
 
-Scenario Outline: User should click on export Long Term Acute Care graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export Long Term Acute Care graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -226,10 +238,14 @@ Scenario Outline: User should click on export Long Term Acute Care graphs for RP
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
- Scenario Outline: User should click on export Inpatient Rehab graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+ Scenario Outline: User should click on export Inpatient Rehab graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -284,10 +300,14 @@ Scenario Outline: User should click on export Long Term Acute Care graphs for RP
      Examples:
      
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should click on export Home Health graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export Home Health graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -344,10 +364,14 @@ Scenario Outline: User should click on export Home Health graphs for RPFIN and O
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should click on export Home graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export Home graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -405,10 +429,14 @@ Scenario Outline: User should click on export Home graphs for RPFIN and OPSFIN R
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
      
-Scenario Outline: User should click on export Other graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export Other graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -465,10 +493,14 @@ Scenario Outline: User should click on export Other graphs for RPFIN and OPSFIN 
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should click on export Initial SNF Length of Stay graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export Initial SNF Length of Stay graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -526,10 +558,14 @@ Scenario Outline: User should click on export Initial SNF Length of Stay graphs 
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
       
-Scenario Outline: User should click on export SNF Days graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on export SNF Days graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -587,5 +623,9 @@ Scenario Outline: User should click on export SNF Days graphs for RPFIN and OPSF
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |

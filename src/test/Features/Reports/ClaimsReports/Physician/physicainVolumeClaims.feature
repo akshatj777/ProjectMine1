@@ -10,15 +10,20 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on show all filters icon button
     And I wait for 1000 milli seconds
     Then I verify "Bundle Risk" filter is preselected under the filter
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to see default measures for volume claims report under physician
     Given I am on the login page
@@ -30,7 +35,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on field-panel-icon button
     And I wait for 1000 milli seconds
@@ -39,8 +44,13 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I should see "Episodes (Eps)" under "measures" field
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to see levels fields for volume claims report under physician
     Given I am on the login page
@@ -52,7 +62,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on field-panel-icon button
     And I wait for 1000 milli seconds
@@ -124,8 +134,13 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I should see "SNF Network Tier" appearing under "level" field
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
 
   Scenario Outline: User should be able to remove the default filters for volume claims report under physician
     Given I am on the login page
@@ -137,12 +152,17 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     When I switch to reports embedded iframe
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |

@@ -43,5 +43,8 @@ Given I am on the login page
     
     Examples:
     
-      | email                         | Menu 1      |
-      | shutestaug231132a@yopmail.com | Patient ID  |
+      | email                              | Menu 1     |
+      #| Medicare Payer Users| 
+      | shutestaug231132a@yopmail.com      | Patient ID |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Patient ID |
