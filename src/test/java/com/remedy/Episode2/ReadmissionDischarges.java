@@ -1,7 +1,9 @@
 package com.remedy.Episode2;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -25,6 +27,22 @@ public class ReadmissionDischarges extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
 		
 	}
+
+	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRGnoJavaScript() {
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+
+//		WebElement element = driver
+	//			.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)"));
+	//	js.executeScript("arguments[0].click();", element);
+		clickElement(driver
+				.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)")));
+
+		
+	}
+
+	public void IclickonInpatientCaresubtabonthepatientCardPage() {
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient Care')]")));
+			}
 
 	}
 
