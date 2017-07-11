@@ -28,11 +28,18 @@ public class UserAdminEdit extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']")));
 	}
 	
+	public void i_Wait_For_Popup_To_Remove_Mountainside_Hospital_Under_Permission_Field(){
+		isElementVisible(driver.findElement(By.xpath("//div[label[text()='Mountainside Hospital']]//div[@title='Warning']")));
+	}
+		
 	public void i_Clicked_On_Remove_Button_Appearing_On_Popup(){
 		clickElement(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']/div/div[2]/button[2]")));
 	} 
-
-	 
+	
+	public void i_Clicked_On_Remove_Button_Appearing_On_Popup_For_Mountainside_Hospital(){
+		clickElement(driver.findElement(By.xpath("//div[label[text()='Mountainside Hospital']]//button[2]")));
+	}
+ 
 	public void iClickOnTheUsernameCardUnderUserAdminPage() {
 		clickElement(driver.findElement(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)")));
 	}
@@ -59,7 +66,6 @@ public class UserAdminEdit extends BaseClass {
 
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() {
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
-//		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
 	}
 
 	public void i_Verify_The_User_Role_Again() {
@@ -122,6 +128,10 @@ public class UserAdminEdit extends BaseClass {
 	public void i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name() {
 		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
 	}
+	
+	public void i_Clicked_On_Mountainside_Hospital_From_Dropdown_List_Of_Health_System_Name(){
+		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
+	}
 
 	public void i_Clicked_On_Search_Field_Under_Provider_Name() {
 		clickElement(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")));
@@ -165,6 +175,10 @@ public class UserAdminEdit extends BaseClass {
 	
 	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField(){
 		clickElement(driver.findElement(By.xpath("(//div/small)[2]")));
+	}
+	
+	public void iClickedOnRemoveButtonOfMountainsideHospitalRowUnderPermissionField(){
+		clickElement(driver.findElement(By.xpath("//div[label[text()='Mountainside Hospital']]//small[@class='pull-right']")));
 	}
 	
 	public void iWaitForPopupToRemoveRPPayerTestAUnderPermissionField(){

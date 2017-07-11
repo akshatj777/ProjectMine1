@@ -56,21 +56,21 @@ Feature: User admin edit users details
     And I wait for 6000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         | Role2                         |
-      | Automanager1           | Executive                     | Manager                       |
-      | Autoexecutive1         | Manager                       | Executive                     |
-      | Autoremedytcs1         | Remedy LPN                    | Remedy TCS                    |
-      | Autoremedylpn1         | Remedy TCS                    | Remedy LPN                    |
-      | Autoremedyrn1          | Remedy Field RN               | Remedy RN                     |
-      | Autoremedyfieldrn1     | Remedy RN                     | Remedy Field RN               |
-      | Autoremedypm1          | Remedy Sales Team             | Remedy PM                     |
-      | Autoremedysalesteam1   | Remedy PM                     | Remedy Sales Team             |
-      | AutoPPartnerexecutive1 | Remedy Executive              | Prospective Partner Executive |
-      | Autoremedyother1       | Partner Program Administrator | Remedy Other                  |
-      | AutotcaseManager1      | Remedy Program Administrator  | Transitional Case Manager     |
-      | Autoremedyexecutive1   | Prospective Partner Executive | Remedy Executive              |
-      | AutoPProgramadmin1     | Remedy Other                  | Partner Program Administrator |
-      | Autorpadmin1           | Transitional Case Manager     | Remedy Program Administrator  |
+      | Search                 | Role1                         |
+      | Automanager1           | Executive                     |
+      | Autoexecutive1         | Manager                       |
+      | Autoremedytcs1         | Remedy LPN                    |
+      | Autoremedylpn1         | Remedy TCS                    |
+      | Autoremedyrn1          | Remedy Field RN               |
+      | Autoremedyfieldrn1     | Remedy RN                     |
+      | Autoremedypm1          | Remedy Sales Team             |
+      | Autoremedysalesteam1   | Remedy PM                     |
+      | AutoPPartnerexecutive1 | Remedy Executive              |
+      | Autoremedyother1       | Partner Program Administrator |
+      | AutotcaseManager1      | Remedy Program Administrator  |
+      | Autoremedyexecutive1   | Prospective Partner Executive |
+      | AutoPProgramadmin1     | Remedy Other                  |
+      | Autorpadmin1           | Transitional Case Manager     |
 
   Scenario Outline: Super admin edit users back to its previous state
     Given I am on the login page
@@ -121,21 +121,21 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         | Role2                         |
-      | Automanager1           | Executive                     | Manager                       |
-      | Autoexecutive1         | Manager                       | Executive                     |
-      | Autoremedytcs1         | Remedy LPN                    | Remedy TCS                    |
-      | Autoremedylpn1         | Remedy TCS                    | Remedy LPN                    |
-      | Autoremedyrn1          | Remedy Field RN               | Remedy RN                     |
-      | Autoremedyfieldrn1     | Remedy RN                     | Remedy Field RN               |
-      | Autoremedypm1          | Remedy Sales Team             | Remedy PM                     |
-      | Autoremedysalesteam1   | Remedy PM                     | Remedy Sales Team             |
-      | AutoPPartnerexecutive1 | Remedy Executive              | Prospective Partner Executive |
-      | Autoremedyother1       | Partner Program Administrator | Remedy Other                  |
-      | AutotcaseManager1      | Remedy Program Administrator  | Transitional Case Manager     |
-      | Autoremedyexecutive1   | Prospective Partner Executive | Remedy Executive              |
-      | AutoPProgramadmin1     | Remedy Other                  | Partner Program Administrator |
-      | Autorpadmin1           | Transitional Case Manager     | Remedy Program Administrator  |
+      | Search                 |Role2                         |
+      | Automanager1           |Manager                       |
+      | Autoexecutive1         |Executive                     |
+      | Autoremedytcs1         |Remedy TCS                    |
+      | Autoremedylpn1         |Remedy LPN                    |
+      | Autoremedyrn1          |Remedy RN                     |
+      | Autoremedyfieldrn1     |Remedy Field RN               |
+      | Autoremedypm1          |Remedy PM                     |
+      | Autoremedysalesteam1   |Remedy Sales Team             |
+      | AutoPPartnerexecutive1 |Prospective Partner Executive |
+      | Autoremedyother1       |Remedy Other                  |
+      | AutotcaseManager1      |Transitional Case Manager     |
+      | Autoremedyexecutive1   |Remedy Executive              |
+      | AutoPProgramadmin1     |Partner Program Administrator |
+      | Autorpadmin1           |Remedy Program Administrator  |
 
   Scenario Outline: Remedy Technical Administrator edit users to different role
     Given I am on the login page
@@ -197,21 +197,21 @@ Feature: User admin edit users details
     And I wait for 6000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         | Role2                         |
-      | Automanager1           | Executive                     | Manager                       |
-      | Autoexecutive1         | Manager                       | Executive                     |
-      | Autoremedytcs1         | Remedy LPN                    | Remedy TCS                    |
-      | Autoremedylpn1         | Remedy TCS                    | Remedy LPN                    |
-      | Autoremedyrn1          | Remedy Field RN               | Remedy RN                     |
-      | Autoremedyfieldrn1     | Remedy RN                     | Remedy Field RN               |
-      | Autoremedypm1          | Remedy Sales Team             | Remedy PM                     |
-      | Autoremedysalesteam1   | Remedy PM                     | Remedy Sales Team             |
-      | AutoPPartnerexecutive1 | Remedy Executive              | Prospective Partner Executive |
-      | Autoremedyother1       | Partner Program Administrator | Remedy Other                  |
-      | AutotcaseManager1      | Remedy Program Administrator  | Transitional Case Manager     |
-      | Autoremedyexecutive1   | Prospective Partner Executive | Remedy Executive              |
-      | Autorpadmin1           | Transitional Case Manager     | Remedy Program Administrator  |
-      | AutoPProgramadmin1     | Remedy Other                  | Partner Program Administrator |
+      | Search                 | Role1                         |
+      | Automanager1           | Executive                     |
+      | Autoexecutive1         | Manager                       |
+      | Autoremedytcs1         | Remedy LPN                    |
+      | Autoremedylpn1         | Remedy TCS                    |
+      | Autoremedyrn1          | Remedy Field RN               |
+      | Autoremedyfieldrn1     | Remedy RN                     |
+      | Autoremedypm1          | Remedy Sales Team             |
+      | Autoremedysalesteam1   | Remedy PM                     |
+      | AutoPPartnerexecutive1 | Remedy Executive              |
+      | Autoremedyother1       | Partner Program Administrator |
+      | AutotcaseManager1      | Remedy Program Administrator  |
+      | Autoremedyexecutive1   | Prospective Partner Executive |
+      | Autorpadmin1           | Transitional Case Manager     |
+      | AutoPProgramadmin1     | Remedy Other                  |
 
   Scenario Outline: Remedy Technical Admin edit users back to its previous state
     Given I am on the login page
@@ -265,21 +265,21 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         | Role2                         |
-      | Automanager1           | Executive                     | Manager                       |
-      | Autoexecutive1         | Manager                       | Executive                     |
-      | Autoremedytcs1         | Remedy LPN                    | Remedy TCS                    |
-      | Autoremedylpn1         | Remedy TCS                    | Remedy LPN                    |
-      | Autoremedyrn1          | Remedy Field RN               | Remedy RN                     |
-      | Autoremedyfieldrn1     | Remedy RN                     | Remedy Field RN               |
-      | Autoremedypm1          | Remedy Sales Team             | Remedy PM                     |
-      | Autoremedysalesteam1   | Remedy PM                     | Remedy Sales Team             |
-      | AutoPPartnerexecutive1 | Remedy Executive              | Prospective Partner Executive |
-      | Autoremedyother1       | Partner Program Administrator | Remedy Other                  |
-      | AutotcaseManager1      | Remedy Program Administrator  | Transitional Case Manager     |
-      | Autoremedyexecutive1   | Prospective Partner Executive | Remedy Executive              |
-      | Autorpadmin1           | Transitional Case Manager     | Remedy Program Administrator  |
-      | AutoPProgramadmin1     | Remedy Other                  | Partner Program Administrator |
+      | Search                 |Role2                         |
+      | Automanager1           |Manager                       |
+      | Autoexecutive1         |Executive                     |
+      | Autoremedytcs1         |Remedy TCS                    |
+      | Autoremedylpn1         |Remedy LPN                    |
+      | Autoremedyrn1          |Remedy RN                     |
+      | Autoremedyfieldrn1     |Remedy Field RN               |
+      | Autoremedypm1          |Remedy PM                     |
+      | Autoremedysalesteam1   |Remedy Sales Team             |
+      | AutoPPartnerexecutive1 |Prospective Partner Executive |
+      | Autoremedyother1       |Remedy Other                  |
+      | AutotcaseManager1      |Transitional Case Manager     |
+      | Autoremedyexecutive1   |Remedy Executive              |
+      | Autorpadmin1           |Remedy Program Administrator  |
+      | AutoPProgramadmin1     |Partner Program Administrator |
 
   Scenario Outline: Partner Technical Administrator edit users to different role
     Given I am on the login page
@@ -341,12 +341,12 @@ Feature: User admin edit users details
     And I wait for 6000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         | Role2                         |
-      | Automanager1           | Executive                     | Manager                       |
-      | Autoexecutive1         | Manager                       | Executive                     |
-      | AutoPPartnerexecutive1 | Partner Program Administrator | Prospective Partner Executive |
-      | AutoPProgramadmin1     | Prospective Partner Executive | Partner Program Administrator |
-      | AutotcaseManager1      | Case Manager                  | Transitional Case Manager     |
+      | Search                 | Role1                         |
+      | Automanager1           | Executive                     |
+      | Autoexecutive1         | Manager                       |
+      | AutoPPartnerexecutive1 | Partner Program Administrator |
+      | AutoPProgramadmin1     | Prospective Partner Executive |
+      | AutotcaseManager1      | Case Manager                  |
 
   Scenario Outline: Partner Technical Administrator edit users back to its previous state
     Given I am on the login page
@@ -400,9 +400,9 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         | Role2                         |
-      | Automanager1           | Executive                     | Manager                       |
-      | Autoexecutive1         | Manager                       | Executive                     |
-      | AutoPPartnerexecutive1 | Partner Program Administrator | Prospective Partner Executive |
-      | AutoPProgramadmin1     | Prospective Partner Executive | Partner Program Administrator |
-      | AutotcaseManager1      | Case Manager                  | Transitional Case Manager     |
+      | Search                 |Role2                         |
+      | Automanager1           |Manager                       |
+      | Autoexecutive1         |Executive                     |
+      | AutoPPartnerexecutive1 |Prospective Partner Executive |
+      | AutoPProgramadmin1     |Partner Program Administrator |
+      | AutotcaseManager1      |Transitional Case Manager     |
