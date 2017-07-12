@@ -85,7 +85,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 7000 milli seconds
     Then I select the care type value "<Care Type>" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 5000 milli seconds
     Then I select the "<DRG type>" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "65" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -191,7 +191,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 7000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 7000 milli seconds
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition

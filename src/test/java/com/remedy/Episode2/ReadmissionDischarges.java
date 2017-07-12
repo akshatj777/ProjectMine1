@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
+import cucumber.api.java.en.Then;
+
 public class ReadmissionDischarges extends BaseClass {
 	public ReadmissionDischarges(WebDriver driver) {
 		super(driver);
@@ -35,7 +37,7 @@ public class ReadmissionDischarges extends BaseClass {
 	//			.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)"));
 	//	js.executeScript("arguments[0].click();", element);
 		clickElement(driver
-				.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)")));
+				.findElement(By.xpath("//a[contains(text(),'Diagnosis and DRG')]")));
 
 		
 	}
@@ -43,6 +45,11 @@ public class ReadmissionDischarges extends BaseClass {
 	public void IclickonInpatientCaresubtabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient Care')]")));
 			}
+
+	public void IclickonthePostAcuteOnboardingtabonthepatientCardPage() {
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post-Acute Onboarding')]")));
+		
+	}
 
 	}
 
