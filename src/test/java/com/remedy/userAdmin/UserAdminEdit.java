@@ -71,7 +71,7 @@ public class UserAdminEdit extends BaseClass {
 	public void i_Verify_The_User_Role_Again() {
 		isElementVisible(driver.findElement(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]")));
 	}
-
+	
 	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page() {
 		getElementCount(".checkbox.checkbox-single.ng-not-empty.ng-valid");
 	}
@@ -96,10 +96,10 @@ public class UserAdminEdit extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@name='phone']")), Text);
 	}
 
-	public void i_Clicked_On_Save_Button_Under_Edit_User_Phone_Tab() {
+	public void i_Clicked_On_Save_Button_Under_Edit_User_Phone_Tab(){
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[5]")));
 	}
-
+	
 	public void i_Verify_The_Permissions_Field() {
 		isElementPresentOnPage(By.xpath("//div[@class='layout-area']"));
 	}
