@@ -68,7 +68,7 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iVerifyTheSecondPayerFieldAddedUnderPermissionsSection(){
-    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test B']")));
+    	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test A']")));
     }
 
     public void iEnterNPI(String text){
@@ -230,13 +230,13 @@ public class CreateUserPage extends BaseClass{
    
    public void iCheckAllProviderForTheHealthSystem() {
    	delay();
-       clickElement(driver.findElement(By.cssSelector(".checkbox")));
+       clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
    }	
 
     public void iCheckTheProviderForTheHealthSystem(String facility,String provider) {
     	delay();
     	if(provider.contains("*")){
-        clickElement(driver.findElement(By.cssSelector(".checkbox")));
+        clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
     	}
     	else {
     	clickElement(driver.findElement(By.xpath("//span[(contains(@ng-bind,'providerName')) and text()='"+facility+"']")));	
@@ -261,14 +261,19 @@ public class CreateUserPage extends BaseClass{
 	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
    }
    
-   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text) throws InterruptedException{
-	   if(driver.findElements(By.xpath("//div[@class='title']/p[text()='"+text+"']")).contains(text)){
-			  clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
-			   Thread.sleep(6000);
-			   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
-	  	}else{
-	  		return;
-	  	}
+   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text, String payer){
+	   if((text.isEmpty()!=true) && ((payer.equals("Medicare")))){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
+		   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
+		   driver.navigate().back();
+	   }else if((text.isEmpty()!=true) && ((payer.equals("Emblem Health")))){
+		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+		   delay();
+		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
+		   driver.navigate().back();
+	   }
    }
   
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
@@ -319,7 +324,6 @@ public class CreateUserPage extends BaseClass{
     }
    
    public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text){
-	   
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
@@ -338,8 +342,7 @@ public class CreateUserPage extends BaseClass{
 		   driver.navigate().back(); 
 	   }
    }
-   
-   
+    
    public void iClickOnInternalSupportOptionFromDropdownUnderSpecificUserLoginPage(String text){
 	   clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
 	   if(text.isEmpty()!=true){
@@ -347,6 +350,8 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
+		   delay();
+		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   switchBacktoOldWindow(); 
    	}
    }
@@ -356,16 +361,16 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
+		   delay();
+		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
+		   delay();
+		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  
    }
    
    public void iNavigateBackToSpecificUserLoginPage(){
 	   driver.navigate().back();
-   }
-   
-   public void iVerifyThePrductTileForTheSelectedUserRole(){
-	   getTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span");
    }
    
    public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String role) {
@@ -499,11 +504,9 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
 	   delay();
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'ROLE_ADMIN')]")));
-	   
    }
    
    public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage(){
 	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
    }
-   
 }

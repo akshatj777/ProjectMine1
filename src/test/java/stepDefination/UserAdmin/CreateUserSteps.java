@@ -265,9 +265,9 @@ public class CreateUserSteps extends DriverScript{
     	createUser.iVerifyTheHeaderAfterClickingTheEpisodesTile();
     }
     
-    @And("^I click on Episodes two tile under specific user login page ([^\"]*)$")
-    public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String tile) throws Throwable{
-    	createUser.iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(tile);
+    @And("^I click on Episodes two tile under specific user login page ([^\"]*) with payer ([^\"]*)$")
+    public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String tile, String payer) throws Throwable{
+    	createUser.iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(tile, payer);
     }
     
     @And("^I Verify the header after clicking the episodes 2 tile$")
@@ -319,11 +319,6 @@ public class CreateUserSteps extends DriverScript{
     @And("^I navigate back to specific user login page$")
     public void iNavigateBackToSpecificUserLoginPage() throws Throwable{
     	createUser.iNavigateBackToSpecificUserLoginPage();
-    }
-    
-    @Then("^I verify the Product tile for selected user role$")
-    public void i_Verify_The_Product_Tile_For_The_Selected_UserRole() throws Throwable {
-    	createUser.iVerifyThePrductTileForTheSelectedUserRole();
     }
     
     @Then("^I verify the Internal Support tile for selected user role ([^\"]*)$")

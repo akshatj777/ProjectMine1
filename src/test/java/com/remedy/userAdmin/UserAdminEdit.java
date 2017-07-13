@@ -3,6 +3,7 @@ package com.remedy.userAdmin;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,11 +28,18 @@ public class UserAdminEdit extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']")));
 	}
 	
+	public void i_Wait_For_Popup_To_Remove_Mountainside_Hospital_Under_Permission_Field(){
+		isElementVisible(driver.findElement(By.xpath("//div[label[text()='Mountainside Hospital']]//div[@title='Warning']")));
+	}
+		
 	public void i_Clicked_On_Remove_Button_Appearing_On_Popup(){
 		clickElement(driver.findElement(By.xpath("//ul/li[1]/div/div/div/div[@group-close='remove-participant']/div/div[2]/button[2]")));
 	} 
-
-	 
+	
+	public void i_Clicked_On_Remove_Button_Appearing_On_Popup_For_Mountainside_Hospital(){
+		clickElement(driver.findElement(By.xpath("//div[label[text()='Mountainside Hospital']]//button[2]")));
+	}
+ 
 	public void iClickOnTheUsernameCardUnderUserAdminPage() {
 		clickElement(driver.findElement(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)")));
 	}
@@ -63,7 +71,7 @@ public class UserAdminEdit extends BaseClass {
 	public void i_Verify_The_User_Role_Again() {
 		isElementVisible(driver.findElement(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]")));
 	}
-
+	
 	public void i_Verify_Product_Tiles_Appear_For_User_Under_User_Edit_Details_Page() {
 		getElementCount(".checkbox.checkbox-single.ng-not-empty.ng-valid");
 	}
@@ -73,7 +81,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Edit_Button_Under_User_Phone_Row() {
-		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[4]")));
+		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[5]")));
 	}
 
 	public void i_Clicked_On_Phone_Tab_To_Edit_The_User_Phone_number() {
@@ -88,10 +96,10 @@ public class UserAdminEdit extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@name='phone']")), Text);
 	}
 
-	public void i_Clicked_On_Save_Button_Under_Edit_User_Phone_Tab() {
-		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[4]")));
+	public void i_Clicked_On_Save_Button_Under_Edit_User_Phone_Tab(){
+		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[5]")));
 	}
-
+	
 	public void i_Verify_The_Permissions_Field() {
 		isElementPresentOnPage(By.xpath("//div[@class='layout-area']"));
 	}
@@ -102,7 +110,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Payer_Field_To_Edit_The_Payer() {
-		clickElement(driver.findElement(By.xpath("//form/div[1]/div[1]/div/div/div[1]/div[1]/span")));
+		clickElement(driver.findElement(By.xpath("//div[@name='payer']")));
 	}
 
 	public void i_Enter_Text_Under_Payer_Field(String Text) {
@@ -120,17 +128,21 @@ public class UserAdminEdit extends BaseClass {
 	public void i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name() {
 		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
 	}
+	
+	public void i_Clicked_On_Mountainside_Hospital_From_Dropdown_List_Of_Health_System_Name(){
+		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
+	}
 
 	public void i_Clicked_On_Search_Field_Under_Provider_Name() {
-		clickElement(driver.findElement(By.xpath("(//input[@placeholder='Search'])[2]")));
+		clickElement(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")));
 	}
 
 	public void i_Enter_On_Search_Field_Under_Provider_Name(String Text) {
-		iFillInText(driver.findElement(By.xpath("(//input[@placeholder='Search'])[2]")), Text);
+		iFillInText(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")), Text);
 	}
 
 	public void i_Clicked_On_Select_All_Facilities_Under_Provider_Name() {
-		clickElement(driver.findElement(By.cssSelector(".checkbox")));
+		clickElement(driver.findElement(By.xpath("(//label[@for='select-all-checkbox'])[2]")));
 	}
 
 	public void i_Clicked_On_Save_Button_Under_Permissions_Data_Field() {
@@ -145,35 +157,6 @@ public class UserAdminEdit extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//a/span")));
 	}
 
-	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws InterruptedException {
-		getElementCount("products-list > ul > li > span");
-		List<String> myclass = new ArrayList<>();
-		List<String> myclass1 = new ArrayList<>();
-		List<WebElement> listelements1 = getElementsList("products-list > ul > li > i");
-		System.out.println("$$$$$The list of toggle button" + listelements1);
-		List<WebElement> listelements = getElementsList("products-list > ul > li > div > label > input");
-		List<WebElement> listelements2 = getElementsList(".checkbox-switch");
-		for (int i = 0; i < listelements.size(); i++) {
-			listelements.get(i).getAttribute("class");
-			listelements1.get(i).getAttribute("class");
-			myclass.add(listelements.get(i).getAttribute("class"));
-			myclass1.add(listelements1.get(i).getAttribute("class"));
-		}
-		for (int i = 0; i < listelements.size(); i++){
-			if (myclass1.get(i).equals("spoe-menu valentino-icon-share-file")){
-				if (myclass.get(i).equals("ng-pristine ng-untouched ng-valid ng-not-empty")){
-					Thread.sleep(7000);
-					driver.findElement(By.cssSelector("li.product-item:nth-child(6) > div:nth-child(3) > label:nth-child(1) > span:nth-child(2)")).click();
-					System.out.println("Now on to off");
-				} else {
-					System.out.println("No need to click ! The Toggle button is already off !!!!!");
-				}
-			} else{
-				System.out.println("Share File not present");
-			}
-		}
-	}
-	
 	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
 		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
 	}
@@ -191,7 +174,11 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField(){
-		clickElement(driver.findElement(By.xpath("//form/div[2]/ul/li[2]/div/div/div/small")));
+		clickElement(driver.findElement(By.xpath("(//div/small)[2]")));
+	}
+	
+	public void iClickedOnRemoveButtonOfMountainsideHospitalRowUnderPermissionField(){
+		clickElement(driver.findElement(By.xpath("//div[label[text()='Mountainside Hospital']]//small[@class='pull-right']")));
 	}
 	
 	public void iWaitForPopupToRemoveRPPayerTestAUnderPermissionField(){
