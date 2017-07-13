@@ -23,13 +23,13 @@ Scenario Outline: Patient has an episode status other than Active or Pending Can
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
- #   Then I click on the Transition Info on add a new transition
+   Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "92" on date picker
-    Then I select the month "92" from calendar from date picker
-    Then I select the "92" from the calendar from date picker on Transition Page
-    Then I select the "92" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "96" on date picker
+    Then I select the month "96" from calendar from date picker
+    Then I select the "96" from the calendar from date picker on Transition Page
+    Then I select the "96" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -37,7 +37,7 @@ Scenario Outline: Patient has an episode status other than Active or Pending Can
     Then I wait for 5000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 8000 milli seconds
-    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I select the "3" LOS days on Discharge date on Add Transition
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "IRF - Inpatient Rehabilitation" on add a new transition
     Then I wait for 4000 milli seconds

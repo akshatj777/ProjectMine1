@@ -31,7 +31,7 @@ Feature: Patient Status on readmission to an ACH M3 Facility with HHH-I
     And I selected "Male" from the gender drop down list present on the Add Patient page
     When I click on Admitting Facility present on the Add Patient page
     And I wait for 2000 milli seconds
-    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    Then I Select "Coosa valley health care" from admitting facility list present on the Add Patient page
     And I wait for 4000 milli seconds
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
@@ -48,53 +48,62 @@ Feature: Patient Status on readmission to an ACH M3 Facility with HHH-I
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 60000 milli seconds
+    And I wait for 30000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 45000 milli seconds
-    Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 10000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<days1>" on date picker
-    Then I select the month "<days1>" from calendar from date picker
-    Then I select the "<days1>" from the calendar from date picker on Transition Page
-    Then I select the "<days1>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "10" on date picker
+    Then I select the month "10" from calendar from date picker
+    Then I select the "10" from the calendar from date picker on Transition Page
+    Then I select the "10" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "<CareSettingValue>" on add a new transition
+    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "<facility value>" on add a new transition
-    Then I wait for 8000 milli seconds
+    Then I select the care setting value "SNF - Skilled Nursing Facility" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Skilled Nursing" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Coosa valley health care" on add a new transition
+    Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
-    Then I select the "<DRG type>" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "<DRG>" DRG on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 15000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "<days2>" on date picker
-    Then I select the month "<days2>" from calendar from date picker
-    Then I select the "<days2>" from the calendar from date picker on Transition Page
-    Then I select the "<days2>" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "7" on date picker
+    Then I select the month "7" from calendar from date picker
+    Then I select the "7" from the calendar from date picker on Transition Page
+    Then I select the "7" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
-    Then I select the care setting value "<CareSettingValue1>" on add a new transition
+    Then I click on datepicker button to select the discharge date on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the care type value "<Care type1>" on add a new transition
+    Then I click on the centre of the calendar header to select discharge date and month on Transition Page
+    Then I click on the previous next link to select the required year "6" on date picker
+    Then I select the month "6" from calendar from date picker on Discharge
+    Then I select the calendar date "6" from the calendar from date picker on Transition Page
+    Then I select the midnight time from the calendar from date picker on Transition Page
+    Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I select the facility value "<facility value1>" on add a new transition
-    Then I wait for 8000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
-    Then I wait for 8000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I wait for 5000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I click on the Impatient tab on the patient Card Page
@@ -102,20 +111,10 @@ Feature: Patient Status on readmission to an ACH M3 Facility with HHH-I
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page
     Then I wait for 5000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
     Then I wait for 5000 milli seconds
-    Then I click on the ALL Tab on Patient page
-    And I wait for 8000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 30000 milli seconds
-    Then I click on the Transitions tab on the Patient Summary Page
-    And I wait for 25000 milli seconds
-    Then I switch to PatientTransitions frame
-    Then I click on the delete button on the transition to delete all the transitions
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name | CareSettingValue               | Care type | facility value                  | LOS | DRG type | DRG | Admitdate             | Dischargedate         | AdmitDate2            | new facility value | LOS2 | Discharge CareSettingValue | Discharge CareTypeValue | days1 | days2 | CareSettingValue1 | Care type1 | facility value1   |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       | IRF - Inpatient Rehabilitation | Inpatient | Vanderbilt Rehabilitation Cente |   3 | Working  |  63 | 1/5/2017//14:00-14:30 | 5/5/2017//14:00-14:30 | 3/5/2017//14:00-14:30 | Allentown          |    4 | EXPIRED - Expired          | Expired as Inpatient    |    20 |    16 | HHH - Hospital    | Inpatient  | Stamford Hospital |
+   Examples:
+   
+      | email                | password  | Patient First Name  | Patient Last Name  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT             |  TESTAUTOMATION    |

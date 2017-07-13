@@ -1,6 +1,6 @@
-Feature: Created Patient Note Comparision in EC1 and viewed in EC2 
+Feature: Created Patient Note Comparision in EC1 and viewed in EC2
 
-Scenario Outline: To verify Notes created in EC1 through i framing should only be accessible on EC2 care plan tab should not be seen under Clinical Documents tab .
+  Scenario Outline: To verify Notes created in EC1 through i framing should only be accessible on EC2 care plan tab should not be seen under Clinical Documents tab .
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -61,20 +61,20 @@ Scenario Outline: To verify Notes created in EC1 through i framing should only b
     Then I click on create note button
     And I wait for 15000 milli seconds
     Then I switch back to old window
-    And  I wait for 8000 milli seconds
+    And I wait for 8000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
-    And  I wait for 8000 milli seconds
+    And I wait for 8000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page 
-    And  I wait for 10000 milli seconds
+    Then I click on the ALL Tab on Patient page
+    And I wait for 10000 milli seconds
     Then I should see search box appearing on the patients page
     Then I enter "<patient last name>" in the search box on the patients page
     And I wait for 60000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
+    And I wait for 15000 milli seconds
+    
    
-    Examples:
-
+    Examples: 
       | email                | password  | patient first name | patient last name |
-      | qa.admin@yopmail.com | Episode1! |   HHHHZZZZZZ       |   KKKKYYYYYYY     |     
-
-      
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | AUTOMATETESTNOTES |
