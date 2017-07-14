@@ -138,7 +138,7 @@ Examples:
     Then I verify the image is attached or not
     Then I click on Add Files link on Note Section on Patient Card
     And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload file "Sample.docx" through Add files link
+    Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
     And I wait for 8000 milli seconds
     Then I verify the image is attached or not
     Then I verify that trash icon is available for each file after uploading all file
@@ -162,6 +162,8 @@ Examples:
     Then I verify current page "Remedy Partners" title
     Then I click on the ALL Tab on Patient page
     And  I wait for 20000 milli seconds
+    Then I click on the agree button on the Patient Card page
+    Then I wait for 10000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card

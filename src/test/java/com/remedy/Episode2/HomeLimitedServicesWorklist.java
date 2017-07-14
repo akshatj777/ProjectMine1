@@ -3,7 +3,11 @@ package com.remedy.Episode2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.remedy.baseClass.BaseClass;
 
 public class HomeLimitedServicesWorklist extends BaseClass {
@@ -56,4 +60,33 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 		WebElement element = driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
 		clickElement(element);
 	}
+
+	public void IclickonthePostAcutetabonthepatientCardPageJavaScript() {
+		
+			try {
+				WebDriverWait wait = new WebDriverWait(driver, 15);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Post Acute')]")));
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Post Acute')]"))).click();
+			} catch (WebDriverException wde) {
+				scrollToElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
+				driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")).click();
+			}
+		}
+
+		private void scrollToElement(WebElement el) {
+			if (driver instanceof JavascriptExecutor) {
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
+			}
+		}
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		WebElement element3 = driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]"));
+//		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
+//		js.executeScript("arguments[0].click();", element3);
+//		clickElement(element3);
+
+		public void Ireloadmypage() {
+			driver.navigate().refresh();
+			
+		}
+	
 }

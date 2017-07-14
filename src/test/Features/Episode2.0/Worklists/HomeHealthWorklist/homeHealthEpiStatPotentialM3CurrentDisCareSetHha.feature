@@ -78,16 +78,6 @@ Feature: Patient status on Home Health Worklist
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    Then I click on the ALL Tab on Patient page
-    And I wait for 8000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 30000 milli seconds
-    Then I click on the Transitions tab on the Patient Summary Page
-    And I wait for 25000 milli seconds
-    Then I switch to PatientTransitions frame
-    Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

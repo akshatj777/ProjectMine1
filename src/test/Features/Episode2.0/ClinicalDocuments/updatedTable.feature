@@ -13,7 +13,7 @@ Feature: Clinical Documents - Updated Table
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I should see search box appearing on the patients page
-    Then I enter "<Last name> <First name>" in the search box on the patients page
+    Then I enter "<Last name>" in the search box on the patients page
     And I wait for 20000 milli seconds
     Then I click on the "<Last name>" searched patient which has the CARL text in it
     And I wait for 20000 milli seconds

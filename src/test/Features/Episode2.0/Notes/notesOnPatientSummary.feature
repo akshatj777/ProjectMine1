@@ -12,6 +12,8 @@ Feature: Patient Notes on Patient Summary
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
     And I wait for 8000 milli seconds
+    Then I click on the agree button on the Patient Card page
+    Then I wait for 10000 milli seconds
     Then I click on the patient card on Patient Card Page
     And I wait for 10000 milli seconds
     Then I verify Patient Summary includes quick action button for note creation

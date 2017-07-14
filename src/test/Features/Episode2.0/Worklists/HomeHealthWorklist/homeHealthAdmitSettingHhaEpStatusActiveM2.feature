@@ -13,7 +13,7 @@ Feature: Patient status on Home Health Worklist
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 40000 milli seconds
+    And I wait for 10000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page

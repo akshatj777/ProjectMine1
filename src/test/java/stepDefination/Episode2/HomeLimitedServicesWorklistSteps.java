@@ -42,4 +42,15 @@ public class HomeLimitedServicesWorklistSteps extends DriverScript {
 	public void I_click_on_datepicker_button_to_select_the_admit_date()throws Throwable {
 		homeworklist.Iclickondatepickerbuttontoselecttheadmitdate();
 	}
+	@Then("^I click on the Post Acute tab on the patient Card Page JavaScript$")
+	public void I_click_on_the_Post_Acute_tab_on_the_patient_Card_Page_JavaScript() throws Throwable {
+		homeworklist.IclickonthePostAcutetabonthepatientCardPageJavaScript();
+	}
+	
+	@Then ("^I reload my page$")
+	public void I_reload_my_page()
+	{
+		homeworklist.Ireloadmypage();
+	}
+	
 }

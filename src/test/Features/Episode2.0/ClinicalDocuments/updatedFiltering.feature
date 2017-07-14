@@ -17,12 +17,12 @@ Feature: Updated Filtering
     And I wait for 8000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
+    And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
-    Then I verify that Add Files link is clickable
+    Then I click on Add Files link on Note Section on Patient Card
     And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload files "Sample.txt" from the computer through Add files link
+    Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
@@ -104,24 +104,24 @@ Feature: Updated Filtering
     Then I click on quick action button for note creation on Patient Card page
     And I wait for 5000 milli seconds
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And I select the value "Bedside Visit" from the topic drop down on  Add Clinical Document on Patient Card
+    And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
-    Then I verify that Add Files link is clickable
+    Then I click on Add Files link on Note Section on Patient Card
     And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload files "Sample.txt" from the computer through Add files link
+    Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
     Then I wait for 12000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And I select the value "Baseline" from the topic drop down on  Add Clinical Document on Patient Card
+    And  I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
     And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
-    Then I verify that Add Files link is clickable
+    Then I click on Add Files link on Note Section on Patient Card
     And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload files "Sample.txt" from the computer through Add files link
+    Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
