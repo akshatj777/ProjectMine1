@@ -58,21 +58,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
       Examples: 
-      | Search                  | Role1                         | Role2                         |
-      | MultipleManager         | Executive                     | Manager                       |
-      | MultipleExecutive       | Manager                       | Executive                     |
-      | MultipleRemedyTcs       | Remedy LPN                    | Remedy TCS                    |
-      | MultipleRemedyLpn       | Remedy TCS                    | Remedy LPN                    |
-      | MultipleRemedyRn        | Remedy Field RN               | Remedy RN                     |
-      | MultipleRemedyFieldRn   | Remedy RN                     | Remedy Field RN               |
-      | MultipleRemedyPm        | Remedy Sales Team             | Remedy PM                     |
-      | MultipleRemedySalesTeam | Remedy PM                     | Remedy Sales Team             |
-      | MultipleRemedyExecutive | Prospective Partner Executive | Remedy Executive              |
-      | MultiplePPE             | Remedy Executive              | Prospective Partner Executive |
-      | MultipleRemedyOther     | Partner Program Administrator | Remedy Other                  |
-      | MultiplePPA             | Remedy Other                  | Partner Program Administrator |
-      | MultipleRPA             | Transitional Case Manager     | Remedy Program Administrator  |
-      | MultipleTCM             | Remedy Program Administrator  | Transitional Case Manager     |
+      | Search                  | Role1                         |
+      | MultipleManager         | Executive                     |
+      | MultipleExecutive       | Manager                       |
+      | MultipleRemedyTcs       | Remedy LPN                    |
+      | MultipleRemedyLpn       | Remedy TCS                    |
+      | MultipleRemedyRn        | Remedy Field RN               |
+      | MultipleRemedyFieldRn   | Remedy RN                     |
+      | MultipleRemedyPm        | Remedy Sales Team             |
+      | MultipleRemedySalesTeam | Remedy PM                     |
+      | MultipleRemedyExecutive | Prospective Partner Executive |
+      | MultiplePPE             | Remedy Executive              |
+      | MultipleRemedyOther     | Partner Program Administrator |
+      | MultiplePPA             | Remedy Other                  |
+      | MultipleRPA             | Transitional Case Manager     |
+      | MultipleTCM             | Remedy Program Administrator  |
 
   Scenario Outline: Super Administrator edit users users back to its previous state
     Given I am on the login page
@@ -125,21 +125,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search                  | Role1                         | Role2                         |
-      | MultipleManager         | Executive                     | Manager                       |
-      | MultipleExecutive       | Manager                       | Executive                     |
-      | MultipleRemedyTcs       | Remedy LPN                    | Remedy TCS                    |
-      | MultipleRemedyLpn       | Remedy TCS                    | Remedy LPN                    |
-      | MultipleRemedyRn        | Remedy Field RN                       | Remedy RN                     |
-      | MultipleRemedyFieldRn   | Remedy RN                     | Remedy Field RN               |
-      | MultipleRemedyPm        | Remedy Sales Team             | Remedy PM                     |
-      | MultipleRemedySalesTeam | Remedy PM                     | Remedy Sales Team             |
-      | MultipleRemedyExecutive | Prospective Partner Executive | Remedy Executive              |
-      | MultiplePPE             | Remedy Executive              | Prospective Partner Executive |
-      | MultipleRemedyOther     | Partner Program Administrator | Remedy Other                  |
-      | MultiplePPA             | Remedy Other                  | Partner Program Administrator |
-      | MultipleRPA             | Transitional Case Manager     | Remedy Program Administrator  |
-      | MultipleTCM             | Remedy Program Administrator  | Transitional Case Manager     |
+      | Search                  |Role2                         |
+      | MultipleManager         |Manager                       |
+      | MultipleExecutive       |Executive                     |
+      | MultipleRemedyTcs       |Remedy TCS                    |
+      | MultipleRemedyLpn       |Remedy LPN                    |
+      | MultipleRemedyRn        |Remedy RN                     |
+      | MultipleRemedyFieldRn   |Remedy Field RN               |
+      | MultipleRemedyPm        |Remedy PM                     |
+      | MultipleRemedySalesTeam |Remedy Sales Team             |
+      | MultipleRemedyExecutive |Remedy Executive              |
+      | MultiplePPE             |Prospective Partner Executive |
+      | MultipleRemedyOther     |Remedy Other                  |
+      | MultiplePPA             |Partner Program Administrator |
+      | MultipleRPA             |Remedy Program Administrator  |
+      | MultipleTCM             |Transitional Case Manager     |
 
   Scenario Outline: Remedy Technical Administrator edit users to different role
     Given I am on the login page
@@ -204,21 +204,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search                  | Role1                         | Role2                         |
-      | MultipleManager         | Executive                     | Manager                       |
-      | MultipleExecutive       | Manager                       | Executive                     |
-      | MultipleRemedyTcs       | Remedy LPN                    | Remedy TCS                    |
-      | MultipleRemedyLpn       | Remedy TCS                    | Remedy LPN                    |
-      | MultipleRemedyRn        | Remedy Field RN               | Remedy RN                     |
-      | MultipleRemedyFieldRn   | Remedy RN                     | Remedy Field RN               |
-      | MultipleRemedyPm        | Remedy Sales Team             | Remedy PM                     |
-      | MultipleRemedySalesTeam | Remedy PM                     | Remedy Sales Team             |
-      | MultipleRemedyExecutive | Prospective Partner Executive | Remedy Executive              |
-      | MultiplePPE             | Remedy Executive              | Prospective Partner Executive |
-      | MultipleRemedyOther     | Partner Program Administrator | Remedy Other                  |
-      | MultiplePPA             | Remedy Other                  | Partner Program Administrator |
-      | MultipleRPA             | Transitional Case Manager     | Remedy Program Administrator  |
-      | MultipleTCM             | Remedy Program Administrator  | Transitional Case Manager     |
+      | Search                  | Role1                         |
+      | MultipleManager         | Executive                     |
+      | MultipleExecutive       | Manager                       |
+      | MultipleRemedyTcs       | Remedy LPN                    |
+      | MultipleRemedyLpn       | Remedy TCS                    |
+      | MultipleRemedyRn        | Remedy Field RN               |
+      | MultipleRemedyFieldRn   | Remedy RN                     |
+      | MultipleRemedyPm        | Remedy Sales Team             |
+      | MultipleRemedySalesTeam | Remedy PM                     |
+      | MultipleRemedyExecutive | Prospective Partner Executive |
+      | MultiplePPE             | Remedy Executive              |
+      | MultipleRemedyOther     | Partner Program Administrator |
+      | MultiplePPA             | Remedy Other                  |
+      | MultipleRPA             | Transitional Case Manager     |
+      | MultipleTCM             | Remedy Program Administrator  |
 
   Scenario Outline: Remedy Technical Administrator edit users back to its previous state
     Given I am on the login page
@@ -273,21 +273,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search                  | Role1                         | Role2                         |
-      | MultipleManager         | Transitional Case Manager     | Manager                       |
-      | MultipleExecutive       | Remedy Other                  | Executive                     |
-      | MultipleRemedyTcs       | Remedy LPN                    | Remedy TCS                    |
-      | MultipleRemedyLpn       | Remedy TCS                    | Remedy LPN                    |
-      | MultipleRemedyRn        | Remedy Field RN               | Remedy RN                     |
-      | MultipleRemedyFieldRn   | Remedy RN                     | Remedy Field RN               |
-      | MultipleRemedyPm        | Remedy Sales Team             | Remedy PM                     |
-      | MultipleRemedySalesTeam | Remedy PM                     | Remedy Sales Team             |
-      | MultipleRemedyExecutive | Prospective Partner Executive | Remedy Executive              |
-      | MultiplePPE             | Remedy Executive              | Prospective Partner Executive |
-      | MultipleRemedyOther     | Partner Program Administrator | Remedy Other                  |
-      | MultiplePPA             | Manager                       | Partner Program Administrator |
-      | MultipleRPA             | Executive                     | Remedy Program Administrator  |
-      | MultipleTCM             | Remedy Program Administrator  | Transitional Case Manager     |
+      | Search                  |Role2                         |
+      | MultipleManager         |Manager                       |
+      | MultipleExecutive       |Executive                     |
+      | MultipleRemedyTcs       |Remedy TCS                    |
+      | MultipleRemedyLpn       |Remedy LPN                    |
+      | MultipleRemedyRn        |Remedy RN                     |
+      | MultipleRemedyFieldRn   |Remedy Field RN               |
+      | MultipleRemedyPm        |Remedy PM                     |
+      | MultipleRemedySalesTeam |Remedy Sales Team             |
+      | MultipleRemedyExecutive |Remedy Executive              |
+      | MultiplePPE             |Prospective Partner Executive |
+      | MultipleRemedyOther     |Remedy Other                  |
+      | MultiplePPA             |Partner Program Administrator |
+      | MultipleRPA             |Remedy Program Administrator  |
+      | MultipleTCM             |Transitional Case Manager     |
 
   Scenario Outline: Partner Technical Administrator edit users to different role
     Given I am on the login page
@@ -352,11 +352,11 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search            | Role1                         | Role2                         |
-      | MultipleManager   | Executive                     | Manager                       |
-      | MultipleExecutive | Manager                       | Executive                     |
-      | MultiplePPE       | Partner Program Administrator | Prospective Partner Executive |
-      | MultipleTCM       | Case Manager                  | Transitional Case Manager     |
+      | Search            | Role1                         |
+      | MultipleManager   | Executive                     |
+      | MultipleExecutive | Manager                       |
+      | MultiplePPE       | Partner Program Administrator |
+      | MultipleTCM       | Case Manager                  |
 
   Scenario Outline: Partner Technical Administrator edit users back to its previous state
     Given I am on the login page
@@ -413,8 +413,8 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search            | Role1                         | Role2                         |
-      | MultipleManager   | Executive                     | Manager                       |
-      | MultipleExecutive | Manager                       | Executive                     |
-      | MultiplePPE       | Partner Program Administrator | Prospective Partner Executive |
-      | MultipleTCM       | Case Manager                  | Transitional Case Manager     |
+      | Search            |Role2                         |
+      | MultipleManager   |Manager                       |
+      | MultipleExecutive |Executive                     |
+      | MultiplePPE       |Prospective Partner Executive |
+      | MultipleTCM       |Transitional Case Manager     |

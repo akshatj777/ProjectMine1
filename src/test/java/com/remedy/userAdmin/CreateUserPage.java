@@ -403,7 +403,8 @@ public class CreateUserPage extends BaseClass{
    public void iVerifyTheEpisodesProductTileForSelectedUserRole(String role) {
 	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
 			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
+			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager"
+			   , "Downstream Provider"};
 	   ArrayList<String> aray = new ArrayList<>();
 	   aray.addAll(Arrays.asList(orgRole));
 	   if (aray.contains(role)) {

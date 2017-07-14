@@ -141,7 +141,7 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void iverifyOrganizationalRoleForAUser(String OrganizationalRole) {
 		delay();
-		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[2]/div[1]/div/div")),	OrganizationalRole);
+		verifyTextForElement(driver.findElement(By.cssSelector("div:nth-of-type(2)>div:nth-of-type(2)>div>div[ng-bind='::binding.value.name.value']")),	OrganizationalRole);
 		longDelay();
 	}
 
