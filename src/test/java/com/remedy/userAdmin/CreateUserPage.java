@@ -373,128 +373,13 @@ public class CreateUserPage extends BaseClass{
 	   driver.navigate().back();
    }
    
-   public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String role) {
-		   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Remedy TCS", "Remedy LPN", "Remedy RN",
-				   "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator","Remedy Executive", "Remedy Other", 
-				   "Partner Program Administrator" , "Partner Technical Administrator"};
-		   ArrayList<String> aray = new ArrayList<>();
-		   aray.addAll(Arrays.asList(orgRole));
-		   if (aray.contains(role)) {
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='internal_support']")));
-	       }
-	   else {
-		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='internal_support']")));
-	   }
+   public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String text) {
+	 	if(text.isEmpty()!=true){
+	 		System.out.println("1");
+    		verifyTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span", text);
+    	}
    }
-   
-   public void iVerifyThePhysicanConnectProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
-			   "Partner Program Administrator" , "Partner Technical Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
-      }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
-      }
-  }
-   
-   public void iVerifyTheEpisodesProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager"
-			   , "Downstream Provider"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='episode_connect']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='episode_connect']")));
-    }
- }
-   
-   public void iVerifyTheLessonsProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			   "Prospective Partner Executive", "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='lessons']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='lessons']")));
-    }
- }
   
-   public void iVerifyTheReportsProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			     "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='reports']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='reports']")));
-    }
- }
-   
-   public void iVerifyTheAdministrationProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator","Partner Technical Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='admin']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='admin']")));
-    }
- }
-   
-   public void iVerifyTheShareFileProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM","Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			     "Partner Program Administrator" , "Partner Technical Administrator" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='sharefile']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='sharefile']")));
-    }
- }
-   
-   public void iVerifyTheEpispdes2ProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Downstream Provider" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='episode_connect_2']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='episode_connect_2']")));
-    }
- }
-   
-   public void iVerifyTheInstituteProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator","Remedy TCS", "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM",
-			   "Remedy Sales Team", "Remedy Executive", "Remedy Other", "Remedy Program Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
-    }
- }
    
    public void iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin(){
 	   isElementPresentOnPage(By.cssSelector(".username"));

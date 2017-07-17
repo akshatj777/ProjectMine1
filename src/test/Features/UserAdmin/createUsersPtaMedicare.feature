@@ -1,6 +1,6 @@
 Feature: Create new User role with PTA with medicare payer and product tiles verification on create user page and on Login of created user
 
-  Scenario Outline: Partner Technical Administrator can create user and verify product tiles after login and navigation of different tiles
+  Background: Login with predefined user on Gmail account and delete the previous mail
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     And I wait for 2000 milli seconds
@@ -12,8 +12,8 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
     Then I click on delete icon in mail
     And I wait for 2000 milli seconds
     Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
+
+  Scenario Outline: Partner Technical Administrator can create user and verify product tiles after login and navigation of different tiles
     Given I am on the login page
     When I enter email field PTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
@@ -112,9 +112,9 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 5000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -134,19 +134,6 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
       | Transitional Case Manager     | Transitional Case Manager     | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Episodes | RemedyU | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
 
   Scenario Outline: Partner Technical Administrator can create user role different health system provider and few product tiles and verification of tiles on user login and navigation of different tiles
-    Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
-    And I wait for 2000 milli seconds
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    And I wait for 2000 milli seconds
-    Then I click on Inbox in mail
-    Then I click on select all checkbox in mail
-    Then I click on delete icon in mail
-    And I wait for 2000 milli seconds
-    Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
     Given I am on the login page
     When I enter email field PTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
@@ -245,9 +232,9 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -257,11 +244,11 @@ Feature: Create new User role with PTA with medicare payer and product tiles ver
     And I should see Log in widget
 
     Examples: 
-      | Role                          | lastName                      | HealthSystem Search      | Health System            | Provider | Facility           | Phone        | payer    | NPI        | Label1           | Label2            | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect             | Administration | userroletext   | Internal Support | Support |
-      | Executive                     | Executive                     | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital  | 302-459-1143 | Medicare |            | episode_connect  | episode_connect_2 | Episodes |         |         | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
-      | Manager                       | Manager                       | St. Lukes Health Network | St. Lukes Health Network | *        |                    | 302-459-1143 | Medicare |            | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
-      | Case Manager                  | Case Manager                  | St. Lukes Health Network | St. Lukes Health Network | 2070-023 | Allentown          | 302-459-1143 | Medicare |            | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Physicians                    | Physicians                    | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital  | 302-459-1143 | Medicare | 1234567890 | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_CLINICIAN |                  | Support |
-      | Prospective Partner Executive | Prospective Partner Executive | Stamford                 | Stamford Hospital        | *        |                    | 302-459-1143 | Medicare |            | lessons          |                   |          | RemedyU |         |              | Institute |                              |                |                |                  |         |
+      | Role                          | lastName                      | HealthSystem Search      | Health System            | Provider | Facility          | Phone        | payer    | NPI        | Label1           | Label2            | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect             | Administration | userroletext   | Internal Support | Support |
+      | Executive                     | Executive                     | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital | 302-459-1143 | Medicare |            | episode_connect  | episode_connect_2 | Episodes |         |         | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
+      | Manager                       | Manager                       | St. Lukes Health Network | St. Lukes Health Network | *        |                   | 302-459-1143 | Medicare |            | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
+      | Case Manager                  | Case Manager                  | St. Lukes Health Network | St. Lukes Health Network | 2070-023 | Allentown         | 302-459-1143 | Medicare |            | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       |                  | Support |
+      | Physicians                    | Physicians                    | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital | 302-459-1143 | Medicare | 1234567890 | reports          | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_CLINICIAN |                  | Support |
+      | Prospective Partner Executive | Prospective Partner Executive | Stamford                 | Stamford Hospital        | *        |                   | 302-459-1143 | Medicare |            | lessons          |                   |          | RemedyU |         |              | Institute |                              |                |                |                  |         |
       | Partner Program Administrator | Partner Program Administrator | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital | 302-459-1143 | Medicare |            | physician_portal | internal_support  |          |         |         |              | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support |         |
-      | Transitional Case Manager     | Transitional Case Manager     | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital  | 302-459-1143 | Medicare |            | episode_connect  | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
+      | Transitional Case Manager     | Transitional Case Manager     | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital | 302-459-1143 | Medicare |            | episode_connect  | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |

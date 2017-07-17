@@ -1,6 +1,6 @@
 Feature: Creation of User with Emblem Payer and product tiles verification on create user page and navigation of product tiles after create user Login
 
-  Scenario Outline: Super Admin create all user and verify product tiles of created user on login and navigation of product tiles
+  Background: Login with predefined user on Gmail account and delete the previous mail
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     And I wait for 2000 milli seconds
@@ -12,8 +12,8 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     Then I click on delete icon in mail
     And I wait for 2000 milli seconds
     Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
+
+  Scenario Outline: Super Admin create all user and verify product tiles of created user on login and navigation of product tiles
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -109,9 +109,9 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -140,22 +140,8 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
       | Remedy Program Administrator    | Remedy Program Administrator    | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support | Support |
       | Partner Technical Administrator | Partner Technical Administrator | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_PM        | Internal Support | Support |
       | Transitional Case Manager       | Transitional Case Manager       | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Downstream Provider             | Downstream Provider             |                     |                 | *        | 302-459-1143 |               |            |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |
 
   Scenario Outline: Super Admin create user different health system provider and few product tiles and verification of tiles on user login and navigation of different tiles
-    Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
-    And I wait for 2000 milli seconds
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    And I wait for 2000 milli seconds
-    Then I click on Inbox in mail
-    Then I click on select all checkbox in mail
-    Then I click on delete icon in mail
-    And I wait for 2000 milli seconds
-    Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -251,9 +237,9 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -282,4 +268,3 @@ Feature: Creation of User with Emblem Payer and product tiles verification on cr
       | Remedy Program Administrator    | Remedy Program Administrator    | RP Payer Test A     | RP Payer Test A | *        |                   | 302-459-1143 | Emblem Health |            | physician_portal  | internal_support  |          |         |         |              | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support |         |
       | Partner Technical Administrator | Partner Technical Administrator | RP Payer Test A     | RP Payer Test A | 7000-000 | Rp Test Hospital2 | 302-459-1143 | Emblem Health |            | episode_connect   | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_PM        |                  | Support |
       | Transitional Case Manager       | Transitional Case Manager       | RP Payer Test A     | RP Payer Test A | *        |                   | 302-459-1143 | Emblem Health |            | episode_connect   | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Downstream Provider             | Downstream Provider             |                     |                 | *        |                   | 302-459-1143 |               |            |                   | episode_connect_2 |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |

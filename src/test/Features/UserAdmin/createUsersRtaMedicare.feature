@@ -1,6 +1,6 @@
 Feature: RTA create new user role with medicare and product tiles verification on create user page and on Login of created user
 
-  Scenario Outline: Remedy Technical Admin can create users and verify the product tiles appearing on login as per selected user role and navigation of different tiles on login
+  Background: Login with predefined user on Gmail account and delete the previous mail
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     And I wait for 2000 milli seconds
@@ -12,8 +12,8 @@ Feature: RTA create new user role with medicare and product tiles verification o
     Then I click on delete icon in mail
     And I wait for 2000 milli seconds
     Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
+
+  Scenario Outline: Remedy Technical Admin can create users and verify the product tiles appearing on login as per selected user role and navigation of different tiles on login
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 1000 milli seconds
@@ -112,9 +112,9 @@ Feature: RTA create new user role with medicare and product tiles verification o
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -144,19 +144,6 @@ Feature: RTA create new user role with medicare and product tiles verification o
       | Downstream Provider             | Downstream Provider             |                     |                   | *        | 302-459-1143 |          |            |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |
 
   Scenario Outline: Remedy Technical Admin create User with different health system, provider and few product tiles and verifies the Product tiles on login as per selected user role
-    Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
-    And I wait for 2000 milli seconds
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    And I wait for 2000 milli seconds
-    Then I click on Inbox in mail
-    Then I click on select all checkbox in mail
-    Then I click on delete icon in mail
-    And I wait for 2000 milli seconds
-    Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
     Given I am on the login page
     When I enter email field RTAUSER@mailinator.com for login
     And I wait for 2000 milli seconds
@@ -256,9 +243,9 @@ Feature: RTA create new user role with medicare and product tiles verification o
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup

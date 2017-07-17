@@ -1,6 +1,6 @@
 Feature: Create new User for multiple payers and product tiles verification on create user page and navigation to different product tiles after created users login
 
-  Scenario Outline: Super Admin can create all user with multiple payers and verify product tiles as per user role assigned after login and navigation to product tiles
+  Background: Login with predefined user on Gmail account and delete the previous mail
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     And I wait for 2000 milli seconds
@@ -12,8 +12,8 @@ Feature: Create new User for multiple payers and product tiles verification on c
     Then I click on delete icon in mail
     And I wait for 2000 milli seconds
     Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
+
+  Scenario Outline: Super Admin can create all user with multiple payers and verify product tiles as per user role assigned after login and navigation to product tile
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -123,9 +123,9 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -154,7 +154,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
       | Remedy Program Administrator    | Remedy Program Administrator    | RP Payer Test A       | RP Payer Test A | *         | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support | Support | Stamford              | Stamford Hospital | *         | Medicare |
       | Partner Technical Administrator | Partner Technical Administrator | RP Payer Test A       | RP Payer Test A | *         | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_PM        | Internal Support | Support | Stamford              | Stamford Hospital | *         | Medicare |
       | Transitional Case Manager       | Transitional Case Manager       | RP Payer Test A       | RP Payer Test A | *         | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support | Stamford              | Stamford Hospital | *         | Medicare |
-     
+
   Scenario Outline: Super Admin create user different health system provider and few product tiles and verification of tiles on user login and navigation of different tiles
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
@@ -272,13 +272,13 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
     And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1> 
+    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1>
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 3000 milli seconds
+    And I wait for 30000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -307,4 +307,3 @@ Feature: Create new User for multiple payers and product tiles verification on c
       | Remedy Program Administrator    | Remedy Program Administrator    | RP Payer Test A       | RP Payer Test A | *         |                   | 302-459-1143 | Emblem Health |            | physician_portal  | internal_support  |          |         |         |              | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support |         | St. Lukes Health Network | St. Lukes Health Network | *         |                                      | Medicare |
       | Partner Technical Administrator | Partner Technical Administrator | RP Payer Test A       | RP Payer Test A | 7000-000  | Rp Test Hospital2 | 302-459-1143 | Emblem Health |            | episode_connect   | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_PM        |                  | Support | St. Lukes Health Network | St. Lukes Health Network | 2070-023  | Allentown                            | Medicare |
       | Transitional Case Manager       | Transitional Case Manager       | RP Payer Test A       | RP Payer Test A | *         |                   | 302-459-1143 | Emblem Health |            | episode_connect   | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support | Stamford                 | Stamford Hospital        | 2070-015  | Stamford Hospital                    | Medicare |
-      

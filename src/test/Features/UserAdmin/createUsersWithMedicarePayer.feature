@@ -1,6 +1,6 @@
 Feature: Super Admin Create user with Medicare and Product tile verification on Create user page and on Login with created user
 
-  Scenario Outline: Super Admin create all User and verifies the Product tile appearing on login as per selected user role
+  Background: Login with predefined user on Gmail account and delete the previous mail
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     And I wait for 2000 milli seconds
@@ -12,8 +12,8 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
     Then I click on delete icon in mail
     And I wait for 2000 milli seconds
     Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
+
+  Scenario Outline: Super Admin create all User and verifies the Product tile appearing on login as per selected user role
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -109,9 +109,9 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -140,22 +140,9 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
       | Remedy Program Administrator    | Remedy Program Administrator    | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support | Support |
       | Partner Technical Administrator | Partner Technical Administrator | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_PM        | Internal Support | Support |
       | Transitional Case Manager       | Transitional Case Manager       | Stamford            | Stamford Hospital | *        | 302-459-1143 | Medicare |            | Episodes | RemedyU | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Downstream Provider             | Downstream Provider             |                     |                   | *        | 302-459-1143 |          |            |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |
+      | Downstream Provider             | Downstream Provider             |                     |                   | 004402        | 302-459-1143 |          |            |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |
 
   Scenario Outline: Super Admin create User with different health system, provider and few product tiles and verifies the Product tiles on login as per selected user role
-    Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
-    And I wait for 2000 milli seconds
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    And I wait for 2000 milli seconds
-    Then I click on Inbox in mail
-    Then I click on select all checkbox in mail
-    Then I click on delete icon in mail
-    And I wait for 2000 milli seconds
-    Then I signout form mail account
-    And I wait for 2000 milli seconds
-    Then I open new tab and close the last tab
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
@@ -251,9 +238,9 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
     And I click on RemedyU tile under specific user login page <RemedyU>
     And I click on Physican connect tile under specific user login page <Physican connect>
     And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     Then I select Support option from the dropdown under specific user login page <Support>
-    And I wait for 2000 milli seconds
+    And I wait for 20000 milli seconds
     Then I select Reset Password option from the dropdown
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
@@ -282,4 +269,4 @@ Feature: Super Admin Create user with Medicare and Product tile verification on 
       | Remedy Program Administrator    | Remedy Program Administrator    | St. Lukes Health Network | St. Lukes Health Network | *        |                                      | 302-459-1143 | Medicare |            | physician_portal  | internal_support  |          |         |         |              | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support |         |
       | Partner Technical Administrator | Partner Technical Administrator | St. Lukes Health Network | St. Lukes Health Network | 2070-023 | Allentown                            | 302-459-1143 | Medicare |            | episode_connect   | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_PM        |                  | Support |
       | Transitional Case Manager       | Transitional Case Manager       | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital                    | 302-459-1143 | Medicare |            | episode_connect   | reports           | Episodes |         | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Downstream Provider             | Downstream Provider             |                          |                          | *        |                                      | 302-459-1143 |          |            |                   | episode_connect_2 |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |
+      | Downstream Provider             | Downstream Provider             |                          |                          | 395869        |                                      | 302-459-1143 |          |            |                   | episode_connect_2 |          |         |         | Episodes 2.0 | Institute |                              |                |                |                  | Support |
