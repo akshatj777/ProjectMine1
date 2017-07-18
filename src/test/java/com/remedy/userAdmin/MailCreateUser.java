@@ -39,6 +39,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterPasswordToLoginMailAccount(String password) {	
+		iWillWaitToSee(By.xpath("//input[@type='password']"));
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
 		delay();
@@ -49,8 +50,10 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnInboxUnderMail() {
+		
 		delay();
 		driver.navigate().refresh();
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 	}
 	
@@ -67,6 +70,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iSignOutFromMailAccount() {
+		iWillWaitToSee(By.cssSelector(".gb_8a.gbii"));
 		clickElement(driver.findElement(By.cssSelector(".gb_8a.gbii")));
 		delay();
 		clickElement(driver.findElement(By.cssSelector("#gb_71")));
@@ -77,49 +81,60 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() {
+		delay();
+		//iWillWaitToSee(By.xpath("//b[contains(text(),'Remedy Partners - Verify your account')]"));
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Verify your account')]"))));
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]")));
 	}
 	
 	public void iVerifyLinkInMailContentInInboxInMyAccount(String text) {
+		delay();
+		iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
 	
 	public void iClickOnLinkInMailContentInInboxInMyAccount(String text) {
+		iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		clickElement(driver.findElement((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
 	
 	public void iEnterEmailToGeneratePasswordLink() {
 		delay();
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
 	
 	public void iClickOnSendEmailButton() {
+		iWillWaitToSee(By.xpath("//button[@type='submit']"));
 		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
+		iWillWaitToSee(By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"));
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"))));
 	}
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
-		System.out.println("Print::" +driver.findElement(By.xpath("//b[text()='Remedy Partners - Change Your Password']")).getText());
-		System.out.println("Print::" +driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).getText());
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
+		iWillWaitToSee(By.name("password"));
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
 	
 	public void iEnterConfirmNewPasswordToSetNewPassword(String text) {
+		iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 	
 	public void iEnterNewUserEmailForLoginToRemedy() {
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), email);
 	}
 	

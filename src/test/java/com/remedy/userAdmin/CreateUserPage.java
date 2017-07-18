@@ -107,6 +107,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
+    	iWillWaitToSee(By.xpath("//form/fieldset/div/div[5]/input"));
         iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
     }
 
@@ -136,6 +137,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickHealthSystemField() {
+    	iWillWaitToSee(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
     	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
     	if(value==true){
         clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
@@ -150,6 +152,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iSelectHealthSystem(String desc) {
+    	iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
     	boolean value = isElementPresentOnPage(By.cssSelector(".ui-select-choices-row-inner"));
     	if(value==true){
         clickElement(driver.findElement(By.cssSelector(".ui-select-choices-row-inner")));
@@ -171,6 +174,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickCreateButton() {
+    	iWillWaitToSee(By.cssSelector(".btn.btn-primary"));
         clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
     }
 
@@ -211,6 +215,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterProviderSerachText(String text) {
+    	iWillWaitToSee(By.xpath("//div[@class='table-select-search']//input"));
         clickElement(driver.findElement(By.xpath("//div[@class='table-select-search']//input")));
         iFillInText(driver.findElement(By.xpath("//div[@class='table-select-search']//input")), text);
     }
@@ -229,6 +234,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iCheckAllProviderForTheHealthSystem() {
+	   iWillWaitToSee(By.cssSelector(".select-all-master>.checkbox"));
    	delay();
        clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
    }	
@@ -239,11 +245,13 @@ public class CreateUserPage extends BaseClass{
         clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
     	}
     	else {
-    	clickElement(driver.findElement(By.xpath("//span[(contains(@ng-bind,'providerName')) and text()='"+facility+"']")));	
+    		iWillWaitToSee(By.xpath("//span[text()='"+facility+"']"));
+    	clickElement(driver.findElement(By.xpath("//span[text()='"+facility+"']")));	
     	}
     }
 
     public void iclickAllAppsfortheRole() {
+    	iWillWaitToSee(By.xpath("//fieldset[2]/div[4]/div/ul/li/div/label"));
         clickAllElementofAlistbyXpath("//fieldset[2]/div[4]/div/ul/li/div/label");
     }
     
@@ -285,6 +293,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String userrole){
+	   iWillWaitToSee(By.xpath("//p[text()='"+text+"']"));
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
@@ -350,7 +359,7 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
-		   delay();
+		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   switchBacktoOldWindow(); 
    	}
@@ -358,12 +367,12 @@ public class CreateUserPage extends BaseClass{
    
    public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text){
 	   if(text.isEmpty()!=true){
+		   iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
-		   delay();
+		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
-		   delay();
 		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  

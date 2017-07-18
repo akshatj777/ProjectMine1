@@ -432,4 +432,14 @@ public class BaseClass {
     public void switchToParentFrame() {
         driver.switchTo().parentFrame();
         }
+    
+    public void iWillWaitToSee(By locator) {
+        
+        try{
+        WebDriverWait wait = new WebDriverWait(driver,60);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (NoSuchElementException e) {
+         e.printStackTrace();
+        }
+       }
 }
