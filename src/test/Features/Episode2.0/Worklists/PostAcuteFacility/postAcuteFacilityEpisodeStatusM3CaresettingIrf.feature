@@ -45,7 +45,7 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait for 4000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition
     Then I wait for 5000 milli seconds
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I click on the Create Transition Button to add a new transition for discharge info
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition

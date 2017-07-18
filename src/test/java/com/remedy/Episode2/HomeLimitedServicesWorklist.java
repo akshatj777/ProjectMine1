@@ -30,9 +30,9 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 
 	public void IselecttheDRGvalueontheDiagnosisandDRGtabonaddanewtransition(String DRG) throws InterruptedException {
 		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		iFillInText(driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input")), DRG);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
 	}
 

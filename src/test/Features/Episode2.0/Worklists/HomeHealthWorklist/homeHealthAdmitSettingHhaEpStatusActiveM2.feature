@@ -42,6 +42,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 2000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -114,9 +115,9 @@ Feature: Patient status on Home Health Worklist
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the edit button on the "2" transition to edit the Active transition
-    Then I wait for 10000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on update transition to add a new episode
@@ -131,6 +132,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
+    And I wait for 4000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
@@ -138,7 +140,7 @@ Feature: Patient status on Home Health Worklist
     And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
     And I wait for 3000 milli seconds
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

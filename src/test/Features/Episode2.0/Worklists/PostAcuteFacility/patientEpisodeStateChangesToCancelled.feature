@@ -39,6 +39,7 @@ Scenario Outline: While patient in worklist,Episode state changes
     Then I wait for 5000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 8000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition

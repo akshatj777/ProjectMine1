@@ -132,14 +132,19 @@ public class SummarySectionSteps extends DriverScript{
     	 patientclinical.Iverifythatusershouldbeabletoclickontitleofdocument();
  	}
      
-     @Then ("^I click on the Create Transition Button to add a new transition$")
-     public void I_click_on_the_Create_Transition_Button_to_add_a_new_transition()
+     @Then ("^I click on the Create Transition Button to add a new transition$") 
+     public void I_click_on_the_Create_Transition_Button_to_add_a_new_transition() throws Throwable
      {
     	 patientclinical.IclickontheCreateTransitionButtontoaddanewtransition();
      }
   
+     @Then ("^I click on the Create Transition Button to add a new transition for discharge info$") 
+     public void I_click_on_the_Create_Transition_Button_to_add_a_new_transition_for_discharge_info() throws Throwable
+     {
+    	 patientclinical.IclickontheCreateTransitionButtontoaddanewtransitionfordischargeinfo();
+     }
      @Then ("^I click on the Transition Info on add a new transition$")
-     public void I_click_on_the_Transition_Info_on_add_a_new_transition()
+     public void I_click_on_the_Transition_Info_on_add_a_new_transition() throws Throwable
      {
     	 patientclinical.IclickontheTransitionInfoonaddanewtransition();
     

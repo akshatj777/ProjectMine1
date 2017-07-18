@@ -74,7 +74,7 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait for 10000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
@@ -87,7 +87,7 @@ Feature: Patient status on Post Acute Facility Work List
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name | Admit facility value              | Dis care setting               | Dis care type   | Discharge facility value                    |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Emanuel County Hospital Authority | REH - Rehabilitation           | Inpatient       | CHI Saint Luke's Health Memorial Lufkin IRF |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Stamford Hospital                 | SNF - Skilled Nursing Facility | Skilled Nursing | Coosa valley health care                    |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Stamford Hospital                 | SNF - Skilled Nursing Facility | TCU             | Coosa valley health care                    |
+      | email                | password  | Patient First Name | Patient Last Name | Admit facility value              | Dis care setting               | Dis care type   | Discharge facility value |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Emanuel County Hospital Authority | REH - Rehabilitation           | Inpatient       | CHI Saint Luke           |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Stamford Hospital                 | SNF - Skilled Nursing Facility | Skilled Nursing | Coosa valley health care |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Stamford Hospital                 | SNF - Skilled Nursing Facility | TCU             | Coosa valley health care |

@@ -28,6 +28,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
+import cucumber.api.java.en.Then;
+
 public class PatientClinicalDocuments extends BaseClass {
 
 	public PatientClinicalDocuments(WebDriver driver) {
@@ -555,7 +557,9 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
 
+		{
 		clickElement(driver.findElement(By.cssSelector("#submitButton")));
+		}
 	}
 
 	public void IclickonthecrossbuttontoclosetheCARLdocumentform() {
@@ -603,7 +607,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		Robot robot = new Robot();
 
 		//
-		StringSelection selection = new StringSelection("C:\\Users\\akshat.jain\\Desktop\\My files");
+		StringSelection selection = new StringSelection("");
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(selection, selection);
 
@@ -643,6 +647,18 @@ public class PatientClinicalDocuments extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//span[contains(text(),'Agree')]")));
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void IclickontheCreateTransitionButtontoaddanewtransitionfordischargeinfo() {
+		try{
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Create Transition')]")));
+		}catch(Exception e)
+		{
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Create Transition')]"));
+			js.executeScript("arguments[0].click();", element);
+			clickElement(driver.findElement(By.xpath("//button[contains(text(),'Create Transition')]")));
 		}
 	}
 }

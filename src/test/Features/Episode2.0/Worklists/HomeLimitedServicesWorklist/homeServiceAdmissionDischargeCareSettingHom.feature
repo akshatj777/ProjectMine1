@@ -1,4 +1,4 @@
-Feature: Admission discharge care setting in home limited services worklist
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Add an active anchore discharge transition
     Given I am on the login page

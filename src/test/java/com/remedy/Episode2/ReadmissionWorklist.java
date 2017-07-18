@@ -34,11 +34,11 @@ public class ReadmissionWorklist extends BaseClass {
 		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
 		js.executeScript("arguments[0].click();", element1);
 		clickElement(element1);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
 		js.executeScript("arguments[0].click();", element3);
 		clickElement(element3);
@@ -175,11 +175,11 @@ public class ReadmissionWorklist extends BaseClass {
 		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
 		js.executeScript("arguments[0].click();", element1);
 		clickElement(element1);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
-		Thread.sleep(10000);
+		Thread.sleep(4000);
 		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
 		js.executeScript("arguments[0].click();", element3);
 		clickElement(element3);
@@ -189,11 +189,11 @@ public class ReadmissionWorklist extends BaseClass {
 		int count = getElementCount("td.settings-column.center.cursor-default > div");
 		for (int i = 1; i <= count; i++) {
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-			Thread.sleep(10000);
+			Thread.sleep(6000);
 		}
 	}
 

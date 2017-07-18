@@ -24,11 +24,11 @@ public class ExceededSnfLos extends BaseClass {
 		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_dischargeFacility"));
 		js.executeScript("arguments[0].click();", element1);
 		clickElement(element1);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
 		js.executeScript("arguments[0].click();", element3);
 		clickElement(element3);

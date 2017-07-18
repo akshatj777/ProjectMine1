@@ -42,6 +42,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 2000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -62,7 +63,6 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 2000 milli seconds
     Then I select the facility value "Amedisys Home Health - Stamford" on add a new transition
     Then I wait for 2000 milli seconds
-    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
     When I switch to default window from iframe

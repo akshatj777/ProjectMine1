@@ -90,7 +90,6 @@ Feature: Model 2 Readmission
     Then I wait for 7000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
-    Then I get the discharge date of the previous transition added from transition list
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -145,7 +144,7 @@ Feature: Model 2 Readmission
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 20000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I click on the edit button on the "1" transition to edit the Active transition
     And I wait for 6000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 2000 milli seconds
@@ -188,7 +187,7 @@ Feature: Model 2 Readmission
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 2000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I click on the edit button on the "1" transition to edit the Active transition
     And I wait for 80000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     And I wait for 5000 milli seconds

@@ -1,4 +1,4 @@
-Feature: Patient's with past transition admit/discharge care setting is HOM / REH (Outpatient)
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Patient's with past transition admit/discharge care setting is HOM / REH (Outpatient)
     Given I am on the login page

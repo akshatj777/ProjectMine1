@@ -53,7 +53,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 3000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
+    Then I click on the Create Transition Button to add a new transition for discharge info
     And I wait for 4000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds

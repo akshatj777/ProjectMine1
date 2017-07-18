@@ -84,7 +84,7 @@ Feature: Patient status on Post Acute Facility Work List
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -139,7 +139,6 @@ Feature: Patient status on Post Acute Facility Work List
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I delete the active transition no "1" to make the patient cancelled
     And I wait for 5000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 5000 milli seconds

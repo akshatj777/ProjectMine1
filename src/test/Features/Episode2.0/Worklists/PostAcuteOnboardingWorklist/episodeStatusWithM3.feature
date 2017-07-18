@@ -114,8 +114,11 @@ Feature: Patient status in Post Acute Onboarding Worklist
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I wait for 7000 milli seconds
-    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "0" on date picker
@@ -123,12 +126,19 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I select the "0" from the calendar from date picker on Transition Page
     Then I select the "0" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
+    Then I select the care setting value "SNF - Skilled Nursing Facility" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the care type value "Skilled Nursing" on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I select the facility value "Coosa valley health care" on add a new transition
+    Then I wait for 5000 milli seconds
     Then I select the "0" LOS days on Discharge date on Add Transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
+    Then I wait for 2000 milli seconds
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on update transition to add a new episode
+    Then I click on the Create Transition Button to add a new transition
     Then I wait for 7000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
@@ -164,14 +174,6 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I wait for 7000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 7000 milli seconds
-    Then I click on datepicker button to select the admit date on add a new transition
-    Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "0" on date picker
-    Then I select the month "0" from calendar from date picker
-    Then I select the "0" from the calendar from date picker on Transition Page
-    Then I select the "0" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
-    Then I select the "0" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -212,14 +214,6 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I wait for 7000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 7000 milli seconds
-    Then I click on datepicker button to select the admit date on add a new transition
-    Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "0" on date picker
-    Then I select the month "0" from calendar from date picker
-    Then I select the "0" from the calendar from date picker on Transition Page
-    Then I select the "0" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
-    Then I select the "0" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 5000 milli seconds
     Then I select the "Final" DRG type on the Diagnosis and DRG tab on add a new transition

@@ -1,4 +1,4 @@
-Feature: While patient in worklist, Episode state changes
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Patient with an Active episode status
     Given I am on the login page

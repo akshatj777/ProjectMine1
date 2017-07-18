@@ -37,37 +37,33 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the month "-30" from calendar from date picker
     Then I select the "-30" from the calendar from date picker on Transition Page
     Then I select the "-30" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 8000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
-    Then I wait for 4000 milli seconds
     Then I select the Discharge care type value "Skilled Nursing" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 3000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
+    Then I click on the Create Transition Button to add a new transition for discharge info
     And I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
+    Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I click on Exceed SNF LOS sub tab on the patient Card Page
-    Then I wait for 10000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     Then I wait for 5000 milli seconds

@@ -1,4 +1,4 @@
-Feature: Patient has Potential M3 Active Episode
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Create patient with pending cancellation Potential M3 episode status.
     Given I am on the login page

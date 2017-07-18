@@ -53,6 +53,9 @@ Feature: Active Episode HHH-Inpatient/Scheduled with DRG 472 W Readmitted to HHH
     Then I click on the Transitions tab on the Patient Summary Page
     And I wait for 5000 milli seconds
     Then I switch to PatientTransitions frame
+    And I wait for 5000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    And I wait for 5000 milli seconds
     Then I get the discharge date of the previous transition added from transition list
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
@@ -100,5 +103,5 @@ Feature: Active Episode HHH-Inpatient/Scheduled with DRG 472 W Readmitted to HHH
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name | CareSettingValue | Care type | facility value    | LOS | DRG type | DRG | date1                 | date2                  | DRG2 |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | Readmission       | HHH - Hospital   | Inpatient | Stamford Hospital |   2 | Working  | 472 | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  239 |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | Readmission       | HHH - Hospital   | Scheduled | Stamford Hospital |   2 | Working  | 472 | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  239 |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | HHH - Hospital   | Inpatient | Stamford Hospital |   2 | Working  | 472 | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  239 |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | HHH - Hospital   | Scheduled | Stamford Hospital |   2 | Working  | 472 | 2/5/2017//14:00-14:30 | 10/5/2017//14:00-14:30 |  239 |

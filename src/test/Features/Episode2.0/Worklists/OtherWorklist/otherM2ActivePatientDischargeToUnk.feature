@@ -48,8 +48,6 @@ Feature: Patient status on Other/Alternative Work List
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    Then I wait for 5000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page

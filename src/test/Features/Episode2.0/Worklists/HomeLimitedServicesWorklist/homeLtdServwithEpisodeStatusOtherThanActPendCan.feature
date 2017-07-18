@@ -1,4 +1,4 @@
-Feature: Patient has an episode status other than Active or Pending Cancellation
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Patient with an Active M2 episode status
     Given I am on the login page

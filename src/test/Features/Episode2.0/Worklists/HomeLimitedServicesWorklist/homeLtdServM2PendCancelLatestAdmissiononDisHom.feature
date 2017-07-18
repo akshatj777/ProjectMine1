@@ -1,4 +1,4 @@
-Feature: Patient has Active (M2) Episode
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Create patient with pending cancellation M2 episode status.
     Given I am on the login page
@@ -29,7 +29,6 @@ Feature: Patient has Active (M2) Episode
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
-    Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page

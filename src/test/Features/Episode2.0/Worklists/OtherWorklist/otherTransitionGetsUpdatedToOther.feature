@@ -1,4 +1,4 @@
-Feature: Patient status on Home Health Worklist
+Feature: Patient status on Other Worklist
 
   Scenario Outline: Transition gets updated to other care setting
     Given I am on the login page
@@ -137,8 +137,6 @@ Feature: Patient status on Home Health Worklist
     Then I select the care type value "Leave of Absence" on add a new transition
     Then I wait for 5000 milli seconds
     Then I select the facility value "Coosa valley health care" on add a new transition
-    Then I wait for 8000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
     Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds

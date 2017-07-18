@@ -115,7 +115,8 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-
+    Then I verify LOS is below the ELOS on the patient card page
+ 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |

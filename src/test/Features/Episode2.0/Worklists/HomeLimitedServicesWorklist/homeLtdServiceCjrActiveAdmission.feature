@@ -1,4 +1,4 @@
-Feature: Patient has CJR Active Episode
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Create patient with Active CJR episode status.
     Given I am on the login page

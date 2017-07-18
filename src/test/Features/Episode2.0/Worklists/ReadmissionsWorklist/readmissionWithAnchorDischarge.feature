@@ -70,7 +70,7 @@ Feature: Verify Readmission status with anchor discharge
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 30000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
  Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
@@ -115,7 +115,7 @@ Feature: Verify Readmission status with anchor discharge
     Then I should see search box appearing on the patients page
     Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
     Then I wait for 30000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
  Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

@@ -1,4 +1,4 @@
-Feature: Patient's discharged with Care Setting other than HOM or REH (Outpatient)
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Patient's with Active M2 Episode
     Given I am on the login page

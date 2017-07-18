@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
 
-  Scenario Outline: Exceed SNF Los woth admit care setting snf and potential M2 active patient
+  Scenario Outline: Exceed SNF Los woth discharge care setting snf and potential M2 active patient
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -54,7 +54,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
-    Then I click on the Create Transition Button to add a new transition
+    Then I click on the Create Transition Button to add a new transition for discharge info
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds

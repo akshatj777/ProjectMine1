@@ -1,4 +1,4 @@
-Feature: Patient has M3 Pending cancellation Episode
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Create patient with pending cancellation M3 episode status.
     Given I am on the login page

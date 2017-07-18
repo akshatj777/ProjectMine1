@@ -1,7 +1,7 @@
 Feature: Patient status on Home Health Worklist
 
   Scenario Outline: Patient has an episode status other than Active or Pending Cancellation(Completed)
-       Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
