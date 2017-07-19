@@ -47,6 +47,10 @@ public class UserAdminEdit extends BaseClass {
 	public void iVerifyTheUserDetailsPageForEditing() {
 		isElementVisible(driver.findElement(By.cssSelector(".page-summary-directive.valentino-image.valentino-noise")));
 	}
+	
+	public void i_Verify_The_User_Email_Address(String email){
+		verifyTextForElement(driver.findElement(By.cssSelector("div:nth-of-type(6)>div>span>span")), email);
+	}
 
 	public void iClickedOnEditButtonUnderUserRoleRow() {
 		clickElement(driver.findElement(By.xpath("(//button[@class='btn btn-lg btn-tertiary btn-binding-edit'])[3]")));

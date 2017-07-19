@@ -12,6 +12,7 @@ Feature: User admin edit users details
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
+    And I verify the user <Email> address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -56,21 +57,21 @@ Feature: User admin edit users details
     And I wait for 6000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         |
-      | Automanager1           | Executive                     |
-      | Autoexecutive1         | Manager                       |
-      | Autoremedytcs1         | Remedy LPN                    |
-      | Autoremedylpn1         | Remedy TCS                    |
-      | Autoremedyrn1          | Remedy Field RN               |
-      | Autoremedyfieldrn1     | Remedy RN                     |
-      | Autoremedypm1          | Remedy Sales Team             |
-      | Autoremedysalesteam1   | Remedy PM                     |
-      | AutoPPartnerexecutive1 | Remedy Executive              |
-      | Autoremedyother1       | Partner Program Administrator |
-      | AutotcaseManager1      | Remedy Program Administrator  |
-      | Autoremedyexecutive1   | Prospective Partner Executive |
-      | AutoPProgramadmin1     | Remedy Other                  |
-      | Autorpadmin1           | Transitional Case Manager     |
+      | Search                 | Role1                         | Email                                 |
+      | Automanager1           | Executive                     | managertesting@mailinator.com         |
+      | Autoexecutive1         | Manager                       | executivetesting@mailinator.com       |
+      | Autoremedytcs1         | Remedy LPN                    | remedytcstesting@mailinator.com       |
+      | Autoremedylpn1         | Remedy TCS                    | remedylpntesting@mailinator.com       |
+      | Autoremedyrn1          | Remedy Field RN               | remedyrntesting@mailinator.com        |
+      | Autoremedyfieldrn1     | Remedy RN                     | remedyfieldrntesting@mailinator.com   |
+      | Autoremedypm1          | Remedy Sales Team             | remedypmtesting@mailinator.com        |
+      | Autoremedysalesteam1   | Remedy PM                     | remedysalesteamtesting@mailinator.com |
+      | AutoPPartnerexecutive1 | Remedy Executive              | ppetesting@mailinator.com             |
+      | Autoremedyother1       | Partner Program Administrator | remedyothertesting@mailinator.com     |
+      | AutotcaseManager1      | Remedy Program Administrator  | tcmtesting@mailinator.com             |
+      | Autoremedyexecutive1   | Prospective Partner Executive | remedyexecutivetesting@mailinator.com |
+      | AutoPProgramadmin1     | Remedy Other                  | autoppauser@mailinator.com            |
+      | Autorpadmin1           | Transitional Case Manager     | rpadmintesting@mailinator.com         |
 
   Scenario Outline: Super admin edit users back to its previous state
     Given I am on the login page
@@ -121,21 +122,21 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
 
     Examples: 
-      | Search                 |Role2                         |
-      | Automanager1           |Manager                       |
-      | Autoexecutive1         |Executive                     |
-      | Autoremedytcs1         |Remedy TCS                    |
-      | Autoremedylpn1         |Remedy LPN                    |
-      | Autoremedyrn1          |Remedy RN                     |
-      | Autoremedyfieldrn1     |Remedy Field RN               |
-      | Autoremedypm1          |Remedy PM                     |
-      | Autoremedysalesteam1   |Remedy Sales Team             |
-      | AutoPPartnerexecutive1 |Prospective Partner Executive |
-      | Autoremedyother1       |Remedy Other                  |
-      | AutotcaseManager1      |Transitional Case Manager     |
-      | Autoremedyexecutive1   |Remedy Executive              |
-      | AutoPProgramadmin1     |Partner Program Administrator |
-      | Autorpadmin1           |Remedy Program Administrator  |
+      | Search                 | Role2                         |
+      | Automanager1           | Manager                       |
+      | Autoexecutive1         | Executive                     |
+      | Autoremedytcs1         | Remedy TCS                    |
+      | Autoremedylpn1         | Remedy LPN                    |
+      | Autoremedyrn1          | Remedy RN                     |
+      | Autoremedyfieldrn1     | Remedy Field RN               |
+      | Autoremedypm1          | Remedy PM                     |
+      | Autoremedysalesteam1   | Remedy Sales Team             |
+      | AutoPPartnerexecutive1 | Prospective Partner Executive |
+      | Autoremedyother1       | Remedy Other                  |
+      | AutotcaseManager1      | Transitional Case Manager     |
+      | Autoremedyexecutive1   | Remedy Executive              |
+      | AutoPProgramadmin1     | Partner Program Administrator |
+      | Autorpadmin1           | Remedy Program Administrator  |
 
   Scenario Outline: Remedy Technical Administrator edit users to different role
     Given I am on the login page
@@ -153,6 +154,7 @@ Feature: User admin edit users details
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
+    And I verify the user email address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -197,21 +199,21 @@ Feature: User admin edit users details
     And I wait for 6000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         |
-      | Automanager1           | Executive                     |
-      | Autoexecutive1         | Manager                       |
-      | Autoremedytcs1         | Remedy LPN                    |
-      | Autoremedylpn1         | Remedy TCS                    |
-      | Autoremedyrn1          | Remedy Field RN               |
-      | Autoremedyfieldrn1     | Remedy RN                     |
-      | Autoremedypm1          | Remedy Sales Team             |
-      | Autoremedysalesteam1   | Remedy PM                     |
-      | AutoPPartnerexecutive1 | Remedy Executive              |
-      | Autoremedyother1       | Partner Program Administrator |
-      | AutotcaseManager1      | Remedy Program Administrator  |
-      | Autoremedyexecutive1   | Prospective Partner Executive |
-      | Autorpadmin1           | Transitional Case Manager     |
-      | AutoPProgramadmin1     | Remedy Other                  |
+      | Search                 | Role1                         | Email                                 |
+      | Automanager1           | Executive                     | managertesting@mailinator.com         |
+      | Autoexecutive1         | Manager                       | executivetesting@mailinator.com       |
+      | Autoremedytcs1         | Remedy LPN                    | remedytcstesting@mailinator.com       |
+      | Autoremedylpn1         | Remedy TCS                    | remedylpntesting@mailinator.com       |
+      | Autoremedyrn1          | Remedy Field RN               | remedyrntesting@mailinator.com        |
+      | Autoremedyfieldrn1     | Remedy RN                     | remedyfieldrntesting@mailinator.com   |
+      | Autoremedypm1          | Remedy Sales Team             | remedypmtesting@mailinator.com        |
+      | Autoremedysalesteam1   | Remedy PM                     | remedysalesteamtesting@mailinator.com |
+      | AutoPPartnerexecutive1 | Remedy Executive              | ppetesting@mailinator.com             |
+      | Autoremedyother1       | Partner Program Administrator | remedyothertesting@mailinator.com     |
+      | AutotcaseManager1      | Remedy Program Administrator  | tcmtesting@mailinator.com             |
+      | Autoremedyexecutive1   | Prospective Partner Executive | remedyexecutivetesting@mailinator.com |
+      | Autorpadmin1           | Transitional Case Manager     | rpadmintesting@mailinator.com         |
+      | AutoPProgramadmin1     | Remedy Other                  | autoppauser@mailinator.com            |
 
   Scenario Outline: Remedy Technical Admin edit users back to its previous state
     Given I am on the login page
@@ -265,21 +267,21 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
 
     Examples: 
-      | Search                 |Role2                         |
-      | Automanager1           |Manager                       |
-      | Autoexecutive1         |Executive                     |
-      | Autoremedytcs1         |Remedy TCS                    |
-      | Autoremedylpn1         |Remedy LPN                    |
-      | Autoremedyrn1          |Remedy RN                     |
-      | Autoremedyfieldrn1     |Remedy Field RN               |
-      | Autoremedypm1          |Remedy PM                     |
-      | Autoremedysalesteam1   |Remedy Sales Team             |
-      | AutoPPartnerexecutive1 |Prospective Partner Executive |
-      | Autoremedyother1       |Remedy Other                  |
-      | AutotcaseManager1      |Transitional Case Manager     |
-      | Autoremedyexecutive1   |Remedy Executive              |
-      | Autorpadmin1           |Remedy Program Administrator  |
-      | AutoPProgramadmin1     |Partner Program Administrator |
+      | Search                 | Role2                         |
+      | Automanager1           | Manager                       |
+      | Autoexecutive1         | Executive                     |
+      | Autoremedytcs1         | Remedy TCS                    |
+      | Autoremedylpn1         | Remedy LPN                    |
+      | Autoremedyrn1          | Remedy RN                     |
+      | Autoremedyfieldrn1     | Remedy Field RN               |
+      | Autoremedypm1          | Remedy PM                     |
+      | Autoremedysalesteam1   | Remedy Sales Team             |
+      | AutoPPartnerexecutive1 | Prospective Partner Executive |
+      | Autoremedyother1       | Remedy Other                  |
+      | AutotcaseManager1      | Transitional Case Manager     |
+      | Autoremedyexecutive1   | Remedy Executive              |
+      | Autorpadmin1           | Remedy Program Administrator  |
+      | AutoPProgramadmin1     | Partner Program Administrator |
 
   Scenario Outline: Partner Technical Administrator edit users to different role
     Given I am on the login page
@@ -297,6 +299,7 @@ Feature: User admin edit users details
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
+    And I verify the user email address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -341,12 +344,12 @@ Feature: User admin edit users details
     And I wait for 6000 milli seconds
 
     Examples: 
-      | Search                 | Role1                         |
-      | Automanager1           | Executive                     |
-      | Autoexecutive1         | Manager                       |
-      | AutoPPartnerexecutive1 | Partner Program Administrator |
-      | AutoPProgramadmin1     | Prospective Partner Executive |
-      | AutotcaseManager1      | Case Manager                  |
+      | Search                 | Role1                         | Email                           |
+      | Automanager1           | Executive                     | managertesting@mailinator.com   |
+      | Autoexecutive1         | Manager                       | executivetesting@mailinator.com |
+      | AutoPPartnerexecutive1 | Partner Program Administrator | ppetesting@mailinator.com       |
+      | AutoPProgramadmin1     | Prospective Partner Executive | autoppauser@mailinator.com      |
+      | AutotcaseManager1      | Case Manager                  | tcmtesting@mailinator.com       |
 
   Scenario Outline: Partner Technical Administrator edit users back to its previous state
     Given I am on the login page
@@ -400,9 +403,9 @@ Feature: User admin edit users details
     And I wait for 4000 milli seconds
 
     Examples: 
-      | Search                 |Role2                         |
-      | Automanager1           |Manager                       |
-      | Autoexecutive1         |Executive                     |
-      | AutoPPartnerexecutive1 |Prospective Partner Executive |
-      | AutoPProgramadmin1     |Partner Program Administrator |
-      | AutotcaseManager1      |Transitional Case Manager     |
+      | Search                 | Role2                         |
+      | Automanager1           | Manager                       |
+      | Autoexecutive1         | Executive                     |
+      | AutoPPartnerexecutive1 | Prospective Partner Executive |
+      | AutoPProgramadmin1     | Partner Program Administrator |
+      | AutotcaseManager1      | Transitional Case Manager     |

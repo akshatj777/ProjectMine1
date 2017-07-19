@@ -137,7 +137,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickHealthSystemField() {
-    	iWillWaitToSee(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
+    	delay();
     	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
     	if(value==true){
         clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
@@ -152,9 +152,9 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iSelectHealthSystem(String desc) {
-    	iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
     	boolean value = isElementPresentOnPage(By.cssSelector(".ui-select-choices-row-inner"));
     	if(value==true){
+    		iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
         clickElement(driver.findElement(By.cssSelector(".ui-select-choices-row-inner")));
     	}
     }
@@ -326,8 +326,9 @@ public class CreateUserPage extends BaseClass{
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-		   delay();
+		   iWillWaitToSee(By.xpath("//div/div/div/div/label"));
 		   clickAllElementofAlistbyXpath("//div/div/div/div/label");
+		   delay();
 		   driver.navigate().back(); 
 	   }
     }

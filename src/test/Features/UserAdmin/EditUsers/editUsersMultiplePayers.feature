@@ -12,6 +12,7 @@ Feature: Edit Users with multiple payers
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
+    And I verify the user <Email> address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -57,22 +58,22 @@ Feature: Edit Users with multiple payers
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
-      Examples: 
-      | Search                  | Role1                         |
-      | MultipleManager         | Executive                     |
-      | MultipleExecutive       | Manager                       |
-      | MultipleRemedyTcs       | Remedy LPN                    |
-      | MultipleRemedyLpn       | Remedy TCS                    |
-      | MultipleRemedyRn        | Remedy Field RN               |
-      | MultipleRemedyFieldRn   | Remedy RN                     |
-      | MultipleRemedyPm        | Remedy Sales Team             |
-      | MultipleRemedySalesTeam | Remedy PM                     |
-      | MultipleRemedyExecutive | Prospective Partner Executive |
-      | MultiplePPE             | Remedy Executive              |
-      | MultipleRemedyOther     | Partner Program Administrator |
-      | MultiplePPA             | Remedy Other                  |
-      | MultipleRPA             | Transitional Case Manager     |
-      | MultipleTCM             | Remedy Program Administrator  |
+    Examples: 
+      | Search                  | Role1                         | Email                               |
+      | MultipleManager         | Executive                     | MultipleManager@yopmail.com         |
+      | MultipleExecutive       | Manager                       | multipleexecutive@yopmail.com       |
+      | MultipleRemedyTcs       | Remedy LPN                    | MultipleRemedyTcs@yopmail.com       |
+      | MultipleRemedyLpn       | Remedy TCS                    | MultipleRemedyLpn@yopmail.com       |
+      | MultipleRemedyRn        | Remedy Field RN               | MultipleRemedyRn@yopmail.com        |
+      | MultipleRemedyFieldRn   | Remedy RN                     | MultipleRemedyFieldRn@yopmail.com   |
+      | MultipleRemedyPm        | Remedy Sales Team             | MultipleRemedyPm@yopmail.com        |
+      | MultipleRemedySalesTeam | Remedy PM                     | MultipleRemedySalesTeam@yopmail.com |
+      | MultipleRemedyExecutive | Prospective Partner Executive | MultipleRemedyExecutive@yopmail.com |
+      | MultiplePPE             | Remedy Executive              | MultiplePPE@yopmail.com             |
+      | MultipleRemedyOther     | Partner Program Administrator | MultipleRemedyOther@yopmail.com     |
+      | MultiplePPA             | Remedy Other                  | MultiplePPA@yopmail.com             |
+      | MultipleRPA             | Transitional Case Manager     | MultipleRPA@yopmail.com             |
+      | MultipleTCM             | Remedy Program Administrator  | MultipleTCM@yopmail.com             |
 
   Scenario Outline: Super Administrator edit users users back to its previous state
     Given I am on the login page
@@ -125,21 +126,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search                  |Role2                         |
-      | MultipleManager         |Manager                       |
-      | MultipleExecutive       |Executive                     |
-      | MultipleRemedyTcs       |Remedy TCS                    |
-      | MultipleRemedyLpn       |Remedy LPN                    |
-      | MultipleRemedyRn        |Remedy RN                     |
-      | MultipleRemedyFieldRn   |Remedy Field RN               |
-      | MultipleRemedyPm        |Remedy PM                     |
-      | MultipleRemedySalesTeam |Remedy Sales Team             |
-      | MultipleRemedyExecutive |Remedy Executive              |
-      | MultiplePPE             |Prospective Partner Executive |
-      | MultipleRemedyOther     |Remedy Other                  |
-      | MultiplePPA             |Partner Program Administrator |
-      | MultipleRPA             |Remedy Program Administrator  |
-      | MultipleTCM             |Transitional Case Manager     |
+      | Search                  | Role2                         |
+      | MultipleManager         | Manager                       |
+      | MultipleExecutive       | Executive                     |
+      | MultipleRemedyTcs       | Remedy TCS                    |
+      | MultipleRemedyLpn       | Remedy LPN                    |
+      | MultipleRemedyRn        | Remedy RN                     |
+      | MultipleRemedyFieldRn   | Remedy Field RN               |
+      | MultipleRemedyPm        | Remedy PM                     |
+      | MultipleRemedySalesTeam | Remedy Sales Team             |
+      | MultipleRemedyExecutive | Remedy Executive              |
+      | MultiplePPE             | Prospective Partner Executive |
+      | MultipleRemedyOther     | Remedy Other                  |
+      | MultiplePPA             | Partner Program Administrator |
+      | MultipleRPA             | Remedy Program Administrator  |
+      | MultipleTCM             | Transitional Case Manager     |
 
   Scenario Outline: Remedy Technical Administrator edit users to different role
     Given I am on the login page
@@ -157,6 +158,7 @@ Feature: Edit Users with multiple payers
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
+    And I verify the user <Email> address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -204,21 +206,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search                  | Role1                         |
-      | MultipleManager         | Executive                     |
-      | MultipleExecutive       | Manager                       |
-      | MultipleRemedyTcs       | Remedy LPN                    |
-      | MultipleRemedyLpn       | Remedy TCS                    |
-      | MultipleRemedyRn        | Remedy Field RN               |
-      | MultipleRemedyFieldRn   | Remedy RN                     |
-      | MultipleRemedyPm        | Remedy Sales Team             |
-      | MultipleRemedySalesTeam | Remedy PM                     |
-      | MultipleRemedyExecutive | Prospective Partner Executive |
-      | MultiplePPE             | Remedy Executive              |
-      | MultipleRemedyOther     | Partner Program Administrator |
-      | MultiplePPA             | Remedy Other                  |
-      | MultipleRPA             | Transitional Case Manager     |
-      | MultipleTCM             | Remedy Program Administrator  |
+      | Search                  | Role1                         | Email                               |
+      | MultipleManager         | Executive                     | MultipleManager@yopmail.com         |
+      | MultipleExecutive       | Manager                       | multipleexecutive@yopmail.com       |
+      | MultipleRemedyTcs       | Remedy LPN                    | MultipleRemedyTcs@yopmail.com       |
+      | MultipleRemedyLpn       | Remedy TCS                    | MultipleRemedyLpn@yopmail.com       |
+      | MultipleRemedyRn        | Remedy Field RN               | MultipleRemedyRn@yopmail.com        |
+      | MultipleRemedyFieldRn   | Remedy RN                     | MultipleRemedyFieldRn@yopmail.com   |
+      | MultipleRemedyPm        | Remedy Sales Team             | MultipleRemedyPm@yopmail.com        |
+      | MultipleRemedySalesTeam | Remedy PM                     | MultipleRemedySalesTeam@yopmail.com |
+      | MultipleRemedyExecutive | Prospective Partner Executive | MultipleRemedyExecutive@yopmail.com |
+      | MultiplePPE             | Remedy Executive              | MultiplePPE@yopmail.com             |
+      | MultipleRemedyOther     | Partner Program Administrator | MultipleRemedyOther@yopmail.com     |
+      | MultiplePPA             | Remedy Other                  | MultiplePPA@yopmail.com             |
+      | MultipleRPA             | Transitional Case Manager     | MultipleRPA@yopmail.com             |
+      | MultipleTCM             | Remedy Program Administrator  | MultipleTCM@yopmail.com             |
 
   Scenario Outline: Remedy Technical Administrator edit users back to its previous state
     Given I am on the login page
@@ -273,21 +275,21 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search                  |Role2                         |
-      | MultipleManager         |Manager                       |
-      | MultipleExecutive       |Executive                     |
-      | MultipleRemedyTcs       |Remedy TCS                    |
-      | MultipleRemedyLpn       |Remedy LPN                    |
-      | MultipleRemedyRn        |Remedy RN                     |
-      | MultipleRemedyFieldRn   |Remedy Field RN               |
-      | MultipleRemedyPm        |Remedy PM                     |
-      | MultipleRemedySalesTeam |Remedy Sales Team             |
-      | MultipleRemedyExecutive |Remedy Executive              |
-      | MultiplePPE             |Prospective Partner Executive |
-      | MultipleRemedyOther     |Remedy Other                  |
-      | MultiplePPA             |Partner Program Administrator |
-      | MultipleRPA             |Remedy Program Administrator  |
-      | MultipleTCM             |Transitional Case Manager     |
+      | Search                  | Role2                         |
+      | MultipleManager         | Manager                       |
+      | MultipleExecutive       | Executive                     |
+      | MultipleRemedyTcs       | Remedy TCS                    |
+      | MultipleRemedyLpn       | Remedy LPN                    |
+      | MultipleRemedyRn        | Remedy RN                     |
+      | MultipleRemedyFieldRn   | Remedy Field RN               |
+      | MultipleRemedyPm        | Remedy PM                     |
+      | MultipleRemedySalesTeam | Remedy Sales Team             |
+      | MultipleRemedyExecutive | Remedy Executive              |
+      | MultiplePPE             | Prospective Partner Executive |
+      | MultipleRemedyOther     | Remedy Other                  |
+      | MultiplePPA             | Partner Program Administrator |
+      | MultipleRPA             | Remedy Program Administrator  |
+      | MultipleTCM             | Transitional Case Manager     |
 
   Scenario Outline: Partner Technical Administrator edit users to different role
     Given I am on the login page
@@ -305,6 +307,7 @@ Feature: Edit Users with multiple payers
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
+    And I verify the user <Email> address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -352,11 +355,11 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search            | Role1                         |
-      | MultipleManager   | Executive                     |
-      | MultipleExecutive | Manager                       |
-      | MultiplePPE       | Partner Program Administrator |
-      | MultipleTCM       | Case Manager                  |
+      | Search            | Role1                        | Email                         |
+      | MultipleManager   | Executive                    | MultipleManager@yopmail.com   |
+      | MultipleExecutive | Manager                      | multipleexecutive@yopmail.com |
+      | MultiplePPE       | Remedy Executive             | MultiplePPE@yopmail.com       |
+      | MultipleTCM       | Remedy Program Administrator | MultipleTCM@yopmail.com       |
 
   Scenario Outline: Partner Technical Administrator edit users back to its previous state
     Given I am on the login page
@@ -413,8 +416,8 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search            |Role2                         |
-      | MultipleManager   |Manager                       |
-      | MultipleExecutive |Executive                     |
-      | MultiplePPE       |Prospective Partner Executive |
-      | MultipleTCM       |Transitional Case Manager     |
+      | Search            | Role2                         |
+      | MultipleManager   | Manager                       |
+      | MultipleExecutive | Executive                     |
+      | MultiplePPE       | Prospective Partner Executive |
+      | MultipleTCM       | Transitional Case Manager     |
