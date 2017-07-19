@@ -119,7 +119,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "REH - Rehabilitation" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Outpatient" on add a new transition
+    Then I select the Discharge care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -127,6 +127,8 @@ Feature: Patient status on Home Limited Service Worklist
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
     Then I click on Home with Limited Services sub tab on the patient Card Page

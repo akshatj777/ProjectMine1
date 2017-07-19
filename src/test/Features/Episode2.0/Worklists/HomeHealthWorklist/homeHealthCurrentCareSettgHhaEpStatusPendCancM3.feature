@@ -110,7 +110,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    Then I wait for 3000 milli seconds
+    Then I wait for 5000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
@@ -159,7 +159,7 @@ Feature: Patient status on Home Health Worklist
     Then I select the Discharge facility value "Amedisys Home Health - Stamford" on add a new transition
     Then I wait for 3000 milli seconds
     Then I click on update transition to add a new episode
-    Then I wait for 4000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition for discharge info
     And I wait for 8000 milli seconds
     When I switch to default window from iframe
@@ -172,7 +172,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    Then I wait for 4000 milli seconds
+    Then I wait for 5000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds

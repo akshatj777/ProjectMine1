@@ -14,6 +14,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I should see search box appearing on the patients page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
+    And I wait for 2000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
@@ -55,7 +56,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition for discharge info
-    Then I wait for 5000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
     When I switch to default window from iframe
@@ -66,6 +67,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I click on Exceed SNF LOS sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
+    And I wait for 2000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
@@ -104,13 +106,14 @@ Feature: Patient status on Exceed SNF LOS Work List
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
-    And I wait for 2000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 1000 milli seconds
     Then I click on Exceed SNF LOS sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
+    And I wait for 2000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds

@@ -53,7 +53,7 @@ Feature: Patient status in Need Review Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on the Needs Review tab on the patient Card Page
     When I click on Filter button present on Patient Page

@@ -1,7 +1,6 @@
 Feature: Patient status on Post Acute Facility Work List
 
-
-Scenario Outline: While patient in worklist,Episode state changes
+  Scenario Outline: While patient in worklist,Episode state changes
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -13,8 +12,16 @@ Scenario Outline: While patient in worklist,Episode state changes
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 40000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
@@ -25,7 +32,6 @@ Scenario Outline: While patient in worklist,Episode state changes
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
@@ -47,15 +53,14 @@ Scenario Outline: While patient in worklist,Episode state changes
     Then I wait for 7000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
-     Then I click on add a new transition to add a new episode
+    Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "19" on date picker
-    Then I select the month "19" from calendar from date picker
-    Then I select the "19" from the calendar from date picker on Transition Page
-    Then I select the "19" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "18" on date picker
+    Then I select the month "18" from calendar from date picker
+    Then I select the "18" from the calendar from date picker on Transition Page
+    Then I select the "18" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "IRF - Inpatient Rehabilitation" on add a new transition
     Then I wait for 5000 milli seconds
@@ -64,26 +69,35 @@ Scenario Outline: While patient in worklist,Episode state changes
     Then I click on the Create Transition Button to add a new transition
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 5000 milli seconds
     Then I click on Post Acute Facility sub tab on the patient Card Page
-    Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
+    Then I wait for 2000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    When I switch to default window from iframe
-    Then I close the patient summary Page
-    Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 5000 milli seconds
-    Then I click on Post Acute Facility sub tab on the patient Card Page
-    Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    And I wait for 2000 milli seconds
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 30000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
@@ -98,11 +112,18 @@ Scenario Outline: While patient in worklist,Episode state changes
     Then I wait for 5000 milli seconds
     Then I click on Post Acute Facility sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-  
-   Examples: 
+
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
-      

@@ -64,7 +64,7 @@ Feature: Patient status in Need Review Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    And I wait for 3000 milli seconds
+    And I wait for 4000 milli seconds
     Then I click on the ALL Tab on Patient page
     And I wait for 2000 milli seconds
     When I click on Filter button present on Patient Page
@@ -92,6 +92,8 @@ Feature: Patient status in Need Review Worklist
     Then I wait for 8000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on the Needs Review tab on the patient Card Page
     When I click on Filter button present on Patient Page

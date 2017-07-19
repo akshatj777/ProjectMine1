@@ -107,6 +107,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
+    Then I wait for 4000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
@@ -116,7 +117,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
     Then I verify LOS is below the ELOS on the patient card page
- 
+
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |

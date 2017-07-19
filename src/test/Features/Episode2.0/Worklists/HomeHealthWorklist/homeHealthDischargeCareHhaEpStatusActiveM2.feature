@@ -54,7 +54,7 @@ Feature: Patient status on Home Health Worklist
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 2000 milli seconds
     Then I click on the Create Transition Button to add a new transition for discharge info
-    Then I wait for 4000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
     When I switch to default window from iframe

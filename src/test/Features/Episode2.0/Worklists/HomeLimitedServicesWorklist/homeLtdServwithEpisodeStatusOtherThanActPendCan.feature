@@ -31,7 +31,6 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "30" on date picker
@@ -88,7 +87,6 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
@@ -99,10 +97,9 @@ Feature: Patient status on Home Limited Service Worklist
     Then I select the care setting value "REH - Rehabilitation" on add a new transition
     Then I wait for 4000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I wait for 2000 milli seconds
     Then I select the Discharge care setting value "REH - Rehabilitation" on add a new transition
     Then I wait for 2000 milli seconds
-    Then I select the Discharge care type value "Outpatient" on add a new transition
+    Then I select the Discharge care type value "Inpatient" on add a new transition
     Then I wait for 2000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds

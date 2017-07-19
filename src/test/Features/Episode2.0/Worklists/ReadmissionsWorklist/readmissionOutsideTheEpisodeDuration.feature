@@ -13,8 +13,16 @@ Feature: Patient with readmission outside the episode duration i want to use thi
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 35000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
@@ -67,24 +75,24 @@ Feature: Patient with readmission outside the episode duration i want to use thi
     Then I wait for 8000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page
     Then I wait for 5000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-    Then I wait for 5000 milli seconds
-    Then I click on the ALL Tab on Patient page
-    And I wait for 8000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 15000 milli seconds
-    Then I click on the Transitions tab on the Patient Summary Page
-    And I wait for 6000 milli seconds
-    Then I switch to PatientTransitions frame
-    Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

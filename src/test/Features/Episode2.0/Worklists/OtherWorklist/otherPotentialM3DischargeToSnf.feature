@@ -12,8 +12,16 @@ Feature: Patient status on Other Work List
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 30000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
@@ -24,7 +32,6 @@ Feature: Patient status on Other Work List
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
@@ -57,17 +64,35 @@ Feature: Patient status on Other Work List
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
     Then I click on Other sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
     Then I click on the ALL Tab on Patient page
     And I wait for 8000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 30000 milli seconds
     Then I click on the Transitions tab on the Patient Summary Page

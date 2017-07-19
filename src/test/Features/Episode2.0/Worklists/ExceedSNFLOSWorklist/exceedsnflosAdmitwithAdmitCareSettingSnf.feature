@@ -47,7 +47,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
     Then I click on add a new transition to add a new episode
@@ -62,7 +62,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the care type value "TCU" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the facility value "Coosa valley health care" on add a new transition
-    Then I wait for 2000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
     When I switch to default window from iframe

@@ -67,7 +67,7 @@ Feature: Patient status on Home Health Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
-    Then I wait for 3000 milli seconds
+    Then I wait for 5000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I click on Home Health sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
@@ -89,6 +89,8 @@ Feature: Patient status on Home Health Worklist
     And I wait for 4000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 5000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I click on Home Health sub tab on the patient Card Page
     When I click on Filter button present on Patient Page

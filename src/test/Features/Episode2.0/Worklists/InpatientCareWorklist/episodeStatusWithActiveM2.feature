@@ -56,7 +56,9 @@ Feature: Patient status in Inpatient Care Worklist
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
+    Then I wait for 3000 milli seconds
     Then I click on Inpatient Care sub tab on the patient Card Page
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 6000 milli seconds
@@ -115,8 +117,10 @@ Feature: Patient status in Inpatient Care Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
+    Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
+    Then I wait for 3000 milli seconds
     Then I click on Inpatient Care sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -190,9 +194,11 @@ Feature: Patient status in Inpatient Care Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
+    Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
+    Then I wait for 3000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     Then I wait for 3000 milli seconds
@@ -248,6 +254,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
+    Then I wait for 3000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 4000 milli seconds
@@ -300,6 +307,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 4000 milli seconds
@@ -331,6 +339,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds

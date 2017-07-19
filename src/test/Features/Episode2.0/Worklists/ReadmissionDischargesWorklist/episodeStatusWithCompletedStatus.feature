@@ -1,6 +1,6 @@
 Feature: Patient status on Readmission Discharges Work List
 
-Scenario Outline: Patient has an episode status other than Active or Pending Cancellation(Completed) 
+  Scenario Outline: Patient has an episode status other than Active or Pending Cancellation(Completed)
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -12,8 +12,16 @@ Scenario Outline: Patient has an episode status other than Active or Pending Can
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
-    Then I enter "<Patient Last Name>" in the search box on the patients page
-    And I wait for 40000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
@@ -23,7 +31,6 @@ Scenario Outline: Patient has an episode status other than Active or Pending Can
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
-   Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "96" on date picker
@@ -56,22 +63,17 @@ Scenario Outline: Patient has an episode status other than Active or Pending Can
     Then I wait for 5000 milli seconds
     Then I click on Post Acute Facility sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-    Then I click on the ALL Tab on Patient page
-    And I wait for 8000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    And I wait for 10000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 30000 milli seconds
-    Then I click on the Transitions tab on the Patient Summary Page
-    And I wait for 25000 milli seconds
-    Then I switch to PatientTransitions frame
-    Then I click on the delete button on the transition to delete all the transitions
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
-
-

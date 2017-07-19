@@ -165,7 +165,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "6" on date picker
@@ -173,6 +172,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I select the "6" from the calendar from date picker on Transition Page
     Then I select the "6" time from the calendar from date picker on Transition Page
     Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 3000 milli seconds
     Then I select the care type value "<Care Type>" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the facility value "Emanuel County Hospital Authority" on add a new transition

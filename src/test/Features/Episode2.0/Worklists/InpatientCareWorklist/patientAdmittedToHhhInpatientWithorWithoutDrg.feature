@@ -98,7 +98,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I switch to PatientTransitions frame
     Then I wait for 3000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 7000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition

@@ -32,7 +32,6 @@ Feature: Patient status on Other/Alternative Work List
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "30" on date picker
@@ -71,6 +70,16 @@ Feature: Patient status on Other/Alternative Work List
     Then I wait for 5000 milli seconds
     Then I click on Other sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 3000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 

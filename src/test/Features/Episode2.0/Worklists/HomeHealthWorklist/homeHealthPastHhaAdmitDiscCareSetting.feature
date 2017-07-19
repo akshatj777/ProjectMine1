@@ -74,16 +74,16 @@ Feature: Patient status on Home Health Worklist
     Then I select the "-90" time from the calendar from date picker on Transition Page
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
-    Then I reload my page
-    Then I wait for 3000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I click on Home Health sub tab on the patient Card Page
-     Then I click on Home Health sub tab on the patient Card Page
+    Then I click on Home Health sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     Then I wait for 4000 milli seconds
