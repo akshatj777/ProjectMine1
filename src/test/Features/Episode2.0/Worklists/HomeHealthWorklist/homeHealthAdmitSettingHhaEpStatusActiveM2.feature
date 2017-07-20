@@ -119,7 +119,7 @@ Feature: Patient status on Home Health Worklist
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript
     Then I wait for 2000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on update transition to add a new episode
     Then I wait for 15000 milli seconds
     When I switch to default window from iframe
@@ -128,7 +128,7 @@ Feature: Patient status on Home Health Worklist
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
-    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page

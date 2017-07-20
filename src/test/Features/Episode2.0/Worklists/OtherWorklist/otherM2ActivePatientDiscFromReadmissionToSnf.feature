@@ -27,9 +27,9 @@ Feature: Patient status on Other/Alternative Work List
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I wait for 7000 milli seconds
+    Then I wait for 3000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
-    Then I wait for 7000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -39,22 +39,22 @@ Feature: Patient status on Other/Alternative Work List
     Then I select the month "30" from calendar from date picker
     Then I select the "30" from the calendar from date picker on Transition Page
     Then I select the "30" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
-    Then I wait for 8000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I wait for 4000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    Then I wait for 15000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on the Transition Info on add a new transition
@@ -64,25 +64,25 @@ Feature: Patient status on Other/Alternative Work List
     Then I select the month "28" from calendar from date picker
     Then I select the "28" from the calendar from date picker on Transition Page
     Then I select the "28" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
-    Then I wait for 8000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I wait for 4000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
-    Then I wait for 4000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the Discharge care type value "Custodial Care" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 15000 milli seconds
+    And I wait for 8000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page

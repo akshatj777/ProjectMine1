@@ -1,6 +1,6 @@
 Feature: Patient status in Inpatient Care Worklist
 
-  Scenario Outline: Delete all the tranisitions from the patient transition box.
+  Scenario Outline: Delete all the tranisitions from the patient transition box  and create a HHH - Inpatient patient with BPCI DRG M2
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -38,6 +38,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I select the "6" from the calendar from date picker on Transition Page
     Then I select the "6" time from the calendar from date picker on Transition Page
     Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 2000 milli seconds
     Then I select the care type value "<Care Type>" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
@@ -104,9 +105,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I switch to PatientTransitions frame
     Then I wait for 3000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 5000 milli seconds
-    Then I select the care type value "<Care Type>" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 8000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 2000 milli seconds
     Then I select the "<DRG type>" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -122,10 +121,10 @@ Feature: Patient status in Inpatient Care Worklist
     Then I click on the Impatient tab on the patient Card Page
     Then I wait for 3000 milli seconds
     Then I click on Inpatient Care sub tab on the patient Card Page
+    Then I wait for 3000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 4000 milli seconds
-    Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
@@ -139,7 +138,7 @@ Feature: Patient status in Inpatient Care Worklist
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Working  | Inpatient |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Final    | Inpatient |
 
-  Scenario Outline: Verify patient status in inpatient care with HHH- Inpatient and HHH-Scheduled with confirmed Pred/Possible/Working/Final respectively BPCI POTENTIAL M3 DRG.
+  Scenario Outline: Verify patient status in inpatient care with HHH- Inpatient and HHH-Scheduled with confirmed Pred/Possible/Working/Final respectively BPCI M2 DRG.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -170,7 +169,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "6" on date picker
@@ -180,7 +178,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I select the care type value "<Care Type>" on add a new transition
     Then I wait for 2000 milli seconds
-    Then I select the facility value "Emanuel County Hospital Authority" on add a new transition
+    Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I wait for 1000 milli seconds
@@ -210,6 +208,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+     
+      Examples:
       | email                | password  | Patient First Name | Patient Last Name | DRG type | Care Type |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Possible | Scheduled |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Working  | Scheduled |
@@ -266,29 +266,7 @@ Feature: Patient status in Inpatient Care Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-    Then I click on the ALL Tab on Patient page
-    And I wait for 2000 milli seconds
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    And I wait for 4000 milli seconds
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
-    Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 15000 milli seconds
-    Then I switch to PatientTransitions frame
-    Then I wait for 7000 milli seconds
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 7000 milli seconds
-    Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 2000 milli seconds
-    Then I click on update transition to add a new episode
-    Then I wait for 7000 milli seconds
-    When I switch to default window from iframe
-
+   
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name | Care Type   |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Outpatient  |
@@ -324,6 +302,12 @@ Feature: Patient status in Inpatient Care Worklist
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
     Then I wait for 7000 milli seconds
+    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I wait for 7000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 4000 milli seconds
+    Then I click on update transition to add a new episode
+    Then I wait for 6000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
     Then I wait for 7000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG No JavaScript

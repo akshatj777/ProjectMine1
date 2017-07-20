@@ -37,7 +37,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the month "30" from calendar from date picker
     Then I select the "30" from the calendar from date picker on Transition Page
     Then I select the "30" time from the calendar from date picker on Transition Page
-        Then I wait for 1000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 1000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition

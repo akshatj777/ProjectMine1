@@ -55,8 +55,9 @@ Feature: Patient status in Need Review Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
-    Then I wait for 4000 milli seconds
+    Then I wait for 6000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Needs Review tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -113,9 +114,9 @@ Feature: Patient status in Need Review Worklist
     Then I select the "9" time from the calendar from date picker on Transition Page
     Then I click on datepicker button to select the discharge date on add a new transition
     Then I click on the centre of the calendar header to select discharge date and month on Transition Page
-    Then I click on the previous next link to select the required year "6" on date picker
-    Then I select the month "6" from calendar from date picker on Discharge
-    Then I select the calendar date "6" from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "7" on date picker
+    Then I select the month "7" from calendar from date picker on Discharge
+    Then I select the calendar date "7" from the calendar from date picker on Transition Page
     Then I select the before midinight time from the calendar from datepicker on Transition Page
     Then I wait for 1000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
@@ -140,7 +141,7 @@ Feature: Patient status in Need Review Worklist
     And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

@@ -79,6 +79,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I select the Discharge care setting value "REH - Rehabilitation" on add a new transition
+    Then I wait for 2000 milli seconds
     Then I select the Discharge care type value "Outpatient" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the Discharge facility value "Allied Rehab Hospital" on add a new transition
@@ -90,6 +91,25 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 2000 milli seconds
     Then I click on the Create Transition Button to add a new transition for discharge info
     Then I wait for 8000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 8000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I reload my page
+    And I wait for 4000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I click on Home with Limited Services sub tab on the patient Card Page
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 2000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 2000 milli seconds
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
 
     Examples: 

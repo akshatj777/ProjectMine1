@@ -33,6 +33,7 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
+    Then I wait for 1000 milli seconds
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "10" on date picker
     Then I select the month "10" from calendar from date picker

@@ -30,15 +30,15 @@ Scenario Outline: Patient has Active episode status with current care setting is
     Then I select the month "-30" from calendar from date picker
     Then I select the "-30" from the calendar from date picker on Transition Page
     Then I select the "-30" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 3000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
-    Then I wait for 8000 milli seconds
+    Then I wait for 3000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I wait for 7000 milli seconds
@@ -60,14 +60,8 @@ Scenario Outline: Patient has Active episode status with current care setting is
     Then I wait for 3000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
-    When I switch to default window from iframe
-    Then I close the patient summary Page
-    Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 5000 milli seconds
-    Then I click on Post Acute Facility sub tab on the patient Card Page
-    Then I wait for 10000 milli seconds
-    Then I enter "<Patient Last Name>" in the search box on the admission tab on patients page
-    Then I wait for 10000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the patients page
+    Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
     
    Examples: 

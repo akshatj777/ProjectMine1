@@ -64,19 +64,6 @@ Feature: Patient status in Need Review Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    And I wait for 4000 milli seconds
-    Then I click on the ALL Tab on Patient page
-    And I wait for 2000 milli seconds
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    And I wait for 5000 milli seconds
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
-    Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame

@@ -93,7 +93,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I select the "10" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "REH - Rehabilitation" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the care type value "Outpatient" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I wait for 4000 milli seconds
@@ -165,7 +165,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I select the "10" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "REH - Rehabilitation" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the care type value "Outpatient" on add a new transition
     Then I wait for 1000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition

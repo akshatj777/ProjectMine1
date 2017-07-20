@@ -127,7 +127,7 @@ Feature: Patient status on Home Health Worklist
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
-    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page

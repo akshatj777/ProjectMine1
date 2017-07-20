@@ -68,10 +68,10 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 5000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "-90" on date picker
-    Then I select the month "-90" from calendar from date picker
-    Then I select the "-90" from the calendar from date picker on Transition Page
-    Then I select the "-90" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "-40" on date picker
+    Then I select the month "-40" from calendar from date picker
+    Then I select the "-40" from the calendar from date picker on Transition Page
+    Then I select the "-40" time from the calendar from date picker on Transition Page
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I select the care type value "Inpatient" on add a new transition
     Then I wait for 4000 milli seconds
@@ -94,7 +94,7 @@ Feature: Patient status on Home Health Worklist
     And I wait for 2000 milli seconds
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
