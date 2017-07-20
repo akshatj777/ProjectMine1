@@ -176,6 +176,7 @@ public class CreateUserPage extends BaseClass{
     public void iClickCreateButton() {
     	iWillWaitToSee(By.cssSelector(".btn.btn-primary"));
         clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
+        delay();
     }
 
     public void iVerifyOrganizationalRoleRequiredMessageText(String text) {
@@ -207,6 +208,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iverifyCreateUserPageHeader(String header) {
+    	iWillWaitToSee(By.cssSelector(".ng-scope>h2"));
         verifyTextForElement(driver.findElement(By.cssSelector(".ng-scope>h2")), header);
     }
 
@@ -340,6 +342,7 @@ public class CreateUserPage extends BaseClass{
 		   delay();
 		   switchToNewWindow();
 		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
+		   delay();
 		   switchBacktoOldWindow();
    	}
    }
@@ -360,6 +363,7 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
+		   delay();
 		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   switchBacktoOldWindow(); 
@@ -372,6 +376,7 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
+		   delay();
 		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));

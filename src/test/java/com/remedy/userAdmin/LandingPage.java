@@ -38,13 +38,12 @@ public class LandingPage extends BaseClass{
     }
 
     public void iClickOnTheTopUserAccountIcon (){
-    	iWillWaitToSee(By.cssSelector(".valentino-icon-profile"));
-        clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+    	delay();
+    	clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
-    	//iWillWaitToSee(By.cssSelector(".btn.btn-flyout-nav"));
-        selectElementByDesc(".btn.btn-flyout-nav", link);
+    	selectElementByDesc(".btn.btn-flyout-nav", link);
     }
 
     public void iVerifyTextForJiraLogInPage(String text){
