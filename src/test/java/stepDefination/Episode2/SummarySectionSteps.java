@@ -172,4 +172,30 @@ public class SummarySectionSteps extends DriverScript{
     public void I_switch_to_Patient_CareTeam_frame() throws Throwable {
         patientclinical.IswitchtoPatientCareTeamframe();
     }
+    
+    @Then("^I click on the patient on the patient card page that has no CARL button in it$")
+    public void I_click_on_the_patient_on_the_patient_card_page_that_has_no_CARL_button_in_it()
+    {
+    	patientclinical.IclickonthepatientonthepatientcardpagethathasnoCARLbuttoninit();
+    }
+    
+	@Then ("^I get the patient last name who have no CARL button in it$")
+	public void I_get_the_patient_last_name_who_have_no_CARL_button_in_it()
+	{
+		patientclinical.IgetthepatientlastnamewhohavenoCARLbuttoninit();
+	}
+	
+
+	@Then ("^I click on the cancel button to delete the searched patient from the search box$")
+	public void I_click_on_the_cancel_button_to_delete_the_searched_patient_from_the_search_box()
+	{
+		patientclinical.Iclickonthecancelbuttontodeletethesearchedpatientfromthesearchbox();
+	}
+	
+	@Then ("^I click on the searched name on the patient card$")
+	public void I_click_on_the_searched_name_on_the_patient_card()
+	{
+		patientclinical.Iclickonthesearchednameonthepatientcard();
+	}
+    
 }

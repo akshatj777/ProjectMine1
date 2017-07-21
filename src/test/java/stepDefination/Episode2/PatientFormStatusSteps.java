@@ -17,11 +17,11 @@ public class PatientFormStatusSteps extends DriverScript {
 
 	}
 
-	@Then("^I click on the \"(.*)\" searched patient which has the CARL text in it$")
+	@Then("^I search and click on the searched patient which has the CARL text in it$")
 
-	public void I_click_on_the_searched_patient_which_has_the_CARL_text_in_it(String lastname) throws Throwable {
-		patientclinical.IclickonthesearchedpatientwhichhastheCARLtextinit(lastname);
-
+	public void I_search_and_click_on_the_searched_patient_which_has_the_CARL_text_in_it()
+			throws Throwable, InterruptedException {
+		patientclinical.IsearchandclickonthesearchedpatientwhichhastheCARLtextinit();
 	}
 
 	@Then("^I click on the Clinical Documents tab in the patient summary Page$")
@@ -50,10 +50,13 @@ public class PatientFormStatusSteps extends DriverScript {
 		patientclinical.IverifythatInprogressstatusshouldbeinpurplecolorwithColorcodeAD77B3();
 	}
 
-	@Then ("^I click on the complete CARL on the Patient Summary$")
-	public void I_click_on_the_complete_CARL_on_the_Patient_Summary() throws InterruptedException
-	{
+	@Then("^I click on the complete CARL on the Patient Summary$")
+	public void I_click_on_the_complete_CARL_on_the_Patient_Summary() throws InterruptedException {
 		patientclinical.IclickonthecompleteCARLonthePatientSummary();
+	}
+	@Then("^I click on the complete CARL on the Patient Summary1$")
+	public void I_click_on_the_complete_CARL_on_the_Patient_Summary1() throws InterruptedException {
+		patientclinical.IclickonthecompleteCARLonthePatientSummary1();
 	}
 
 	@Then("^I save and continue the complete CARL form$")
@@ -102,4 +105,5 @@ public class PatientFormStatusSteps extends DriverScript {
 		patientclinical.IclickontheSubmitbuttontosubmittheCARLform();
 
 	}
+
 }

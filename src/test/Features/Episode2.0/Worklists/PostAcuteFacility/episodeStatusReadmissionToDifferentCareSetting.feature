@@ -32,7 +32,6 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait for 7000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "20" on date picker
@@ -52,10 +51,10 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "19" on date picker
-    Then I select the month "19" from calendar from date picker
-    Then I select the "19" from the calendar from date picker on Transition Page
-    Then I select the "19" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "18" on date picker
+    Then I select the month "18" from calendar from date picker
+    Then I select the "18" from the calendar from date picker on Transition Page
+    Then I select the "18" time from the calendar from date picker on Transition Page
     Then I wait for 5000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 5000 milli seconds
@@ -80,8 +79,6 @@ Feature: Patient status on Post Acute Facility Work List
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I reload my page
-    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
     Then I click on Post Acute Facility sub tab on the patient Card Page

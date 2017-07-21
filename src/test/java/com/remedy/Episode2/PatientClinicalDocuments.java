@@ -35,16 +35,18 @@ public class PatientClinicalDocuments extends BaseClass {
 	public PatientClinicalDocuments(WebDriver driver) {
 		super(driver);
 	}
-
+	public static String L_name=null;
+	
 	public void IverifythesearchedpatienthastheCARLcompletetextornot() {
 
 		isElementVisible(
 				driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope > strong")));
 	}
 
-	public void IclickonthesearchedpatientwhichhastheCARLtextinit(String lastname) {
-
-		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + lastname + "')]")));
+	public void IsearchandclickonthesearchedpatientwhichhastheCARLtextinit() throws InterruptedException {
+		iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")), L_name);
+		Thread.sleep(10000);
+		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + L_name + "')]")));
 
 	}
 
@@ -661,5 +663,43 @@ public class PatientClinicalDocuments extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'Create Transition')]")));
 		}
 	}
+
+	public void IclickonthepatientonthepatientcardpagethathasnoCARLbuttoninit() {
+		
+	         try{
+	    	   clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a")));
+	    	   Thread.sleep(6000);
+	    		   }catch(Exception e){
+	    			    e.printStackTrace();}  
+	     clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));
+	        
+	  	}
+
+	
+	public void IgetthepatientlastnamewhohavenoCARLbuttoninit() {
+		 L_name=driver.findElement(By.cssSelector("span.pull-left.ng-binding")).getText();
+          System.out.println("$$$$Last name is"+L_name);
 }
 
+	public void IclickonthecompleteCARLonthePatientSummary1() {
+		WebElement element1 = driver.findElement(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope")));
+		clickElement(element1);
+	}
+
+	public void Iclickonthecancelbuttontodeletethesearchedpatientfromthesearchbox() {
+		
+		clickElement(driver.findElement(By.cssSelector("button.btn.btn-quaternary.ng-scope")));
+	}
+
+	public void Iclickonthesearchednameonthepatientcard() {
+		
+		clickElement(driver.findElement(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")));
+	}
+	
+
+
+		
+}
