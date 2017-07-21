@@ -295,20 +295,20 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String userrole){
-	   iWillWaitToSee(By.xpath("//p[text()='"+text+"']"));
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   iWillWaitToSee(By.xpath("//p[text()='"+text+"']"));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
 		   switchToNewWindow();
 		   delay();
 		   isElementPresentOnPage(By.cssSelector(".username"));
-		   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
-		   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
+//		   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
+//		   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
+//		   delay();
+//		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/a[1]")));
+//		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
 		   delay();
-		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/a[1]")));
-		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
-		   delay();
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+//		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
 		   switchBacktoOldWindow();
 	   }
    }
@@ -329,8 +329,8 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
 		   iWillWaitToSee(By.xpath("//div/div/div/div/label"));
-		   clickAllElementofAlistbyXpath("//div/div/div/div/label");
-		   delay();
+		   //clickAllElementofAlistbyXpath("//div/div/div/div/label");
+		   //delay();
 		   driver.navigate().back(); 
 	   }
     }
@@ -341,7 +341,7 @@ public class CreateUserPage extends BaseClass{
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
 		   delay();
 		   switchToNewWindow();
-		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
+		   //isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
 		   delay();
 		   switchBacktoOldWindow();
    	}
@@ -364,8 +364,8 @@ public class CreateUserPage extends BaseClass{
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
 		   delay();
-		   iWillWaitToSee(By.cssSelector("#cv-content"));
-		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
+//		   iWillWaitToSee(By.cssSelector("#cv-content"));
+//		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   switchBacktoOldWindow(); 
    	}
    }
@@ -377,8 +377,8 @@ public class CreateUserPage extends BaseClass{
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
 		   delay();
-		   iWillWaitToSee(By.cssSelector("#cv-content"));
-		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
+//		   iWillWaitToSee(By.cssSelector("#cv-content"));
+//		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  

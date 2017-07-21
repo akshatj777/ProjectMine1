@@ -27,9 +27,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iAmOnMailLoginPage() throws InterruptedException {
-		//Thread.sleep(5000);
         driver.navigate().to("https://accounts.google.com");
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);   
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
@@ -42,7 +40,6 @@ public class MailCreateUser extends BaseClass{
 		iWillWaitToSee(By.xpath("//input[@type='password']"));
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
-		//delay();
 	}
 	
 	public void iClickOnMailIconOnMyAccount() {	
@@ -51,12 +48,6 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnInboxUnderMail() {
-		
-		//delay();
-		//driver.navigate().refresh();
-//		iWillWaitToSee(By.cssSelector(".asf"));
-//		System.out.println("1");
-//		clickElement(driver.findElement(By.cssSelector(".asf")));
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 	}
@@ -72,9 +63,7 @@ public class MailCreateUser extends BaseClass{
 			clickElement(driver.findElement(By.xpath("//div[@aria-label='Delete']")));
 			iWillWaitToSee(By.cssSelector(".bofITb"));
 			System.out.println(driver.findElement(By.cssSelector(".bofITb")).getText());
-			
 		}
-		
 	}
 	
 	public void iSignOutFromMailAccount() {
@@ -90,19 +79,15 @@ public class MailCreateUser extends BaseClass{
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
 	
-	public void iVerifyAccountVerificationMailInInboxInMyAccount() {
-		driver.navigate().refresh();
-		delay();
+	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Verify your account')]"))));
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
-
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]")));
 	}
 	
 	public void iVerifyLinkInMailContentInInboxInMyAccount(String text) {
-		//delay();
 		iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
@@ -113,7 +98,6 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterEmailToGeneratePasswordLink() {
-		//delay();
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
@@ -126,14 +110,7 @@ public class MailCreateUser extends BaseClass{
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
 		driver.navigate().refresh();
 		iWillWaitToSee(By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"));
-//		boolean val = false;
-//		while(val=false){
-//			clickElement(driver.findElement(By.cssSelector(".asf")));
-//			val =isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]")));		
-//		}
-		
-			
-		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"))));
+    	Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"))));
 	}
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
