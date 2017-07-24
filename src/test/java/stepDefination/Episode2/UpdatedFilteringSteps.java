@@ -46,5 +46,16 @@ public class UpdatedFilteringSteps extends DriverScript {
 		patientclinical.IVerifythatclickingonDoneshouldclosethefilterdrawerandprocessthefilter();
 	}
 	
+	@Then ("^I Verify that clicking Clinical Documents Filters link should show the title document that has list of document forms in it$")
+	public void I_Verify_that_clicking_Clinical_Documents_Filters_link_should_show_the_title_document_that_has_list_of_document_forms_in_it()
+	{
+		patientclinical.IVerifythatclickingClinicalDocumentsFilterslinkshouldshowthetitledocumentthathaslistofdocumentformsinit();
+	}
+	
+	@Then ("^I Verify that selecting filter by check box should process apply the filter until the user clicked on done$")
+	public void Then_I_Verify_that_selecting_filter_by_check_box_should_process_apply_the_filter_until_the_user_clicked_on_done()
+	{
+		patientclinical.IVerifythatselectingfilterbycheckboxshouldprocessapplythefilteruntiltheuserclickedondone();
+	}
 
 }

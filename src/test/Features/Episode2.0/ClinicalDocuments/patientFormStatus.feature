@@ -1,6 +1,6 @@
 Feature: Patient form status on the status section on clinical Documents
 
-  Scenario Outline: The Status section of the "Clinical Documents" table for a new patient(emblem user)
+  Scenario: The Status section of the "Clinical Documents" table for a new patient(emblem user)
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -121,10 +121,26 @@ Feature: Patient form status on the status section on clinical Documents
     Then I wait for 8000 milli seconds
     When I switch to default window from iframe
     Then I wait for 1000 milli seconds
+    Then I click on the cross button to close the CARL document form
+    Then I verify current page "Remedy Partners" title
+    And I wait for 2000 milli seconds
+    Then I click on the searched name on the patient card 
+    And I wait for 12000 milli seconds
+    Then I click on the complete CARL on the Patient Summary
+    And I wait for 5000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I click on the Submit button to submit the CARL form
+    And I wait for 7000 milli seconds
+    Then I click on the searched name on the patient card 
+    And I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify that if patient has has a formed assigned that is the same as an existing form the status of the already existing form should be read as Archived
     Then I verify that Archived status should be in Grey color with Color code 959595
-
-    Examples: 
-      | First name | Last name | Medicare ID |
-      | AUTOMATE   | MINETEST  | wa984986    |
+    

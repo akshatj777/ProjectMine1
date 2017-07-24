@@ -3,6 +3,7 @@ package stepDefination.Episode2;
 import org.openqa.selenium.By;
 import com.remedy.Episode2.PatientClinicalDocuments;
 import com.remedy.Episode2.PatientsPage;
+
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 
@@ -197,5 +198,16 @@ public class SummarySectionSteps extends DriverScript{
 	{
 		patientclinical.Iclickonthesearchednameonthepatientcard();
 	}
-    
+	
+	@Then ("^I verify any forms attached to the patient should be listed in document section$")
+	public void I_verify_any_forms_attached_to_the_patient_should_be_listed_in_document_section()
+	{
+		patientclinical.Iverifyanyformsattachedtothepatientshouldbelistedindocumentsection();
+	}
+	
+	@Then ("^I verify created note should appear in the document section$")
+	public void I_verify_created_note_should_appear_in_the_document_section()
+	{
+		patientclinical.Iverifycreatednoteshouldappearinthedocumentsection();
+	}
 }

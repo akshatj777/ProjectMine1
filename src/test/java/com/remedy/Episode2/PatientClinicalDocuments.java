@@ -61,8 +61,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IverifythatifuserhassavedaformbutnotsubmittedstatusshouldbereadasInProgress() {
-
-		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'In Progress')]")));
+        WebElement element=driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
+        verifyTextForElement(element,"In Progress");
 	}
 
 	public void IverifythatInprogressstatusshouldbeinpurplecolorwithColorcodeAD77B3() {
@@ -70,8 +70,10 @@ public class PatientClinicalDocuments extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector(" span.status-tag.status-tag-1")));
 		String value = driver.findElement(By.cssSelector(" span.status-tag.status-tag-1"))
 				.getCssValue("background-color");
-		Assert.assertTrue(value.equals("ad77b3"));
-	}
+		System.out.println("$$$The background color is"+value);
+		String hex = Color.fromString(value).asHex();
+		Assert.assertTrue(hex.equals("#ad77b3"));
+		}
 
 	public void IclickonthecompleteCARLonthePatientSummary() throws InterruptedException {
 
@@ -88,7 +90,8 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifythatifusersubmitsapatientformstatusshouldbereadasActive() {
 
-		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Active')]")));
+		WebElement element=driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
+        verifyTextForElement(element,"Active");
 	}
 
 	public void IverifythatActivestatusshouldbeingreencolorwithColorcode4EB96F() {
@@ -111,9 +114,10 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IverifythatifpatienthashasaformedassignedthatisthesameasanexistingformthestatusofthealreadyexistingformshouldbereadasArchived() {
-
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Archived')]")));
-	}
+ 
+		WebElement element=driver.findElement(By.cssSelector(" table > tbody > tr:nth-child(2) > td:nth-child(2) > span"));
+        verifyTextForElement(element,"Archived");
+			}
 
 	public void IverifythatArchivedstatusshouldbeinGreycolorwithColorcode959595() {
 
@@ -333,9 +337,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void Iverifythatusershouldbeabletoclickontitleofdocument() throws InterruptedException {
-		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'CARL')]"));
-		clickElement(element);
-		Thread.sleep(9000);
+    	clickElement(driver.findElement(By.cssSelector(" table > tbody > tr > td:nth-child(1) > a > span")));
+		Thread.sleep(4000);
 		isElementVisible(driver.findElement(By.cssSelector("h2.ng-binding")));
 	}
 
@@ -349,75 +352,52 @@ public class PatientClinicalDocuments extends BaseClass {
 
 		clickElement(driver.findElement(By.cssSelector(
 				"div > div.filter-bars.ng-scope>div > div.filter-bar-search > div.filter-bar-search-left > div > search-bar-controls > button-filters-toggle > button")));
-		if (isElementVisible(driver.findElement(
-				By.cssSelector("div.filter-bars.ng-scope > div > div.filters-dropdown.id-filters-dropdown"))) == false)
-			;
-		{
-			System.out.println("Filter successfully closed");
-		}
+		isElementNotPresentOnPage("ng-transclude > div > div > div > h5.ng-binding.ng-scope");
 	}
 
 	public void IVerifythatClinicalDocumentsFilterslinkshoulddisplayfiltersasbelowwiththecorrectsyntaxandsequence() {
-		List<String> actualcombolisttext = new ArrayList();
-		List<WebElement> elementtexts = new ArrayList();
-		List<String> requiredcombolisttext = new ArrayList();
-
-		String[] expectedvalues = { "Baseline", "Bedside Visit", "Care Assessment Note", "Clinical Note", "Close Call",
+		List<String> actualcombolisttext = new ArrayList<String>();
+		List<WebElement> elements = new ArrayList<WebElement>();
+		List<String> requiredcombolisttext = new ArrayList<String>();
+     	String[] expectedvalues = {"CARL form","Baseline", "Bedside Visit", "Care Assessment Note", "Clinical Note", "Close Call",
 				"Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care",
 				"Patient Call", "Patient Education", "Patient Visit", "Psychological Condition", "Transition Note",
 				"TUG/RAPT/CARE Score" };
-
-		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-
-		elementtexts = driver.findElements(By.cssSelector("ul > li >div.checkbox > label > span"));
-
-		for (WebElement elementtext : elementtexts) {
-			actualcombolisttext.add(elementtext.getText());
-
-		}
-
-		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-		actualcombolisttext = getTextForElementfromList(
-				"checkbox-list > div > div:nth-child(1) > ul > li > div.checkbox > label > span");
-
-		verifyarraylist(requiredcombolisttext, actualcombolisttext);
+       requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+//       elements = driver.findElements(By.cssSelector("ul > li >div.checkbox > label > span"));
+//       	for (WebElement element : elements) {
+//		//	actualcombolisttext.add(element.getText());
+//       		
+//		}
+	      for(int i=1;i<=requiredcombolisttext.size();i++)
+	      {
+	    	WebElement element=driver.findElement(By.xpath("//checkbox-list/div/div[1]/ul/li['"+i+"']/div[2]/label/span"));
+	    	System.out.println("$$$Element"+element.getText());
+	    	verifyTextForElement(element,expectedvalues[i-1]);   	 
+	      }
+	//	verifyarraylist(requiredcombolisttext, actualcombolisttext);
 
 	}
 
 	public void IVerifythatusershouldbeabletoselectmultiplefiltersbycheckbox() {
 
-		List<WebElement> myelementlist = getElementsList("ul > li >div.checkbox > label > span");
-
-		for (int i = 1; i <= myelementlist.size(); i++) {
-
 			clickElement(driver.findElement(
-					By.cssSelector("checkbox-list > div > div> ul > li:nth-child(" + i + ") > div.checkbox")));
-			isElementVisible(driver.findElement(By
-					.cssSelector("checkbox-list > div > div> ul > li:nth-child(1) > div.checkbox>input.ng-not-empty")));
-
-		}
-
-	}
+				By.cssSelector("checkbox-list > div > div:nth-child(1) > ul > li:nth-child(1) > div.checkbox")));
+		verifyTextForElement(driver.findElement(By.cssSelector("span.margin-left.ng-binding")),"Document: CARL form");
+		clickElement(driver.findElement(
+				By.cssSelector("checkbox-list > div > div:nth-child(1) > ul > li:nth-child(2) > div.checkbox")));
+		verifyTextForElement(driver.findElement(By.cssSelector(" div.filter-bar-active-filters.filter-scroll > span:nth-child(2) > span")),"Document: Baseline");
+		
+			}
 
 	public void IVerifythatcheckingmultiplefilteroptionsshouldreturnrelevantpatientsinreturn() {
 
-		List<String> mytexts = getTextForElementfromList("ul > li >div.checkbox > label > span");
-		String Filter = mytexts.get(0);
-		String Filter1 = mytexts.get(1);
-		clickElement(driver.findElement(
-				By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'" + Filter + "')]")));
-		clickElement(driver.findElement(
-				By.xpath("//checkbox-list/div/div[1]/ul/li/div[2]/label/span[contains(text(),'" + Filter1 + "')]")));
-
-		List<String> newmytexts = getTextForElementfromList("table > tbody > tr > td> a > span");
-		if (newmytexts.contains(Filter) && (newmytexts.contains(Filter1)))
-			;
+		List<String> mytexts = getTextForElementfromList("table > tbody > tr > td:nth-child(1) > a > span");
+		if (mytexts.contains("CARL") && (mytexts.contains("Baseline")))
 		{
-
-			return;
+			System.out.println("Only CARL & Baseline exits in the document list");
 		}
-
-	}
+}
 
 	public void IVerifythatclickingonDoneshouldclosethefilterdrawerandprocessthefilter() {
 
@@ -434,7 +414,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IclickonthedocumenttoopentheNotesontheClinicalDocuments() {
-		clickElement(driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span")));
+		clickElement(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td:nth-child(1) > a > span")));
 		isElementVisible(driver.findElement(By.cssSelector(" div > section ")));
 	}
 
@@ -445,13 +425,13 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifyTopicshouldbethenotetitle() {
 
-		isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.note.ng-scope > h1")));
-		getTextForElement(driver.findElement(By.cssSelector("div.takeover-content.container.note.ng-scope > h1")));
+		verifyTextForElement(driver.findElement(By.cssSelector("h1.ng-binding")),"Baseline");
 	}
 
 	public void IverifyBodytextboxshouldbethereonNotesReadonlyform() {
 
 		isElementVisible(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")));
+		verifyTextForElement(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")),"Probiotics are microorganisms that can provide a host of health benefits. While they don’t relieve a cough directly, they do help to balance your gastrointestinal flora.");
 	}
 
 	public void IVerifythatUserroleshouldbedisplayedundernotesreadonlyform() {
@@ -466,10 +446,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IVerifythatUsernameshouldbedisplayedundernotesreadonlyform() {
-
-		isElementVisible(driver.findElement(By.cssSelector("article > h4 > strong")));
-
-	}
+		verifyTextForElement(driver.findElement(By.cssSelector("article > h4 > strong")),"QA EMBLEMRN ; RN");
+		}
 
 	public void IverifytheActivityDateandtimeofthenoteundernotesreadonlyform() {
 
@@ -698,6 +676,33 @@ public class PatientClinicalDocuments extends BaseClass {
 		
 		clickElement(driver.findElement(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")));
 	}
+
+	public void Iverifyanyformsattachedtothepatientshouldbelistedindocumentsection() {
+		
+		WebElement element=driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span"));
+		verifyTextForElement(element,"CARL");
+	}
+
+	public void Iverifycreatednoteshouldappearinthedocumentsection() {
+		WebElement element=driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span"));
+		verifyTextForElement(element,"Baseline");
+			}
+
+	public void IVerifythatclickingClinicalDocumentsFilterslinkshouldshowthetitledocumentthathaslistofdocumentformsinit() {
+		WebElement element=driver.findElement(By.cssSelector("ng-transclude > div > div > div > h5.ng-binding.ng-scope"));
+		verifyTextForElement(element,"Document");
+	}
+
+	public void IVerifythatselectingfilterbycheckboxshouldprocessapplythefilteruntiltheuserclickedondone() {
+		List<String> mytexts = getTextForElementfromList("table > tbody > tr > td:nth-child(1) > a > span");
+		if (mytexts.contains("CARL") && (mytexts.contains("Baseline")))
+		{
+			System.out.println("Only CARL & Baseline exits in the document list");
+		}
+		
+	}
+	
+	
 	
 
 

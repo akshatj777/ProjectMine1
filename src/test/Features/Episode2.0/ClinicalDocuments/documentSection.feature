@@ -12,11 +12,26 @@ Feature: Document Section
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
     And I wait for 8000 milli seconds
+    Then I click on quick action button for note creation on Patient Card page
+    Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
+    And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
+    Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    Then I click on Add Files link on Note Section on Patient Card
+    And I wait for 8000 milli seconds
+    Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
+    Then I wait for 8000 milli seconds
+    Then I click on the create Note Button on Add Clinical Document on Patient Card
+    Then I verify that create Note has been successfully created
+    Then I wait for 8000 milli seconds
     Then I click on the patient on the patient card page that has no CARL button in it
     And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
+    Then I click on the Clinical Documents tab in the patient summary Page
+    Then I wait for 3000 milli seconds
+    Then I verify created note should appear in the document section 
     Then I wait for 3000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
@@ -63,12 +78,15 @@ Feature: Document Section
     Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     And I wait for 3000 milli seconds
-    Then I click on the searched name on the patient card 
+    Then I click on the searched name on the patient card
     Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
+    Then I verify any forms attached to the patient should be listed in document section
     Then I verify that title of document or topic of note should appear as a link in the section
     Then I verify that user should be able to click on title of document
 
     Examples: 
-      | First name    | Last name     | Medicare ID |
-      | AUTOMATIONNEW | DO NOT USENEW | wa984986    |
+      Examples:
+
+      | First name | Last name  | Medicare ID | date | Notetext                |
+      | DO_NOT_USE | AUTOMATION | wa984986    |   12 | Remedy Document Section |

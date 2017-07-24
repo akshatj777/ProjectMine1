@@ -1,7 +1,7 @@
 Feature: Clinical Documents - Patient Notes History Section
 
   Scenario Outline: The Last saved section on the clinical documents table should display the information of the last user who saved the individual form (To verify information Activity column in Clinical Documents table)
-     Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
