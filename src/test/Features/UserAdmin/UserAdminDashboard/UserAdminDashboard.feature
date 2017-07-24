@@ -9,7 +9,7 @@ Feature: User Admin Dashboard view test
     And I wait for 3000 milli seconds
     Then I enter search box with "ACH"
     And I wait for 3000 milli seconds
-    Then I should see "31 Users" for search results
+    Then I should see "Users" for search results
     And I should see "ACHMODEL2" for First Name
 
   Scenario: Search user by Lastname
@@ -21,7 +21,7 @@ Feature: User Admin Dashboard view test
     And I wait for 3000 milli seconds
     Then I enter search box with "REPTESTRPFIN"
     And I wait for 3000 milli seconds
-    Then I should see "4 Users" for search results
+    Then I should see "Users" for search results
     And I should see "REPTESTRPFIN" for Last Name
 
   Scenario: Search user by NPI
@@ -33,5 +33,5 @@ Feature: User Admin Dashboard view test
     And I wait for 3000 milli seconds
     Then I enter search box with "1234567891"
     And I wait for 3000 milli seconds
-    Then I should see "6 Users" for search results
+    Then I should see "Users" for search results
     And I should see "Physicians" for User Role on user card

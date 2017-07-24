@@ -13,7 +13,7 @@ Feature: HomePage test for Users
     Then I should see header text "User Management"
     And I wait for 2000 milli seconds
     Then I should see "Create User" Button
-    Then I should see Import Users Button
+    #Then I should see Import Users Button
     And I should see total Users Count on page
     Then I should see sort order default option "Last Name A-Z"
     And I should see Refresh icon on page

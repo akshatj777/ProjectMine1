@@ -154,7 +154,7 @@ Feature: User admin edit users details
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
-    And I verify the user email address
+    And I verify the user <Email> address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row
@@ -299,7 +299,7 @@ Feature: User admin edit users details
     And I click on the username card under user admin page
     And I wait for 3000 milli seconds
     And I verify the user details page for editing
-    And I verify the user email address
+    And I verify the user <Email> address
     Then I verify product tiles appear for user under user edit details page
     And I wait for 6000 milli seconds
     Then I clicked on Edit button under user Role row

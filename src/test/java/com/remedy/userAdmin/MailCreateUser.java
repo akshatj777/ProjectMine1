@@ -49,6 +49,7 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iClickOnInboxUnderMail() {
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
+		delay();
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 	}
 	
@@ -61,8 +62,8 @@ public class MailCreateUser extends BaseClass{
 		if(value == true)
 		{
 			clickElement(driver.findElement(By.xpath("//div[@aria-label='Delete']")));
-			iWillWaitToSee(By.cssSelector(".bofITb"));
-			System.out.println(driver.findElement(By.cssSelector(".bofITb")).getText());
+			//iWillWaitToSee(By.cssSelector(".bofITb"));
+			//System.out.println(driver.findElement(By.cssSelector(".bofITb")).getText());
 		}
 	}
 	
@@ -109,12 +110,11 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
 		driver.navigate().refresh();
-		iWillWaitToSee(By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"));
-    	Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"))));
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"));
+    	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
 	}
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
-		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
 	}
 	

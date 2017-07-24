@@ -15,7 +15,7 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void clickCreateUserButton() {
-		clickElement(driver.findElement(By.xpath("//button[contains(text(), 'Create User')]")));
+		clickElement(driver.findElement(By.cssSelector("button[href='#/user/create']")));
 	}
 
 	public void clickImportUsers() {
@@ -145,8 +145,8 @@ public class UserAdminHomePage extends BaseClass {
 		longDelay();
 	}
 
-	public void iverifyUserSearchResult(String userCount) {
-		verifyTextForElement(driver.findElement(By.xpath("//div[6]/div/div/div[3]/div[1]/strong")), userCount);
+	public void iverifyUserSearchResult(String text) {
+		driver.findElement(By.xpath("//strong[contains(text(),'"+text+"')]"));
 	}
 	
 	public void iSeePagination() {

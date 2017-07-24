@@ -105,18 +105,18 @@ Feature: Create new User role with PTA and emblem payer and product tiles verifi
     And I should see Tile text <Physican connect>
     And I wait for 2000 milli seconds
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    #And I click on Institute tile under specific user login page <Institute>
+    And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
     And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
-    #And I click on Physican connect tile under specific user login page <Physican connect>
-    #And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Support option from the dropdown under specific user login page <Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Reset Password option from the dropdown
-    #And I should see text popup for reset password "Password Reset"
-    #And I click Okay button for reset password popup
+    And I click on Physican connect tile under specific user login page <Physican connect>
+    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 30000 milli seconds
+    Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 30000 milli seconds
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "Password Reset"
+    And I click Okay button for reset password popup
     And I wait for 6000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown
@@ -225,18 +225,18 @@ Feature: Create new User role with PTA and emblem payer and product tiles verifi
     Then I should see Tile text <Institute>
     And I wait for 2000 milli seconds
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    #And I click on Institute tile under specific user login page <Institute>
+    And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
     And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
-    #And I click on Physican connect tile under specific user login page <Physican connect>
-    #And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Support option from the dropdown under specific user login page <Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Reset Password option from the dropdown
-    #And I should see text popup for reset password "Password Reset"
-    #And I click Okay button for reset password popup
+    And I click on Physican connect tile under specific user login page <Physican connect>
+    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 30000 milli seconds
+    Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 30000 milli seconds
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "Password Reset"
+    And I click Okay button for reset password popup
     And I wait for 2000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown

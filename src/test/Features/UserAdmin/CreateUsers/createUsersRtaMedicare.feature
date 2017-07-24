@@ -106,18 +106,18 @@ Feature: RTA create new user role with medicare and product tiles verification o
     And I should see Tile text <Institute>
     And I wait for 2000 milli seconds
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    #And I click on Institute tile under specific user login page <Institute>
+    And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
     And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
-    #And I click on Physican connect tile under specific user login page <Physican connect>
-    #And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Support option from the dropdown under specific user login page <Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Reset Password option from the dropdown
-    #And I should see text popup for reset password "Password Reset"
-    #And I click Okay button for reset password popup
+    And I click on Physican connect tile under specific user login page <Physican connect>
+    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 30000 milli seconds
+    Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 30000 milli seconds
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "Password Reset"
+    And I click Okay button for reset password popup
     And I wait for 6000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown
@@ -237,18 +237,18 @@ Feature: RTA create new user role with medicare and product tiles verification o
     Then I should see Tile text <Institute>
     And I wait for 2000 milli seconds
     And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    #And I click on Institute tile under specific user login page <Institute>
+    And I click on Institute tile under specific user login page <Institute>
     And I click on Reports tile under specific user login page <Reports>
     And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
     And I click on RemedyU tile under specific user login page <RemedyU>
-    #And I click on Physican connect tile under specific user login page <Physican connect>
-    #And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Support option from the dropdown under specific user login page <Support>
-    #And I wait for 30000 milli seconds
-    #Then I select Reset Password option from the dropdown
-    #And I should see text popup for reset password "Password Reset"
-    #And I click Okay button for reset password popup
+    And I click on Physican connect tile under specific user login page <Physican connect>
+    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    And I wait for 30000 milli seconds
+    Then I select Support option from the dropdown under specific user login page <Support>
+    And I wait for 30000 milli seconds
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "Password Reset"
+    And I click Okay button for reset password popup
     And I wait for 2000 milli seconds
     And I click on the top user account link
     Then I select Log Out option from the dropdown
@@ -259,7 +259,7 @@ Feature: RTA create new user role with medicare and product tiles verification o
       | Executive                       | Executive                       | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital                    | 302-459-1143 | Medicare |            | episode_connect   | episode_connect_2 | Episodes |         |         | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
       | Manager                         | Manager                         | St. Lukes Health Network | St. Lukes Health Network | *        |                                      | 302-459-1143 | Medicare |            | reports           | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
       | Case Manager                    | Case Manager                    | St. Lukes Health Network | St. Lukes Health Network | 2070-023 | Allentown                            | 302-459-1143 | Medicare |            | reports           | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Physicians                      | Physicians                      | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital                    | 302-459-1143 | Medicare | 1234567890 | reports           | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_CLINICIAN |                  | Support |
+      | Physicians                      | Physicians                      | Stamford                 | Stamford Hospital        | 2070-015 | Stamford Hospital)                   | 302-459-1143 | Medicare | 1234567890 | reports           | episode_connect_2 |          |         | Reports | Episodes 2.0 | Institute |                              |                | ROLE_CLINICIAN |                  | Support |
       | Remedy TCS                      | Remedy TCS                      | St. Lukes Health Network | St. Lukes Health Network | 2070-023 | Allentown                            | 302-459-1143 | Medicare |            | internal_support  | lessons           |          | RemedyU |         |              | Institute |                              |                | ROLE_TCS       | Internal Support |         |
       | Remedy LPN                      | Remedy LPN                      | St. Lukes Health Network | St. Lukes Health Network | *        |                                      | 302-459-1143 | Medicare |            | internal_support  | lessons           |          | RemedyU |         |              | Institute |                              |                | ROLE_LPN       | Internal Support |         |
       | Remedy RN                       | Remedy RN                       | Hackensack               | Hackensack               | 2070-005 | Hackensack University Medical Center | 302-459-1143 | Medicare |            | internal_support  | lessons           |          | RemedyU |         |              | Institute |                              |                | ROLE_RN        | Internal Support |         |
