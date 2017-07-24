@@ -15,7 +15,7 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I switch to reports embedded iframe
     
     Then I click on a number under episodes column
-    And I wait for 10000 milli seconds
+    And I wait for 30000 milli seconds
     
     Then I switch to new window
     And I wait for 5000 milli seconds
@@ -30,7 +30,7 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table
-    Then I should verify "DOB (Key)" is appearing under Episodes table
+    #Then I should verify "DOB (Key)" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table

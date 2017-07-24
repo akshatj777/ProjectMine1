@@ -40,21 +40,21 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     
-    Then I click on <episode initiator1> checkbox under episode initiator for global filters
-    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    #Then I click on <episode initiator1> checkbox under episode initiator for global filters
+    #And I verify <episode initiator1> is appearing under applied episode initiator on global filters
     
-    Then I click on <anchor facility1> checkbox under anchor facility for global filters
-    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    #Then I click on <anchor facility1> checkbox under anchor facility for global filters
+    #And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
     And I wait for 10000 milli seconds
     
-    When I see "4" filters applied under global filters applied count
+    When I see "2" filters applied under global filters applied count
     
     When I switch to reports embedded iframe
     Then I should see <selectedpayer> is applied under filter options in payer dropdown under program overview report
-    #Then I should see <participant1> is applied under filter options in participant dropdown under program overview report
-    Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
+    Then I should see <selectedparticipant> is applied under filter options in participant dropdown under program overview report
+    #Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
     #Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
     When I switch to default window from iframe
      
@@ -62,12 +62,14 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     Then I click on "Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
     And I wait for 60000 milli seconds
     Then I verify "Performance (Claims)" in the reports header page
-    When I see "4" filters applied under global filters applied count
+    When I see "2" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Payer" filter is appearing under global filters
     Then I verify "Participant" filter is appearing under global filters
     Then I verify "Episode Initiator" filter is appearing under global filters
     Then I verify "Anchor Facility" filter is appearing under global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I verify <episode initiator1> is appearing under applied episode initiator on global filters
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
@@ -251,10 +253,10 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     
     Examples:
     
-      | email                         | Menu 1     | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2        | selectedpayer |
-      | shutestaug231132a@yopmail.com | Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |               | All           |
-      | emblemachrpfin@yopmail.com    | Dashboards | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |               | All           |
-      | multipayerachrpfin@yopmail.com| Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      | Emblem Health | Medicare      |
+      | email                         | Menu 1     | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2        | selectedpayer | selectedpartcipant |
+      | shutestaug231132a@yopmail.com | Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      |               | All           | All                |
+      | emblemachrpfin@yopmail.com    | Dashboards | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | 222222         | 7000-000 | 999999 | Emblem Health |               | All           | All                |
+      | multipayerachrpfin@yopmail.com| Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | 441348         | 2070-021 | 390223 | Medicare      | Emblem Health | Medicare      | All                |
       
 Scenario Outline: User should be able to verify Global Filters for Physician,Next Site of Care and Readmission reports
 

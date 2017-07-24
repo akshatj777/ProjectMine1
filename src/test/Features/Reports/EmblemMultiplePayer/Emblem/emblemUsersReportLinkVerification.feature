@@ -15,7 +15,6 @@ Feature: User only see reports tiles based on their role for Emblem users for AC
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
       
-         #REP-2832 issue#
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for 40000 milli seconds
     And I switch to reports embedded iframe
@@ -187,7 +186,7 @@ Feature: User only see reports tiles based on their role for Emblem users for AC
     Examples: 
       | email                            | Menu 1     | Menu 2          | Menu 3     | Menu 4          | Menu 5    | Menu 6            | Menu 7       |
       | emblemachrpfin@yopmail.com       | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | Next Site of Care | Readmissions |
-      #| emblemrpnofin@yopmail.com        | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | Next Site of Care | Readmissions |
+      | emblemrpnofin@yopmail.com        | Dashboards | Overall Program | Patient ID | Post Acute Care | Physician | Next Site of Care | Readmissions |
      
 Scenario Outline: For ACH MODEL 2 OPSFIN reports link verification for the emblem users
     
@@ -623,15 +622,14 @@ Scenario Outline: For ACH MODEL 2 ECREPORTS reports link verification for the em
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
-      
-      #REP-2832 issue#
-    #When I click on "Program Overview" reports text for "Dashboards" report tile
-    #And I wait for 10000 milli seconds
-    #And I switch to reports embedded iframe
-    #Then I should see "Overall Program" appearing under program overview reports
-    #And I navigate back
-    #Then I verify current page "Reports" title
-    #And I wait for 5000 milli seconds
+     
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 10000 milli seconds
+    And I switch to reports embedded iframe
+    Then I should see "Overall Program" appearing under program overview reports
+    And I navigate back
+    Then I verify current page "Reports" title
+    And I wait for 5000 milli seconds
     
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"

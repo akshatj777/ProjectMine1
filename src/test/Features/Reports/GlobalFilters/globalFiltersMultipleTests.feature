@@ -53,7 +53,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I switch to reports embedded iframe
     Then I should see <selectedpayer> is applied under filter options in payer dropdown under program overview report
     #Then I should see <participant1> is applied under filter options in participant dropdown under program overview report
-    Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
+    Then I should see <episode initiator3> is applied under filter options in episode initiator dropdown under program overview report
     #Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
     When I switch to default window from iframe
         

@@ -40,7 +40,7 @@ Feature: Verification of performance claims reports episode list drill through u
     Then I should verify "Post Acute CCN" is appearing under Episodes table
     Then I should verify "Post Acute Facility" is appearing under Episodes table
     Then I should verify "Post Acute Category" is appearing under Episodes table
-    Then I should verify "Post Acute Type" is appearing under Episodes table
+    #Then I should verify "Post Acute Type" is appearing under Episodes table
     Then I should verify "Readmission CCN 1" is appearing under Episodes table
     Then I should verify "Readmission Facility Name 1" is appearing under Episodes table
     Then I should verify "Readmission DRG 1" is appearing under Episodes table
@@ -71,7 +71,7 @@ Feature: Verification of performance claims reports episode list drill through u
     Then I should verify "Readmission Admit Date 5" is appearing under Episodes table
     Then I should verify "Readmission Discharge Date 5" is appearing under Episodes table
     Then I should verify "Readmission PDGNS_CD 5" is appearing under Episodes table
-    Then I should verify "Anchor Month" is appearing under Episodes table
+    #Then I should verify "Anchor Month" is appearing under Episodes table
     Then I should verify "Readmission Count" is appearing under Episodes table
 
     Examples: 
