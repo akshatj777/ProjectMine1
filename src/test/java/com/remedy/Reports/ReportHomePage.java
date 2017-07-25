@@ -780,5 +780,9 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnAppearingFacilityAfterSearching(String text) {
     	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
     }
+    
+    public void iClickOnFilterUnderFilterOptions(String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header-label")));
+    }
 }
 

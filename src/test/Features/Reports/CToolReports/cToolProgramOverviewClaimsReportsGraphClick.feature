@@ -105,6 +105,8 @@ Scenario Outline: User should be able to click on program overview claims report
     And I switch back to old window
     And I wait for 2000 milli seconds
     And I switch to reports embedded iframe
+    And I click on "Zoom in" button under other graph for post accute utilization report
+    And I wait for 5000 milli seconds
     Then I click on "other" graph point of claims under post acute utilization of program overview report
     And I switch to new window
     And I wait for 30000 milli seconds

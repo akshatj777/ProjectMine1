@@ -973,12 +973,12 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnYearTextBoxInsideDateRangeFilter(year);
     }
     
-    @Then("I check the ([^\"]*) appearing under \"([^\"]*)\" field filter under filter options")
+    @Then("I click the ([^\"]*) appearing under \"([^\"]*)\" field filter under filter options")
     public void i_check_the_appearing_under_participant_field_filter_under_filter_options(String participant,String text) throws Throwable{
     	reportHomePage.iClickOnParticiapntFieldFilterUnderFilterOptions(participant,text);
     }
     
-    @Then("I verify ([^\"]*) is appearing under \"([^\"]*)\" filter field after applying filter")
+    @Then("I verify \"([^\"]*)\" is appearing under \"([^\"]*)\" filter field after applying filter")
     public void i_verify_is_appearing_under_participant_filter_field_after_aplying_filter(String participant,String text) throws Throwable{
     	reportHomePage.iVerifyParticipantFieldAfterApplyingFilter(participant,text);
     }
@@ -996,5 +996,10 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("I click the ([^\"]*) appearing under facility field filter under filter options")
     public void i_click_the_appearing_under_facility_field_filter_under_filter_options(String text) throws Throwable {
     	reportHomePage.iClickOnAppearingFacilityAfterSearching(text);
+    }
+    
+    @Then("I click on \"([^\"]*)\" filter in the filter options")
+    public void i_click_on_filter_in_the_filter_options(String text) throws Throwable{
+    	reportHomePage.iClickOnFilterUnderFilterOptions(text);
     }
 }

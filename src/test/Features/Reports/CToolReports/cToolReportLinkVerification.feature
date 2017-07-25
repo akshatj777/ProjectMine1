@@ -1,7 +1,7 @@
 Feature: CTool Report Links Verification
 
 @sanity
-Scenario Outline: User should not see program overview under dashboard for OPSNOFIN,OPSPEND and ECREPORTS Roles for ACH and PGP Provider Type
+Scenario Outline: User should not see program overview under dashboard for Model 3 users
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -17,14 +17,12 @@ Scenario Outline: User should not see program overview under dashboard for OPSNO
     
     Examples:
     
-      | email                         | Menu 1     |
-      | shutestaug15240p@yopmail.com  | Dashboard  |
-      | shutestjul26420p@yopmail.com  | Dashboard  |
-      | repopsnofintest@yopmail.com   | Dashboard  |
-      | shutestaug221150a@yopmail.com | Dashboard  |
-      | shutestaug221145a@yopmail.com | Dashboard  |
-      | shutestjul26415@yopmail.com   | Dashboard  |
- 
+      | email                         | Menu 1      |
+      | shutestauf171115a@yopmail.com | Dashboards  |
+      | shutestjul24430@yopmail.com   | Dashboards  |
+      | shutestagu22945am@yopmail.com | Dashboards  |
+      | shutestjul24340p@yopmail.com  | Dashboards  |
+      
 @sanity         
 Scenario Outline: User should see Program Overview under Dashboard and verify sanity for program overview reports for RPFIN,RPFNOFIN and OPSFIN Roles with ACH Provider Type
     
@@ -97,6 +95,8 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     Then I should see claims table under Readmissions report
     Then I should see data source filter on the left side of overall program report
     Then I select "Episode Connect" radio button under data source filter
+    And I wait for 5000 milli seconds
+    Then I select "Claims" radio button under data source filter
     And I wait for 5000 milli seconds
     Then I should see "EC" table under overall program report
     Then I should see "EC" table under post acute utilization report
