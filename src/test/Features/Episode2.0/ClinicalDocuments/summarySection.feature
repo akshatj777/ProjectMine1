@@ -88,7 +88,7 @@ Feature: Summary Section of the Clinical Documents
     Then I verify forms should not display any message in the summary section and it should be greyed out blank
     Then I verify that upon Selecting Show History should display the information of all users who have saved that form
     Then I verify that upon selecting Hide History user should only see the information of the last user who saved the form
-
+    
     Examples: 
       | First name | Last name  | Medicare ID | Notetext                                                                                                                                                                    |
       | AUTOMATION | DO_NOT_USE | wa984986    | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |

@@ -10,18 +10,14 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 10000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 20000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 10000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 4000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator
@@ -64,18 +60,14 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 10000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 3000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 4000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator
@@ -108,18 +100,14 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 10000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 3000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 4000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator
@@ -152,18 +140,14 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 10000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 3000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 2000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator
@@ -204,7 +188,7 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
       | AUTOMATION | DO_NOT_USE | New discharge medication         | How Many?              | One                      | More than one        |
 
   Scenario Outline: To verify the multiple options and labels present under checkbox  for Transition of Care Needs on the Anticicpated section of the Carl Form
-    Given I am on the login page
+     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -213,16 +197,14 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 3000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 3000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 2000 milli seconds
     Then I click on "Anticipated Discharge Needs" section on left navigator

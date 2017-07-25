@@ -1,5 +1,7 @@
 package stepDefination.Episode2;
 
+import java.text.ParseException;
+
 import com.remedy.Episode2.PatientClinicalDocuments;
 import com.remedy.resources.DriverScript;
 
@@ -21,10 +23,10 @@ public class UpdatedTableSteps extends DriverScript{
 		patientclinical.IverifyClinicalDocumentTableshouldcontainthefollowingsections();
 	}
 	
-	@Then ("^To verify table should be sorted chronologically by activity date most recent first$") 
-	public void To_verify_table_should_be_sorted_chronologically_by_activity_date_most_recent_first()
+	@Then ("^I verify table should be sorted chronologically by activity date most recent first$") 
+	public void I_verify_table_should_be_sorted_chronologically_by_activity_date_most_recent_first() throws ParseException
 	{
-		patientclinical.Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst();
+		patientclinical.Iverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst();
 	}
 	
 	@Then ("^I count the number of documents that appear in the clinical Documents$")

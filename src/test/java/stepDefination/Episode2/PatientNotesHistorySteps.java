@@ -58,5 +58,22 @@ public class PatientNotesHistorySteps extends DriverScript  {
 	public void I_click_on_hide_history_to_disable_all_the_saved_form_list() {
 		patientclinical.Iclickonhidehistorytodisableallthesavedformlist();
 	}
-
+	@Then ("^I click on the Show History Button to see the list of user who saved the form$")
+	public void I_click_on_the_Show_History_Button_to_see_the_list_of_user_who_saved_the_form()
+	{
+		patientclinical.IclickontheShowHistoryButtontoseethelistofuserwhosavedtheform();
+	}
+	
+	 @Then ("^I verify that Hide History link should appear when user currently on Show History section$")
+	 public void   I_verify_that_Hide_History_link_should_appear_when_user_currently_on_Show_History_section()
+	 {
+		 patientclinical.IverifythatHideHistorylinkshouldappearwhenusercurrentlyonShowHistorysection();
+	 }
+	 
+	 @Then ("^I verify that there should be an Attachment icon on Clinical Documents Activity Section$")
+	 public void I_verify_that_there_should_be_an_Attachment_icon_on_Clinical_Documents_Activity_Section()
+	 {
+		 patientclinical.IverifythatthereshouldbeanAttachmenticononClinicalDocumentsActivitySection();
+	 }
+			
 }

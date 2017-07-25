@@ -18,8 +18,10 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 	
 	public void IVerifySelectedSectionOnTheCarlFormUponClickingOnIt(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//h2[contains(text(),'"+text+"')]")),text);
-	}
+		String text1=driver.findElement(By.cssSelector("h2.ng-binding")).getText();
+		String subtext=text1.substring(3);
+		Assert.assertEquals(text,subtext);
+		}
 	
 	public void IVerifyThatSelectedSectionOnCarlFormGetsHihlightedInLeftNavigatorUponClick(String text) {
 		verifyTextForElement(driver.findElement(By.xpath("//li[@class='list-group-item tab ng-scope selected appears-selected']//span[text()='"+text+"']")),text);

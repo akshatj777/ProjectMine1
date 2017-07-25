@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -168,16 +170,26 @@ public class PatientClinicalDocuments extends BaseClass {
 		getElementCount("table > tbody");
 	}
 
-	public void Toverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst() {
+	public void Iverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst() throws ParseException {
 		List<String> mylists = getTextForElementfromList(
-				"table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span.time.ng-binding");
-		List<String> newlist = new ArrayList<String>();
+				"table > tbody > tr:nth-child(1) > td:nth-child(4) > div > span.time.ng-binding");
+    	List<String> newlist = new ArrayList<String>();
 		for (String mylist : mylists) {
 			String[] values = mylist.split(",");
 			newlist.add(values[0]);
 		}
+		ArrayList<String> sortDates=sortDates(mylists);
+		System.out.println("$$$Sorted Dates"+sortDates);
 	}
-
+	private ArrayList<String> sortDates(List<String> dates) throws ParseException {
+	    SimpleDateFormat f = new SimpleDateFormat("mm/dd/yyyy, hh:mm a");
+	    Map<Date, String> dateFormatMap = new TreeMap<Date, String>();
+	 
+	    for (String date: dates)
+	        dateFormatMap.put(f.parse(date), date);
+	    return new ArrayList<>(dateFormatMap.values());
+	}
+	
 	public void IverifythepresenceofSummarysectionoftheClinicalDocumenttable() {
 
 		isElementVisible(
@@ -430,23 +442,30 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifyBodytextboxshouldbethereonNotesReadonlyform() {
 
-		isElementVisible(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")));
-		verifyTextForElement(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")),"Probiotics are microorganisms that can provide a host of health benefits. While they don’t relieve a cough directly, they do help to balance your gastrointestinal flora.");
+		isElementVisible(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope"))); 
+		verifyTextForElement(driver.findElement(By.cssSelector("div.note-body.ng-binding.ng-scope")),"Probiotics are microorganisms");
 	}
 
 	public void IVerifythatUserroleshouldbedisplayedundernotesreadonlyform() {
 
-		isElementVisible(driver.findElement(By.cssSelector("article > h4 > strong")));
+		String text=driver.findElement(By.cssSelector("article > h4 > strong")).getText();
+		String[] information=text.split(";");
+		String role=information[1];
+     	Assert.assertEquals(role,"RN");
 	}
 
 	public void IVerifythatUseremailshouldbedisplayedundernotesreadonlyform() {
-
-		isElementVisible(driver.findElement(By.cssSelector("div > article > p > a")));
-
-	}
+		verifyTextForElement(driver.findElement(By.cssSelector("p > a.ng-binding")),"qa.emblemrn@yopmail.com");
+		}
 
 	public void IVerifythatUsernameshouldbedisplayedundernotesreadonlyform() {
-		verifyTextForElement(driver.findElement(By.cssSelector("article > h4 > strong")),"QA EMBLEMRN ; RN");
+		String text=driver.findElement(By.cssSelector("article > h4 > strong")).getText();
+		System.out.println("The Text is"+text);
+		String[] information=text.split(";");
+		String username=information[0];
+		String username1 = username.trim();
+		System.out.println("$$$$$Username"+username1);
+		Assert.assertEquals(username1,"QA EMBLEMRN");
 		}
 
 	public void IverifytheActivityDateandtimeofthenoteundernotesreadonlyform() {
@@ -455,18 +474,19 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	}
 
-	public void Changing_Date_Format(String date_s) throws ParseException {
-
-		SimpleDateFormat dt = new SimpleDateFormat("MM/dd/yyyy | hh:mm aa");
-		Date date = dt.parse(date_s); // Converting String to Date
-		// *** same for the format String below
-		SimpleDateFormat dt1 = new SimpleDateFormat("MM/dd/yyyy | hh:mm aa");
-		System.out.println(dt1.format(date));
-	}
+	   public void validateDateFormat(String dateToValdate) throws ParseException {
+		     SimpleDateFormat formatter = new SimpleDateFormat("MM/DD/YYYY");
+		     formatter.setLenient(false);
+		     Date parsedDate = null;
+		     parsedDate = formatter.parse(dateToValdate);
+		    }
 
 	public void IVerifythatActivitydateshoulddisplayeddatewithformatMMDDYYYY() throws ParseException {
-		String date = getTextForElement(driver.findElement(By.cssSelector("article > div:nth-child(5) > strong")));
-		Changing_Date_Format(date);
+		String text=driver.findElement(By.cssSelector("article > div:nth-child(5) > strong")).getText();
+		String[] information=text.split("|");
+		String date=information[0];
+		System.out.println("$$$$$Date is"+date);
+		validateDateFormat(date);
 	}
 
 	public void IverifythatthereisanAttachmentssectionthatshoulddisplayallattachments() {
@@ -492,8 +512,15 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifyLastNameFirstNameanduserroleappearsinlastsavedsection() {
 
-		isElementVisible(driver.findElement(
-				By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > span")));
+		String text=driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(4) > div > span:nth-child(3)")).getText();
+	    String[] information=text.split(";");
+		String name=information[0];
+	    String role=information[1];
+		String name1 = name.trim();
+	    String role1 = role.trim();
+     	Assert.assertEquals(name1,"Emblemrn, Qa");
+        Assert.assertEquals(role1,"RN");
+		
 	}
 
 	public void IverifyuponclickingShowhistorylinkaListofusersshouldappearinchronologicalorderfrommostrecentsavedtooldestsaved()
@@ -513,12 +540,11 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifythatuponSelectingShowHistoryshoulddisplaytheinformationofalluserswhohavesavedthatform()
 			throws InterruptedException {
-
-		clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
-		Thread.sleep(5000);
-		List<String> mylists = getTextForElementfromList("table > tbody > tr:nth-child(2) > td:nth-child(4)>div");
-		System.out.println("The list is" + mylists);
-
+       	List<String> mylists = getTextForElementfromList("table > tbody > tr:nth-child(1) > td > div > span:nth-child(3)");
+		for(String list:mylists )
+		{
+			Assert.assertEquals("Emblemrn, Qa; RN",list);
+		}
 	}
 
 	public void Iverifydateandtimeinformationappearsinlastsavedsection() {
@@ -578,44 +604,40 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void Iverifythatusershouldbeabletodownloadalltheattachmentattachedunderthenotesbyselectingdownloadlink()
 			throws AWTException, InterruptedException {
-		Actions action = new Actions(driver);
+//		Actions action = new Actions(driver);
+//
+//		action.contextClick(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer"))).build()
+//				.perform();
+//		action.sendKeys(Keys.CONTROL, "v").build().perform();
+//		Thread.sleep(4000);
 
-		action.contextClick(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer"))).build()
-				.perform();
-		action.sendKeys(Keys.CONTROL, "v").build().perform();
-		Thread.sleep(4000);
-		Robot robot = new Robot();
-
-		//
-		StringSelection selection = new StringSelection("");
-		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		clipboard.setContents(selection, selection);
-
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-
-		Assert.assertTrue(true);
-		String importDir = System.getProperty("user.dir");
-		String newDir = importDir + "\\" + "src" + "\\" + "test" + "\\" + "Imports";
-		isFileDownloaded(newDir, "MyFile.txt");
+//		Assert.assertTrue(true);
+		
+		  Actions action = new Actions(driver);
+	        action.moveToElement(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer"))).perform();
+	        action.contextClick().perform();
+	        Robot robo = new Robot();
+	        robo.keyPress(KeyEvent.VK_V);
+	        robo.keyRelease(KeyEvent.VK_V);
+//		clickElement(driver.findElement(By.cssSelector("div.valentino-icon-archive.hover-pointer")));
+//		String importDir = System.getProperty("user.dir");
+//		String newDir = importDir + "\\" + "src" + "\\" + "test" + "\\" + "Imports";
+//		System.out.println("$$$Downloaded Path"+newDir);
+//		isFileDownloaded(newDir, "MyFile.txt");
 
 	}
 
 	public boolean isFileDownloaded(String downloadPath, String fileName) {
 		boolean flag = false;
-		File dir = new File(downloadPath);
-		File[] dir_contents = dir.listFiles();
+	    File dir = new File(downloadPath);
+	    File[] dir_contents = dir.listFiles();
+	  	    
+	    for (int i = 0; i < dir_contents.length; i++) {
+	        if (dir_contents[i].getName().equals(fileName))
+	            return flag=true;
+	            }
 
-		for (int i = 0; i < dir_contents.length; i++) {
-			if (dir_contents[i].getName().equals(fileName))
-				return flag = true;
-		}
-
-		return flag;
+	    return flag;
 	}
 
 	public void IclickontheCancelbuttononEpisodepresentontheAddPatientpage() {
@@ -656,7 +678,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	
 	public void IgetthepatientlastnamewhohavenoCARLbuttoninit() {
 		 L_name=driver.findElement(By.cssSelector("span.pull-left.ng-binding")).getText();
-          System.out.println("$$$$Last name is"+L_name);
+         
 }
 
 	public void IclickonthecompleteCARLonthePatientSummary1() {
@@ -700,6 +722,27 @@ public class PatientClinicalDocuments extends BaseClass {
 			System.out.println("Only CARL & Baseline exits in the document list");
 		}
 		
+	}
+
+	public void IVerifythatCreateddateshoulddisplayeddatewithformatMMDDYYYY() throws ParseException {
+		String text=driver.findElement(By.cssSelector("article > div:nth-child(7) > strong")).getText();
+		String[] information=text.split("|");
+		String date=information[0];
+		validateDateFormat(date);
+		
+	}
+
+	public void IclickontheShowHistoryButtontoseethelistofuserwhosavedtheform() {
+		clickElement(driver.findElement(By.xpath("//a[contains(text(), 'Show History')]")));
+		
+	}
+
+	public void IverifythatHideHistorylinkshouldappearwhenusercurrentlyonShowHistorysection() {
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(), 'Hide History')]")));
+	}
+
+	public void IverifythatthereshouldbeanAttachmenticononClinicalDocumentsActivitySection() {
+		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td:nth-child(5) > img.hover-pointer.ng-scope")));
 	}
 	
 	

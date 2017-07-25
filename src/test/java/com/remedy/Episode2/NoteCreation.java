@@ -83,7 +83,7 @@ public class NoteCreation extends BaseClass {
 
 	public void IclickonquickactionbuttonfornotecreationonPatientCardpage() {
 
-		clickElement(driver.findElement(By.cssSelector("div > button.quick-action > i.valentino-icon-document")));
+		clickElement(driver.findElement(By.cssSelector("i.valentino-icon-plus")));
     }
 
 	public void IclickonquickactionbuttonfornotecreationonPatientCardpageJavaScript() {
