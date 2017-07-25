@@ -17,7 +17,9 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Enter_Search_Box_With(String search) {
+		iWillWaitToSee(By.cssSelector(".elastic-input"));
 		iFillInText(driver.findElement(By.cssSelector(".elastic-input")), search);
+		delay();
 	}
 
 	public void i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field(){
@@ -41,10 +43,12 @@ public class UserAdminEdit extends BaseClass {
 	}
  
 	public void iClickOnTheUsernameCardUnderUserAdminPage() {
+		iWillWaitToSee(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)"));
 		clickElement(driver.findElement(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)")));
 	}
 
 	public void iVerifyTheUserDetailsPageForEditing() {
+		iWillWaitToSee(By.cssSelector(".page-summary-directive.valentino-image.valentino-noise"));
 		isElementVisible(driver.findElement(By.cssSelector(".page-summary-directive.valentino-image.valentino-noise")));
 	}
 	
@@ -53,18 +57,22 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void iClickedOnEditButtonUnderUserRoleRow() {
+		iWillWaitToSee(By.xpath("(//button[@class='btn btn-lg btn-tertiary btn-binding-edit'])[3]"));
 		clickElement(driver.findElement(By.xpath("(//button[@class='btn btn-lg btn-tertiary btn-binding-edit'])[3]")));
 	}
 
 	public void i_Clicked_On_Role_Tab_To_Edit_The_User_Role_Assigned() {
+		iWillWaitToSee(By.xpath("//form/div[2]/div[1]/div[1]/div[1]/span"));
 		clickElement(driver.findElement(By.xpath("//form/div[2]/div[1]/div[1]/div[1]/span")));
 	}
 
 	public void i_Should_See_Dropdown_List_To_Select_Role() {
+		iWillWaitToSee(By.xpath("(//form/div[2]/div[1]/div[1]/ul/li)[1]"));
 		isElementVisible(driver.findElement(By.xpath("(//form/div[2]/div[1]/div[1]/ul/li)[1]")));
 	}
 
 	public void i_Clicked_Under_Edit_User_Role_Tab(String Text) {
+		iWillWaitToSee(By.xpath("//div[text()='" + Text + "']"));
 		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
 	}
 
@@ -73,6 +81,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_The_User_Role_Again() {
+		iWillWaitToSee(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]"));
 		isElementVisible(driver.findElement(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]")));
 	}
 	
@@ -85,10 +94,12 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Edit_Button_Under_User_Phone_Row() {
+		iWillWaitToSee(By.xpath("(//form[@ng-submit='saveEdit()'])[5]"));
 		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[5]")));
 	}
 
 	public void i_Clicked_On_Phone_Tab_To_Edit_The_User_Phone_number() {
+		iWillWaitToSee(By.xpath("//input[@name='phone']"));
 		clickElement(driver.findElement(By.xpath("//input[@name='phone']")));
 	}
 
@@ -105,15 +116,18 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void i_Verify_The_Permissions_Field() {
+		iWillWaitToSee(By.xpath("//div[@class='layout-area']"));
 		isElementPresentOnPage(By.xpath("//div[@class='layout-area']"));
 	}
 
 	public void i_Clicked_On_Edit_Button_Under_Permissions_Data_Field() {
 		isElementVisible(driver.findElement(By.xpath("//h3[text()='Data']")));
+		iWillWaitToSee(By.xpath("//a[@class='btn btn-tertiary pull-right edit']"));
 		clickElement(driver.findElement(By.xpath("//a[@class='btn btn-tertiary pull-right edit']")));
 	}
 
 	public void i_Clicked_On_Payer_Field_To_Edit_The_Payer() {
+		iWillWaitToSee(By.xpath("//div[@name='payer']"));
 		clickElement(driver.findElement(By.xpath("//div[@name='payer']")));
 	}
 
@@ -126,10 +140,12 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Enter_On_Search_Field_Under_Health_System_Name(String Text) {
+		iWillWaitToSee(By.xpath("(//input[@type='search'])[3]"));
 		iFillInText(driver.findElement(By.xpath("(//input[@type='search'])[3]")), Text);
 	}
 
 	public void i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name() {
+		iWillWaitToSee(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span"));
 		clickElement(driver.findElement(By.xpath("//div/span[@class='ui-select-choices-row-inner']/span")));
 	}
 	
@@ -142,18 +158,23 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Enter_On_Search_Field_Under_Provider_Name(String Text) {
+		iWillWaitToSee(By.xpath("(//input[@placeholder='Search'])[3]"));
 		iFillInText(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")), Text);
 	}
 
 	public void i_Clicked_On_Select_All_Facilities_Under_Provider_Name() {
+		iWillWaitToSee(By.xpath("(//label[@for='select-all-checkbox'])[2]"));
 		clickElement(driver.findElement(By.xpath("(//label[@for='select-all-checkbox'])[2]")));
 	}
 
 	public void i_Clicked_On_Save_Button_Under_Permissions_Data_Field() {
+		iWillWaitToSee(By.xpath("//button[@class='btn btn-primary btn-small']"));
 		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary btn-small']")));
+		delay();
 	}
 
 	public void i_Verify_The_Text_Under_Permissions_Data_Section() {
+		iWillWaitToSee(By.xpath("//label[text()='RP Payer Test A']"));
 		isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test A']")));
 	}
 
@@ -162,14 +183,17 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
+		iWillWaitToSee(By.xpath("//div[text()='" + Text + "']"));
 		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
 	}
 	
 	public void iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing(){
+		iWillWaitToSee(By.xpath("(//button[@type='submit'])[3]"));
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
 	}
 	
 	public void iClickedOnEmblemHealthFromDropdownListOfPayer(){
+		iWillWaitToSee(By.xpath("//div[text()='Emblem Health']"));
 		clickElement(driver.findElement(By.xpath("//div[text()='Emblem Health']")));
 	}
 	
@@ -178,6 +202,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField(){
+		iWillWaitToSee(By.xpath("(//div/small)[2]"));
 		clickElement(driver.findElement(By.xpath("(//div/small)[2]")));
 	}
 	
@@ -186,6 +211,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void iWaitForPopupToRemoveRPPayerTestAUnderPermissionField(){
+		iWillWaitToSee(By.xpath("//ul/li[2]/div/div/div/div[@group-close='remove-participant']"));
 		isElementVisible(driver.findElement(By.xpath("//ul/li[2]/div/div/div/div[@group-close='remove-participant']")));
 	}
 	

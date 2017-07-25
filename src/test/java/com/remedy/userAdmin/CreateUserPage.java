@@ -390,8 +390,7 @@ public class CreateUserPage extends BaseClass{
    
    public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String text) {
 	 	if(text.isEmpty()!=true){
-	 		System.out.println("1");
-    		verifyTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span", text);
+   		verifyTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span", text);
     	}
    }
   

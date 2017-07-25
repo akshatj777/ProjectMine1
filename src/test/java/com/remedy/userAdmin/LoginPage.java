@@ -77,6 +77,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iEnterPassword(String passWord) {
+		iWillWaitToSee(By.name("password"));
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
 

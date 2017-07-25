@@ -355,11 +355,11 @@ Feature: Edit Users with multiple payers
     And I should see Log in widget
 
     Examples: 
-      | Search            | Role1                        | Email                         |
-      | MultipleManager   | Executive                    | MultipleManager@yopmail.com   |
-      | MultipleExecutive | Manager                      | multipleexecutive@yopmail.com |
-      | MultiplePPE       | Remedy Executive             | MultiplePPE@yopmail.com       |
-      | MultipleTCM       | Remedy Program Administrator | MultipleTCM@yopmail.com       |
+      | Search            | Role1                         | Email                         |
+      | MultipleManager   | Executive                     | MultipleManager@yopmail.com   |
+      | MultipleExecutive | Manager                       | multipleexecutive@yopmail.com |
+      | MultiplePPE       | Partner Program Administrator | MultiplePPE@yopmail.com       |
+      | MultipleTCM       | Prospective Partner Executive | MultipleTCM@yopmail.com       |
 
   Scenario Outline: Partner Technical Administrator edit users back to its previous state
     Given I am on the login page
