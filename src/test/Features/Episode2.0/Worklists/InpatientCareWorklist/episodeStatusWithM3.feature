@@ -88,6 +88,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
@@ -106,7 +108,7 @@ Feature: Patient status in Inpatient Care Worklist
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTIMPATIENTMTHREE |
 
   Scenario Outline: Verify patient status in inpatient care with  Admitted today or in past(considering current date >= admit date) in any post acute facility with confirmed Possible/Final BPCI M3 DRG.
-     Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -145,6 +147,7 @@ Feature: Patient status in Inpatient Care Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
@@ -163,12 +166,12 @@ Feature: Patient status in Inpatient Care Worklist
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name | DRG type | Care Type |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Working  | Inpatient |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Final    | Inpatient |
+      | email                | password  | Patient First Name | Patient Last Name   | DRG type | Care Type |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTIMPATIENTMTHREE | Working  | Inpatient |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTIMPATIENTMTHREE | Final    | Inpatient |
 
   Scenario Outline: Verify patient status in inpatient care While patient is in Worklist and anchor transition updated to NON-BPCI (Pend Canc).
- Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -209,6 +212,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
@@ -225,6 +230,5 @@ Feature: Patient status in Inpatient Care Worklist
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
- 
+      | email                | password  | Patient First Name | Patient Last Name   |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTIMPATIENTMTHREE |

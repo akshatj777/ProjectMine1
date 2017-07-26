@@ -115,9 +115,9 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
     And I wait for 1000 milli seconds
     Then I verify Patients Restoration Potential section on selecting PhysicalTherapy
-    Then I verify "Select" text in place holder of Physical Therapy dropdown on Patients Restoration Potential
-    And I wait for 3000 milli seconds
     Then I click on Physical Therapy dropdown on Patients Restoration Potential
+    And I wait for 3000 milli seconds
+    Then I verify "Select" text in place holder of Physical Therapy dropdown on Patients Restoration Potential
     And I wait for 3000 milli seconds
     Then I verify "Good restoration potential" option in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I verify "Questionable restoration potential" option in Physical Therapy dropdown on Anticipated Discharge Needs

@@ -67,6 +67,8 @@ Feature: Patient status on Other/Alternative Work List
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 2000 milli seconds
     Then I click on Other sub tab on the patient Card Page
@@ -85,6 +87,6 @@ Feature: Patient status on Other/Alternative Work List
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name | Care Type        |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | select           |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Leave of Absence |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Custodial Care   |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | select           |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Leave of Absence |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Custodial Care   |

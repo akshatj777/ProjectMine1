@@ -93,8 +93,12 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Post Acute Onboarding tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds
@@ -168,8 +172,12 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
-    Then I click on the Post Acute Onboarding tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 2000 milli seconds
+    Then I click on Post Acute Facility sub tab on the patient Card Page
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds
@@ -225,9 +233,12 @@ Feature: Patient status in Post Acute Onboarding Worklist
     When I switch to default window from iframe
     Then I reload my page
     Then I wait for 3000 milli seconds
-    Then I close the patient summary Page
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Post Acute Onboarding tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds
@@ -284,8 +295,12 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Post Acute Onboarding tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds

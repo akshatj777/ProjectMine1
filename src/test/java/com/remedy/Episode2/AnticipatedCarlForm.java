@@ -47,7 +47,9 @@ public class AnticipatedCarlForm extends BaseClass{
 	}
 	
 	public void IVerifyTheSelectTextInPlaceHolderOfPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//div[@class='restoration-potential ng-scope']//span[@class='ui-select-placeholder text-muted ng-binding']")), text);
+		String text1=driver.findElement(By.cssSelector("div.restoration-potential.ng-scope > div > input.form-control")).getAttribute("placeholder");
+		Assert.assertEquals(text, text1);
+		
 	}
 	
 	public void IClickOnPhysicalTherapyDropDownOnPatientRestorationPotentialSection() {
@@ -111,5 +113,10 @@ public class AnticipatedCarlForm extends BaseClass{
 	public void IVerifyRadioOptionIsAtDefaultStateUnderSelectedCheckBoxForTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text) {
 		String value = driver.findElement(By.xpath("//label[contains(@for,'"+text+"')][span[contains(text(),'"+radio+"')]]/parent::div/input")).getAttribute("class");
 		Assert.assertTrue(value.contains("ng-pristine ng-untouched ng-valid ng-not-empty"));
+	}
+
+	public void IclickonthePhysicalTheraphydropdownonPatientsRestorationPotential() {
+		clickElement(driver.findElement(By.cssSelector(" div.restoration-potential.ng-scope > div > div.ui-select-match.ng-scope > span")));	
+		
 	}
 }

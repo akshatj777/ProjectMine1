@@ -106,5 +106,5 @@ Feature: Patient status on Readmission Discharges Work List
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | READMISSIONDISCHARGE |

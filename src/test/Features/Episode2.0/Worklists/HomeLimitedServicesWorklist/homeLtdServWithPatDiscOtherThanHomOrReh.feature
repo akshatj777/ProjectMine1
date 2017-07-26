@@ -1,6 +1,6 @@
 Feature: Patient status on Home Limited Service Worklist
 
-  Scenario Outline:  Verify Patient should not be included in Home With Limited Services worklist with Patient's discharged with Care Setting other than HOM or REH (Outpatient)Patient's with Active M2 Episode
+  Scenario Outline: Verify Patient should not be included in Home With Limited Services worklist with Patient's discharged with Care Setting other than HOM or REH (Outpatient)Patient's with Active M2 Episode
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -57,7 +57,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I click on the Create Transition Button to add a new transition
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
-     Then I close the patient summary Page
+    Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
@@ -90,10 +90,8 @@ Feature: Patient status on Home Limited Service Worklist
     Then I switch to PatientTransitions frame
     Then I wait for 3000 milli seconds
     Then I delete the active transition no "1" to make the patient cancelled
-    
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name | care setting             |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       | HHA - Home Health Agency |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       | HPC - Hospice            |
-   
+      | email                | password  | Patient First Name | Patient Last Name       | care setting             |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES | HHA - Home Health Agency |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES | HPC - Hospice            |

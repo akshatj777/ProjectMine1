@@ -80,7 +80,7 @@ Feature: Patient status on Exceed SNF LOS Work List
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF   |
 
     Scenario Outline: Admit with discharge care setting-SNF M2 Pend Can (Skilled Nursing, TCU) 
     Given I am on the login page
@@ -131,5 +131,5 @@ Feature: Patient status on Exceed SNF LOS Work List
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF   |
     

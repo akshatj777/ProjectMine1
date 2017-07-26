@@ -55,8 +55,8 @@ Feature: Patient status on Home Limited Service Worklist
     And I wait for 15000 milli seconds
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
 
   Scenario Outline: Verify Patient should not be included in Home With Limited Services worklist who has an episode status other than Active or Pending Cancellation
     Given I am on the login page
@@ -125,5 +125,5 @@ Feature: Patient status on Home Limited Service Worklist
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |

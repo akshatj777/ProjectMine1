@@ -67,7 +67,7 @@ Feature: Patient status on Readmission Discharges Work List
     Then I click on datepicker button to select the discharge date on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the centre of the calendar header to select discharge date and month on Transition Page
-     Then I wait for 2000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the previous next link to select the required year "6" on date picker
     Then I wait for 5000 milli seconds
     Then I select the month "6" from calendar from date picker on Discharge
@@ -110,5 +110,5 @@ Feature: Patient status on Readmission Discharges Work List
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | READMISSIONDISCHARGE |

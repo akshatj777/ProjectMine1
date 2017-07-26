@@ -75,5 +75,5 @@ Feature: Patient status on Readmission Discharges Work List
     And I wait for 1000 milli seconds
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | READMISSIONDISCHARGE |

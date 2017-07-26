@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
 
-  Scenario Outline: Exceed SNF Los woth discharge care setting snf and potential M2 active patient
+  Scenario Outline: Exceed SNF Los woth discharge care setting snf and potential M3 active patient
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -62,22 +62,13 @@ Feature: Patient status on Exceed SNF LOS Work List
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
-    And I wait for 2000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I click on Exceed SNF LOS sub tab on the patient Card Page
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    And I wait for 2000 milli seconds
-    Then I click on Done button present on the Filter Page
-    Then I wait for 1000 milli seconds
+    And I wait for 3000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the patients page
+    Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    Then I reload my page
-    And I wait for 2000 milli seconds
     Then I click on the ALL Tab on Patient page
     And I wait for 2000 milli seconds
     When I click on Filter button present on Patient Page
@@ -111,18 +102,10 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 1000 milli seconds
     Then I click on Exceed SNF LOS sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
-    Then I click on Done button present on the Filter Page
-    Then I wait for 2000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the patients page
+    Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |

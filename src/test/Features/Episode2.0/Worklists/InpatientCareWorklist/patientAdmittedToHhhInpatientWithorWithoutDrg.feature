@@ -51,6 +51,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
@@ -67,7 +69,7 @@ Feature: Patient status in Inpatient Care Worklist
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTINPATIENTCARE |
 
   Scenario Outline: Verify patient status in inpatient care with Non-BPCI to the transition
     Given I am on the login page
@@ -110,6 +112,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
@@ -126,7 +130,7 @@ Feature: Patient status in Inpatient Care Worklist
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTINPATIENTCARE |
 
   Scenario Outline: Verify patient status in inpatient care when patient has been discharged from (HHH) Inpatient more than 7 days ago.
     Given I am on the login page
@@ -167,6 +171,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I click on Inpatient Care sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
@@ -183,4 +189,4 @@ Feature: Patient status in Inpatient Care Worklist
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTINPATIENTCARE |

@@ -74,8 +74,7 @@ Feature: Patient status on Home Health Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-   
+
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
-   
+      | email                | password  | Patient First Name | Patient Last Name      |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |

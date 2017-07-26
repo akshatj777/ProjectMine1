@@ -59,8 +59,12 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Post Acute Onboarding tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds
@@ -71,11 +75,11 @@ Feature: Patient status in Post Acute Onboarding Worklist
     And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTONBOARDING |
 
   Scenario Outline: Patient status in post onboarding worklist when Patient's episode is activated with Model M3 Episode , patient will now show in the worklist.
     Given I am on the login page
@@ -120,8 +124,12 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Post Acute Onboarding tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds
@@ -135,5 +143,5 @@ Feature: Patient status in Post Acute Onboarding Worklist
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTONBOARDING |

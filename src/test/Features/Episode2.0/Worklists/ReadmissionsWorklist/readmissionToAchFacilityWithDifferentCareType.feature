@@ -64,23 +64,23 @@ Feature: Patient with Active/Pending Cancellation episode having readmission to 
     Then I select the month "12" from calendar from date picker
     Then I select the "12" from the calendar from date picker on Transition Page
     Then I select the "12" time from the calendar from date picker on Transition Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the care type value "<Care Type>" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 10000 milli seconds
+    And I wait for 8000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds

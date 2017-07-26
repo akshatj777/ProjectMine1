@@ -121,9 +121,10 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+     Examples: 
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
+
 
   Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor future admission's with discharge care setting as HOM/REH(outpatient).
     Given I am on the login page
@@ -271,5 +272,5 @@ Feature: Patient status on Home Limited Service Worklist
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |

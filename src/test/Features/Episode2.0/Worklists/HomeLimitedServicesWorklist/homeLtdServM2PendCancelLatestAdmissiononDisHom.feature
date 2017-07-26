@@ -62,8 +62,8 @@ Feature: Patient status on Home Limited Service Worklist
     When I switch to default window from iframe
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
 
   Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor admission's with discharge care setting as HOM/REH(outpatient).
     Given I am on the login page
@@ -118,7 +118,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I wait for 2000 milli seconds
     Then I click on Home with Limited Services sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
-     When I click on Filter button present on Patient Page
+    When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
@@ -130,5 +130,5 @@ Feature: Patient status on Home Limited Service Worklist
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |

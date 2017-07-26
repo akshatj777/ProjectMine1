@@ -67,6 +67,8 @@ Feature: Patient status on Other/Alternative Work List
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 2000 milli seconds
     Then I click on Other sub tab on the patient Card Page
@@ -84,18 +86,18 @@ Feature: Patient status on Other/Alternative Work List
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name | Care Type                                  |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Acute Care Hospital                        |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Admitted as an Inpatient to this Hospital  |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Assisted Living                            |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Critical Access Hospital                   |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Court/Law Enforcement                      |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Federal Hospital                           |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Hospice in Medical Facility                |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Hospital-Based Medicare Approved Swing Bed |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Hospice at Home                            |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Left Against Medical Advice                |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Medicaid Certified Nursing Facility        |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Psychiatric Hospital/Unit                  |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Shelter                                    |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  | Still a Patient                            |
+      | email                | password  | Patient First Name | Patient Last Name | Care Type           |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Acute Care Hospital |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Admitted as an Inpatient to this Hospital  |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Assisted Living                            |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Critical Access Hospital                   |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Court/Law Enforcement                      |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Federal Hospital                           |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospice in Medical Facility                |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospital-Based Medicare Approved Swing Bed |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospice at Home                            |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Left Against Medical Advice                |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Medicaid Certified Nursing Facility        |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Psychiatric Hospital/Unit                  |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Shelter                                    |
+      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Still a Patient                            |

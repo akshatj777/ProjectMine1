@@ -77,10 +77,12 @@ Feature: Patient with readmission outside the episode duration i want to use thi
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
     And I wait for 3000 milli seconds

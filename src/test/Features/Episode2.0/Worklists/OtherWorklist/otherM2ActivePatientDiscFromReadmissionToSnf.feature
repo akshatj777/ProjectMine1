@@ -57,7 +57,6 @@ Feature: Patient status on Other/Alternative Work List
     Then I wait for 8000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
-    Then I click on the Transition Info on add a new transition
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
     Then I click on the previous next link to select the required year "28" on date picker
@@ -87,8 +86,10 @@ Feature: Patient status on Other/Alternative Work List
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on Other sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     When I click on Filter button present on Patient Page
@@ -105,4 +106,4 @@ Feature: Patient status on Other/Alternative Work List
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   |

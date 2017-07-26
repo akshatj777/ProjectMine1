@@ -94,8 +94,10 @@ Feature: Patient status on Other Work List
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 5000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on Other sub tab on the patient Card Page
     Then I wait for 10000 milli seconds
     Then I reload my page

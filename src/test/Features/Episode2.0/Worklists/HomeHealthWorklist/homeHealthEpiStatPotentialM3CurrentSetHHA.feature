@@ -28,7 +28,7 @@ Feature: Patient status on Home Health Worklist
     Then I switch to PatientTransitions frame
     Then I wait for 4000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
-    Then I wait for 3000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
@@ -72,17 +72,10 @@ Feature: Patient status on Home Health Worklist
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 2000 milli seconds
     Then I click on Home Health sub tab on the patient Card Page
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
-    Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the patients page
+    Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+  Examples: 
+      | email                | password  | Patient First Name | Patient Last Name      |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |

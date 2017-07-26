@@ -12,6 +12,8 @@ Feature: Document Section
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
     And I wait for 8000 milli seconds
+    Then I click on the agree button on the Patient Card page
+    Then I wait for 10000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
@@ -29,9 +31,6 @@ Feature: Document Section
     Then I get the patient last name who have no CARL button in it
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I click on the Clinical Documents tab in the patient summary Page
-    Then I wait for 3000 milli seconds
-    Then I verify created note should appear in the document section 
     Then I wait for 3000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
@@ -39,10 +38,10 @@ Feature: Document Section
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "10" on date picker
-    Then I select the month "10" from calendar from date picker
-    Then I select the "10" from the calendar from date picker on Transition Page
-    Then I select the "10" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "9" on date picker
+    Then I select the month "9" from calendar from date picker
+    Then I select the "9" from the calendar from date picker on Transition Page
+    Then I select the "9" time from the calendar from date picker on Transition Page
     Then I wait for 1000 milli seconds
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 1000 milli seconds
@@ -50,7 +49,7 @@ Feature: Document Section
     Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 3000 milli seconds
-    Then I select the "5" LOS days on Discharge date on Add Transition
+    Then I select the "4" LOS days on Discharge date on Add Transition
     Then I wait for 3000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -80,6 +79,27 @@ Feature: Document Section
     And I wait for 3000 milli seconds
     Then I click on the searched name on the patient card
     Then I wait for 12000 milli seconds
+    Then I click on the Clinical Documents tab in the patient summary Page
+    Then I wait for 3000 milli seconds
+    Then I click on the searched name on the patient card 
+    Then I wait for 6000 milli seconds
+    Then I click on the complete CARL on the Patient Summary
+    And I wait for 5000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I save and continue the complete CARL form
+    And I wait for 1000 milli seconds
+    Then I click on the cross button to close the CARL document form
+    Then I verify current page "Remedy Partners" title
+    And I wait for 3000 milli seconds
+    Then I click on the searched name on the patient card 
+    Then I wait for 12000 milli seconds
+    Then I click on the Clinical Documents tab in the patient summary Page
+    And I wait for 2000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify any forms attached to the patient should be listed in document section
     Then I verify that title of document or topic of note should appear as a link in the section

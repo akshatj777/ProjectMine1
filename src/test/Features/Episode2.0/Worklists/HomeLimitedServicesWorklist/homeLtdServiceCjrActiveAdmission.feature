@@ -154,10 +154,10 @@ Feature: Patient status on Home Limited Service Worklist
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | ABHIS              | TESTHOMELIMITEDSERVICES |
 
-   Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor admission's with discharge care setting as HOM/REH(outpatient) when Episode is CJR Pend Can
+  Scenario Outline: Verify Patient should be included in Home With Limited Services worklist latest anchor admission's with discharge care setting as HOM/REH(outpatient) when Episode is CJR Pend Can
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -204,7 +204,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I select the "17" time from the calendar from date picker on Transition Page
     Then I select the care setting value "REH - Rehabilitation" on add a new transition
     Then I wait for 1000 milli seconds
-    Then I select the Discharge care type value "Outpatient" on add a new transition 
+    Then I select the Discharge care type value "Outpatient" on add a new transition
     Then I wait for 1000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I select the Discharge care setting value "REH - Rehabilitation" on add a new transition
@@ -230,8 +230,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 2000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    
-   Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
-      
+
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |

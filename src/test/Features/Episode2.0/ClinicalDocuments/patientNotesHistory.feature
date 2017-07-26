@@ -100,6 +100,8 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     And I wait for 2000 milli seconds
+    Then I verify Clinical Document Table should contain the following sections
+    Then I count the number of documents that appear in the clinical Documents
     Then I verify LastName FirstName and userrole appears in last saved section
     Then I click on the Show History Button to see the list of user who saved the form 
     Then I verify that upon Selecting Show History should display the information of all users who have saved that form

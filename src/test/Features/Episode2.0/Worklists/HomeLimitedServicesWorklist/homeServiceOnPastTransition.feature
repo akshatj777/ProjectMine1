@@ -46,8 +46,8 @@ Feature: Patient status on Home Limited Service Worklist
     Then I close the patient summary Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
 
   Scenario Outline: Patient's with past transition admit/discharge care setting is HOM / REH (Outpatient)
     Given I am on the login page
@@ -113,5 +113,5 @@ Feature: Patient status on Home Limited Service Worklist
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |

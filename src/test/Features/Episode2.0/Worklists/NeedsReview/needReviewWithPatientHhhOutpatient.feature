@@ -50,7 +50,10 @@ Feature: Patient status in Need Review Worklist
     Then I close the patient summary Page
     And I reload my page
     And I wait for 5000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
+    Then I wait for 2000 milli seconds
     Then I click on the Needs Review tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -67,4 +70,4 @@ Feature: Patient status in Need Review Worklist
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTNEEDREVIEW    |

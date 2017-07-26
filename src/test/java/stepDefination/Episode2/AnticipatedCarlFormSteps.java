@@ -44,6 +44,12 @@ public class AnticipatedCarlFormSteps extends DriverScript {
 		anticipatedcarlform.IVerifyPatientsRestorationPotentialSectionOnSelectingPhysicalTherapy();
 	}
 	
+	@Then ("^I click on the Physical Theraphy drop down on Patients Restoration Potential$")
+	public void I_click_on_the_Physical_Theraphy_drop_down_on_Patients_Restoration_Potential()
+	{
+		anticipatedcarlform.IclickonthePhysicalTheraphydropdownonPatientsRestorationPotential();
+	}
+	
 	@Then("^I verify \"([^\"]*)\" text in place holder of Physical Therapy dropdown on Patients Restoration Potential$")
 	public void I_Verify_Select_Text_In_PlaceHolder_Of_PhysicalTherapy_DropDown_On_PatientsRestorationPotential(String text) throws Throwable {
 		anticipatedcarlform.IVerifyTheSelectTextInPlaceHolderOfPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(text);

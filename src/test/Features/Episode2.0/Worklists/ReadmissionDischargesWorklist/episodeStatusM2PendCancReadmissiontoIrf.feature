@@ -171,8 +171,8 @@ Feature: Patient status on Readmission Discharges Work List
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | READMISSIONDISCHARGE |
 
   Scenario Outline: The 7 calendar days starts at midnight following the Readmission discharge date, Transition earlier than last 7th day
     Given I am on the login page
@@ -267,5 +267,5 @@ Feature: Patient status on Readmission Discharges Work List
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | READMISSIONDISCHARGE |
