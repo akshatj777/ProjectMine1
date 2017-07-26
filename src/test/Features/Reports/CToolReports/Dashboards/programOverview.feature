@@ -19,7 +19,7 @@ Scenario Outline: Program Overview Report Under Dashboard
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 30000 milli seconds
+    And I wait for 60000 milli seconds
     And I switch to reports embedded iframe
     
     Then I should see "Overall Program" appearing under program overview reports

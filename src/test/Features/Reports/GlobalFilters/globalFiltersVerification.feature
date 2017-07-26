@@ -53,7 +53,7 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     
     When I switch to reports embedded iframe
     Then I should see <selectedpayer> is applied under filter options in payer dropdown under program overview report
-    Then I should see <selectedparticipant> is applied under filter options in participant dropdown under program overview report
+    Then I should see <selectedpartcipant> is applied under filter options in participant dropdown under program overview report
     #Then I should see <episode initiator1> is applied under filter options in episode initiator dropdown under program overview report
     #Then I should see <anchor facility1> is applied under filter options in anchor facility dropdown under program overview report
     When I switch to default window from iframe
@@ -135,7 +135,8 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    #Based on the comments under ticket REP-3300#
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
     
     When I switch to default window from iframe
@@ -162,7 +163,8 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    #Based on the comments under ticket REP-3300#
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
     
     When I switch to default window from iframe
@@ -189,7 +191,8 @@ Scenario Outline: User should be able to verify the Global Filters for Dashboard
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    #Based on the comments under ticket REP-3300#
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
     
     When I switch to default window from iframe
@@ -391,7 +394,8 @@ Scenario Outline: User should be able to verify Global Filters for Physician,Nex
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
-    Then I verify anchor facility filter is selected with <ccn1> under selected filters
+    #Based on the comments under ticket REP-3300#
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     

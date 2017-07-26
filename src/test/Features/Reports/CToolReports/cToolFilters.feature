@@ -20,7 +20,6 @@ Feature: C Tool Filter Verification
     Then I uncheck All option under "participant" filter in the filter options
     And I click on apply button under the filter in filter options
     And I wait for 10000 milli seconds
-    #Then I verify "None" is appearing under "participant" filter field after applying filter
     Then I click on "participant" filter in the filter options
     Then I enter <participant> under the "participant" field searchbox
     And I wait for 1000 milli seconds
@@ -58,7 +57,6 @@ Feature: C Tool Filter Verification
     Then I uncheck All option under "initiator" filter in the filter options
     And I click on apply button under the filter in filter options
     And I wait for 10000 milli seconds
-    #Then I verify "None" is appearing under "participant" filter field after applying filter
     Then I click on "initiator" filter in the filter options
     Then I enter <episode initiator> under the "initiator" field searchbox
     And I wait for 1000 milli seconds
@@ -96,7 +94,6 @@ Feature: C Tool Filter Verification
     Then I uncheck All option under "facility" filter in the filter options
     And I click on apply button under the filter in filter options
     And I wait for 10000 milli seconds
-    #Then I verify "None" is appearing under "participant" filter field after applying filter
     Then I click on "facility" filter in the filter options
     Then I enter <anchor facility> under the "facility" field searchbox
     And I wait for 1000 milli seconds
@@ -135,7 +132,6 @@ Feature: C Tool Filter Verification
     Then I uncheck All option under "bundle" filter in the filter options
     And I click on apply button under the filter in filter options
     And I wait for 10000 milli seconds
-    #Then I verify "None" is appearing under "participant" filter field after applying filter
     Then I click on "bundle" filter in the filter options
     Then I enter <bundle type> under the "bundle" field searchbox
     And I wait for 1000 milli seconds

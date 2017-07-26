@@ -46,7 +46,7 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I switch to reports embedded iframe
     Then I click on inpatient rehab "IRF" claims graph point under post acute utilization of program overview report
     And I switch to new window
-    And I wait for 30000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
     And I wait for 2000 milli seconds
@@ -54,7 +54,7 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I switch to reports embedded iframe
     Then I click on home health "HHA" claims graph point under post acute utilization of program overview report
     And I switch to new window
-    And I wait for 30000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
     And I wait for 2000 milli seconds
@@ -63,7 +63,7 @@ Scenario Outline: User should be able to click on program overview episode conne
     Then I scroll the page to bottom by "100"
     Then I click on "home" claims graph point under post acute utilization of program overview report
     And I switch to new window
-    And I wait for 30000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
     And I wait for 2000 milli seconds
@@ -71,7 +71,7 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I switch to reports embedded iframe
     Then I click on "other" graph point of claims under post acute utilization of program overview report
     And I switch to new window
-    And I wait for 30000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
     And I wait for 2000 milli seconds
@@ -126,8 +126,6 @@ Scenario Outline: User should be able to click on program overview episode conne
       | email                              | Menu 1     |
       #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com         | Dashboards |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
@@ -164,7 +162,7 @@ Scenario Outline: User should be able to click on program overview episode conne
     
     Then I click on episodes w readmit "episodesReadmits" claims graph point under readmissions of program overview report
     And I switch to new window
-    And I wait for 30000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Readmissions EC" in the new window after clicking on the graph point
     And I switch back to old window
     And I wait for 2000 milli seconds
@@ -172,7 +170,7 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I switch to reports embedded iframe
     Then I click on readmits per episode "readmitsEpisodes" claims graph point under readmissions of program overview report
     And I switch to new window
-    And I wait for 40000 milli seconds
+    And I wait for 50000 milli seconds
     Then I verify "Readmissions EC" in the new window after clicking on the graph point
     And I switch back to old window
     And I wait for 2000 milli seconds
