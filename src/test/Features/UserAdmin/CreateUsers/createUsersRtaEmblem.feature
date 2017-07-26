@@ -15,7 +15,7 @@ Feature: Create new User role with RTA and emblem payer and product tiles verifi
 
   Scenario Outline: Remedy Technical Admin can create user and verify product tiles after login and navigation of different tiles
     Given I am on the login page
-    When I enter email field RTAUSER@mailinator.com for login
+    When I enter email field autortauser@mailinator.com for login
     And I wait for 1000 milli seconds
     And I enter password field Testing1 for Login
     Then I click Access button
@@ -145,7 +145,7 @@ Feature: Create new User role with RTA and emblem payer and product tiles verifi
 
   Scenario Outline: Remedy Technical Admin can create user role different health system provider and few product tiles and verification of tiles on user login and navigation of different tiles
     Given I am on the login page
-    When I enter email field RTAUSER@mailinator.com for login
+    When I enter email field autortauser@mailinator.com for login
     And I wait for 1000 milli seconds
     And I enter password field Testing1 for Login
     Then I click Access button

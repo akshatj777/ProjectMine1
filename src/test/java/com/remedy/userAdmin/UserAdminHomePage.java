@@ -15,7 +15,9 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void clickCreateUserButton() {
+		System.out.println("Before Click");
 		clickElement(driver.findElement(By.cssSelector("button[href='#/user/create']")));
+		System.out.println("After Click");
 	}
 
 	public void clickImportUsers() {

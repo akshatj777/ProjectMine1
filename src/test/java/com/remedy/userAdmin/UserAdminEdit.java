@@ -43,6 +43,7 @@ public class UserAdminEdit extends BaseClass {
 	}
  
 	public void iClickOnTheUsernameCardUnderUserAdminPage() {
+		delay();
 		iWillWaitToSee(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)"));
 		clickElement(driver.findElement(By.cssSelector("div:nth-of-type(5)>div:nth-of-type(1)>div>div:nth-of-type(1)>div:nth-of-type(2)")));
 	}
@@ -53,15 +54,18 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void i_Verify_The_User_Email_Address(String email){
+		iWillWaitToSee(By.cssSelector("div:nth-of-type(6)>div>span>span"));
 		verifyTextForElement(driver.findElement(By.cssSelector("div:nth-of-type(6)>div>span>span")), email);
 	}
 
 	public void iClickedOnEditButtonUnderUserRoleRow() {
+		delay();
 		iWillWaitToSee(By.xpath("(//button[@class='btn btn-lg btn-tertiary btn-binding-edit'])[3]"));
 		clickElement(driver.findElement(By.xpath("(//button[@class='btn btn-lg btn-tertiary btn-binding-edit'])[3]")));
 	}
 
 	public void i_Clicked_On_Role_Tab_To_Edit_The_User_Role_Assigned() {
+		delay();
 		iWillWaitToSee(By.xpath("//form/div[2]/div[1]/div[1]/div[1]/span"));
 		clickElement(driver.findElement(By.xpath("//form/div[2]/div[1]/div[1]/div[1]/span")));
 	}
@@ -81,6 +85,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Verify_The_User_Role_Again() {
+		delay();
 		iWillWaitToSee(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]"));
 		isElementVisible(driver.findElement(By.xpath("(//span[@class='binding-viewer ng-scope'])[3]")));
 	}
@@ -116,6 +121,7 @@ public class UserAdminEdit extends BaseClass {
 	}
 	
 	public void i_Verify_The_Permissions_Field() {
+		delay();
 		iWillWaitToSee(By.xpath("//div[@class='layout-area']"));
 		isElementPresentOnPage(By.xpath("//div[@class='layout-area']"));
 	}

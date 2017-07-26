@@ -244,11 +244,13 @@ public class CreateUserPage extends BaseClass{
     public void iCheckTheProviderForTheHealthSystem(String facility,String provider) {
     	delay();
     	if(provider.contains("*")){
+    	iWillWaitToSee(By.cssSelector(".select-all-master>.checkbox"));
         clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
     	}
     	else {
-    		iWillWaitToSee(By.xpath("//span[text()='"+facility+"']"));
-    	clickElement(driver.findElement(By.xpath("//span[text()='"+facility+"']")));	
+    		delay();
+    	iWillWaitToSee(By.xpath("//label//span[contains(text(),'"+facility+"')]"));
+    	clickElement(driver.findElement(By.xpath("//label//span[contains(text(),'"+facility+"')]")));	
     	}
     }
 
