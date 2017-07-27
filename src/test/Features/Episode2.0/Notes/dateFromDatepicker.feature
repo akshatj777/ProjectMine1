@@ -11,7 +11,7 @@ Feature: Notes Activity Date
     And I wait for 15000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
-    And I wait for 10000 milli seconds
+    And I wait for 8000 milli seconds
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on quick action button for note creation on Patient Card page

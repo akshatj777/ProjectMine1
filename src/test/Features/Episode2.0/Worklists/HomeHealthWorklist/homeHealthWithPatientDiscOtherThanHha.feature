@@ -58,7 +58,10 @@ Feature: Patient status on Home Health Worklist
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 1000 milli seconds
     Then I click on Home Health sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page

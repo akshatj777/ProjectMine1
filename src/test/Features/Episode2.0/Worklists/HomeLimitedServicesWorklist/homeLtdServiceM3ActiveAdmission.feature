@@ -96,8 +96,11 @@ Feature: Patient status on Home Limited Service Worklist
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
-    And I wait for 4000 milli seconds
+    And I wait for 2000 milli seconds
+    Then I reload my page
+    And I wait for 2000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
+    And I wait for 1000 milli seconds
     Then I click on Home with Limited Services sub tab on the patient Card Page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page

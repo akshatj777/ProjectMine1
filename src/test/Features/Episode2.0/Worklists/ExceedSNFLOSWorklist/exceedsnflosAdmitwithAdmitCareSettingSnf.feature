@@ -28,7 +28,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I switch to PatientTransitions frame
     Then I wait for 4000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
-    Then I wait for 3000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
@@ -76,13 +76,12 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I enter "<Patient Last Name>" in the search box on the patients page
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-   
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF   |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
 
-    Scenario Outline: Admit with discharge care setting-SNF M2 Pend Can (Skilled Nursing, TCU) 
+  Scenario Outline: Admit with discharge care setting-SNF M2 Pend Can (Skilled Nursing, TCU)
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -118,7 +117,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 8000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
-     Then I wait for 1000 milli seconds
+    Then I wait for 1000 milli seconds
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
@@ -127,9 +126,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I enter "<Patient Last Name>" in the search box on the patients page
     Then I wait for 10000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-   
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF   |
-    
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |

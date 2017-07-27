@@ -23,6 +23,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -123,9 +124,8 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IverifythatArchivedstatusshouldbeinGreycolorwithColorcode959595() {
 
-		isElementVisible(driver.findElement(By.cssSelector("span.status-tag.status-tag-3.active")));
-		String value = driver.findElement(By.cssSelector(" span.status-tag.status-tag-3.active"))
-				.getCssValue("background-color");
+		isElementVisible(driver.findElement(By.cssSelector(" table > tbody > tr:nth-child(2) > td:nth-child(2) > span")));
+		String value = driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td:nth-child(2) > span")).getCssValue("background-color");
 		Assert.assertTrue(value.equals("959595"));
 	}
 
@@ -139,30 +139,19 @@ public class PatientClinicalDocuments extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("div.tabbed-navbar-tabs > button:nth-child(1)")));
 	}
 
-	public void IverifyClinicalDocumentTableshouldcontainthefollowingsections() {
+	public void IverifyClinicalDocumentTableshouldcontaintheheadersections() {
 
-		List<String> actualcombolisttext = new ArrayList();
-		List<WebElement> elementtexts = new ArrayList();
-		List<String> requiredcombolisttext = new ArrayList();
-		String[] expectedvalues = { "Document", "Status", "Summary", "Activity" };
-
-		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
-
-		elementtexts = driver.findElements(By.cssSelector("table > thead > tr > th "));
-
-		for (WebElement elementtext : elementtexts) {
-			actualcombolisttext.add(elementtext.getText());
-
-		}
-
-		for (int i = 0; i < actualcombolisttext.size(); i++) {
-			String element = actualcombolisttext.remove(actualcombolisttext.size() - 1);
-			if (actualcombolisttext.get(i).equals(element)) {
-				actualcombolisttext.remove(i);
-			}
-		}
-
-		verifyarraylist(requiredcombolisttext, actualcombolisttext);
+//		List<String> actualcombolisttext = new ArrayList<String>();
+//		List<WebElement> elementtexts = new ArrayList<WebElement>();
+ 		List<String> requiredcombolisttext = new ArrayList<String>();
+		String[] expectedvalues = {"Document","Status","Summary","Activity"};
+       requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+       for(int i=1;i<5;i++)
+        {
+        	System.out.println("$$$Expected value"+expectedvalues[i-1]);
+        	Assert.assertEquals(getTextForElement(driver.findElement(By.xpath("//div[contains(@class,'ng-scope')]/table/thead/tr/th['"+i+"']"))),requiredcombolisttext.get(i));
+        }
+		
 	}
 
 	public void IcountthenumberofdocumentsthatappearintheclinicalDocuments() {
@@ -450,8 +439,9 @@ public class PatientClinicalDocuments extends BaseClass {
 
 		String text=driver.findElement(By.cssSelector("article > h4 > strong")).getText();
 		String[] information=text.split(";");
-		String role=information[1];
-     	Assert.assertEquals(role,"RN");
+		String role=information[1].trim();
+     	System.out.println("$$ROle is"+role);
+	    Assert.assertEquals("RN",role);
 	}
 
 	public void IVerifythatUseremailshouldbedisplayedundernotesreadonlyform() {
@@ -475,18 +465,16 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	   public void validateDateFormat(String dateToValdate) throws ParseException {
-		     SimpleDateFormat formatter = new SimpleDateFormat("MM/DD/YYYY");
+		     SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/yyyy");
 		     formatter.setLenient(false);
-		     Date parsedDate = null;
-		     parsedDate = formatter.parse(dateToValdate);
+		     formatter.parse(dateToValdate);
 		    }
 
 	public void IVerifythatActivitydateshoulddisplayeddatewithformatMMDDYYYY() throws ParseException {
 		String text=driver.findElement(By.cssSelector("article > div:nth-child(5) > strong")).getText();
-		String[] information=text.split("|");
-		String date=information[0];
-		System.out.println("$$$$$Date is"+date);
-		validateDateFormat(date);
+		System.out.println("$$$Text is"+text);
+		String information=text.substring(0,10);
+     	validateDateFormat(information);
 	}
 
 	public void IverifythatthereisanAttachmentssectionthatshoulddisplayallattachments() {
@@ -695,10 +683,22 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void Iclickonthesearchednameonthepatientcard() {
-		
-		clickElement(driver.findElement(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 15);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.text-bold-500.ng-binding.ng-scope"))).click();
+		}catch (WebDriverException wde) {
+			scrollToElement(driver.findElement(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")));
+			driver.findElement(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")).click();
+		}
+	//	clickElement(driver.findElement(By.cssSelector("span.text-bold-500.ng-binding.ng-scope")));
 	}
 
+	private void scrollToElement(WebElement el) {
+		if (driver instanceof JavascriptExecutor) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
+		}
+	}
 	public void Iverifyanyformsattachedtothepatientshouldbelistedindocumentsection() {
 		
 		WebElement element=driver.findElement(By.cssSelector("table > tbody > tr > td:nth-child(1) > a > span"));
@@ -726,9 +726,8 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IVerifythatCreateddateshoulddisplayeddatewithformatMMDDYYYY() throws ParseException {
 		String text=driver.findElement(By.cssSelector("article > div:nth-child(7) > strong")).getText();
-		String[] information=text.split("|");
-		String date=information[0];
-		validateDateFormat(date);
+		String information=text.substring(0,10);
+		validateDateFormat(information);
 		
 	}
 

@@ -18,7 +18,7 @@ Feature: Notes Read-Only
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Text Description>" in the textarea on Add Clinical Document on Patient Card
     Then I click on Add Files link on Note Section on Patient Card
     And I wait for 3000 milli seconds
     Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
@@ -101,7 +101,7 @@ Feature: Notes Read-Only
     Then I verify that there is an Attachments section that should display all attachments
     Then I verify that user should be able to download all the attachment attached under the notes by selecting download link
     Then I verify table should be sorted chronologically by activity date most recent first
- 
+
     Examples: 
-      | First name    | Last name     | Medicare ID | Notetext                                                                                                                                                                                                                                        |
-      | AUTOMATIONNEW | TEST | wa984986    | Probiotics are microorganisms   |
+      | First name    | Last name | Medicare ID | Text Description              |  
+      | AUTOMATIONNEW | TEST      | wa984986    | Probiotics are microorganisms |  

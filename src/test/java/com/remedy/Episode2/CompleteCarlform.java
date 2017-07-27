@@ -127,7 +127,7 @@ public class CompleteCarlform extends BaseClass {
 		
 	public void IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection() {
 		isElementVisible(driver.findElement(By.xpath("//a[text()='Add Caregiver']")));
-		isElementVisible(driver.findElement(By.cssSelector("//a[contains(text(),'Cancel')]")));
+		isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'Cancel')]")));
 	}
 
 	public void IVerifythatCarlformshouldappearwithSaveyourprogresslink() {

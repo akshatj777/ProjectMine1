@@ -57,10 +57,10 @@ Feature: Patient status on Home Health Worklist
     Then I select the month "19" from calendar from date picker
     Then I select the "19" from the calendar from date picker on Transition Page
     Then I select the "19" time from the calendar from date picker on Transition Page
-    Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I select the care type value "Inpatient" on add a new transition
+    Then I select the care setting value "HHA - Home Health Agency" on add a new transition
+    Then I select the care type value "Skilled services" on add a new transition
     Then I wait for 2000 milli seconds
-    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I select the facility value "Amedisys Home Health - Stamford" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Create Transition Button to add a new transition
@@ -76,6 +76,6 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-  Examples: 
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name      |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |

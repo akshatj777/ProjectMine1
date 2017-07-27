@@ -18,14 +18,16 @@ Feature: Document Section
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
     Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Text Description>" in the textarea on Add Clinical Document on Patient Card
     Then I click on Add Files link on Note Section on Patient Card
-    And I wait for 8000 milli seconds
+    And I wait for 4000 milli seconds
     Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
     Then I wait for 8000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the patient on the patient card page that has no CARL button in it
     And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
@@ -76,15 +78,11 @@ Feature: Document Section
     And I wait for 1000 milli seconds
     Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
-    And I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     Then I click on the searched name on the patient card
-    Then I wait for 12000 milli seconds
-    Then I click on the Clinical Documents tab in the patient summary Page
-    Then I wait for 3000 milli seconds
-    Then I click on the searched name on the patient card 
     Then I wait for 6000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 5000 milli seconds
+    And I wait for 2000 milli seconds
     Then I save and continue the complete CARL form
     And I wait for 1000 milli seconds
     Then I save and continue the complete CARL form
@@ -96,7 +94,7 @@ Feature: Document Section
     Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     And I wait for 3000 milli seconds
-    Then I click on the searched name on the patient card 
+    Then I click on the searched name on the patient card
     Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     And I wait for 2000 milli seconds
@@ -106,7 +104,5 @@ Feature: Document Section
     Then I verify that user should be able to click on title of document
 
     Examples: 
-      Examples:
-
-      | First name | Last name  | Medicare ID | date | Notetext                |
+      | First name | Last name  | Medicare ID | date | Text Description        |
       | DO_NOT_USE | AUTOMATION | wa984986    |   12 | Remedy Document Section |

@@ -31,7 +31,7 @@ Feature: Complete CARL button
     Then I switch to PatientTransitions frame
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I wait for 3000 milli seconds
-    Then I verify created note should appear in the document section 
+    Then I verify created note should appear in the document section
     Then I wait for 3000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
@@ -111,5 +111,5 @@ Feature: Complete CARL button
     Then I verify CARL button is appearing on the patient card or not
 
     Examples: 
-      | First name | Last name | Medicare ID |
-      | PATIENT    | TRISTO    | wa984986    |
+      | First name | Last name | Medicare ID | Notetext   |
+      | PATIENT    | TRISTO    | wa984986    | RemedyText |

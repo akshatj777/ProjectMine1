@@ -96,11 +96,13 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 5000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I wait for 1000 milli seconds
+    Then I click on Exceed SNF LOS sub tab on the patient Card Page
     Then I enter "<Patient Last Name>" in the search box on the patients page
     Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-   
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |

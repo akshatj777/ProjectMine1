@@ -17,10 +17,10 @@ public class UpdatedTableSteps extends DriverScript{
 		patientclinical.Iverifythereshouldbefilterlinkonclinicaldocumentsection();
 	}
 	
-	@Then ("^I verify Clinical Document Table should contain the following sections$")
-	public void I_verify_Clinical_Document_Table_should_contain_the_following_sections()
+	@Then ("^I verify Clinical Document Table should contain the header sections$")
+	public void I_verify_Clinical_Document_Table_should_contain_the_header_sections()
 	{
-		patientclinical.IverifyClinicalDocumentTableshouldcontainthefollowingsections();
+		patientclinical.IverifyClinicalDocumentTableshouldcontaintheheadersections();
 	}
 	
 	@Then ("^I verify table should be sorted chronologically by activity date most recent first$") 

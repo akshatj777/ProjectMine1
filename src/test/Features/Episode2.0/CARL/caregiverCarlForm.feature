@@ -20,8 +20,6 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 4000 milli seconds
-    Then I Verify that Carl form should appear with White bar with Patient Name "<Last name>" "<First name>" and x icon on the page
-    Then I Verify that Carl form should appear with Cancel link
     Then I Verify that Carl form should appear with Save your progress link
     Then I Verify that Carl form should appear with review the form link
     Then I Verify that Carl form should appear Left navigator displaying four sections
@@ -178,8 +176,6 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
     And I wait for 15000 milli seconds
-    Then I click on the complete CARL on the Patient Summary
-    And I wait for 5000 milli seconds
     Then I click on Care Team on navigation bar on patient summary page
     And I wait for 10000 milli seconds
     Then I switch to Patient Care Team frame

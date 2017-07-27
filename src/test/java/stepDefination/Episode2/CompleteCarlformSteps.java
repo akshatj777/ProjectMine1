@@ -253,19 +253,4 @@ public class CompleteCarlformSteps extends DriverScript {
 	public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption() {
 		completecarl.IClickOnAnticipatedDischargeNeedsOnSideMenuOption();
 	}
-
-	@Then("^I Verify that Carl form should appear with Cancel link$")
-	public void I_Verify_that_Carl_form_should_appear_with_Cancel_link() {
-		completecarl.IVerifythatCarlformshouldappearwithCancellink();
-	}
-
-	@Then("^I Verify that Carl form should appear with Save your progress link$")
-	public void I_Verify_that_Carl_form_should_appear_with_Save_your_progress_link() {
-		completecarl.IVerifythatCarlformshouldappearwithSaveyourprogresslink();
-	}
-
-	@Then("^I Verify that Carl form should appear with form link$")
-	public void I_Verify_that_Carl_form_should_appear_with_form_link() {
-		completecarl.IVerifythatCarlformshouldappearwithformlink();
-	}
 }

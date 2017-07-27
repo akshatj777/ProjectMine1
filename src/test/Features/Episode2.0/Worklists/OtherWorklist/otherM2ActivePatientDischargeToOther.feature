@@ -88,16 +88,16 @@ Feature: Patient status on Other/Alternative Work List
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name | Care Type           |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Acute Care Hospital |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Admitted as an Inpatient to this Hospital  |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Assisted Living                            |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Critical Access Hospital                   |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Court/Law Enforcement                      |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Federal Hospital                           |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospice in Medical Facility                |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospital-Based Medicare Approved Swing Bed |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospice at Home                            |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Left Against Medical Advice                |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Medicaid Certified Nursing Facility        |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Psychiatric Hospital/Unit                  |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Shelter                                    |
-      #| qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Still a Patient                            |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Admitted as an Inpatient to this Hospital  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Assisted Living                            |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Critical Access Hospital                   |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Court/Law Enforcement                      |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Federal Hospital                           |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospice in Medical Facility                |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospital-Based Medicare Approved Swing Bed |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Hospice at Home                            |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Left Against Medical Advice                |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Medicaid Certified Nursing Facility        |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Psychiatric Hospital/Unit                  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Shelter                                    |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Still a Patient                            |

@@ -28,7 +28,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I switch to PatientTransitions frame
     Then I wait for 3000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
-    Then I wait for 3000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on add a new transition to add a new episode
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition

@@ -1,7 +1,7 @@
 Feature: Clinical Documents - Patient Notes History Section
 
   Scenario Outline: The Last saved section on the clinical documents table should display the information of the last user who saved the individual form (To verify information Activity column in Clinical Documents table)
-     Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -17,15 +17,17 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I click on quick action button for note creation on Patient Card page
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
-    Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
+    Then I select the "12"  from date picker on Add Clinical Document on Patient Card
+    And I enter the Note Text "<Text Description>" in the textarea on Add Clinical Document on Patient Card
     Then I click on Add Files link on Note Section on Patient Card
     And I wait for 8000 milli seconds
     Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
     Then I wait for 8000 milli seconds
     Then I click on the create Note Button on Add Clinical Document on Patient Card
     Then I verify that create Note has been successfully created
-    Then I wait for 8000 milli seconds
+    Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the patient on the patient card page that has no CARL button in it
     And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
@@ -79,10 +81,6 @@ Feature: Clinical Documents - Patient Notes History Section
     And I wait for 3000 milli seconds
     Then I click on the searched name on the patient card
     Then I wait for 12000 milli seconds
-    Then I click on the Clinical Documents tab in the patient summary Page
-    Then I wait for 3000 milli seconds
-    Then I click on the searched name on the patient card 
-    Then I wait for 6000 milli seconds
     Then I click on the complete CARL on the Patient Summary
     And I wait for 5000 milli seconds
     Then I save and continue the complete CARL form
@@ -96,19 +94,19 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I click on the cross button to close the CARL document form
     Then I verify current page "Remedy Partners" title
     And I wait for 3000 milli seconds
-    Then I click on the searched name on the patient card 
+    Then I click on the searched name on the patient card
     Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
     And I wait for 2000 milli seconds
-    Then I verify Clinical Document Table should contain the following sections
     Then I count the number of documents that appear in the clinical Documents
     Then I verify LastName FirstName and userrole appears in last saved section
-    Then I click on the Show History Button to see the list of user who saved the form 
+    Then I click on the Show History Button to see the list of user who saved the form
     Then I verify that upon Selecting Show History should display the information of all users who have saved that form
     Then I verify that Show History section should not be applicable for note section
     Then I verify that Hide History link should appear when user currently on Show History section
     Then I verify that upon selecting Hide History user should only see the information of the last user who saved the form
     Then I verify that there should be an Attachment icon on Clinical Documents Activity Section
+
     Examples: 
-      | First name | Last Name | Medicare ID | date | Notetext                |
+      | First name | Last Name | Medicare ID | date | Text Description        |
       | DO_NOT_USE | CROSSES   | wa984986    |   12 | Remedy Document Section |
