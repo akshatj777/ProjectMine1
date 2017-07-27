@@ -78,9 +78,11 @@ public class UserAdminEdit extends BaseClass {
 	public void i_Clicked_Under_Edit_User_Role_Tab(String Text) {
 		iWillWaitToSee(By.xpath("//div[text()='" + Text + "']"));
 		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
+		delay();
 	}
 
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Role_Tab() {
+		delay();
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
 	}
 
@@ -99,11 +101,13 @@ public class UserAdminEdit extends BaseClass {
 	}
 
 	public void i_Clicked_On_Edit_Button_Under_User_Phone_Row() {
+		delay();
 		iWillWaitToSee(By.xpath("(//form[@ng-submit='saveEdit()'])[5]"));
 		clickElement(driver.findElement(By.xpath("(//form[@ng-submit='saveEdit()'])[5]")));
 	}
 
 	public void i_Clicked_On_Phone_Tab_To_Edit_The_User_Phone_number() {
+		delay();
 		iWillWaitToSee(By.xpath("//input[@name='phone']"));
 		clickElement(driver.findElement(By.xpath("//input[@name='phone']")));
 	}
@@ -118,6 +122,7 @@ public class UserAdminEdit extends BaseClass {
 
 	public void i_Clicked_On_Save_Button_Under_Edit_User_Phone_Tab(){
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[5]")));
+		delay();
 	}
 	
 	public void i_Verify_The_Permissions_Field() {
@@ -130,6 +135,7 @@ public class UserAdminEdit extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//h3[text()='Data']")));
 		iWillWaitToSee(By.xpath("//a[@class='btn btn-tertiary pull-right edit']"));
 		clickElement(driver.findElement(By.xpath("//a[@class='btn btn-tertiary pull-right edit']")));
+		delay();
 	}
 
 	public void i_Clicked_On_Payer_Field_To_Edit_The_Payer() {
@@ -161,10 +167,10 @@ public class UserAdminEdit extends BaseClass {
 
 	public void i_Clicked_On_Search_Field_Under_Provider_Name() {
 		clickElement(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")));
+		delay();
 	}
 
 	public void i_Enter_On_Search_Field_Under_Provider_Name(String Text) {
-		iWillWaitToSee(By.xpath("(//input[@placeholder='Search'])[3]"));
 		iFillInText(driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]")), Text);
 	}
 
@@ -191,10 +197,11 @@ public class UserAdminEdit extends BaseClass {
 	public void iClickedUnderEditUserRoleTabToEditTheRole(String Text){
 		iWillWaitToSee(By.xpath("//div[text()='" + Text + "']"));
 		clickElement(driver.findElement(By.xpath("//div[text()='" + Text + "']")));
+		delay();
 	}
 	
 	public void iClickedOnSaveButtonUnderEditUserRoleTabAfterEditing(){
-		iWillWaitToSee(By.xpath("(//button[@type='submit'])[3]"));
+		delay();
 		clickElement(driver.findElement(By.xpath("(//button[@type='submit'])[3]")));
 	}
 	
