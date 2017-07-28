@@ -119,7 +119,7 @@ Feature: Patient status on Home Health Worklist
     Then I enter <Patient Last Name> under first name filter
     And I wait for 2000 milli seconds
     Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
+    And I wait for 4000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
@@ -169,7 +169,7 @@ Feature: Patient status on Home Health Worklist
     Then I reload my page
     Then I wait for 3000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
     When I click on Filter button present on Patient Page
@@ -181,7 +181,7 @@ Feature: Patient status on Home Health Worklist
     Then I enter <Patient Last Name> under first name filter
     And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
-    And I wait for 3000 milli seconds
+    And I wait for 6000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 

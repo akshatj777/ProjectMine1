@@ -201,8 +201,8 @@ Feature: Patient status on Home Limited Service Worklist
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
 
   Scenario Outline: Verify While patient in Home With Limited Services worklist add another admission within episode dates with care setting apart from HOM or REH (outpatient).
     Given I am on the login page

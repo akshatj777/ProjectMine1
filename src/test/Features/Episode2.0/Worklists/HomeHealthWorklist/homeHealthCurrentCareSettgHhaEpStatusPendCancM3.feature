@@ -89,10 +89,10 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 7000 milli seconds
     Then I click on datepicker button to select the admit date on add a new transition
     Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "19" on date picker
-    Then I select the month "19" from calendar from date picker
-    Then I select the "19" from the calendar from date picker on Transition Page
-    Then I select the "19" time from the calendar from date picker on Transition Page
+    Then I click on the previous next link to select the required year "18" on date picker
+    Then I select the month "18" from calendar from date picker
+    Then I select the "18" from the calendar from date picker on Transition Page
+    Then I select the "18" time from the calendar from date picker on Transition Page
     Then I select the care setting value "HHA - Home Health Agency" on add a new transition
     Then I select the care type value "Skilled services" on add a new transition
     Then I wait for 2000 milli seconds
@@ -109,7 +109,7 @@ Feature: Patient status on Home Health Worklist
     Then I click on Home Health sub tab on the patient Card Page
     Then I wait for 1000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the patients page
-    Then I wait for 8000 milli seconds
+    Then I wait for 15000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 

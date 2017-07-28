@@ -158,8 +158,8 @@ Feature: Patient status on Post Acute Facility Work List
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | email                | password  | Patient First Name | Patient Last Name     |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTACUTEFACILITY |
 
   Scenario Outline: Patient has M3 episode gets active by Potential M3 with discharge care setting as IRF
     Given I am on the login page

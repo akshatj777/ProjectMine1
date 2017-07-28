@@ -46,13 +46,13 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge care type value "Skilled Nursing" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -63,6 +63,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I click on the Create Transition Button to add a new transition
     And I wait for 8000 milli seconds
     When I switch to default window from iframe
+    And I wait for 4000 milli seconds
     Then I verify LOS is below the ELOS on the patient card page
     Then I close the patient summary Page
     Then I wait for 1000 milli seconds

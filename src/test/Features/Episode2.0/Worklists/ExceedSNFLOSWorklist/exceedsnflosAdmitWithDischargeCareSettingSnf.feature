@@ -41,7 +41,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the care setting value "HHH - Hospital" on add a new transition
     Then I wait for 1000 milli seconds
     Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the facility value "Stamford Hospital" on add a new transition
     Then I wait for 2000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
@@ -49,7 +49,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 1000 milli seconds
     Then I select the Discharge care type value "Skilled Nursing" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge facility value "Coosa valley health care" on add a new transition
     Then I wait for 1000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
@@ -81,4 +81,4 @@ Feature: Patient status on Exceed SNF LOS Work List
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEUSER  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |

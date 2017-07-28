@@ -437,6 +437,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IclickontheImpatienttabonthepatientCardPage() {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Inpatient')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient')]")));
 	}
 

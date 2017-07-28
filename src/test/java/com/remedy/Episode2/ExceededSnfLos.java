@@ -74,9 +74,9 @@ public class ExceededSnfLos extends BaseClass {
 	}
 
 	public void IverifyLOSisbelowtheELOSonthepatientcardpage() {
-		boolean flag;
-		String Los_value = driver.findElement(By.cssSelector("span.text-large.ng-binding.ng-scope")).getText();
-		String minimum_Elos_value = driver.findElement(By.cssSelector("span.text-emphasized.ng-binding.ng-scope"))
+		boolean flag= false;
+		String Los_value = driver.findElement(By.cssSelector("span.text-emphasized.ng-binding.ng-scope")).getText();
+		String minimum_Elos_value = driver.findElement(By.cssSelector(" span:nth-child(5).text-emphasized.ng-binding.ng-scope"))
 				.getText();
 		int Los = Integer.parseInt(Los_value);
 		int Elos = Integer.parseInt(minimum_Elos_value);

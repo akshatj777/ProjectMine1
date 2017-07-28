@@ -444,6 +444,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnLastNamePresentOnTheFilterPage() {
+		iWillWaitToSee(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]"));
 		clickElement(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
 	}
 

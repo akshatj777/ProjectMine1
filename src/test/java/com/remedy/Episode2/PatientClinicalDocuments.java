@@ -244,6 +244,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		WebElement element = driver.findElement(By.cssSelector("#btnNewTransition"));
 		js.executeScript("arguments[0].click();", element);
+		iWillWaitToSee(By.cssSelector("#btnNewTransition"));
 		clickElement(element);
 	}
 
@@ -552,6 +553,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
 
 		{
+	    iWillWaitToSee(By.cssSelector("#submitButton"));
 		clickElement(driver.findElement(By.cssSelector("#submitButton")));
 		}
 	}

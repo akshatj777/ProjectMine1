@@ -26,7 +26,7 @@ Feature: Patient status on Home Health Worklist
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
-    Then I wait for 3000 milli seconds
+    Then I wait for 4000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 5000 milli seconds
     Then I click on add a new transition to add a new episode

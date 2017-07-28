@@ -64,6 +64,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
 		String newname = lastname.toUpperCase();
+		iWillWaitToSee(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]"));
 		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
 	}
 

@@ -77,6 +77,8 @@ Feature: Patient status in Inpatient Care Worklist
     Then I wait for 2000 milli seconds
     Then I select the facility value "Coosa valley health care" on add a new transition
     Then I wait for 2000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I wait for 2000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -101,7 +103,7 @@ Feature: Patient status in Inpatient Care Worklist
     And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name   |
