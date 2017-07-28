@@ -15,9 +15,8 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void clickCreateUserButton() {
-		System.out.println("Before Click");
+		delay();
 		clickElement(driver.findElement(By.cssSelector("button[href='#/user/create']")));
-		System.out.println("After Click");
 	}
 
 	public void clickImportUsers() {
@@ -104,27 +103,22 @@ public class UserAdminHomePage extends BaseClass {
 	
 	public void iSeeExpandButtonOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-quaternary.valentino-icon-expand.pull-right")));
-		
 	}
 	
 	public void iSeeRoleOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("div[binding-id$='Role']")));
-		
 	}
 	
 	public void iSeeUserEmailOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("div[binding-id$='user.email']")));
-		
 	}
 	
 	public void iSeeLockButtonOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='lock']")));
-		
 	}
 	
 	public void iSeeUnLockButtonOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='unlock']")));
-		
 	}
 
 	public void iClickLoadMoreButton() {
@@ -192,5 +186,4 @@ public class UserAdminHomePage extends BaseClass {
 	public void iShouldSeeImportUsersButton(String Importusers){
 		verifyTextForElement(driver.findElement(By.cssSelector(".btn.btn-primary[feature='ua.importUsers']")), Importusers);
 	}
-
 }

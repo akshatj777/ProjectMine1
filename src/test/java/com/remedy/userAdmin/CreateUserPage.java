@@ -32,7 +32,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickOrganizationalField() {
-        clickElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[1]/div[1]/div[1]/span")));
+        clickElement(driver.findElement(By.xpath("//div[@name='orgrole']/div[@placeholder='Select Role']/span")));
     }
 
     public void iTurnOffShareFile(){
@@ -76,16 +76,16 @@ public class CreateUserPage extends BaseClass{
     		 return;
     	}
     	else{
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@placeholder='NPI']")), text);
     	}
     }
 
     public void iEnterFirstName(String text){
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='firstName']")), text);
     }
 
     public void iEnterLasttName(String text) {
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[4]/input")), text);
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='lastName']")), text);
     }
 
     public final static String iGenerateEmail(String text) {
@@ -95,7 +95,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterEmail(String text) {
-        iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='email']")), iGenerateEmail(text));
     }
 
     public void iEnterEmailForLoginAfterPasswordMailVerification(String text) {
@@ -107,8 +107,8 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
-    	iWillWaitToSee(By.xpath("//form/fieldset/div/div[5]/input"));
-        iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
+    	iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
     }
 
     public void iEnterTheEmailToGeneratePassword(String text) {
@@ -138,16 +138,16 @@ public class CreateUserPage extends BaseClass{
 
     public void iClickHealthSystemField() {
     	delay();
-    	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
+    	boolean value = isElementPresentOnPage(By.xpath("//div[@name='participantSelect']/div[@placeholder='Search']/span"));
     	if(value==true){
-        clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
+        clickElement(driver.findElement(By.xpath("//div[@name='participantSelect']/div[@placeholder='Search']/span")));
     	}
     }
 
     public void iEnterHealthSystemSerachText(String text) {
-    	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]"));
+    	boolean value = isElementPresentOnPage(By.xpath("//div[@placeholder='Search']/input[@type='search']"));
     	if(value==true){
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]")), text);
+        iFillInText(driver.findElement(By.xpath("//div[@placeholder='Search']/input[@type='search']")), text);
     	}
     }
 
@@ -255,8 +255,8 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iclickAllAppsfortheRole() {
-    	iWillWaitToSee(By.xpath("//fieldset[2]/div[4]/div/ul/li/div/label"));
-        clickAllElementofAlistbyXpath("//fieldset[2]/div[4]/div/ul/li/div/label");
+    	iWillWaitToSee(By.xpath("//div[@class='row']/div/ul/li/div/label"));
+        clickAllElementofAlistbyXpath("//div[@class='row']/div/ul/li/div/label");
     }
     
     public void iSelectTileForTheRole(String tile){
