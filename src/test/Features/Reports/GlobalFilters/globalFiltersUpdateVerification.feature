@@ -20,7 +20,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for 50000 milli seconds
     
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
@@ -61,7 +61,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     When I click on "Overall Program" tile on the top navigation of reports page
     Then I click on "Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
-    And I wait for 18000 milli seconds
+    And I wait for 60000 milli seconds
     Then I verify "Performance (Claims)" in the reports header page
     When I see "2" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
