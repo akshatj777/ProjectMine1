@@ -88,9 +88,7 @@ Feature: Patient status on Home Health Worklist
     Then I enter "<Patient Last Name>" in the search box on the patients page
     Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-   
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name      |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |
-

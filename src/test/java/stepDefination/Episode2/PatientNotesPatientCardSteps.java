@@ -44,7 +44,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	 }
 
 	 @Then ("^I select the month \"(.*)\" from calendar from date picker$")
-	 public void I_select_the_month_from_calendar_from_date_picker(int date) throws InterruptedException
+	 public void I_select_the_month_from_calendar_from_date_picker(int date) throws InterruptedException,Throwable 
 	 {
 		 noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
 	 }   

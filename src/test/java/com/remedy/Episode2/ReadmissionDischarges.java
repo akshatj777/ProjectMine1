@@ -16,40 +16,36 @@ public class ReadmissionDischarges extends BaseClass {
 
 	public void IclickonReadmissionDischargeFacilitysubtabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Readmission Discharges')]")));
-		}
+	}
 
 	public void IselectthemidinighttimefromthecalendaronadmitdatefromdatepickeronTransitionPage() {
-		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(1)")));
-		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(1)")));
-		
+		clickElement(driver.findElement(By.cssSelector(
+				"body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(1)")));
+		clickElement(driver.findElement(By.cssSelector(
+				"body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(1)")));
+
 	}
 
 	public void IselectthebeforemidinighttimefromthecalendaronadmitdatefromdatepickeronTransitionPage() {
-		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(24)")));
-		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
-		
+		clickElement(driver.findElement(By.cssSelector(
+				"body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(24)")));
+		clickElement(driver.findElement(By.cssSelector(
+				"body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
+
 	}
 
 	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRGnoJavaScript() {
-	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Diagnosis and DRG')]")));
 
-//		WebElement element = driver
-	//			.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)"));
-	//	js.executeScript("arguments[0].click();", element);
-		clickElement(driver
-				.findElement(By.xpath("//a[contains(text(),'Diagnosis and DRG')]")));
-
-		
 	}
 
 	public void IclickonInpatientCaresubtabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Inpatient Care')]")));
-			}
+	}
 
 	public void IclickonthePostAcuteOnboardingtabonthepatientCardPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post-Acute Onboarding')]")));
-		
-	}
 
 	}
 
+}

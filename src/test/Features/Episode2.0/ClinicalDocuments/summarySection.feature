@@ -38,7 +38,7 @@ Feature: Summary Section of the Clinical Documents
     Then I verify for clinical note and baseline summary should be displayed up to 2 lines
     Then I verify if summary is longer than the character limit then Ellipsis three dots should show
     Then I verify if a note is having attachment and do not have any summary then attachment count should appear in the summary section
- 
+
     Examples: 
       | First name | Last name  | Medicare ID | Notetext                                                                                                                                                                    |
       | AUTOMATION | DO_NOT_USE | wa984986    | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |

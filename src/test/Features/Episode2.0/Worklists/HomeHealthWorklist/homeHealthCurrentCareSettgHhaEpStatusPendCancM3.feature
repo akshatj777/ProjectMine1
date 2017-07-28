@@ -111,13 +111,13 @@ Feature: Patient status on Home Health Worklist
     Then I enter "<Patient Last Name>" in the search box on the patients page
     Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-   
- Examples: 
+
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name     |
       | qa.admin@yopmail.com | Episode1! | FILTER             | MTHREEPATIENTAUTOMATE |
-      
- Scenario Outline: Patient's current Care Setting is HHA(Patient's discharge Care Setting) with M3 Episode status as Pending cancellation
-   Given I am on the login page
+
+  Scenario Outline: Patient's current Care Setting is HHA(Patient's discharge Care Setting) with M3 Episode status as Pending cancellation
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -141,7 +141,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 8000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
-    Then I switch to PatientTransitions frame      
+    Then I switch to PatientTransitions frame
     Then I delete the active transition no "1" to make the patient cancelled
     And I wait for 4000 milli seconds
     Then I click on the edit button on the "1" transition to edit the Active transition
@@ -173,9 +173,7 @@ Feature: Patient status on Home Health Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 3000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-   
- Examples: 
+
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name     |
       | qa.admin@yopmail.com | Episode1! | FILTER             | MTHREEPATIENTAUTOMATE |
-    
-    

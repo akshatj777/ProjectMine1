@@ -75,8 +75,7 @@ Feature: Created Patient Note Comparision in EC1 and viewed in EC2
     Then I wait for 10000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
-    
-   
+
     Examples: 
       | email                | password  | patient first name | patient last name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | AUTOMATETESTNOTES |

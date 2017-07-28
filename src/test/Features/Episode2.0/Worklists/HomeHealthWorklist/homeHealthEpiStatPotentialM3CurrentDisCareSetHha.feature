@@ -67,7 +67,6 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-   Examples: 
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name      |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |
-

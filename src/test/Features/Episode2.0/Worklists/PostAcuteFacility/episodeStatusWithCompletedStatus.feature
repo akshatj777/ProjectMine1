@@ -48,9 +48,9 @@ Feature: Patient status on Post Acute Facility Work List
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I wait for 1000 milli seconds
     Then I select the Discharge care setting value "IRF - Inpatient Rehabilitation" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I select the Discharge facility value "CHI Saint Luke's Health Memorial Lufkin IRF" on add a new transition
-    Then I wait for 1000 milli seconds
+    Then I wait for 2000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition

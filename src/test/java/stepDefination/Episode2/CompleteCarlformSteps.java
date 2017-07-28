@@ -10,92 +10,95 @@ public class CompleteCarlformSteps extends DriverScript {
 	CompleteCarlform completecarl = new CompleteCarlform(driver);
 
 	@Then("^I verify CARL buttons appears on the patient summary$")
-	public void I_verify_CARL_buttons_appears_on_the_patient_summary() {
+	public void I_verify_CARL_buttons_appears_on_the_patient_summary() throws Throwable {
 		completecarl.IverifyCARLbuttonsappearsonthepatientsummary();
 	}
 
 	@Then("^I close the patient summary Page$")
-	public void I_close_the_patient_summary_Page() {
+	public void I_close_the_patient_summary_Page() throws Throwable {
 		completecarl.IclosethepatientsummaryPage();
 	}
 
 	@Then("^I verify CARL button is appearing on the patient card or not$")
-	public void I_verify_CARL_button_is_appearing_on_the_patient_card_or_not() {
+	public void I_verify_CARL_button_is_appearing_on_the_patient_card_or_not() throws Throwable {
 		completecarl.IverifyCARLbuttonisappearingonthepatientcardornot();
 	}
 
 	@Then("^I select the button to delete the transition$")
-	public void I_select_on_the_button_to_delete_the_transition() {
+	public void I_select_on_the_button_to_delete_the_transition() throws Throwable {
 		completecarl.Iselectonthebuttontodeletethetransition();
 	}
 
 	@Then("^I click on the button to delete the transition$")
-	public void I_click_on_the_button_to_delete_the_transition() {
+	public void I_click_on_the_button_to_delete_the_transition() throws Throwable {
 		completecarl.Iclickonthebuttontodeletethetransition();
 	}
 
 	@Then("^I click on Ok to delete the transition$")
-	public void I_click_on_Ok_to_delete_the_transition() {
+	public void I_click_on_Ok_to_delete_the_transition() throws Throwable {
 		completecarl.IclickonOktodeletethetransition();
 	}
 
 	@Then("^I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page$")
-	public void I_Verify_that_Clicking_on_Complete_CARL_button_Carl_form_should_appear_as_a_takeover_page() {
+	public void I_Verify_that_Clicking_on_Complete_CARL_button_Carl_form_should_appear_as_a_takeover_page()
+			throws Throwable {
 		completecarl.IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage();
 	}
 
 	@Then("I Verify that Carl form should appear with White bar with Patient Name \"([^\"]*)\" \"([^\"]*)\" and x icon on the page$")
-	public void I_Verify_that_Carl_form_should_appear_with_White_bar_with_Patient_Name_Last_First_name_and_x_icon_on_the_page(String lastname, String firstname) {
-		completecarl.IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(lastname,firstname);
+	public void I_Verify_that_Carl_form_should_appear_with_White_bar_with_Patient_Name_Last_First_name_and_x_icon_on_the_page(
+			String lastname, String firstname) throws Throwable {
+		completecarl.IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(lastname,
+				firstname);
 	}
 
 	@Then("^I Verify that Carl form should appear with ([^\"]*) link$")
-	public void I_Verify_Links_Under_CarlForm_CaregiverSection(String link) {
+	public void I_Verify_Links_Under_CarlForm_CaregiverSection(String link) throws Throwable {
 		completecarl.IVerifyLinksUnderCarlFormCaregiverSection(link);
 	}
 
 	@Then("^I Verify that Carl form should appear Left navigator displaying four sections$")
-	public void I_Verify_that_Carl_form_should_appear_Left_navigator_displaying_four_sections() {
+	public void I_Verify_that_Carl_form_should_appear_Left_navigator_displaying_four_sections() throws Throwable {
 		completecarl.IVerifythatCarlformshouldappearLeftnavigatordisplayingfoursections();
 	}
 
 	@Then("^I verify that ([^\"]*) should appear on takeover page$")
-	public void I_Verify_CapableCaregiver_question(String question) {
+	public void I_Verify_CapableCaregiver_question(String question) throws Throwable {
 		completecarl.IVerifyThatDoesthePatientHaveACapableCaregiverShouldAppearOnTakeoverPage(question);
 	}
 
 	@Then("^I verfiy that ([^\"]*) option is present under Does the patient have a capable caregiver$")
-	public void I_Verify_that_option_present_below_CapableCaregiver_question(String option) {
+	public void I_Verify_that_option_present_below_CapableCaregiver_question(String option) throws Throwable {
 		completecarl.IVerifythatOptionsShouldbePresentBelowCapableCaregiverQuestion(option);
 	}
 
 	@Then("^I click on ([^\"]*) option under Does the patient have a capable caregiver$")
-	public void I_ClickOn_Option_Under_DoesThePatientHaveACapableCaregiver_question(String text) {
+	public void I_ClickOn_Option_Under_DoesThePatientHaveACapableCaregiver_question(String text) throws Throwable {
 		completecarl.IClickOnOptionsUnderDoesThePatientHaveACapableCaregiverQuestioin(text);
 	}
 
 	@Then("^I verify that Care Network Member drop down should appear under Choose Caregiver section in Caregiver on takeover page$")
-	public void I_Verify_That_CareNetworkMember_DropDown_Should_Appear_Under_ChooseCaregiverSection() {
+	public void I_Verify_That_CareNetworkMember_DropDown_Should_Appear_Under_ChooseCaregiverSection() throws Throwable {
 		completecarl.IVerifyThatCareNetworkMemberDropDwonAppearsUnderChooseCaregiverSection();
 	}
 
 	@And("^I verify Select should appear in Care Network Member dropdwon placeholder$")
-	public void I_Verify_Select_PlaceholderText_In_CareNetworkMember_DropDwon_UnderChooseCaregiver() {
+	public void I_Verify_Select_PlaceholderText_In_CareNetworkMember_DropDwon_UnderChooseCaregiver() throws Throwable {
 		completecarl.IVerifyPlaceholderTextiCarenNetworkMemberDropDwonUnderChooseCaregiver();
 	}
 
 	@Then("^I click on Care Network Members dropdown under Choose Caregiver$")
-	public void I_Click_On_CareNetworkMembers_Dropdown() {
+	public void I_Click_On_CareNetworkMembers_Dropdown() throws Throwable {
 		completecarl.IClickOnCareNetworkMembersDropdownUnderChooseCaregiver();
 	}
 
 	@Then("^I select \"([^\"]*)\" associated Caregiver from the dropdown$")
-	public void I_Select_User_Associated_To_Caregiver_From_The_Dropdown(String name) {
+	public void I_Select_User_Associated_To_Caregiver_From_The_Dropdown(String name) throws Throwable {
 		completecarl.ISelectTheAssociatedCaregiverFromTheDropdown(name);
 	}
 
 	@Then("^I verify the \"([^\"]*)\" is populated in Care Network Member dropdown$")
-	public void I_Verify_Selected_User_Appears_On_Dropdown_CareNetworkMember(String name) {
+	public void I_Verify_Selected_User_Appears_On_Dropdown_CareNetworkMember(String name) throws Throwable {
 		completecarl.IVerifySelectedUserAppearsOnTheDropdownInCareNetworkMembers(name);
 	}
 
@@ -183,7 +186,7 @@ public class CompleteCarlformSteps extends DriverScript {
 	public void I_Verify_FirstName_Is_MandatoryField_To_Create_Caregiver() {
 		completecarl.IVerifyFirstNameIsMandatoryFieldToCreateCaregiver();
 	}
-	
+
 	@Then("^I verify last name is mandatory field to a create Caregiver$")
 	public void I_Verify_LastName_Is_MandatoryField_To_Create_Caregiver() {
 		completecarl.IVerifyLastNameIsMandatoryFieldToCreateCaregiver();
@@ -236,7 +239,7 @@ public class CompleteCarlformSteps extends DriverScript {
 
 	@Then("^I Enter \"([^\"]*)\" and \"([^\"]*)\" on Add Caregiver form$")
 	public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm(String f_Name, String l_Name) {
-		completecarl.IEnterFisrtAndLastNameOnCarlFormAddCaregiver(f_Name,l_Name);
+		completecarl.IEnterFisrtAndLastNameOnCarlFormAddCaregiver(f_Name, l_Name);
 	}
 
 	@Then("^I click on Create button to add Caregiver$")

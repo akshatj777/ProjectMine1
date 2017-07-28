@@ -56,7 +56,6 @@ Feature: Patient status on Home Limited Service Worklist
       | email                | password  | Patient First Name | Patient Last Name       |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
 
-
   Scenario Outline: Verify Patient should not be included in Home With Limited Services worklist when Cancel or complete the anchor episode while patient is in th REH with Limited services.
     Given I am on the login page
     When I enter email field <email> for login

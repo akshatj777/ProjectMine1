@@ -249,7 +249,7 @@ Feature: Model 2 Readmission
     And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
     And I wait for 1000 milli seconds
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

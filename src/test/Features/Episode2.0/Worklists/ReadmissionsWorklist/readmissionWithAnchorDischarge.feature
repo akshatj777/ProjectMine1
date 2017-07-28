@@ -73,6 +73,8 @@ Feature: Verify Readmission status with anchor discharge
     Then I close the patient summary Page
     Then I reload my page
     Then I wait for 3000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I wait for 5000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page
@@ -137,6 +139,8 @@ Feature: Verify Readmission status with anchor discharge
     Then I wait for 3000 milli seconds
     Then I click on the Impatient tab on the patient Card Page
     Then I wait for 5000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I click on the Readmissions sub tab on Impatient tab on patient Card Page
     Then I wait for 5000 milli seconds
     Then I should see search box appearing on the patients page

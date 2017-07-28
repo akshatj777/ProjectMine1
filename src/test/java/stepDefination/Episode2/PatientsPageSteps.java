@@ -544,6 +544,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_the_total_number_of_patients_present_on_the_Patients_Page() throws Throwable {
         patientsPage.iVerifyTheTotalNumberOfPatientsPresentOnThePatientsPage();
     }
+    
+    @Then("^I verify the \"([^\"]*)\" patient appears on the Patients Page$")
+    public void I_verify_the_patient_appears_on_the_Patients_Page(int count) throws Throwable {
+        patientsPage.IverifythepatientappearsonthePatientsPage(count);
+    }
 
     @Then("^I verify Anchor Facility Filter is displayed under List of Filter Options$")
     public void i_verify_Anchor_Facility_Filter_is_displayed_under_List_of_Filter_Options() throws Throwable {
@@ -1257,7 +1262,7 @@ public class PatientsPageSteps extends DriverScript {
     
     @Then("^I verify ([^\"]*) is appearing under selected filters for Anchor Discharge Facility$")
     public void i_verify_filter_is_appearing_under_selected_filters_for_selected_anchor_discharge_facility(String text) throws Throwable{
-    	patientsPage.iVerifySelectedFilterText("Anchor Discharge Facility: "+text+" (STAMFORD, CT) (OTHER)");
+    	patientsPage.iVerifySelectedFilterText("Anchor Discharge Facility: "+text+" - Stamford (STAMFORD, CT) (HHH)");
     }
     
     @Then("^I verify ([^\"]*) is appearing under selected filters for Anchor Facility$")
@@ -1517,8 +1522,14 @@ public class PatientsPageSteps extends DriverScript {
     }
     
     @Then("^I verify ([^\"]*) is appearing on the patient summary page to verify medicareid$")
-    public void i_verify_is_appearing_on_the_patient_summary_page_to_verify_medicareid(String memberid) throws Throwable{
-    	patientsPage.iVerifyMemberIdOnPatientSummaryPage(memberid);
+    public void i_verify_is_appearing_on_the_patient_summary_page_to_verify_medicareid(String medicareid) throws Throwable{
+    	patientsPage.iVerifyMemberIdOnPatientSummaryPage(medicareid);
+    }
+    
+    @Then ("^I click on the Patient Details tab on the patient summary page$")
+    public void I_click_on_the_Patient_Details_tab_on_the_patient_summary_page()
+    {
+    	patientsPage.IclickonthePatientDetailstabonthepatientsummarypage();
     }
     
     @Then("^I verify ([^\"]*) is appearing on the patient summary page to verify ssn$")

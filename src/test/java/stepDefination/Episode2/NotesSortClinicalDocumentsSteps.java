@@ -55,17 +55,20 @@ public class NotesSortClinicalDocumentsSteps extends DriverScript {
 	}
 
 	@Then("^I Verify that the notification logs activity date on the Notification on Activity tab on Patient Summary$")
-	public void I_Verify_that_the_notification_logs_activity_date_on_the_Notification_on_Activity_tab_on_Patient_Summary() throws Throwable {
+	public void I_Verify_that_the_notification_logs_activity_date_on_the_Notification_on_Activity_tab_on_Patient_Summary()
+			throws Throwable {
 		noteCreation.IVerifythatthenotificationlogsactivitydateontheNotificationonActivitytabonPatientSummary();
 	}
 
 	@Then("^I Verify that the notification logs activity name  on the Notification on Activity tab on Patient Summary$")
-	public void I_Verify_that_the_notification_logs_activity_name_on_the_Notification_on_Activity_tab_on_Patient_Summary() throws Throwable {
+	public void I_Verify_that_the_notification_logs_activity_name_on_the_Notification_on_Activity_tab_on_Patient_Summary()
+			throws Throwable {
 		noteCreation.IVerifythatthenotificationlogsactivitynameontheNotificationonActivitytabonPatientSummary();
 	}
 
 	@Then("^I Verify that the notification logs user name  on the Notification on Activity tab on Patient Summary$")
-	public void I_Verify_that_the_notification_logs_user_name_on_the_Notification_on_Activity_tab_on_Patient_Summary() throws Throwable {
+	public void I_Verify_that_the_notification_logs_user_name_on_the_Notification_on_Activity_tab_on_Patient_Summary()
+			throws Throwable {
 		noteCreation.IVerifythatthenotificationlogsusernameontheNotificationonActivitytabonPatientSummary();
 	}
 

@@ -1,7 +1,7 @@
 Feature: Patient status on Home Health Worklist
 
   Scenario Outline: Patient's current Discharge Care Setting is HHA with Episode status as Active M2
-   Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -67,8 +67,6 @@ Feature: Patient status on Home Health Worklist
     Then I wait for 8000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-  Examples: 
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name      |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |
-
-    

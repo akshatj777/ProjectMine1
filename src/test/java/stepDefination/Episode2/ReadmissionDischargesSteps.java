@@ -10,7 +10,7 @@ public class ReadmissionDischargesSteps extends DriverScript {
 	ReadmissionDischarges readmitdischarge = new ReadmissionDischarges(driver);
 
 	@Then("^I click on Readmission Discharges Facility sub tab on the patient Card Page$")
-	public void I_click_on_Readmission_Discharge_Facility_sub_tab_on_the_patient_Card_Page() {
+	public void I_click_on_Readmission_Discharge_Facility_sub_tab_on_the_patient_Card_Page() throws Throwable {
 		readmitdischarge.IclickonReadmissionDischargeFacilitysubtabonthepatientCardPage();
 	}
 
@@ -38,8 +38,8 @@ public class ReadmissionDischargesSteps extends DriverScript {
 	}
 
 	@Then("^I click on the Post Acute Onboarding tab on the patient Card Page$")
-		public void I_click_on_the_Post_Acute_Onboarding_tab_on_the_patient_Card_Page() throws Throwable {
-			readmitdischarge.IclickonthePostAcuteOnboardingtabonthepatientCardPage();
-		}
-	
+	public void I_click_on_the_Post_Acute_Onboarding_tab_on_the_patient_Card_Page() throws Throwable {
+		readmitdischarge.IclickonthePostAcuteOnboardingtabonthepatientCardPage();
+	}
+
 }

@@ -87,7 +87,6 @@ Feature: Patient status on Home Health Worklist
       | email                | password  | Patient First Name | Patient Last Name      |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |
 
-
   Scenario Outline: Patient's current Admit Care Setting is HHA with Episode status as Pending Cancellation CJR
     Given I am on the login page
     When I enter email field <email> for login
@@ -142,7 +141,6 @@ Feature: Patient status on Home Health Worklist
     And I wait for 3000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
-     Examples: 
+    Examples: 
       | email                | password  | Patient First Name | Patient Last Name      |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTAUTOMATEHOMEHEALTH |
-

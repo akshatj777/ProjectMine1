@@ -60,7 +60,7 @@ Feature: Patient status on Home Limited Service Worklist
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
     And I wait for 15000 milli seconds
     Then I switch to PatientTransitions frame
-     Then I wait for 3000 milli seconds
+    Then I wait for 3000 milli seconds
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 5000 milli seconds
     Then I click on add a new transition to add a new episode
@@ -113,7 +113,6 @@ Feature: Patient status on Home Limited Service Worklist
     Then I click on Done button present on the Filter Page
     And I wait for 2000 milli seconds
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |

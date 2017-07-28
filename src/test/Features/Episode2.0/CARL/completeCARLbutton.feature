@@ -111,5 +111,5 @@ Feature: Complete CARL button
     Then I verify CARL button is appearing on the patient card or not
 
     Examples: 
-      | First name | Last name | Medicare ID | Notetext   |
-      | PATIENT    | TRISTO    | wa984986    | RemedyText |
+      | Medicare ID | Notetext   |
+      | wa984986    | RemedyText |

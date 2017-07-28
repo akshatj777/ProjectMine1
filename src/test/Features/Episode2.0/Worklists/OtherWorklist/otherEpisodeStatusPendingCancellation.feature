@@ -47,7 +47,6 @@ Feature: Patient status on Other/Alternative Work List
     Then I wait for 8000 milli seconds
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I wait for 4000 milli seconds
-    Then I wait for 1000 milli seconds
     Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
     Then I wait for 1000 milli seconds
     Then I select the Discharge care type value "Leave of Absence" on add a new transition

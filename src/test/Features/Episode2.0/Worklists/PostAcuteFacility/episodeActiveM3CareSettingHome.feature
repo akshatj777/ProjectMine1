@@ -104,6 +104,7 @@ Feature: Patient status on Post Acute Facility Work List
     When I switch to default window from iframe
     Then I close the patient summary Page
     Then I reload my page
+    Then I wait for 3000 milli seconds
     Then I enter "<Patient Last Name>" in the search box on the patients page
     Then I wait for 15000 milli seconds
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page

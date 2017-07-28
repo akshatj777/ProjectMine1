@@ -16,275 +16,260 @@ import com.remedy.baseClass.BaseClass;
 public class Readmission extends BaseClass {
 
 	public Readmission(WebDriver driver) {
-        super(driver);
+		super(driver);
 	}
-
 
 	public void IclickontheTransitionssubtabonthePatientSummaryPage() {
-		// TODO Auto-generated method stub
+
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Transitions')]")));
 	}
-	
-      public void Iselectthecaresettingvalueonaddanewtransition(String caresetting) {
-		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory",caresetting);
+
+	public void Iselectthecaresettingvalueonaddanewtransition(String caresetting) {
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitFacilityCategory", caresetting);
 	}
 
 	public void Iselectthecaretypevalueonaddanewtransition(String caretypevalue) {
-		
-		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType",caretypevalue);
+
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_admitCareType", caretypevalue);
 	}
 
 	public void Iselectthefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
-		
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		  WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
-		  
-		  js.executeScript("arguments[0].click();", element1);
-		  clickElement(element1);
-		  Thread.sleep(5000);
+		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
 
-		  WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
+		js.executeScript("arguments[0].click();", element1);
+		clickElement(element1);
+		Thread.sleep(5000);
 
-		  js.executeScript("arguments[0].click();", element2);
-		  element2.sendKeys(facilityvalue);
-		  Thread.sleep(10000);
-		  WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
-		  js.executeScript("arguments[0].click();", element3);
-		  clickElement(element3);		
+		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
+
+		js.executeScript("arguments[0].click();", element2);
+		element2.sendKeys(facilityvalue);
+		Thread.sleep(10000);
+		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
+		js.executeScript("arguments[0].click();", element3);
+		clickElement(element3);
 	}
-
-
 
 	public void IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition(String DRGtype) {
 
-		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType",DRGtype);
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", DRGtype);
 	}
 
 	public void IselecttheDRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
-	
-		  clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		  iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7_search")),DRG);
-		  clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
-		 }
 
+		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7_search")), DRG);
+		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+	}
 
 	public void IclickontheagreebuttononthePatientCardpage() {
-		
-		try
-		{
-		 clickElement(driver.findElement(By.cssSelector("span.attestation-label.ng-binding")));
-		}catch(Exception e)
-		{
+
+		try {
+			clickElement(driver.findElement(By.cssSelector("span.attestation-label.ng-binding")));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-       public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
-		
-		String newname=lastname.toUpperCase();
-		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+newname+"')]")));
-		}
-       
-	public static String getcurrentdate(int days)
-	{
+
+	public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
+
+		String newname = lastname.toUpperCase();
+		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
+	}
+
+	public static String getcurrentdate(int days) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate localDate = LocalDate.now();
-		LocalDate b=localDate.minus(Period.ofDays(days));
-		System.out.println("$$$$Local Date is"+b);
-		String date=dtf.format(b);
+		LocalDate b = localDate.minus(Period.ofDays(days));
+		System.out.println("$$$$Local Date is" + b);
+		String date = dtf.format(b);
 		System.out.println(dtf.format(b));
 		return date;
 	}
-	
-   public void Iclickonthenextlinktoselecttherequiredyearondatepicker(int days) {
-	
-	String dateTime= getcurrentdate(days);
-	String date_dd_MM_yyyy[] = (dateTime.split("/"));
-	int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2])- Calendar.getInstance().get(Calendar.YEAR);
-	System.out.println("$$$$The year difference is"+yearDiff);
-	WebElement nextLink = driver.findElement(By.cssSelector("th.next"));
-	WebElement previousLink = driver.findElement(By.cssSelector("th.prev"));
-	if(yearDiff!=0){
-          if(yearDiff>0){
-                   for(int i=0;i<yearDiff;i++){
-                   System.out.println("Year Diff->"+i);
-                   nextLink.click();
-              }}
 
-          else if(yearDiff<0){
-                 
-            for(int i=0;i<(yearDiff*(-1));i++){
-                System.out.println("Year Diff->"+i);
-                previousLink.click();
+	public void Iclickonthenextlinktoselecttherequiredyearondatepicker(int days) {
 
-            }}}}
+		String dateTime = getcurrentdate(days);
+		String date_dd_MM_yyyy[] = (dateTime.split("/"));
+		int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2]) - Calendar.getInstance().get(Calendar.YEAR);
+		System.out.println("$$$$The year difference is" + yearDiff);
+		WebElement nextLink = driver.findElement(By.cssSelector("th.next"));
+		WebElement previousLink = driver.findElement(By.cssSelector("th.prev"));
+		if (yearDiff != 0) {
+			if (yearDiff > 0) {
+				for (int i = 0; i < yearDiff; i++) {
+					System.out.println("Year Diff->" + i);
+					nextLink.click();
+				}
+			}
 
+			else if (yearDiff < 0) {
 
-public void Iselectthedatefromthecalendarfromdatepicker(int days) {
-	String dateTime= getcurrentdate(days);
-	String date_dd_MM_yyyy[] = (dateTime.split("/"));
-    List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
-    list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0])-1).click();
-	
-}
-public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage() {
-	
-	clickElement(driver.findElement(By.xpath("/html/body/div[12]/div[3]/table/thead/tr[1]/th[2]")));	
-}
-public void IselectthetimefromthecalendarfromdatepickeronTransitionPage(String date) {
-	clickElement(driver.findElement(By.cssSelector("span.hour.active")));
-	clickElement(driver.findElement(By.cssSelector("span.minute.active")));
-}
+				for (int i = 0; i < (yearDiff * (-1)); i++) {
+					System.out.println("Year Diff->" + i);
+					previousLink.click();
 
-
-public void IselecttheLOSdaysonDischargedateonAddTransition(String days) {
-	iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_los")),days);
-	
-}
-
-
-public void IclickontheReadmissionssubtabonImpatienttabonpatientCardPage() {
-	clickElement(driver.findElement(By.xpath("//span[contains(text(),'Readmissions')]")));
-}
-
-
-public void IverifythepatientpresentonthePatientCardPage(String last_name) {
-
-    String newname=last_name.toUpperCase();
-	isElementVisible(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+newname+"')]")));
+				}
+			}
+		}
 	}
 
-public void IverifythepatientnotpresentonthePatientCardPage(String last_name) {
-	
-	try
-	{
-	driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'"+last_name+"')]"));
-	}catch(Exception e)
-	{
-	return;	
+	public void Iselectthedatefromthecalendarfromdatepicker(int days) {
+		String dateTime = getcurrentdate(days);
+		String date_dd_MM_yyyy[] = (dateTime.split("/"));
+		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath(
+				"//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
+		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
+
 	}
-	
-	 }
 
+	public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage() {
 
-public String Igetthedischargedateoftheprevioustransitionaddedfromtransitionlist() {
-return driver.findElement(By.cssSelector("td.discharge_date-column")).getText();
-	
-}
+		clickElement(driver.findElement(By.xpath("/html/body/div[12]/div[3]/table/thead/tr[1]/th[2]")));
+	}
 
+	public void IselectthetimefromthecalendarfromdatepickeronTransitionPage(String date) {
+		clickElement(driver.findElement(By.cssSelector("span.hour.active")));
+		clickElement(driver.findElement(By.cssSelector("span.minute.active")));
+	}
 
-public void IclickontheeditbuttontoedittheActivetransition(String transition_value) throws InterruptedException {
-	clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div")));
-	System.out.println("Successfully clicked on toggle button");
-	Thread.sleep(5000);
-	clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
-	System.out.println("Successfully click on Edit button");
-}
+	public void IselecttheLOSdaysonDischargedateonAddTransition(String days) {
+		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_los")), days);
 
-public void IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage() {
-	
-	         WebElement element=driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
-             JavascriptExecutor js = (JavascriptExecutor)driver;
-	         js.executeScript("arguments[0].click();", element);
-			 clickElement(element);
-}
+	}
 
+	public void IclickontheReadmissionssubtabonImpatienttabonpatientCardPage() {
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Readmissions')]")));
+	}
 
-public void Iclickondatepickerbuttontoselectthedischargedate() {
-	
-	WebElement element=driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate"));
-	JavascriptExecutor js = (JavascriptExecutor)driver;
-	js.executeScript("arguments[0].scrollIntoView(true);", element);
-	clickElement(element);
-}
+	public void IverifythepatientpresentonthePatientCardPage(String last_name) {
 
+		String newname = last_name.toUpperCase();
+		isElementVisible(
+				driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
+	}
 
-public void Iclickonupdatetransitiontoaddanewepisode() {
-	// TODO Auto-generated method stub
-	JavascriptExecutor js = ((JavascriptExecutor) driver);
-    WebElement element = driver.findElement(By.cssSelector("#submitButton"));
-    js.executeScript("arguments[0].scrollIntoView(true);", element);
-	clickElement(element);
-	
-}
+	public void IverifythepatientnotpresentonthePatientCardPage(String last_name) {
 
+		try {
+			driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + last_name + "')]"));
+		} catch (Exception e) {
+			return;
+		}
 
-public void Iselectthedischargecaresettingvalueonaddanewtransition(String caresetting) {
-	
-	selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeFacilityCategory",caresetting);
-}
+	}
 
+	public String Igetthedischargedateoftheprevioustransitionaddedfromtransitionlist() {
+		return driver.findElement(By.cssSelector("td.discharge_date-column")).getText();
 
-public void Iselectthedischargecaretypevalueonaddanewtransition(String caretypevalue) {
-	
-	selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeCareType",caretypevalue);
-}
+	}
 
+	public void IclickontheeditbuttontoedittheActivetransition(String transition_value) throws InterruptedException {
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value
+				+ "]/td[contains(@class, 'settings-column')]/div")));
+		System.out.println("Successfully clicked on toggle button");
+		Thread.sleep(5000);
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value
+				+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
+		System.out.println("Successfully click on Edit button");
+	}
 
-public void Iselectthedischargefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	  WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
+	public void IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage() {
 
-	  js.executeScript("arguments[0].click();", element1);
-	  clickElement(element1);
-	  Thread.sleep(5000);
+		WebElement element = driver.findElement(By.cssSelector(
+				"body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
+		clickElement(element);
+	}
 
-	  WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen8_search"));
+	public void Iclickondatepickerbuttontoselectthedischargedate() {
 
-	  js.executeScript("arguments[0].click();", element2);
-	  element2.sendKeys(facilityvalue);
-	  Thread.sleep(10000);
-	  WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
-	  js.executeScript("arguments[0].click();", element3);
-	  clickElement(element3);
-	
-}
+		WebElement element = driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+		clickElement(element);
+	}
 
+	public void Iclickonupdatetransitiontoaddanewepisode() {
+		// TODO Auto-generated method stub
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		WebElement element = driver.findElement(By.cssSelector("#submitButton"));
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+		clickElement(element);
 
-public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
-	int count =getElementCount("td.settings-column.center.cursor-default > div");
-	System.out.println("The transition count is"+count);
-	for(int i=1;i<=count;i++)
-	{
-	clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
-	Thread.sleep(5000);
-	clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
-	Thread.sleep(5000);
-	clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-	Thread.sleep(10000);
+	}
+
+	public void Iselectthedischargecaresettingvalueonaddanewtransition(String caresetting) {
+
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeFacilityCategory", caresetting);
+	}
+
+	public void Iselectthedischargecaretypevalueonaddanewtransition(String caretypevalue) {
+
+		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeCareType", caretypevalue);
+	}
+
+	public void Iselectthedischargefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
+
+		js.executeScript("arguments[0].click();", element1);
+		clickElement(element1);
+		Thread.sleep(5000);
+
+		WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen8_search"));
+
+		js.executeScript("arguments[0].click();", element2);
+		element2.sendKeys(facilityvalue);
+		Thread.sleep(10000);
+		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
+		js.executeScript("arguments[0].click();", element3);
+		clickElement(element3);
+
+	}
+
+	public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
+		int count = getElementCount("td.settings-column.center.cursor-default > div");
+		System.out.println("The transition count is" + count);
+		for (int i = 1; i <= count; i++) {
+			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
+			Thread.sleep(5000);
+			clickElement(driver.findElement(
+					By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
+			Thread.sleep(5000);
+			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
+			Thread.sleep(10000);
+		}
+	}
+
+	public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search) {
+
+		iFillInText(
+				driver.findElement(
+						By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")),
+				search);
+
+	}
+
+	public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
+
+		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")), DRG);
+		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+	}
+
+	public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPageJavascript() {
+		WebElement element2 = driver.findElement(By.cssSelector(
+				"body > div:nth-child(17) >div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
+		/*
+		 * JavascriptExecutor jse = (JavascriptExecutor)driver;
+		 * jse.executeScript("window.scrollBy(100,0)", "");
+		 */
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element2);
+		clickElement(element2);
 	}
 }
-
-
-public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search) {
-	
-	 iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")), search);
-	 
-}
-
-
-public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
-	
-	clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-	  iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")),DRG);
-	  clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
-}
-
-
-public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPageJavascript() {
-	WebElement element2=driver.findElement(By.cssSelector("body > div:nth-child(17) >div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
-	/*JavascriptExecutor jse = (JavascriptExecutor)driver;
-	jse.executeScript("window.scrollBy(100,0)", "");*/
-	JavascriptExecutor js = (JavascriptExecutor)driver;
-	js.executeScript("arguments[0].scrollIntoView(true);", element2);
-	clickElement(element2);	
-}
-}
-
-
-
-
-	
-	
-	
-	
-

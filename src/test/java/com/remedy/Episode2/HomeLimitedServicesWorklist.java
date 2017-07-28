@@ -21,7 +21,8 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IclickonforwardarrowbuttontonavigatetoHomewithLimitedServicestabonthepatientCardPage() {
-		clickElement(driver.findElement(By.cssSelector("i.flex-right.right-arrow.valentino-icon-caret-right.ng-scope")));
+		clickElement(
+				driver.findElement(By.cssSelector("i.flex-right.right-arrow.valentino-icon-caret-right.ng-scope")));
 	}
 
 	public void IclickonHomewithLimitedServicessubtabonthepatientCardPage() {
@@ -43,7 +44,7 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 		clickElement(element1);
 		Thread.sleep(5000);
 		WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen9_search"));
-        js.executeScript("arguments[0].click();", element2);
+		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
 		Thread.sleep(10000);
 		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
@@ -62,31 +63,35 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IclickonthePostAcutetabonthepatientCardPageJavaScript() {
-		
-			try {
-				WebDriverWait wait = new WebDriverWait(driver, 15);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Post Acute')]")));
-				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Post Acute')]"))).click();
-			} catch (WebDriverException wde) {
-				scrollToElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
-				driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")).click();
-			}
-		}
 
-		private void scrollToElement(WebElement el) {
-			if (driver instanceof JavascriptExecutor) {
-				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
-			}
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 15);
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Post Acute')]")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Post Acute')]")))
+					.click();
+		} catch (WebDriverException wde) {
+			scrollToElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
+			driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")).click();
 		}
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		WebElement element3 = driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]"));
-//		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
-//		js.executeScript("arguments[0].click();", element3);
-//		clickElement(element3);
+	}
 
-		public void Ireloadmypage() {
-			driver.navigate().refresh();
-			
+	private void scrollToElement(WebElement el) {
+		if (driver instanceof JavascriptExecutor) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
 		}
-	
+	}
+	// JavascriptExecutor js = (JavascriptExecutor) driver;
+	// WebElement element3 =
+	// driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]"));
+	// clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post
+	// Acute')]")));
+	// js.executeScript("arguments[0].click();", element3);
+	// clickElement(element3);
+
+	public void Ireloadmypage() {
+		driver.navigate().refresh();
+
+	}
+
 }

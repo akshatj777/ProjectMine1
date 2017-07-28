@@ -103,5 +103,5 @@ Feature: Notes Read-Only
     Then I verify table should be sorted chronologically by activity date most recent first
 
     Examples: 
-      | First name    | Last name | Medicare ID | Text Description              |  
-      | AUTOMATIONNEW | TEST      | wa984986    | Probiotics are microorganisms |  
+      | First name    | Last name | Medicare ID | Text Description              |
+      | AUTOMATIONNEW | TEST      | wa984986    | Probiotics are microorganisms |
