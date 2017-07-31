@@ -1,7 +1,6 @@
 Feature: Episode List Verification Under Inpatient Episode Clearing Reports
 
-Scenario Outline: User should be able to see Episodes List under Inpatient Episode Clearing Report After clicking on any Episode number link
-
+  Scenario Outline: User should be able to see Episodes List under Inpatient Episode Clearing Report After clicking on any Episode number link
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -10,15 +9,13 @@ Scenario Outline: User should be able to see Episodes List under Inpatient Episo
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
     And I wait for 50000 milli seconds
-    
     When I switch to reports embedded iframe
     Then I click on a number under episodes column
     And I wait for 5000 milli seconds
     Then I switch to new window
     And I wait for 3000 milli seconds
-    
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
@@ -53,11 +50,10 @@ Scenario Outline: User should be able to see Episodes List under Inpatient Episo
     Then I should verify "Record Creator" is appearing under Episodes table
     Then I should verify "Physician Name" is appearing under Episodes table
     Then I should verify "Days Left in Bundle" is appearing under Episodes table
-    
-    Examples:
-    
-      | email                              |
+
+    Examples: 
+      | email                          |
       #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
+      | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | multipayerachrpfin@yopmail.com |
