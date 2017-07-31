@@ -14,7 +14,7 @@ public class HomeHealthWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I delete the active transition no \"([^\"]*)\" to make the patient cancelled$")
-	public void I_delete_the_active_transition_to_make_the_patient_cancelled(String transition_value) throws Throwable,InterruptedException {
+	public void I_delete_the_active_transition_to_make_the_patient_cancelled(String transition_value) throws Throwable, InterruptedException {
 		homehealth.Ideletetheactivetransitiontomakethepatientcancelled(transition_value);
 
 	}

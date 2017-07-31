@@ -10,20 +10,16 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 20000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 10000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 4000 milli seconds
-    Then I Verify that Carl form should appear with White bar with Patient Name "<Last name>" "<First name>" and x icon on the page
-    Then I Verify that Carl form should appear with Cancel link
     Then I Verify that Carl form should appear with Save your progress link
     Then I Verify that Carl form should appear with review the form link
     Then I Verify that Carl form should appear Left navigator displaying four sections
@@ -77,7 +73,7 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     Then I Verify the text hovering i icon on Patients Restoration Potential
     Then I close the patient summary Page
     And I wait for 2000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
+    Then I click on the searched name on the patient card
     And I wait for 10000 milli seconds
     Then I click on Care Team on navigation bar on patient summary page
     And I wait for 10000 milli seconds
@@ -92,8 +88,8 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     Then I close the patient summary Page
 
     Examples: 
-      | First name | Last name  | F_Name        | L_Name       |
-      | AUTOMATION | DO_NOT_USE | FirstNameTest | LastNameTest |
+      | F_Name        | L_Name       |
+      | FirstNameTest | LastNameTest |
 
   Scenario Outline: To verify upon selecting the +Add Caregiver link in the Caregiver page, the user should be able to complete the information on the Caregiver form.
     To add a caregiver by selecting a member from a list of all Care Network Members associated with a patient
@@ -107,16 +103,14 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 20000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 10000 milli seconds
+    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     And I wait for 4000 milli seconds
     Then I click on Yes, 24 hours a day option under Does the patient have a capable caregiver
@@ -159,12 +153,10 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     Then I verify "<Email_Id>" on caregiver information card
     Then I verify "<Phone>" number on caregiver information card
     And I wait for 2000 milli seconds
-    
-    
 
     Examples: 
-      | First name | Last name  | F_Name        | L_Name       | Email_Id             | Phone        |
-      | AUTOMATION | DO_NOT_USE | FirstNameTest | LastNameTest | testuser@yopmail.com | 987-456-1230 |
+      | F_Name        | L_Name       | Email_Id             | Phone        |
+      | FirstNameTest | LastNameTest | testuser@yopmail.com | 987-456-1230 |
 
   Scenario Outline: To verify deleting of the caregiver created
     Given I am on the login page
@@ -176,13 +168,12 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I should see search box appearing on the patients page
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 10000 milli seconds
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
+    And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
     Then I click on Care Team on navigation bar on patient summary page
     And I wait for 10000 milli seconds
     Then I switch to Patient Care Team frame
@@ -196,5 +187,5 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     Then I close the patient summary Page
 
     Examples: 
-      | First name | Last name  | F_Name        | L_Name       |
-      | AUTOMATION | DO_NOT_USE | FirstNameTest | LastNameTest |
+      | F_Name        | L_Name       |
+      | FirstNameTest | LastNameTest |
