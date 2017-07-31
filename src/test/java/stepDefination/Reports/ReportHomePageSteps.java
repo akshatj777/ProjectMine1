@@ -963,6 +963,111 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
     
+    @Then("^I click on \"([^\"]*)\" filter under filter options$")
+    public void i_click_on_facility_filter_under_filter_options(String facility) throws Throwable{
+    	reportHomePage.iClickOnFacilityFilterUnderFilterOptions(facility);
+    }
+    
+    @Then("^I uncheck selected All options under \"([^\"]*)\" filter options$")
+    public void i_uncheck_selected_all_options_under_filter_options(String text) throws Throwable{
+    	reportHomePage.iUncheckAllOptionForFacilityFilter(text);
+    }
+    
+    @Then("^I select \"([^\"]*)\" from the facility filter dropdown under filter options$")
+    public void i_select_from_the_facility_filter_dropdown_under_filter_options(String text) throws Throwable{
+    	reportHomePage.iSelectFaciltyFromFacilityFilterUnderProgramOverviewReport(text);
+    }
+    
+    @Then("^I click on apply button for facility filter under filter options$")
+    public void i_click_on_apply_button_for_facility_filter_under_filter_options() throws Throwable{
+    	reportHomePage.iClickOnApplyButtonUnderFaciltyFilterOptions();
+    }
+    
+    @Then("^I click on \"([^\"]*)\" button for view filter under filter options$")
+    public void i_click_on_button_for_view_filter_under_filter_options(String text) throws Throwable{
+    	reportHomePage.iClickOnTableViewOptionUnderViewFilter(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under overall program table view data$")
+    public void i_verify_is_appearing_under_overall_program_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandeEcTextUnderOverallProgram(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for episodes column under overall program$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_episodes_column_under_overall_program(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderOverallProgram(color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under post acute utilization table view data$")
+    public void i_verify_is_appearing_under_post_acute_utilization_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandEcTextUnderPostAcuteUtilization(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for all columns under post acute utilization$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_all_columns_under_post_acute_utilization(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderPostAcuteUtilization(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for episodes column under overall program$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_episodes_column_under_overall_program(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderOverallProgram(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for all columns under post acute utilization$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_post_acute_utilization(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderPostAcuteUtilization(color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under snf length of stay table view data$")
+    public void i_verify_is_appearing_under_snf_length_of_stay_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandEcTextUnderSnfLengthOfStay(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for all columns under snf length of stay$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_all_columns_under_snf_length_of_stay(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for all columns under snf length of stay$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_snf_length_of_stay(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under readmissions table view data$")
+    public void i_verify_is_appearing_under_readmissions_table_view_data(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsandEcTextUnderReadmissions(text);
+    }
+    
+    @Then("^I should see ec data is appearing with color \"([^\"]*)\" for all columns under readmissions$")
+    public void i_should_see_ec_data_is_appearing_with_color_for_all_columns_under_readmissions(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(color);
+    }
+    
+    @Then("^I should see claims data is appearing with color \"([^\"]*)\" for all columns under readmissions$")
+    public void i_should_see_claims_data_is_appearing_with_color_for_all_columns_under_readmissions(String color) throws Throwable{
+    	reportHomePage.iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(color);
+    }
+    
+    @Then("^I click on skilled nursing \"([^\"]*)\" ec graph point under post acute utilization of program overview report$")
+    public void i_click_on_skilled_nursing_ec_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @And("^I choose add to report option from select options of filter field$")
+    public void iChooseAddToReportOptionFromSelectOptionsFilterField() throws Throwable {
+        reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdFieldAdd_text']");
+    }
+    
+    @Then("^I verify the DOB column format is in YYYY-MM-DD for \"([^\"]*)\"$")
+    public void i_Verify_the_DOB_Column_Format_is_in_yyyy_mm_dd(String text) throws Throwable{
+    	reportHomePage.iVerifyDOBColumnValueFormat(text);
+    }
+    
+    @Then("^I enter \"([^\"]*)\" in the search field textbox for filters$")
+    public void i_Enter_dob_in_the_search_field_textbox_for_filters(String dob) throws Throwable{
+    	reportHomePage.iEnterInTheSearchFieldForFilters(dob);
+    }
+
     @Then("I verify \"([^\"]*)\" is appearing under date range filter option on the left side")
     public void i_verify_is_appearing_under_date_range_filter_option_on_the_left_side(String range) throws Throwable{
     	reportHomePage.iVerifyDateRangeFilterInFilterOptions(range);
