@@ -6,11 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 /**
  * Created by ashish.ranjan on 24-11-2016.
@@ -22,8 +19,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyTabInFilterBarOnPatientsPage(String elementText) {
-		verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'" + elementText + "')]")),
-				elementText);
+		verifyTextForElement(driver.findElement(By.xpath("//button//span[contains(text(),'" + elementText + "')]")),elementText);
 	}
 
 	public void iClickTabInFilterBarOnPatientsPage(String elementTextXpath) {
@@ -55,8 +51,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifySeeAsPlaceholderForSearchOnPatientPage(String elementText) {
-		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("i.valentino-icon-search ~ input")),
-				"placeholder", elementText);
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("i.valentino-icon-search ~ input")),"placeholder", elementText);
 	}
 
 	public void iVerifyElementPresentOnPatientPage(By byLocator) {
@@ -100,8 +95,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyVariousFilterIsPresentUnderListofFilterOptions(String filterOption) {
-		isElementVisible(driver
-				.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'" + filterOption + "')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'" + filterOption + "')]")));
 	}
 
 	public void iVerifyPayerFilterIsDisplayedUnderListOfFilterOptions() {
@@ -109,18 +103,15 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyQualityMetricFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Quality Metric')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Quality Metric')]")));
 	}
 
 	public void iVerifyReadmissionCountFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Readmission Count')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Readmission Count')]")));
 	}
 
 	public void iVerifyRiskAssessmentFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Risk Assessment')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Risk Assessment')]")));
 	}
 
 	public void iVerifySSNFilterIsDisplayedUnderListOfFilterOptions() {
@@ -136,43 +127,35 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyDOBIsPresentInThePatientCardHeaderOnPatientPage() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[1]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[1]")));
 	}
 
 	public void iVerifyAgeIsPresentInThePatientCardHeaderOnPatientPage() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[2]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[2]")));
 	}
 
 	public void iVerifyGenderIsPresentInThePatientCardHeaderOnPatientPage() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[3]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[3]")));
 	}
 
 	public void iVerifySSNIsPresentInThePatientCardHeaderOnPatientPage() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[4]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h5/span[4]")));
 	}
 
 	public void iVerifyExpandButtonIsPresentInThePatientCardHeaderOnPatientPage1() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/div[3]/a")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]/div[3]/a")));
 	}
 
 	public void iVerifyRiskStatusIsPresentOnThePatientCardOnPatientPage() {
-		isElementVisible(driver.findElement(
-				By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[contains(@class,'card-triangle')]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[contains(@class,'card-triangle')]")));
 	}
 
 	public void iVerifyCurrentLocationIsPresentOnThePatientCardOnPatientPage() {
-		isElementVisible(driver.findElement(
-				By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[h5[text()='Current Location']]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[h5[text()='Current Location']]")));
 	}
 
 	public void iVerifyAnchorFacilityIsPresentOnThePatientCardOnPatientPage() {
-		isElementVisible(driver.findElement(
-				By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[h5[text()='Anchor Facility']]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[h5[text()='Anchor Facility']]")));
 	}
 
 	public void iVerifyTagsIsPresentOnThePatientCardOnPatientPage() {
@@ -181,13 +164,11 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyQuickActionsIsPresentOnThePatientCardOnPatientPage() {
-		isElementVisible(driver.findElement(By.xpath(
-				"//div[@class='row cards-mode isotope']/div[1]//div[button[contains(@ng-click,'quickAction')]]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]//div[button[contains(@ng-click,'quickAction')]]")));
 	}
 
 	public void iClickOnTheExpandButtonOnThePatientCardOnThePatientPage() {
-		clickElement(
-				driver.findElement(By.xpath("(//a[@class='btn btn-quaternary valentino-icon-expand pull-right'])[1]")));
+		clickElement(driver.findElement(By.xpath("(//a[@class='btn btn-quaternary valentino-icon-expand pull-right'])[1]")));
 	}
 
 	public void iVerifyQuickActionButtonAddClinicalDocumentAndNewTaskIsPresentOnThePatientSummaryPage() {
@@ -469,8 +450,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnInpatientCheckboxUnderCareSettingPresentOnTheFilterPage() {
-		clickElement(
-				driver.findElement(By.cssSelector("input[id='care-settingHHH-I']~label[for='care-settingHHH-I']")));
+		clickElement(driver.findElement(By.cssSelector("input[id='care-settingHHH-I']~label[for='care-settingHHH-I']")));
 	}
 
 	public void iClickOnCooperationMetricFilterPresentOnTheFilterPage() {
@@ -555,13 +535,11 @@ public class PatientsPage extends BaseClass {
 		JavascriptExecutor jsdate = ((JavascriptExecutor) driver);
 		WebElement elementdate = driver.findElement(By.cssSelector("td.day.active"));
 		jsdate.executeScript("arguments[0].click();", elementdate);
-		// clickElement(driver.findElement(By.cssSelector("td.day.active")));
-		// delay();
+		
 		JavascriptExecutor jshour = ((JavascriptExecutor) driver);
 		WebElement elementhour = driver.findElement(By.cssSelector("span.hour.active"));
 		jshour.executeScript("arguments[0].click();", elementhour);
-		// clickElement(driver.findElement(By.cssSelector("span.hour.active")));
-		// delay();
+		
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		WebElement element = driver.findElement(By.cssSelector("span.minute.active"));
 		js.executeScript("arguments[0].click();", element);
@@ -594,8 +572,7 @@ public class PatientsPage extends BaseClass {
 
 	public void iVerifyAndIsDisplayedOnThePatientCard(String firstname, String lastname) {
 		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'" + firstname + "')]")));
-		// isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"
-		// + lastname + "')]")));
+		// isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'"// + lastname + "')]")));
 	}
 
 	public void iClickOnAttestationButtonPresentOnThePatientCard() {
@@ -631,10 +608,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(String facility) {
-		iFillInText(
-				driver.findElement(By
-						.xpath("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")),
-				facility);
+		iFillInText(driver.findElement(By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")),facility);
 		longDelay();
 		clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
 	}
@@ -652,8 +626,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iShouldSeeOptionIsPresentOnTheEditEpisodeInitiatorModal(String option) {
-		isElementVisible(driver.findElement(
-				By.xpath(".//select[@id='episode_initiator_episodeInitiator']/option[text()='" + option + "']")));
+		isElementVisible(driver.findElement(By.xpath(".//select[@id='episode_initiator_episodeInitiator']/option[text()='" + option + "']")));
 	}
 
 	public void iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(String button) {
@@ -661,18 +634,15 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyAdmitReasonFilterIsDisplayedUnderListofFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Admit Reason')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Admit Reason')]")));
 	}
 
 	public void iVerifyAnchorDischargeFacilityFilterIsDisplayedUnderListofFilterOptions() {
-		isElementVisible(driver.findElement(
-				By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Discharge Facility')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Discharge Facility')]")));
 	}
 
 	public void iVerifyAnchorFacilityFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Facility')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Anchor Facility')]")));
 	}
 
 	public void iVerifyCarePlanFilterIsDisplayedUnderListOfFilterOptions() {
@@ -680,28 +650,23 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyCareSettingFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Care Setting')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Care Setting')]")));
 	}
 
 	public void iVerifyCooperationMetricFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Cooperation Metric')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Cooperation Metric')]")));
 	}
 
 	public void iVerifyCurrentFacilityFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Current Facility')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Current Facility')]")));
 	}
 
 	public void iVerifyDailyReportFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Daily Report')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Daily Report')]")));
 	}
 
 	public void iVerifyDateRangeFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Date Range')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Date Range')]")));
 	}
 
 	public void iVerifyDRGTypeFilterIsDisplayedUnderListOfFilterOptions() {
@@ -709,23 +674,19 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyEligibilityFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Eligibility')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Eligibility')]")));
 	}
 
 	public void iVerifyEpisodeDRGFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode DRG')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode DRG')]")));
 	}
 
 	public void iVerifyEpisodeStatusFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode Status')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Episode Status')]")));
 	}
 
 	public void iVerifyFirstNameFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'First Name')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'First Name')]")));
 	}
 
 	public void iVerifyGenderFilterIsDisplayedUnderListOfFilterOptions() {
@@ -737,8 +698,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyInpatientLocationFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Inpatient Location')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Inpatient Location')]")));
 	}
 
 	public void iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions() {
@@ -746,8 +706,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyMedicareIDFilterIsDisplayedUnderListOfFilterOptions() {
-		isElementVisible(
-				driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Medicare ID')]")));
+		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Medicare ID')]")));
 	}
 
 	public void iClickOnDRGTypeFilterPresentOnFilterPage() {
@@ -790,10 +749,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterUnderFirstNameFilter(String patient) {
-		iFillInText(
-				driver.findElement(
-						By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),
-				patient);
+		iFillInText(driver.findElement(By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),patient);
 	}
 
 	public void iClickOnGenderFilterPresentOnFilterPage() {
@@ -821,10 +777,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterUnderLastNameFilter(String patient) {
-		iFillInText(
-				driver.findElement(
-						By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),
-				patient);
+		iFillInText(driver.findElement(By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),patient);
 	}
 
 	public void iClickOnMedicareidFilter() {
@@ -889,13 +842,11 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyInpatientStatusIsPresentOnThePatientCard() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[2]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[2]/div[2]")));
 	}
 
 	public void iVerifyAdmissionReasonIsPresentOnThePatientCard() {
-		isElementVisible(driver
-				.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[3]/div[4]/div/div")));
 	}
 
 	public void iShouldSeeSearchBoxAppearingOnThePatientsPage() {
@@ -903,20 +854,15 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterInIheSearchbox(String search) {
-		iFillInText(
-				driver.findElement(
-						By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),
-				search);
+		iFillInText(driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),search);
 	}
 
 	public void iVerifyAgreeButtonIsAppearing(String text) {
-		verifyTextForElementfromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",
-				text);
+		verifyTextForElementfromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span",text);
 	}
 
 	public void iVerifyAgreeButtonIsNotPresent(String text) {
-		verifyTextNotPresentForElementFromList(
-				".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
+		verifyTextNotPresentForElementFromList(".btn.btn-lg.btn-secondary.border-radius-none.col-md-12.attestation-button>span", text);
 	}
 
 	public void iVerifyFollowingFiltersPresentOnPatientPage(String text) {
@@ -924,8 +870,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public boolean isAllCorrectPatientsReturnAfterPatientSearch(String fName, String lName) {
-		List<WebElement> allNames = driver
-				.findElements(By.cssSelector(".card-view-body .card-header .card-header-content h3"));
+		List<WebElement> allNames = driver.findElements(By.cssSelector(".card-view-body .card-header .card-header-content h3"));
 		boolean isPresent = false;
 		for (int i = 0; i < allNames.size(); i++) {
 			String allText = allNames.get(i).getText();
@@ -946,15 +891,12 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyFirstnameInTheSearchResult(String firstname) {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[1]")),
-				firstname);
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[1]")),firstname);
 	}
 
 	public void iVerifyLastnameInTheSearchResult(String lastname) {
 		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[2]")),
-				lastname);
+				driver.findElement(By.xpath("//div[@class='row cards-mode isotope']/div[1]/div/div[1]//h3/span[2]")),lastname);
 	}
 
 	public void iShouldSeeEpisodeInitiatorAppearingUnderTransitionsPage() {
@@ -982,12 +924,10 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnAgreeAfterApplyingFilter(String button) {
-		if (driver.findElements(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='" + button + "']]"))
-				.isEmpty()) {
+		if (driver.findElements(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='" + button + "']]")).isEmpty()) {
 			return;
 		} else {
-			clickElement(driver
-					.findElement(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='" + button + "']]")));
+			clickElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//a[span[text()='" + button + "']]")));
 		}
 	}
 
@@ -1078,8 +1018,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iSeeSSNMinimizedMode() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[@class='card-datum ng-scope']//span[label[text()='SSN']]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='card-datum ng-scope']//span[label[text()='SSN']]")));
 	}
 
 	public void iSeeLanguageMinimizedMode() {
@@ -1099,15 +1038,11 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iSeeAdmitReasonFilterOnPatientCard(String admitreason) {
-		verifyTextForElement(
-				driver.findElement(
-						By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")),
-				admitreason);
+		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient.admitReason.value']")),admitreason);
 	}
 
 	public void iSeeAdmitReasonFilterOnPatientSummaryPage(String admitreason) {
-		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.admitReason.value']")),
-				admitreason);
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.admitReason.value']")),admitreason);
 	}
 
 	public void iVerifyAnchorFacilityFilterOnPatientSummary(String text, String facility) {
@@ -1115,20 +1050,15 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void IVerifyAnchorFaciltyOnPatientCard(String text, String facility) {
-		verifyTextForElement(
-				driver.findElement(By.xpath(
-						"(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient." + facility + ".value']")),
-				text);
+		verifyTextForElement(driver.findElement(By.xpath("(//div[@class='card-view-body'])[1]//span[@ng-bind='::patient." + facility + ".value']")),text);
 	}
 
 	public void IClickOnCarePlanOnPatientSummary(String careplan) {
-		clickElement(driver.findElement(
-				By.xpath("//button[@class='btn btn-indicator ng-scope'][normalize-space(.) = '" + careplan + "']")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-indicator ng-scope'][normalize-space(.) = '" + careplan + "']")));
 	}
 
 	public void IClickOnPatientDetailsOnPatientSummary(String medicareid) {
-		clickElement(driver.findElement(
-				By.xpath("//button[@class='btn btn-indicator'][normalize-space(.) = '" + medicareid + "']")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-indicator'][normalize-space(.) = '" + medicareid + "']")));
 	}
 
 	public void iVerifyCarePlanOnPatientSummary() {
@@ -1156,19 +1086,15 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyFacilityColumnUnderTransitions(String facility) {
-		verifyTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")),
-				facility);
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[2]")),facility);
 	}
 
 	public void iVerifyDrgStatusInPatientSummary(String text) {
-		verifyTextForElement(
-				driver.findElement(By.xpath("(//span[@class='label label-success'][text()='" + text + "'])[1]")), text);
+		verifyTextForElement(driver.findElement(By.xpath("(//span[@class='label label-success'][text()='" + text + "'])[1]")), text);
 	}
 
 	public void iVerifyEligibilityStatusOnPatientSummary(String eligible) {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//a[@id='eligibility_button'][normalize-space(.) = '" + eligible + "']")),
-				eligible);
+		verifyTextForElement(driver.findElement(By.xpath("//a[@id='eligibility_button'][normalize-space(.) = '" + eligible + "']")),eligible);
 	}
 
 	public void iVerifyTextEpisodeDrgOnPatientSummaryPage(String text) {
@@ -1201,15 +1127,11 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyGenderOnPatientSumamry(String gender) {
-		verifyTextForElement(
-				driver.findElement(
-						By.xpath("//span[@class='ng-binding ng-scope'][normalize-space(.) = '" + gender + "']")),
-				gender);
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding ng-scope'][normalize-space(.) = '" + gender + "']")),gender);
 	}
 
 	public void iVerifyInitiatorOnPatientSummary(String initiator) {
-		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='" + initiator + "']")),
-				initiator);
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='" + initiator + "']")),initiator);
 	}
 
 	public void iVerifyInitiatorOnPatientCard(String initiator) {
@@ -1225,13 +1147,11 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyReadmissionCountOnPatientCard(String count) {
-		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.readmissionCounter.value']")),
-				count);
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.readmissionCounter.value']")),count);
 	}
 
 	public void iVerifyReadmissionTextOnPatientCard(String text) {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//span[@ng-bind='::patient.readmissionCounter.config.label']")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//span[@ng-bind='::patient.readmissionCounter.config.label']")), text);
 	}
 
 	public void iVerifyRiskStatusOnPatientSummary(String text) {
@@ -1252,8 +1172,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void IclickonthePatientDetailstabonthepatientsummarypage() {
-		clickElement(driver.findElement(By.cssSelector(
-				"div.container.profile-info.ng-scope > div > div.filter-bars.ng-scope > tabbed-navbar > div > div.tabbed-navbar-left > div.tabbed-navbar-tabs > button.btn.btn-indicator.ng-scope.active > span")));
+		clickElement(driver.findElement(By.cssSelector("div.container.profile-info.ng-scope > div > div.filter-bars.ng-scope > tabbed-navbar > div > div.tabbed-navbar-left > div.tabbed-navbar-tabs > button.btn.btn-indicator.ng-scope.active > span")));
 
 	}
 }

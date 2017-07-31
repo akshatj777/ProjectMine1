@@ -54,4 +54,4 @@ Feature: Patient status on Home Limited Service Worklist
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | MTHREEHOMELIMITED |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | MTHREEHOMELIMITED |

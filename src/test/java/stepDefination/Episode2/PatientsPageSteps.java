@@ -2,13 +2,11 @@ package stepDefination.Episode2;
 
 import com.remedy.Episode2.PatientsPage;
 import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import java.util.List;
 
 

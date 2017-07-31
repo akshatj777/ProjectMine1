@@ -29,8 +29,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I select the \"([^\"]*)\" DRG type on the Diagnosis and DRG tab on add a new transition$")
-	public void I_select_the_DRG_type_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRGtype)
-			throws Throwable {
+	public void I_select_the_DRG_type_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRGtype) throws Throwable {
 		admission.IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition(DRGtype);
 	}
 
@@ -75,14 +74,12 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the centre of the calendar header on Discharge datepicker to select date and month on Transition Page$")
-	public void I_click_on_the_centre_of_the_calendar_header_on_Discharge_datepicker_to_select_date_and_month_on_Transition_Page()
-			throws Throwable {
+	public void I_click_on_the_centre_of_the_calendar_header_on_Discharge_datepicker_to_select_date_and_month_on_Transition_Page() throws Throwable {
 		admission.IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage();
 	}
 
 	@Then("^I click on the previous next link to select the required year \"(.*)\" on date picker$")
-	public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(int days)
-			throws Throwable {
+	public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(int days) throws Throwable {
 		admission.Iclickonthenextlinktoselecttherequiredyearondatepicker(days);
 	}
 
@@ -122,8 +119,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the edit button on the \"([^\"]*)\" transition to edit the Active transition$")
-	public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value)
-			throws InterruptedException {
+	public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException {
 		admission.IclickontheeditbuttontoedittheActivetransition(transition_value);
 	}
 
@@ -133,8 +129,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the delete button on the transition to delete all the transitions$")
-	public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions()
-			throws InterruptedException {
+	public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions() throws InterruptedException {
 		admission.Iclickonthedeletebuttononthetransitiontodeleteallthetransitions();
 	}
 
@@ -144,8 +139,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I enter ([^\"]*) on create transition page on transition tab on Patient Summary$")
-	public void I_enter_on_create_transition_page_on_transition_tab_on_Patient_Summary(String admitreason)
-			throws Throwable {
+	public void I_enter_on_create_transition_page_on_transition_tab_on_Patient_Summary(String admitreason) throws Throwable {
 		admission.IenteroncreatetransitionpageontransitiontabonPatientSummary(admitreason);
 	}
 

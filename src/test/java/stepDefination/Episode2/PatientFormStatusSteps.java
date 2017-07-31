@@ -11,37 +11,29 @@ public class PatientFormStatusSteps extends DriverScript {
 	PatientClinicalDocuments patientclinical = new PatientClinicalDocuments(driver);
 
 	@Then("^I verify the searched patient has the CARL complete text or not$")
-
-	public void I_verify_the_searched_patient_has_the_CARL_complete_text_or_not() throws Throwable {
+    public void I_verify_the_searched_patient_has_the_CARL_complete_text_or_not() throws Throwable {
 		patientclinical.IverifythesearchedpatienthastheCARLcompletetextornot();
 
 	}
 
 	@Then("^I search and click on the searched patient which has the CARL text in it$")
-
-	public void I_search_and_click_on_the_searched_patient_which_has_the_CARL_text_in_it()
-			throws Throwable, InterruptedException {
+    public void I_search_and_click_on_the_searched_patient_which_has_the_CARL_text_in_it() throws Throwable, InterruptedException {
 		patientclinical.IsearchandclickonthesearchedpatientwhichhastheCARLtextinit();
 	}
 
 	@Then("^I click on the Clinical Documents tab in the patient summary Page$")
-
-	public void I_click_on_the_Clinical_Documents_tab_in_the_patient_summary_Page() throws Throwable {
+    public void I_click_on_the_Clinical_Documents_tab_in_the_patient_summary_Page() throws Throwable {
 		patientclinical.IclickontheClinicalDocumentstabinthepatientsummaryPage();
 	}
 
 	@Then("^I verify the CARL Document on the Clinical Documents tab in the patient summary Page$")
-	public void I_verify_the_CARL_Document_on_the_Clinical_Documents_tab_in_the_patient_summary_Page()
-			throws Throwable {
+	public void I_verify_the_CARL_Document_on_the_Clinical_Documents_tab_in_the_patient_summary_Page() throws Throwable {
 		patientclinical.IverifytheCARLDocumentontheClinicalDocumentstabinthepatientsummaryPage();
 	}
 
 	@Then("^I verify that if user has saved a form but not submitted, status should be read as In Progress$")
-
-	public void I_verify_that_if_user_has_saved_a_form_but_not_submitted_status_should_be_read_as_In_Progress()
-			throws Throwable
-
-	{
+	public void I_verify_that_if_user_has_saved_a_form_but_not_submitted_status_should_be_read_as_In_Progress() throws Throwable
+    {
 		patientclinical.IverifythatifuserhassavedaformbutnotsubmittedstatusshouldbereadasInProgress();
 	}
 
@@ -86,10 +78,8 @@ public class PatientFormStatusSteps extends DriverScript {
 	}
 
 	@Then("^I verify that if patient has has a formed assigned that is the same as an existing form the status of the already existing form should be read as Archived$")
-	public void I_verify_that_if_patient_has_has_a_formed_assigned_that_is_the_same_as_an_existing_form_the_status_of_the_already_existing_form_should_be_read_as_Archived()
-			throws Throwable {
-		patientclinical
-				.IverifythatifpatienthashasaformedassignedthatisthesameasanexistingformthestatusofthealreadyexistingformshouldbereadasArchived();
+	public void I_verify_that_if_patient_has_has_a_formed_assigned_that_is_the_same_as_an_existing_form_the_status_of_the_already_existing_form_should_be_read_as_Archived() throws Throwable {
+		patientclinical.IverifythatifpatienthashasaformedassignedthatisthesameasanexistingformthestatusofthealreadyexistingformshouldbereadasArchived();
 	}
 
 	@Then("^I verify that Archived status should be in Grey color with Color code 959595$")

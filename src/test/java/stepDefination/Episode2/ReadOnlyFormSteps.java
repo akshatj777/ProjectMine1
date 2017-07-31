@@ -14,32 +14,30 @@ public class ReadOnlyFormSteps extends DriverScript {
 	PatientClinicalDocuments patientclinical = new PatientClinicalDocuments(driver);
 
 	@Then("^I click on the document to open the Notes on the Clinical Documents$")
-
-	public void I_click_on_the_document_to_open_the_Notes_on_the_Clinical_Documents() {
+    public void I_click_on_the_document_to_open_the_Notes_on_the_Clinical_Documents() throws Throwable {
 		patientclinical.IclickonthedocumenttoopentheNotesontheClinicalDocuments();
 
 	}
 
 	@Then("^I Verify that Notes - Read only form should be accessible$")
-	public void I_Verify_that_Notes_Read_only_form_should_be_accessible() {
+	public void I_Verify_that_Notes_Read_only_form_should_be_accessible() throws Throwable {
 		patientclinical.IVerifythatNotesReadonlyformshouldbeaccessible();
 
 	}
 
 	@Then("^I verify Topic should be the note title$")
-	public void I_verify_Topic_should_be_the_note_title() {
+	public void I_verify_Topic_should_be_the_note_title() throws Throwable {
 		patientclinical.IverifyTopicshouldbethenotetitle();
 	}
 
 	@Then("^I verify Body text box should be there on Notes - Read only form$")
-	public void I_verify_Body_text_box_should_be_there_on_Notes_Read_only_form() {
+	public void I_verify_Body_text_box_should_be_there_on_Notes_Read_only_form() throws Throwable {
 		patientclinical.IverifyBodytextboxshouldbethereonNotesReadonlyform();
 	}
 
 	@Then("^I Verify that User email should be displayed under notes read only form$")
-	public void I_Verify_that_User_email_should_be_displayed_under_notes_read_only_form() {
-
-		patientclinical.IVerifythatUseremailshouldbedisplayedundernotesreadonlyform();
+	public void I_Verify_that_User_email_should_be_displayed_under_notes_read_only_form() throws Throwable {
+        patientclinical.IVerifythatUseremailshouldbedisplayedundernotesreadonlyform();
 	}
 
 	@Then("^I Verify that User role should be displayed under notes read only form$")
@@ -59,22 +57,18 @@ public class ReadOnlyFormSteps extends DriverScript {
 	}
 
 	@Then("^I Verify that Activity date should displayed date with format MM/DD/YYYY$")
-	public void I_Verify_that_Activity_date_should_displayed_date_with_format_MMDDYYYY()
-			throws ParseException, Throwable {
+	public void I_Verify_that_Activity_date_should_displayed_date_with_format_MMDDYYYY() throws ParseException, Throwable {
 		patientclinical.IVerifythatActivitydateshoulddisplayeddatewithformatMMDDYYYY();
 	}
 
 	@Then("^I Verify that Created date should displayed date with format MM/DD/YYYY$")
-	public void I_Verify_that_Created_date_should_displayed_date_with_format_MMDDYYYY()
-			throws ParseException, Throwable {
+	public void I_Verify_that_Created_date_should_displayed_date_with_format_MMDDYYYY() throws ParseException, Throwable {
 		patientclinical.IVerifythatCreateddateshoulddisplayeddatewithformatMMDDYYYY();
 	}
 
 	@Then("^I verify that user should be able to download all the attachment attached under the notes by selecting download link$")
-	public void I_verify_that_user_should_be_able_to_download_all_the_attachment_attached_under_the_notes_by_selecting_download_link()
-			throws Throwable, AWTException, InterruptedException {
-		patientclinical
-				.Iverifythatusershouldbeabletodownloadalltheattachmentattachedunderthenotesbyselectingdownloadlink();
+	public void I_verify_that_user_should_be_able_to_download_all_the_attachment_attached_under_the_notes_by_selecting_download_link() throws Throwable, AWTException, InterruptedException {
+		patientclinical.Iverifythatusershouldbeabletodownloadalltheattachmentattachedunderthenotesbyselectingdownloadlink();
 	}
 
 	@Then("^I verify that there is an Attachments section that should display all attachments")

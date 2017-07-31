@@ -1,9 +1,7 @@
 package com.remedy.Episode2;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.remedy.baseClass.BaseClass;
 
 public class PatientExport extends BaseClass {
@@ -29,8 +27,7 @@ public class PatientExport extends BaseClass {
 	}
 
 	public void iVerifyButtonIsAppearingInExportDrawerBox(String button) {
-		isElementVisible(driver.findElement(
-				By.xpath("//div[@class='export-footer container-fluid']//button[text()='" + button + "']")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='export-footer container-fluid']//button[text()='" + button + "']")));
 	}
 
 	public void iSeeOpenedDrawerOnExportDrawerBox() {
@@ -46,8 +43,7 @@ public class PatientExport extends BaseClass {
 	}
 
 	public void iClickOnCancelButtonOnExportDrawerBox() {
-		clickElement(
-				driver.findElement(By.xpath("//div[@class='export-footer container-fluid']//button[text()='Cancel']")));
+		clickElement(driver.findElement(By.xpath("//div[@class='export-footer container-fluid']//button[text()='Cancel']")));
 	}
 
 	public void iVerifyFiltersAppearingOnClickingOnFiltersOnPatientPage(String text) {
@@ -55,8 +51,7 @@ public class PatientExport extends BaseClass {
 	}
 
 	public void iVerifyColumnListAppearingOnExportDrawerBox(String text) {
-		verifyTextForElement(
-				driver.findElement(By.cssSelector(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span")), text);
 	}
 
 	public void iVerifyColumnListTextAppearingOnExportDrawerBox(String text) {
@@ -76,8 +71,7 @@ public class PatientExport extends BaseClass {
 	}
 
 	public void iClickOnCloseOnErrorForExportPatientList() {
-		clickElement(driver.findElement(By.xpath(
-				"//div[@class='tooltip-alert alert alert-danger alert-dismissible']//i[@class='alert-close-icon']")));
+		clickElement(driver.findElement(By.xpath("//div[@class='tooltip-alert alert alert-danger alert-dismissible']//i[@class='alert-close-icon']")));
 	}
 
 	public void iVerifyAppliedFilterOnExportDrawerBox(String text) {

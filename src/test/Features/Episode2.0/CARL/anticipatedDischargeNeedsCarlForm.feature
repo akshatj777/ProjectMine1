@@ -1,6 +1,6 @@
 Feature: To verify the options and functionality of Anticipated Discharge Needs section of Carl form
 
-  Scenario Outline: To verify the Anticicpated section of the Carl Form
+  Scenario: To verify the Anticicpated section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -46,11 +46,7 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I Verify that Carl form should appear with Save & Go Back link
     Then I Verify that Carl form should appear with Save & Continue link
 
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
-
-  Scenario Outline: To Select the options present under Therapies Needed on the Anticicpated section of the Carl Form
+  Scenario: To Select the options present under Therapies Needed on the Anticicpated section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -86,11 +82,7 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I verify "Occupational therapy" checkbox is not clickable
     Then I click "None" checkbox under Therapies Needed on Anticipated Discharge Needs section
 
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
-
-  Scenario Outline: To verify upon selcting Physical Therapy user should be able to select a response for Patients Restoration Potential
+  Scenario: To verify upon selcting Physical Therapy user should be able to select a response for Patients Restoration Potential
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -125,10 +117,6 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I select "Good restoration potential" in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I verify "Good restoration potential" is selected in Physical Therapy place holder on Anticipated Discharge Needs
     And I wait for 2000 milli seconds
-
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
 
   Scenario Outline: To verify the options present under Transition of Care Needs on the Anticicpated section of the Carl Form
     Given I am on the login page
@@ -174,18 +162,18 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I verify "<Radio2>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
 
     Examples: 
-      | First name | Last name  | Check                            | Label                  | Radio1                   | Radio2               |
-      | AUTOMATION | DO_NOT_USE | Injectable Meds                  | How often?             | Once daily or less often | More than once daily |
-      | AUTOMATION | DO_NOT_USE | Blood Testing                    | How often?             | Once daily or less often | More than once daily |
-      | AUTOMATION | DO_NOT_USE | Finger Stick                     | How often?             | Once daily               | More than once daily |
-      | AUTOMATION | DO_NOT_USE | Ostomy                           | Is it New or existing? | New                      | Existing             |
-      | AUTOMATION | DO_NOT_USE | Tracheostomy                     | Is it New or existing? | New                      | Existing             |
-      | AUTOMATION | DO_NOT_USE | Catheter                         | Is it New or existing? | New                      | Existing             |
-      | AUTOMATION | DO_NOT_USE | Oxygen                           | Is it New or existing? | New                      | Existing             |
-      | AUTOMATION | DO_NOT_USE | CPAP                             | Is it New or existing? | New                      | Existing             |
-      | AUTOMATION | DO_NOT_USE | BIPAP                            | Is it New or existing? | New                      | Existing             |
-      | AUTOMATION | DO_NOT_USE | New disease process or diagnosis | How Many?              | One                      | More than one        |
-      | AUTOMATION | DO_NOT_USE | New discharge medication         | How Many?              | One                      | More than one        |
+      | Check                            | Label                  | Radio1                   | Radio2               |
+      | Injectable Meds                  | How often?             | Once daily or less often | More than once daily |
+      | Blood Testing                    | How often?             | Once daily or less often | More than once daily |
+      | Finger Stick                     | How often?             | Once daily               | More than once daily |
+      | Ostomy                           | Is it New or existing? | New                      | Existing             |
+      | Tracheostomy                     | Is it New or existing? | New                      | Existing             |
+      | Catheter                         | Is it New or existing? | New                      | Existing             |
+      | Oxygen                           | Is it New or existing? | New                      | Existing             |
+      | CPAP                             | Is it New or existing? | New                      | Existing             |
+      | BIPAP                            | Is it New or existing? | New                      | Existing             |
+      | New disease process or diagnosis | How Many?              | One                      | More than one        |
+      | New discharge medication         | How Many?              | One                      | More than one        |
 
   Scenario Outline: To verify the multiple options and labels present under checkbox  for Transition of Care Needs on the Anticicpated section of the Carl Form
     Given I am on the login page
@@ -241,6 +229,6 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I verify "<Radio22>" radio is set to default on selecting "<Check>" checkbox on Anticipated Discharge Needs
 
     Examples: 
-      | First name | Last name  | Check        | Label1     | Radio11                     | Radio12                      | Label2                 | Radio21 | Radio22  |
-      | AUTOMATION | DO_NOT_USE | Wound Care   | How often? | Once daily or less often    | More than once daily         | Is it New or existing? | New     | Existing |
-      | AUTOMATION | DO_NOT_USE | Tube Feeding | What kind? | Partial nutritional support | Complete nutritional support | Is it New or existing? | New     | Existing |
+      | Check        | Label1     | Radio11                     | Radio12                      | Label2                 | Radio21 | Radio22  |
+      | Wound Care   | How often? | Once daily or less often    | More than once daily         | Is it New or existing? | New     | Existing |
+      | Tube Feeding | What kind? | Partial nutritional support | Complete nutritional support | Is it New or existing? | New     | Existing |

@@ -40,5 +40,5 @@ Feature: Summary Section of the Clinical Documents
     Then I verify if a note is having attachment and do not have any summary then attachment count should appear in the summary section
 
     Examples: 
-      | First name | Last name  | Medicare ID | Notetext                                                                                                                                                                    |
-      | AUTOMATION | DO_NOT_USE | wa984986    | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |
+      | Medicare ID | Notetext                                                                                                                                                                    |
+      | wa984986    | In above case we have String dateString in format dd-MMM-yyyy, so to convert the String to Date in given format we have Created Object formatter of Class SimpleDateFormat. |

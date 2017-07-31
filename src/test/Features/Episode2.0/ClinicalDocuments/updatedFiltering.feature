@@ -92,5 +92,5 @@ Feature: Updated Filtering
     Then I Verify that clicking on Done should close the filter drawer and process the filter
 
     Examples: 
-      | First name | Last name  | Medicare ID | date | Notetext                |
-      | DO_NOT_USE | AUTOMATION | wa984986    |   12 | Remedy Document Section |
+      | Medicare ID | date | Notetext                |
+      | wa984986    |   12 | Remedy Document Section |

@@ -88,8 +88,8 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     Then I close the patient summary Page
 
     Examples: 
-      | First name | Last name  | F_Name        | L_Name       |
-      | AUTOMATION | DO_NOT_USE | FirstNameTest | LastNameTest |
+      | F_Name        | L_Name       |
+      | FirstNameTest | LastNameTest |
 
   Scenario Outline: To verify upon selecting the +Add Caregiver link in the Caregiver page, the user should be able to complete the information on the Caregiver form.
     To add a caregiver by selecting a member from a list of all Care Network Members associated with a patient
@@ -155,8 +155,8 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     And I wait for 2000 milli seconds
 
     Examples: 
-      | First name | Last name  | F_Name        | L_Name       | Email_Id             | Phone        |
-      | AUTOMATION | DO_NOT_USE | FirstNameTest | LastNameTest | testuser@yopmail.com | 987-456-1230 |
+      | F_Name        | L_Name       | Email_Id             | Phone        |
+      | FirstNameTest | LastNameTest | testuser@yopmail.com | 987-456-1230 |
 
   Scenario Outline: To verify deleting of the caregiver created
     Given I am on the login page
@@ -187,5 +187,5 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     Then I close the patient summary Page
 
     Examples: 
-      | First name | Last name  | F_Name        | L_Name       |
-      | AUTOMATION | DO_NOT_USE | FirstNameTest | LastNameTest |
+      | F_Name        | L_Name       |
+      | FirstNameTest | LastNameTest |

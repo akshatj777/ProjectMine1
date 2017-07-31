@@ -1,6 +1,6 @@
 Feature: To verify the options and functionality of Independence section of Carl form
 
-  Scenario Outline: To verify the Independence section of the Carl Form
+  Scenario: To verify the Independence section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -35,11 +35,7 @@ Feature: To verify the options and functionality of Independence section of Carl
     Then I Verify that Carl form should appear with Save & Go Back link
     Then I Verify that Carl form should appear with Save & Continue link
 
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
-
-  Scenario Outline: User should be able select given options present on Independence section of the Carl Form
+  Scenario: User should be able select given options present on Independence section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -89,7 +85,3 @@ Feature: To verify the options and functionality of Independence section of Carl
     Then I click on "No" radio button on Independence section
     And I wait for 2000 milli seconds
     And I verify "No" radio button is seclected on Independence section
-
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |

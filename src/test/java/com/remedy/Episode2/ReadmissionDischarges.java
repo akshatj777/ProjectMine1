@@ -1,13 +1,10 @@
 package com.remedy.Episode2;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import com.remedy.baseClass.BaseClass;
 
-import cucumber.api.java.en.Then;
+
 
 public class ReadmissionDischarges extends BaseClass {
 	public ReadmissionDischarges(WebDriver driver) {
@@ -19,18 +16,14 @@ public class ReadmissionDischarges extends BaseClass {
 	}
 
 	public void IselectthemidinighttimefromthecalendaronadmitdatefromdatepickeronTransitionPage() {
-		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(1)")));
-		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(1)")));
+		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(1)")));
+		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(1)")));
 
 	}
 
 	public void IselectthebeforemidinighttimefromthecalendaronadmitdatefromdatepickeronTransitionPage() {
-		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(24)")));
-		clickElement(driver.findElement(By.cssSelector(
-				"body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
+		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-hours > table > tbody > tr > td > span:nth-child(24)")));
+		clickElement(driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-minutes > table > tbody > tr > td > span:nth-child(12)")));
 
 	}
 

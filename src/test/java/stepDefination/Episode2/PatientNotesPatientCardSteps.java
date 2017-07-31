@@ -2,8 +2,6 @@ package stepDefination.Episode2;
 
 import java.awt.AWTException;
 import com.remedy.Episode2.NoteCreation;
-import com.remedy.Episode2.PatientsPage;
-import com.remedy.Episode2.Readmission;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;

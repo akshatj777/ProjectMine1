@@ -104,5 +104,5 @@ Feature: Document Section
     Then I verify that user should be able to click on title of document
 
     Examples: 
-      | First name | Last name  | Medicare ID | date | Text Description        |
-      | DO_NOT_USE | AUTOMATION | wa984986    |   12 | Remedy Document Section |
+      | Medicare ID | date | Text Description        |
+      | wa984986    |   12 | Remedy Document Section |

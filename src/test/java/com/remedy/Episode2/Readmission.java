@@ -83,9 +83,7 @@ public class Readmission extends BaseClass {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate localDate = LocalDate.now();
 		LocalDate b = localDate.minus(Period.ofDays(days));
-		System.out.println("$$$$Local Date is" + b);
 		String date = dtf.format(b);
-		System.out.println(dtf.format(b));
 		return date;
 	}
 
@@ -94,13 +92,11 @@ public class Readmission extends BaseClass {
 		String dateTime = getcurrentdate(days);
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
 		int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2]) - Calendar.getInstance().get(Calendar.YEAR);
-		System.out.println("$$$$The year difference is" + yearDiff);
 		WebElement nextLink = driver.findElement(By.cssSelector("th.next"));
 		WebElement previousLink = driver.findElement(By.cssSelector("th.prev"));
 		if (yearDiff != 0) {
 			if (yearDiff > 0) {
 				for (int i = 0; i < yearDiff; i++) {
-					System.out.println("Year Diff->" + i);
 					nextLink.click();
 				}
 			}
@@ -108,7 +104,6 @@ public class Readmission extends BaseClass {
 			else if (yearDiff < 0) {
 
 				for (int i = 0; i < (yearDiff * (-1)); i++) {
-					System.out.println("Year Diff->" + i);
 					previousLink.click();
 
 				}
@@ -119,15 +114,13 @@ public class Readmission extends BaseClass {
 	public void Iselectthedatefromthecalendarfromdatepicker(int days) {
 		String dateTime = getcurrentdate(days);
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
-		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath(
-				"//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
+		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
 		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
 
 	}
 
 	public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPage() {
-
-		clickElement(driver.findElement(By.xpath("/html/body/div[12]/div[3]/table/thead/tr[1]/th[2]")));
+        clickElement(driver.findElement(By.xpath("/html/body/div[12]/div[3]/table/thead/tr[1]/th[2]")));
 	}
 
 	public void IselectthetimefromthecalendarfromdatepickeronTransitionPage(String date) {
@@ -147,13 +140,11 @@ public class Readmission extends BaseClass {
 	public void IverifythepatientpresentonthePatientCardPage(String last_name) {
 
 		String newname = last_name.toUpperCase();
-		isElementVisible(
-				driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
+		isElementVisible(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
 	}
 
 	public void IverifythepatientnotpresentonthePatientCardPage(String last_name) {
-
-		try {
+          try {
 			driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + last_name + "')]"));
 		} catch (Exception e) {
 			return;
@@ -167,19 +158,15 @@ public class Readmission extends BaseClass {
 	}
 
 	public void IclickontheeditbuttontoedittheActivetransition(String transition_value) throws InterruptedException {
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value
-				+ "]/td[contains(@class, 'settings-column')]/div")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div")));
 		System.out.println("Successfully clicked on toggle button");
 		Thread.sleep(5000);
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value
-				+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
-		System.out.println("Successfully click on Edit button");
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
 	}
 
 	public void IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage() {
 
-		WebElement element = driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
+		WebElement element = driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 		clickElement(element);
@@ -194,7 +181,6 @@ public class Readmission extends BaseClass {
 	}
 
 	public void Iclickonupdatetransitiontoaddanewepisode() {
-		// TODO Auto-generated method stub
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		WebElement element = driver.findElement(By.cssSelector("#submitButton"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -203,13 +189,11 @@ public class Readmission extends BaseClass {
 	}
 
 	public void Iselectthedischargecaresettingvalueonaddanewtransition(String caresetting) {
-
-		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeFacilityCategory", caresetting);
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeFacilityCategory", caresetting);
 	}
 
 	public void Iselectthedischargecaretypevalueonaddanewtransition(String caretypevalue) {
-
-		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeCareType", caretypevalue);
+        selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_dischargeCareType", caretypevalue);
 	}
 
 	public void Iselectthedischargefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
@@ -233,41 +217,29 @@ public class Readmission extends BaseClass {
 
 	public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
 		int count = getElementCount("td.settings-column.center.cursor-default > div");
-		System.out.println("The transition count is" + count);
 		for (int i = 1; i <= count; i++) {
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
 			Thread.sleep(5000);
-			clickElement(driver.findElement(
-					By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
+			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
 			Thread.sleep(5000);
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-			Thread.sleep(10000);
+			Thread.sleep(8000);
 		}
 	}
 
 	public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search) {
-
-		iFillInText(
-				driver.findElement(
-						By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")),
-				search);
+         iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")),search);
 
 	}
 
 	public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
-
-		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
+        clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
 		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen8_search")), DRG);
 		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
 	}
 
 	public void IclickonthecentreofthecalendarheadertoselectdateandmonthonTransitionPageJavascript() {
-		WebElement element2 = driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) >div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
-		/*
-		 * JavascriptExecutor jse = (JavascriptExecutor)driver;
-		 * jse.executeScript("window.scrollBy(100,0)", "");
-		 */
+		WebElement element2 = driver.findElement(By.cssSelector("body > div:nth-child(17) >div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", element2);
 		clickElement(element2);

@@ -108,5 +108,5 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I verify that there should be an Attachment icon on Clinical Documents Activity Section
 
     Examples: 
-      | First name | Last Name | Medicare ID | date | Text Description        |
-      | DO_NOT_USE | CROSSES   | wa984986    |   12 | Remedy Document Section |
+      | Medicare ID | date | Text Description        |
+      | wa984986    |   12 | Remedy Document Section |

@@ -21,8 +21,7 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IclickonforwardarrowbuttontonavigatetoHomewithLimitedServicestabonthepatientCardPage() {
-		clickElement(
-				driver.findElement(By.cssSelector("i.flex-right.right-arrow.valentino-icon-caret-right.ng-scope")));
+		clickElement(driver.findElement(By.cssSelector("i.flex-right.right-arrow.valentino-icon-caret-right.ng-scope")));
 	}
 
 	public void IclickonHomewithLimitedServicessubtabonthepatientCardPage() {
@@ -66,11 +65,9 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(
-					ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Post Acute')]")));
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Post Acute')]")))
-					.click();
-		} catch (WebDriverException wde) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Post Acute')]")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Post Acute')]"))).click();
+		}   catch (WebDriverException wde) {
 			scrollToElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
 			driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")).click();
 		}
@@ -81,13 +78,6 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
 		}
 	}
-	// JavascriptExecutor js = (JavascriptExecutor) driver;
-	// WebElement element3 =
-	// driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]"));
-	// clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post
-	// Acute')]")));
-	// js.executeScript("arguments[0].click();", element3);
-	// clickElement(element3);
 
 	public void Ireloadmypage() {
 		driver.navigate().refresh();

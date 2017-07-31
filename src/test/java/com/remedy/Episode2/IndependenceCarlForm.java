@@ -24,9 +24,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IVerifyThatSelectedSectionOnCarlFormGetsHihlightedInLeftNavigatorUponClick(String text) {
-		verifyTextForElement(driver.findElement(By.xpath(
-				"//li[@class='list-group-item tab ng-scope selected appears-selected']//span[text()='" + text + "']")),
-				text);
+		verifyTextForElement(driver.findElement(By.xpath("//li[@class='list-group-item tab ng-scope selected appears-selected']//span[text()='" + text + "']")),text);
 	}
 
 	public void IVerifyTheDropdownBarsPresentInIndependenceSection(String text) {
@@ -41,15 +39,12 @@ public class IndependenceCarlForm extends BaseClass {
 		verifyTextForElementfromList(".radio.ng-not-empty.ng-valid>label", text);
 	}
 
-	public void IVerifyOptionSelectedAppearsInThePlaceHolderOfDropDownOnIndependenceSection(String text1,
-			String text2) {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//section[@label='" + text2 + "']//span[text()='" + text1 + "']")), text1);
+	public void IVerifyOptionSelectedAppearsInThePlaceHolderOfDropDownOnIndependenceSection(String text1,String text2) {
+		verifyTextForElement(driver.findElement(By.xpath("//section[@label='" + text2 + "']//span[text()='" + text1 + "']")), text1);
 	}
 
 	public void IClickOnTheDropDownOnIndependenceSection(String text) {
-		clickElement(driver
-				.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']")));
+		clickElement(driver.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']")));
 	}
 
 	public void IVerifyOptionsPresentInDropDownOnIndependeceSection(String option) {
@@ -61,9 +56,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IVerifyTextForRadioButtonsPresentOnIndependenceSection(String text) {
-		verifyTextForElement(
-				driver.findElement(By.xpath("//div[@class='radio-wrapper ng-scope']//span[text()='" + text + "']")),
-				text);
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='radio-wrapper ng-scope']//span[text()='" + text + "']")),text);
 	}
 
 	public void IClickOnTheRadioButtonOnIndependenceSection(String text) {
@@ -73,8 +66,7 @@ public class IndependenceCarlForm extends BaseClass {
 	public void IVerifyTheSelectedRadioButtonOnIndependenceSection(String text) {
 		try {
 			Assert.assertTrue(
-					driver.findElement(By.xpath("//label[span[text()='" + text + "']]/preceding-sibling::input"))
-							.isSelected());
+					driver.findElement(By.xpath("//label[span[text()='" + text + "']]/preceding-sibling::input")).isSelected());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

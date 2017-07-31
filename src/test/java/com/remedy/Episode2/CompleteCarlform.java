@@ -26,8 +26,7 @@ public class CompleteCarlform extends BaseClass {
 		delay();
 		js.executeScript("arguments[0].click();", element);
 		delay();
-
-	}
+}
 
 	public void IverifyCARLbuttonsappearsonthepatientsummary() {
 		WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));
@@ -57,12 +56,10 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
-
-		isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
+        isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
 	}
 
-	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(
-			String lastname, String firstname) {
+	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname, String firstname) {
 		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'" + lastname + ", " + firstname + "')]")));
 		isElementVisible(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
@@ -80,8 +77,7 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IVerifyThatDoesthePatientHaveACapableCaregiverShouldAppearOnTakeoverPage(String question) {
-
-		isElementVisible(driver.findElement(By.xpath("//h3[contains(text(),'" + question + "')]")));
+        isElementVisible(driver.findElement(By.xpath("//h3[contains(text(),'" + question + "')]")));
 
 	}
 
@@ -173,10 +169,7 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IVerifyTheTextHoverOnPatientsRestorationPotential() {
 		String HoverOnPatientsRestorationText = "Restoration potential is defined as the extent to which a patient's condition will improve materially in a reasonable and generally predictable period of time";
-		verifyTextForElement(
-				driver.findElement(By
-						.xpath("//div[@class='tooltip ng-scope ng-isolate-scope bottom white-background fade in']//div[@ng-bind='content']")),
-				HoverOnPatientsRestorationText);
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='tooltip ng-scope ng-isolate-scope bottom white-background fade in']//div[@ng-bind='content']")),HoverOnPatientsRestorationText);
 	}
 
 	public void IClickOnCareTeamOnNavBarOnPatientSummaryPage(String text) {
@@ -235,16 +228,14 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IVerifyTheLabelDropdownUnderRelationship() {
 
-		driver.findElement(By
-				.xpath("html/body/div[5]/div/div/div/div[2]/form/div/div[2]/section/div[5]/form/div[1]/div[3]/div[1]/div/div[1]/span"))
-				.click();
+		driver.findElement(By.xpath("html/body/div[5]/div/div/div/div[2]/form/div/div[2]/section/div[5]/form/div[1]/div[3]/div[1]/div/div[1]/span")).click();
 		List<String> actualmylist = getTextForElementfromList("span.ui-select-choices-row-inner");
 		String[] expectedvalues = { "Adoptive Parent", "Aunt/Uncle", "Brother", "Child", "Daughter", "DCF/DSS",
 				"Dependent", "Father", "Foster Parent", "Friend", "Grandchild", "Grandparent", "Guarantor",
 				"Legal Guardian", "Life Partner", "Mother", "Niece/Nephew", "Neighbor", "Organ Donor", "Other",
 				"Power of Attorney or Living Will Proxy", "Sibling", "Significant Other", "Sister", "Son", "Spouse",
 				"Step-Parent", "Step-Child", "Unknown" };
-		List<String> requiredcombolisttext = new ArrayList();
+		List<String> requiredcombolisttext = new ArrayList<String>();
 		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
 		verifyarraylist(requiredcombolisttext, actualmylist);
 	}
@@ -281,7 +272,7 @@ public class CompleteCarlform extends BaseClass {
 
 		List<String> mylist = getTextForElementfromList("span.label-content.ng-binding");
 		String[] expectedvalues = { "Caregiver", "Independence", "Anticipated Discharge Needs", "Discharge" };
-		List<String> requiredcombolisttext = new ArrayList();
+		List<String> requiredcombolisttext = new ArrayList<String>();
 		requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
 		verifyarraylist(requiredcombolisttext, mylist);
 	}

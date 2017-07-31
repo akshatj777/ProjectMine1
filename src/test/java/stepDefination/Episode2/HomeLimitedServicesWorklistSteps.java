@@ -14,8 +14,7 @@ public class HomeLimitedServicesWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on forward arrow button to navigate to Home with Limited Services tab on the patient Card Page$")
-	public void I_click_on_forward_arrow_button_to_navigate_to_Home_with_Limited_Services_tab_on_the_patient_Card_Page()
-			throws Throwable {
+	public void I_click_on_forward_arrow_button_to_navigate_to_Home_with_Limited_Services_tab_on_the_patient_Card_Page() throws Throwable {
 		homeworklist.IclickonforwardarrowbuttontonavigatetoHomewithLimitedServicestabonthepatientCardPage();
 	}
 
@@ -25,14 +24,12 @@ public class HomeLimitedServicesWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I select the \"([^\"]*)\" DRG value on the Diagnosis and DRG tab on add a new transition$")
-	public void I_select_the_DRG_value_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRG)
-			throws InterruptedException,Throwable {
+	public void I_select_the_DRG_value_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRG) throws InterruptedException,Throwable {
 		homeworklist.IselecttheDRGvalueontheDiagnosisandDRGtabonaddanewtransition(DRG);
 	}
 
 	@Then("^I select the facility value Stamford \"([^\"]*)\" on add a new transition$")
-	public void I_select_the_facility_value_Stamford_on_add_a_new_transition(String facility)
-			throws InterruptedException,Throwable {
+	public void I_select_the_facility_value_Stamford_on_add_a_new_transition(String facility) throws InterruptedException,Throwable {
 		homeworklist.IselectthefacilityvalueStamfordonaddanewtransition(facility);
 	}
 

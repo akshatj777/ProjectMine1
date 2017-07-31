@@ -12,18 +12,15 @@ public class PatientPageWorklists extends BaseClass {
 	}
 
 	public void iVerifyDaysToReadsmissionSection() {
-		isElementVisible(driver
-				.findElement(By.xpath("//div[div[span[@ng-bind='::patient.numberDaysToAdmission.config.label']]]")));
+		isElementVisible(driver.findElement(By.xpath("//div[div[span[@ng-bind='::patient.numberDaysToAdmission.config.label']]]")));
 	}
 
 	public void iSeeNumberDaysToInEpisode() {
-		isElementVisible(driver.findElement(By
-				.xpath("//div[@class='patient-admission-days-row col-equal-rows emphasized-datum ng-scope']/div[1]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='patient-admission-days-row col-equal-rows emphasized-datum ng-scope']/div[1]")));
 	}
 
 	public void iSeeReadmissionCount() {
-		isElementVisible(driver.findElement(By
-				.xpath("//div[@class='patient-admission-days-row col-equal-rows emphasized-datum ng-scope']/div[2]")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='patient-admission-days-row col-equal-rows emphasized-datum ng-scope']/div[2]")));
 	}
 
 	public void iSeeEpisodeProgressKnob() {
@@ -35,7 +32,6 @@ public class PatientPageWorklists extends BaseClass {
 	}
 
 	public void iSeeNumberDaysAsInpatient() {
-		isElementVisible(
-				driver.findElement(By.xpath("//div[span[@ng-bind='::patient.numberInpatientDays.config.label']]")));
+		isElementVisible(driver.findElement(By.xpath("//div[span[@ng-bind='::patient.numberInpatientDays.config.label']]")));
 	}
 }

@@ -1,9 +1,6 @@
 package stepDefination.Episode2;
 
-import org.openqa.selenium.By;
 import com.remedy.Episode2.PatientClinicalDocuments;
-import com.remedy.Episode2.PatientsPage;
-
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 
@@ -29,28 +26,21 @@ public class SummarySectionSteps extends DriverScript {
 	}
 
 	@Then("^I verify if summary is longer than the character limit then Ellipsis three dots should show$")
-	public void I_verify_if_summary_is_longer_than_the_character_limit_then_Ellipsis_three_dots_should_show()
-			throws Throwable {
+	public void I_verify_if_summary_is_longer_than_the_character_limit_then_Ellipsis_three_dots_should_show() throws Throwable {
 		patientclinical.IverifyifsummaryislongerthanthecharacterlimitthenEllipsisthreedotsshouldshow();
 	}
 
 	@Then("^I verify if a note is having attachment and do not have any summary then attachment count should appear in the summary section$")
-	public void I_verify_if_a_note_is_having_attachment_and_do_not_have_any_summary_then_attachment_count_should_appear_in_the_summary_section()
-			throws Throwable {
-		patientclinical
-				.Iverifyifanoteishavingattachmentanddonothaveanysummarythenattachmentcountshouldappearinthesummarysection();
+	public void I_verify_if_a_note_is_having_attachment_and_do_not_have_any_summary_then_attachment_count_should_appear_in_the_summary_section() throws Throwable {
+		patientclinical.Iverifyifanoteishavingattachmentanddonothaveanysummarythenattachmentcountshouldappearinthesummarysection();
 	}
 
 	@Then("^I verify forms should not display any message in the summary section and it should be greyed out blank$")
-	public void I_verify_forms_should_not_display_any_message_in_the_summary_section_and_it_should_be_greyed_out_blank()
-			throws Throwable {
+	public void I_verify_forms_should_not_display_any_message_in_the_summary_section_and_it_should_be_greyed_out_blank() throws Throwable {
 		patientclinical.Iverifyformsshouldnotdisplayanymessageinthesummarysectionanditshouldbegreyedoutblank();
 	}
 
-	// Document section
-
 	@Then("^I click on the Transitions tab on the Patient Summary Page$")
-
 	public void I_click_on_the_Transitions_tab_in_the_patient_summary_Page() throws Throwable {
 		patientclinical.IclickontheTransitionstabinthepatientsummaryPage();
 	}
@@ -107,8 +97,7 @@ public class SummarySectionSteps extends DriverScript {
 	}
 
 	@Then("^I verify that title of document or topic of note should appear as a link in the section$")
-	public void I_verify_that_title_of_document_or_topic_of_note_should_appear_as_a_link_in_the_section()
-			throws Throwable {
+	public void I_verify_that_title_of_document_or_topic_of_note_should_appear_as_a_link_in_the_section() throws Throwable {
 		patientclinical.Iverifythattitleofdocumentortopicofnoteshouldappearasalinkinthesection();
 	}
 
@@ -131,13 +120,6 @@ public class SummarySectionSteps extends DriverScript {
 	public void I_click_on_the_Transition_Info_on_add_a_new_transition() throws Throwable {
 		patientclinical.IclickontheTransitionInfoonaddanewtransition();
 
-	}
-
-	@Then("^I verify the CARL Document not appear on the Clinical Documents tab in the patient summary Page$")
-	public void I_verify_the_CARL_Document_not_appear_on_the_Clinical_Documents_tab_in_the_patient_summary_Page()
-			throws Throwable {
-
-		// patientclinical.IverifytheCARLDocumentnotappearontheClinicalDocumentstabinthepatientsummaryPage();
 	}
 
 	@Then("^I click on the Cancel button on Episode present on the Add Patient page$")

@@ -22,8 +22,7 @@ public class UpdatedTableSteps extends DriverScript {
 	}
 
 	@Then("^I verify table should be sorted chronologically by activity date most recent first$")
-	public void I_verify_table_should_be_sorted_chronologically_by_activity_date_most_recent_first()
-			throws ParseException {
+	public void I_verify_table_should_be_sorted_chronologically_by_activity_date_most_recent_first() throws ParseException,Throwable {
 		patientclinical.Iverifytableshouldbesortedchronologicallybyactivitydatemostrecentfirst();
 	}
 

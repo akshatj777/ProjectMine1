@@ -3,9 +3,7 @@ package com.remedy.Episode2;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -13,18 +11,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 
 public class NoteCreation extends BaseClass {
@@ -34,8 +26,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void I_click_on_the_patient_card_on_Patient_Card_Page() {
-		clickElement(driver.findElement(By.cssSelector(
-				"div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div")));
+		clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div")));
 	}
 
 	public void Iverifyclickonpatientcardtobenavigatedtopatientsummary() {
@@ -80,8 +71,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifyCreatenoteappearsontheAddClinicalDocumentonNoteCreation() {
-		isElementVisible(driver.findElement(
-				By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
+		isElementVisible(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
 	}
 
 	public void IattachfileontheAddClinicalDocumentonNoteCreation() {
@@ -101,8 +91,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage() {
-		isElementVisible(
-				driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span ")));
+		isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span ")));
 	}
 
 	public void IselectthevaluefromthetopicdropdownonPatientCard(String Topic_dropdown_value) {
@@ -115,8 +104,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifyActivityBodytextboxappearsontheAddClinicalDocumentonPatientCard() {
-		isElementVisible(driver.findElement(
-				By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")));
+		isElementVisible(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")));
 	}
 
 	public void IverifyattachfileslinkappearsontheAddClinicalDocumentonPatientCard() {
@@ -128,8 +116,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifyCreatenoteappearsontheAddClinicalDocumentonPatientCard() {
-		isElementVisible(driver.findElement(
-				By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
+		isElementVisible(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
 	}
 
 	public void IselectthedatefromdatepickeronAddClinicalDocumentonPatientCard(String date_element) {
@@ -138,15 +125,11 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(String NoteText) {
-		iFillInText(
-				driver.findElement(By
-						.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),
-				NoteText);
+		iFillInText(driver.findElement(By.cssSelector(".form-control.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required")),NoteText);
 	}
 
 	public void IclickonthecreateNoteButtononAddClinicalDocumentonPatientCard() {
-		clickElement(driver.findElement(
-				By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
+		clickElement(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]")));
 	}
 
 	public void IclickthevaluefromthetopicdropdownonAddClinicalDocumentonPatientCard() {
@@ -155,7 +138,7 @@ public class NoteCreation extends BaseClass {
 
 	public void IverifythedropdownvaluesonAddClinicalDocumentonPatientCard() {
 		List<String> actualcombolisttext = new ArrayList<String>();
-		List<WebElement> elementtexts = new ArrayList<>();
+		List<WebElement> elementtexts = new ArrayList<WebElement>();
 		List<String> requiredcombolisttext = new ArrayList<String>();
 		String[] expectedvalues = { "Baseline", "Bedside Visit", "Care Assessment Note", "Clinical Note", "Close Call",
 				"Daily Round", "Discharge Note", "Exercise Log", "Family Discussion", "General Update", "Goals of Care",
@@ -172,9 +155,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifyTopicdropdownbarhastheplaceholderSelectatopicornot() {
-		String Dropdown_placeholder = driver
-				.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope"))
-				.getAttribute("placeholder");
+		String Dropdown_placeholder = driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope")).getAttribute("placeholder");
 		verifyString("Select a topic", Dropdown_placeholder);
 	}
 
@@ -187,10 +168,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IVerifythattodaysdateshouldbehighlightedincalendarasdefaultdate() {
-		verifyTextForElement(
-				driver.findElement(By.cssSelector(
-						"input.form-control.ng-pristine.ng-valid.ng-not-empty.ng-valid-required.ng-touched")),
-				"04/21/2017");
+		verifyTextForElement(driver.findElement(By.cssSelector("input.form-control.ng-pristine.ng-valid.ng-not-empty.ng-valid-required.ng-touched")),"04/21/2017");
 	}
 
 	public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext) {
@@ -209,11 +187,9 @@ public class NoteCreation extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("a.add-icon")));
 	}
 
-	public void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file)
-			throws InterruptedException, AWTException {
+	public void IverifythatusershouldbeabletoselectanduploadfilesfromthecomputerthroughAddfileslink(String file) throws InterruptedException, AWTException {
 		StringSelection s = new StringSelection(file);
-
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
 		Robot robot = new Robot();
 		robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
 		robot.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
@@ -230,8 +206,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifythatcreateNotehasbeensuccessfullycreated() {
-		isElementVisible(driver.findElement(By.cssSelector(
-				"div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")));
+		isElementVisible(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")));
 	}
 
 	public void IclickontheALLTabonPatientpage() {
@@ -239,40 +214,31 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void Iverifythattrashiconisavailableafteruploadingfile() {
-		List<WebElement> elements = driver.findElements(
-				By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
+		List<WebElement> elements = driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
 		int uploadcount = elements.size();
 		for (int i = 2; i <= (uploadcount + 1); i++) {
-			isElementVisible(driver.findElement(
-					By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child(" + i
-							+ ") > div:nth-child(1) > i.valentino-icon-x")));
+			isElementVisible(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child(" + i+ ") > div:nth-child(1) > i.valentino-icon-x")));
 		}
 	}
 
 	public void Iverifyusershouldbeabletoremovethefilebyselectingthetrashicon() {
-		List<WebElement> elements = driver.findElements(
-				By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
+		List<WebElement> elements = driver.findElements(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div.files.ng-scope"));
 		int uploadcount = elements.size() + 1;
-		clickElement(driver
-				.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("
-						+ uploadcount + ") > div:nth-child(1) > i.valentino-icon-x")));
+		clickElement(driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+ uploadcount + ") > div:nth-child(1) > i.valentino-icon-x")));
 		try {
-			driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("
-					+ uploadcount + ") > div:nth-child(1) > i.valentino-icon-x"));
+			driver.findElement(By.cssSelector("section > form > div:nth-child(2) > div.upload-section > div:nth-child("+ uploadcount + ") > div:nth-child(1) > i.valentino-icon-x"));
 		} catch (Exception e) {
 			return;
 		}
 	}
 
 	public void IclickontheCancelbuttonontheNoteSectiononPatientCard() {
-		clickElement(
-				driver.findElement(By.xpath("//button[contains(@class, 'btn btn-tertiary') and text() = 'Cancel']")));
+		clickElement(driver.findElement(By.xpath("//button[contains(@class, 'btn btn-tertiary') and text() = 'Cancel']")));
 	}
 
 	public void IverifycreatenotesuccessfulmessagedoesnotappearonPatientCard() {
 		try {
-			driver.findElement(By.cssSelector(
-					"div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message"));
+			driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message"));
 		} catch (Exception e) {
 			return;
 		}
@@ -287,19 +253,13 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public String Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage() {
-		String patient_name = driver
-				.findElement(By.cssSelector(
-						"div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div > h3"))
-				.getText();
+		String patient_name = driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-header.col-xs-12.hover-pointer.ng-scope > div.card-header-content > div > h3")).getText();
 		return patient_name;
 	}
 
 	public void Ienterpatientnameinthesearchboxonthepatientspage() {
 		String search = Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
-		iFillInText(
-				driver.findElement(
-						By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),
-				search);
+		iFillInText(driver.findElement(By.xpath("//input[@class='elastic-input ng-pristine ng-untouched ng-valid ng-empty']")),search);
 	}
 
 	public String getcurrentdate(int days) {
@@ -307,7 +267,6 @@ public class NoteCreation extends BaseClass {
 		LocalDate localDate = LocalDate.now();
 		LocalDate b = localDate.minus(Period.ofDays(days));
 		String date = dtf.format(b);
-		System.out.println(dtf.format(b));
 		return date;
 	}
 
@@ -315,8 +274,7 @@ public class NoteCreation extends BaseClass {
 		String search = Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
 		String[] words = search.split(",");
 		String lastname = words[0];
-		WebElement element = driver
-				.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + lastname + "')]"));
+		WebElement element = driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + lastname + "')]"));
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scroll(250, 0)");
 		element.click();
@@ -330,7 +288,6 @@ public class NoteCreation extends BaseClass {
 		String dateTime = getcurrentdate(days);
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
 		List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
-		System.out.println("*****List of months***" + list_AllMonthToBook);
 		list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1]) - 1).click();
 		Thread.sleep(1000);
 	}
@@ -358,21 +315,16 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IclickonthecreatednoteintheclinicalDocumentssectiononpatientsummary() {
-		clickElement(
-				driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(1) > a > span ")));
+		clickElement(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(1) > a > span ")));
 	}
 
 	public void IverifymessageshoulddisplayingreencolorYourclinicaldocumentforAngelaPenahasbeenadded() {
-		String created_note_message = driver
-				.findElement(By.cssSelector(
-						"div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message"))
-				.getText();
+		String created_note_message = driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message")).getText();
 		String search = Igetthenameofthefirstpatientfromthepatientlistonpatientcardpage();
 		String[] words = search.split(",");
 		String lastname = words[0];
 		String firstname = words[1];
-		if (created_note_message
-				.equals("Your clinical document for " + firstname + " " + lastname + " has been added")) {
+		if (created_note_message.equals("Your clinical document for " + firstname + " " + lastname + " has been added")) {
 			return;
 		}
 	}
@@ -382,16 +334,13 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifyDismissbuttonshouldbethereonnotificationmessage() {
-		isElementVisible(driver.findElement(By.cssSelector(
-				"div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > actions > i")));
+		isElementVisible(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > actions > i")));
 	}
 
 	public void Icheckclickingoncrossiconofgreenbargreenbarnotificationshouldgetremoved() {
-		clickElement(driver.findElement(By.cssSelector(
-				"div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > actions > i")));
+		clickElement(driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > actions > i")));
 		try {
-			driver.findElement(By.cssSelector(
-					"div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message"));
+			driver.findElement(By.cssSelector("div.alert.alert-action.alert-page.alert-dismissible.ng-scope.alert-success > div > div > div > content > description > message"));
 		} catch (Exception e) {
 			return;
 		}
@@ -426,9 +375,7 @@ public class NoteCreation extends BaseClass {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate localDate = LocalDate.now();
 		LocalDate b = localDate.minus(Period.ofDays(days));
-		System.out.println("$$$$$Local Date is" + b);
 		String date = dtf.format(b);
-		System.out.println(dtf.format(b));
 		return date;
 	}
 
@@ -443,8 +390,7 @@ public class NoteCreation extends BaseClass {
 
 	public void IVerifythatusershouldnotallowtocreatenotewithoutselectingTopicfield() {
 		try {
-			driver.findElement(
-					By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]"));
+			driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary') and contains(text(), 'Create Note')]"));
 		} catch (Exception e) {
 			return;
 		}
@@ -474,8 +420,7 @@ public class NoteCreation extends BaseClass {
 
 	public void Iselectthedatefromthecalendarfromdatepicker(String dateTime) {
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
-		List<WebElement> list_AllDateToBook = driver.findElements(
-				By.xpath("//table//tbody//td[not(contains(@class,'past')) and not(contains(@class,'future'))]"));
+		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//table//tbody//td[not(contains(@class,'past')) and not(contains(@class,'future'))]"));
 		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
 	}
 

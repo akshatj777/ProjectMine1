@@ -98,8 +98,7 @@ public class ReadmissionWorklist extends BaseClass {
 	public void Iselectthedatefromthecalendarfromdatepicker(int days) {
 		String dateTime = getcurrentdate(days);
 		String date_dd_MM_yyyy[] = (dateTime.split("/"));
-		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath(
-				"//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
+		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
 		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
 	}
 
@@ -122,8 +121,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IverifythepatientpresentonthePatientCardPage(String last_name) {
 		String newname = last_name.toUpperCase();
-		isElementVisible(
-				driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
+		isElementVisible(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
 	}
 
 	public void IverifythepatientnotpresentonthePatientCardPage(String last_name) {
@@ -139,16 +137,13 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void IclickontheeditbuttontoedittheActivetransition(String transition_value) throws InterruptedException {
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value
-				+ "]/td[contains(@class, 'settings-column')]/div")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div")));
 		Thread.sleep(5000);
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value
-				+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
 	}
 
 	public void IclickonthecentreofthecalendarheaderonDischargedatepickertoselectdateandmonthonTransitionPage() {
-		WebElement element = driver.findElement(By.cssSelector(
-				"body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
+		WebElement element = driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-days > table > thead > tr:nth-child(1) > th.switch"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 		clickElement(element);
@@ -196,8 +191,7 @@ public class ReadmissionWorklist extends BaseClass {
 		for (int i = 1; i <= count; i++) {
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
 			Thread.sleep(2000);
-			clickElement(driver.findElement(
-					By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
+			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
 			Thread.sleep(2000);
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
 			Thread.sleep(6000);
@@ -205,10 +199,7 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void ienterandinthesearchboxontheadmissiontabonpatientspage(String search) {
-		iFillInText(
-				driver.findElement(
-						By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")),
-				search);
+		iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")),search);
 	}
 
 	public void Iselectthe63DRGontheDiagnosisandDRGtabonaddanewtransition(String DRG) {
