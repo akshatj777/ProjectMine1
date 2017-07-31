@@ -118,13 +118,6 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I verify "Good restoration potential" is selected in Physical Therapy place holder on Anticipated Discharge Needs
     And I wait for 2000 milli seconds
 
-<<<<<<< HEAD
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
-
-=======
->>>>>>> develop
   Scenario Outline: To verify the options present under Transition of Care Needs on the Anticicpated section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
