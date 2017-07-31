@@ -26,7 +26,7 @@ Scenario Outline: User should be able to click on episode list column and verify
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table
-    Then I should verify "DOB (Key)" is appearing under Episodes table
+    #Then I should verify "DOB (Key)" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table

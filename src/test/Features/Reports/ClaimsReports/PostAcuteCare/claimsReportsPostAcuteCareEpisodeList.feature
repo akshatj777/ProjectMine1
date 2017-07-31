@@ -31,7 +31,7 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table
-    Then I should verify "DOB (Key)" is appearing under Episodes table
+    #Then I should verify "DOB (Key)" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table
@@ -107,6 +107,11 @@ Scenario Outline: User should remove the existing default filters
     
     Examples:
     
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Emblem Payer Users                |
+      | emblemachrpfin@yopmail.com         |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |
     

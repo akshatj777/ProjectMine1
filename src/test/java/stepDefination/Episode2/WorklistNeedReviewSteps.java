@@ -34,7 +34,7 @@ public class WorklistNeedReviewSteps extends DriverScript {
 	}
 
 	@Then("^I select the month \"(.*)\" from calendar from date picker on Discharge$")
-	public void I_select_the_month_from_calendar_from_date_picker_Discharge(int date) throws Throwable,InterruptedException {
+	public void I_select_the_month_from_calendar_from_date_picker_Discharge(int date) throws Throwable, InterruptedException {
 		needreview.IselectthemonthfromcalendarfromdatepickerDischarge(date);
 	}
 

@@ -7,21 +7,20 @@ Feature: Episode 2.0 Cooperation Metric Filters
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    Then I verify Cooperation Metric Filter is displayed under List of Filter Options 
-    
-    When I click on Cooperation Metric Filter present on Filter Page 
+    Then I verify Cooperation Metric Filter is displayed under List of Filter Options
+    When I click on Cooperation Metric Filter present on Filter Page
     And I wait for 4000 milli seconds
     And I Click on "Assigned" checkbox under Cooperation Metric present on the Filter Page
-    And I wait for 20000 milli seconds
+    And I wait for 10000 milli seconds
     Then I click on Done button present on the Filter Page
+    And I wait for 15000 milli seconds
     Then I scroll the page to bottom by "-100"
-    Then I verify the total number of patients present on the Patients Page  
+    Then I verify the total number of patients present on the Patients Page
     And I wait for 5000 milli seconds
     Then I verify "Assigned" is appearing under selected filters for Cooperation Metrics
     Then I click on "Agree" button appearing on the patient card after applying filter
@@ -37,4 +36,3 @@ Feature: Episode 2.0 Cooperation Metric Filters
     And I wait for 2000 milli seconds
     Then I verify "assigned" is appearing in forms under careplan on patient summary page
     And I wait for 2000 milli seconds
-    

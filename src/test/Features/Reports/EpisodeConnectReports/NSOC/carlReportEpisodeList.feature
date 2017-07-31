@@ -78,5 +78,8 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     
     Examples:
     
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      #| Medicare Payer Users              |
+      | shutestaug231132a@yopmail.com      |
+      #| Multiple Payer Users              |
+      | multipayerachrpfin@yopmail.com     |

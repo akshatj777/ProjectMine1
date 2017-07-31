@@ -124,6 +124,11 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_On_RP_Payer_Test_A_From_Dropdown_List_Of_Health_System_Name();
 	}
 	
+	@Then("^I clicked on Mountainside Hospital from dropdown list of Health system Name$")
+	public void i_Clicked_On_Mountainside_Hospital_From_Dropdown_List_Of_Health_System_Name() throws Throwable{
+		UserEdit.i_Clicked_On_Mountainside_Hospital_From_Dropdown_List_Of_Health_System_Name();
+	}
+	
 	@Then("^I clicked on search field under Provider Name$")
 	public void i_Clicked_On_Search_Field_Under_Provider_Name() throws Throwable{
 		UserEdit.i_Clicked_On_Search_Field_Under_Provider_Name();
@@ -154,11 +159,6 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Clicked_On_Stamford_Hospital_From_Dropdown_List_Of_Health_System_Name();
 	}
 	
-	@And("^I verify the share file tile toggle off button$")
-	public void i_Verify_The_Share_File_Tile_Toggle_Off_Button() throws Throwable{
-		UserEdit.i_Verify_The_Share_File_Tile_Toggle_Off_Button();
-	}
-
 	@And("^I clicked on remove button of stamford hospital row under permission field$")
 	public void i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field() throws Throwable{
 		UserEdit.i_Clicked_On_Remove_Button_Of_Stamford_Hospital_Row_Under_Permission_Field();
@@ -169,9 +169,19 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.i_Wait_For_Popup_To_Remove_Stamford_Hospital_Under_Permission_Field();
 	}
 	
+	@And("^I wait for popup to remove Mountainside Hospital under permission field$")
+	public void i_Wait_For_Popup_To_Remove_Mountainside_Hospital_Under_Permission_Field() throws Throwable{
+		UserEdit.i_Wait_For_Popup_To_Remove_Mountainside_Hospital_Under_Permission_Field();
+	}
+	
 	@And("^I clicked on remove button appearing on popup$")
 	public void i_Clicked_On_Remove_Button_Appearing_On_Popup() throws Throwable{
 		UserEdit.i_Clicked_On_Remove_Button_Appearing_On_Popup();
+	}
+	
+	@And("^I clicked on remove button appearing on popup for Mountainside Hospital$")
+	public void i_Clicked_On_Remove_Button_Appearing_On_Popup_For_Mountainside_Hospital() throws Throwable{
+		UserEdit.i_Clicked_On_Remove_Button_Appearing_On_Popup_For_Mountainside_Hospital();
 	}
 	
 	@Then("^I clicked ([^\"]*) under edit user role tab to edit the role$")
@@ -197,6 +207,11 @@ public class UserAdminEditSteps extends DriverScript {
 	@And("^I clicked on remove button of RP Payer Test A row under permission field$")
 	public void iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField() throws Throwable{
 		UserEdit.iClickedOnRemoveButtonOfRPPayerTestARowUnderPermissionField();
+	}
+	
+	@And("^I clicked on remove button of Mountainside Hospital row under permission field$")
+	public void iClickedOnRemoveButtonOfMountainsideHospitalRowUnderPermissionField() throws Throwable{
+		UserEdit.iClickedOnRemoveButtonOfMountainsideHospitalRowUnderPermissionField();
 	}
 	
 	@And("^I wait for popup to remove RP Payer Test A under permission field$")

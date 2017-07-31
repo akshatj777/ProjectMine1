@@ -1,7 +1,7 @@
 @sanity
-Feature: User only see reports per report tiles based on their role (external and internal roles),ACH MODEL 2 facility
+Feature: User only see reports per report tiles based on their role (external and internal roles),ACH MODEL 2 facility with users for medicare payer
 
-  Scenario Outline: For ACH MODEL 2 RPFIN, RPNOFIN reports link verification for the respective reports links functionality
+  Scenario Outline: For ACH MODEL 2 RPFIN, RPNOFIN reports link verification for the respective reports links functionality for Medicare payer users
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

@@ -131,8 +131,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iVerifyCCNsUnderSelectedFilters(String ccn1,String ccn2){
-		String ccn="CCN includes "+ccn2+" and "+ccn1+"";
-		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Facility].[CCN]']/span")), ccn);
+		String ccn="Dashboard - Anchor CCN includes "+ccn2+" and "+ccn1+"";
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Dashboard - Anchor Facility].[CCN]']/span")), ccn);
 	}
 		
 	public void iVerifyCCNFilterUnderSelectedFilters(String ccn){
@@ -141,5 +141,36 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iVerifyParticipantAppearingInSelectedFilter(String participant){
 		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Participant]']/span")),participant);
+	}
+	
+	public void iClickOnCheckboxForPayerGlobalFilters(String text){
+		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'payer')]]//span[@class='ng-binding'][text()='"+text+"']")));
+	}
+	
+	public void iShouldSeeUnderPayerAppliedFilterOfGlobalFilter(String text){
+		verifyTextForElementfromList(".margin-left.ng-binding", text);
+	}
+	
+	public void iVerifyPayerAppearingInSelectedFilter(String ccn){
+		verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Episode Initiator].[Payer]']/span")),ccn);
+	}
+	
+	public void iClickOnCrossMarkForSelectedPayerFilter(String participant){
+		clickElement(driver.findElement(By.xpath("//span[text()='Payer: "+participant+"']/preceding-sibling::i")));
+	}
+	
+	public void iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(String text){
+		if(text!=null)
+		{
+		verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']", text);
+		}
+	}
+	
+	public void iVerifyPayerUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#payerFilterObj .selectorValue")),text);
+	}
+	
+	public void iVerifyParticipantUnderFilterOptions(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#participantFilterObj .selectorValue")),text);
 	}
 }

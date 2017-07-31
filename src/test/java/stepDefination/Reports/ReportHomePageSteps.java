@@ -703,7 +703,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.IVerifyURLAfterClickingAdjustedHistoricButton();
     }
      
-    @Then("^I select All option under \"([^\"]*)\" filter in the filter options$")
+    @Then("^I uncheck All option under \"([^\"]*)\" filter in the filter options$")
     public void i_select_all_option_under_filter_in_the_filter_option(String filter) throws Throwable{
     	reportHomePage.iSelectFilterInFilterOptions(filter);
     }
@@ -1066,5 +1066,40 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I enter \"([^\"]*)\" in the search field textbox for filters$")
     public void i_Enter_dob_in_the_search_field_textbox_for_filters(String dob) throws Throwable{
     	reportHomePage.iEnterInTheSearchFieldForFilters(dob);
+    }
+
+    @Then("I verify \"([^\"]*)\" is appearing under date range filter option on the left side")
+    public void i_verify_is_appearing_under_date_range_filter_option_on_the_left_side(String range) throws Throwable{
+    	reportHomePage.iVerifyDateRangeFilterInFilterOptions(range);
+    }
+    
+    @Then("I click on year text box and select ([^\"]*) from the year field")
+    public void i_click_on_year_text_box_and_select_from_the_year_field(String year) throws Throwable {
+    	reportHomePage.iClickOnYearTextBoxInsideDateRangeFilter(year);
+    }
+    
+    @Then("I check the ([^\"]*) appearing under \"([^\"]*)\" field filter under filter options")
+    public void i_check_the_appearing_under_participant_field_filter_under_filter_options(String participant,String text) throws Throwable{
+    	reportHomePage.iClickOnParticiapntFieldFilterUnderFilterOptions(participant,text);
+    }
+    
+    @Then("I verify ([^\"]*) is appearing under \"([^\"]*)\" filter field after applying filter")
+    public void i_verify_is_appearing_under_participant_filter_field_after_aplying_filter(String participant,String text) throws Throwable{
+    	reportHomePage.iVerifyParticipantFieldAfterApplyingFilter(participant,text);
+    }
+    
+    @Then("I click on apply button under the filter in filter options")
+    public void i_click_on_apply_button_under_the_filter_in_filter_options() throws Throwable{
+    	reportHomePage.iClickOnApplyButtonForFilterInFilterOptions();
+    }
+    
+    @And("I enter ([^\"]*) under the \"([^\"]*)\" field searchbox")
+    public void i_enter_under_the_field_searchbox(String part,String text) throws Throwable{
+    	reportHomePage.iEnterTheValueInSearchField(part, text);
+    }
+    
+    @Then("I click the ([^\"]*) appearing under facility field filter under filter options")
+    public void i_click_the_appearing_under_facility_field_filter_under_filter_options(String text) throws Throwable {
+    	reportHomePage.iClickOnAppearingFacilityAfterSearching(text);
     }
 }

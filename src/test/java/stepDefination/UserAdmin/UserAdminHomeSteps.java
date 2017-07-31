@@ -48,7 +48,6 @@ public class UserAdminHomeSteps extends DriverScript{
             userAdminHome.iClickViewProfileLinkByIndex(0);
         }
 
-
         @Then("^I click cancel button$")
         public void IClickCancelButton() throws Throwable {
             userAdminHome.iClickCancelButton();
@@ -214,4 +213,4 @@ public class UserAdminHomeSteps extends DriverScript{
         public void iShouldSeeImportUsersButton(String text) throws Throwable{
         	userAdminHome.iShouldSeeImportUsersButton(text);
         }
-}
+    }

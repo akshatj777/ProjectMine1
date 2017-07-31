@@ -17,13 +17,13 @@ Scenario Outline: User should not see program overview under dashboard for OPSNO
     
     Examples:
     
-      | email                         | Menu 1      |
-      | shutestaug15240p@yopmail.com  | Dashboards  |
-      | shutestjul26420p@yopmail.com  | Dashboards  |
-      | repopsnofintest@yopmail.com   | Dashboards  |
-      | shutestaug221150a@yopmail.com | Dashboards  |
-      | shutestaug221145a@yopmail.com | Dashboards  |
-      | shutestjul26415@yopmail.com   | Dashboards  |
+      | email                         | Menu 1     |
+      | shutestaug15240p@yopmail.com  | Dashboard  |
+      | shutestjul26420p@yopmail.com  | Dashboard  |
+      | repopsnofintest@yopmail.com   | Dashboard  |
+      | shutestaug221150a@yopmail.com | Dashboard  |
+      | shutestaug221145a@yopmail.com | Dashboard  |
+      | shutestjul26415@yopmail.com   | Dashboard  |
  
 @sanity         
 Scenario Outline: User should see Program Overview under Dashboard and verify sanity for program overview reports for RPFIN,RPFNOFIN and OPSFIN Roles with ACH Provider Type
@@ -111,7 +111,7 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
       | shutestaug221130a@yopmail.com      | Dashboards |
       | reptestachmodel2opsfin@yopmail.com | Dashboards |
       
-Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmission Graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmission Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
 
     Given I am on the login page
     When I enter email field <email> for login
@@ -151,10 +151,14 @@ Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmis
     Examples:
          
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |
     
-Scenario Outline: User should click on zoom in and zoom out under post accute utilization graphs for RPFIN and OPSFIN Roles with ACH Provider Type
+Scenario Outline: User should click on zoom in and zoom out under post accute utilization graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     
     Given I am on the login page
     When I enter email field <email> for login
@@ -206,5 +210,9 @@ Scenario Outline: User should click on zoom in and zoom out under post accute ut
     Examples:
     
       | email                              | Menu 1     |
+      #| Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      | reptestachmodel2opsfin@yopmail.com | Dashboards |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com         | Dashboards |
+      #| Multiple Payer Users|
+      | multipayerachrpfin@yopmail.com     | Dashboards |

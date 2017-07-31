@@ -552,7 +552,7 @@ public class ReportHomePage extends BaseClass {
     public void iSelectFilterInFilterOptions(String text){
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
-    	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    	//clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
     }
     
     public void iClickOnDateRangeFilter(){
@@ -822,4 +822,33 @@ public class ReportHomePage extends BaseClass {
     public void iEnterInTheSearchFieldForFilters(String dob){
     	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
     }    
+
+    public void iVerifyDateRangeFilterInFilterOptions(String range){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".range-display>span")),range);
+    }
+    
+    public void iClickOnYearTextBoxInsideDateRangeFilter(String year){
+    	clickElement(driver.findElement(By.cssSelector(".precision-button-label")));
+    	clickElement(driver.findElement(By.xpath("//tbody[@class='calendar-body']//td/div[normalize-space(.) = '"+year+"']")));
+    }
+    
+    public void iClickOnParticiapntFieldFilterUnderFilterOptions(String participant,String text){
+    	clickElement(driver.findElement(By.xpath("//div[@class='filter-item-label'][text()='"+participant+"']")));
+    }
+    
+    public void iVerifyParticipantFieldAfterApplyingFilter(String participant,String text) {
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#"+text+"FilterObj .selectorValue")),participant);
+    }
+    
+    public void iClickOnApplyButtonForFilterInFilterOptions(){
+    	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    }
+    
+    public void iEnterTheValueInSearchField(String part,String text){
+    	iFillInText(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-filter-input")), part);
+    }
+    
+    public void iClickOnAppearingFacilityAfterSearching(String text) {
+    	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
+    }
 }
