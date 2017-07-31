@@ -1,6 +1,6 @@
 package stepDefination.Hooks;
 
-import com.github.mkolisnyk.cucumber.reporting.CucumberDetailedResults;
+//import com.github.mkolisnyk.cucumber.reporting.CucumberDetailedResults;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

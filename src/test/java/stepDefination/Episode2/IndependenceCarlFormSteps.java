@@ -9,8 +9,8 @@ import cucumber.api.java.en.Then;
 public class IndependenceCarlFormSteps extends DriverScript {
 	
 	IndependenceCarlForm independencecarl = new IndependenceCarlForm(driver);
-	
-	@Then("^I click on \"([^\"]*)\" section on left navigator$")
+
+	@Then("^I click on \"([^\"]*)\" section on left navigator$") 
 	public void I_Click_On_SideNavigationTab_On_CarlForm(String text) throws Throwable {
 		independencecarl.IClickOnSideNavigationTabOnCarlForm(text);
 	}

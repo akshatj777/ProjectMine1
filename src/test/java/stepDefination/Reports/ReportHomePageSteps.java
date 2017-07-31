@@ -75,13 +75,14 @@ public class ReportHomePageSteps extends DriverScript {
 
     @And("I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
-        reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
+    	reportHomePage.iMoveToElementAndPerformRightClick(filterField, filterTitle);
+    	//reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
     
-    @And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
+    /*@And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
     public void iClickOnParticipantFilterUnderEpisodeInitiatorFilterField(String text) throws Throwable {
         reportHomePage.iMoveToElementAndPerformRightClick(".//div[@id='fieldlist'] //div[text()='"+text+"']");
-    }
+    }*/
     
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
     public void iChooseOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
@@ -235,9 +236,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyPerformanceOverallProgramReportPageHeader(headedText);
     }
 
-    @Then("^I should see \"([^\"]*)\" in the Episode Data Issues Patient ID report page header$")
-    public void i_should_see_in_the_Episode_Data_Issues_Patient_ID_report_page_header(String headedText) throws Throwable {
-        reportHomePage.iVerifyEpisodeDataIssuesPatientIDReportPageHeader(headedText);
+    @Then("^I should see \"([^\"]*)\" in the Inpatient Episode Clearing Patient ID report page header$")
+    public void i_should_see_in_the_Inpatient_Episode_Clearing_Patient_ID_report_page_header(String headedText) throws Throwable {
+        reportHomePage.iVerifyInpatientEpisodeClearingIssuesPatientIDReportPageHeader(headedText);
     }
     
     @Then("^I should see \"([^\"]*)\" in the Episode DRG Issues Patient ID report page header$")
@@ -702,7 +703,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.IVerifyURLAfterClickingAdjustedHistoricButton();
     }
      
-    @Then("^I select All option under \"([^\"]*)\" filter in the filter options$")
+    @Then("^I uncheck All option under \"([^\"]*)\" filter in the filter options$")
     public void i_select_all_option_under_filter_in_the_filter_option(String filter) throws Throwable{
     	reportHomePage.iSelectFilterInFilterOptions(filter);
     }
@@ -740,6 +741,11 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I click on show all filters icon button$")
     public void i_click_on_show_all_filters_icon_button() throws Throwable{
     	reportHomePage.iClickOnShowAllFiltersIcon();
+    }
+    
+    @When("^I click on filter count label to see preselected filters$")
+    public void i_click_on_filter_count_label_to_see_preselected_filters() throws Throwable{
+    	reportHomePage.iClickOnFiltersCountLabel();
     }
     
     @Then("^I verify \"([^\"]*)\" filter is preselected under the filter$")
@@ -870,5 +876,125 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I click on \"([^\"]*)\" under anchor admission month filter$")
     public void i_click_on_under_anchor_admission_month_filter(String month) throws Throwable{
     	reportHomePage.iClickOnAnchorAdmissionMonth(month);
+    }
+    
+    @Then("^I should not see \"([^\"]*)\" report after clicking on next site of care$")
+    public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);
+    }
+    
+    @When("^I click on select from list option on the filter page$")
+    public void i_click_on_select_from_list_option_on_the_filter_page() throws Throwable{
+    	reportHomePage.iSelectFromListOnFilterPage();
+    }
+    
+    @Then("^I click on \"([^\"]*)\" claims graph point under overall program of program overview report$")
+    public void i_click_on_graph_point_under_overall_program_overview_report(String npra) throws Throwable{
+    	reportHomePage.iClickOnNPRAGraphPoint(npra);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" in the new window after clicking on the graph point$")
+    public void i_verify_in_the_new_window_after_clicking_on_the_graph_point(String text) throws Throwable{
+    	reportHomePage.iVerifyInTheNewWindowAfterClickingOnGraph(text);
+    }
+    
+    @Then("^I click on skilled nursing \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_skilled_nursing_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on long term acute care \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_long_term_acute_care_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on inpatient rehab \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_inpatient_rehab_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on home health \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_home_health_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForPostAcuteUtilization(text);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" claims graph point under post acute utilization of program overview report$")
+    public void i_click_on_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForHome(text);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" graph point of claims under post acute utilization of program overview report$")
+    public void i_click_on_graph_point_of_claims_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnOtherGraphPostAcuteUtilizationGraphPoint(text);
+    }
+    
+    @Then("^I click on initial snf length of stay \"([^\"]*)\" claims graph point under snf length of stay of program overview report$")
+    public void i_click_on_initial_snf_length_of_stay_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForSNFLengthOfStay(text);
+    }
+    
+    @Then("^I click on snf days \"([^\"]*)\" claims graph point under snf length of stay of program overview report$")
+    public void i_click_on_snf_days_claims_graph_point_under_postacuteutilization_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForSNFLengthOfStay(text);
+    }
+    
+    @Then("^I click on episodes w readmit \"([^\"]*)\" claims graph point under readmissions of program overview report$")
+    public void i_click_on_episodes_w_readmit_claims_graph_point_under_readmissions_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForReadmissions(text);
+    }
+    
+    @Then("^I click on readmits per episode \"([^\"]*)\" claims graph point under readmissions of program overview report$")
+    public void i_click_on_readmits_per_episodes_claims_graph_point_under_readmissions_of_program_overview_report(String text) throws Throwable{
+    	reportHomePage.iClickOnGrpahPointForreadmitperepisodeunderReadmissions(text);
+    }
+    
+    @And("^I enter \"([^\"]*)\" in the search field textbox after clicking on list option$")
+    public void i_enter_anchoradmissionquarter_in_the_search_field_textbox_after_clicking_on_list_option(String text)throws Throwable{
+    	reportHomePage.iEnterAnchorAdmissionQuarterInSearchField(text);
+    }
+    
+    @Then("^I click on find button after entering anchor admission quarter in the textbox$")
+    public void i_click_on_find_button_after_entering_anchor_admission_quarter_in_the_textbox()throws Throwable{
+    	reportHomePage.iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    public void i_verify_anchor_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
+    }
+    
+    @Then("I verify \"([^\"]*)\" is appearing under date range filter option on the left side")
+    public void i_verify_is_appearing_under_date_range_filter_option_on_the_left_side(String range) throws Throwable{
+    	reportHomePage.iVerifyDateRangeFilterInFilterOptions(range);
+    }
+    
+    @Then("I click on year text box and select ([^\"]*) from the year field")
+    public void i_click_on_year_text_box_and_select_from_the_year_field(String year) throws Throwable {
+    	reportHomePage.iClickOnYearTextBoxInsideDateRangeFilter(year);
+    }
+    
+    @Then("I check the ([^\"]*) appearing under \"([^\"]*)\" field filter under filter options")
+    public void i_check_the_appearing_under_participant_field_filter_under_filter_options(String participant,String text) throws Throwable{
+    	reportHomePage.iClickOnParticiapntFieldFilterUnderFilterOptions(participant,text);
+    }
+    
+    @Then("I verify ([^\"]*) is appearing under \"([^\"]*)\" filter field after applying filter")
+    public void i_verify_is_appearing_under_participant_filter_field_after_aplying_filter(String participant,String text) throws Throwable{
+    	reportHomePage.iVerifyParticipantFieldAfterApplyingFilter(participant,text);
+    }
+    
+    @Then("I click on apply button under the filter in filter options")
+    public void i_click_on_apply_button_under_the_filter_in_filter_options() throws Throwable{
+    	reportHomePage.iClickOnApplyButtonForFilterInFilterOptions();
+    }
+    
+    @And("I enter ([^\"]*) under the \"([^\"]*)\" field searchbox")
+    public void i_enter_under_the_field_searchbox(String part,String text) throws Throwable{
+    	reportHomePage.iEnterTheValueInSearchField(part, text);
+    }
+    
+    @Then("I click the ([^\"]*) appearing under facility field filter under filter options")
+    public void i_click_the_appearing_under_facility_field_filter_under_filter_options(String text) throws Throwable {
+    	reportHomePage.iClickOnAppearingFacilityAfterSearching(text);
     }
 }
