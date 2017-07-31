@@ -65,8 +65,7 @@ public class IndependenceCarlForm extends BaseClass {
 
 	public void IVerifyTheSelectedRadioButtonOnIndependenceSection(String text) {
 		try {
-			Assert.assertTrue(
-					driver.findElement(By.xpath("//label[span[text()='" + text + "']]/preceding-sibling::input")).isSelected());
+			Assert.assertTrue(driver.findElement(By.xpath("//label[span[text()='" + text + "']]/preceding-sibling::input")).isSelected());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

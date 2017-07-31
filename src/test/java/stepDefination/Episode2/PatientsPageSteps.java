@@ -1525,7 +1525,7 @@ public class PatientsPageSteps extends DriverScript {
     }
     
     @Then ("^I click on the Patient Details tab on the patient summary page$")
-    public void I_click_on_the_Patient_Details_tab_on_the_patient_summary_page()
+    public void I_click_on_the_Patient_Details_tab_on_the_patient_summary_page() throws Throwable
     {
     	patientsPage.IclickonthePatientDetailstabonthepatientsummarypage();
     }

@@ -40,16 +40,13 @@ public class CompleteCarlformSteps extends DriverScript {
 	}
 
 	@Then("^I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page$")
-	public void I_Verify_that_Clicking_on_Complete_CARL_button_Carl_form_should_appear_as_a_takeover_page()
-			throws Throwable {
+	public void I_Verify_that_Clicking_on_Complete_CARL_button_Carl_form_should_appear_as_a_takeover_page() throws Throwable {
 		completecarl.IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage();
 	}
 
 	@Then("I Verify that Carl form should appear with White bar with Patient Name \"([^\"]*)\" \"([^\"]*)\" and x icon on the page$")
-	public void I_Verify_that_Carl_form_should_appear_with_White_bar_with_Patient_Name_Last_First_name_and_x_icon_on_the_page(
-			String lastname, String firstname) throws Throwable {
-		completecarl.IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(lastname,
-				firstname);
+	public void I_Verify_that_Carl_form_should_appear_with_White_bar_with_Patient_Name_Last_First_name_and_x_icon_on_the_page(String lastname, String firstname) throws Throwable {
+		completecarl.IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(lastname,firstname);
 	}
 
 	@Then("^I Verify that Carl form should appear with ([^\"]*) link$")
@@ -103,157 +100,157 @@ public class CompleteCarlformSteps extends DriverScript {
 	}
 
 	@Then("^I verify the \"([^\"]*)\" on caregiver information card$")
-	public void I_Verify_Username_Appears_On_CaregiverInformation_Card(String name) {
+	public void I_Verify_Username_Appears_On_CaregiverInformation_Card(String name) throws Throwable {
 		completecarl.IVerifyNameOnCaregiverInformationCard(name);
 	}
 
 	@Then("^I verify \"([^\"]*)\" on caregiver information card$")
-	public void I_Verify_Email_Appears_On_CaregiverInformation_Card(String email) {
+	public void I_Verify_Email_Appears_On_CaregiverInformation_Card(String email) throws Throwable {
 		completecarl.IVerifyEmailOnCaregiverInformationCard(email);
 	}
 
 	@Then("^I verify \"([^\"]*)\" number on caregiver information card$")
-	public void I_Verify_PhoneNumber_Appears_On_CaregiverInformation_Card(String phone) {
+	public void I_Verify_PhoneNumber_Appears_On_CaregiverInformation_Card(String phone) throws Throwable {
 		completecarl.IVerifyPhoneOnCaregiverInformationCard(phone);
 	}
 
 	@Then("^I verify that Add Caregiver link should appear under Choose Caregiver section in Caregiver on takeover page$")
-	public void I_Verify_That_AddCaregiverLink_Should_Appear_Under_ChooseCaregiverSection() {
+	public void I_Verify_That_AddCaregiverLink_Should_Appear_Under_ChooseCaregiverSection() throws Throwable {
 		completecarl.IVerifyAddCaregiverLinkAppearsUnderChooseCaregiverSection();
 	}
 
 	@Then("^I verify that Care Network Member drop down should not appear under Choose Caregiver$")
-	public void I_Verify_That_CareNetworkMember_DropDown_Should_Not_Appear_Under_ChooseCaregiverSection() {
+	public void I_Verify_That_CareNetworkMember_DropDown_Should_Not_Appear_Under_ChooseCaregiverSection() throws Throwable {
 		completecarl.IVerifyThatCareNetworkMemberDropDwonDoesNotAppearUnderChooseCaregiverSection();
 	}
 
 	@Then("^I verify that Add Caregiver link should not appear under Choose Caregiver$")
-	public void I_Verify_That_AddCaregiverLink_Should_Not_Appear_Under_ChooseCaregiverSection() {
+	public void I_Verify_That_AddCaregiverLink_Should_Not_Appear_Under_ChooseCaregiverSection() throws Throwable {
 		completecarl.IVerifyAddCaregiverLinkDeosNotAppearUnderChooseCaregiverSection();
 	}
 
 	@Then("^I hover on i icon present on ([^\"]*) on TakeOver page$")
-	public void I_hover_on_icon_present_on_TakeOver_page(String icon) {
+	public void I_hover_on_icon_present_on_TakeOver_page(String icon) throws Throwable {
 		completecarl.IHoverOn_i_IconOnTakeOverPage(icon);
 	}
 
 	@Then("^I Verify the text hovering i icon on caregiver$")
-	public void I_Verify_the_text_hovering_icon_on_caregiver() {
+	public void I_Verify_the_text_hovering_icon_on_caregiver() throws Throwable {
 		completecarl.IVerifyTheTextHoverOnCaregiver();
 	}
 
 	@Then("^I Click on ([^\"]*) on takeover page$")
-	public void I_Click_on_Anticipated_Discharge_Needs_on_takeover_page(String text) {
+	public void I_Click_on_Anticipated_Discharge_Needs_on_takeover_page(String text) throws Throwable {
 		completecarl.IClickOnAnticpatedDischargeNeeds(text);
 	}
 
 	@Then("^I Click on ([^\"]*) on Anticipated Discharge Needs page$")
-	public void I_Click_on_Physical_therapy_on_Anticipated_Discharge_Needs_page(String text) {
+	public void I_Click_on_Physical_therapy_on_Anticipated_Discharge_Needs_page(String text) throws Throwable {
 		completecarl.IClickOnAnticpatedDischargeNeeds(text);
 	}
 
 	@Then("^I Verify the text hovering i icon on Patients Restoration Potential$")
-	public void I_Verify_the_text_hovering_icon_on_Patients_Restoration_Potential() {
+	public void I_Verify_the_text_hovering_icon_on_Patients_Restoration_Potential() throws Throwable {
 		completecarl.IVerifyTheTextHoverOnPatientsRestorationPotential();
 	}
 
 	@Then("^I click on ([^\"]*) on navigation bar on patient summary page$")
-	public void I_click_on_CareTeam_onNavigationBar_On_PatientSummaryPage(String text) {
+	public void I_click_on_CareTeam_onNavigationBar_On_PatientSummaryPage(String text) throws Throwable {
 		completecarl.IClickOnCareTeamOnNavBarOnPatientSummaryPage(text);
 	}
 
 	@And("^I click on setting icon to remove the patient under Care Team$")
-	public void I_Click_On_Setting_Icon_To_RemovePatient_Under_CareTeam() {
+	public void I_Click_On_Setting_Icon_To_RemovePatient_Under_CareTeam() throws Throwable {
 		completecarl.IClickOnSettingIconToRemovePatientUnderCareTeam();
 	}
 
 	@And("^I click On Remove to delete the patient$")
-	public void I_Click_On_Remove_to_delete_the_patient() {
+	public void I_Click_On_Remove_to_delete_the_patient() throws Throwable {
 		completecarl.IClickOnRemoveToDeleteThePatient();
 	}
 
 	@And("^I click on OK button to delete the patient$")
-	public void I_Click_On_OK_button_To_Delete_ThePatient() {
+	public void I_Click_On_OK_button_To_Delete_ThePatient() throws Throwable {
 		completecarl.IClickOnOkToDeleteThePatient();
 	}
 
 	@And("^I click on Add Caregiver link under Choose Caregiver$")
-	public void I_Click_On_Add_Caregiver_link_Under_ChooseCaregiver() {
+	public void I_Click_On_Add_Caregiver_link_Under_ChooseCaregiver() throws Throwable {
 		completecarl.IClickOnAddCaregiverLinkUnderChooseCaregiver();
 	}
 
 	@Then("^I verify first name is mandatory field to a create Caregiver$")
-	public void I_Verify_FirstName_Is_MandatoryField_To_Create_Caregiver() {
+	public void I_Verify_FirstName_Is_MandatoryField_To_Create_Caregiver() throws Throwable {
 		completecarl.IVerifyFirstNameIsMandatoryFieldToCreateCaregiver();
 	}
 
 	@Then("^I verify last name is mandatory field to a create Caregiver$")
-	public void I_Verify_LastName_Is_MandatoryField_To_Create_Caregiver() {
+	public void I_Verify_LastName_Is_MandatoryField_To_Create_Caregiver() throws Throwable {
 		completecarl.IVerifyLastNameIsMandatoryFieldToCreateCaregiver();
 	}
 
 	@Then("^I verify ([^\"]*) field to create Caregiver$")
-	public void I_Verify_Field_To_Create_Caregiver(String text) {
+	public void I_Verify_Field_To_Create_Caregiver(String text) throws Throwable {
 		completecarl.IVerifyFieldLabelToCreateCaregiver(text);
 	}
 
 	@Then("^I verify create button is enabled$")
-	public void I_Verify_Create_Button_Is_Enabled() {
+	public void I_Verify_Create_Button_Is_Enabled() throws Throwable {
 		completecarl.IVerifyCreateButtonIsEnabled();
 	}
 
 	@Then("^I verify create button is disabled$")
-	public void I_Verify_Create_Button_Is_Disabled() {
+	public void I_Verify_Create_Button_Is_Disabled() throws Throwable {
 		completecarl.IVerifyCreateButtonIsDisabled();
 	}
 
 	@Then("^I verify the label dropdown under Relationship field$")
-	public void I_Verify_The_Label_Dropdown_Under_Relationship() {
+	public void I_Verify_The_Label_Dropdown_Under_Relationship() throws Throwable {
 		completecarl.IVerifyTheLabelDropdownUnderRelationship();
 	}
 
 	@Then("^I enter \"([^\"]*)\" in email field$")
-	public void I_Enter_Email_To_Create_Caregiver(String email) {
+	public void I_Enter_Email_To_Create_Caregiver(String email) throws Throwable {
 		completecarl.IEnterEmailToCreateCaregiver(email);
 	}
 
 	@Then("^I verify ([^\"]*) option in primary phone dropdown$")
-	public void I_Verify_Options_In_PrimaryPhone_Dropdown(String text) {
+	public void I_Verify_Options_In_PrimaryPhone_Dropdown(String text) throws Throwable {
 		completecarl.IVerifyOptionsInPrimaryPhoneDropdown(text);
 	}
 
 	@Then("^I verify Home should be as default option$")
-	public void I_Verify_Home_Shouldbe_Default_Option() {
+	public void I_Verify_Home_Shouldbe_Default_Option() throws Throwable {
 		completecarl.IVerifyHomeShouldbeDefaultOptionForPrimaryPhoneOption();
 	}
 
 	@Then("^I enter \"([^\"]*)\" in Primary Phone field$")
-	public void I_Enter_PrimaryPhone_To_Create_Caregiver(String phone) {
+	public void I_Enter_PrimaryPhone_To_Create_Caregiver(String phone) throws Throwable {
 		completecarl.IEnterPrimaryPhoneToCreateCaregiver(phone);
 	}
 
 	@Then("^I click on ([^\"]*) button for Additional phone number to Create Caredriver$")
-	public void I_Click_On_Button_For_Additional_PhoneNumber_To_Create_Caredriver(String phone) {
+	public void I_Click_On_Button_For_Additional_PhoneNumber_To_Create_Caredriver(String phone) throws Throwable {
 		completecarl.IClickOnAddPhoneButtonToCreateCaregiver(phone);
 	}
 
 	@Then("^I Enter \"([^\"]*)\" and \"([^\"]*)\" on Add Caregiver form$")
-	public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm(String f_Name, String l_Name) {
+	public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm(String f_Name, String l_Name) throws Throwable {
 		completecarl.IEnterFisrtAndLastNameOnCarlFormAddCaregiver(f_Name, l_Name);
 	}
 
 	@Then("^I click on Create button to add Caregiver$")
-	public void I_Click_On_CreateButton_To_AddCaregiver() {
+	public void I_Click_On_CreateButton_To_AddCaregiver() throws Throwable {
 		completecarl.IClickCreateButtonToAddCaregiver();
 	}
 
 	@Then("^I click on close button in dropdown under Choose Caregiver$")
-	public void I_Click_On_Close_Button_In_dropdown_Under_Choose_Caregiver() {
+	public void I_Click_On_Close_Button_In_dropdown_Under_Choose_Caregiver() throws Throwable {
 		completecarl.IClickOnCloseButtonInDropdownUnderChooseCaregiver();
 	}
 
 	@Then("^I click on Anticipated Discharge Needs on side menu option$")
-	public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption() {
+	public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption() throws Throwable {
 		completecarl.IClickOnAnticipatedDischargeNeedsOnSideMenuOption();
 	}
 }

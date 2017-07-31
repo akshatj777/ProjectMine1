@@ -254,7 +254,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage() {
-		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible � ESRD')]")));
+		isElementVisible(driver.findElement(By.xpath("//span[contains(text(),'Not Eligible ESRD')]")));
 	}
 
 	public void iVerifyErrorIsPresentInTheEligibilityDropdownOnThePatientSummaryPage() {
