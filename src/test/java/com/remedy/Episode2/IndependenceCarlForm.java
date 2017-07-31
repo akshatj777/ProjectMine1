@@ -18,6 +18,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IVerifySelectedSectionOnTheCarlFormUponClickingOnIt(String text) {
+
 		String text1 = driver.findElement(By.cssSelector("h2.ng-binding")).getText();
 		String subtext = text1.substring(3);
 		Assert.assertEquals(text, subtext);
