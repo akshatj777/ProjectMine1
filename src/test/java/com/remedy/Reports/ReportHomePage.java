@@ -13,6 +13,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -752,6 +755,74 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Begin Date].[Anchor Admission Year]']/span")),text);
     }
     
+    public void iClickOnFacilityFilterUnderFilterOptions(String facility){
+    	clickElement(driver.findElement(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected")));
+    }
+    
+    public void iUncheckAllOptionForFacilityFilter(String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
+    }
+    
+    public void iSelectFaciltyFromFacilityFilterUnderProgramOverviewReport(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
+    }
+    
+    public void iClickOnApplyButtonUnderFaciltyFilterOptions(){
+    	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    }
+    
+    public void iClickOnTableViewOptionUnderViewFilter(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iVerifyClaimsandeEcTextUnderOverallProgram(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#episodesTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderOverallProgram(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='episodesNPRATableClaimsECObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
+    
+    public void iVerifyClaimsandEcTextUnderPostAcuteUtilization(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#utilizationTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderPostAcuteUtilization(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='utilizationTableClaimsECObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
+    
+    public void iVerifyClaimsandEcTextUnderSnfLengthOfStay(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#daysSNFTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderSnfLengthOfStay(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='daysSNFClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
+    
+    public void iVerifyClaimsandEcTextUnderReadmissions(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#readmitionsTitleClaimsECObj")),text);
+    }
+    
+    public void iShouldSeeEcandClaimsDatawithColorForEpisodesColumnUnderReadmissions(String color){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='readmitionsClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
+    }
+    
+    public void iVerifyDOBColumnValueFormat(String text) throws ParseException{
+        String DOB=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='["+text+"].[DOB]']/div)[1]")));
+    	validateDateFormat(DOB);
+    }
+    
+    public void validateDateFormat(String dateToValdate) throws ParseException {
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+	    formatter.setLenient(false);
+	    Date parsedDate = null;
+	    parsedDate = formatter.parse(dateToValdate);
+    }
+    
+    public void iEnterInTheSearchFieldForFilters(String dob){
+    	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
+    }    
+
     public void iVerifyDateRangeFilterInFilterOptions(String range){
     	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".range-display>span")),range);
     }
@@ -781,4 +852,3 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
     }
 }
-
