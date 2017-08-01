@@ -62,8 +62,8 @@ public class PgpOrgPO extends BaseClass {
 
         inputMOrgName.sendKeys(OrgName);
         inputShortName.sendKeys(shortName);
-        selectDropdownByValue(inputRegion, region);
-        selectDropdownByValue(inputMarket, market);
+//        selectDropdownByValue(inputRegion, region);
+//        selectDropdownByValue(inputMarket, market);
 
     }
 
@@ -81,7 +81,7 @@ public class PgpOrgPO extends BaseClass {
         pgpDetailsForm(orgName, shortName, region, market);
         address.addressDataForm(addr1, addr2, city, state, postalCode);
         identifiers(ein, npi);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
 
     }
 

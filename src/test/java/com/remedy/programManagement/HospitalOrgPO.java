@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static com.remedy.programManagement.ManagingOrgPO.createNewOrgButton;
+//import static com.remedy.programManagement.ManagingOrgPO.createNewOrgButton;
 
 /**
  * Created by aparlapalli on 1/31/17.
@@ -32,12 +32,12 @@ public class HospitalOrgPO extends BaseClass {
     @FindBy(css = "[class='n-organizations']")
     List<WebElement> noOfOrganizations;
 
-
-    public boolean clickOnHospitalab() {
-
-        hospitalTab.click();
-        return createNewOrgButton.isDisplayed();
-    }
+//
+//    public boolean clickOnHospitalab() {
+//
+////        hospitalTab.click();
+////        return createNewOrgButton.isDisplayed();
+//    }
 
 
     public String getNoOfOrgs() {

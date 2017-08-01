@@ -51,7 +51,7 @@ public class HomePageStepDef extends DriverScript {
     public void userVerifysDefaultTabSelected(List<String> orgTypes) throws Throwable {
 
         List<String> orgTabsList = new ArrayList<>();
-                orgTabsList.add(homePage.getSelectedTab());
+//                orgTabsList.add(homePage.getSelectedTab());
         assertEquals(orgTabsList, orgTypes);
 
     }

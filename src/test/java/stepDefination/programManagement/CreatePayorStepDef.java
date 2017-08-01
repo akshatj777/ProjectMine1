@@ -1,6 +1,6 @@
 package stepDefination.programManagement;
 
-import com.remedy.programManagement.CreatePayorPO;
+//import com.remedy.programManagement.CreatePayorPO;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class CreatePayorStepDef extends DriverScript {
 
-    CreatePayorPO createPayor = new CreatePayorPO(driver);
+//    CreatePayorPO createPayor = new CreatePayorPO(driver);
     WebDriverWait wait = new WebDriverWait(driver, 10);
     String actualMsg;
 
@@ -24,7 +24,7 @@ public class CreatePayorStepDef extends DriverScript {
     @Given("^Enter payor data and click on submit  \"([^\"]*)\"  and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
     public void createPayorOrg(String name, String cName, String email, String phone, String addr1, String addr2, String city, String state, String zip, String ein) throws Throwable {
 
-        createPayor.createPayorOrg(name, cName, email, phone, addr1, addr2, city, state, zip, ein);
+//        createPayor.createPayorOrg(name, cName, email, phone, addr1, addr2, city, state, zip, ein);
 
     }
 

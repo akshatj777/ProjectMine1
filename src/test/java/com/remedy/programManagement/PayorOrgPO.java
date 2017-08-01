@@ -55,7 +55,7 @@ public class PayorOrgPO extends BaseClass {
         contactDetails.orgDetailsForm(orgName, contactPerson, contactEmail, contactPhone);
         address.addressDataForm(addr1, addr2, city, state, postalCode);
         identifiersForm(ein);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
 
     }
 

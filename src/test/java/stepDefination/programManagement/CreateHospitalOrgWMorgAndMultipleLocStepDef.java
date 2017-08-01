@@ -1,7 +1,7 @@
 package stepDefination.programManagement;
 
 import com.remedy.programManagement.CreateHospitalPO;
-import com.remedy.programManagement.CreateManagingOrgPO;
+//import com.remedy.programManagement.CreateManagingOrgPO;
 import com.remedy.programManagement.HospitalOrgPO;
 import com.remedy.programManagement.ManagingOrgPO;
 import com.remedy.resources.DriverScript;
@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class CreateHospitalOrgWMorgAndMultipleLocStepDef extends DriverScript {
 
-    CreateManagingOrgPO createMOrgPage = new CreateManagingOrgPO(driver);
+//    CreateManagingOrgPO createMOrgPage = new CreateManagingOrgPO(driver);
 
     CreateHospitalPO createHospPage = new CreateHospitalPO(driver);
     HospitalOrgPO hospitalPage = new HospitalOrgPO(driver);
@@ -38,14 +38,14 @@ public class CreateHospitalOrgWMorgAndMultipleLocStepDef extends DriverScript {
     public void enterMangingOrgDataAndClickOnSubmit(List<String> data) throws Throwable {
 
         mOrgName = data.get(0);
-        createMOrgPage.createMorg(data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8));
+//        createMOrgPage.createMorg(data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5), data.get(6), data.get(7), data.get(8));
 
     }
 
 
     @Then("^close the message$")
     public void closeTheMessage() throws Throwable {
-        createMOrgPage.closeMessage();
+//        createMOrgPage.closeMessage();
     }
 
 

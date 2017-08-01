@@ -46,7 +46,7 @@ public class AddressPO extends BaseClass {
         inputAddress1.sendKeys(addr1);
         inputAddress2.sendKeys(addr2);
         inputCity.sendKeys(city);
-        selectDropdownByValue(inputState, state);
+//        selectDropdownByValue(inputState, state);
         inputPostalCode.sendKeys(postalCode);
 
     }

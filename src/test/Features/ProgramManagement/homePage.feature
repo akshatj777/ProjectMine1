@@ -1,18 +1,19 @@
 Feature: HomePage Test
 
-
-
   Scenario: User verifies home page elements and default org tab selected.
-
-    Given User on the home page
-    When User click on Login button
-    Then User has to wait for the Autho overlay to laod
-    And users enters email and passwd lbarinstein+qaadmin@remedypartners.com and Testing1
-    Then User has to wait for Autho overlay to disappear
-    Then Navigate to program management home page
-    Given user clicks on Organization link
-    Then user verifys the header of the organizations page
-    Then user verifys default org tab selected on the home page
-      | Managing|
-    Then user verifys elements on the page
-      | ManagingHospitalPGPPayor |
+    
+    Given I am on the login page
+    When I log in as super user
+    And I wait for 1000 milli seconds
+    Then I should see Tile text Program Management
+    And I click on the "Program Management" tile
+    And I switch to new window
+    Then I verify "Welcome to Program Management" header on the page
+    Then I click on Organization link on Program Management page
+    And I verify "Managing" as default organizations tab selected on homepage 
+    And I verify "Hospital" in organization type on homepage
+    And I verify "PGP" in organization type on homepage
+    And I verify "Payor" in organization type on homepage
+    And I verify "SNF" in organization type on homepage
+    
+    

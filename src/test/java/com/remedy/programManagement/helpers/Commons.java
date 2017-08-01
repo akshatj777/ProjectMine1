@@ -112,7 +112,7 @@ public class Commons extends BaseClass{
 
             hasManagingOrgButton.get(idx).click();
             inputMorg.sendKeys(orgName);
-            selectAnItemFromComboBoxWKeyPress();
+//            selectAnItemFromComboBoxWKeyPress();
             driver.findElement(By.tagName("body")).click();
         } else {
 

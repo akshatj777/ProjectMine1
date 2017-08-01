@@ -50,7 +50,7 @@ public class ManagingOrgPO extends BaseClass {
 
         contactDetails.orgDetailsForm(mOrgName, contactPerson, contactEmail, contactPhone);
         address.addressDataForm(addr1, addr2, city, state, postalCode);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
 
     }
 

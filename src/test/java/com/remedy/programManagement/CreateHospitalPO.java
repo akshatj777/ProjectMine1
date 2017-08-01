@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.remedy.programManagement.commons.Commons;
+import com.remedy.programManagement.helpers.Commons;
 
 import java.util.List;
 
@@ -116,7 +116,7 @@ public class CreateHospitalPO extends BaseClass {
 
             hasManagingOrgButton.get(idx).click();
             inputMorg.sendKeys(mOrgName);
-            selectAnItemFromComboBoxWKeyPress();
+//            selectAnItemFromComboBoxWKeyPress();
             driver.findElement(By.tagName("body")).click();
         } else {
 
@@ -134,7 +134,7 @@ public class CreateHospitalPO extends BaseClass {
         inputAddress1.sendKeys(addr1);
         inputAddress2.sendKeys(addr2);
         inputCity.sendKeys(city);
-        selectDropdownByValue(inputState, state);
+//        selectDropdownByValue(inputState, state);
         inputPostalCode.sendKeys(postalCode);
 
     }
@@ -195,7 +195,7 @@ public class CreateHospitalPO extends BaseClass {
         hospOrgDetailsForm(name, shortName, addr1, addr2, city, state, postalCode);
         hospOrgIdentifiersForm(ccn, ein, npi);
         hospOrgLocationsForm(0, locName, locType, regionId, marketId, addr1, addr2, city, state, postalCode);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
         cancelButton.click();
 
     }
@@ -206,7 +206,7 @@ public class CreateHospitalPO extends BaseClass {
         hospOrgDetailsForm(name, shortName, addr1, addr2, city, state, postalCode);
         hospOrgIdentifiersForm(ccn, ein, npi);
         hospOrgLocationsForm(0, locName, locType, regionId, marketId, addr1, addr2, city, state, postalCode);
-        scrollToBottomOfPageUsingJS();
+//      scrollToBottomOfPageUsingJS();
         submitButton.click();
 
     }
@@ -218,7 +218,7 @@ public class CreateHospitalPO extends BaseClass {
         hospOrgDetailsForm(name, shortName, addr1, addr2, city, state, postalCode);
         hospOrgIdentifiersForm(ccn, ein, npi);
         selectMultiplehospOrgLocTypes(0, locName, locType, regionId, marketId, addr1, addr2, city, state, postalCode);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
         submitButton.click();
 
     }
@@ -229,12 +229,12 @@ public class CreateHospitalPO extends BaseClass {
         selectHasorNoManOrg(1, "");
         hospOrgDetailsForm(name, shortName, addr1, addr2, city, state, postalCode);
         hospOrgIdentifiersForm(ccn, ein, npi);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
 
         for (int i = 0; i < Commons.splitList(locName).size(); i++) {
 
             hospOrgLocationsForm(i, Commons.splitList(locName).get(i), Commons.splitList(locType).get(i), Commons.splitList(regionId).get(i), Commons.splitList(marketId).get(i), Commons.splitList(locAddr1).get(i), Commons.splitList(locAddr2).get(i), Commons.splitList(locCity).get(i), Commons.splitList(locState).get(i), Commons.splitList(locZip).get(i));
-            scrollToBottomOfPageUsingJS();
+//            scrollToBottomOfPageUsingJS();
             if (i < (Commons.splitList(locName).size()) - 1) {
                 addLoc();
             }
@@ -249,12 +249,12 @@ public class CreateHospitalPO extends BaseClass {
         selectHasorNoManOrg(0, mOrgName);
         hospOrgDetailsForm(name, shortName, addr1, addr2, city, state, postalCode);
         hospOrgIdentifiersForm(ccn, ein, npi);
-        scrollToBottomOfPageUsingJS();
+//        scrollToBottomOfPageUsingJS();
 
         for (int i = 0; i < Commons.splitList(locName).size(); i++) {
 
             hospOrgLocationsForm(i, Commons.splitList(locName).get(i), Commons.splitList(locType).get(i), Commons.splitList(regionId).get(i), Commons.splitList(marketId).get(i), Commons.splitList(locAddr1).get(i), Commons.splitList(locAddr2).get(i), Commons.splitList(locCity).get(i), Commons.splitList(locState).get(i), Commons.splitList(locZip).get(i));
-            scrollToBottomOfPageUsingJS();
+//            scrollToBottomOfPageUsingJS();
             if (i < (Commons.splitList(locName).size()) - 1) {
                 addLoc();
             }
