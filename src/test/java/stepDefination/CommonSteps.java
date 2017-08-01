@@ -8,10 +8,13 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,24 +39,26 @@ public class CommonSteps extends DriverScript {
 
     @Then("^I go to mail verification page$")
     public void IGoToMailVerificationpage() throws Throwable {
-        driver.navigate().to("http://www.yopmail.com/en/");
+    	Robot r = new Robot();        
+        r.keyPress(KeyEvent.VK_CONTROL);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_CONTROL);
+        r.keyRelease(KeyEvent.VK_T);
+        iSwitchBackToOLDWindow();
+        driver.navigate().to("https://www.mailinator.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
     }
-
 
     @And("^I close current Window$")
     public void ICoseCurrentWindow() throws Throwable {
         driver.close();
     }
 
-
-  /*  @And("^I will verify user ([^\"]*)$")
-    public void iWillverifyElementText(String text) throws Throwable {
-        landingPage.v(driver.findElement(By.cssSelector(".rp-icon-user-account")), text);
-    }*/
-
+    @And("^I click on button with text \"([^\"]*)\" on page$")
+    public void iClickOnButtonWithTextOnPage(String textToBeClicked) throws Throwable {
+        driver.findElement(By.xpath("//*[text()='"+textToBeClicked+"']")).click();
+    }
 
     @And("^I navigate back$")
     public void I_nevigate_back() throws Throwable {
@@ -62,19 +67,16 @@ public class CommonSteps extends DriverScript {
 
     @And("^I switch to new window$")
     public void iSwitchoNewWindow() {
-
         landingPage.iSwitchToNewWindow();
     }
 
     @And("^I switch back to old window$")
     public void iSwitchBackToOLDWindow(){
-
         landingPage.iSwitchBackToOldWindow();
     }
 
     @And("^I verify current page \"([^\"]*)\" title$")
     public void iVerifyCurrentPageTitle(String pageTitle) {
-        //baseClass.delay();
         Assert.assertEquals(driver.getTitle(), pageTitle);
     }
 
@@ -89,13 +91,11 @@ public class CommonSteps extends DriverScript {
 
     @And("^I switch to default window from iframe$")
     public void iSwitchDefaultWindowFromIframe(){
-
         driver.switchTo().defaultContent();
     }
 
     @And("^I double click on current mouse location element$")
     public void iDoubleClickCurrentMouseLocationElement(){
-
         actionEvent.doubleClick().perform();
     }
 

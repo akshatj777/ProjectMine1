@@ -9,62 +9,47 @@ import org.openqa.selenium.WebDriver;
  */
 public class EmailVarificationPage extends BaseClass {
 
-    public EmailVarificationPage(WebDriver driver){
+	public EmailVarificationPage(WebDriver driver) {
+		super(driver);
+	}
 
-        super(driver);
-    }
+	public void iEnterVerificationEmai(String email) {
+		iFillInText(driver.findElement(By.cssSelector("#inboxfield")), email);
+	}
 
+	public void iClickGoButton() {
+		clickElement(driver.findElement(By.cssSelector(".input-group-btn .btn.btn-dark")));
+	}
 
+	public void switchToFrame(String element) {
+		swithToFrame(element);
+	}
 
-    public void iEnterVerificationEmai(String email){
+	public void SelectNewEmail() {
+		driver.navigate().refresh();
+		clickElement(driver.findElement(By.xpath("//div[contains(text(),'Remedy Partners - Verify your account')]")));
+	}
 
-     iFillInText(driver.findElement(By.cssSelector("#login")), email);
-    }
+	public void clickConfirmAccountLink() {
+		clickElement(driver.findElement(By.xpath("//a[text()='Confirm my account!']")));
+	}
 
+	public void deleteAllEmails() {
+		clickElement(driver.findElement(By.cssSelector(".igif.lmenudelall")));
+		clickElement(driver.findElement(By.xpath("//*[@id='delmenu']/ul/li[3]/a")));
+	}
 
+	public void iClickCheckForNewMail() {
+		for (int i = 0; i <= 20; i++) {
+			clickElement(driver.findElement(By.xpath("//button[@title='Go!']")));
+		}
+		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),' Remedy QA')]")));
+		driver.navigate().refresh();
+	}
 
-    public void iClickCheckInBoxButton(){
-
-        clickElement(driver.findElement(By.cssSelector(".sbut")));
-    }
-
-    public void switcToFrame(String element){
-
-        swithToFrame(element);
-
-
-    }
-
-    public void SelectNewEmail(){
-
-        driver.findElement(By.cssSelector(".lms"));
-    }
-
-    public void clickConfirmAccountLink(){
-
-        clickElement(driver.findElement(By.xpath("//*[@id='mailmillieu']//td/p[3]/a")));
-
-    }
-
-    public void deleteAllEmails() {
-
-        clickElement(driver.findElement(By.cssSelector(".igif.lmenudelall")));
-        clickElement(driver.findElement(By.xpath("//*[@id='delmenu']/ul/li[3]/a")));
-        //selectElementByDesc("#delmenu>ul>li", desc);
-
-    }
-
-
-
-    public void iClickCheckForNewMail (){
-
-        clickElement(driver.findElement(By.xpath("//*[@id='lrefr']/span/span")));
-    }
-
-
-    public void iClickOnConfirmPasswordLink(){
-
-        clickElement(driver.findElement(By.xpath("//*[@id='mailmillieu']/div[2]//tr/td/p[2]/strong/a")));
-    }
-
+	public void iClickOnConfirmPasswordLink() {
+		clickElement(driver.findElement(By.xpath("//div[contains(text(),'Password Confirmation')]")));
+		driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='publicshowmaildivcontent']")));
+		driver.findElement(By.xpath("//a[text()='click here']")).click();
+	}
 }

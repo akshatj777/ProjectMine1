@@ -1,3 +1,4 @@
+/*
 package stepDefination.Hooks;
 
 import com.github.mkolisnyk.cucumber.reporting.CucumberCoverageOverview;
@@ -5,9 +6,11 @@ import com.github.mkolisnyk.cucumber.reporting.CucumberDetailedResults;
 import com.github.mkolisnyk.cucumber.reporting.CucumberResultsOverview;
 import org.junit.Test;
 
+*/
 /**
  * Created by salam on 8/13/15.
- */
+ *//*
+
 public class CucumberCoverageReport {
 
 
@@ -42,3 +45,4 @@ public class CucumberCoverageReport {
 
 
 }
+*/
