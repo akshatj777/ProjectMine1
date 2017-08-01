@@ -10,15 +10,16 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page
-    And I wait for 10000 milli seconds
-    Then I enter "<Last name>" in the search box on the patients page
-    And I wait for 20000 milli seconds
-    Then I click on the "<Last name>" searched patient which has the CARL text in it
-    And I wait for 20000 milli seconds
-    Then I verify CARL buttons appears on the patient summary
-    Then I click on the complete CARL on the Patient Summary
+    Then I click on the Impatient tab on the patient Card Page
+    And I wait for 8000 milli seconds
+    Then I click on the patient on the patient card page that has no CARL button in it
     And I wait for 2000 milli seconds
+    Then I get the patient last name who have no CARL button in it
+    And I wait for 15000 milli seconds
+    Then I click on the complete CARL on the Patient Summary
+    And I wait for 5000 milli seconds
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    And I wait for 4000 milli seconds
     Then I click on "Discharge" section on left navigator
     And I wait for 2000 milli seconds
     And I verify the "Discharge" section of the carl form upon clicking on it
