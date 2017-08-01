@@ -483,13 +483,13 @@ Scenario Outline: For ACH MODEL 2 OPSSPEND reports link verification for the emb
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
       
-    #When I click on "Program Overview" reports text for "Dashboards" report tile
-    #And I wait for 10000 milli seconds
-    #And I switch to reports embedded iframe
-    #Then I should see "Overall Program" appearing under program overview reports
-    #And I navigate back
-    #Then I verify current page "Reports" title
-    #And I wait for 5000 milli seconds
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    And I wait for 10000 milli seconds
+    And I switch to reports embedded iframe
+    Then I should see "Overall Program" appearing under program overview reports
+    And I navigate back
+    Then I verify current page "Reports" title
+    And I wait for 5000 milli seconds
     
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"

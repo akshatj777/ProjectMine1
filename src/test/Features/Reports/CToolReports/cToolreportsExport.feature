@@ -1,4 +1,4 @@
-Feature: Ctool Reports Export to PNG,CSV and XLS
+Feature: CTool Reports Export to PNG,CSV and XLS
 
 Scenario Outline: User should click on export Episodes graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
 

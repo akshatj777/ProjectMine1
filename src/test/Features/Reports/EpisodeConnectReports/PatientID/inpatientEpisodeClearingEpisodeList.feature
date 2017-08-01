@@ -1,6 +1,6 @@
 Feature: Episode List Verification Under Inpatient Episode Clearing Reports
 
-  Scenario Outline: User should be able to see Episodes List under Inpatient Episode Clearing Report After clicking on any Episode number link
+  Scenario Outline: User should be able to see Episodes List under Inpatient Episode Clearing Report after clicking on any episode number link
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -53,7 +53,7 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users              |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Multiple Payer Users              |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |

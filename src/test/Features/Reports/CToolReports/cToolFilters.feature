@@ -1,4 +1,4 @@
-Feature: C Tool Filter Verification
+Feature: CTool Filter Verification
 
   Scenario Outline: User should be able to select participant filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payers
     Given I am on the login page
