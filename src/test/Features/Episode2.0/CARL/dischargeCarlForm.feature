@@ -1,6 +1,6 @@
 Feature: To verify the options and functionality of Discharge section of Carl form
 
-  Scenario Outline: To verify fields the Discharge section of the Carl Form
+  Scenario: To verify fields the Discharge section of the Carl Form
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -25,7 +25,7 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     And I verify the "Discharge" section of the carl form upon clicking on it
     Then I verify that "Discharge" section on carl form should be highlighted in left navigator upon clicking
     Then I verify "Next Site of Care" appears on Discharge section of carl form
-    #Then I verify "No CARL Recommendation. Please complete the following sections" field under Next Site of Care on Discharge section
+    Then I verify "No CARL Recommendation. Please complete the following sections" field under Next Site of Care on Discharge section
     Then I verify "Actual Care Setting" subform field under Recommendation on Discharge section
     Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
     And I wait for 2000 milli seconds
@@ -38,8 +38,10 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     And I wait for 2000 milli seconds
     Then I select "Skilled Services" in subform dropdown for "Care Type" on Discharge section
     And I wait for 2000 milli seconds
+    Then I verify Done button under subform is disabled on Discharge section
     Then I click on "Discharge Location" subform dropdown under Recommendation on Discharge section
     Then I enter "A Helping Hand Hha" and select location in the Discharge Location search box 
+    Then I verify Done button under subform is disabled on Discharge section
     Then I click on Calendar Icon On Discharge date under subform on Discharge section
     And I wait for 2000 milli seconds
     Then I select todays Date on Calendar Discahrge Date under subform on Discharge section 
@@ -77,7 +79,60 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     #Then I verify "Reason for Disagreement" dropdown for "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
     #Then I verify "Additional Comments" section below "Why didn't the patient transfer to the recommended Next Site of Care" question under Discharge section
     Then I verify the legal messages appears with an i icon under Discharge section
-
-    Examples: 
-      | First name | Last name  |
-      | AUTOMATION | DO_NOT_USE |
+    Then I Verify that Clicking done should show a read only field with the information filled
+   
+   Scenario: Verify that updating CARL form - Discharge section information should update the transition table as well
+   Given I am on the login page
+    When I enter email field qa.emblemrn@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    Then I verify current page "Remedy Partners" title
+    Then I click on the Impatient tab on the patient Card Page
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I get the patient last name who have no CARL button in it
+    Then I switch to PatientTransitions frame
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 3000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on add a new transition to add a new episode
+    Then I will wait to see "Transition Info" followed by "a" tag
+    Then I wait for 3000 milli seconds
+    Then I fill in "Admit" with logic "minus" with "8" days
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I select the "4" LOS days on Discharge date on Add Transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "61" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
+    Then I wait for 1000 milli seconds
+    Then I close the patient summary Page
+    Then I search and click on the searched patient which has the CARL text in it
+    Then I click on the complete CARL on the Patient Summary
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    Then I click on "Discharge" section on left navigator
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "(HHA) Home Health Agency" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
+    Then I select "Skilled Services" in subform dropdown for "Care Type" on Discharge section
+    Then I click on "Discharge Location" subform dropdown under Recommendation on Discharge section
+    Then I enter "A Helping Hand Hha" and select location in the Discharge Location search box 
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I verify User should not able to add a past date in the discharge date section
+    Then I select todays Date on Calendar Discahrge Date under subform on Discharge section 
+    And I wait for 2000 milli seconds   
+    Then I verify Done button under subform is enabled on Discharge section
+    Then I click on Done button under subform on Discharge sections
+    

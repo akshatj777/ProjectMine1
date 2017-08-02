@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,11 +30,16 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IselecttheDRGvalueontheDiagnosisandDRGtabonaddanewtransition(String DRG) throws InterruptedException {
-		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		Thread.sleep(1000);
-		iFillInText(driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input")), DRG);
-		Thread.sleep(3000);
-		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		iWillWaitToSee(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg"))).click().perform();
+		iWillWaitToSee(By.cssSelector("#select2-drop > div > input.select2-input"));
+		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
+		js.executeScript("arguments[0].click();", element2);
+		iFillInText(element2,DRG);
+		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
+		actions.moveToElement(driver.findElement(By.cssSelector("li.select2-highlighted"))).click().perform();
 	}
 
 	public void IselectthefacilityvalueStamfordonaddanewtransition(String facilityvalue) throws InterruptedException {

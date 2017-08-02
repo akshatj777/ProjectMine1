@@ -8,8 +8,12 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +35,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		super(driver);
 	}
 	public static String L_name=null;
-	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
 	public void IverifythesearchedpatienthastheCARLcompletetextornot() {
        isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope > strong")));
 	}
@@ -63,10 +67,8 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 
 	public void IclickonthecompleteCARLonthePatientSummary() throws InterruptedException {
-      	WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]"));
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Complete CARL')]")));
-		clickElement(element);
+      	iWillWaitToSee(By.xpath("//button[contains(text(),'Complete CARL')]"));
+		clickElement(driver.findElement(By.cssSelector("//button[contains(text(),'Complete CARL')]")));
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {
@@ -194,11 +196,16 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void ThenIclickonaddanewtransitiontoaddanewepisode() {
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
-		WebElement element = driver.findElement(By.cssSelector("#btnNewTransition"));
-		js.executeScript("arguments[0].click();", element);
-		iWillWaitToSee(By.cssSelector("#btnNewTransition"));
-		clickElement(element);
+		try{
+			iWillWaitToSee(By.cssSelector("#btnNewTransition"));
+			clickElement(driver.findElement(By.cssSelector("#btnNewTransition")));
+		}catch(Exception e){
+            JavascriptExecutor js = ((JavascriptExecutor) driver);
+		    WebElement element = driver.findElement(By.cssSelector("#btnNewTransition"));
+		    js.executeScript("arguments[0].click();", element);
+		    iWillWaitToSee(By.cssSelector("#btnNewTransition"));
+		    clickElement(element);
+		}
 	}
 
 	public void Iclickondatepickerbuttontoselecttheadmitdate() { 
@@ -239,10 +246,13 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement element = driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)"));
-		js.executeScript("arguments[0].click();", element);
-		clickElement(driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)")));
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        WebElement element = driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)"));
+//		js.executeScript("arguments[0].click();", element);
+//		clickElement(driver.findElement(By.cssSelector("#admission > div.modal-body.clearfix > div > ul > li:nth-child(2)")));
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Diagnosis and DRG')]"));
+		Actions actions=new Actions(driver);
+		actions.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Diagnosis and DRG')]"))).click().perform();
     }
 
 	public void IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition() {
@@ -256,7 +266,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IswitchtoPatientTransitionsframe() {
-		swithToFrame("//iframe[@class='not-showing ng-scope']");
+		WebDriverWait wait=new WebDriverWait(driver,60);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[@class='not-showing ng-scope']")));
 	}
 
 	public void IswitchtoPatientCareTeamframe() {
@@ -445,9 +456,10 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
-        iWillWaitToSee(By.cssSelector("#submitButton"));
-		 clickElement(driver.findElement(By.cssSelector("#submitButton")));
-		}
+         iWillWaitToSee(By.cssSelector("#submitButton"));
+         Actions actions = new Actions(driver);
+         actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).click().perform();
+		 }
 	
 
 	public void IclickonthecrossbuttontoclosetheCARLdocumentform() {
@@ -525,22 +537,23 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickonthepatientonthepatientcardpagethathasnoCARLbuttoninit() {
         try{
-	    	   clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a")));
-	    	   Thread.sleep(6000);
-	    		   }catch(Exception e){
-	    			    e.printStackTrace();}  
-	     clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));
-	        
-	  	}
+        	iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope"));
+        	clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));  
+        	     }catch(Exception e){
+        	     iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a"));
+        	     clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a")));     	 
+        		 iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope"));
+	        	 clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));}  
+               }
 
 	
 	public void IgetthepatientlastnamewhohavenoCARLbuttoninit() {
+		 iWillWaitToSee(By.cssSelector("span.pull-left.ng-binding"));
 		 L_name=driver.findElement(By.cssSelector("span.pull-left.ng-binding")).getText();
          
 }
    public void IclickonthecompleteCARLonthePatientSummary1() {
 		WebElement element1 = driver.findElement(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope"));
-		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope")));
 		clickElement(element1);
 	}
@@ -608,5 +621,77 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IverifythatthereshouldbeanAttachmenticononClinicalDocumentsActivitySection() {
 		isElementVisible(driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td:nth-child(5) > img.hover-pointer.ng-scope")));
 	}
+
+	public void Ifilldateinwithlogicwithndays(String logic,int days) throws InterruptedException {
+		if(logic.equals("Admit"))
+		{
+			WebElement element = driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			clickElement(element);
+			Actions actions=new Actions(driver);
+			actions.moveToElement(driver.findElement(By.xpath("//body/div[12]/div[3]/table/thead/tr[1]/th[2]"))).click().perform();
+    	 }
+		
+		
+		 else if(logic.equals("Discharge"))
+		{
+			try {
+				WebDriverWait wait = new WebDriverWait(driver, 60);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")));
+				wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate"))).click();
+			}catch (WebDriverException wde) {
+				scrollToElement(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")));
+				driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")).click();
+		}try {
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div:nth-child(18) > div.datetimepicker-days > table > thead> tr > th:nth-child(2)")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div:nth-child(18) > div.datetimepicker-days > table > thead> tr > th:nth-child(2)"))).click();
+		}catch (WebDriverException wde) {
+			scrollToElement(driver.findElement(By.cssSelector("body > div:nth-child(18) > div.datetimepicker-days > table > thead> tr > th:nth-child(2)")));
+			driver.findElement(By.cssSelector("body > div:nth-child(18) > div.datetimepicker-days > table > thead> tr > th:nth-child(2)")).click();
+		}
+		}
+		
+		String date=getcurrentdate(days);
+		String date_dd_MM_yyyy[] = date.split("/");
+		int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2]) - Calendar.getInstance().get(Calendar.YEAR);
+		iWillWaitToSee(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.next"));
+		iWillWaitToSee(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.prev"));
+		WebElement nextLink = driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.next"));
+		WebElement previousLink = driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.prev"));
+		 if(yearDiff!=0){
+                   if(yearDiff>0){
+                         for(int i=0;i< yearDiff;i++){
+                         nextLink.click();}
+                       }  else if(yearDiff<0){
+                         for(int i=0;i< (yearDiff*(-1));i++){
+                         previousLink.click(); }}
+                         }
+			
+			iWillWaitToSee(By.cssSelector("span.month"));
+			
+			List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
+			Thread.sleep(1000);
+			list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1]) - 1).click();
+			List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
+			list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
+			clickElement(driver.findElement(By.cssSelector("span.hour.active")));
+			clickElement(driver.findElement(By.cssSelector("span.minute.active")));
+			} 
+	
+	    public static String getcurrentdate(int days) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate localDate = LocalDate.now();
+		LocalDate b = localDate.minus(Period.ofDays(days));
+		String date = dtf.format(b);
+		return date;
+	}
+
+		public void Iwillwaittoseetext(String text,String tag) {
+			iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
+			
+	}
+
 	
 }

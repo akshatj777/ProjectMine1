@@ -166,4 +166,15 @@ public class SummarySectionSteps extends DriverScript {
 	public void I_verify_created_note_should_appear_in_the_document_section() throws Throwable {
 		patientclinical.Iverifycreatednoteshouldappearinthedocumentsection();
 	}
+	
+	@Then("^I fill in \"([^\"]*)\" with logic \"([^\"]*)\" with \"([^\"]*)\" days$")
+	public void I_fill_date_in_with_logic_with_n_days(String logic,String operator,int days) throws Throwable{
+	    patientclinical.Ifilldateinwithlogicwithndays(logic,days);
+	}
+	
+	@Then("^I will wait to see \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
+	public void Iwillwaittoseetext(String text,String tag)
+	{
+		patientclinical.Iwillwaittoseetext(text,tag);
+	}
 }

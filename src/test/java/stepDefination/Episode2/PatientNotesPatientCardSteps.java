@@ -234,4 +234,10 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(Notetext);
 	}
 	
+	@Then ("^I wait to the see the visibility of loader to disappear$")
+	public void I_wait_to_the_see_the_visibility_of_loader_to_disappear()
+	{
+		noteCreation.Iwaittotheseethevisibilityofloadertodisappear();
+	}
+	
 	}

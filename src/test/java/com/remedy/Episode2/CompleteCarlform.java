@@ -56,7 +56,7 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
-        isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
+		iWillWaitToSee(By.cssSelector("div.takeover-content.container.carl.ng-scope > form"));
 	}
 
 	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname, String firstname) {

@@ -47,6 +47,11 @@ public class DischargeCarlFormSteps extends DriverScript {
 	    dischargecarlform.IVerifyDoneButtonIsEnabledUnderSubFormOnDischargeSectionOnCarlForm();
 	}
 	
+	@Then ("^I click on Done button under subform on Discharge sections$")
+	public void I_click_on_Done_button_under_subform_on_Discharge_sections()
+	{
+		dischargecarlform.IclickonDonebuttonundersubformonDischargesections();
+	}
 	@Then("^I verify first question \"([^\"]*)\" under Discharge section$")
 	public void I_Verify_First_Question_Under_Discharge_Section(String text) throws Throwable {
 	    dischargecarlform.IVerifyFirstQuestionUnderDischargeSectionOnCarlForm(text);
@@ -87,6 +92,11 @@ public class DischargeCarlFormSteps extends DriverScript {
 	    dischargecarlform.IClickOnCalednarIconOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
 	}    
 	
+	@Then ("^I verify User should not able to add a past date in the discharge date section$")
+	public void I_verify_User_should_not_able_to_add_a_past_date_in_the_discharge_date_section(int days) throws Throwable {
+		 dischargecarlform.IverifyUsershouldnotabletoaddapastdateinthedischargedatesection(days);
+	}
+	
 	@Then("^I select todays Date on Calendar Discahrge Date under subform on Discharge section$")
 	public void I_Select_TodaysDate_On_Calendar_DischargeDate_Under_SubForm_On_Discharge_section() throws Throwable {
 	    dischargecarlform.ISelectTodaysDateOnCalednarOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
@@ -96,4 +106,12 @@ public class DischargeCarlFormSteps extends DriverScript {
 	public void I_Verify_Subform_Field_Is_Not_Appearing_Under_Recommendation_On_Discharge_Section(String subForm) throws Throwable {
 		dischargecarlform.IVerifySubFormFieldNotAppearingUnderRecommendationOnDischargeSectionOnCarlForm(subForm);	
 	}
+	
+	@Then("^I Verify that Clicking done should show a read only field with the information filled$")
+	public void I_Verify_that_Clicking_done_should_show_a_read_only_field_with_the_information_filled()
+	{
+		dischargecarlform.IVerifythatClickingdoneshouldshowareadonlyfieldwiththeinformationfilled();
+	}
+	
+	
 }

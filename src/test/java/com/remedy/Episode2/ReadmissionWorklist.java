@@ -9,6 +9,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.remedy.baseClass.BaseClass;
 
 public class ReadmissionWorklist extends BaseClass {
@@ -31,20 +35,18 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void Iselectthefacilityvalueonaddanewtransition(String facilityvalue) throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement element1 = driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"));
-		js.executeScript("arguments[0].click();", element1);
-		clickElement(element1);
-		Thread.sleep(2000);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility"))).click().perform();
+		iWillWaitToSee(By.cssSelector("#select2-drop > div > input.select2-input"));
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);
-		element2.sendKeys(facilityvalue);
-		Thread.sleep(3000);
-		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
-		js.executeScript("arguments[0].click();", element3);
-		clickElement(element3);
+		iFillInText(element2,facilityvalue);
+		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
+		actions.moveToElement(driver.findElement(By.cssSelector("li.select2-highlighted"))).click().perform();
 	}
 
 	public void IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition(String DRGtype) {
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_drgType"));
 		selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", DRGtype);
 	}
 
@@ -187,14 +189,15 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
+		iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div"));
 		int count = getElementCount("td.settings-column.center.cursor-default > div");
 		for (int i = 1; i <= count; i++) {
+			iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div"));
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
-			Thread.sleep(2000);
+			iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a"));
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
-			Thread.sleep(2000);
+			iWillWaitToSee(By.xpath("//button[contains(text(),'OK')]"));
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-			Thread.sleep(6000);
 		}
 	}
 
