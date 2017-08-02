@@ -101,7 +101,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IverifythatArchivedstatusshouldbeinGreycolorwithColorcode959595() {
         isElementVisible(driver.findElement(By.cssSelector(" table > tbody > tr:nth-child(2) > td:nth-child(2) > span")));
 		String value = driver.findElement(By.cssSelector("table > tbody > tr:nth-child(2) > td:nth-child(2) > span")).getCssValue("background-color");
-		Assert.assertTrue(value.equals("959595"));
+		String hex = Color.fromString(value).asHex();
+		Assert.assertTrue(hex.equals("#959595"));
 	}
 
 	public void Iverifythereshouldbefilterlinkonclinicaldocumentsection() {

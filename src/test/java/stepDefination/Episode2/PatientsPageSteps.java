@@ -1569,4 +1569,17 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_is_appearing_on_patient_summary_page_below_tags(String tags) throws Throwable{
     	patientsPage.iVerifyPatientTags(tags);
     }
-}
+   
+    @Then ("^I click on the \"([^\"]*)\" tab appearing under care plan frame on patient summary page$")
+    public void I_click_on_the_notes_tab_appearing_under_care_plan_frame_on_patient_summary_page()
+    {
+    	patientsPage.Iclickonthenotestabappearingundercareplanframeonpatientsummarypage();
+    }
+   
+    @Then ("^I verify the notes created in the episode1 should not appear in the notes section in care plan in episode2$")
+    public void I_verify_the_notes_created_in_the_episode1_should_not_appear_in_the_notes_section_in_care_plan_in_episode2()
+    {
+    	patientsPage.Iverifythenotescreatedintheepisode1shouldnotappearinthenotessectionincareplaninepisode2();
+    }
+    
+    }

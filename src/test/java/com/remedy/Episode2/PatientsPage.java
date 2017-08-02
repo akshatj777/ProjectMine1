@@ -576,8 +576,13 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnAttestationButtonPresentOnThePatientCard() {
-		clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope button.attestation-button")));
-	}
+		try{
+		clickElement(driver.findElement(By.xpath("//*[@id='submitButtonAdd']")));
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		}
 
 	public void iClickOnFilterTabPresentOnThePatientsPage(String filtertab) {
 		clickElement(driver.findElement(By.cssSelector("#filterTab_" + filtertab + "")));
@@ -1175,4 +1180,14 @@ public class PatientsPage extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("div.container.profile-info.ng-scope > div > div.filter-bars.ng-scope > tabbed-navbar > div > div.tabbed-navbar-left > div.tabbed-navbar-tabs > button.btn.btn-indicator.ng-scope.active > span")));
 
 	}
-}
+
+	public void Iclickonthenotestabappearingundercareplanframeonpatientsummarypage() {
+		clickElement(driver.findElement(By.cssSelector("#careFlowNotesTab > a")));
+		
+	}
+
+	public void Iverifythenotescreatedintheepisode1shouldnotappearinthenotessectionincareplaninepisode2() {
+			verifyTextForElement(driver.findElement(By.cssSelector("#notesTable > tbody > tr:nth-child(1) > td.sorting_1")),"Baseline");
+		}
+	}
+    

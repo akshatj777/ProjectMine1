@@ -91,7 +91,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IverifywhethertopicdropdownappearsonAddClinicalDocumentonPatientCardpage() {
-		isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span ")));
+		isElementVisible(driver.findElement(By.cssSelector("section > form > div > div.ui-select-match.ng-scope > span")));
 	}
 
 	public void IselectthevaluefromthetopicdropdownonPatientCard(String Topic_dropdown_value) {
@@ -428,4 +428,5 @@ public class NoteCreation extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("li.dropdown.dropdown-user")));
 		clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-logout")));
 	}
-}
+
+    }

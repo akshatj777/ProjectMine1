@@ -1,6 +1,6 @@
 Feature: Clinical Documents - Patient Notes History Section
 
-  Scenario Outline: The Last saved section on the clinical documents table should display the information of the last user who saved the individual form (To verify information Activity column in Clinical Documents table)
+  Scenario Outline: The Last saved section on the clinical documents table should display the information of the last user who saved the individual form(To verify information Acivity column in Clinical Documents table).
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -108,5 +108,5 @@ Feature: Clinical Documents - Patient Notes History Section
     Then I verify that there should be an Attachment icon on Clinical Documents Activity Section
 
     Examples: 
-      | Medicare ID | date | Text Description        |
-      | wa984986    |   12 | Remedy Document Section |
+      | date | Text Description        |
+      |   12 | Remedy Document Section |

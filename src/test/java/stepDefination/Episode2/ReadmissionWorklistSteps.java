@@ -62,8 +62,8 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	public void I_click_on_the_agree_button_on_the_Patient_Card_page() throws Throwable {
 		admission.IclickontheagreebuttononthePatientCardpage();
 	}
-
-	@Then("^I click on update transition to add a new episode$")
+	
+    @Then("^I click on update transition to add a new episode$")
 	public void I_click_on_update_transition_to_add_a_new_episode() throws Throwable {
 		admission.Iclickonupdatetransitiontoaddanewepisode();
 	}
