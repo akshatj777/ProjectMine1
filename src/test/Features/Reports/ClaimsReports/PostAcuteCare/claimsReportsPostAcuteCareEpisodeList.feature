@@ -6,19 +6,18 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for 30000 milli seconds 
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
     
     Then I click on a number under episodes column
-    And I wait for 5000 milli seconds
-    
     Then I switch to new window
-    And I wait for 2000 milli seconds
+    And I wait for the elements to load in new window after clicking one of the episode
     
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
@@ -31,7 +30,6 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table
-    #Then I should verify "DOB (Key)" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table
@@ -89,16 +87,16 @@ Scenario Outline: User should remove the existing default filters
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for 30000 milli seconds 
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
     
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters

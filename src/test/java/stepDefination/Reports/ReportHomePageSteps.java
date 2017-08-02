@@ -1002,4 +1002,34 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_filter_in_the_filter_options(String text) throws Throwable{
     	reportHomePage.iClickOnFilterUnderFilterOptions(text);
     }
+    
+    @And("I wait for the reports embedded iframe to load")
+    public void i_wait_for_the_reports_embedded_iframe_to_load() throws Throwable{
+    	reportHomePage.iWaitforTheReportsEmbeddedIframeToLoad();
+    }
+    
+    @And("I will wait to see \"([^\"]*)\" is appearing inside the iframe")
+    public void i_will_wait_to_see_is_appearing_inside_the_iframe(String reportname) throws Throwable{
+    	reportHomePage.iWillWaitToSeeReportNameInsideIframe(reportname);
+    }
+    
+    @And("I wait to see \"([^\"]*)\" tile")
+    public void i_wait_to_see_tile(String tile) throws Throwable{
+    	reportHomePage.iWaitToseeTile(tile);
+    }
+    
+    @And("I wait to see \"([^\"]*)\" under reports tile text")
+    public void i_wait_to_see_under_reports_tile_text(String report) throws Throwable{
+    	reportHomePage.iWaitToSeeUnderReportsTileText(report);
+    }
+    
+    @And("I wait for the elements to load in new window after clicking one of the episode")
+    public void i_wait_for_the_elements_to_load_in_new_window_after_clicking_one_of_the_episode() throws Throwable{
+    	reportHomePage.iWaitForElementsToLoadInNewWindow();
+    }
+    
+    @And("I wait untill refresh button is disappeared")
+    public void i_wait_untill_refresh_button_is_disappeared() throws Throwable{
+    	reportHomePage.iWaitUntillRefreshButtonDisappeared();
+    }
 }

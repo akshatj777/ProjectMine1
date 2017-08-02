@@ -20,6 +20,8 @@ import java.util.Random;
  * Created by salam on 5/6/16.
  */
 public class ReportHomePage extends BaseClass {
+	
+	WebDriverWait wait = new WebDriverWait(driver, 10);
 
     public ReportHomePage(WebDriver driver){
 
@@ -654,6 +656,7 @@ public class ReportHomePage extends BaseClass {
     
     public void iRemoveDeefaultFilters(String field,String title){
     	clickElement(driver.findElement(By.xpath(".//div[@id='filter_["+title+"].["+field+"]'] //i[@class='filterAction pentaho-deletebutton']")));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
     }
     
     public void iSelectCurrentMonthInAnchorDischargeMonth(String text){
@@ -784,5 +787,29 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnFilterUnderFilterOptions(String text){
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header-label")));
     }
+    
+    public void iWaitforTheReportsEmbeddedIframeToLoad(){
+    	iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+    }
+    
+    public void iWillWaitToSeeReportNameInsideIframe(String reportname){
+    	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='"+reportname+"']"));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
+    
+    public void iWaitToseeTile(String tile){
+    	iWillWaitToSee(By.xpath("//p[text()='"+tile+"']"));
+    }
+    
+    public void iWaitToSeeUnderReportsTileText(String report){
+    	iWillWaitToSee(By.xpath("//label[@class='dropdown-tile-label ng-binding'][text()='"+report+"']"));
+    }
+    
+    public void iWaitForElementsToLoadInNewWindow(){
+    	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
+    }
+    
+    public void iWaitUntillRefreshButtonDisappeared(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
 }
-

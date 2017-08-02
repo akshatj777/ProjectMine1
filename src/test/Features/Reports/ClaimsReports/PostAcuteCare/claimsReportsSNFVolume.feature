@@ -6,24 +6,22 @@ Scenario Outline: User should be able to see Measures,Levels and Preselected Fil
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "SNF Volume (Claims)" report text for Post Acute Care Reports 
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "SNF Volume" is appearing inside the iframe
     
     When I click on show all filters icon button
-    And I wait for 1000 milli seconds
     
     Then I should see "Post Acute Category includes SNF" is present under preselected post acute category filter
     Then I verify "Bundle Risk" filter is preselected under the filter
     
     When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
     
     Then I should see "Episodes (Eps)" under "measures" field
     

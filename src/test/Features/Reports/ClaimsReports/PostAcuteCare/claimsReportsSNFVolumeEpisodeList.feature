@@ -6,20 +6,18 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "SNF Volume (Claims)" report text for Post Acute Care Reports 
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "SNF Volume" is appearing inside the iframe
     
     Then I click on a number under episodes column
-    And I wait for 5000 milli seconds
-    
     Then I switch to new window
-    And I wait for 2000 milli seconds
-    
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
@@ -87,16 +85,16 @@ Scenario Outline: User should remove the existing default filters
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "SNF Volume (Claims)" report text for Post Acute Care Reports 
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "SNF Volume" is appearing inside the iframe
     
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     
     Then I remove "Post Acute Category" field filter under "Post Acute Category.Post Acute Type" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters

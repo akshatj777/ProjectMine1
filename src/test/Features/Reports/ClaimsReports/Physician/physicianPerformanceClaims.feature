@@ -5,15 +5,15 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
     When I click on show all filters icon button
-    And I wait for 1000 milli seconds
     Then I verify "Bundle Risk" filter is preselected under the filter
 
     Examples: 
@@ -30,17 +30,16 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
     When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
     Then I should see "Episodes (Eps)" under "measures" field
     Then I should see "% Disch to Home (Adj Hist)" under "measures" field
     Then I should see "% Disch to Home" under "measures" field
@@ -75,17 +74,16 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
     When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
     Then I should see "Anchor End Date" appearing under "level" field
     Then I should see "Anchor Facility" appearing under "level" field
     Then I should see "Anchor Facility Type" appearing under "level" field
@@ -165,15 +163,15 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 50000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds 
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
     
     Examples: 

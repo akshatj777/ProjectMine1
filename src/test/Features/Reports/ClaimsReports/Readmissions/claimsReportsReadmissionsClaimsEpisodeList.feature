@@ -6,19 +6,17 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions (Claims)" report text for Readmissions Reports 
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
     
-    Then I click on a number under episodes column
-    And I wait for 20000 milli seconds
-    
+    Then I click on a number under episodes column 
     Then I switch to new window
-    And I wait for 2000 milli seconds
     
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
@@ -87,17 +85,16 @@ Scenario Outline: User should remove the existing default filters
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "Readmissions"
     Then I click on "Readmissions (Claims)" report text for Readmissions Reports 
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
     
-    And I wait for 3000 milli seconds
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
