@@ -14,10 +14,11 @@ Scenario Outline: User should be click on one of the link under episodes and ver
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     
     Then I click on a number under episodes column 
     Then I switch to new window
-    
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table

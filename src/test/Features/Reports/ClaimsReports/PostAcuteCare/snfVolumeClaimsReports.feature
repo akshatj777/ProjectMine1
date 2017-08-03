@@ -14,6 +14,7 @@ Feature: Snf volume claims Post Acute Care
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF Volume" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
 
     Then I should see SNF volume reports column Tile text as "Participant"
     Then I should see SNF volume reports column Tile text as "Episode Initiator"

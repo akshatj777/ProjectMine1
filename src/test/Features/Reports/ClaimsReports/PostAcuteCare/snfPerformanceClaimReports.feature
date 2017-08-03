@@ -14,6 +14,7 @@ Feature: SNF Performance claims post acute care
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
 
     Then I should see snf performance reports column Tile text as "Participant"
     Then I should see snf performance reports column Tile text as "Episode Initiator"

@@ -6,22 +6,22 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
     Then I click on "CARL" report text for NSoC Reports 
-    And I wait for 30000 milli seconds
-    
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
+    
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     Then I verify "Model" filter is preselected under the filter
     Then I should see "Model includes 2" is present under preselected model filter
     When I click on field-panel-icon button
-    And I wait for 4000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 4000 milli seconds
+    And I wait untill refresh button is disappeared
     
     Then I should see "# Episodes" under "measures" field
     Then I should see "Completed CARL %" under "measures" field

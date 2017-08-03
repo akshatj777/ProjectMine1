@@ -13,7 +13,8 @@ Scenario Outline: Verify that Volume claims report display data based on provisi
     Then I click on "Volume (Claims)" report text for Physician Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Physician Volume" is appearing inside the iframe 
+    And I will wait to see "Physician Volume" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
 
     Then I should see Volume reports column Tile text as "Participant"
     Then I should see Volume reports column Tile text as "Episode Initiator"

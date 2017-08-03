@@ -13,6 +13,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     When I click on show all filters icon button
     Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
     Then I verify "Bundle Risk" filter is preselected under the filter

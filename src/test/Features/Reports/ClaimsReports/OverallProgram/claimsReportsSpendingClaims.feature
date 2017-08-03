@@ -13,6 +13,7 @@ Feature: Verification Claims Report For Spending
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Spending" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     When I click on show all filters icon button
     Then I verify "Current AtRisk" filter is preselected under the filter
     When I click on field-panel-icon button

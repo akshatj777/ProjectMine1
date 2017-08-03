@@ -14,6 +14,7 @@ Feature: Post acute care claims
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Post Acute Care" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
 
     Then I should see Post Acute Care (Claims) reports column Tile text as "Participant"
     Then I should see Post Acute Care (Claims) reports column Tile text as "Episode Initiator"

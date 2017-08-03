@@ -6,16 +6,17 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports 
-    And I wait for 50000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     
     Then I should see "Model includes 2" is present under preselected model filter
     Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
@@ -30,11 +31,8 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I verify Initial SNF Length of Stay Summary reports column text as "2017-03"
     Then I verify Initial SNF Length of Stay Summary reports column text as "# Episodes"
     
-    When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
-    
+    When I click on field-panel-icon button  
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
     
     Then I should see "# Episodes" under "measures" field
     
@@ -72,7 +70,6 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I should see "Anchor Admission Quarter" appearing under "Time" field
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
-    #Then I should see "Anchor Begin Date" appearing under "Time" field
     Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
