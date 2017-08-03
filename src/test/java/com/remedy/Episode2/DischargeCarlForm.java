@@ -109,7 +109,7 @@ public class DischargeCarlForm extends BaseClass {
 		iWillWaitToSee(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']"));
 		driver.findElement(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']")).sendKeys(text);
 		delay();
-		selectElementByDesc(".ng-binding.ng-scope", "A Helping Hand Hha (Wickenbury, AZ) (HHA)");
+		selectElementByDesc(".ng-binding.ng-scope", text);
 	}
 
 	public void IVerifythatClickingdoneshouldshowareadonlyfieldwiththeinformationfilled() {
@@ -120,7 +120,8 @@ public class DischargeCarlForm extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//button[text()='Done']")));
 	}
 
-	public void IverifyUsershouldnotabletoaddapastdateinthedischargedatesection(int days) throws InterruptedException {
+	public void IselectadmissionwithlogiccounterDateonCalendarDischargeDateundersubformonDischargesection(int days) throws InterruptedException {
+		iWillWaitToSee(By.cssSelector("h3.ng-binding"));
 		Actions actions=new Actions(driver);
 		actions.moveToElement(driver.findElement(By.cssSelector("h3.ng-binding"))).click().perform();
 		String date=getcurrentdate(days);
@@ -144,11 +145,9 @@ public class DischargeCarlForm extends BaseClass {
 			List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("span.month"));
 			Thread.sleep(1000);
 			list_AllMonthToBook.get(Integer.parseInt(date_dd_MM_yyyy[1]) - 1).click();
-			List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
+			List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[contains(@class, 'datetimepicker')]//table//tbody//td[not(contains(@class,'past')) and not(contains(@class,'future'))]"));
 			list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
-			clickElement(driver.findElement(By.cssSelector("span.hour.active")));
-			clickElement(driver.findElement(By.cssSelector("span.minute.active")));
-			} 
+		   } 
 	
 	        public static String getcurrentdate(int days) {
 		    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -157,5 +156,33 @@ public class DischargeCarlForm extends BaseClass {
 		    String date = dtf.format(b);
 		    return date;
 	}
+
+			public void IverifyUsershouldnotgetanerrormessageonaddingapastdateinthedischargedatesection() {
+				iWillWaitToSee(By.cssSelector("i.valentino-icon-deny"));
+				iWillWaitToSee(By.xpath("//div[contains(text(),'Discharge Date')]"));
+				isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'Discharge Date')]")));
+			}
+
+			public void Iverifythecorrectvalueforheaderwhichuserhasselectedbythetimeoffillingtheformshouldappearingaftersavingthedoneform(String variable,String value) {
+				iWillWaitToSee(By.cssSelector("div.carl-discharge-review.ng-scope"));
+				if(variable.equals("Caresetting")){
+				    isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'answer') and contains(text(),'"+value+"')]")));
+				}else if(variable.equals("Caretype")){
+					isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'answer') and contains(text(),'"+value+"')]")));
+				}else if(variable.equals("DischargeLocation")){
+					isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'answer') and contains(text(),'"+value+"')]")));
+				}else if(variable.equals("DischargeDate")){
+			        isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'answer') and contains(text(),'"+value+"')]")));
+				}
+            }
+
+			public void IclickoneditbuttontoupdatethevaluesofdischargesubformunderdischargetestinCarlform() {
+				clickElement(driver.findElement(By.cssSelector("div.row.row-controls > a.btn.ng-scope")));
+				}
+
+			public void IverifyusershouldbeabletonavigatetothereadonlyformandnoservererrorshouldappearonDischargesection() {
+				iWillWaitToSee(By.cssSelector("form.subform.container-fluid.ng-dirty.ng-valid.ng-submitted"));
+				isElementVisible(driver.findElement(By.xpath("form.subform.container-fluid.ng-dirty.ng-valid.ng-submitted")));
+				}
 	
 }

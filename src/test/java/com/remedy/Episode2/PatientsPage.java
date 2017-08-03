@@ -75,6 +75,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnFilterButtonPresentOnPatientPage() {
+		iWillWaitToSee(By.cssSelector(".filter-bar-search-left .btn-quaternary span"));
 		clickElement(driver.findElement(By.cssSelector(".filter-bar-search-left .btn-quaternary span")));
 	}
 
@@ -91,6 +92,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnFiltersButtonPresentOnFilterPage() {
+		iWillWaitToSee(By.cssSelector("div.row-controls>a"));
 		clickElement(driver.findElement(By.cssSelector("div.row-controls>a")));
 	}
 
@@ -115,6 +117,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifySSNFilterIsDisplayedUnderListOfFilterOptions() {
+		iWillWaitToSee((By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'SSN')]")));
 		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'SSN')]")));
 	}
 
@@ -283,6 +286,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnDoneButtonPresentOnTheFilterPage() {
+		iWillWaitToSee(By.cssSelector("button[class='btn btn-primary'][ng-click='closeFilters()']"));
 		clickElement(driver.findElement(By.cssSelector("button[class='btn btn-primary'][ng-click='closeFilters()']")));
 	}
 
@@ -831,6 +835,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterUnderSSNFilter(String ssn) {
+		iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
 		iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")), ssn);
 	}
 

@@ -177,4 +177,22 @@ public class SummarySectionSteps extends DriverScript {
 	{
 		patientclinical.Iwillwaittoseetext(text,tag);
 	}
+	
+	@Then("^I will wait to see and click on \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
+	public void Iwillwaittoseeandclickontext(String text,String tag)
+	{
+		patientclinical.Iwillwaittoseeandclickontext(text,tag);
+	}
+	
+	@Then ("^I will fetch the value attribute of \"([^\"]*)\" on patient details$")
+	public void I_will_fetch_the_value_attribute_of_variable_on_patient_details(String value)
+	{
+		patientclinical.Iwillfetchthevalueattributeofvariableonpatientdetails();
+	}
+	
+	@Then ("^I enter \"([^\"]*)\" value under \"([^\"]*)\" filter$")
+	public void I_enter_filter_value_under_filter(String ssn,String ssn1)
+	{
+		patientclinical.Ienterfiltervalueunderfilter();
+	}
 }

@@ -92,10 +92,17 @@ public class DischargeCarlFormSteps extends DriverScript {
 	    dischargecarlform.IClickOnCalednarIconOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
 	}    
 	
-	@Then ("^I verify User should not able to add a past date in the discharge date section$")
-	public void I_verify_User_should_not_able_to_add_a_past_date_in_the_discharge_date_section(int days) throws Throwable {
-		 dischargecarlform.IverifyUsershouldnotabletoaddapastdateinthedischargedatesection(days);
+	@Then ("^I select \"([^\"]*)\" with logic \"([^\"]*)\" \"([^\"]*)\" days on Calendar Discharge Date under subform on Discharge section$")
+	public void I_select_admission_with_logic_counter_Date_on_Calendar_Discharge_Date_under_subform_on_Discharge_section(String admission,String counter,int days) throws Throwable {
+		 dischargecarlform.IselectadmissionwithlogiccounterDateonCalendarDischargeDateundersubformonDischargesection(days);
 	}
+	
+	@Then("^I verify User should not get an error message on adding a past date in the discharge date section$")
+	public void I_verify_User_should_not_get_an_error_message_on_adding_a_past_date_in_the_discharge_date_section()
+	{
+		dischargecarlform.IverifyUsershouldnotgetanerrormessageonaddingapastdateinthedischargedatesection();
+	}
+	
 	
 	@Then("^I select todays Date on Calendar Discahrge Date under subform on Discharge section$")
 	public void I_Select_TodaysDate_On_Calendar_DischargeDate_Under_SubForm_On_Discharge_section() throws Throwable {
@@ -113,5 +120,22 @@ public class DischargeCarlFormSteps extends DriverScript {
 		dischargecarlform.IVerifythatClickingdoneshouldshowareadonlyfieldwiththeinformationfilled();
 	}
 	
+	@Then ("^I verify the correct \"([^\"]*)\" \"([^\"]*)\" which user has selected by the time of filling the form should appearing after saving the done form$")
+	public void I_verify_the_correct_care_setting_which_user_has_selected_by_the_time_of_filling_the_form_should_appearing_after_saving_the_done_form(String variable,String value)
+	{
+		dischargecarlform.Iverifythecorrectvalueforheaderwhichuserhasselectedbythetimeoffillingtheformshouldappearingaftersavingthedoneform(variable,value);
+	}
+	
+	@Then ("^I click on edit button to update the values of discharge subform under discharge test in Carl form$")
+	public void I_click_on_edit_button_to_update_the_values_of_discharge_subform_under_discharge_test_in_Carl_form()
+	{
+		dischargecarlform.IclickoneditbuttontoupdatethevaluesofdischargesubformunderdischargetestinCarlform();
+	}
+	
+	@Then ("^I verify user should be able to navigate to the read only form and no server error should appear on Discharge section$")
+	public void I_verify_user_should_be_able_to_navigate_to_the_read_only_form_and_no_server_error_should_appear_on_Discharge_section()
+	{
+		dischargecarlform.IverifyusershouldbeabletonavigatetothereadonlyformandnoservererrorshouldappearonDischargesection();
+	}
 	
 }

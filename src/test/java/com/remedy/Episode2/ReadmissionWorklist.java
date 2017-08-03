@@ -198,6 +198,7 @@ public class ReadmissionWorklist extends BaseClass {
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
 			iWillWaitToSee(By.xpath("//button[contains(text(),'OK')]"));
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
+			Thread.sleep(3000);
 		}
 	}
 

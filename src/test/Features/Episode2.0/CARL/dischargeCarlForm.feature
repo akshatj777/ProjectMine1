@@ -82,7 +82,7 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     Then I Verify that Clicking done should show a read only field with the information filled
    
    Scenario: Verify that updating CARL form - Discharge section information should update the transition table as well
-   Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -94,7 +94,14 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     Then I wait to the see the visibility of loader to disappear
     Then I click on the patient on the patient card page that has no CARL button in it
     Then I get the patient last name who have no CARL button in it
+    Then I will wait to see and click on "Patient Details" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
     Then I switch to PatientTransitions frame
+    Then I will fetch the value attribute of "Social Security Number" on patient details
+    When I switch to default window from iframe
+    Then I will wait to see and click on "Transitions" followed by "span" tag
+    Then I switch to PatientTransitions frame
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
     Then I wait to the see the visibility of loader to disappear
@@ -117,12 +124,82 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     When I switch to default window from iframe
     Then I wait for 1000 milli seconds
     Then I close the patient summary Page
-    Then I search and click on the searched patient which has the CARL text in it
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
+    Then I click on the patient on the patient card page that has no CARL button in it
     Then I click on the complete CARL on the Patient Summary
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    And I wait for 4000 milli seconds 
     Then I click on "Discharge" section on left navigator
+ #  Then I verify No  server error should appear if user edits and saves the subform with new values
     Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
+    Then I select "(HHH) Hospital" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
+    Then I select "Inpatient" in subform dropdown for "Care Type" on Discharge section
+    Then I click on "Discharge Location" subform dropdown under Recommendation on Discharge section
+    Then I enter "Allentown" and select location in the Discharge Location search box 
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
     And I wait for 2000 milli seconds
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "Discharge current" with logic "current" "1" days on Calendar Discharge Date under subform on Discharge section
+    Then I verify Done button under subform is enabled on Discharge section
+    Then I click on Done button under subform on Discharge sections
+    Then I verify user should be able to navigate to the read only form and no server error should appear on Discharge section
+    Then I verify the correct "CareSetting" "(HHH) Hospital" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "Caretype" "Inpatient" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "DischargeLocation" "Allentown" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I click on edit button to update the values of discharge subform under discharge test in Carl form
+  # Then I verify No  server error should appear if user edits and saves the subform with new values
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
+    Then I select "(UNK) Unknown" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "Discharge current" with logic "current" "1" days on Calendar Discharge Date under subform on Discharge section
+    Then I verify Done button under subform is enabled on Discharge section
+    Then I click on Done button under subform on Discharge sections
+    Then I verify user should be able to navigate to the read only form and no server error should appear on Discharge section
+    Then I verify the correct "CareSetting" "(UNK) Unknown" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "DischargeLocation" "No Discharge Facility" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I click on edit button to update the values of discharge subform under discharge test in Carl form
+  # Then I verify No  server error should appear if user edits and saves the subform with new values
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
+    Then I select "(HOM) Home" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "Discharge current" with logic "current" "1" days on Calendar Discharge Date under subform on Discharge section
+    Then I verify Done button under subform is enabled on Discharge section
+    Then I click on Done button under subform on Discharge sections
+    Then I verify user should be able to navigate to the read only form and no server error should appear on Discharge section
+    Then I verify the correct "CareSetting" "(HOM) Home" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "DischargeLocation" "No Discharge Facility" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I click on edit button to update the values of discharge subform under discharge test in Carl form
+  #  Then I verify No  server error should appear if user edits and saves the subform with new values
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
+    Then I select "(EXPIRED) Expired" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "Discharge current" with logic "current" "1" days on Calendar Discharge Date under subform on Discharge section
+    Then I verify Done button under subform is enabled on Discharge section
+    Then I click on Done button under subform on Discharge sections
+    Then I verify user should be able to navigate to the read only form and no server error should appear on Discharge section
+    Then I verify the correct "CareSetting" "(EXPIRED) Expired" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "DischargeLocation" "No Discharge Facility" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I click on edit button to update the values of discharge subform under discharge test in Carl form
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
     Then I select "(HHA) Home Health Agency" in subform dropdown for "Actual Care Setting" on Discharge section
     Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
     Then I select "Skilled Services" in subform dropdown for "Care Type" on Discharge section
@@ -130,9 +207,23 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     Then I enter "A Helping Hand Hha" and select location in the Discharge Location search box 
     Then I click on Calendar Icon On Discharge date under subform on Discharge section
     And I wait for 2000 milli seconds
-    Then I verify User should not able to add a past date in the discharge date section
-    Then I select todays Date on Calendar Discahrge Date under subform on Discharge section 
-    And I wait for 2000 milli seconds   
+    Then I select "Discharge past" with logic "minus" "17385" days on Calendar Discharge Date under subform on Discharge section
+    Then I verify User should not get an error message on adding a past date in the discharge date section
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
+    Then I select "(HHA) Home Health Agency" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
+    Then I select "Skilled Services" in subform dropdown for "Care Type" on Discharge section
+    Then I click on "Discharge Location" subform dropdown under Recommendation on Discharge section
+    Then I enter "A Helping Hand Hha" and select location in the Discharge Location search box 
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I verify User should not get an error message on adding a past date in the discharge date section
+    Then I click on Calendar Icon On Discharge date under subform on Discharge section
+    And I wait for 2000 milli seconds
+    Then I select "Discharge current" with logic "current" "1" days on Calendar Discharge Date under subform on Discharge section
     Then I verify Done button under subform is enabled on Discharge section
     Then I click on Done button under subform on Discharge sections
-    
+    Then I verify user should be able to navigate to the read only form and no server error should appear on Discharge section
+    Then I verify the correct "CareSetting" "(HHA) Home Health Agency" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "Caretype" "Skilled Services" which user has selected by the time of filling the form should appearing after saving the done form
+    Then I verify the correct "DischargeLocation" "A Helping Hand Hha" which user has selected by the time of filling the form should appearing after saving the done form

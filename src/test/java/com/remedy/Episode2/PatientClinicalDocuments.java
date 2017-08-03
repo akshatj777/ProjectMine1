@@ -35,6 +35,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		super(driver);
 	}
 	public static String L_name=null;
+	public static String attribute_value=null;
 	WebDriverWait wait = new WebDriverWait(driver, 30);
 	public void IverifythesearchedpatienthastheCARLcompletetextornot() {
        isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope > strong")));
@@ -68,7 +69,7 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickonthecompleteCARLonthePatientSummary() throws InterruptedException {
       	iWillWaitToSee(By.xpath("//button[contains(text(),'Complete CARL')]"));
-		clickElement(driver.findElement(By.cssSelector("//button[contains(text(),'Complete CARL')]")));
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Complete CARL')]")));
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {
@@ -541,9 +542,11 @@ public class PatientClinicalDocuments extends BaseClass {
         	clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));  
         	     }catch(Exception e){
         	     iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a"));
-        	     clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a")));     	 
-        		 iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope"));
-	        	 clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));}  
+        	     Actions actions=new Actions(driver);
+        	     actions.moveToElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div:nth-child(1) > div > div.card-view-content.ng-scope > div.card-footer.col-xs-12.ng-scope > div > div > a"))).click().perform();
+        	     iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope"));
+        	     clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));
+        	     }
                }
 
 	
@@ -692,6 +695,22 @@ public class PatientClinicalDocuments extends BaseClass {
 			iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
 			
 	}
+
+		public void Iwillwaittoseeandclickontext(String text, String tag) {
+			iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
+			clickElement(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
+			}
+
+		public void Iwillfetchthevalueattributeofvariableonpatientdetails() {
+			iWillWaitToSee(By.cssSelector("div.clearLeft.ssn-mask.ui-editable.editable.editable-click"));
+			attribute_value=driver.findElement(By.cssSelector("div.clearLeft.ssn-mask.ui-editable.editable.editable-click")).getAttribute("value").replace("-","");
+     		}
+
+		public void Ienterfiltervalueunderfilter() {
+			iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
+			iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")),attribute_value);
+			
+		}
 
 	
 }
