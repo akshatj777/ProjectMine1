@@ -8,7 +8,7 @@ import cucumber.api.java.en.And;
 public class SearchOrganizationDef extends DriverScript{
 	SearchOrganization searchorganization = new SearchOrganization(driver);
 
-	@And("^I search ([^\"]*) on organization in search box$")
+	@And("^I search with ([^\"]*) on organization in search box$")
 	  public void i_Search_Field_On_Organization_In_SearchBox(String text) throws Throwable {
 		 searchorganization.iSearchFieldOnOrganizationInSearchBox(text);
 	    }
@@ -18,9 +18,9 @@ public class SearchOrganizationDef extends DriverScript{
 		 searchorganization.iSeeSearchCountOnOrganization(text);
 	    }
 	
-	@And("^I verify ([^\"]*) field after search on organization homepage$")
-	  public void i_Verify_Field_After_Search_On_Organization_Homepage(String text) throws Throwable {
-		 searchorganization.iVerifyFieldAfterSearchOnOrganizationHomepage(text);
+	@And("^I verify ([^\"]*) field in search list on organization page$")
+	  public void i_Verify_Field_In_Search_List_On_Organization_Homepage(String text) throws Throwable {
+		 searchorganization.iVerifyFieldInSearchListOnOrganizationHomepage(text);
 	    }
 	
 }

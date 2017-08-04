@@ -4,7 +4,6 @@ Feature: User completes inputting Managing Organization details during creation,
   Background: 
     Given I am on the login page
     When I log in as super user
-    And I wait for 1000 milli seconds
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window

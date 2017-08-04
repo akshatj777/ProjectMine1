@@ -4,7 +4,6 @@ Feature: Create a Managing Organization, verify the details fields
   Background: 
     Given I am on the login page
     When I log in as super user
-    And I wait for 1000 milli seconds
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
@@ -29,7 +28,7 @@ Feature: Create a Managing Organization, verify the details fields
     And I verify "Please enter a City" mandatory field validation message on create organization page
     And I verify "Please select a State" mandatory field validation message on create organization page
     And I verify "Please enter a Zip Code" mandatory field validation message on create organization page
-  
+
   Scenario Outline: Create Managing Organization with mandatory fields
     When I click on Organization link on Program Management page
     Then I click on create new Organization button on Program Management homepage
@@ -47,6 +46,7 @@ Feature: Create a Managing Organization, verify the details fields
       | MO_Name | Address1 | City | State      | Postal_Code |
       | MO_Name | Address  | ABCd | California |       10000 |
 
+  @Smoke
   Scenario Outline: Create Managing Organization with all the available fields
     When I click on Organization link on Program Management page
     Then I click on create new Organization button on Program Management homepage
@@ -64,5 +64,5 @@ Feature: Create a Managing Organization, verify the details fields
     Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
 
     Examples: 
-      | MO_Name | Contact_Person | Contact_Email | Contact_Phone | Address1 | Address2 | City | State | Postal_Code |
+      | MO_Name | Contact_Person | Contact_Email | Contact_Phone | Address1 | Address2 | City | State      | Postal_Code |
       | MO_Name | Contact_Person | Contact_Email | Contact_Phone | Address1 | Address2 | City | California |       10000 |

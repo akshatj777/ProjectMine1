@@ -23,7 +23,7 @@ public class SearchOrganization extends BaseClass{
 		Assert.assertEquals(text, actual);
 	}
 	
-	public void iVerifyFieldAfterSearchOnOrganizationHomepage(String text) {
+	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
 		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
 	}
 
