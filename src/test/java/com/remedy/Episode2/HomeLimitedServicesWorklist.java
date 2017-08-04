@@ -18,6 +18,7 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IclickonthePostAcutetabonthepatientCardPage() {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Post Acute')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
 	}
 

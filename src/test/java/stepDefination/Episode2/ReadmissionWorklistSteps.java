@@ -143,5 +143,20 @@ public class ReadmissionWorklistSteps extends DriverScript {
 		admission.IenteroncreatetransitionpageontransitiontabonPatientSummary(admitreason);
 	}
     
+	@Then ("^I wait to see and enable the attestation on the \"([^\"]*)\" patient on the Patient Card page$")
+	public void I_wait_to_see_and_enable_the_attestation_on_the_patient_for_on_the_Patient_Card_page(int patientno)
+	{
+		admission.IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(patientno);
+	}
+	
+	@Then("^I select the \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" by \"([^\"]*)\" on add a new transition$")
+	public void I_select_drop_down_value_on_add_a_new_transition(String admissiontype,String variable,String value,String css) throws Throwable {
+		admission.Iselectdropdownvalueonaddanewtransition(admissiontype,variable,value,css);
+	}
+	
+	@Then("^I select the \"([^\"]*)\" facility \"([^\"]*)\" by \"([^\"]*)\" on add a new transition$")
+	public void I_select_facility_on_add_a_transition(String admissiontype,String facilityvalue,String locator) throws Throwable {
+		admission.Iselectthefacilityonaddanewtransition(admissiontype,facilityvalue,locator);
+	}
 	
 }

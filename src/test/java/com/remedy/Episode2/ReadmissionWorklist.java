@@ -58,11 +58,12 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IclickontheagreebuttononthePatientCardpage() {
 		try {
-			clickElement(driver.findElement(By.cssSelector("span.attestation-label.ng-binding")));
-		} catch (Exception e) {
-			e.printStackTrace();
+		WebDriverWait wait=new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.attestation-label.ng-binding"))).click();
+		}catch(Exception e){
+			return;
 		}
-	}
+		}
 
 	public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
 		String newname = lastname.toUpperCase();
@@ -123,6 +124,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IverifythepatientpresentonthePatientCardPage(String last_name) {
 		String newname = last_name.toUpperCase();
+		iWillWaitToSee(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
 	}
 
@@ -139,6 +141,7 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void IclickontheeditbuttontoedittheActivetransition(String transition_value) throws InterruptedException {
+		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div"));
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div")));
 		Thread.sleep(5000);
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
@@ -189,7 +192,7 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void Iclickonthedeletebuttononthetransitiontodeleteallthetransitions() throws InterruptedException {
-		iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div"));
+		iWillWaitToSee(By.cssSelector("#btnNewTransition"));
 		int count = getElementCount("td.settings-column.center.cursor-default > div");
 		for (int i = 1; i <= count; i++) {
 			iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div"));
@@ -217,5 +220,32 @@ public class ReadmissionWorklist extends BaseClass {
 
 	}
 
+	public void IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(int patientno) {
+		try {
+			clickElement(driver.findElement(By.cssSelector("div:nth-child("+ patientno +") > div > div > div > div > div > a > span.attestation-label.ng-binding")));
+			}catch(Exception e){
+				return;
+			}
+			}
 
-	}
+	public void Iselectdropdownvalueonaddanewtransition(String admissiontype,String variable, String value,String css) {
+		selectDropdownVisibleElement(css,value);
+	  }
+
+	public void Iselectthefacilityonaddanewtransition(String admissiontype,String facilityvalue,String locator) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.cssSelector(locator))).click().perform();
+		iWillWaitToSee(By.cssSelector("#select2-drop > div > input.select2-input"));
+		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
+		js.executeScript("arguments[0].click();", element2);
+		iFillInText(element2,facilityvalue);
+		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
+		actions.moveToElement(driver.findElement(By.cssSelector("li.select2-highlighted"))).click().perform();
+		
+	}	
+    }
+		
+
+
+	

@@ -138,4 +138,15 @@ public class DischargeCarlFormSteps extends DriverScript {
 		dischargecarlform.IverifyusershouldbeabletonavigatetothereadonlyformandnoservererrorshouldappearonDischargesection();
 	}
 	
+	@Then ("^I will wait to see the \"([^\"]*)\" \"([^\"]*)\" appears on the transition table on the Patient Summary page$")
+	public void I_will_wait_to_transition_no_appears_on_the_transition_table_on_the_Patient_Summary_page(String transitiontype,int transition_no)
+	{
+		dischargecarlform.IwillwaittoseetransitionnoappearsonthetransitiontableonthePatientSummarypage(transition_no);
+	}
+	
+	@Then("^I will wait to see column \"([^\"]*)\" header \"([^\"]*)\" \"([^\"]*)\" appears in transition column \"([^\"]*)\" on transitions table on Patient Summary Page$")
+	public void I_will_wait_to_see_value_appears_in_transition_column_on_transitions_table(int column,String variable,String value,int transition_no)
+	{
+		dischargecarlform.Iwillwaittoseevalueappearsintransitioncolumnontransitionstable(column,value,transition_no);
+	}
 }

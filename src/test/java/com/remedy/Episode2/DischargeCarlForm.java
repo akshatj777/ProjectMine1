@@ -109,7 +109,7 @@ public class DischargeCarlForm extends BaseClass {
 		iWillWaitToSee(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']"));
 		driver.findElement(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']")).sendKeys(text);
 		delay();
-		selectElementByDesc(".ng-binding.ng-scope", text);
+		clickElement(driver.findElement(By.cssSelector("div.ui-select-choices-row.ng-scope.active")));
 	}
 
 	public void IVerifythatClickingdoneshouldshowareadonlyfieldwiththeinformationfilled() {
@@ -182,7 +182,17 @@ public class DischargeCarlForm extends BaseClass {
 
 			public void IverifyusershouldbeabletonavigatetothereadonlyformandnoservererrorshouldappearonDischargesection() {
 				iWillWaitToSee(By.cssSelector("form.subform.container-fluid.ng-dirty.ng-valid.ng-submitted"));
-				isElementVisible(driver.findElement(By.xpath("form.subform.container-fluid.ng-dirty.ng-valid.ng-submitted")));
+				isElementVisible(driver.findElement(By.cssSelector("form.subform.container-fluid.ng-dirty.ng-valid.ng-submitted")));
 				}
+
+			public void IwillwaittoseetransitionnoappearsonthetransitiontableonthePatientSummarypage(int transiton_value) {
+				iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[ " + transiton_value + " ]"));
+				isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[ " + transiton_value + " ]")));
+				}
+
+			public void Iwillwaittoseevalueappearsintransitioncolumnontransitionstable(int column,String value,int transition_no) {
+				iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[ " + transition_no + " ]/td[ " + column + " ]"));
+				verifyTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[ " + transition_no + " ]/td[ " + column + " ]")),value);
+			}
 	
 }

@@ -659,10 +659,11 @@ public class PatientClinicalDocuments extends BaseClass {
 		String date=getcurrentdate(days);
 		String date_dd_MM_yyyy[] = date.split("/");
 		int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2]) - Calendar.getInstance().get(Calendar.YEAR);
-		iWillWaitToSee(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.next"));
-		iWillWaitToSee(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.prev"));
-		WebElement nextLink = driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.next"));
-		WebElement previousLink = driver.findElement(By.cssSelector("body > div:nth-child(17) > div.datetimepicker-months > table > thead > tr > th.prev"));
+		Thread.sleep(2000);
+		iWillWaitToSee(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.prev"));
+		iWillWaitToSee(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.next"));
+		WebElement nextLink = driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.prev"));
+		WebElement previousLink = driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.next"));
 		 if(yearDiff!=0){
                    if(yearDiff>0){
                          for(int i=0;i< yearDiff;i++){
