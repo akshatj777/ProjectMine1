@@ -1,4 +1,4 @@
-Feature: Patient's with past transition admit/discharge care setting is HOM / REH (Outpatient)
+Feature: Patient status on Home Limited Service Worklist
 
   Scenario Outline: Patient's with past transition admit/discharge care setting is HOM / REH (Outpatient)
     Given I am on the login page
@@ -46,8 +46,8 @@ Feature: Patient's with past transition admit/discharge care setting is HOM / RE
     Then I close the patient summary Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |
 
   Scenario Outline: Patient's with past transition admit/discharge care setting is HOM / REH (Outpatient)
     Given I am on the login page
@@ -84,7 +84,7 @@ Feature: Patient's with past transition admit/discharge care setting is HOM / RE
     Then I wait for 4000 milli seconds
     Then I select the Discharge care setting value "REH - Rehabilitation" on add a new transition
     Then I wait for 4000 milli seconds
-    Then I select the Discharge care type value "Outpatient" on add a new transition
+    Then I select the Discharge care type value "Inpatient" on add a new transition
     Then I wait for 5000 milli seconds
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 5000 milli seconds
@@ -92,6 +92,8 @@ Feature: Patient's with past transition admit/discharge care setting is HOM / RE
     And I wait for 15000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
+    Then I reload my page
+    And I wait for 2000 milli seconds
     Then I click on the Post Acute tab on the patient Card Page
     Then I wait for 5000 milli seconds
     Then I click on Home with Limited Services sub tab on the patient Card Page
@@ -111,5 +113,5 @@ Feature: Patient's with past transition admit/discharge care setting is HOM / RE
     Then I click on the delete button on the transition to delete all the transitions
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | ABHIS              | KUMAutomate       |
+      | email                | password  | Patient First Name | Patient Last Name       |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTHOMELIMITEDSERVICES |

@@ -7,7 +7,6 @@ Feature: Episode 2.0 Filters
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
-
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
@@ -15,7 +14,6 @@ Feature: Episode 2.0 Filters
     Then I verify Date Range is selected as default filter under Filter options
     Then I verify Care Setting is selected as default filter under Filter options
     Then I verify Initiator is selected as default filter under Filter options
-
     And I click on Filters button present on Filter Page
     Then I verify following filter is displayed under list of filter options
       | Admit Reason              |
@@ -42,5 +40,3 @@ Feature: Episode 2.0 Filters
       | Risk Assessment           |
       | SSN                       |
       | Tags                      |
-    
-    

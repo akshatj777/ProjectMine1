@@ -30,8 +30,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 
 	@Then("^I select the \"([^\"]*)\" DRG type on the Diagnosis and DRG tab on add a new transition$")
 	public void I_select_the_DRG_type_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition(String DRGtype) throws Throwable {
-		admission
-				.IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition(DRGtype);
+		admission.IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition(DRGtype);
 	}
 
 	@Then("^I select the \"([^\"]*)\" DRG on the Diagnosis and DRG tab on add a new transition$")
@@ -80,7 +79,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the previous next link to select the required year \"(.*)\" on date picker$")
-	public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(int days) throws Throwable{
+	public void I_click_on_the_previous_next_link_to_select_the_required_year_on_date_picker(int days) throws Throwable {
 		admission.Iclickonthenextlinktoselecttherequiredyearondatepicker(days);
 	}
 
@@ -138,4 +137,10 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	public void i_enter_and_in_the_searchbox_on_the_admission_tab_on_patients_page(String search) throws Throwable {
 		admission.ienterandinthesearchboxontheadmissiontabonpatientspage(search);
 	}
+
+	@Then("^I enter ([^\"]*) on create transition page on transition tab on Patient Summary$")
+	public void I_enter_on_create_transition_page_on_transition_tab_on_Patient_Summary(String admitreason) throws Throwable {
+		admission.IenteroncreatetransitionpageontransitiontabonPatientSummary(admitreason);
+	}
+
 }
