@@ -62,6 +62,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on send mail button
     Then I switch back to old window
     Then I click on Inbox in mail
+    Then I verify the unread mail in inbox in my account
     Then I verify Change Password mail in Inbox in my account
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content
@@ -167,6 +168,7 @@ Feature: Create new User for multiple payers and product tiles verification on c
     And I click on send mail button
     Then I switch back to old window
     Then I click on Inbox in mail
+    Then I verify the unread mail in inbox in my account
     Then I verify Change Password mail in Inbox in my account
     Then I click on Change Password mail in Inbox
     Then I verify "Change my password" link in mail content

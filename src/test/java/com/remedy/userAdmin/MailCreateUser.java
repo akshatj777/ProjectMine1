@@ -50,7 +50,9 @@ public class MailCreateUser extends BaseClass{
 	public void iClickOnInboxUnderMail() {
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		delay();
+		for(int i=0;i<5;i++){
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
+		}
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
@@ -108,8 +110,11 @@ public class MailCreateUser extends BaseClass{
 		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
 	
+	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (1)')]"));
+	}
+	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
-		driver.navigate().refresh();
 		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"));
     	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
 	}
