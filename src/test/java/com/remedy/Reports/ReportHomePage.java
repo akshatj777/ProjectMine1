@@ -21,7 +21,7 @@ import java.util.Random;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 10);
+	WebDriverWait wait = new WebDriverWait(driver, 60);
 
     public ReportHomePage(WebDriver driver){
 
@@ -811,5 +811,17 @@ public class ReportHomePage extends BaseClass {
     
     public void iWaitUntillRefreshButtonDisappeared(){
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
+    
+    public void iWaitUntillLoadingIconDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img blockUIDefaultImg")));
+    }
+    
+    public void iWaitToSeeOverallProgramUnderDashboardReport(String text){
+    	iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
+    }
+    
+    public void iWillWaitToSeeReportNameAfterClickingGraph(String reportname){
+    	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='"+reportname+"']"));
     }
 }

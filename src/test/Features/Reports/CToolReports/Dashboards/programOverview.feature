@@ -6,12 +6,10 @@ Scenario Outline: Program Overview Report Under Dashboard
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -19,15 +17,16 @@ Scenario Outline: Program Overview Report Under Dashboard
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 60000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     
     Then I should see "Overall Program" appearing under program overview reports
     And I should see "EPISODES" under overall program
     Then I verify episodes graph appearing under overall program report
     And I should see "NPRA" under overall program
     Then I verify npra graph appearing under overall program report
-    And I wait for 2000 milli seconds
     
     Then I should see "Post Acute Utilization" under program overview reports
     And I should see "SKILLED NURSING" under overall program
@@ -42,7 +41,6 @@ Scenario Outline: Program Overview Report Under Dashboard
     Then I verify home graph appearing under overall program report
     And I should see "OTHER" under overall program
     Then I verify other graph appearing under overall program report
-    And I wait for 2000 milli seconds
     Then I should see "SNF Length of Stay" under program overview reports
     And I should see "INITIAL SNF LENGTH OF STAY" under overall program
     Then I verify initial snf length of stay graph appearing under overall program report

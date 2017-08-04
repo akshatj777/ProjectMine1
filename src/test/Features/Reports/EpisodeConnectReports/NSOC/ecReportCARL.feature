@@ -24,17 +24,17 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     And I wait untill refresh button is disappeared
     
     Then I should see "# Episodes" under "measures" field
-    Then I should see "Completed CARL %" under "measures" field
-    Then I should see "HHA % CARL Recommended" under "measures" field
-    Then I should see "Home % CARL Recommended" under "measures" field
-    Then I should see "PAC % CARL Recommended" under "measures" field
-    Then I should see "Uncategorized % CARL" under "measures" field
+    Then I should see "CARL Completion Rate" under "measures" field
+    Then I should see "CARL % Followed" under "measures" field
+    Then I should see "Home % CARL Proposed" under "measures" field
+    Then I should see "Home % Actual NSOC" under "measures" field
+    Then I should see "HHA % CARL Proposed" under "measures" field
+    Then I should see "HHA % Actual NSOC" under "measures" field
+    Then I should see "PAC % CARL Proposed" under "measures" field
+    Then I should see "PAC % Actual NSOC" under "measures" field
     Then I should see "Uncategorized % Actual NSOC" under "measures" field
-    Then I should see "HHA % Followed" under "measures" field
-    Then I should see "Home % Followed" under "measures" field
-    Then I should see "PAC % Followed" under "measures" field
-    Then I should see "Uncategorized % Followed" under "measures" field
-    Then I should see "Total % Followed" under "measures" field
+    #Then I should see "Uncategorized % Followed" under "measures" field
+    #Then I should see "Total % Followed" under "measures" field
     
     Then I should see "1st Post Acute CCN" appearing under "level" field
     Then I should see "1st Post Acute Facility" appearing under "level" field
@@ -134,7 +134,7 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
     #Then I should see "Anchor Begin Date" appearing under "Time" field
-    Then I should see "Anchor Discharge Date" appearing under "Time" field
+    #Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
     Then I should see "Anchor Discharge Week" appearing under "Time" field

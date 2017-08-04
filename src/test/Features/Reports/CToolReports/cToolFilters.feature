@@ -5,27 +5,29 @@ Feature: CTool Filter Verification
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 60000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I uncheck All option under "participant" filter in the filter options
     And I click on apply button under the filter in filter options
-    And I wait for 10000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I click on "participant" filter in the filter options
     Then I enter <participant> under the "participant" field searchbox
-    And I wait for 1000 milli seconds
     Then I click the <participant> appearing under "participant" field filter under filter options
     And I click on apply button under the filter in filter options
-    And I wait for 20000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I verify "<selectedparticipant>" is appearing under "participant" filter field after applying filter
 
     Examples: 
@@ -42,27 +44,29 @@ Feature: CTool Filter Verification
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 60000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I uncheck All option under "initiator" filter in the filter options
     And I click on apply button under the filter in filter options
-    And I wait for 10000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I click on "initiator" filter in the filter options
     Then I enter <episode initiator> under the "initiator" field searchbox
-    And I wait for 1000 milli seconds
     Then I click the <episode initiator> appearing under "initiator" field filter under filter options
     And I click on apply button under the filter in filter options
-    And I wait for 20000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I verify "<selected episode initiator>" is appearing under "initiator" filter field after applying filter
 
     Examples: 
@@ -79,28 +83,30 @@ Feature: CTool Filter Verification
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 60000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I uncheck All option under "facility" filter in the filter options
     And I click on apply button under the filter in filter options
-    And I wait for 10000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I click on "facility" filter in the filter options
     Then I enter <anchor facility> under the "facility" field searchbox
-    And I wait for 1000 milli seconds
     Then I scroll the page to bottom by "500"
     Then I click the <anchor facility> appearing under facility field filter under filter options
     And I click on apply button under the filter in filter options
-    And I wait for 20000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I verify "<selected anchor facility>" is appearing under "facility" filter field after applying filter
 
     Examples: 
@@ -117,27 +123,29 @@ Feature: CTool Filter Verification
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 60000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I uncheck All option under "bundle" filter in the filter options
     And I click on apply button under the filter in filter options
-    And I wait for 10000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I click on "bundle" filter in the filter options
     Then I enter <bundle type> under the "bundle" field searchbox
-    And I wait for 1000 milli seconds
     Then I click the <bundle type> appearing under "bundle" field filter under filter options
     And I click on apply button under the filter in filter options
-    And I wait for 30000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I verify "<selected bundle type>" is appearing under "bundle" filter field after applying filter
 
     Examples: 

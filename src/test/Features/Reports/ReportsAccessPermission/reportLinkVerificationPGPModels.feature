@@ -6,11 +6,10 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Dashboards" under reports tile text
 
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -24,7 +23,9 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
     And I navigate back
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
 
+    And I wait to see "Patient ID" under reports tile text
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Patient ID reports
@@ -32,21 +33,25 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Post Acute Care" under reports tile text
 
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
@@ -54,12 +59,14 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Initial SNF Length of Stay Summary |
       
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
     
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
@@ -67,12 +74,14 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Next Site of Care Summary |
  
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Readmissions" under reports tile text
     
     And I should see Reports Tile text as <Menu 5>
     When I click on the Reports Tile with text "<Menu 5>"
@@ -80,11 +89,12 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Readmissions          |
 
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 
     Examples:
@@ -97,12 +107,10 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
 
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -114,10 +122,9 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
      And I switch to reports embedded iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Overall Program reports
@@ -126,28 +133,36 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Spending (Claims)              |
 
     When I click on "Performance (Claims)" reports text for "Overall Program" report tile
-    And I wait for 40000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Performance" in the Performance Overall Program report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Overall Program" under reports tile text
     
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Financial Performance (Claims)" reports text for "Overall Program" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Financial Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Financial Performance" in the Performance Overall Program report page header
     And I navigate back
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Spending (Claims)" reports text for "Overall Program" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Spending" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Spending" in the Performance Overall Program report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
 
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
@@ -156,23 +171,25 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
     When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 
-    And I wait for 5000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for Post Acute Care reports
@@ -181,23 +198,26 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Post Acute Care (Claims)           |
       
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "SNF Performance (Claims)" reports text for "Post Acute Care" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF Performance" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "Post Acute Care (Claims)" reports text for "Post Acute Care" report tile
     And I wait for 10000 milli seconds
@@ -205,6 +225,7 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
     Then I should see "Post Acute Care" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
     
     And I should see Reports Tile text as <Menu 5>
     When I click on the Reports Tile with text "<Menu 5>"
@@ -213,21 +234,25 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | CARL                      |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 5>"
     When I click on "CARL" reports text for "Next Site of Care" report tile
-    And I wait for 10000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "CARL" in the CARL NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Readmissions" under reports tile text
     
     And I should see Reports Tile text as <Menu 6>
     When I click on the Reports Tile with text "<Menu 6>"
@@ -236,18 +261,22 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Readmissions (Claims) |
 
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Readmissions" under reports tile text
     
-    And I wait for 4000 milli seconds
+    When I click on "Readmissions" reports text for "Readmissions" report tile
     When I click on the Reports Tile with text "<Menu 6>"
     When I click on "Readmissions (Claims)" reports text for "Readmissions" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions Claims" in the Readmissions Claims Readmission report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -261,12 +290,10 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
 
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -281,18 +308,21 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Overall Program reports
       | Performance (Claims)           |
       
     When I click on "Performance (Claims)" reports text for "Overall Program" report tile
-    And I wait for 60000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Performance" in the Performance Overall Program report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
@@ -301,23 +331,27 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Post Acute Care" under reports tile text
 
-    And I wait for 5000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for Post Acute Care reports
@@ -326,30 +360,36 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Post Acute Care (Claims)           |
       
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "SNF Performance (Claims)" reports text for "Post Acute Care" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF Performance" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "Post Acute Care (Claims)" reports text for "Post Acute Care" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Post Acute Care" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
     
     And I should see Reports Tile text as <Menu 5>
     When I click on the Reports Tile with text "<Menu 5>"
@@ -358,21 +398,25 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | CARL                      |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 5>"
     When I click on "CARL" reports text for "Next Site of Care" report tile
-    And I wait for 10000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "CARL" in the CARL NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Readmissions" under reports tile text
     
     And I should see Reports Tile text as <Menu 6>
     When I click on the Reports Tile with text "<Menu 6>"
@@ -381,18 +425,21 @@ Scenario Outline: For PGP MODEL 2 RPFIN, RPNOFIN reports link verification for t
       | Readmissions (Claims) |
 
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "<Menu 6>"
     When I click on "Readmissions (Claims)" reports text for "Readmissions" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions Claims" in the Readmissions Claims Readmission report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -406,12 +453,10 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
 
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -426,7 +471,7 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Overall Program reports
@@ -434,20 +479,25 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
       | Spending (Claims)              |
       
     When I click on "Performance (Claims)" reports text for "Overall Program" report tile
-    And I wait for 40000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Performance" in the Performance Overall Program report page header
     And I navigate back
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Spending (Claims)" reports text for "Overall Program" report tile
-    And I wait for 2000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Spending" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Spending" in the Performance Overall Program report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
@@ -456,23 +506,26 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     When I click on the Reports Tile with text "<Menu 3>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 
-    And I wait for 5000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
     Then I should see following Reports text for Post Acute Care reports
@@ -481,30 +534,36 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
       | Post Acute Care (Claims)           |
       
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "SNF Performance (Claims)" reports text for "Post Acute Care" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF Performance" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF Performance" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "Post Acute Care (Claims)" reports text for "Post Acute Care" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Post Acute Care" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
     
     And I should see Reports Tile text as <Menu 5>
     When I click on the Reports Tile with text "<Menu 5>"
@@ -513,21 +572,25 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
       | CARL                      |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
     
-    And I wait for 5000 milli seconds
     When I click on the Reports Tile with text "<Menu 5>"
     When I click on "CARL" reports text for "Next Site of Care" report tile
-    And I wait for 10000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "CARL" in the CARL NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
+    And I wait to see "Readmissions" under reports tile text
     
     And I should see Reports Tile text as <Menu 6>
     When I click on the Reports Tile with text "<Menu 6>"
@@ -536,18 +599,21 @@ Scenario Outline: For PGP MODEL 2 OPSSPEND verify the respective reports link as
       | Readmissions (Claims) |
 
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 4000 milli seconds
+    And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "<Menu 6>"
     When I click on "Readmissions (Claims)" reports text for "Readmissions" report tile
-    And I wait for 10000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions Claims" in the Readmissions Claims Readmission report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -561,12 +627,10 @@ Scenario Outline: For PGP MODEL 2 ECREPORTS verify the respective reports link a
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
 
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -581,7 +645,7 @@ Scenario Outline: For PGP MODEL 2 ECREPORTS verify the respective reports link a
     And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Patient ID" under reports tile text
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
     Then I should see following Reports text for Patient ID reports
@@ -589,35 +653,40 @@ Scenario Outline: For PGP MODEL 2 ECREPORTS verify the respective reports link a
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     When I click on the Reports Tile with text "<Menu 2>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
 
-    And I wait for 5000 milli seconds
+    And I wait to see "Post Acute Care" under reports tile text
     And I should see Reports Tile text as <Menu 3>
     When I click on the Reports Tile with text "<Menu 3>"
     Then I should see following Reports text for Post Acute Care reports
       | Initial SNF Length of Stay Summary |
          
     When I click on "Initial SNF Length of Stay Summary" reports text for "Post Acute Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
     
     And I should see Reports Tile text as <Menu 4>
     When I click on the Reports Tile with text "<Menu 4>"
@@ -626,34 +695,38 @@ Scenario Outline: For PGP MODEL 2 ECREPORTS verify the respective reports link a
       | CARL                      |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
-    And I wait for 5000 milli seconds
+    And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "<Menu 4>"
     When I click on "CARL" reports text for "Next Site of Care" report tile
-    And I wait for 10000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "CARL" in the CARL NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
     
-    And I wait for 10000 milli seconds
+    And I wait to see "Readmissions" under reports tile text
     And I should see Reports Tile text as <Menu 5>
     When I click on the Reports Tile with text "<Menu 5>"
     Then I should see following Reports text for Readmissions reports
       | Readmissions          |
       
     When I click on "Readmissions" reports text for "Readmissions" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
     Examples:
@@ -665,12 +738,10 @@ Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports lin
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
+    And I wait to see "Patient ID" under reports tile text
 
     And I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -679,21 +750,25 @@ Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports lin
       | Inpatient Episode Clearing         |
 
     When I click on "Episode DRG Issues" reports text for "Patient ID" report tile
-    And I wait for 60000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Patient ID" under reports tile text
     
     When I click on the Reports Tile with text "<Menu 1>"
     When I click on "Inpatient Episode Clearing" reports text for "Patient ID" report tile
-    And I wait for 20000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Patient ID report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
+    And I wait to see "Next Site of Care" under reports tile text
 
     And I should see Reports Tile text as <Menu 2>
     When I click on the Reports Tile with text "<Menu 2>"
@@ -701,11 +776,12 @@ Scenario Outline: For PGP MODEL 3 RPFIN, RPNOFIN OPSFIN and OPSNOFIN reports lin
       | Next Site of Care Summary |
 
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait untill refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
-    And I wait for 1000 milli seconds
     Then I verify current page "Reports" title
     
     Examples:

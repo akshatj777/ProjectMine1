@@ -7,12 +7,10 @@ Scenario Outline: User should not see program overview under dashboard for Model
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     And I should not see Reports Tile text as <Menu 1>
     
     Examples:
@@ -30,12 +28,10 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -43,7 +39,10 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     And I switch to reports embedded iframe
     
     Then I should see "Overall Program" appearing under program overview reports
@@ -51,7 +50,7 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     Then I verify episodes graph appearing under overall program report
     And I should see "NPRA" under overall program
     Then I verify npra graph appearing under overall program report
-    And I wait for 2000 milli seconds
+    #And I wait for 2000 milli seconds
     
     Then I should see "Post Acute Utilization" under program overview reports
     And I should see "SKILLED NURSING" under overall program
@@ -88,21 +87,24 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     Then I should see bundle risk filter on the left side of overall program report
     Then I should see view filter on the left side of overall program report
     And I click on "Table" option appearing under view filter
-    And I wait for 5000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Claims" table under overall program report
     Then I should see claims table under post acute utilization report
     Then I should see claims table under SNF Length of stay report
     Then I should see claims table under Readmissions report
     Then I should see data source filter on the left side of overall program report
     Then I select "Episode Connect" radio button under data source filter
-    And I wait for 5000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I select "Claims" radio button under data source filter
-    And I wait for 5000 milli seconds
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "EC" table under overall program report
     Then I should see "EC" table under post acute utilization report
     Then I should see "EC" table under SNF length of stay report
     Then I should see "EC" table under readmissions report
-    And I wait for 2000 milli seconds
+    #And I wait for 2000 milli seconds
     
     Examples:
     
@@ -117,12 +119,10 @@ Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmis
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -130,23 +130,25 @@ Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmis
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     
     Then I should see "Post Acute Utilization" under program overview reports
     And I click on "Post Acute Utilization" under program overview reports
-    And I wait for 2000 milli seconds
+    #And I wait for 2000 milli seconds
     Then I should see "SNF Length of Stay" under program overview reports
     And I click on "SNF Length of Stay" under program overview reports
     Then I should see "Readmissions" under program overview reports
     And I click on "Readmissions" under program overview reports
     Then I again click on Post Acute Utilization under program overview reports
-    And I wait for 2000 milli seconds
+    #And I wait for 2000 milli seconds
     Then I should see "SNF Length of Stay" under program overview reports
     Then I again click on SNF Length of Stay under program overview reports
-    And I wait for 2000 milli seconds
+    #And I wait for 2000 milli seconds
     Then I again click on Readmissions under program overview reports
-    And I wait for 2000 milli seconds
+    #And I wait for 2000 milli seconds
     
     Examples:
          
@@ -164,12 +166,10 @@ Scenario Outline: User should click on zoom in and zoom out under post accute ut
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -177,8 +177,10 @@ Scenario Outline: User should click on zoom in and zoom out under post accute ut
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     
     Then I should see "Post Acute Utilization" under program overview reports
     And I click on "Zoom In" button under skilled nursing graph for post accute utilization report

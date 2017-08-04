@@ -17,7 +17,7 @@ Scenario Outline: User should be able to remove default filters from CARL Report
     And I wait untill refresh button is disappeared
     
     When I click on show all filters icon button
-    Then I remove "Anchor Admission Month" field filter under "Anchor Begin Date" filter field from default filters
+    #Then I remove "Anchor Admission Month" field filter under "Anchor Begin Date" filter field from default filters
     Then I remove "Anchor Admission Year" field filter under "Anchor Begin Date" filter field from default filters
     Then I remove "Model" field filter under "Model" filter field from default filters
     

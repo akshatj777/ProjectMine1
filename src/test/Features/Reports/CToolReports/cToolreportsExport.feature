@@ -6,12 +6,10 @@ Scenario Outline: User should click on export Episodes graphs for RPFIN Role use
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -19,8 +17,10 @@ Scenario Outline: User should click on export Episodes graphs for RPFIN Role use
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
-    And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     
     And I click on export symbol on "episodes" graph
     Then I Verify "PNG" is appearing after clicking on "episodes" export symbol

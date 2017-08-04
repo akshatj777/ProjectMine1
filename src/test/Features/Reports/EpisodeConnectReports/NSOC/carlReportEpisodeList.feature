@@ -22,7 +22,6 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
-    Then I should verify "MDC" is appearing under Episodes table
     Then I should verify "DRG" is appearing under Episodes table
     Then I should verify "DRG Code" is appearing under Episodes table
     Then I should verify "Bundle" is appearing under Episodes table
@@ -36,8 +35,6 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "1st Post Acute CCN" is appearing under Episodes table
     Then I should verify "Anchor Discharge Care Setting" is appearing under Episodes table
     Then I should verify "Anchor Discharge Care Type" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Setting Code (EC)" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Type Code (EC)" is appearing under Episodes table
     Then I should verify "Anchor Discharge Care Type Detail (EC)" is appearing under Episodes table
     Then I should verify "Model" is appearing under Episodes table
     Then I should verify "CARL Status" is appearing under Episodes table
@@ -56,25 +53,14 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "Wound Care" is appearing under Episodes table
     Then I should verify "Oxygen or Other Respiratory Support" is appearing under Episodes table
     Then I should verify "Therapy Needs" is appearing under Episodes table
+    Then I should verify "Carl Submission Date" is appearing under Episodes table
+    Then I should verify "Staff Member Email" is appearing under Episodes table
+    Then I should verify "Staff Member Role" is appearing under Episodes table
+    Then I should verify "Free Text Notes" is appearing under Episodes table
     Then I should verify "DRG Status" is appearing under Episodes table
-    Then I should verify "# Episodes" is appearing under Episodes table
-    Then I should verify "CARL Assigned" is appearing under Episodes table
-    Then I should verify "CARL Completed" is appearing under Episodes table
-    Then I should verify "CARL In Progress" is appearing under Episodes table
     Then I should verify "CARL vs NSOC" is appearing under Episodes table
+    Then I should verify "Days from anchor discharge to CARL completion" is appearing under Episodes table
     Then I should verify "Eps w Readmits" is appearing under Episodes table
-    Then I should verify "HHA Agreed" is appearing under Episodes table
-    Then I should verify "HHA CARL" is appearing under Episodes table
-    Then I should verify "HHA NSOC" is appearing under Episodes table
-    Then I should verify "Home Agreed" is appearing under Episodes table
-    Then I should verify "Home CARL" is appearing under Episodes table
-    Then I should verify "Home NSOC" is appearing under Episodes table
-    Then I should verify "Not Enough Info (CARL)" is appearing under Episodes table
-    Then I should verify "Not Enough Info (NSOC)" is appearing under Episodes table
-    Then I should verify "Not Enough Info Agreed" is appearing under Episodes table
-    Then I should verify "PAC Agreed" is appearing under Episodes table
-    Then I should verify "PAC CARL" is appearing under Episodes table
-    Then I should verify "PAC NSOC" is appearing under Episodes table
     Then I should verify "Total Readmits" is appearing under Episodes table
     
     Examples:

@@ -7,12 +7,10 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile 
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -73,11 +71,13 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I verify <payer1> is appearing under applied payer on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 18000 milli seconds
-    
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+    
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
+    And I wait untill refresh button is disappeared
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
@@ -86,32 +86,35 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
     When I click on Clear button to clear the selected filter
-    And I wait for 3000 milli seconds
     
     Then I click on <payer1> checkbox under payer for global filters
     And I verify <payer1> is appearing under applied payer on global filters
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
-    And I wait for 3000 milli seconds
     Then I click on <episode initiator2> checkbox under episode initiator for global filters
     And I verify <episode initiator2> is appearing under applied episode initiator on global filters
-    And I wait for 3000 milli seconds
     Then I click on <episode initiator3> checkbox under episode initiator for global filters
     And I verify <episode initiator3> is appearing under applied episode initiator on global filters
-    And I wait for 3000 milli seconds
     Then I click on <anchor facility1> checkbox under anchor facility for global filters
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
-    And I wait for 3000 milli seconds
     Then I click on <anchor facility2> checkbox under anchor facility for global filters
     And I verify <anchor facility2> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 10000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     When I see "6" filters applied under global filters applied count
     
     When I click on "Next Site of Care" tile on the top navigation of reports page
     Then I click on "Next Site of Care Summary" report under "Next Site of Care" reports tile on the top of reports page
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     Then I verify "Next Site of Care Summary" in the reports header page
     When I see "6" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -129,7 +132,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     
     When I switch to reports embedded iframe
     When I click on show all filters icon button
-    And I wait for 4000 milli seconds
+    And I wait untill refresh button is disappeared
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> and <bpid2> in the selected filters
     Then I verify anchor facility filter is selected with <ccn1> and <ccn2> in the selected filters
@@ -137,7 +140,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I switch to default window from iframe
     
     And I click on reports tile on the top of reports page
-    And I wait for 3000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     Then I verify current page "Reports" title
     
     Examples:
@@ -152,12 +155,10 @@ Scenario Outline: User should remove the selected global filter using X mark and
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -181,49 +182,48 @@ Scenario Outline: User should remove the selected global filter using X mark and
     
     When I click on "Overall Program" tile on the top navigation of reports page
     Then I click on "Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
-    And I wait for 18000 milli seconds
     Then I click on Show Summary button to unhide the available global filters
     
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I click on Apply filters button for global filters 
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
+    And I wait untill refresh button is disappeared
     Then I verify participant filter is selected with <participantid1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    And I wait for 5000 milli seconds
     When I click on cross mark beside the selected participant filter with <participant1>
-    And I wait for 5000 milli seconds
     Then I click on <episode initiator1> checkbox under participant for global filters
     And I verify <episode initiator1> is appearing under applied episode initiator on global filters
     And I click on Apply filters button for global filters 
-    And I wait for 10000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
+    And I wait untill refresh button is disappeared
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    And I wait for 5000 milli seconds
     When I click on cross mark beside the selected episode initiator filter with <episode initiator1>
-    And I wait for 5000 milli seconds
     Then I click on <payer1> checkbox under participant for global filters
     And I verify <payer1> is appearing under applied participant on global filters
-    And I click on Apply filters button for global filters 
-    And I wait for 30000 milli seconds
+    And I click on Apply filters button for global filters
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
-    And I wait for 5000 milli seconds
     When I click on cross mark beside the selected payer filter with <payer1>
     
     And I click on reports tile on the top of reports page
-    And I wait for 3000 milli seconds
+    And I wait to see "Overall Program" under reports tile text
     Then I verify current page "Reports" title
     
     Examples:
@@ -239,12 +239,10 @@ Scenario Outline: User should clear the selected filters in global filters
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -279,7 +277,7 @@ Scenario Outline: User should clear the selected filters in global filters
     Then I see "1" filters applied under global filters applied count
     
     And I click on reports tile on the top of reports page
-    And I wait for 3000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     
     Examples:
@@ -295,12 +293,10 @@ Scenario Outline: User should be able to check multiple checkbox under global fi
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -323,7 +319,7 @@ Scenario Outline: User should be able to check multiple checkbox under global fi
     And I verify <episode initiator3> is appearing under applied episode initiator on global filters
        
     And I click on reports tile on the top of reports page
-    And I wait for 3000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     
     Examples:
@@ -337,12 +333,10 @@ Scenario Outline: User should be able to search for one field on global filters
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -367,7 +361,7 @@ Scenario Outline: User should be able to search for one field on global filters
     
     When I switch to default window from iframe
     And I click on reports tile on the top of reports page
-    And I wait for 3000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     
      Examples:
@@ -382,12 +376,10 @@ Scenario Outline: User should be able to search for multiple fields on global fi
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
@@ -411,7 +403,7 @@ Scenario Outline: User should be able to search for multiple fields on global fi
     
     When I switch to default window from iframe
     And I click on reports tile on the top of reports page
-    And I wait for 3000 milli seconds
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     
     Examples:
@@ -426,44 +418,38 @@ Scenario Outline: User should should not be able to see global filters applied i
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
-    
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Patient ID" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     When I click on the Reports Tile with text "Patient ID"
     Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
-    And I wait for 50000 milli seconds
-    
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait untill refresh button is disappeared 
     
     When I click on field-panel-icon button
-    And I wait for 4000 milli seconds
-    
+
     When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I wait for 3000 milli seconds
     And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
     And I should see "Participant" in the header text of filter page
     And I should see "<participant>" in the filter value list
     And I click on "<participant>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
-    And I wait for 5000 milli seconds
+    And I wait untill refresh button is disappeared 
     And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
     
     When I click on filter count label to see preselected filters
-    And I wait for 2000 milli seconds
     Then I verify participant is selected with <participant> under selected filters
     When I switch to default window from iframe
     Then I scroll the page to bottom by "-250"
-    And I wait for 2000 milli seconds
     When I see "0" filters applied under global filters applied count
     
     And I click on reports tile on the top of reports page
-    And I wait for 5000 milli seconds
+    And I wait to see "Patient ID" under reports tile text
     Then I verify current page "Reports" title
     
     Examples:
@@ -477,15 +463,18 @@ Scenario Outline: Applied global filters are getting selected on Re-opening Glob
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Physician" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -512,17 +501,18 @@ Scenario Outline: Applied global filters are getting selected on Re-opening Glob
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 20000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     
     When I see "4" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     When I click on Clear button to clear the selected filter
-    And I wait for 1000 milli seconds
     Then I click on hide Summary button to unhide the available global filters
-    And I wait for 1000 milli seconds
     When I see "4" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
-    And I wait for 2000 milli seconds
     And I verify <payer1> is appearing under applied payer on global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I verify <episode initiator1> is appearing under applied episode initiator on global filters
@@ -541,15 +531,18 @@ Scenario Outline: Filters applied should be displayed after clearing global filt
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 1000 milli seconds
+    And I wait to see "Physician" under reports tile text
     Then I verify current page "Reports" title
-    And I wait for 2000 milli seconds
     
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -576,18 +569,24 @@ Scenario Outline: Filters applied should be displayed after clearing global filt
     And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 20000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     
     When I see "4" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     When I click on Clear button to clear the selected filter
-    And I wait for 1000 milli seconds
     Then I click on hide Summary button to unhide the available global filters
-    And I wait for 1000 milli seconds
     
     When I click on "Physician" tile on the top navigation of reports page
     Then I click on "Volume (Claims)" report under "Physician" reports tile on the top of reports page
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Volume" is appearing inside the iframe
+	  And I wait untill refresh button is disappeared
+	  When I switch to default window from iframe
     Then I verify "Volume (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
     

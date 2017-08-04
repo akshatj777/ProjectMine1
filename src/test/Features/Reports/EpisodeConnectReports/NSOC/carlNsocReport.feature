@@ -22,7 +22,6 @@ Feature: Next site of care Carl
     Then I should see Next site of care reports column Tile text as "Anchor Admission Quarter" 
 
     When I click on field-panel-icon button
-    And I wait for 4000 milli seconds
 
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
@@ -74,14 +73,6 @@ Feature: Next site of care Carl
     And I click on ok button from filter
     And I wait untill refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
-    
-    When I click to "Anchor Admission Month" field filter under "<Time>" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Admission Month" in the header text of filter page
-    And I select "<Range>" from the drop down list on the filter page
-    And I click on ok button from filter
-    And I wait untill refresh button is disappeared
-    And I should see "<Month>" result in "Anchor Admission Month" field column for "Anchor Admission Month" filter field
     
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field

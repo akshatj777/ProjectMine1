@@ -2,13 +2,12 @@ Feature: EC Reports Verification
 
 Scenario Outline: User should see Model2 and Model3 filter under any report
 
-Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
     And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    Then I verify current page "Reports" title
     And I wait to see "Patient ID" under reports tile text
 
     And I should see Reports Tile text as <Menu 1>

@@ -1032,4 +1032,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_wait_untill_refresh_button_is_disappeared() throws Throwable{
     	reportHomePage.iWaitUntillRefreshButtonDisappeared();
     }
+    
+    @Then("I wait untill loading icon disappears in program overview report")
+    public void i_wait_untill_loading_icon_disappears_in_program_overview_report() throws Throwable{
+    	reportHomePage.iWaitUntillLoadingIconDisappears();
+    }
+    
+    @And("I will wait to see \"([^\"]*)\" under program overview report in iframe")
+    public void i_will_wait_to_see_under_program_overiview_report_in_iframe(String text) throws Throwable{
+    	reportHomePage.iWaitToSeeOverallProgramUnderDashboardReport(text);
+    }
+    
+    @And("I will wait to see \"([^\"]*)\" is appearing after clicking graph point")
+    public void i_will_wait_to_see_is_appearing_after_clicking_graph(String reportname) throws Throwable{
+    	reportHomePage.iWillWaitToSeeReportNameAfterClickingGraph(reportname);
+    }
 }

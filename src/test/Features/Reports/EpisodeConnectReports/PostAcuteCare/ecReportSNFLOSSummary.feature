@@ -62,7 +62,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I should see "Patient" appearing under "level" field
     Then I should see "Principal Account Practitioner" appearing under "level" field
     Then I should see "Risk Score" appearing under "level" field
-    Then I should see "SNF Network Tier" appearing under "level" field
+    #Then I should see "SNF Network Tier" appearing under "level" field
     Then I should see "isAnchorAdmission" appearing under "level" field
     Then I should see "isSNFAdmissionReport" appearing under "level" field
     
@@ -70,7 +70,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I should see "Anchor Admission Quarter" appearing under "Time" field
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Date" appearing under "Time" field
+    #Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
     Then I should see "Anchor Discharge Week" appearing under "Time" field
