@@ -71,8 +71,8 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iSignOutFromMailAccount() {
 		delay();
-		iWillWaitToSee(By.cssSelector(".gb_8a.gbii"));
-		clickElement(driver.findElement(By.cssSelector(".gb_8a.gbii")));
+		iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
+		clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
 		delay();
 		clickElement(driver.findElement(By.cssSelector("#gb_71")));
 		iWillWaitToSee(By.id("headingText"));
