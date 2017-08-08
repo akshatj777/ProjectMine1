@@ -74,7 +74,7 @@ Feature: To verify the options and functionality of Independence section of Carl
     Then I verify "No assistance needed" selected appears in the place holder of "Activities of Daily Living" dropdown on Independence section
     Then I click on "Ambulatory Status" dropdown on Independece Section
     Then I verify "No assistance needed" option present in dropdown for cognitive status on Independece Section
-    Then I verify "Assistive device needed " option present in dropdown for cognitive status on Independece Section
+    Then I verify "Assistive device needed" option present in dropdown for cognitive status on Independece Section
     Then I verify "Caregiver needed" option present in dropdown for cognitive status on Independece Section
     And I wait for 2000 milli seconds
     Then I select "Caregiver needed" option in dropdown for cognitive status

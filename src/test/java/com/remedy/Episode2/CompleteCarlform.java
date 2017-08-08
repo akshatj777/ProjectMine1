@@ -277,4 +277,8 @@ public class CompleteCarlform extends BaseClass {
 		verifyarraylist(requiredcombolisttext, mylist);
 	}
 
+	public void IwillwaittoseetheCARLsectionheaderappearsontheCARLform() {
+		iWillWaitToSee(By.cssSelector("h2.ng-binding"));
+	}
+
 }

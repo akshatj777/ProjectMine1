@@ -162,10 +162,9 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void Iclickonupdatetransitiontoaddanewepisode() {
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		WebElement element = driver.findElement(By.cssSelector("#submitButton"));
-		js.executeScript("arguments[0].scrollIntoView(true);", element);
-		clickElement(element);
+		 iWillWaitToSee(By.cssSelector("#submitButton"));
+         Actions actions = new Actions(driver);
+         actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).click().perform();
 	}
 
 	public void Iselectthedischargecaresettingvalueonaddanewtransition(String caresetting) {

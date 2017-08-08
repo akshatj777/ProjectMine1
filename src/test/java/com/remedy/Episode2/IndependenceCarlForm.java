@@ -16,6 +16,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IClickOnSideNavigationTabOnCarlForm(String text) {
+		iWillWaitToSee(By.xpath("//span[text()='" + text + "']"));
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='" + text + "']"))).click();;
 	}
@@ -74,6 +75,15 @@ public class IndependenceCarlForm extends BaseClass {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void IverifyCARLRecommendationfieldondischargesection(String text) {
+		verifyTextForElement(driver.findElement(By.cssSelector("p.text-bold-700.ng-scope")),text);
+		
+	}
+
+	public void IverifytextnotpresentonCARLRecommendationfieldondischargesection(String text) {
+		Assert.assertNotEquals(driver.findElement(By.cssSelector("p.text-bold-700.ng-scope")).getText(), text);
 	}
 
 }

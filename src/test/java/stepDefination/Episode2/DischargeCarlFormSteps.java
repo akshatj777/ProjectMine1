@@ -149,4 +149,11 @@ public class DischargeCarlFormSteps extends DriverScript {
 	{
 		dischargecarlform.Iwillwaittoseevalueappearsintransitioncolumnontransitionstable(column,value,transition_no);
 	}
+	
+	@Then ("^I verify a legal message should appear when Carl recommendation field show Home with Limited Services$")
+	public void legal_message_should_appear_when_Carl_recommendation() throws Throwable
+	{
+		dischargecarlform.legalmessageshouldappearwhenCarlrecommendation();
+	}
+	
 }

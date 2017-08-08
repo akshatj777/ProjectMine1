@@ -253,4 +253,10 @@ public class CompleteCarlformSteps extends DriverScript {
 	public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption() throws Throwable {
 		completecarl.IClickOnAnticipatedDischargeNeedsOnSideMenuOption();
 	}
+	
+	@Then ("^I will wait to see the CARL section \"([^\"]*)\" header appears on the CARL form$")
+	public void I_will_wait_to_see_the_CARL_section_header_appears_on_the_CARL_form() throws Throwable {
+		completecarl.IwillwaittoseetheCARLsectionheaderappearsontheCARLform();
+	}
+	
 }

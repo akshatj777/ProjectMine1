@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
 
-  Scenario Outline: Veirfy patient included in Exceed SNF LOS when patient is admitted to SNF TCU with CJR Pend Can.
+  Scenario Outline: Verify patient included in Exceed SNF LOS when patient is admitted to SNF TCU with CJR Pend Can.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login

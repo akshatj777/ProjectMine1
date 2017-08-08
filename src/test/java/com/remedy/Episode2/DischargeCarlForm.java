@@ -194,5 +194,8 @@ public class DischargeCarlForm extends BaseClass {
 				iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[ " + transition_no + " ]/td[ " + column + " ]"));
 				verifyTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[ " + transition_no + " ]/td[ " + column + " ]")),value);
 			}
-	
-}
+
+			public void legalmessageshouldappearwhenCarlrecommendation() {
+				verifyTextForElement(driver.findElement(By.cssSelector("div.info-message.ng-binding.ng-scope")),"Patient may benefit from community or home-based services, including Part B PT, personal care attendant, outpatient, specialty care or other services.");
+			}
+	}
