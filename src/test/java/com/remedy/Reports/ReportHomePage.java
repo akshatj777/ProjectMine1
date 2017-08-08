@@ -439,6 +439,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSelectEpisodeConnectRadioButton(String text) throws Throwable {
+    	iWillWaitToSee(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']")));
     }
     
@@ -708,11 +709,13 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyInTheNewWindowAfterClickingOnGraph(String text){
+    	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName']"));
     	verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
     
     public void iClickOnGrpahPointForPostAcuteUtilization(String text){
     	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	iWillWaitToSee(By.xpath(path));
     	clickElement(driver.findElement(By.xpath(path)));
     }
     
@@ -759,6 +762,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){
+    	iWillWaitToSee(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected"));
     	clickElement(driver.findElement(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected")));
     }
     
