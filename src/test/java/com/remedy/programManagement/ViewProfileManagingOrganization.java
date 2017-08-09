@@ -1,8 +1,11 @@
 package com.remedy.programManagement;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -19,23 +22,33 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyParticipantIdOnVewProfileOfManagingOrganization(String text) {
 		boolean bol = driver.findElement(By.cssSelector(".participant-id")).getText().contains("4571271");
-		Assert.assertTrue(bol);
-		System.out.println(driver.findElement(By.cssSelector(".organization-address1")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-address2")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-city")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-state")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-zip")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-contact-name")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-contact-phone")).getText());
-		System.out.println(driver.findElement(By.cssSelector(".organization-contact-email")).getText());
-		
-		
+		Assert.assertTrue(bol);	
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfManagingOrganization(String text, String sel) {
-		
-		verifyTextForElement(driver.findElement(By.cssSelector(".organization-"+sel+"")), text);
+		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
+		Assert.assertEquals(result.trim(), text);
 	}
 	
+	public void iVerifyOrganizationPresentUnderManagingOrganization(String org) {
+		verifyTextForElementfromList(".navLink.noselect", org);
+		System.out.println("Pass============");
+	}
+	
+	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
+		delay();
+		System.out.println("Verify Default");
+		verifyTextForElement(driver.findElement(By.cssSelector("a.navLink.noselect.activeNavLink")), org);
+	}
+	
+	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
+		iWillWaitToSee(By.xpath("//a[@class='navLink noselect activeNavLink' And text()='"+org+"']"));
+		verifyTextForElementfromList(".data-table-header-cell>a", header);
+	}
+	
+	public void iClickOnOrganizationUnderManagingOrganization(String org) {
+		clickElement(driver.findElement(By.xpath("//a[text()='PGP']")));
+	    iWillWaitToSee(By.xpath("//a[@class='navLink noselect activeNavLink' And text()='"+org+"']"));
+	}
 
 }
