@@ -325,7 +325,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTextProgramOverviewReport(String text){
-        verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
+       verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
     }
     
     public void iVerifySkilledNursingGraphUnderReport(){
@@ -385,6 +385,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnProgramOverviewReports(String text) throws Throwable{
+    	delay();
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     }
     
@@ -439,8 +440,10 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSelectEpisodeConnectRadioButton(String text) throws Throwable {
+    	longDelay();
     	iWillWaitToSee(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']")));
+    	delay();
     }
     
     public void iSeeOverallProgramReport(String text){
@@ -762,6 +765,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){
+    	delay();
     	iWillWaitToSee(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected"));
     	clickElement(driver.findElement(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected")));
     }
@@ -776,13 +780,17 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnApplyButtonUnderFaciltyFilterOptions(){
     	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    	delay();
     }
     
     public void iClickOnTableViewOptionUnderViewFilter(String text){
+    	delay();
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    	delay();
     }
     
     public void iVerifyClaimsandeEcTextUnderOverallProgram(String text){
+    	iWillWaitToSee(By.cssSelector("#episodesTitleClaimsECObj"));
     	verifyTextForElement(driver.findElement(By.cssSelector("#episodesTitleClaimsECObj")),text);
     }
     
