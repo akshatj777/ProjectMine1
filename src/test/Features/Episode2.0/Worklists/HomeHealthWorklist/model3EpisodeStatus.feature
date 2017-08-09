@@ -1,6 +1,6 @@
 Feature: Patient status on Home Health Worklist
 
-  Scenario Outline: Patient's current Care Setting is HHA with M3 Episode status as Active
+  Scenario Outline: Verify patient should be present in Home Health worklist when Episode is Model3 Pend Canc and patient is readmitted to HHA - Home Health Agency
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -100,67 +100,32 @@ Feature: Patient status on Home Health Worklist
     Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name     |
-      | qa.admin@yopmail.com | Episode1! | FILTER             | MTHREEPATIENTAUTOMATE |
-
-  Scenario Outline: Patient's current Care Setting is HHA(Patient's discharge Care Setting) with M3 Episode status as Pending cancellation
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field <password> for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
-    Then I should see Tile text Episodes 2.0
-    When I click on the "Episodes 2.0" tile
-    And I wait for 5000 milli seconds
-    Then I verify current page "Remedy Partners" title
-    And I should see "All" tab in the filter bar on patients page
-    Then I should see search box appearing on the patients page
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
-    Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 8000 milli seconds
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 15000 milli seconds
+    Then I will wait to see and click on "Transitions" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
     Then I switch to PatientTransitions frame
-    Then I delete the active transition no "1" to make the patient cancelled
-    And I wait for 4000 milli seconds
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I select the Discharge care setting value "HHA - Home Health Agency" on add a new transition
-    Then I select the Discharge care type value "Skilled services" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG 
     Then I wait for 2000 milli seconds
-    Then I select the Discharge facility value "Amedisys Home Health - Stamford" on add a new transition
-    Then I wait for 3000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on update transition to add a new episode
-    Then I wait for 8000 milli seconds
-    Then I click on the Create Transition Button to add a new transition for discharge info
-    And I wait for 8000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I reload my page
-    Then I wait for 5000 milli seconds
-    Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 3000 milli seconds
-    Then I click on Home Health sub tab on the patient Card Page
-    Then I wait for 1000 milli seconds
+    Then I scroll the page to bottom by "-100"
+    Then I will wait to see and click on "Post Acute" followed by "span" tag
+    Then I will wait to see and click on "Home Health" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    Then I wait for 5000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
-    And I wait for 3000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 

@@ -16,6 +16,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -197,5 +198,26 @@ public class DischargeCarlForm extends BaseClass {
 
 			public void legalmessageshouldappearwhenCarlrecommendation() {
 				verifyTextForElement(driver.findElement(By.cssSelector("div.info-message.ng-binding.ng-scope")),"Patient may benefit from community or home-based services, including Part B PT, personal care attendant, outpatient, specialty care or other services.");
+			}
+
+			public void IverifySNFELOSmessageshouldappearundertheDischargeDate() {
+				verifyTextForElement(driver.findElement(By.cssSelector("span.info-message.ng-binding.ng-scope")),"The episode length of stay for this bundle is 12 - 14 days.");
+				
+			}
+
+			public void IverifySNFELOSrangethatshouldbecalculatedbyDRGthattriggersthecurrentactiveepisode() {
+				verifyTextForElement(driver.findElement(By.cssSelector("span.info-message.ng-binding.ng-scope")),"The episode length of stay for this bundle is 12 - 14 days.");
+		    }
+
+			public void IverifyusershouldseetheappropriatemessagebasedonActualCareSettingchosenandtheRestorationPotentialchosen(String message) {
+				iWillWaitToSee(By.cssSelector("p.info-message.ng-binding.ng-scope"));
+				verifyTextForElement(driver.findElement(By.cssSelector("p.info-message.ng-binding.ng-scope")),message);
+				
+			}
+
+			public void Iverifyphysicaltherapyrecommendationmessageshouldappearingreencolor() {
+				String value = driver.findElement(By.cssSelector("p.info-message.ng-binding.ng-scope")).getCssValue("color");
+				String hex = Color.fromString(value).asHex();
+				Assert.assertTrue(hex.equals("#1d93bf"));
 			}
 	}

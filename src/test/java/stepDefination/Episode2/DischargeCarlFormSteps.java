@@ -156,4 +156,29 @@ public class DischargeCarlFormSteps extends DriverScript {
 		dischargecarlform.legalmessageshouldappearwhenCarlrecommendation();
 	}
 	
+	@Then ("^I verify SNF ELOS message should appear under the Discharge Date on Discharge Section$")
+	public void I_verify_SNF_ELOS_message_should_appear_under_the_Discharge_Date()
+	{
+		dischargecarlform.IverifySNFELOSmessageshouldappearundertheDischargeDate();
+	}
+	
+	@Then ("^I verify SNF ELOS range that should be calculated by DRG that triggers the current active episode$")
+	public void I_verify_SNF_ELOS_range_that_should_be_calculated_by_DRG_that_triggers_the_current_active_episode()
+	{
+		dischargecarlform.IverifySNFELOSrangethatshouldbecalculatedbyDRGthattriggersthecurrentactiveepisode();
+	}
+
+	@Then ("^I verify user should see the appropriate \"([^\"]*)\" based on Actual Care Setting chosen and the Restoration Potential chosen$")
+	public void I_verify_user_should_see_the_appropriate_message_based_on_Actual_Care_Setting_chosen_and_the_Restoration_Potential_chosen(String message)
+	{
+		dischargecarlform.IverifyusershouldseetheappropriatemessagebasedonActualCareSettingchosenandtheRestorationPotentialchosen(message);
+	}
+	
+	@Then ("^I verify physical therapy recommendation message should appear in green color$")
+	public void I_verify_physical_therapy_recommendation_message_should_appear_in_green_color()
+	{
+		dischargecarlform.Iverifyphysicaltherapyrecommendationmessageshouldappearingreencolor();
+	}
+	
+	
 }

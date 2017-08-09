@@ -48,9 +48,6 @@ Feature: Patient status on Home Health Worklist
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caretype" "Skilled services" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Amedisys Home Health - Stamford" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I select the care setting value "HHA - Home Health Agency" on add a new transition
-    Then I select the care type value "Skilled services" on add a new transition
-    Then I select the facility value "Amedisys Home Health - Stamford" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
