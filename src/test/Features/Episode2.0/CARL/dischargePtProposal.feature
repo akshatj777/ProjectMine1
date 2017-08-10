@@ -1,6 +1,6 @@
 Feature: Upon selecting the Actual Care Setting, user should be able to view the Physical Therapy Duration and Frequency proposal
 
-  Scenario Outline: Verify Upon selecting the Actual Care Setting , user should be able to view the Physical Therapy Duration and Frequency proposal 
+  Scenario Outline: Verify Upon selecting the Actual Care Setting ,user should be able to view the Physical Therapy Duration and Frequency proposal 
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -22,7 +22,6 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     Then I switch to PatientTransitions frame
     Then I wait to the see the visibility of loader to disappear
     Then I click on the delete button on the transition to delete all the transitions
-    Then I wait for 3000 milli seconds
     Then I wait to the see the visibility of loader to disappear
     Then I click on add a new transition to add a new episode
     Then I will wait to see "Transition Info" followed by "a" tag

@@ -1,11 +1,12 @@
-Feature: Patient status on Other/Alternative Work List
+Feature: Patient status on Other Work List
 
-  Scenario Outline: M2 Active episode patient discharge and then admitted to discharge facility to SNF with future care setting
+  Scenario Outline: Verify Patient should be included in Other worklist Model 3 Episode status discharged to SNF .
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
     And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
     Then I should see Episode header text "Dashboard"
@@ -30,7 +31,7 @@ Feature: Patient status on Other/Alternative Work List
     And I selected "Male" from the gender drop down list present on the Add Patient page
     When I click on Admitting Facility present on the Add Patient page
     And I wait for 2000 milli seconds
-    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    Then I Select "Coosa valley health care" from admitting facility list present on the Add Patient page
     And I wait for 4000 milli seconds
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
@@ -40,80 +41,63 @@ Feature: Patient status on Other/Alternative Work List
     Then I click on the Cancel Button on the New Transition on Add Patient page
     And I wait for 8000 milli seconds
     Then I switch back to old window
-    And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
-    And I wait for 10000 milli seconds
     Then I verify current page "Remedy Partners" title
     And I should see "All" tab in the filter bar on patients page
     Then I should see search box appearing on the patients page
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    And I wait for 3000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 8000 milli seconds
+    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    And I wait for 15000 milli seconds
+    Then I will wait to see and click on "Transitions" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
     Then I switch to PatientTransitions frame
-    Then I wait for 3000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
-    Then I wait for 7000 milli seconds
-    Then I click on datepicker button to select the admit date on add a new transition
-    Then I click on the centre of the calendar header to select date and month on Transition Page
-    Then I click on the previous next link to select the required year "-20" on date picker
-    Then I select the month "-20" from calendar from date picker
-    Then I select the "-20" from the calendar from date picker on Transition Page
-    Then I select the "-20" time from the calendar from date picker on Transition Page
-    Then I select the care setting value "HHH - Hospital" on add a new transition
-    Then I select the care type value "Inpatient" on add a new transition
-    Then I wait for 2000 milli seconds
-    Then I select the facility value "Stamford Hospital" on add a new transition
-    Then I wait for 2000 milli seconds
+    Then I will wait to see "Transition Info" followed by "a" tag
+    Then I wait for 3000 milli seconds
+    Then I fill in "Admit" with logic "minus" with "20" days
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Admit" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Admit" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the Discharge care setting value "SNF - Skilled Nursing Facility" on add a new transition
-    Then I select the Discharge care type value "Custodial Care" on add a new transition
-    Then I wait for 2000 milli seconds
-    Then I select the Discharge facility value "Coosa valley health care" on add a new transition
-    Then I wait for 5000 milli seconds
+    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Discharge" "caretype" "Leave of Absence" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
+    Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 1000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I wait for 4000 milli seconds
+    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
-    Then I wait for 7000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition
-    And I wait for 8000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I reload my page
-    Then I wait for 3000 milli seconds
-    Then I reload my page
-    Then I wait for 3000 milli seconds
-    Then I click on the Post Acute tab on the patient Card Page
-    Then I wait for 1000 milli seconds
-    Then I click on Other sub tab on the patient Card Page
+    Then I scroll the page to bottom by "-100"
+    Then I will wait to see and click on "Post Acute" followed by "span" tag
+    Then I will wait to see and click on "Other" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
-    And I wait for 3000 milli seconds
     Then I verify Last Name Filter is displayed under List of Filter Options
     When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    And I wait for 3000 milli seconds
     Then I click on Done button present on the Filter Page
-    And I wait for 1000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   |
+      | email                | password  | Patient First Name | Patient Last Name  |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | AUTOMATEMTHREEUSER |
