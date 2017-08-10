@@ -57,5 +57,4 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Search_ManagingOrganization_In_Serach_Box(String text) throws Throwable {
 		 createMO.iSearchManagingOrganizationInSearchBox(text);
 	 }
-
 }

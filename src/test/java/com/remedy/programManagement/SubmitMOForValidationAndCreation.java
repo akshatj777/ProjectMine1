@@ -29,5 +29,37 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 			
 		}}
 	}
+	
+	public void iClickOnParticularOrganizationTabOrganizationDashboard(String text) {
+		List<WebElement> element = driver.findElements(By.cssSelector(".navLink.noselect"));
+		for (WebElement ele : element) {
+			System.out.println("1");
+			if(ele.getText().contains(text)){
+				System.out.println(ele.getText());
+				ele.click();
+			}
+		}
+	}
+	
+	public void iSelectRadioButtonForManagingOrganization(String value) {
+		clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='"+value+"']")));
+		System.out.println("Clicked");
+	}
+	
+	public void iSelectRegionFromDropDownOnCreateOrganization(String text) {
+	    delay();
+	    driver.findElements(By.cssSelector(".Select-placeholder")).get(1).click();
+	    iFillInText(driver.findElements(By.xpath("//input[@role='combobox']")).get(1), text);
+	    iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption"));
+	    clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+	}
+	
+	public void iSelectMarketFromDropDownOnCreateOrganization(String text) {
+	    delay();
+		driver.findElements(By.cssSelector(".Select-placeholder")).get(2).click();
+		iFillInText(driver.findElements(By.xpath("//input[@role='combobox']")).get(2), text);
+		iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption"));
+		clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+		}
 
 }

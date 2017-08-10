@@ -36,19 +36,19 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
-		delay();
-		System.out.println("Verify Default");
-		verifyTextForElement(driver.findElement(By.cssSelector("a.navLink.noselect.activeNavLink")), org);
+		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
+		Assert.assertTrue(bol);
 	}
 	
 	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
-		iWillWaitToSee(By.xpath("//a[@class='navLink noselect activeNavLink' And text()='"+org+"']"));
+//		iWillWaitToSee(By.xpath("//a[@class='navLink noselect activeNavLink' And text()='"+org+"']"));
 		verifyTextForElementfromList(".data-table-header-cell>a", header);
 	}
 	
 	public void iClickOnOrganizationUnderManagingOrganization(String org) {
-		clickElement(driver.findElement(By.xpath("//a[text()='PGP']")));
-	    iWillWaitToSee(By.xpath("//a[@class='navLink noselect activeNavLink' And text()='"+org+"']"));
+		clickElement(driver.findElement(By.xpath("//a[text()='"+org+"']")));
+		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
+		Assert.assertTrue(bol);
 	}
 
 }
