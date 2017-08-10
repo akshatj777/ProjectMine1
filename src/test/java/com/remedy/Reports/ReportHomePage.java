@@ -443,7 +443,7 @@ public class ReportHomePage extends BaseClass {
     	longDelay();
     	iWillWaitToSee(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']")));
-    	delay();
+        delay();
     }
     
     public void iSeeOverallProgramReport(String text){
@@ -506,7 +506,9 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnExportSymbol(String export){
-    	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
+    	//iWillWaitToSee(By.xpath("//*[@id='"+export+"ExportObj']/div"));
+     	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
+    	delay();
     }
     
     public void iVerifyAppearingClickingExport(String text,String Graph){
@@ -515,25 +517,31 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnOptionUnderExportSymbol(String text,String Graph){
     	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")));
+    	delay();
     }
     
     public void iVerifyUnderExportOptions(String text,String Grpah){
+    	iWillWaitToSee(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']"));
     	verifyTextForElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")), text);
     }
     
     public void iClickOnExportOption(String text,String Graph){
+    	iWillWaitToSee(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")));
     }
     
     public void iVerifyGraphUnderExportOptionsPopUp(){
+    	iWillWaitToSee(By.xpath("//div[@class='exportChartImageDiv']/img"));
     	isElementVisible(driver.findElement(By.xpath("//div[@class='exportChartImageDiv']/img")));
     }
     
     public void iCloseTheExportOptionsPopUp(){
+    	iWillWaitToSee(By.xpath("//*[@id='fancybox-close']"));
     	clickElement(driver.findElement(By.xpath("//*[@id='fancybox-close']")));
     }
     
     public void iClickOnXLSCSVOptionUnderExportSymbol(String text,String Graph){
+    	iWillWaitToSee(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']")));
     }
     
@@ -712,14 +720,17 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyInTheNewWindowAfterClickingOnGraph(String text){
+    	delay();
     	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName']"));
     	verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
     
     public void iClickOnGrpahPointForPostAcuteUtilization(String text){
+    	delay();
     	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
     	iWillWaitToSee(By.xpath(path));
     	clickElement(driver.findElement(By.xpath(path)));
+    	delay();
     }
     
     public void iClickOnPostAcuteUtilizationGraphPoint(String text){
@@ -775,6 +786,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSelectFaciltyFromFacilityFilterUnderProgramOverviewReport(String text){
+    	iWillWaitToSee(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
     }
     
