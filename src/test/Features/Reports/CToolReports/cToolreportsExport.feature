@@ -28,7 +28,6 @@ Scenario Outline: User should click on export Episodes graphs for RPFIN Role use
     Then I Verify "CSV" is appearing after clicking on "episodes" export symbol
     
     And I click on "PNG" option under "episodes" export symbol
-    #And I wait for 2000 milli seconds
     Then I verify "Small" is appearing under Export Options for "episodes" graph
     Then I verify "Medium" is appearing under Export Options for "episodes" graph
     Then I verify "Large" is appearing under Export Options for "episodes" graph
@@ -40,25 +39,21 @@ Scenario Outline: User should click on export Episodes graphs for RPFIN Role use
     And I click on "Large" Export Options for "episodes" graph
     And I click on "Custom" Export Options for "episodes" graph
     And I click on "Export" Export Options for "episodes" graph
-    #And I wait for 4000 milli seconds
     Then I close the export options popup
-    #And I wait for 3000 milli seconds
     
     And I click on export symbol on "episodes" graph
     Then I should click on "XLS" option under "episodes" export symbol
-    #And I wait for 4000 milli seconds
     And I click on export symbol on "episodes" graph
     Then I should click on "CSV" option under "episodes" export symbol
-    #And I wait for 4000 milli seconds
     
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
 Scenario Outline: User should click on export NPRA graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -177,11 +172,11 @@ Scenario Outline: User should click on export SNF graphs for RPFIN Role users wi
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
 
 Scenario Outline: User should click on export Long Term Acute Care graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -238,11 +233,11 @@ Scenario Outline: User should click on export Long Term Acute Care graphs for RP
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
  Scenario Outline: User should click on export Inpatient Rehab graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -300,11 +295,11 @@ Scenario Outline: User should click on export Long Term Acute Care graphs for RP
      Examples:
      
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
 Scenario Outline: User should click on export Home Health graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -364,11 +359,11 @@ Scenario Outline: User should click on export Home Health graphs for RPFIN Role 
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
 Scenario Outline: User should click on export Home graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -429,11 +424,11 @@ Scenario Outline: User should click on export Home graphs for RPFIN Role users w
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
      
 Scenario Outline: User should click on export Other graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -493,11 +488,11 @@ Scenario Outline: User should click on export Other graphs for RPFIN Role users 
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
 Scenario Outline: User should click on export Initial SNF Length of Stay graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -558,11 +553,11 @@ Scenario Outline: User should click on export Initial SNF Length of Stay graphs 
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |
       
 Scenario Outline: User should click on export SNF Days graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
@@ -610,7 +605,7 @@ Scenario Outline: User should click on export SNF Days graphs for RPFIN Role use
     And I click on "Export" Export Options for "daysSNF" graph
     #And I wait for 4000 milli seconds
     Then I close the export options popup
-    #And I wait for 3000 milli seconds
+    And I wait for 3000 milli seconds
     
     And I click on export symbol on "daysSNF" graph
     Then I should click on "XLS" option under "daysSNF" export symbol
@@ -623,9 +618,9 @@ Scenario Outline: User should click on export SNF Days graphs for RPFIN Role use
     Examples:
     
       | email                              | Menu 1     |
-      #| Medicare Payer Users| 
+      | Medicare Payer Users| 
       | shutestaug231132a@yopmail.com      | Dashboards |
-      #| Emblem Payer Users  |
+      | Emblem Payer Users  |
       | emblemachrpfin@yopmail.com         | Dashboards |
-      #| Multiple Payer Users|
+      | Multiple Payer Users|
       | multipayerachrpfin@yopmail.com     | Dashboards |

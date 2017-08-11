@@ -65,6 +65,7 @@ public class ReportHomePage extends BaseClass {
     public void iSwitchToReportsPageFrameWithXpath(String frameXpath){
         longDelay();
         swithToFrame(frameXpath);
+        delay();
     }
 
     public void iVerifyPerformanceReportsColumnsTitleText(String text){
@@ -508,10 +509,11 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnExportSymbol(String export){
     	//iWillWaitToSee(By.xpath("//*[@id='"+export+"ExportObj']/div"));
      	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
-    	delay();
+    	longDelay();
     }
     
     public void iVerifyAppearingClickingExport(String text,String Graph){
+    	iWillWaitToSee(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']"));
     	verifyTextForElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")), text);
     }
     
@@ -538,6 +540,7 @@ public class ReportHomePage extends BaseClass {
     public void iCloseTheExportOptionsPopUp(){
     	iWillWaitToSee(By.xpath("//*[@id='fancybox-close']"));
     	clickElement(driver.findElement(By.xpath("//*[@id='fancybox-close']")));
+    	longDelay();
     }
     
     public void iClickOnXLSCSVOptionUnderExportSymbol(String text,String Graph){
@@ -914,6 +917,7 @@ public class ReportHomePage extends BaseClass {
     
     public void iWaitToSeeOverallProgramUnderDashboardReport(String text){
     	iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
+    	delay();
     }
     
     public void iWillWaitToSeeReportNameAfterClickingGraph(String reportname){
