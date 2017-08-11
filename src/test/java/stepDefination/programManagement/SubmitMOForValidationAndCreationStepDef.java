@@ -39,6 +39,11 @@ public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
 	  public void i_Enter_Details_In_Market_DropDown_On_Create_Organization_Page(String text) throws Throwable {
 		 submitmo.iSelectMarketFromDropDownOnCreateOrganization(text);
 	 }
+	 
+	 @And("^I select ([^\"]*) managing organization name in Has a Management Organization drop down$")
+	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String text) throws Throwable {
+		 submitmo.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(text);
+	 }
 
 
 }

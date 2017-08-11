@@ -21,7 +21,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyParticipantIdOnVewProfileOfManagingOrganization(String text) {
-		boolean bol = driver.findElement(By.cssSelector(".participant-id")).getText().contains("4571271");
+		boolean bol = driver.findElement(By.cssSelector(".participant-id")).getText().contains(text);
 		Assert.assertTrue(bol);	
 	}
 	

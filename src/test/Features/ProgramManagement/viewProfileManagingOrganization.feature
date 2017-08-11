@@ -1,4 +1,4 @@
-Feature: User is able tto view a Managing Organization's Profile
+Feature: User is able to view a Managing Organization's Profile
 
   Background: 
     Given I am on the login page
