@@ -1,6 +1,6 @@
-Feature: Patient status on Post Acute Facility Work List
+Feature: Patient status on Exceed SNF LOS Work List
 
-  Scenario Outline: Verify patient in post acute facility worklist with Episode status as Active M2 when current Discharge Care Setting is IRF
+  Scenario Outline: Admit with discharge care setting-SNF (Skilled Nursing, TCU)
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -36,46 +36,28 @@ Feature: Patient status on Post Acute Facility Work List
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the "Discharge" "caresetting" "IRF - Inpatient Rehabilitation" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Discharge" facility "CHI Saint Luke's Health Memorial Lufkin IRF" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
+    Then I click on add a new transition to add a new episode
+    Then I will wait to see "Transition Info" followed by "a" tag
+    Then I wait for 3000 milli seconds
+    Then I fill in "Admit" with logic "minus" with "28" days
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Admit" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Admit" "caretype" "TCU" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
     Then I close the patient summary Page
     Then I scroll the page to bottom by "-100"
     Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
-    Then I wait to the see the visibility of loader to disappear
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page
-    Then I wait to the see the visibility of loader to disappear
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    Then I will wait to see and click on "Transitions" followed by "span" tag
-    Then I wait to the see the visibility of loader to disappear
-    Then I switch to PatientTransitions frame
-    Then I wait to the see the visibility of loader to disappear
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 2000 milli seconds
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on update transition to add a new episode
-    Then I wait to the see the visibility of loader to disappear
-    Then I close the patient summary Page
-    Then I scroll the page to bottom by "-100"
-    Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
+    Then I will wait to see and click on "Exceeded SNF LOS" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -88,10 +70,61 @@ Feature: Patient status on Post Acute Facility Work List
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name     |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTACUTEFACILITY |
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
 
-  Scenario Outline: Verify patient should be present in Post Acute Facility worklist when Episode is Model2 Active and patient is readmitted to IRF - Inpatient Rehabilitation
+  Scenario Outline: Admit with discharge care setting-SNF M2 Pend Can (Skilled Nursing, TCU)
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field <password> for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    Then I verify current page "Remedy Partners" title
+    And I should see "All" tab in the filter bar on patients page
+    Then I should see search box appearing on the patients page
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    Then I click on Done button present on the Filter Page
+    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
+    Then I will wait to see and click on "Transitions" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
+    Then I switch to PatientTransitions frame
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I scroll the page to bottom by "-100"
+    Then I will wait to see and click on "Post Acute" followed by "span" tag
+    Then I will wait to see and click on "Exceeded SNF LOS" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    Then I click on Done button present on the Filter Page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
+
+  Scenario Outline: Verify patient included in Exceed SNF LOS when patient is admitted to SNF TCU with M2 Active.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -120,31 +153,29 @@ Feature: Patient status on Post Acute Facility Work List
     Then I click on add a new transition to add a new episode
     Then I will wait to see "Transition Info" followed by "a" tag
     Then I wait for 3000 milli seconds
-    Then I fill in "Admit" with logic "minus" with "20" days
+    Then I fill in "Admit" with logic "minus" with "30" days
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
+    Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
-    Then I click on add a new transition to add a new episode
-    Then I fill in "Admit" with logic "minus" with "18" days
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" "caresetting" "IRF - Inpatient Rehabilitation" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" facility "CHI Saint Luke's Health Memorial Lufkin IRF" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I click on the Create Transition Button to add a new transition
-    Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
+    Then I close the patient summary Page
     Then I scroll the page to bottom by "-100"
     Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
+    Then I will wait to see and click on "Exceeded SNF LOS" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -157,60 +188,10 @@ Feature: Patient status on Post Acute Facility Work List
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name     |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTACUTEFACILITY |
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
 
-  Scenario Outline: Verify patient not present in the worklist when Episode transition changes to other care setting
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field <password> for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
-    Then I should see Tile text Episodes 2.0
-    When I click on the "Episodes 2.0" tile
-    Then I verify current page "Remedy Partners" title
-    And I should see "All" tab in the filter bar on patients page
-    Then I should see search box appearing on the patients page
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page
-    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    Then I will wait to see and click on "Transitions" followed by "span" tag
-    Then I wait to the see the visibility of loader to disappear
-    Then I switch to PatientTransitions frame
-    Then I wait to the see the visibility of loader to disappear
-    Then I click on the edit button on the "2" transition to edit the Active transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I click on update transition to add a new episode
-    Then I wait to the see the visibility of loader to disappear
-    Then I scroll the page to bottom by "-100"
-    Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
-    Then I wait to the see the visibility of loader to disappear
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page
-    Then I wait to the see the visibility of loader to disappear
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-
-    Examples: 
-      | email                | password  | Patient First Name | Patient Last Name     |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTACUTEFACILITY |
-
-  Scenario Outline: Verify patient in post acute facility worklist with Episode status as Active M2 when current Discharge Care Setting is IRF with future date.
+  Scenario Outline: Verify patient should be included in EXCEED SNF LOS worklist when Episode state is Future Active.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -246,9 +227,10 @@ Feature: Patient status on Post Acute Facility Work List
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the "Discharge" "caresetting" "IRF - Inpatient Rehabilitation" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
+    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
-    Then I select the "Discharge" facility "CHI Saint Luke's Health Memorial Lufkin IRF" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
+    Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
+    Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -256,10 +238,11 @@ Feature: Patient status on Post Acute Facility Work List
     Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
     Then I close the patient summary Page
     Then I scroll the page to bottom by "-100"
     Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
+    Then I will wait to see and click on "Exceeded SNF LOS" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -270,38 +253,12 @@ Feature: Patient status on Post Acute Facility Work List
     Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
-    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
-    Then I will wait to see and click on "Transitions" followed by "span" tag
-    Then I wait to the see the visibility of loader to disappear
-    Then I switch to PatientTransitions frame
-    Then I wait to the see the visibility of loader to disappear
-    Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I wait for 2000 milli seconds
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on update transition to add a new episode
-    Then I wait to the see the visibility of loader to disappear
-    Then I close the patient summary Page
-    Then I scroll the page to bottom by "-100"
-    Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
-    Then I wait to the see the visibility of loader to disappear
-    When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
-    Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page
-    Then I wait to the see the visibility of loader to disappear
-    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name     |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTACUTEFACILITY |
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
 
-  Scenario Outline: Verify patient not in post acute facility worklist with Patient's Past IRF admit/discharge care setting
+  Scenario Outline: Verify admitted patient not included in EXCEED SNF Work list when discharged in SNF with care type leave of absence
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -326,34 +283,34 @@ Feature: Patient status on Post Acute Facility Work List
     Then I switch to PatientTransitions frame
     Then I wait to the see the visibility of loader to disappear
     Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
-    Then I fill in "Admit" with logic "minus" with "20" days
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" "caresetting" "IRF - Inpatient Rehabilitation" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" facility "CHI Saint Luke's Health Memorial Lufkin IRF" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I click on the Create Transition Button to add a new transition
-    Then I wait to the see the visibility of loader to disappear
-    Then I click on add a new transition to add a new episode
-    Then I wait to the see the visibility of loader to disappear
     Then I will wait to see "Transition Info" followed by "a" tag
     Then I wait for 3000 milli seconds
-    Then I fill in "Admit" with logic "minus" with "18" days
+    Then I fill in "Admit" with logic "minus" with "30" days
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
+    Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Discharge" "caretype" "leave of absence" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
+    Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
     Then I close the patient summary Page
     Then I scroll the page to bottom by "-100"
     Then I will wait to see and click on "Post Acute" followed by "span" tag
-    Then I will wait to see and click on "Post-Acute Facility" followed by "span" tag
+    Then I will wait to see and click on "Exceeded SNF LOS" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
     And I click on Filters button present on Filter Page
@@ -366,5 +323,86 @@ Feature: Patient status on Post Acute Facility Work List
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
-      | email                | password  | Patient First Name | Patient Last Name     |
-      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTPOSTACUTEFACILITY |
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
+      
+        Scenario Outline: Episode state other than Active and pending cancellation
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field <password> for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    And I wait for 8000 milli seconds
+    Then I verify current page "Remedy Partners" title
+    And I should see "All" tab in the filter bar on patients page
+    Then I should see search box appearing on the patients page
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <Patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 1000 milli seconds
+    Then I click on the agree button on the Patient Card page
+    Then I wait for 8000 milli seconds
+    Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
+    And I wait for 15000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I wait for 4000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 3000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "30" on date picker
+    Then I select the month "30" from calendar from date picker
+    Then I select the "30" from the calendar from date picker on Transition Page
+    Then I select the "30" time from the calendar from date picker on Transition Page
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 2000 milli seconds
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I wait for 2000 milli seconds
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I wait for 1000 milli seconds
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 1000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 8000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "-94" on date picker
+    Then I select the month "-94" from calendar from date picker
+    Then I select the "-94" from the calendar from date picker on Transition Page
+    Then I select the "-94" time from the calendar from date picker on Transition Page
+    Then I select the care setting value "SNF - Skilled Nursing Facility" on add a new transition
+    Then I select the care type value "TCU" on add a new transition
+    Then I wait for 2000 milli seconds
+    Then I select the facility value "Coosa valley health care" on add a new transition
+    Then I wait for 2000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 15000 milli seconds
+    When I switch to default window from iframe
+    Then I close the patient summary Page
+    Then I wait for 1000 milli seconds
+    Then I reload my page
+    Then I wait for 3000 milli seconds
+    Then I click on the Post Acute tab on the patient Card Page
+    Then I click on Exceed SNF LOS sub tab on the patient Card Page
+    Then I wait for 1000 milli seconds
+    Then I enter "<Patient Last Name>" in the search box on the patients page
+    Then I wait for 8000 milli seconds
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
+
+    Examples: 
+      | email                | password  | Patient First Name | Patient Last Name |
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |

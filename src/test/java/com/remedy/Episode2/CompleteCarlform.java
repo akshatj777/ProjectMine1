@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -57,6 +58,7 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
 		iWillWaitToSee(By.cssSelector("div.takeover-content.container.carl.ng-scope > form"));
+		delay();
 	}
 
 	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname, String firstname) {
@@ -173,6 +175,7 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IClickOnCareTeamOnNavBarOnPatientSummaryPage(String text) {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'" + text + "')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'" + text + "')]")));
 	}
 
@@ -186,6 +189,7 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IClickOnOkToDeleteThePatient() {
 		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
+		delay();
 	}
 
 	public void IVerifyFirstNameIsMandatoryFieldToCreateCaregiver() {
@@ -281,4 +285,5 @@ public class CompleteCarlform extends BaseClass {
 		iWillWaitToSee(By.cssSelector("h2.ng-binding"));
 	}
 
+	
 }

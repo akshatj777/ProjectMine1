@@ -83,7 +83,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IclickonquickactionbuttonfornotecreationonPatientCardpage() {
-
+		 iWillWaitToSee(By.cssSelector("i.valentino-icon-plus"));
 		clickElement(driver.findElement(By.cssSelector("i.valentino-icon-plus")));
 	}
 

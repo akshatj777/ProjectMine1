@@ -8,18 +8,15 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
-    And I wait for 8000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
+    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I click on the patient on the patient card page that has no CARL button in it
-    And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
-    And I wait for 15000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
-    And I wait for 4000 milli seconds
     Then I Verify that Carl form should appear with Save your progress link
     Then I Verify that Carl form should appear with review the form link
     Then I Verify that Carl form should appear Left navigator displaying four sections
@@ -101,18 +98,15 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
-    And I wait for 8000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
+    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I click on the patient on the patient card page that has no CARL button in it
-    And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
-    And I wait for 15000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the complete CARL on the Patient Summary
-    And I wait for 5000 milli seconds
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
-    And I wait for 4000 milli seconds
     Then I click on Yes, 24 hours a day option under Does the patient have a capable caregiver
     And I click on Add Caregiver link under Choose Caregiver
     Then I verify first name is mandatory field to a create Caregiver
@@ -166,23 +160,20 @@ Feature: To verify the options and functionality of Caregiver section of Carl fo
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
-    And I wait for 8000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
+    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I click on the patient on the patient card page that has no CARL button in it
-    And I wait for 2000 milli seconds
     Then I get the patient last name who have no CARL button in it
-    And I wait for 15000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I click on Care Team on navigation bar on patient summary page
-    And I wait for 10000 milli seconds
     Then I switch to Patient Care Team frame
     And I click on setting icon to remove the patient under Care Team
     And I wait for 2000 milli seconds
     And I click On Remove to delete the patient
     And I wait for 5000 milli seconds
     And I click on OK button to delete the patient
-    And I wait for 10000 milli seconds
     When I switch to default window from iframe
     Then I close the patient summary Page
 
