@@ -75,6 +75,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnFilterButtonPresentOnPatientPage() {
+		delay();
 		iWillWaitToSee(By.cssSelector(".filter-bar-search-left .btn-quaternary span"));
 		clickElement(driver.findElement(By.cssSelector(".filter-bar-search-left .btn-quaternary span")));
 	}
@@ -92,6 +93,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnFiltersButtonPresentOnFilterPage() {
+		delay();
 		iWillWaitToSee(By.cssSelector("div.row-controls>a"));
 		clickElement(driver.findElement(By.cssSelector("div.row-controls>a")));
 	}
@@ -711,6 +713,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions() {
+		delay();
 		iWillWaitToSee(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]"));
 		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
 	}
@@ -759,7 +762,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterUnderFirstNameFilter(String patient) {
-		iFillInText(driver.findElement(By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),patient);
+		iFillInText(driver.findElement(By.cssSelector("div.filter-sections-hide-scrollbar.ng-scope > div > div  > div > div > div > div > input")),patient);
 	}
 
 	public void iClickOnGenderFilterPresentOnFilterPage() {

@@ -647,10 +647,10 @@ public class PatientClinicalDocuments extends BaseClass {
 		int yearDiff = Integer.parseInt(date_dd_MM_yyyy[2]) - Calendar.getInstance().get(Calendar.YEAR);
 		Thread.sleep(2000);
 		if(logic.equals("Admit")){
-		iWillWaitToSee(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.prev"));
-		iWillWaitToSee(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.next"));
-		WebElement nextLink = driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.prev"));
-		WebElement previousLink = driver.findElement(By.cssSelector("body > div:nth-child(16) > div.datetimepicker-months > table > thead > tr > th.next"));
+		iWillWaitToSee(By.cssSelector("body > div > div.datetimepicker-months > table > thead > tr > th.prev"));
+		iWillWaitToSee(By.cssSelector("body > div > div.datetimepicker-months > table > thead > tr > th.next"));
+		WebElement nextLink = driver.findElement(By.cssSelector("body > div > div.datetimepicker-months > table > thead > tr > th.prev"));
+		WebElement previousLink = driver.findElement(By.cssSelector("body > div > div.datetimepicker-months > table > thead > tr > th.next"));
 		 if(yearDiff!=0){
              if(yearDiff>0){
                    for(int i=0;i< yearDiff;i++){
@@ -681,7 +681,7 @@ public class PatientClinicalDocuments extends BaseClass {
                  }  else if(yearDiff<0){
                    for(int i=0;i< (yearDiff*(-1));i++){
                    previousLink.click(); }}
-                   }	}
+                   }	
 		iWillWaitToSee(By.cssSelector("body > div:nth-child(18) > div.datetimepicker-months > table > tbody > tr > td > span"));
 		List<WebElement> list_AllMonthToBook = driver.findElements(By.cssSelector("body > div:nth-child(18) > div.datetimepicker-months > table > tbody > tr > td > span"));
 		Thread.sleep(1000);
@@ -690,7 +690,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//body//div[13]//div[@class='datetimepicker-days']//table[@class=' table-condensed']//tbody//td[not(contains(@class,'old')) and not(contains(@class,'new'))]"));
 		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
 				} 
-	
+	}
 	    public static String getcurrentdate(int days) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate localDate = LocalDate.now();
@@ -707,6 +707,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		public void Iwillwaittoseeandclickontext(String text, String tag) {
 			iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
 			clickElement(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
+			delay();
 			}
 
 		public void Iwillfetchthevalueattributeofvariableonpatientdetails() {

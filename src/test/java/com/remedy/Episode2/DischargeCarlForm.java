@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +19,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -111,10 +115,6 @@ public class DischargeCarlForm extends BaseClass {
 		driver.findElement(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']")).sendKeys(text);
 		delay();
 		clickElement(driver.findElement(By.cssSelector("div.ui-select-choices-row.ng-scope.active")));
-	}
-
-	public void IVerifythatClickingdoneshouldshowareadonlyfieldwiththeinformationfilled() {
-		
 	}
 
 	public void IclickonDonebuttonundersubformonDischargesections() {
@@ -219,5 +219,53 @@ public class DischargeCarlForm extends BaseClass {
 				String value = driver.findElement(By.cssSelector("p.info-message.ng-binding.ng-scope")).getCssValue("color");
 				String hex = Color.fromString(value).asHex();
 				Assert.assertTrue(hex.equals("#1d93bf"));
+			}
+
+		
+        	public void IverifynodataappearsinthedropdowntoselecttheDischargeLocationunderRecommendationonDischargeSection(String data) {
+				delay();
+				if(data.equals("no data")){
+					iWillWaitToSee(By.cssSelector("div:nth-child(3) > div:nth-child(2) > div > ul.ng-hide"));
+				isElementVisible(driver.findElement(By.cssSelector("div:nth-child(3) > div:nth-child(2) > div > ul.ng-hide")));
+				}else
+				{
+					WebDriverWait wait=new WebDriverWait(driver,10);
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div:nth-child(3) > div:nth-child(2) > div > ul.ng-hide")));
+				}
+			}
+
+			public void IverifyActualDischargeLocationsearchshoulddeterminedbyCareSetting() {
+			List<String> texts=getTextForElementfromList("span.ui-select-choices-row-inner > div.ng-binding.ng-scope");
+				for(String text:texts)
+				{
+					String finaltext = text.substring(text.length() - 5);
+					Assert.assertEquals("(HHA)", finaltext);
+				}
+			}
+
+			public void IenterDischargelocationintheDischargeLocationsearchbox(String text) {
+				iWillWaitToSee(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']"));
+				driver.findElement(By.xpath("//label[text()='Discharge Location']/preceding-sibling::div//input[@type='search']")).sendKeys(text);
+				delay();
+				
+			}
+
+			public void IverifyresultsshouldbeconfiguredwithlistoffacilitiesafterenteringcharactersontheDischargeLocationfield() {
+				List<String> actualmylist = getTextForElementfromList("span.ui-select-choices-row-inner > div.ng-binding.ng-scope");
+				String[] expectedvalues = { "Aaa Home Health Care Inc (Tyler, TX) (HHA)", "Aaa Home Health Care Incorporated (Las Vegas, NV) (HHA)" , "Aaa home health care inc - Aaa home health care inc (Simi valley, CA) (HHA)" };
+				List<String> requiredcombolisttext = new ArrayList<String>();
+				requiredcombolisttext.addAll(Arrays.asList(expectedvalues));
+				verifyarraylist(requiredcombolisttext, actualmylist);
+			}
+
+			public void IclosetheDischargeLocationdropdownonDischargeSection() {
+				clickElement(driver.findElement(By.xpath("//strong[contains(text(),'Have you discussed')]")));
+				
+			}
+
+			public void IverifyCaretypeandDischargelocationfieldshouldgetrefreshedaspernewCaresetting() {
+				WebDriverWait wait=new WebDriverWait(driver,10);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.show-search.form-control.ng-valid-required")));
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div.form-control.ui-select-container.ng-touched.ng-valid-required")));
 			}
 	}

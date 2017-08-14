@@ -47,9 +47,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I will wait to see and click on "Inpatient Care" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -99,9 +96,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I will wait to see and click on "Inpatient Care" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -161,9 +155,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I will wait to see and click on "Inpatient Care" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -215,9 +206,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I will wait to see and click on "Inpatient Care" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -274,9 +262,6 @@ Feature: Patient status in Inpatient Care Worklist
     Then I will wait to see and click on "Inpatient Care" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page

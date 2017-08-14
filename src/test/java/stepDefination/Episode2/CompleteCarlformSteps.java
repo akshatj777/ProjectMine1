@@ -255,7 +255,7 @@ public class CompleteCarlformSteps extends DriverScript {
 	}
 	
 	@Then ("^I will wait to see the CARL section \"([^\"]*)\" header appears on the CARL form$")
-	public void I_will_wait_to_see_the_CARL_section_header_appears_on_the_CARL_form() throws Throwable {
+	public void I_will_wait_to_see_the_CARL_section_header_appears_on_the_CARL_form(String text) throws Throwable {
 		completecarl.IwillwaittoseetheCARLsectionheaderappearsontheCARLform();
 	}
 	

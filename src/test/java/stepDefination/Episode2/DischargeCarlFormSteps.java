@@ -87,6 +87,12 @@ public class DischargeCarlFormSteps extends DriverScript {
 	    dischargecarlform.IEnterAndSelectDischargeLocationeUnderSubFormOnDischargeSectionOnCarlForm(text);
 	}
 	
+	@Then ("I enter \"([^\"]*)\" Discharge location in the Discharge Location search box$")
+    public void I_enter_Discharge_location_in_the_Discharge_Location_search_box(String text)
+    {
+		dischargecarlform.IenterDischargelocationintheDischargeLocationsearchbox(text);
+    }
+	
 	@Then("^I click on Calendar Icon On Discharge date under subform on Discharge section$")
 	public void I_Click_On_CalendarIcon_On_DischargeDate_Under_SubForm_On_Discharge_section() throws Throwable {
 	    dischargecarlform.IClickOnCalednarIconOnDischargeDateUnderSubFormOnDischargeSectionOnCarlForm();
@@ -112,12 +118,6 @@ public class DischargeCarlFormSteps extends DriverScript {
 	@Then("^I verify \"([^\"]*)\" subform field is not appearing under Recommendation on Discharge section$")
 	public void I_Verify_Subform_Field_Is_Not_Appearing_Under_Recommendation_On_Discharge_Section(String subForm) throws Throwable {
 		dischargecarlform.IVerifySubFormFieldNotAppearingUnderRecommendationOnDischargeSectionOnCarlForm(subForm);	
-	}
-	
-	@Then("^I Verify that Clicking done should show a read only field with the information filled$")
-	public void I_Verify_that_Clicking_done_should_show_a_read_only_field_with_the_information_filled()
-	{
-		dischargecarlform.IVerifythatClickingdoneshouldshowareadonlyfieldwiththeinformationfilled();
 	}
 	
 	@Then ("^I verify the correct \"([^\"]*)\" \"([^\"]*)\" which user has selected by the time of filling the form should appearing after saving the done form$")
@@ -180,5 +180,33 @@ public class DischargeCarlFormSteps extends DriverScript {
 		dischargecarlform.Iverifyphysicaltherapyrecommendationmessageshouldappearingreencolor();
 	}
 	
+	@Then ("^I verify \"([^\"]*)\" appears in the dropdown to select the Discharge Location under Recommendation on Discharge Section$")
+	public void I_verify_no_data_appears_in_the_dropdown_to_select_the_Discharge_Location_under_Recommendation_on_Discharge_Section(String data)
+	{
+		dischargecarlform.IverifynodataappearsinthedropdowntoselecttheDischargeLocationunderRecommendationonDischargeSection(data);
+	}
 	
+	@Then ("^I verify Actual Discharge Location search should determined by Care Setting$")
+	public void I_verify_Actual_Discharge_Location_search_should_determined_by_Care_Setting()
+	{
+		dischargecarlform.IverifyActualDischargeLocationsearchshoulddeterminedbyCareSetting();
+	}
+	
+	@Then ("^I verify results should be configured with list of facilities after entering characters on the Discharge Location field$")
+	public void I_verify_results_should_be_configured_with_list_of_facilities_after_entering_characters_on_the_Discharge_Location_field()
+	{
+		dischargecarlform.IverifyresultsshouldbeconfiguredwithlistoffacilitiesafterenteringcharactersontheDischargeLocationfield();
+	}
+	
+	@Then ("^I close the Discharge Location dropdown on Discharge Section$")
+	public void I_close_the_Discharge_Location_dropdown_on_Discharge_Section()
+	{
+		dischargecarlform.IclosetheDischargeLocationdropdownonDischargeSection();
+	}
+	
+	@Then ("^I verify Care type and Discharge location field should get refreshed as per new Care setting$")
+	public void I_verify_Care_type_and_Discharge_location_field_should_get_refreshed_as_per_new_Care_setting()
+	{
+		dischargecarlform.IverifyCaretypeandDischargelocationfieldshouldgetrefreshedaspernewCaresetting();
+	}
 }

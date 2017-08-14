@@ -59,10 +59,10 @@ Feature: Patient status on Home Health Worklist
     Then I switch to PatientTransitions frame
     Then I wait to the see the visibility of loader to disappear
     Then I click on the delete button on the transition to delete all the transitions
-    Then I wait for 3000 milli seconds
+    And I wait for 2000 milli seconds
     Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
     Then I will wait to see "Transition Info" followed by "a" tag
-    Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "20" days
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
@@ -77,6 +77,8 @@ Feature: Patient status on Home Health Worklist
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
+    Then I will wait to see "Transition Info" followed by "a" tag
     Then I fill in "Admit" with logic "minus" with "18" days
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caresetting" "HHA - Home Health Agency" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
@@ -93,9 +95,6 @@ Feature: Patient status on Home Health Worklist
     Then I will wait to see and click on "Home Health" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -107,6 +106,8 @@ Feature: Patient status on Home Health Worklist
     Then I switch to PatientTransitions frame
     Then I wait to the see the visibility of loader to disappear
     Then I click on the edit button on the "2" transition to edit the Active transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I will wait to see "Transition Info" followed by "a" tag
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 2000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -120,10 +121,6 @@ Feature: Patient status on Home Health Worklist
     Then I will wait to see and click on "Home Health" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
-    And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
@@ -157,9 +154,9 @@ Feature: Patient status on Home Health Worklist
     Then I switch to PatientTransitions frame
     Then I wait to the see the visibility of loader to disappear
     Then I click on the edit button on the "1" transition to edit the Active transition
-    Then I wait for 8000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I select the care setting value "HPC - Hospice" on add a new transition
-    Then I wait for 4000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
     Then I click on update transition to add a new episode
     Then I wait to the see the visibility of loader to disappear
     When I switch to default window from iframe
@@ -169,9 +166,6 @@ Feature: Patient status on Home Health Worklist
     Then I will wait to see and click on "Home Health" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -209,8 +203,8 @@ Feature: Patient status on Home Health Worklist
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
     Then I will wait to see "Transition Info" followed by "a" tag
-    Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "20" days
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
@@ -236,9 +230,6 @@ Feature: Patient status on Home Health Worklist
     Then I will wait to see and click on "Home Health" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
@@ -276,6 +267,7 @@ Feature: Patient status on Home Health Worklist
     Then I click on the delete button on the transition to delete all the transitions
     Then I wait for 3000 milli seconds
     Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
     Then I will wait to see "Transition Info" followed by "a" tag
     Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "110" days
@@ -303,9 +295,6 @@ Feature: Patient status on Home Health Worklist
     Then I will wait to see and click on "Home Health" followed by "span" tag
     Then I wait to the see the visibility of loader to disappear
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify Last Name Filter is displayed under List of Filter Options
-    When I click on last name Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page

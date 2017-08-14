@@ -68,8 +68,11 @@ public class ReadmissionWorklist extends BaseClass {
 	public void IclickonlastnamethesearchedpatientonthePatientCardPage(String lastname) {
 		String newname = lastname.toUpperCase();
 		iWillWaitToSee(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]"));
-		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
-	}
+		delay();
+		Actions actions=new Actions(driver);
+	    actions.moveToElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]"))).click().perform();
+		
+	   }
 
 	public static String getcurrentdate(int days) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");

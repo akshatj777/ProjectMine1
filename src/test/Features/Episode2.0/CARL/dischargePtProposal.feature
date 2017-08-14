@@ -68,6 +68,7 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     Then I click on "Anticipated Discharge Needs" section on left navigator
     Then I will wait to see the CARL section "Anticipated Discharge Needs" header appears on the CARL form
     Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
+    Then I click on Physical Therapy dropdown on Patients Restoration Potential
     Then I select "<Patient Restoration Potential>" in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I select "Injectable Meds" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "Once daily or less often" radio option under "Injectable Meds" for Transition Care Needs
@@ -76,16 +77,18 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     Then I select "Finger Stick" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "More than once daily" radio option under "Finger Stick" for Transition Care Needs
     Then I select "Wound Care" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily or less often" radio option under "Finger Stick" for Transition Care Needs
+    Then I click "Once daily or less often" radio option under "Wound Care" for Transition Care Needs
     Then I save and continue the complete CARL form
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
     Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
     Then I select "<Care Setting>" in subform dropdown for "Actual Care Setting" on Discharge section
     Then I verify user should see the appropriate "<message>" based on Actual Care Setting chosen and the Restoration Potential chosen
     Then I verify physical therapy recommendation message should appear in green color
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
     Then I select "<Care Setting1>" in subform dropdown for "Actual Care Setting" on Discharge section
     Then I verify user should see the appropriate "<message1>" based on Actual Care Setting chosen and the Restoration Potential chosen
     Then I verify physical therapy recommendation message should appear in green color
+    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
     Then I select "<Care Setting2>" in subform dropdown for "Actual Care Setting" on Discharge section
     Then I verify user should see the appropriate "<message2>" based on Actual Care Setting chosen and the Restoration Potential chosen
     Then I verify physical therapy recommendation message should appear in green color

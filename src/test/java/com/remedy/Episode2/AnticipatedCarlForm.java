@@ -52,6 +52,7 @@ public class AnticipatedCarlForm extends BaseClass {
 	}
 
 	public void IClickOnPhysicalTherapyDropDownOnPatientRestorationPotentialSection() {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[@class='restoration-potential ng-scope']//span[@tabindex='-1']")));
 	}
 
