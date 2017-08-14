@@ -17,22 +17,25 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyNameOnHeaderOnViewProfile(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector(".organization-name.row")), text);
-		System.out.println(driver.findElement(By.cssSelector(".participant-id")).getText());
 	}
 	
-	public void iVerifyParticipantIdOnVewProfileOfManagingOrganization(String text) {
-		boolean bol = driver.findElement(By.cssSelector(".participant-id")).getText().contains(text);
-		Assert.assertTrue(bol);	
+	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {
+		if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
+			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
+		   if(("Participant Id: "+id).contentEquals(text)) {
+		    }
+		   else {
+			   Assert.assertEquals("Participant Id: "+id+"|", text);
+		    }}
 	}
 	
-	public void iVerifyDetailsInFieldOnViewProfileOfManagingOrganization(String text, String sel) {
+	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
 		Assert.assertEquals(result.trim(), text);
 	}
 	
 	public void iVerifyOrganizationPresentUnderManagingOrganization(String org) {
 		verifyTextForElementfromList(".navLink.noselect", org);
-		System.out.println("Pass============");
 	}
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
@@ -50,5 +53,26 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
 		Assert.assertTrue(bol);
 	}
-
+	
+	public void iVerifyEINTINIdOnViewProfilePGPOrganization(String id) {
+		if(isElementPresentOnPage(By.cssSelector(".id-ein"))) {	
+		String text = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+	    Assert.assertEquals("EIN/TIN: "+id+"|",text);
+		}
+	}
+	
+	public void iVerifyNPIOnViewProfilePGPOrganization(String num) {
+		if(isElementPresentOnPage(By.cssSelector(".id-npi"))) {	
+			String text = getTextForElement(driver.findElement(By.cssSelector(".id-npi"))); 
+		    Assert.assertEquals("NPI: "+num+"|",text);
+			}
+	}
+	
+	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {
+		if(isElementPresentOnPage(By.cssSelector(".id.market-name"))) {
+		String text = getTextForElement(driver.findElement(By.cssSelector(".id.market-name"))); 
+        Assert.assertEquals("Managing Organization: "+name+"|",text);
+	        }
+    }
 }
+

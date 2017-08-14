@@ -30,13 +30,13 @@ public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
 		 submitmo.iSelectRadioButtonForManagingOrganization(value);
 	 }
 	 
-	 @And("^I enter ([^\"]*) in Region on create organization page$")
-	  public void i_Enter_Details_In_Region_DropDown_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I enter ([^\"]*) in Region on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Details_In_Region_DropDown_On_Create_Organization_Page(String text,String page) throws Throwable {
 		 submitmo.iSelectRegionFromDropDownOnCreateOrganization(text);
 	 }
 	 
-	 @And("^I enter ([^\"]*) in Market on create organization page$")
-	  public void i_Enter_Details_In_Market_DropDown_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I enter ([^\"]*) in Market on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Details_In_Market_DropDown_On_Create_Organization_Page(String text,String page) throws Throwable {
 		 submitmo.iSelectMarketFromDropDownOnCreateOrganization(text);
 	 }
 	 

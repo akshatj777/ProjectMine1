@@ -22,9 +22,9 @@ Feature: User completes inputting PGP Organization details during creation,
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page
     And I enter <Address2> in "Address 2" on create organization page
-    And I enter <Region> in Region on create organization page
+    And I enter <Region> in Region on "create" organization page
     And I enter <City> in "City" on create organization page
-    And I enter <Market> in Market on create organization page
+    And I enter <Market> in Market on "create" organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     And I enter <EIN> in "EIN" on create organization page

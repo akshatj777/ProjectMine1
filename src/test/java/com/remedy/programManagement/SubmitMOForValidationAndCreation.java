@@ -48,13 +48,11 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 	
 	public void iSelectRegionFromDropDownOnCreateOrganization(String text) {
 	    delay();
-	    //driver.findElements(By.cssSelector(".Select-placeholder")).get(1).click();
 	    iFillInText(driver.findElement(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")), text);
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 }
 	
 	public void iSelectMarketFromDropDownOnCreateOrganization(String text) { 
-		//driver.findElements(By.cssSelector(".Select-placeholder")).get(1).click();
 		delay();
 		iFillInText(driver.findElement(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")), text);
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
