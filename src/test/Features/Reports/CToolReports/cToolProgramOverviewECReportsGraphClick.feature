@@ -35,7 +35,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Next Site of Care Summary" is appearing after clicking graph point
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     And I switch to reports embedded iframe
     Then I click on long term acute care "LTCH" claims graph point under post acute utilization of program overview report
@@ -43,7 +42,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Next Site of Care Summary" is appearing after clicking graph point
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     And I switch to reports embedded iframe
     Then I click on inpatient rehab "IRF" claims graph point under post acute utilization of program overview report
@@ -51,7 +49,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Next Site of Care Summary" is appearing after clicking graph point
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     And I switch to reports embedded iframe
     Then I click on home health "HHA" claims graph point under post acute utilization of program overview report
@@ -59,7 +56,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Next Site of Care Summary" is appearing after clicking graph point
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     And I switch to reports embedded iframe
     Then I scroll the page to bottom by "100"
@@ -68,7 +64,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Next Site of Care Summary" is appearing after clicking graph point
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     And I switch to reports embedded iframe
     Then I click on "other" graph point of claims under post acute utilization of program overview report
@@ -76,7 +71,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Next Site of Care Summary" is appearing after clicking graph point
     Then I verify "Next Site of Care Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     
     Examples:
@@ -123,7 +117,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "SNF LOS Summary" is appearing after clicking graph point
     Then I verify "SNF LOS Summary" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     Examples:
     
@@ -171,7 +164,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Readmissions EC" is appearing after clicking graph point
     Then I verify "Readmissions EC" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     And I switch to reports embedded iframe
     Then I click on readmits per episode "readmitsEpisodes" claims graph point under readmissions of program overview report
@@ -179,7 +171,6 @@ Scenario Outline: User should be able to click on program overview episode conne
     And I will wait to see "Readmissions EC" is appearing after clicking graph point
     Then I verify "Readmissions EC" in the new window after clicking on the graph point
     And I switch back to old window
-    #And I wait for 2000 milli seconds
     
     Examples:
     

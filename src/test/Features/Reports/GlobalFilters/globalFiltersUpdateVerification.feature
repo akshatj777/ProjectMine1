@@ -18,7 +18,11 @@ Scenario Outline: User Should be able to see updated global filters in all repor
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 50000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
@@ -46,7 +50,9 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     #And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 10000 milli seconds
+    When I switch to reports embedded iframe
+	  Then I wait untill loading icon disappears in program overview report
+	  When I switch to default window from iframe
     
     When I see "2" filters applied under global filters applied count
     

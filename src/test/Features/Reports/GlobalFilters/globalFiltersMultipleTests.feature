@@ -18,7 +18,11 @@ Scenario Outline: User should see multiple filters selected in report should red
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
@@ -44,7 +48,9 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I verify <anchor facility2> is appearing under applied anchor facility on global filters
     
     And I click on Apply filters button for global filters
-    And I wait for 20000 milli seconds
+    When I switch to reports embedded iframe
+	  Then I wait untill loading icon disappears in program overview report
+	  When I switch to default window from iframe
     
     When I see "4" filters applied under global filters applied count
     
@@ -57,7 +63,10 @@ Scenario Outline: User should see multiple filters selected in report should red
         
     When I click on "Overall Program" tile on the top navigation of reports page
     Then I click on "Performance (Claims)" report under "Overall Program" reports tile on the top of reports page
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    When I switch to default window from iframe
     Then I verify "Performance (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -166,7 +175,11 @@ Scenario Outline: User should remove the selected global filter using X mark and
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 20000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -250,7 +263,11 @@ Scenario Outline: User should clear the selected filters in global filters
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
@@ -273,7 +290,9 @@ Scenario Outline: User should clear the selected filters in global filters
     Then I click on <participant1> checkbox under participant for global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I click on Apply filters button for global filters 
-    And I wait for 10000 milli seconds
+    When I switch to reports embedded iframe
+	  Then I wait untill loading icon disappears in program overview report
+	  When I switch to default window from iframe
     Then I see "1" filters applied under global filters applied count
     
     And I click on reports tile on the top of reports page
@@ -304,7 +323,11 @@ Scenario Outline: User should be able to check multiple checkbox under global fi
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -344,7 +367,11 @@ Scenario Outline: User should be able to search for one field on global filters
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
@@ -354,12 +381,12 @@ Scenario Outline: User should be able to search for one field on global filters
     And I seach with "Pen" under "Participant" filter on global filter
     Then I see <participant1> appearing under participant filter of global filters
     Then I click on <participant1> checkbox under participant for global filters
-    And I wait for 5000 milli seconds
     And I verify <participant1> is appearing under applied participant on global filters
     And I click on Apply filters button for global filters 
-    And I wait for 18000 milli seconds
+    When I switch to reports embedded iframe
+	  Then I wait untill loading icon disappears in program overview report
+	  When I switch to default window from iframe
     
-    When I switch to default window from iframe
     And I click on reports tile on the top of reports page
     And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
@@ -387,7 +414,11 @@ Scenario Outline: User should be able to search for multiple fields on global fi
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 18000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -396,12 +427,12 @@ Scenario Outline: User should be able to search for multiple fields on global fi
     And I seach with "Presbyterian" under "Episode Initiator" filter on global filter
     Then I see <episode initiator3> appearing under episode initiator filter of global filters
     Then I click on <episode initiator3> checkbox under participant for global filters
-    And I wait for 5000 milli seconds
     And I verify <episode initiator3> is appearing under applied episode initiator on global filters
     And I click on Apply filters button for global filters 
-    And I wait for 10000 milli seconds
+    When I switch to reports embedded iframe
+	  Then I wait untill loading icon disappears in program overview report
+	  When I switch to default window from iframe
     
-    When I switch to default window from iframe
     And I click on reports tile on the top of reports page
     And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title

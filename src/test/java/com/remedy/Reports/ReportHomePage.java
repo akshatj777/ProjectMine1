@@ -923,4 +923,8 @@ public class ReportHomePage extends BaseClass {
     public void iWillWaitToSeeReportNameAfterClickingGraph(String reportname){
     	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='"+reportname+"']"));
     }
+    
+    public void iWaitUntillLoadingMessageDisappearsIndideFrameInReports(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
+    }
 }

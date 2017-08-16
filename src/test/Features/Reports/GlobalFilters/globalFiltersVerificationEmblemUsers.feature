@@ -16,7 +16,11 @@ Feature: Global Filters Verification with Emblem Users
       | Program Overview |
       
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 40000 milli seconds
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait untill loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
+    When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
@@ -38,7 +42,9 @@ Feature: Global Filters Verification with Emblem Users
     #Then I click on <anchor facility1> checkbox under anchor facility for global filters
     #And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     And I click on Apply filters button for global filters
-    And I wait for 10000 milli seconds
+    When I switch to reports embedded iframe
+	  Then I wait untill loading icon disappears in program overview report
+	  When I switch to default window from iframe
     When I see "2" filters applied under global filters applied count
     
     When I switch to reports embedded iframe
@@ -74,7 +80,6 @@ Feature: Global Filters Verification with Emblem Users
     And I will wait to see "Performance" is appearing inside the iframe
 	  And I wait untill refresh button is disappeared
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters

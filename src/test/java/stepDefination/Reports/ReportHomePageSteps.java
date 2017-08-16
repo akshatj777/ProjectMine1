@@ -1152,4 +1152,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_will_wait_to_see_is_appearing_after_clicking_graph(String reportname) throws Throwable{
     	reportHomePage.iWillWaitToSeeReportNameAfterClickingGraph(reportname);
     }
+    
+    @And("I wait untill loading message disappears inside frame in reports")
+    public void i_wait_untill_loading_message_disappears_inside_frame_in_reports() throws Throwable{
+    	reportHomePage.iWaitUntillLoadingMessageDisappearsIndideFrameInReports();
+    }
 }
