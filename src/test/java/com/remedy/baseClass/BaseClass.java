@@ -25,6 +25,7 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
+	//WebDriverWait wait = new WebDriverWait(driver, 30);
 
 	public BaseClass(final WebDriver driver) {
 
@@ -441,8 +442,9 @@ public class BaseClass {
 		String value = null;
 
 		for (WebElement item : listItems) {
+			System.out.println(item.getText());
 
-			  if (item.getText().contentEquals(text)) {
+			  if (item.getText().trim().contentEquals(text)) {
 				  value=item.getText();  
 			  } 
 		}

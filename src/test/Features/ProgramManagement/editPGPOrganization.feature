@@ -28,6 +28,7 @@ Feature: User should be able to edit the details of an existing PGP Organization
     And I edit "EIN" field to <EIN> for organization
     And I edit "NPI" field to <NPI> for organization
     Then I click on "Submit" button on create organization page
+
     Examples: 
       | Region  | PGP_Name    | PGP_Name1   | Address1 | Short_Name | Address2 | Region  | City     | Market  | State    | Postal_Code | EIN    | NPI    |
       | Midwest | PGPTestName | TestNamePGP | Block Z  | NameTPGP   | Road X   | Midwest | New Town | Chicago | Nebraska |       10065 | 123852 | 852741 |

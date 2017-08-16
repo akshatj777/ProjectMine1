@@ -18,7 +18,7 @@ Feature: User completes inputting PGP Organization details during creation,
     Then I click on create new Organization button on Program Management homepage
     And I select "Has a Management Organization" radio button for managing organization
     Then I select <MO_Name> managing organization name in Has a Management Organization drop down
-    And I enter <PGP_Org_Name> in "PGP Organization Name" on create PGP organization page
+    And I enter <PGP_Org_Name> in "PGP Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page
     And I enter <Address2> in "Address 2" on create organization page

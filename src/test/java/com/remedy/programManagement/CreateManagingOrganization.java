@@ -26,6 +26,7 @@ public class CreateManagingOrganization extends BaseClass {
 	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
+	static String orgName;
 	
 	public void iClickOnCreateNewOrgButtonOnProgramManagementHomepage() {
 		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -58,7 +59,8 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) {
-		if(field.equalsIgnoreCase("Managing Organization Name")) {
+		if(field.contains("Organization Name")) {
+		orgName= text+time+"ORGName";
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text+time);
 		}
 		else {

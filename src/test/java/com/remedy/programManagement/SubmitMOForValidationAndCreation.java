@@ -33,9 +33,7 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 	public void iClickOnParticularOrganizationTabOrganizationDashboard(String text) {
 		List<WebElement> element = driver.findElements(By.cssSelector(".navLink.noselect"));
 		for (WebElement ele : element) {
-			System.out.println("1");
 			if(ele.getText().contains(text)){
-				System.out.println(ele.getText());
 				ele.click();
 			}
 		}
@@ -43,7 +41,6 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 	
 	public void iSelectRadioButtonForManagingOrganization(String value) {
 		clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='"+value+"']")));
-		System.out.println("Clicked");
 	}
 	
 	public void iSelectRegionFromDropDownOnCreateOrganization(String text) {

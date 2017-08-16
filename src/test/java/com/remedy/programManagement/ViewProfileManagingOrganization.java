@@ -31,7 +31,8 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
-		Assert.assertEquals(result.trim(), text);
+		System.out.println(result.trim().replace(",", ""));
+		Assert.assertEquals(result.trim().replace(",", ""), text);
 	}
 	
 	public void iVerifyOrganizationPresentUnderManagingOrganization(String org) {
@@ -57,21 +58,21 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifyEINTINIdOnViewProfilePGPOrganization(String id) {
 		if(isElementPresentOnPage(By.cssSelector(".id-ein"))) {	
 		String text = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-	    Assert.assertEquals("EIN/TIN: "+id+"|",text);
+	    Assert.assertEquals("EIN/TIN: "+id,text.replace("|", ""));
 		}
 	}
 	
 	public void iVerifyNPIOnViewProfilePGPOrganization(String num) {
 		if(isElementPresentOnPage(By.cssSelector(".id-npi"))) {	
 			String text = getTextForElement(driver.findElement(By.cssSelector(".id-npi"))); 
-		    Assert.assertEquals("NPI: "+num+"|",text);
+		    Assert.assertEquals("NPI: "+num,text.replace("|",""));
 			}
 	}
 	
 	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {
 		if(isElementPresentOnPage(By.cssSelector(".id.market-name"))) {
 		String text = getTextForElement(driver.findElement(By.cssSelector(".id.market-name"))); 
-        Assert.assertEquals("Managing Organization: "+name+"|",text);
+        Assert.assertEquals("Managing Organization: "+name,text.replace("|",""));
 	        }
     }
 }

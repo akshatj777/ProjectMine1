@@ -22,8 +22,9 @@ Feature: User is able to view a PGP Organization's Profile
     And I verify EIN/TIN id <EIN/TIN> on view profile of "PGP" organization
     And I verify NIP number <NPI> on view profile of "PGP" organization
     And I verify Managing Organization name <MO_Name> on view profile of "PGP" organization
-    And I verify Participant Id <ParticipantId> on view profile of "PGP" Organization  
-   #ShortName and Region in present for now
+    And I verify Participant Id <ParticipantId> on view profile of "PGP" Organization
+
+    #ShortName and Region in present for now
     Examples: 
-      | PGP_Name            | MO_Name               | ParticipantId | Address1 | City      | State | Postal_Code | EIN/TIN    | NPI        |  |
-      | TestPGPOrganization | TestManagingOrgedited |       4571253 | street2, | new york, | NY    |       10052 | 9876543210 | 1234567890 |  |
+      | PGP_Name            | MO_Name               | ParticipantId | Address1 | City      | State | Postal_Code | EIN/TIN    | NPI        |
+      | TestPGPOrganization | TestManagingOrgedited |       4571253 | street2, | new york, | NY    |       10052 | 9876543210 | 1234567890 |
