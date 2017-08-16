@@ -78,7 +78,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IverifyCARLRecommendationfieldondischargesection(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector("p.text-bold-700.ng-scope")),text);
+		verifyTextForElement(driver.findElement(By.cssSelector("p.info-message.text-bold-700")),text);
 		
 	}
 

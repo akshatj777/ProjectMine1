@@ -209,4 +209,46 @@ public class DischargeCarlFormSteps extends DriverScript {
 	{
 		dischargecarlform.IverifyCaretypeandDischargelocationfieldshouldgetrefreshedaspernewCaresetting();
 	}
+	
+    @Then ("^I verify discharge form should provide \"([^\"]*)\" and the \"([^\"]*)\" if the Actual Care Setting does not match the CARL recommendation proposed facility$")
+    public void I_verify_discharge_form_should_provide_fields_if_the_Actual_Care_Setting_does_not_match_the_CARL_recommendation_proposed_facility(String data1,String data2)
+    {
+    	dischargecarlform.IverifydischargeformshouldprovidefieldsiftheActualCareSettingdoesnotmatchtheCARLrecommendationproposedfacility(data1,data2);
+    }
+    
+    @Then ("^I verify question should state \"([^\"]*)\" under Recommendation on Discharge section$")
+    public void I_verify_question_should_state_message_under_Recommendation_on_Discharge_section(String text)
+    {
+    	dischargecarlform.IverifyquestionshouldstatemessageunderRecommendationonDischargesection(text);
+    }
+    
+    @Then ("^I verify that User should be able to provide additional comments \"([^\"]*)\" in a free text box$")
+    public void I_verify_that_User_should_be_able_to_provide_additional_comments(String comment)
+    {
+    	dischargecarlform.IverifythatUsershouldbeabletoprovideadditionalcomments(comment);
+    }
+    
+    @Then ("^I verify user should be able to provide upto 250 characters under Additional Comments$")
+    public void I_verify_user_should_be_able_to_provide_upto_250_characters_under_Additional_Comments()
+    {
+    	dischargecarlform.Iverifyusershouldbeabletoprovideupto250charactersunderAdditionalComments();
+    }
+    
+    @Then ("^I verify that User can view icon for \"([^\"]*)\" under disagreement under Recommendation on Discharge section$")
+    public void I_verify_that_User_can_add_Reason(String reason)
+    {
+    	dischargecarlform.IverifythatUsercanaddReason(reason);
+    }
+    
+    @Then ("^I select the  \"([^\"]*)\" from the  \"([^\"]*)\" dropdown \"([^\"]*)\" for  \"([^\"]*)\" under Recommendation on Discharge section$")
+    public void I_select_dropdown_value_under_Recommendation(String value,String variable,int i,String reason)
+    {
+    	dischargecarlform.IselectdropdownvalueunderRecommendation(value,variable,i,reason);
+    }
+    
+    @Then ("^I click on Reason \"([^\"]*)\" icon under disagreement under Recommendation on Discharge section$")
+    public void I_click_on_Reason_icon_under_disagreement_under_Recommendation_on_Discharge_section()
+    {
+    	dischargecarlform.IclickonReasoniconunderdisagreementunderRecommendationonDischargesection();
+    }
 }

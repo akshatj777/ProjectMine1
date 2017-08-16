@@ -200,10 +200,12 @@ public class ReadmissionWorklist extends BaseClass {
 			iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div"));
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div")));
 			iWillWaitToSee(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a"));
+			delay();
 			clickElement(driver.findElement(By.cssSelector("td.settings-column.center.cursor-default > div > ul > li:nth-child(3) > a")));
 			iWillWaitToSee(By.xpath("//button[contains(text(),'OK')]"));
+			delay();
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-			Thread.sleep(3000);
+			delay();
 		}
 	}
 

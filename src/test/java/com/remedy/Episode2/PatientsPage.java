@@ -835,7 +835,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnSSNFilter() {
-		clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(24)")));
+		clickElement(driver.findElement(By.cssSelector("div.filters-dropdown-content.filters-list > ul > li:nth-child(25)")));
 	}
 
 	public void iEnterUnderSSNFilter(String ssn) {

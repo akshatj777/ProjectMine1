@@ -1,6 +1,6 @@
-Feature: Upon selecting the Actual Care Setting, user should be able to view the Physical Therapy Duration and Frequency proposal
+Feature: Discharge – Disagreement Reason(s)
 
-  Scenario Outline: Verify Upon selecting the Actual Care Setting ,user should be able to view the Physical Therapy Duration and Frequency proposal
+Scenario: As a user, I would like to provide "Who disagrees?" and the "Reason for Disagreement" if the Actual Care Setting does not match the CARL recommendation proposed facility
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -10,6 +10,8 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     When I click on the "Episodes 2.0" tile
     Then I verify current page "Remedy Partners" title
     Then I click on the Impatient tab on the patient Card Page
+    Then I wait to the see the visibility of loader to disappear
+    Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
     Then I click on the patient on the patient card page that has no CARL button in it
     Then I get the patient last name who have no CARL button in it
@@ -22,6 +24,7 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     Then I switch to PatientTransitions frame
     Then I wait to the see the visibility of loader to disappear
     Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 3000 milli seconds
     Then I wait to the see the visibility of loader to disappear
     Then I click on add a new transition to add a new episode
     Then I will wait to see "Transition Info" followed by "a" tag
@@ -68,8 +71,6 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     Then I click on "Anticipated Discharge Needs" section on left navigator
     Then I will wait to see the CARL section "Anticipated Discharge Needs" header appears on the CARL form
     Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
-    Then I click on Physical Therapy dropdown on Patients Restoration Potential
-    Then I select "<Patient Restoration Potential>" in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I select "Injectable Meds" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "Once daily or less often" radio option under "Injectable Meds" for Transition Care Needs
     Then I select "Blood Testing" checkbox for Transition of Care Needs on Anticipated Discharge Needs
@@ -80,21 +81,22 @@ Feature: Upon selecting the Actual Care Setting, user should be able to view the
     Then I click "Once daily or less often" radio option under "Wound Care" for Transition Care Needs
     Then I save and continue the complete CARL form
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
+    Then I verify CARL Recommendation field should show "Home with Limited Services (HOM)" on discharge section when total score is "less than or equal to 16"
+    Then I verify a legal message should appear when Carl recommendation field show Home with Limited Services
     Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
-    Then I select "<Care Setting>" in subform dropdown for "Actual Care Setting" on Discharge section
-    Then I verify user should see the appropriate "<message>" based on Actual Care Setting chosen and the Restoration Potential chosen
-    Then I verify physical therapy recommendation message should appear in green color
-    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
-    Then I select "<Care Setting1>" in subform dropdown for "Actual Care Setting" on Discharge section
-    Then I verify user should see the appropriate "<message1>" based on Actual Care Setting chosen and the Restoration Potential chosen
-    Then I verify physical therapy recommendation message should appear in green color
-    Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
-    Then I select "<Care Setting2>" in subform dropdown for "Actual Care Setting" on Discharge section
-    Then I verify user should see the appropriate "<message2>" based on Actual Care Setting chosen and the Restoration Potential chosen
-    Then I verify physical therapy recommendation message should appear in green color
-
-    Examples: 
-      | Patient Restoration Potential      | Care Setting                   | message                                                                                                                    | Care Setting1            | message1                                                                          | Care Setting2                    | message2                                                                        |
-      | Good restoration potential         | (SNF) Skilled Nursing Facility | PT 2x daily up to 7 days then reassess                                                                                     | (HHA) Home Health Agency | PT up to 4 visits week 1 then reassess                                            | Home with Limited Services (HOM) | PT 3 days/week x 1 week then reassess                                           |
-      | Questionable Restoration Potential | (SNF) Skilled Nursing Facility | PT daily x 3, then reassess                                                                                                | (HHA) Home Health Agency | PT up to 4 visits week 1 then reassess                                            | Home with Limited Services (HOM) | PT 3 days/week x 1 week then reassess                                           |
-      | Poor Restoration Potential         | (SNF) Skilled Nursing Facility | PT daily x 3 days, to establish Restorative Nursing Program and/or Certified Nursing Assistant training to meet care needs | (HHA) Home Health Agency | PT up to 3 visits over 3 weeks for caregiver training and education then reassess | Home with Limited Services (HOM) | PT for caregiver training and education x 3 sessions over 3 weeks then reassess |
+    Then I select "(HHA) Home Health Agency" in subform dropdown for "Actual Care Setting" on Discharge section
+    Then I verify discharge form should provide "Who disagrees?" and the "Reason for Disagreement" if the Actual Care Setting does not match the CARL recommendation proposed facility
+    Then I verify question should state "Why didn't the patient transfer to the recommended Next Site of Care?" under Recommendation on Discharge section
+    Then I verify that User should be able to provide additional comments "Additional" in a free text box
+    Then I verify user should be able to provide upto 250 characters under Additional Comments
+    Then I select the "Family" from the "Who disagrees?" dropdown "2" for "Reason1" under Recommendation on Discharge section
+    Then I select the "Not enough caregiver support" from the "Reason for Disagreement" dropdown "4" for "Reason1" under Recommendation on Discharge section
+    Then I verify that User can view icon for another Reason "2" under disagreement under Recommendation on Discharge section
+    Then I click on Reason "2" icon under disagreement under Recommendation on Discharge section
+    Then I select the "Family" from the "Who disagrees?" dropdown "2" for "Reason2" under Recommendation on Discharge section
+    Then I select the "Not enough caregiver support" from the "Reason for Disagreement" dropdown "5" for "Reason2" under Recommendation on Discharge section
+    Then I verify that User can view icon for another Reason "3" under disagreement under Recommendation on Discharge section
+    Then I click on Reason "3" icon under disagreement under Recommendation on Discharge section
+    Then I select the "Family" from the "Who disagrees?" dropdown "2" for "Reason3" under Recommendation on Discharge section
+    Then I select the "Not enough caregiver support" from the "Reason for Disagreement" dropdown "5" for "Reason3" under Recommendation on Discharge section
+    Then I verify that User can view icon for another Reason "3" under disagreement under Recommendation on Discharge section

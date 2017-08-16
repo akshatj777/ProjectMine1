@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.TimeZone;
 
 import org.junit.Assert;
@@ -57,6 +58,7 @@ public class DischargeCarlForm extends BaseClass {
 	}
 	
 	public void ISelectOptionFromSubFormDropDownUnderRecommendationOnDischargeSectionOnCarlForm(String dropdown, String subForm) {
+		delay();
 		iWillWaitToSee(By.xpath("//label[text()='"+subForm+"']/preceding-sibling::div//div[text()='"+dropdown+"']"));
 		clickElement(driver.findElement(By.xpath("//label[text()='"+subForm+"']/preceding-sibling::div//div[text()='"+dropdown+"']")));
 	}
@@ -268,4 +270,53 @@ public class DischargeCarlForm extends BaseClass {
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.show-search.form-control.ng-valid-required")));
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div.form-control.ui-select-container.ng-touched.ng-valid-required")));
 			}
-	}
+
+			public void IverifydischargeformshouldprovidefieldsiftheActualCareSettingdoesnotmatchtheCARLrecommendationproposedfacility(String text1,String text2) {
+				verifyTextForElement(driver.findElement(By.xpath("//label[contains(text(),'"+text1+"')]")),text1);
+				verifyTextForElement(driver.findElement(By.xpath("//label[contains(text(),'"+text2+"')]")),text2);
+				if(text1.equals("Who disagrees?")){
+				isElementVisible(driver.findElement(By.cssSelector("div:nth-child(2) > div.ui-select-match.ng-scope")));
+				} else if(text2.equals("Reason for Disagreement")) {
+				isElementVisible(driver.findElement(By.cssSelector("div:nth-child(4) > div.ui-select-match.ng-scope")));
+				}
+	    	}
+
+			public void IverifyquestionshouldstatemessageunderRecommendationonDischargesection(String text) {
+				isElementVisible(driver.findElement(By.xpath("//strong[contains(text(),'"+text+"')]")));				
+			}
+
+			public void IverifythatUsershouldbeabletoprovideadditionalcomments(String comment) {
+				isElementVisible(driver.findElement(By.cssSelector("textarea.form-control.margin-top-15.ng-empty")));
+				iFillInText(driver.findElement(By.cssSelector("textarea.form-control.margin-top-15")),comment);
+				isElementVisible(driver.findElement(By.cssSelector("textarea.form-control.margin-top-15.ng-not-empty")));
+			}
+
+			public void Iverifyusershouldbeabletoprovideupto250charactersunderAdditionalComments() {
+				char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+				StringBuilder sb = new StringBuilder();
+				Random random = new Random();
+				for (int i = 0; i < 240; i++) {
+				    char c = chars[random.nextInt(chars.length)];
+				    sb.append(c);
+				}
+				String output = sb.toString();
+				iFillInText(driver.findElement(By.cssSelector("textarea.form-control.margin-top-15")),output);
+				
+			}
+
+			public void  IverifythatUsercanaddReason(String reason) {
+				iWillWaitToSee(By.cssSelector("div.add-icon.hover-pointer"));
+				isElementVisible(driver.findElement(By.cssSelector("div.add-icon.hover-pointer")));
+			}
+
+			public void IselectdropdownvalueunderRecommendation(String value,String variable,int i,String reason) {
+				   delay();
+				   clickElement(driver.findElement(By.cssSelector("div:nth-child("+i+") > div.ui-select-match.ng-scope")));
+				   clickElement(driver.findElement(By.xpath("//span[@class='ui-select-choices-row-inner']/div[text()='"+value+"']")));
+			}
+
+			public void IclickonReasoniconunderdisagreementunderRecommendationonDischargesection() {
+			 	clickElement(driver.findElement(By.cssSelector("div.add-icon.hover-pointer")));
+			}
+
+	     }
