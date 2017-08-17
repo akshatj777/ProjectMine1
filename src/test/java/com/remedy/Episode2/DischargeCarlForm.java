@@ -282,7 +282,7 @@ public class DischargeCarlForm extends BaseClass {
 	    	}
 
 			public void IverifyquestionshouldstatemessageunderRecommendationonDischargesection(String text) {
-				isElementVisible(driver.findElement(By.xpath("//strong[contains(text(),'"+text+"')]")));				
+				isElementVisible(driver.findElement(By.xpath("//strong[contains(text(),'patient transfer to the recommended')]")));				
 			}
 
 			public void IverifythatUsershouldbeabletoprovideadditionalcomments(String comment) {
@@ -311,12 +311,83 @@ public class DischargeCarlForm extends BaseClass {
 
 			public void IselectdropdownvalueunderRecommendation(String value,String variable,int i,String reason) {
 				   delay();
-				   clickElement(driver.findElement(By.cssSelector("div:nth-child("+i+") > div.ui-select-match.ng-scope")));
+				   clickElement(driver.findElement(By.cssSelector("div:nth-child("+i+") > div.ui-select-match")));
 				   clickElement(driver.findElement(By.xpath("//span[@class='ui-select-choices-row-inner']/div[text()='"+value+"']")));
+				   if(reason.equals("3"))
+				   {
+					   if(variable.equals("Who disagrees?")){
+					   clickElement(driver.findElement(By.cssSelector("div:nth-child(4) > div:nth-child(3) > div.ui-select-match")));
+					   } else{
+					   clickElement(driver.findElement(By.cssSelector("div:nth-child(4) > div:nth-child(5) > div.ui-select-match")));  
+					   }
+				   }
 			}
 
 			public void IclickonReasoniconunderdisagreementunderRecommendationonDischargesection() {
 			 	clickElement(driver.findElement(By.cssSelector("div.add-icon.hover-pointer")));
 			}
 
+			public void I_verify_that_User_cannot_view_icon_for_another_Reason() {
+				WebDriverWait wait=new WebDriverWait(driver,10);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.add-icon.hover-pointer")));
+				
+			}
+
+			public void Iverifythatusershouldbeabletoremoveadditionalreasonwhichisadded() {
+				clickElement(driver.findElement(By.cssSelector("div:nth-child(4) > div.remove-icon.hover-pointer.ng-scope")));
+				WebDriverWait wait=new WebDriverWait(driver,10);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div:nth-child(4) > div:nth-child(3) > div.ui-select-match")));
+				
+			}
+
+			public void IverifythatuponselectinganyvaluetoActualcaresettingfieldpresenceofquestionisappearing(String question) {
+				isElementVisible(driver.findElement(By.xpath("//strong[contains(text(),'"+question+"')]")));
+				
+			}
+			public void IClickRadioOptionForFirstQuestionUnderDischargeSectionOnCarlForm(String radio, String text) {
+				clickElement(driver.findElement(By.xpath("//strong[text()='"+text+"']/parent::form//div[@class='radio ng-not-empty ng-valid']//span[text()='"+radio+"']")));
+			}
+
+			public void Iverifyusershouldbeabletoselecttheradiobuttononceselected() {
+				isElementVisible(driver.findElement(By.cssSelector("form.carl-interdisciplinary > div:nth-child(2) > input.ng-valid.ng-not-empty")));
+			}
+
+			public void Iverifyusershouldnotbeabletounselecttheradiobuttononceselected() {
+				isElementVisible(driver.findElement(By.cssSelector("form.carl-interdisciplinary > div:nth-child(2) > input.ng-valid.ng-not-empty.ng-valid-parse")));
+			}
+
+			public void IverifyPlaceholdershouldsaySelectfromtheWhodisagreesdropdownunderRecommendationonDischargesection(String placeholder,String i) {
+				Assert.assertEquals(placeholder,driver.findElement(By.cssSelector("div:nth-child("+i+") > div.ui-select-match")).getAttribute("placeholder"));
+			}
+
+			public void IverifyusershouldbeabletoselectanyoptionsfromfollowingdropdownfromtheWhodisagreesdropdownunderRecommendationonDischargesection(int j,List<String> dropdownvalues) {
+				for(int i=0;i<dropdownvalues.size();i++)
+				{
+					   clickElement(driver.findElement(By.cssSelector("div:nth-child("+j+") > div.ui-select-match")));
+					   String value=dropdownvalues.get(i);
+					   clickElement(driver.findElement(By.xpath("//span[@class='ui-select-choices-row-inner']/div[contains(text(),'"+value+"')]")));
+					   isElementVisible(driver.findElement(By.cssSelector("div:nth-child("+j+").form-control.ui-select-container.ng-not-empty")));
+				}
+			}
+
+			public void IverifythatCareTypefortheActualCareSettingshouldincludethefollowing() {
+				List<String> array=new ArrayList<String>();
+				String[] values = { "(HOM) Home",                     
+					       "(HHA) Home Health Agency",       
+					       "(HPC) Hospice",                  
+					       "(HHH) Hospital",                 
+					       "(IRF) Inpatient Rehabilitation", 
+					       "(LTC) Long-Term Care Hospital",  
+				            "(OTHER) Other" ,                 
+					       "(PGP) PGP",                    
+					       "(REH) Rehabilitation" ,          
+   					       "(SNF) Skilled Nursing Facility", 
+					       "(UNK) Unknown"  
+					       };
+				String[][] newArray = {{"Discharge - Discuss the Proposal", "Discuss the Proposal",
+						"Reason for Disagreement",
+						"Discharge - Care Type"}  };
+			}
+		
+			
 	     }

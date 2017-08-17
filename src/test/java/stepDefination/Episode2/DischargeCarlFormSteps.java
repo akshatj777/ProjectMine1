@@ -1,5 +1,7 @@
 package stepDefination.Episode2;
 
+import java.util.List;
+
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
@@ -66,7 +68,7 @@ public class DischargeCarlFormSteps extends DriverScript {
 	public void I_Verify_Second_Question_Under_Discharge_Section(String text) throws Throwable {
 	    dischargecarlform.IVerifySecondQuestionUnderDischargeSectionOnCarlForm(text);
 	}
-
+	
 	@Then("^I verify \"([^\"]*)\" dropdown for \"([^\"]*)\" under Discharge section$")
 	public void I_Verify_Dropdown_For_Second_Question_under_Discharge_section(String text) throws Throwable {
 	    dischargecarlform.IVerifyDropDownUnderSecondQuestionUnderDischargeSectionOnCarlForm(text);
@@ -234,21 +236,72 @@ public class DischargeCarlFormSteps extends DriverScript {
     	dischargecarlform.Iverifyusershouldbeabletoprovideupto250charactersunderAdditionalComments();
     }
     
-    @Then ("^I verify that User can view icon for \"([^\"]*)\" under disagreement under Recommendation on Discharge section$")
+    @Then("^I verify that User can view icon for another Reason \"([^\"]*)\" under disagreement under Recommendation on Discharge section$")
     public void I_verify_that_User_can_add_Reason(String reason)
     {
     	dischargecarlform.IverifythatUsercanaddReason(reason);
     }
-    
-    @Then ("^I select the  \"([^\"]*)\" from the  \"([^\"]*)\" dropdown \"([^\"]*)\" for  \"([^\"]*)\" under Recommendation on Discharge section$")
+    @Then ("^I select the \"([^\"]*)\" from the \"([^\"]*)\" dropdown \"([^\"]*)\" for \"([^\"]*)\" under Recommendation on Discharge section$")
     public void I_select_dropdown_value_under_Recommendation(String value,String variable,int i,String reason)
     {
     	dischargecarlform.IselectdropdownvalueunderRecommendation(value,variable,i,reason);
     }
     
     @Then ("^I click on Reason \"([^\"]*)\" icon under disagreement under Recommendation on Discharge section$")
-    public void I_click_on_Reason_icon_under_disagreement_under_Recommendation_on_Discharge_section()
+    public void I_click_on_Reason_icon_under_disagreement_under_Recommendation_on_Discharge_section(int i)
     {
     	dischargecarlform.IclickonReasoniconunderdisagreementunderRecommendationonDischargesection();
+    }
+    
+    @Then ("^I verify that User cannot view icon for another Reason \"([^\"]*)\" under disagreement under Recommendation on Discharge section$")
+    public void I_verify_that_User_cannot_view_icon_for_another_Reason()
+    {
+    	dischargecarlform.I_verify_that_User_cannot_view_icon_for_another_Reason();
+    }
+    
+    @Then ("^I verify that user should be able to remove additional reason which is added$")
+    public void I_verify_that_user_should_be_able_to_remove_additional_reason_which_is_added()
+    {
+    	dischargecarlform.Iverifythatusershouldbeabletoremoveadditionalreasonwhichisadded();
+    }
+    
+    @Then ("^I verify that upon selecting any value to Actual care setting field presence of \"([^\"]*)\" question is appearing$")
+    public void I_verify_that_upon_selecting_any_value_to_Actual_care_setting_field_presence_of_question_is_appearing(String question)
+    {
+    	dischargecarlform.IverifythatuponselectinganyvaluetoActualcaresettingfieldpresenceofquestionisappearing(question);
+    }
+    
+    @Then("^I click \"([^\"]*)\" radio option for \"([^\"]*)\" under Discharge section$")
+	public void I_click_Radio_Options_For_Under_Discharge_Section(String radio, String text) throws Throwable {
+	    dischargecarlform.IClickRadioOptionForFirstQuestionUnderDischargeSectionOnCarlForm(radio, text);
+	}
+    
+    @Then ("^I verify user should be able to select the radio button once selected$")
+    public void I_verify_user_should_be_able_to_select_the_radio_button_once_selected()
+    {
+    	dischargecarlform.Iverifyusershouldbeabletoselecttheradiobuttononceselected();
+    }
+    
+    @Then ("^I verify user should not be able to un-select the radio button once selected$")
+    public void I_verify_user_should_not_be_able_to_unselect_the_radio_button_once_selected()
+    {
+    	dischargecarlform.Iverifyusershouldnotbeabletounselecttheradiobuttononceselected();
+    }
+    
+    @Then ("^I verify Placeholder should say \"([^\"]*)\" from the \"([^\"]*)\" dropdown \"([^\"]*)\" under Recommendation on Discharge section$")
+    public void I_verify_Placeholder_should_say_Select_from_the_Who_disagrees_dropdown_under_Recommendation_on_Discharge_section(String placeholder,String dropdowntext,String i)
+    {
+    	dischargecarlform.IverifyPlaceholdershouldsaySelectfromtheWhodisagreesdropdownunderRecommendationonDischargesection(placeholder,i);
+    }
+    @Then ("^I verify user should be able to select any options from following dropdown from the \"([^\"]*)\" dropdown \"([^\"]*)\" under Recommendation on Discharge section$")
+    public void I_verify_user_should_be_able_to_select_any_options_from_following_dropdown_from_the_Who_disagrees_dropdown_under_Recommendation_on_Discharge_section(String dropdowntext,int j, List<String> dropdownvalues)
+    {
+        dischargecarlform.IverifyusershouldbeabletoselectanyoptionsfromfollowingdropdownfromtheWhodisagreesdropdownunderRecommendationonDischargesection(j,dropdownvalues);
+    }
+    
+    @Then ("^I verify that Care Type for the Actual Care Setting should include the following$")
+    public void I_verify_that_Care_Type_for_the_Actual_Care_Setting_should_include_the_following()
+    {
+    	dischargecarlform.IverifythatCareTypefortheActualCareSettingshouldincludethefollowing();
     }
 }

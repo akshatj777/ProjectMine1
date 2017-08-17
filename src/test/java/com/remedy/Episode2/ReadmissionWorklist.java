@@ -205,7 +205,7 @@ public class ReadmissionWorklist extends BaseClass {
 			iWillWaitToSee(By.xpath("//button[contains(text(),'OK')]"));
 			delay();
 			clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-			delay();
+			Thread.sleep(5000);
 		}
 	}
 
