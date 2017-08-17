@@ -1,29 +1,25 @@
 Feature: Verification of Readmissions EC report
 
-Scenario Outline: User should be able to see Level and Measures on Left Side of Readmission Report
-
+  Scenario Outline: User should be able to see Level and Measures on Left Side of Readmission Report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions" report text for Readmissions Reports 
-    And I wait for 40000 milli seconds
-    
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     Then I verify "Model" filter is preselected under the filter
     Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Month" filter is preselected under the filter
     When I click on field-panel-icon button
-    And I wait for 4000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 4000 milli seconds
-    
     Then I should see "# Episodes" under "measures" field
     Then I should see "% Eps w Readmit" under "measures" field
     Then I should see "Readmit per Eps" under "measures" field
@@ -33,7 +29,6 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 60 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 90 days" under "measures" field
-    
     Then I should see "1st Post Acute CCN" appearing under "level" field
     Then I should see "1st Post Acute Facility" appearing under "level" field
     Then I should see "1st Post Acute Type" appearing under "level" field
@@ -88,7 +83,6 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Participant" appearing under "level" field
     Then I should see "Participant ID" appearing under "level" field
     Then I should see "Patient" appearing under "level" field
-    
     Then I should see "Readmission Admit Date 1" appearing under "level" field
     Then I should see "Readmission Admit Date 2" appearing under "level" field
     Then I should see "Readmission Admit Date 3" appearing under "level" field
@@ -99,25 +93,21 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Readmission CCN 3" appearing under "level" field
     Then I should see "Readmission CCN 4" appearing under "level" field
     Then I should see "Readmission CCN 5" appearing under "level" field
-    
     Then I should see "Readmission DRG 1" appearing under "level" field
     Then I should see "Readmission DRG 2" appearing under "level" field
     Then I should see "Readmission DRG 3" appearing under "level" field
     Then I should see "Readmission DRG 4" appearing under "level" field
     Then I should see "Readmission DRG 5" appearing under "level" field
-    
     Then I should see "Readmission Discharge Date 1" appearing under "level" field
     Then I should see "Readmission Discharge Date 2" appearing under "level" field
     Then I should see "Readmission Discharge Date 3" appearing under "level" field
     Then I should see "Readmission Discharge Date 4" appearing under "level" field
     Then I should see "Readmission Discharge Date 5" appearing under "level" field
-        
     Then I should see "Readmission Facility Name 1" appearing under "level" field
     Then I should see "Readmission Facility Name 2" appearing under "level" field
     Then I should see "Readmission Facility Name 3" appearing under "level" field
     Then I should see "Readmission Facility Name 4" appearing under "level" field
     Then I should see "Readmission Facility Name 5" appearing under "level" field
-    
     Then I should see "Risk Score" appearing under "level" field
     Then I should see "Teaching and Training Activities" appearing under "level" field
     Then I should see "Therapy Needs" appearing under "level" field
@@ -126,24 +116,19 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    
     Then I should see "Anchor Admission Month" appearing under "Time" field
     Then I should see "Anchor Admission Quarter" appearing under "Time" field
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
-    #Then I should see "Anchor Begin Date" appearing under "Time" field
-    Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
     Then I should see "Anchor Discharge Week" appearing under "Time" field
     Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
-    
-    
-    Examples:
-    
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+
+    Examples: 
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |

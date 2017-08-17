@@ -1,40 +1,31 @@
 Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
 
-Scenario Outline: User should be able to see Level and Measures on Left Side of Inpatient Episode Clearing Report
-
+  Scenario Outline: User should be able to see Level and Measures on Left Side of Inpatient Episode Clearing Report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 3000 milli seconds
+    And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
-    And I wait for 50000 milli seconds
-    
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
     Then I should see Episode DRG Issues reports column Tile text as "Participant"
     Then I should see Episode DRG Issues reports column Tile text as "Episode Initiator"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Facility"
     Then I should see Episode DRG Issues reports column Tile text as "Bundle"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
-    
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
-    
     Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
-    
     When I click on field-panel-icon button
-    And I wait for 4000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 4000 milli seconds
-    
     Then I should see "# Episodes" under "measures" field
-    
     Then I should see "1st Post Acute CCN" appearing under "level" field
     Then I should see "1st Post Acute Facility" appearing under "level" field
     Then I should see "1st Post Acute Type" appearing under "level" field
@@ -89,7 +80,6 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Participant" appearing under "level" field
     Then I should see "Participant ID" appearing under "level" field
     Then I should see "Patient" appearing under "level" field
-    
     Then I should see "Readmission Admit Date 1" appearing under "level" field
     Then I should see "Readmission Admit Date 2" appearing under "level" field
     Then I should see "Readmission Admit Date 3" appearing under "level" field
@@ -100,25 +90,21 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Readmission CCN 3" appearing under "level" field
     Then I should see "Readmission CCN 4" appearing under "level" field
     Then I should see "Readmission CCN 5" appearing under "level" field
-    
     Then I should see "Readmission DRG 1" appearing under "level" field
     Then I should see "Readmission DRG 2" appearing under "level" field
     Then I should see "Readmission DRG 3" appearing under "level" field
     Then I should see "Readmission DRG 4" appearing under "level" field
     Then I should see "Readmission DRG 5" appearing under "level" field
-    
     Then I should see "Readmission Discharge Date 1" appearing under "level" field
     Then I should see "Readmission Discharge Date 2" appearing under "level" field
     Then I should see "Readmission Discharge Date 3" appearing under "level" field
     Then I should see "Readmission Discharge Date 4" appearing under "level" field
     Then I should see "Readmission Discharge Date 5" appearing under "level" field
-        
     Then I should see "Readmission Facility Name 1" appearing under "level" field
     Then I should see "Readmission Facility Name 2" appearing under "level" field
     Then I should see "Readmission Facility Name 3" appearing under "level" field
     Then I should see "Readmission Facility Name 4" appearing under "level" field
     Then I should see "Readmission Facility Name 5" appearing under "level" field
-    
     Then I should see "Risk Score" appearing under "level" field
     Then I should see "Teaching and Training Activities" appearing under "level" field
     Then I should see "Therapy Needs" appearing under "level" field
@@ -127,29 +113,24 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    
     Then I should see "Anchor Admission Month" appearing under "Time" field
     Then I should see "Anchor Admission Quarter" appearing under "Time" field
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
-    #Then I should see "Anchor Begin Date" appearing under "Time" field
-    Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
     Then I should see "Anchor Discharge Week" appearing under "Time" field
     Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
-    
-    Examples:
-    
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
-      
-Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
-  
+
+    Examples: 
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
+
+  Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -158,15 +139,13 @@ Scenario Outline: User should be able to remove default filters from Inpatient E
     When I click on the "Reports" tile
     And I wait for 2000 milli seconds
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports 
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
     And I wait for 50000 milli seconds
-    
     When I switch to reports embedded iframe
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
     Then I remove "Anchor Admission Year" field filter under "Anchor Begin Date" filter field from default filters
     Then I remove "Model" field filter under "Model" filter field from default filters
-    
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds
     When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field
@@ -177,11 +156,10 @@ Scenario Outline: User should be able to remove default filters from Inpatient E
     Then I select "PREVIOUS" discharge month in anchor discharge month filter
     And I click on ok button from filter
     And I wait for 3000 milli seconds
-     
-    Examples:
-    
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     | 
+
+    Examples: 
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |

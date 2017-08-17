@@ -23,6 +23,8 @@ import java.util.Random;
  * Created by salam on 5/6/16.
  */
 public class ReportHomePage extends BaseClass {
+	
+	WebDriverWait wait = new WebDriverWait(driver, 60);
 
     public ReportHomePage(WebDriver driver){
 
@@ -63,6 +65,7 @@ public class ReportHomePage extends BaseClass {
     public void iSwitchToReportsPageFrameWithXpath(String frameXpath){
         longDelay();
         swithToFrame(frameXpath);
+        delay();
     }
 
     public void iVerifyPerformanceReportsColumnsTitleText(String text){
@@ -323,7 +326,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTextProgramOverviewReport(String text){
-        verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
+       verifyTextForElement(driver.findElement(By.xpath("//button[text()='"+text+"']")), text);
     }
     
     public void iVerifySkilledNursingGraphUnderReport(){
@@ -383,6 +386,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnProgramOverviewReports(String text) throws Throwable{
+    	delay();
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     }
     
@@ -437,7 +441,10 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSelectEpisodeConnectRadioButton(String text) throws Throwable {
+    	longDelay();
+    	iWillWaitToSee(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//button[@name='render_dataSourceSelector'][text()='"+text+"']")));
+        delay();
     }
     
     public void iSeeOverallProgramReport(String text){
@@ -500,34 +507,44 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnExportSymbol(String export){
-    	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
+    	//iWillWaitToSee(By.xpath("//*[@id='"+export+"ExportObj']/div"));
+     	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
+    	longDelay();
     }
     
     public void iVerifyAppearingClickingExport(String text,String Graph){
+    	iWillWaitToSee(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']"));
     	verifyTextForElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")), text);
     }
     
     public void iClickOnOptionUnderExportSymbol(String text,String Graph){
     	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions south ui-draggable']/div[text()='"+text+"']")));
+    	delay();
     }
     
     public void iVerifyUnderExportOptions(String text,String Grpah){
+    	iWillWaitToSee(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']"));
     	verifyTextForElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")), text);
     }
     
     public void iClickOnExportOption(String text,String Graph){
+    	iWillWaitToSee(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//div[@class='exportChartPopupButtons']/div[text()='"+text+"']")));
     }
     
     public void iVerifyGraphUnderExportOptionsPopUp(){
+    	iWillWaitToSee(By.xpath("//div[@class='exportChartImageDiv']/img"));
     	isElementVisible(driver.findElement(By.xpath("//div[@class='exportChartImageDiv']/img")));
     }
     
     public void iCloseTheExportOptionsPopUp(){
+    	iWillWaitToSee(By.xpath("//*[@id='fancybox-close']"));
     	clickElement(driver.findElement(By.xpath("//*[@id='fancybox-close']")));
+    	longDelay();
     }
     
     public void iClickOnXLSCSVOptionUnderExportSymbol(String text,String Graph){
+    	iWillWaitToSee(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//div[@class='popupComponent exportOptions ui-draggable south']/div[text()='"+text+"']")));
     }
     
@@ -657,6 +674,7 @@ public class ReportHomePage extends BaseClass {
     
     public void iRemoveDeefaultFilters(String field,String title){
     	clickElement(driver.findElement(By.xpath(".//div[@id='filter_["+title+"].["+field+"]'] //i[@class='filterAction pentaho-deletebutton']")));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
     }
     
     public void iSelectCurrentMonthInAnchorDischargeMonth(String text){
@@ -705,12 +723,17 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyInTheNewWindowAfterClickingOnGraph(String text){
+    	delay();
+    	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName']"));
     	verifyTextForElement(driver.findElement(By.xpath("//*[@id='RPT001ReportName']")), text);
     }
     
     public void iClickOnGrpahPointForPostAcuteUtilization(String text){
+    	delay();
     	String path=".//*[@id='"+text+"ChartObjprotovis']//*[name()='svg']/*[name()='g']/*[name()='g']/*[name()='g']/*[name()='g'][6]/*[name()='g']/*[name()='g']/*[name()='g'][3]/*[name()='circle'][1]";
+    	iWillWaitToSee(By.xpath(path));
     	clickElement(driver.findElement(By.xpath(path)));
+    	delay();
     }
     
     public void iClickOnPostAcuteUtilizationGraphPoint(String text){
@@ -756,6 +779,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){
+    	delay();
+    	iWillWaitToSee(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected"));
     	clickElement(driver.findElement(By.cssSelector("#"+facility+"FilterObj .filter-root-header.all-selected")));
     }
     
@@ -764,18 +789,23 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSelectFaciltyFromFacilityFilterUnderProgramOverviewReport(String text){
+    	iWillWaitToSee(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
     }
     
     public void iClickOnApplyButtonUnderFaciltyFilterOptions(){
     	clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
+    	delay();
     }
     
     public void iClickOnTableViewOptionUnderViewFilter(String text){
+    	delay();
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    	delay();
     }
     
     public void iVerifyClaimsandeEcTextUnderOverallProgram(String text){
+    	iWillWaitToSee(By.cssSelector("#episodesTitleClaimsECObj"));
     	verifyTextForElement(driver.findElement(By.cssSelector("#episodesTitleClaimsECObj")),text);
     }
     
@@ -850,5 +880,51 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnAppearingFacilityAfterSearching(String text) {
     	clickElement(driver.findElement(By.xpath("//div[@id='facilityFilterObj']//div[@title='"+text+"']")));
+    }
+    
+    public void iClickOnFilterUnderFilterOptions(String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header-label")));
+    }
+    
+    public void iWaitforTheReportsEmbeddedIframeToLoad(){
+    	iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+    }
+    
+    public void iWillWaitToSeeReportNameInsideIframe(String reportname){
+    	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='"+reportname+"']"));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
+    
+    public void iWaitToseeTile(String tile){
+    	iWillWaitToSee(By.xpath("//p[text()='"+tile+"']"));
+    }
+    
+    public void iWaitToSeeUnderReportsTileText(String report){
+    	iWillWaitToSee(By.xpath("//label[@class='dropdown-tile-label ng-binding'][text()='"+report+"']"));
+    }
+    
+    public void iWaitForElementsToLoadInNewWindow(){
+    	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
+    }
+    
+    public void iWaitUntillRefreshButtonDisappeared(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
+    
+    public void iWaitUntillLoadingIconDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img blockUIDefaultImg")));
+    }
+    
+    public void iWaitToSeeOverallProgramUnderDashboardReport(String text){
+    	iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
+    	delay();
+    }
+    
+    public void iWillWaitToSeeReportNameAfterClickingGraph(String reportname){
+    	iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='"+reportname+"']"));
+    }
+    
+    public void iWaitUntillLoadingMessageDisappearsIndideFrameInReports(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
     }
 }

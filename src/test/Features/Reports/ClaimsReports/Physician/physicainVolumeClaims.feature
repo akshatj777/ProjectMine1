@@ -5,69 +5,68 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Volume" is appearing inside the iframe
     When I click on show all filters icon button
-    And I wait for 1000 milli seconds
+    And I wait until refresh button is disappeared
     Then I verify "Bundle Risk" filter is preselected under the filter
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see default measures for volume claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Volume" is appearing inside the iframe
     When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
     Then I should see "Episodes (Eps)" under "measures" field
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see levels fields for volume claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Volume" is appearing inside the iframe
     When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
     Then I should see "Anchor End Date" appearing under "level" field
     Then I should see "Anchor Facility" appearing under "level" field
     Then I should see "Anchor Facility Type" appearing under "level" field
@@ -134,35 +133,35 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I should see "SNF Network Tier" appearing under "level" field
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove the default filters for volume claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for 60000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Volume" is appearing inside the iframe
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |

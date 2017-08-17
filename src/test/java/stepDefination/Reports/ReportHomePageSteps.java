@@ -1078,12 +1078,12 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnYearTextBoxInsideDateRangeFilter(year);
     }
     
-    @Then("I check the ([^\"]*) appearing under \"([^\"]*)\" field filter under filter options")
+    @Then("I click the ([^\"]*) appearing under \"([^\"]*)\" field filter under filter options")
     public void i_check_the_appearing_under_participant_field_filter_under_filter_options(String participant,String text) throws Throwable{
     	reportHomePage.iClickOnParticiapntFieldFilterUnderFilterOptions(participant,text);
     }
     
-    @Then("I verify ([^\"]*) is appearing under \"([^\"]*)\" filter field after applying filter")
+    @Then("I verify \"([^\"]*)\" is appearing under \"([^\"]*)\" filter field after applying filter")
     public void i_verify_is_appearing_under_participant_filter_field_after_aplying_filter(String participant,String text) throws Throwable{
     	reportHomePage.iVerifyParticipantFieldAfterApplyingFilter(participant,text);
     }
@@ -1101,5 +1101,60 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("I click the ([^\"]*) appearing under facility field filter under filter options")
     public void i_click_the_appearing_under_facility_field_filter_under_filter_options(String text) throws Throwable {
     	reportHomePage.iClickOnAppearingFacilityAfterSearching(text);
+    }
+    
+    @Then("I click on \"([^\"]*)\" filter in the filter options")
+    public void i_click_on_filter_in_the_filter_options(String text) throws Throwable{
+    	reportHomePage.iClickOnFilterUnderFilterOptions(text);
+    }
+    
+    @And("I wait for the reports embedded iframe to load")
+    public void i_wait_for_the_reports_embedded_iframe_to_load() throws Throwable{
+    	reportHomePage.iWaitforTheReportsEmbeddedIframeToLoad();
+    }
+    
+    @And("I will wait to see \"([^\"]*)\" is appearing inside the iframe")
+    public void i_will_wait_to_see_is_appearing_inside_the_iframe(String reportname) throws Throwable{
+    	reportHomePage.iWillWaitToSeeReportNameInsideIframe(reportname);
+    }
+    
+    @And("I wait to see \"([^\"]*)\" tile")
+    public void i_wait_to_see_tile(String tile) throws Throwable{
+    	reportHomePage.iWaitToseeTile(tile);
+    }
+    
+    @And("I wait to see \"([^\"]*)\" under reports tile text")
+    public void i_wait_to_see_under_reports_tile_text(String report) throws Throwable{
+    	reportHomePage.iWaitToSeeUnderReportsTileText(report);
+    }
+    
+    @And("I wait for the elements to load in new window after clicking one of the episode")
+    public void i_wait_for_the_elements_to_load_in_new_window_after_clicking_one_of_the_episode() throws Throwable{
+    	reportHomePage.iWaitForElementsToLoadInNewWindow();
+    }
+    
+    @And("I wait until refresh button is disappeared")
+    public void i_wait_until_refresh_button_is_disappeared() throws Throwable{
+    	reportHomePage.iWaitUntillRefreshButtonDisappeared();
+    }
+    
+    @Then("I wait until loading icon disappears in program overview report")
+    public void i_wait_until_loading_icon_disappears_in_program_overview_report() throws Throwable{
+    	reportHomePage.iWaitUntillLoadingIconDisappears();
+    }
+    
+    @And("I will wait to see \"([^\"]*)\" under program overview report in iframe")
+    public void i_will_wait_to_see_under_program_overiview_report_in_iframe(String text) throws Throwable{
+    	reportHomePage.iWaitToSeeOverallProgramUnderDashboardReport(text);
+    }
+    
+    @And("I will wait to see \"([^\"]*)\" is appearing after clicking graph point")
+    public void i_will_wait_to_see_is_appearing_after_clicking_graph(String reportname) throws Throwable{
+    	reportHomePage.iWillWaitToSeeReportNameAfterClickingGraph(reportname);
+    }
+    
+    @And("I wait until loading message disappears inside frame in reports")
+    public void i_wait_until_loading_message_disappears_inside_frame_in_reports() throws Throwable{
+    	reportHomePage.iWaitUntillLoadingMessageDisappearsIndideFrameInReports();
     }
 }

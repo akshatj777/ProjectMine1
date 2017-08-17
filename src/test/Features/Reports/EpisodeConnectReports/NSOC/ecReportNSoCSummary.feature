@@ -1,31 +1,26 @@
 Feature: Verification of Next Site of Care Summary EC Report
 
-Scenario Outline: User should be able to see Level and Measures on Left Side of NSoc Summary Report
-
+  Scenario Outline: User should be able to see Level and Measures on Left Side of NSoc Summary Report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for NSoC Reports 
-    And I wait for 50000 milli seconds
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    And I wait for 2000 milli seconds
     Then I verify "Model" filter is preselected under the filter
     Then I should see "Model includes 2" is present under preselected model filter
     Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
-    
     When I click on field-panel-icon button
-    And I wait for 1000 milli seconds
     When I click on field-layout-icon button
-    And I wait for 1000 milli seconds
-    
     Then I should see "# Episodes" under "measures" field
-    
     Then I should see "1st Post Acute CCN" for Nsoc Summary under "level" field
     Then I should see "1st Post Acute Facility" for Nsoc Summary under "level" field
     Then I should see "1st Post Acute Type" for Nsoc Summary under "level" field
@@ -52,26 +47,21 @@ Scenario Outline: User should be able to see Level and Measures on Left Side of 
     Then I should see "Patient" appearing under "level" field
     Then I should see "Principal Account Practitioner" appearing under "level" field
     Then I should see "Risk Score" appearing under "level" field
-    Then I should see "SNF Network Tier" appearing under "level" field
     Then I should see "isAnchorAdmission" appearing under "level" field
     Then I should see "isSNFAdmissionReport" appearing under "level" field
-    
     Then I should see "Anchor Admission Month" appearing under "Time" field
     Then I should see "Anchor Admission Quarter" appearing under "Time" field
     Then I should see "Anchor Admission Week" appearing under "Time" field
     Then I should see "Anchor Admission Year" appearing under "Time" field
-    #Then I should see "Anchor Begin Date" appearing under "Time" field
-    Then I should see "Anchor Discharge Date" appearing under "Time" field
     Then I should see "Anchor Discharge Month" appearing under "Time" field
     Then I should see "Anchor Discharge Quarter" appearing under "Time" field
     Then I should see "Anchor Discharge Week" appearing under "Time" field
     Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
-    
-    Examples:
-    
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+
+    Examples: 
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
