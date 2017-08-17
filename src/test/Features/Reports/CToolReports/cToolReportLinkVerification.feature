@@ -9,7 +9,7 @@ Scenario Outline: User should not see program overview under dashboard for Model
     Then I click Access button
     And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
+    Then I wait for 2000 milli seconds
     Then I verify current page "Reports" title
     And I should not see Reports Tile text as <Menu 1>
     
@@ -43,14 +43,12 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     When I switch to reports embedded iframe
     Then I wait untill loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
-    And I switch to reports embedded iframe
     
     Then I should see "Overall Program" appearing under program overview reports
     And I should see "EPISODES" under overall program
     Then I verify episodes graph appearing under overall program report
     And I should see "NPRA" under overall program
     Then I verify npra graph appearing under overall program report
-    #And I wait for 2000 milli seconds
     
     Then I should see "Post Acute Utilization" under program overview reports
     And I should see "SKILLED NURSING" under overall program
@@ -104,7 +102,6 @@ Scenario Outline: User should see Program Overview under Dashboard and verify sa
     Then I should see "EC" table under post acute utilization report
     Then I should see "EC" table under SNF length of stay report
     Then I should see "EC" table under readmissions report
-    #And I wait for 2000 milli seconds
     
     Examples:
     
@@ -137,18 +134,14 @@ Scenario Outline: User should be able to expand and collapse PAU,SNF and Readmis
     
     Then I should see "Post Acute Utilization" under program overview reports
     And I click on "Post Acute Utilization" under program overview reports
-    #And I wait for 2000 milli seconds
     Then I should see "SNF Length of Stay" under program overview reports
     And I click on "SNF Length of Stay" under program overview reports
     Then I should see "Readmissions" under program overview reports
     And I click on "Readmissions" under program overview reports
     Then I again click on Post Acute Utilization under program overview reports
-    #And I wait for 2000 milli seconds
     Then I should see "SNF Length of Stay" under program overview reports
     Then I again click on SNF Length of Stay under program overview reports
-    #And I wait for 2000 milli seconds
     Then I again click on Readmissions under program overview reports
-    #And I wait for 2000 milli seconds
     
     Examples:
          
