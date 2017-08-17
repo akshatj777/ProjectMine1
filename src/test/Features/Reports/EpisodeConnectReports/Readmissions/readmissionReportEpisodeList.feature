@@ -1,7 +1,6 @@
 Feature: Episode List Verification Under Readmission Reports
 
-Scenario Outline: User should be able to see Episodes List under Readmission Report After clicking on any Episode number link
-    
+  Scenario Outline: User should be able to see Episodes List under Readmission Report After clicking on any Episode number link
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -10,16 +9,14 @@ Scenario Outline: User should be able to see Episodes List under Readmission Rep
     When I click on the "Reports" tile
     And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions" report text for Readmissions Reports 
+    Then I click on "Readmissions" report text for Readmissions Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions EC" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
-    
+    And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
-    
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
@@ -82,12 +79,10 @@ Scenario Outline: User should be able to see Episodes List under Readmission Rep
     Then I should verify "Readmit - 90 Days" is appearing under Episodes table
     Then I should verify "Readmits Leaked" is appearing under Episodes table
     Then I should verify "Total Readmits" is appearing under Episodes table
-    And I wait for 2000 milli seconds
-    
-    Examples:
-    
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+
+    Examples: 
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |

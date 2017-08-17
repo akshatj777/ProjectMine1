@@ -17,11 +17,13 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
       | Program Overview |
 
     When I click on "Program Overview" reports text for "Dashboards" report tile
-    And I wait for 20000 milli seconds
-     And I switch to reports embedded iframe
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in program overview report
+    And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait for 1000 milli seconds
+    And I wait to see "Reports" tile
     Then I verify current page "Reports" title
     And I wait to see "Dashboards" under reports tile text
 
@@ -35,7 +37,7 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I should see "Episode DRG Issues" in the Episode DRG Issues Patient ID report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -46,7 +48,7 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I should see "InPatient Episode Clearing" in the Inpatient Episode Clearing Patient ID report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -61,7 +63,7 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF LOS Summary" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I should see "SNF LOS Summary" in the Post Acute Care report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -76,7 +78,7 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
     Then I verify current page "Reports" title
@@ -91,7 +93,7 @@ Scenario Outline: Before Adding Penn participant user should see reports of PGP,
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions EC" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I should see "Readmissions EC" in the Readmissions Readmission report page header
     And I navigate back
     Then I verify current page "Reports" title

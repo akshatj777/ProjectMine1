@@ -45,32 +45,6 @@ Scenario Outline: User should be able to click on episode list column and verify
     Then I should verify "Readmission Admit Date 1" is appearing under Episodes table
     Then I should verify "Readmission Discharge Date 1" is appearing under Episodes table
     Then I should verify "Readmission PDGNS_CD 1" is appearing under Episodes table
-    #Then I should verify "Readmission CCN 2" is appearing under Episodes table
-    #Then I should verify "Readmission Facility Name 2" is appearing under Episodes table
-    #Then I should verify "Readmission DRG 2" is appearing under Episodes table
-    #Then I should verify "Readmission Admit Date 2" is appearing under Episodes table
-    #Then I should verify "Readmission Discharge Date 2" is appearing under Episodes table
-    #Then I should verify "Readmission PDGNS_CD 2" is appearing under Episodes table
-    #Then I should verify "Readmission CCN 3" is appearing under Episodes table
-    #Then I should verify "Readmission Facility Name 3" is appearing under Episodes table
-    #Then I should verify "Readmission DRG 3" is appearing under Episodes table
-    #Then I should verify "Readmission Admit Date 3" is appearing under Episodes table
-    #Then I should verify "Readmission Discharge Date 3" is appearing under Episodes table
-    #Then I should verify "Readmission PDGNS_CD 3" is appearing under Episodes table
-    #Then I should verify "Readmission CCN 4" is appearing under Episodes table
-    #Then I should verify "Readmission Facility Name 4" is appearing under Episodes table
-    #Then I should verify "Readmission DRG 4" is appearing under Episodes table
-    #Then I should verify "Readmission Admit Date 4" is appearing under Episodes table
-    #Then I should verify "Readmission Discharge Date 4" is appearing under Episodes table
-    #Then I should verify "Readmission PDGNS_CD 4" is appearing under Episodes table
-    #Then I should verify "Readmission CCN 5" is appearing under Episodes table
-    #Then I should verify "Readmission Facility Name 5" is appearing under Episodes table
-    #Then I should verify "Readmission DRG 5" is appearing under Episodes table
-    #Then I should verify "Readmission Admit Date 5" is appearing under Episodes table
-    #Then I should verify "Readmission Discharge Date 5" is appearing under Episodes table
-    #Then I should verify "Readmission PDGNS_CD 5" is appearing under Episodes table
-    #Then I should verify "Anchor Month" is appearing under Episodes table
-    #Then I should verify "Readmission Count" is appearing under Episodes table
 
     Examples: 
       | email                         |

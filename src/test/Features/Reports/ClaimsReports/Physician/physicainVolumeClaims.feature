@@ -14,17 +14,17 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I switch to reports embedded iframe
     And I will wait to see "Physician Volume" is appearing inside the iframe
     When I click on show all filters icon button
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I verify "Bundle Risk" filter is preselected under the filter
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see default measures for volume claims report under physician
     Given I am on the login page
@@ -44,13 +44,13 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I should see "Episodes (Eps)" under "measures" field
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see levels fields for volume claims report under physician
     Given I am on the login page
@@ -133,13 +133,13 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I should see "SNF Network Tier" appearing under "level" field
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove the default filters for volume claims report under physician
     Given I am on the login page
@@ -158,10 +158,10 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
 
     Examples: 
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Emblem Payer Users                |
-      | emblemachrpfin@yopmail.com         |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem Payer Users            |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |

@@ -18,7 +18,7 @@ Feature: Global Filters Verification with Emblem Users
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
@@ -43,7 +43,7 @@ Feature: Global Filters Verification with Emblem Users
     #And I verify <anchor facility1> is appearing under applied anchor facility on global filters
     And I click on Apply filters button for global filters
     When I switch to reports embedded iframe
-	  Then I wait untill loading icon disappears in program overview report
+	  Then I wait until loading icon disappears in program overview report
 	  When I switch to default window from iframe
     When I see "2" filters applied under global filters applied count
     
@@ -59,7 +59,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Performance (Claims)" in the reports header page
     When I see "2" filters applied under global filters applied count
@@ -78,7 +78,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -91,7 +91,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Financial Performance (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -108,7 +108,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -121,7 +121,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "SNF Performance (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -138,7 +138,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -151,7 +151,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Post Acute Care" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Post Acute Care (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -168,7 +168,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Post Acute Care" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -181,7 +181,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Volume" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Volume (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -198,7 +198,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Volume" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -211,7 +211,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Spending (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -228,7 +228,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -241,7 +241,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Readmissions (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -258,7 +258,7 @@ Feature: Global Filters Verification with Emblem Users
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters

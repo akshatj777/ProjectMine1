@@ -20,7 +20,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     
@@ -51,7 +51,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     
     And I click on Apply filters button for global filters
     When I switch to reports embedded iframe
-	  Then I wait untill loading icon disappears in program overview report
+	  Then I wait until loading icon disappears in program overview report
 	  When I switch to default window from iframe
     
     When I see "2" filters applied under global filters applied count
@@ -68,7 +68,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Performance (Claims)" in the reports header page
     When I see "2" filters applied under global filters applied count
@@ -83,7 +83,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -97,7 +97,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "3" filters applied under global filters applied count
     
@@ -106,7 +106,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Financial Performance (Claims)" in the reports header page
     When I see "3" filters applied under global filters applied count
@@ -118,7 +118,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     
     When I switch to reports embedded iframe
     When I click on show all filters icon button
@@ -132,7 +132,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "2" filters applied under global filters applied count
     
@@ -151,7 +151,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
@@ -162,7 +162,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Inpatient Episode Clearing" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "InPatient Episode Clearing" in the reports header page
     When I see "2" filters applied under global filters applied count
@@ -173,7 +173,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Inpatient Episode Clearing" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     And I wait for 2000 milli seconds
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -185,7 +185,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Inpatient Episode Clearing" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "1" filters applied under global filters applied count
     
@@ -194,7 +194,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF LOS Summary" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Initial SNF Length of Stay Summary" in the reports header page
     When I see "1" filters applied under global filters applied count
@@ -205,7 +205,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF LOS Summary" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
@@ -215,7 +215,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "SNF Performance (Claims)" in the reports header page
     When I see "1" filters applied under global filters applied count
@@ -226,7 +226,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "SNF Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     
     When I click on show all filters icon button
     Then I verify payer filter is selected with <payer1> under selected filters
@@ -237,7 +237,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Post Acute Care" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Post Acute Care (Claims)" in the reports header page
     When I see "1" filters applied under global filters applied count
@@ -250,7 +250,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Post Acute Care" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "2" filters applied under global filters applied count
     
@@ -265,7 +265,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Performance (Claims)" in the reports header page
     When I see "2" filters applied under global filters applied count
@@ -276,7 +276,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
@@ -287,7 +287,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Volume" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Volume (Claims)" in the reports header page
     When I see "2" filters applied under global filters applied count
@@ -298,7 +298,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Volume" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -310,7 +310,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Spending (Claims)" in the reports header page
     When I see "2" filters applied under global filters applied count
@@ -321,7 +321,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify payer filter is selected with <payer1> under selected filters
@@ -333,7 +333,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "3" filters applied under global filters applied count
     
@@ -342,7 +342,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Next Site of Care Summary" in the reports header page
     When I see "3" filters applied under global filters applied count
@@ -354,7 +354,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -367,7 +367,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "4" filters applied under global filters applied count
     
@@ -376,7 +376,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Readmissions (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count
@@ -389,7 +389,7 @@ Scenario Outline: User Should be able to see updated global filters in all repor
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters

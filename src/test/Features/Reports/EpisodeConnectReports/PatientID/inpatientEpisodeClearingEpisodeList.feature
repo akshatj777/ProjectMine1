@@ -13,12 +13,10 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
-    
+    And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
-    
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table

@@ -1133,13 +1133,13 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iWaitForElementsToLoadInNewWindow();
     }
     
-    @And("I wait untill refresh button is disappeared")
-    public void i_wait_untill_refresh_button_is_disappeared() throws Throwable{
+    @And("I wait until refresh button is disappeared")
+    public void i_wait_until_refresh_button_is_disappeared() throws Throwable{
     	reportHomePage.iWaitUntillRefreshButtonDisappeared();
     }
     
-    @Then("I wait untill loading icon disappears in program overview report")
-    public void i_wait_untill_loading_icon_disappears_in_program_overview_report() throws Throwable{
+    @Then("I wait until loading icon disappears in program overview report")
+    public void i_wait_until_loading_icon_disappears_in_program_overview_report() throws Throwable{
     	reportHomePage.iWaitUntillLoadingIconDisappears();
     }
     
@@ -1153,8 +1153,8 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iWillWaitToSeeReportNameAfterClickingGraph(reportname);
     }
     
-    @And("I wait untill loading message disappears inside frame in reports")
-    public void i_wait_untill_loading_message_disappears_inside_frame_in_reports() throws Throwable{
+    @And("I wait until loading message disappears inside frame in reports")
+    public void i_wait_until_loading_message_disappears_inside_frame_in_reports() throws Throwable{
     	reportHomePage.iWaitUntillLoadingMessageDisappearsIndideFrameInReports();
     }
 }

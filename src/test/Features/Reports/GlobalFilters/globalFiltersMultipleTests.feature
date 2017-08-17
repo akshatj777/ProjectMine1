@@ -20,7 +20,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     
@@ -49,7 +49,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     
     And I click on Apply filters button for global filters
     When I switch to reports embedded iframe
-	  Then I wait untill loading icon disappears in program overview report
+	  Then I wait until loading icon disappears in program overview report
 	  When I switch to default window from iframe
     
     When I see "4" filters applied under global filters applied count
@@ -83,10 +83,10 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     
     When I click on show all filters icon button
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
@@ -113,7 +113,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     When I see "6" filters applied under global filters applied count
     
@@ -122,7 +122,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Next Site of Care Summary" in the reports header page
     When I see "6" filters applied under global filters applied count
@@ -141,7 +141,7 @@ Scenario Outline: User should see multiple filters selected in report should red
     
     When I switch to reports embedded iframe
     When I click on show all filters icon button
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> and <bpid2> in the selected filters
     Then I verify anchor facility filter is selected with <ccn1> and <ccn2> in the selected filters
@@ -177,7 +177,7 @@ Scenario Outline: User should remove the selected global filter using X mark and
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
@@ -203,9 +203,9 @@ Scenario Outline: User should remove the selected global filter using X mark and
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I verify participant filter is selected with <participantid1> under selected filters
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
@@ -216,9 +216,9 @@ Scenario Outline: User should remove the selected global filter using X mark and
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
     When I click on cross mark beside the selected episode initiator filter with <episode initiator1>
@@ -228,7 +228,7 @@ Scenario Outline: User should remove the selected global filter using X mark and
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
@@ -265,7 +265,7 @@ Scenario Outline: User should clear the selected filters in global filters
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     
@@ -291,7 +291,7 @@ Scenario Outline: User should clear the selected filters in global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I click on Apply filters button for global filters 
     When I switch to reports embedded iframe
-	  Then I wait untill loading icon disappears in program overview report
+	  Then I wait until loading icon disappears in program overview report
 	  When I switch to default window from iframe
     Then I see "1" filters applied under global filters applied count
     
@@ -325,7 +325,7 @@ Scenario Outline: User should be able to check multiple checkbox under global fi
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
@@ -369,7 +369,7 @@ Scenario Outline: User should be able to search for one field on global filters
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     
@@ -384,7 +384,7 @@ Scenario Outline: User should be able to search for one field on global filters
     And I verify <participant1> is appearing under applied participant on global filters
     And I click on Apply filters button for global filters 
     When I switch to reports embedded iframe
-	  Then I wait untill loading icon disappears in program overview report
+	  Then I wait until loading icon disappears in program overview report
 	  When I switch to default window from iframe
     
     And I click on reports tile on the top of reports page
@@ -416,7 +416,7 @@ Scenario Outline: User should be able to search for multiple fields on global fi
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
     Then I verify "Program Overview" in the reports header page
@@ -430,7 +430,7 @@ Scenario Outline: User should be able to search for multiple fields on global fi
     And I verify <episode initiator3> is appearing under applied episode initiator on global filters
     And I click on Apply filters button for global filters 
     When I switch to reports embedded iframe
-	  Then I wait untill loading icon disappears in program overview report
+	  Then I wait until loading icon disappears in program overview report
 	  When I switch to default window from iframe
     
     And I click on reports tile on the top of reports page
@@ -459,7 +459,7 @@ Scenario Outline: User should should not be able to see global filters applied i
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
-    And I wait untill refresh button is disappeared 
+    And I wait until refresh button is disappeared 
     
     When I click on field-panel-icon button
 
@@ -470,7 +470,7 @@ Scenario Outline: User should should not be able to see global filters applied i
     And I click on "<participant>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
-    And I wait untill refresh button is disappeared 
+    And I wait until refresh button is disappeared 
     And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
     
     When I click on filter count label to see preselected filters
@@ -504,7 +504,7 @@ Scenario Outline: Applied global filters are getting selected on Re-opening Glob
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     
     When I see "0" filters applied under global filters applied count
@@ -535,7 +535,7 @@ Scenario Outline: Applied global filters are getting selected on Re-opening Glob
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     
     When I see "4" filters applied under global filters applied count
@@ -572,7 +572,7 @@ Scenario Outline: Filters applied should be displayed after clearing global filt
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     
     When I see "0" filters applied under global filters applied count
@@ -603,7 +603,7 @@ Scenario Outline: Filters applied should be displayed after clearing global filt
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Performance" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     
     When I see "4" filters applied under global filters applied count
@@ -616,7 +616,7 @@ Scenario Outline: Filters applied should be displayed after clearing global filt
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Volume" is appearing inside the iframe
-	  And I wait untill refresh button is disappeared
+	  And I wait until refresh button is disappeared
 	  When I switch to default window from iframe
     Then I verify "Volume (Claims)" in the reports header page
     When I see "4" filters applied under global filters applied count

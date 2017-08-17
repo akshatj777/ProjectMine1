@@ -1,7 +1,6 @@
 Feature: Episode List Verification Under CARL Reports
 
-Scenario Outline: User should be able to see Episodes List under Carl Report After clicking on any Episode number link
-
+  Scenario Outline: User should be able to see Episodes List under Carl Report After clicking on any Episode number link
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -10,15 +9,14 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "CARL" report text for NSoC Reports 
+    Then I click on "CARL" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "CARL" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
-    
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
@@ -62,11 +60,10 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     Then I should verify "Days from anchor discharge to CARL completion" is appearing under Episodes table
     Then I should verify "Eps w Readmits" is appearing under Episodes table
     Then I should verify "Total Readmits" is appearing under Episodes table
-    
-    Examples:
-    
-      | email                              |
-      #| Medicare Payer Users              |
-      | shutestaug231132a@yopmail.com      |
-      #| Multiple Payer Users              |
-      | multipayerachrpfin@yopmail.com     |
+
+    Examples: 
+      | email                          |
+      #| Medicare Payer Users          |
+      | shutestaug231132a@yopmail.com  |
+      #| Multiple Payer Users          |
+      | multipayerachrpfin@yopmail.com |

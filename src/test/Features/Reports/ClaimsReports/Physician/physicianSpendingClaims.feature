@@ -13,7 +13,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify "Current AtRisk" filter is preselected under the filter
 
@@ -39,7 +39,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "Episodes (Eps)" under "measures" field
@@ -70,7 +70,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "Anchor End Date" appearing under "level" field
@@ -160,7 +160,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Physician Spending" is appearing inside the iframe
-    And I wait untill refresh button is disappeared
+    And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I remove "Current AtRisk" field filter under "Current AtRisk" filter field from default filters
 

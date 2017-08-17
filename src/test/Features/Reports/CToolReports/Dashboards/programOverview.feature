@@ -1,7 +1,6 @@
 Feature: Program Overview Report
 
-Scenario Outline: Program Overview Report Under Dashboard
-    
+  Scenario Outline: Program Overview Report Under Dashboard
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -10,24 +9,20 @@ Scenario Outline: Program Overview Report Under Dashboard
     When I click on the "Reports" tile
     And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    
     Then I should see Reports Tile text as <Menu 1>
     When I click on the Reports Tile with text "<Menu 1>"
     Then I should see following Reports text for Dashboards reports
       | Program Overview |
-      
     When I click on "Program Overview" reports text for "Dashboards" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    Then I wait untill loading icon disappears in program overview report
+    Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
-    
     Then I should see "Overall Program" appearing under program overview reports
     And I should see "EPISODES" under overall program
     Then I verify episodes graph appearing under overall program report
     And I should see "NPRA" under overall program
     Then I verify npra graph appearing under overall program report
-    
     Then I should see "Post Acute Utilization" under program overview reports
     And I should see "SKILLED NURSING" under overall program
     Then I verify skilled nursing graph appearing under overall program report
@@ -46,13 +41,11 @@ Scenario Outline: Program Overview Report Under Dashboard
     Then I verify initial snf length of stay graph appearing under overall program report
     And I should see "SNF DAYS" under overall program
     Then I verify snf days graph appearing under overall program report
-    
     Then I should see "Readmissions" under program overview reports
     And I should see "EPISODES w READMIT" under overall program
     Then I verify episodes w readmit graph appearing under overall program report
     And I should see "READMITS PER EPISODE" under overall program
     Then I verify readmits per episode graph appearing under overall program report
-    
     And I verify "Filter option(s)" is present on the left side of overall program report
     Then I should see daterange filter on the left side of overall program report
     Then I should see partcipant filter on the left side of overall program report
@@ -61,9 +54,8 @@ Scenario Outline: Program Overview Report Under Dashboard
     Then I should see bundle filter on the left side of overall program report
     Then I should see bundle risk filter on the left side of overall program report
     Then I should see view filter on the left side of overall program report
-    
-    Examples:
-    
+
+    Examples: 
       | email                              | Menu 1     |
       | shutestaug231132a@yopmail.com      | Dashboards |
       | shutestaug221130a@yopmail.com      | Dashboards |
