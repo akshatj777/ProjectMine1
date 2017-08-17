@@ -31,6 +31,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iClickOnCreateNewOrgButtonOnProgramManagementHomepage() {
 		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		 clickElement(driver.findElement(By.cssSelector("button[name='createNewOrg']")));
+		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
 	public void iVerifyHeaderTextOnCreateOrganizationPage(String text) {
@@ -69,9 +70,9 @@ public class CreateManagingOrganization extends BaseClass {
 	}	
 	
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
-		delay();
-		driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();;
+		//driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();;
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
+		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 	}
 	

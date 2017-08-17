@@ -34,7 +34,7 @@ Feature: User should be able to edit the details of an existing PGP Organization
       | Midwest | PGPTestName | TestNamePGP | Block Z  | NameTPGP   | Road X   | Midwest | New Town | Chicago | Nebraska |       10065 | 123852 | 852741 |
 
   @Smoke
-  Scenario Outline: Edit and save changes for all fields of PGP organization
+  Scenario Outline: Edit and save changes for all fields of PGP organization to its previous state
     When I click on "PGP" organization tab on organization dashboard
     Then I search with <PGP_Name1> on organization in search box
     And I see "1 Organization" search count on organization

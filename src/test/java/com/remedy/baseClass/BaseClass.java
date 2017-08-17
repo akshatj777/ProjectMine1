@@ -445,7 +445,7 @@ public class BaseClass {
 			System.out.println(item.getText());
 
 			  if (item.getText().trim().contentEquals(text)) {
-				  value=item.getText();  
+				  value=item.getText().trim();  
 			  } 
 		}
 		Assert.assertEquals(text,value);

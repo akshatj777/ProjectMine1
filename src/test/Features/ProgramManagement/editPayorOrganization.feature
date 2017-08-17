@@ -10,7 +10,8 @@ Feature: User edit details of existing Payor organization
     Then I click on Organization link on Program Management page
 
   @Smoke
-  Scenario Outline: Edit and save changes for all fields of Managing Organization
+  Scenario Outline: Edit and save changes for all fields of Payor Organization
+    When I click on "Payor" organization tab on organization dashboard
     Then I search with <Payor_Name> on organization in search box
     And I see "1 Organization" search count on organization
     And I verify <Payor_Name> field in search list on organization page
@@ -33,7 +34,8 @@ Feature: User edit details of existing Payor organization
       | Test Payorone | PayoroneTest | OneAddress | OneCPerson     | OneAddressA | Onecemail@yopmail.com | New Castle |    1237894560 | Nevada |       40045 | 7894561230 |
 
   @Smoke
-  Scenario Outline: Edit and save changes for all fields of Managing Organization
+  Scenario Outline: Edit and save changes for all fields of Payor Organization to its previous state
+    When I click on "Payor" organization tab on organization dashboard
     Then I search with <Payor_Name> on organization in search box
     And I see "1 Organization" search count on organization
     And I verify <Payor_Name> field in search list on organization page

@@ -32,7 +32,7 @@ Feature: User should be able to edit the details of an existing Managing Organiz
       | MONameTest | MOName123 | Contact_PersonTest | contact_email@yopmail.com |    4567891230 | 7th Floor | Street XI | Test | California |       10000 |
 
   @Smoke
-  Scenario Outline: Edit and save changes for all fields of Managing Organization
+  Scenario Outline: Edit and save changes for all fields of Managing Organization to its previous state
     Then I search with <MO_Name> on organization in search box
     And I see "1 Organization" search count on organization
     And I verify <MO_Name> field in search list on organization page
