@@ -21,7 +21,7 @@ Feature: Verification of DOB Date format for EC Reports
     Then I verify the DOB column format is in YYYY-MM-DD for "Patient"
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
-    And I wait to see "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
     Then I verify current page "Reports" title
 
     Examples: 
