@@ -238,6 +238,12 @@ public class CompleteCarlformSteps extends DriverScript {
 	public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm(String f_Name, String l_Name) throws Throwable {
 		completecarl.IEnterFisrtAndLastNameOnCarlFormAddCaregiver(f_Name, l_Name);
 	}
+	
+	@Then ("^I select \"([^\"]*)\" option from \"([^\"]*)\" dropdown to create Caregiver$")
+	public void I_select_option_from_dropdown_to_create_Caregiver(String value,String dropdown)
+	{
+		completecarl.IselectoptionfromdropdowntocreateCaregiver(value);
+	}
 
 	@Then("^I click on Create button to add Caregiver$")
 	public void I_Click_On_CreateButton_To_AddCaregiver() throws Throwable {

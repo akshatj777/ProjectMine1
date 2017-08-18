@@ -304,4 +304,29 @@ public class DischargeCarlFormSteps extends DriverScript {
     {
     	dischargecarlform.IverifythatCareTypefortheActualCareSettingshouldincludethefollowing();
     }
+    
+    @Then ("^I verify left navigator should be accessible on the review page$")
+    public void I_verify_left_navigator_should_be_accessible_on_the_review_page()
+    {
+    	dischargecarlform.Iverifyleftnavigatorshouldbeaccessibleonthereviewpage();
+    }
+    
+    @Then ("^I verify there should be a \"([^\"]*)\" link on each card and clicking the link should bring the user to that specified section of the CARL form$") 
+    public void I_verify_there_should_be_a_link_on_each_card_and_clicking_the_link_should_bring_the_user_to_that_specified_section_of_the_CARL_form(String view)
+    {
+    	dischargecarlform.IverifythereshouldbealinkoneachcardandclickingthelinkshouldbringtheusertothatspecifiedsectionoftheCARLform(view);
+    }
+    
+    @Then ("^I verify \"([^\"]*)\" section should appear with \"([^\"]*)\" on label \"([^\"]*)\" on the review page$")
+    public void I_verify_section_should_appear_with_value_on_label_on_the_review_page(String section,String label,String value)
+    {
+    	dischargecarlform.Iverifysectionshouldappearwithvalueonlabelonthereviewpage(section,label,value);
+    }
+   
+    @Then ("^I verify \"([^\"]*)\" section should appear with \"([^\"]*)\" for label \"([^\"]*)\" for descriptive title \"([^\"]*)\" on the review page$")
+    public void I_verify_section_should_appear_with_value_for_descriptive_title_on_the_review_page(String section,String label,String descriptive_title,String value)
+    {
+    	dischargecarlform.Iverifysectionshouldappearwithvaluefordescriptivetitleonthereviewpage(section,label,descriptive_title,value);
+    }
+    
 }

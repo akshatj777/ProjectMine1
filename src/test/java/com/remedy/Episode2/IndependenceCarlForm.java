@@ -3,6 +3,7 @@ package com.remedy.Episode2;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,9 +17,10 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IClickOnSideNavigationTabOnCarlForm(String text) {
+		delay();
 		iWillWaitToSee(By.xpath("//span[text()='" + text + "']"));
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='" + text + "']"))).click();;
+		Actions actions=new Actions(driver);
+		actions.moveToElement(driver.findElement(By.xpath("//span[text()='" + text + "']"))).click().perform();
 	}
 
 	public void IVerifySelectedSectionOnTheCarlFormUponClickingOnIt(String text) {
@@ -49,6 +51,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IClickOnTheDropDownOnIndependenceSection(String text) {
+		iWillWaitToSee(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']"));
 		clickElement(driver.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']")));
 	}
 

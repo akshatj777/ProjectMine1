@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -371,23 +372,50 @@ public class DischargeCarlForm extends BaseClass {
 			}
 
 			public void IverifythatCareTypefortheActualCareSettingshouldincludethefollowing() {
-				List<String> array=new ArrayList<String>();
-				String[] values = { "(HOM) Home",                     
-					       "(HHA) Home Health Agency",       
-					       "(HPC) Hospice",                  
-					       "(HHH) Hospital",                 
-					       "(IRF) Inpatient Rehabilitation", 
-					       "(LTC) Long-Term Care Hospital",  
-				            "(OTHER) Other" ,                 
-					       "(PGP) PGP",                    
-					       "(REH) Rehabilitation" ,          
-   					       "(SNF) Skilled Nursing Facility", 
-					       "(UNK) Unknown"  
-					       };
-				String[][] newArray = {{"Discharge - Discuss the Proposal", "Discuss the Proposal",
-						"Reason for Disagreement",
-						"Discharge - Care Type"}  };
+				String[] values = { "(HHH) Hospital","(HOM) Home","(SNF) Skilled Nursing Facility", "(HHA) Home Health Agency",                  
+						"(REH) Rehabilitation","(OTHER) Other" ,"(EXPIRED) Expired"};
+				String[][] newArray = {	{"Inpatient","Outpatient","Emergency","Observation","Scheduled"},{"Skilled nursing",
+						"Custodial care","TCU","Leave of Absence"},{"Skilled services","Non-skilled services"},{"Inpatient","Outpatient"},
+						{ "Acute care hospital","Assisted living","Intermediate care facility","Another institution","Left against medical advice",	"Admitted as an inpatient to this hospital","Court/law enforcement","Federal hospital",
+						"Still a patient","Shelter","Hospice at home","Hospice in a medical facility","Hospital-based medicare approved swing bed","Medicaid-certified nursing facility","Psychiatric hospital/unit","Critical access hospital"},
+						{"Expired as inpatient","Expired at home","Expired in a medical facility","Expired at Unknown"} };
+				List<List<String>> list = Arrays.stream(newArray).map(Arrays::asList).collect(Collectors.toList());
+				  for(int j=0;j<list.size();j++)
+			    	{
+			    		clickElement(driver.findElement(By.xpath("//label[text()='Actual Care Setting']/preceding-sibling::div")));			
+		    			clickElement(driver.findElement(By.xpath("//label[text()='Actual Care Setting']/preceding-sibling::div//div[text()='"+values[j]+"']")));
+		    		    clickElement(driver.findElement(By.xpath("//label[text()='Care Type']/preceding-sibling::div")));			
+		    			List<String> list1=getTextForElementfromList("span.ui-select-choices-row-inner> div.ng-binding");
+		    			Assert.assertEquals(list.get(j),list1);
+			    		
+			    	}
+			    }
+
+			public void Iverifyleftnavigatorshouldbeaccessibleonthereviewpage() {
+				isElementVisible(driver.findElement(By.cssSelector("nav.vertical-navigator.ng-isolate-scope")));
+				}
+
+			public void IverifythereshouldbealinkoneachcardandclickingthelinkshouldbringtheusertothatspecifiedsectionoftheCARLform(String view) {
+				for(int i=1;i<5;i++)
+				{
+					isElementVisible(driver.findElement(By.xpath("//section/div["+i+"]/div[1]/a[text()='View']")));	
+				}
+				}
+
+			public void Iverifysectionshouldappearwithvalueonlabelonthereviewpage(String section,String label,String value) {
+				if(section.equals("Caregiver"))
+				isElementVisible(driver.findElement(By.xpath("//section/div[1]/div[@class='review-body']/*[self::h4[contains(text(),'"+label+"')]  or self::div[contains(text(),'"+value+"')]]")));	
+				else
+				{
+					isElementVisible(driver.findElement(By.xpath("//section/div[2]/div[@class='review-body']/*[self::h4[contains(text(),'"+label+"')]  or self::div[contains(text(),'"+value+"')]]")));		
+				}
+			}
+
+			public void Iverifysectionshouldappearwithvaluefordescriptivetitleonthereviewpage(String section,String label,String descriptive_title,String value) {
+				isElementVisible(driver.findElement(By.xpath("//div[@class='therapies-needed']//div[contains(text(),'"+value+"')]/following-sibling::div/div[contains(text(),'"+label+"')]/following-sibling::div[contains(text(),'"+descriptive_title+"')]")));	
+				}
+				
 			}
 		
 			
-	     }
+	     

@@ -285,5 +285,11 @@ public class CompleteCarlform extends BaseClass {
 		iWillWaitToSee(By.cssSelector("h2.ng-binding"));
 	}
 
+	public void IselectoptionfromdropdowntocreateCaregiver(String value) {
+		clickElement(driver.findElement(By.cssSelector("div:nth-child(3) > div.col-xs-8 > div > div.ui-select-match.ng-scope")));
+		clickElement(driver.findElement(By.xpath("//span[@class='ui-select-choices-row-inner']/div[text()='"+value+"']")));
+		
+	}
+
 	
 }

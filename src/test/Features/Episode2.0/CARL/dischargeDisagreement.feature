@@ -205,10 +205,10 @@ Feature: Discharge – Disagreement Reason(s)
     Then I verify a legal message should appear when Carl recommendation field show Home with Limited Services
     Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
     Then I select "(HHA) Home Health Agency" in subform dropdown for "Actual Care Setting" on Discharge section
-    Then I verify that upon selecting  any value to Actual care setting field presence of "Have you discussed the proposal with the Interdisciplinary team?" question is appearing
+    Then I verify that upon selecting any value to Actual care setting field presence of "Have you discussed the proposal with the Interdisciplinary team?" question is appearing
     And I verify "Yes" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     And I verify "No" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
-    Then I click  "Yes" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
+    Then I click "Yes" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     Then I verify user is able to select the radio button
     Then I click  "Yes" radio option for "Have you discussed the proposal with the Interdisciplinary team?" under Discharge section
     Then I verify user should not be able to un-select the radio button once selected

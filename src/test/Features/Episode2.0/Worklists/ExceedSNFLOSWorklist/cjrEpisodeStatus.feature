@@ -67,6 +67,21 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "30" days
     Then I wait to the see the visibility of loader to disappear
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I select the "1" LOS days on Discharge date on Add Transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "65" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on add a new transition to add a new episode
+    Then I will wait to see "Transition Info" followed by "a" tag
+    Then I wait for 3000 milli seconds
+    Then I fill in "Admit" with logic "minus" with "28" days
+    Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caretype" "TCU" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
@@ -76,12 +91,12 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the "65" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
-    Then I click on the edit button on the "1" transition to edit the Active transition
+    Then I click on the edit button on the "2" transition to edit the Active transition
     Then I wait to the see the visibility of loader to disappear
     Then I will wait to see and click on "Diagnosis and DRG" followed by "a" tag
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "6" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on update transition to add a new episode
     Then I wait for 8000 milli seconds
     When I switch to default window from iframe
