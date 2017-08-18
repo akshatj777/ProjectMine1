@@ -16,8 +16,8 @@ Feature: User completes entering SNF Organization details during creation proces
 
     When I click on "SNF" organization tab on organization dashboard
     Then I click on create new Organization button on Program Management homepage
-    And I select "Has a Management Organization" radio button for managing organization
-    Then I select <MO_Name> managing organization name in Has a Management Organization drop down
+    #And I select "Has a Management Organization" radio button for managing organization
+    #Then I select <MO_Name> managing organization name in Has a Management Organization drop down
     And I enter <SNF_Org_Name> in "SNF Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page
@@ -38,7 +38,7 @@ Feature: User completes entering SNF Organization details during creation proces
     And I enter market <LMarket> for Location "1" on "create" organization page
     And I enter state <LState> for Location "1" on "create" organization page
     And I enter zip <LPostal_Code> for Location "1" on "create" organization page
-# Submit is not included for now!!
+ #Submit is not included for now!!
 
     Examples: 
       | MO_Name            | SNF_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | CCN    | EIN    | NPI       | Loc_Name       | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code |

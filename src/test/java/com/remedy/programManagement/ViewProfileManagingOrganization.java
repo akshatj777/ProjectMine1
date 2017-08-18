@@ -45,8 +45,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
-//		iWillWaitToSee(By.xpath("//a[@class='navLink noselect activeNavLink' And text()='"+org+"']"));
-		verifyTextForElementfromList(".data-table-header-cell>a", header);
+		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), header);
 	}
 	
 	public void iClickOnOrganizationUnderManagingOrganization(String org) {
@@ -71,7 +70,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {
 		if(isElementPresentOnPage(By.cssSelector(".id.market-name"))) {
-		String text = getTextForElement(driver.findElement(By.cssSelector(".id.market-name"))); 
+		String text = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view>.id.market-name"))); 
         Assert.assertEquals("Managing Organization: "+name,text.replace("|",""));
 	        }
     }

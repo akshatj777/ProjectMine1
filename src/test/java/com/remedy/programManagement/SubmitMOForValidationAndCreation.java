@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
@@ -37,6 +38,7 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 				ele.click();
 			}
 		}
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
 	public void iSelectRadioButtonForManagingOrganization(String value) {
@@ -56,8 +58,6 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 	}
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String text) {
-		//clickElement(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//div[@class='Select-value']")));
-		
 		iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), text);
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);

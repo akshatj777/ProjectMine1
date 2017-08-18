@@ -21,6 +21,8 @@ public class EditManagingOrganization extends BaseClass {
 	
 	public void iClickOnButtonOnParticularOrganization(String button) {
 		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+
 	}
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {
