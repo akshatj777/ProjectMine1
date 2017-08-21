@@ -927,4 +927,24 @@ public class ReportHomePage extends BaseClass {
     public void iWaitUntillLoadingMessageDisappearsIndideFrameInReports(){
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
     }
+    
+    public void iClickOnAnchorFacilityTextFromFilterValueListSingleQuotes(String filterText){
+        clickElement(driver.findElement(By.xpath("//*[starts-with(@id,'FT_AVA') and text()=\""+filterText+"\"]")));
+    }
+    
+    public void iClickOnSelectColumnInNewWindowAfterClikingDrillThrough(String text){
+    	clickElement(driver.findElement(By.xpath("//a[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTitleOnPopupAfterClickingSelectColumns(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//td[text()='"+text+"']")),text);
+    }
+    
+    public void iClickOnCheckBoxInEpisodeDrillThroughPopUp(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Anchor Facility].["+text+"]']/input")));
+    }
+    
+    public void iEnterValueInTextBoxUnderSelectDrillThroughColumns(String text){
+    	iFillInText(driver.findElement(By.cssSelector("#searchFieldDrill")), text);
+    }
 }

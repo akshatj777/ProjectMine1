@@ -37,7 +37,7 @@ Scenario Outline: User should be able to able to see Mt. Carmel anchor facility 
     And I should see "Anchor Facility" in the header text of filter page
     #And I enter "anchorFacility1" in the search field textbox after clicking on list option
     And I should see "<anchorFacility1>" in the filter value list
-    And I click on "<anchorFacility1>" in the filter value list
+    And I click on "<anchorFacility1>" in the filter value list for anchor facility
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -48,6 +48,6 @@ Scenario Outline: User should be able to able to see Mt. Carmel anchor facility 
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                              | admission month1 | anchorFacility1        |
-      | reportsautomation18aug@yopmail.com | 2017-02          | Mt. Carmel - St. Ann   |
+      | email                              | admission month1 | anchorFacility1          |
+      | reportsautomation18aug@yopmail.com | 2017-02          | Mt. Carmel - St. Ann's   |
     
