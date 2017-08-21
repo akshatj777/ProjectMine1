@@ -534,8 +534,14 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickonthepatientonthepatientcardpagethathasnoCARLbuttoninit() {
             iWillWaitToSee(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope"));
-            Actions actions=new Actions(driver);
-            actions.moveToElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope"))).click().perform();
+            try
+    		{
+    		clickElement(driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));
+    		}catch(Exception e)
+    		{
+    	    JavascriptExecutor js = (JavascriptExecutor) driver;
+    	    js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector("div.row.cards-mode.isotope > div > div > div.card-header.col-xs-12.hover-pointer.ng-scope")));
+    		}
               }
 
 	

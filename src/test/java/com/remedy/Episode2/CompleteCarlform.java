@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
@@ -39,8 +40,13 @@ public class CompleteCarlform extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
-	public void IverifyCARLbuttonisappearingonthepatientcardornot() {
-		isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
+	public void IverifyCARLbuttonisappearingonthepatientcardornot(String link) {
+    		if(link.equals("appearing")){
+	        isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
+	}else{
+		WebDriverWait wait=new WebDriverWait(driver,5);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
+	}
 	}
 
 	public void Iselectonthebuttontodeletethetransition() {

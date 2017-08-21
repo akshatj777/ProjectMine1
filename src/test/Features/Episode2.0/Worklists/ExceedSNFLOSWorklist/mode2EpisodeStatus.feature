@@ -240,7 +240,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I enter <Patient Last Name> under first name filter
     Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
-    Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+    Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
@@ -285,7 +285,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
-    Then I select the "Discharge" "caretype" "leave of absence" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
+    Then I select the "Discharge" "caretype" "Leave of Absence" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -353,7 +353,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "65" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I click on the Create Transition Button to add a new transition

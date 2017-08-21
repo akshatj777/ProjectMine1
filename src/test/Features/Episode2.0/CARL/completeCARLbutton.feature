@@ -13,17 +13,7 @@ Feature: Complete CARL button
     Then I click on the Impatient tab on the patient Card Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
-    Then I click on quick action button for note creation on Patient Card page
-    Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
-    And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
-    Then I select the "<date>"  from date picker on Add Clinical Document on Patient Card
-    And I enter the Note Text "<Notetext>" in the textarea on Add Clinical Document on Patient Card
-    Then I click on Add Files link on Note Section on Patient Card
-    And I wait for 8000 milli seconds
-    Then I verify that user should be able to select and upload file "Sample.txt" through Add files link
-    Then I wait for 8000 milli seconds
-    Then I click on the create Note Button on Add Clinical Document on Patient Card
-    Then I verify that create Note has been successfully created
+    Then I wait to the see the visibility of loader to disappear
     Then I click on the patient on the patient card page that has no CARL button in it
     Then I get the patient last name who have no CARL button in it
     Then I will wait to see and click on "Patient Details" followed by "span" tag
@@ -102,7 +92,7 @@ Feature: Complete CARL button
     Then I click on Ok to delete the transition
     When I switch to default window from iframe
     Then I close the patient summary Page
-    Then I verify CARL button is appearing on the patient card or not
+    Then I verify CARL button is "appearing" on the patient card
 
     Examples: 
       | Medicare ID | Notetext   |

@@ -372,13 +372,13 @@ public class DischargeCarlForm extends BaseClass {
 			}
 
 			public void IverifythatCareTypefortheActualCareSettingshouldincludethefollowing() {
-				String[] values = { "(HHH) Hospital","(HOM) Home","(SNF) Skilled Nursing Facility", "(HHA) Home Health Agency",                  
+				String[] values = { "(HHH) Hospital","(HHA) Home Health Agency","(SNF) Skilled Nursing Facility",                   
 						"(REH) Rehabilitation","(OTHER) Other" ,"(EXPIRED) Expired"};
-				String[][] newArray = {	{"Inpatient","Outpatient","Emergency","Observation","Scheduled"},{"Skilled nursing",
-						"Custodial care","TCU","Leave of Absence"},{"Skilled services","Non-skilled services"},{"Inpatient","Outpatient"},
-						{ "Acute care hospital","Assisted living","Intermediate care facility","Another institution","Left against medical advice",	"Admitted as an inpatient to this hospital","Court/law enforcement","Federal hospital",
-						"Still a patient","Shelter","Hospice at home","Hospice in a medical facility","Hospital-based medicare approved swing bed","Medicaid-certified nursing facility","Psychiatric hospital/unit","Critical access hospital"},
-						{"Expired as inpatient","Expired at home","Expired in a medical facility","Expired at Unknown"} };
+				String[][] newArray = {	{"Inpatient","Outpatient","Emergency","Scheduled","Observation"},{"Skilled services","Non-skilled services"},{"Skilled nursing",
+						"Custodial care","TCU","Leave of Absence"},{"Inpatient","Outpatient"},
+						{"Acute care hospital","Assisted living","Intermediate care facility","Another institution","Left against medical advice",	"Admitted as an inpatient to this hospital","Court/law enforcement","Federal hospital",
+						"Still a patient","Shelter","Hospice at home","Hospice in Medical Facility","Hospital-based medicare approved swing bed","Medicaid-certified nursing facility","Psychiatric hospital/unit","Critical access hospital"},
+						{"Expired as inpatient","Expired at Home","Expired at Medical Facility","Expired at Unknown"} };
 				List<List<String>> list = Arrays.stream(newArray).map(Arrays::asList).collect(Collectors.toList());
 				  for(int j=0;j<list.size();j++)
 			    	{
@@ -405,9 +405,12 @@ public class DischargeCarlForm extends BaseClass {
 			public void Iverifysectionshouldappearwithvalueonlabelonthereviewpage(String section,String label,String value) {
 				if(section.equals("Caregiver"))
 				isElementVisible(driver.findElement(By.xpath("//section/div[1]/div[@class='review-body']/*[self::h4[contains(text(),'"+label+"')]  or self::div[contains(text(),'"+value+"')]]")));	
-				else
+				else if(section.equals("Anticipated Discharge Needs"))
 				{
-					isElementVisible(driver.findElement(By.xpath("//section/div[2]/div[@class='review-body']/*[self::h4[contains(text(),'"+label+"')]  or self::div[contains(text(),'"+value+"')]]")));		
+				isElementVisible(driver.findElement(By.xpath("//section/div[2]/div[@class='review-body']/*[self::h4[contains(text(),'"+label+"')]  or self::div[contains(text(),'"+value+"')]]")));		
+				}else if(section.equals("Discharge"))
+				{
+					isElementVisible(driver.findElement(By.xpath("//section/div[4]/div[@class='review-body']/*[self::h4[contains(text(),'"+label+"')]  or self::div[contains(text(),'"+value+"')]]")));		
 				}
 			}
 

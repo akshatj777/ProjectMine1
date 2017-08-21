@@ -51,8 +51,14 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IClickOnTheDropDownOnIndependenceSection(String text) {
+		try{
 		iWillWaitToSee(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']"));
 		clickElement(driver.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']")));
+		}catch(Exception e)
+		{
+			Actions actions=new Actions(driver);
+			actions.moveToElement(driver.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']"))).click().perform();
+		}
 	}
 
 	public void IVerifyOptionsPresentInDropDownOnIndependeceSection(String option) {
@@ -60,6 +66,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void ISelectTheOptionInTheDropDownOnIndependenceSection(String option) {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[text()='" + option + "']")));
 	}
 

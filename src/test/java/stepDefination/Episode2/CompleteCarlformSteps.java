@@ -19,9 +19,9 @@ public class CompleteCarlformSteps extends DriverScript {
 		completecarl.IclosethepatientsummaryPage();
 	}
 
-	@Then("^I verify CARL button is appearing on the patient card or not$")
-	public void I_verify_CARL_button_is_appearing_on_the_patient_card_or_not() throws Throwable {
-		completecarl.IverifyCARLbuttonisappearingonthepatientcardornot();
+	@Then("^I verify CARL button is \"([^\"]*)\" on the patient card$")
+	public void I_verify_CARL_button_is_appearing_on_the_patient_card_or_not(String link) throws Throwable {
+		completecarl.IverifyCARLbuttonisappearingonthepatientcardornot(link);
 	}
 
 	@Then("^I select the button to delete the transition$")

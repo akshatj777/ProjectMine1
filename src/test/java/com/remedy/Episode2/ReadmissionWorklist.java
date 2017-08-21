@@ -69,10 +69,15 @@ public class ReadmissionWorklist extends BaseClass {
 		String newname = lastname.toUpperCase();
 		iWillWaitToSee(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]"));
 		delay();
-		Actions actions=new Actions(driver);
-	    actions.moveToElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]"))).click().perform();
-		
-	   }
+		try
+		{
+		clickElement(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
+		}catch(Exception e)
+		{
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + newname + "')]")));
+		}
+		}
 
 	public static String getcurrentdate(int days) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");

@@ -1,5 +1,6 @@
 package com.remedy.Episode2;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -70,14 +71,23 @@ public class ExceededSnfLos extends BaseClass {
 		}
 	}
 
-	public void IverifyLOSisbelowtheELOSonthepatientcardpage() {
-		boolean flag= false;
-		String Los_value = driver.findElement(By.cssSelector("span.text-emphasized.ng-binding.ng-scope")).getText();
-		String minimum_Elos_value = driver.findElement(By.cssSelector(" span:nth-child(5).text-emphasized.ng-binding.ng-scope")).getText();
-		int Los = Integer.parseInt(Los_value);
-		int Elos = Integer.parseInt(minimum_Elos_value);
-		if (Los < Elos) {
-			flag = true;
+	public void IverifyLOSwithELOSonthepatientcardpage(String flag) {
+		iWillWaitToSee(By.xpath("//span[@ng-class='patient.$losClass']"));
+		String Los_value = driver.findElement(By.xpath("//span[@ng-class='patient.$losClass']")).getText();
+		String minimum_Elos_value = driver.findElement(By.cssSelector("div:nth-child(3) > div > span:nth-child(3).text-emphasized")).getText();
+        String maximum_Elos_value = driver.findElement(By.cssSelector("span:nth-child(5).text-emphasized.ng-binding.ng-scope")).getText();
+		int Int_Los_value = Integer.parseInt(Los_value);
+		int Int_ELos_minimum_value = Integer.parseInt(minimum_Elos_value);
+		int Int_ELos_maximum_value = Integer.parseInt(maximum_Elos_value);
+		
+		if(flag.equals("above"))
+		{
+			Assert.assertTrue(Int_Los_value > Int_ELos_maximum_value);
+		}else
+		{
+			Assert.assertTrue(Int_Los_value < Int_ELos_minimum_value);
+		}
+	
 		}
 	}
-}
+
