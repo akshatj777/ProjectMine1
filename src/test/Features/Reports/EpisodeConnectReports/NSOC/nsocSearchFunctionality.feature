@@ -1,7 +1,6 @@
 Feature: Verification of anchor facility filter in next site of care summary report
 
-Scenario Outline: User should be able to able to see Mt. Carmel anchor facility after selecting particular admission month to sound participant user
-
+  Scenario Outline: User should be able to able to see Mt. Carmel anchor facility after selecting particular admission month to sound participant user
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -35,7 +34,6 @@ Scenario Outline: User should be able to able to see Mt. Carmel anchor facility 
     When I click to "Anchor Facility" field filter under "Anchor Facility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Facility" in the header text of filter page
-    #And I enter "anchorFacility1" in the search field textbox after clicking on list option
     And I should see "<anchorFacility1>" in the filter value list
     And I click on "<anchorFacility1>" in the filter value list for anchor facility
     And I click on add selected in the filter modal
@@ -48,6 +46,5 @@ Scenario Outline: User should be able to able to see Mt. Carmel anchor facility 
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                              | admission month1 | anchorFacility1          |
-      | reportsautomation18aug@yopmail.com | 2017-02          | Mt. Carmel - St. Ann's   |
-    
+      | email                              | admission month1 | anchorFacility1        |
+      | reportsautomation18aug@yopmail.com | 2017-02          | Mt. Carmel - St. Ann's |

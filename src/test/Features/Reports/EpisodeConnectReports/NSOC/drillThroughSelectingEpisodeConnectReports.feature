@@ -1,7 +1,6 @@
 Feature: Selecting columns in drill through for episode connect reports
 
-Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify
-
+  Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -26,8 +25,7 @@ Scenario Outline: User should be able to click on drill through column in episod
     And I click on ok button after selecting drill through column
     Then I switch to new window
     Then I should verify "Anchor Facility Type" is appearing under Episodes table
-        
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-    
