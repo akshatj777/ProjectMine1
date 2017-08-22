@@ -947,4 +947,12 @@ public class ReportHomePage extends BaseClass {
     public void iEnterValueInTextBoxUnderSelectDrillThroughColumns(String text){
     	iFillInText(driver.findElement(By.cssSelector("#searchFieldDrill")), text);
     }
+    
+    public void iVerifyTextUnderPhysicianDashboardReport(String text){
+        verifyTextForElement(driver.findElement(By.cssSelector("#tableTitleObj")), text);
+    }
+    
+    public void iClickOnFirstNameUnderAttributedPhysicianColumn(){
+    	clickElement(driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr:first-child>td:first-child")));
+    }
 }

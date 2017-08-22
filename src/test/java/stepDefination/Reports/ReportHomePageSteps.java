@@ -1187,4 +1187,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_enter_in_the_search_field_box_under_select_drill_through_columns(String text) throws Throwable{
     	reportHomePage.iEnterValueInTextBoxUnderSelectDrillThroughColumns(text);
     }
+    
+    @Then("^I should see \"([^\"]*)\" appearing under physician dashboard reports$")
+    public void i_should_see_appearing_under_physician_dashboard_reports(String text) throws Throwable {
+        reportHomePage.iVerifyTextUnderPhysicianDashboardReport(text);
+    }
+    
+    @Then("^I wait until loading icon disappears in physician dashboard report$")
+    public void i_wait_until_loading_icon_disappears_in_physician_dashboard_report() throws Throwable{
+    	reportHomePage.iWaitUntillLoadingIconDisappears();
+    }
+    
+    @When("^I click the first name under attributed physican column$")
+    public void i_click_the_first_name_under_attributed_physician_column() throws Throwable{
+    	reportHomePage.iClickOnFirstNameUnderAttributedPhysicianColumn();
+    }
 }
