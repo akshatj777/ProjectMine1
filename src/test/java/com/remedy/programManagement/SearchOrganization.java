@@ -11,7 +11,7 @@ import com.remedy.baseClass.BaseClass;
 
 
 public class SearchOrganization extends BaseClass{
-	WebDriverWait wait = new WebDriverWait(driver, 10);
+	WebDriverWait wait = new WebDriverWait(driver, 20);
 
 	public SearchOrganization(WebDriver driver) {
 		super(driver);

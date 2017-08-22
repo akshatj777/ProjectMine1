@@ -11,8 +11,8 @@ Feature: User completes inputting PGP Organization details during creation,
     Then I click on Organization link on Program Management page
 
   @Smoke
-  Scenario Outline: Submit PGP organization without error(when managing organization is added) and PGP organization is created
-           Verify user is navigated to homepage - PGP org tab and success message
+  Scenario Outline: Create a PGP organization with valid data (With Managing Organization)
+                    (Manadatory + Non-manadatory fields)
 
     When I click on "PGP" organization tab on organization dashboard
     Then I click on create new Organization button on Program Management homepage

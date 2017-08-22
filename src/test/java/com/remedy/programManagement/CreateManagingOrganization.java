@@ -23,6 +23,9 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	WebDriverWait wait = new WebDriverWait(driver, 20);
+	DateFormat datef = new SimpleDateFormat("ddMMyy");
+	Date ts = new Date();
+	String timef = datef.format(ts);
 	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
@@ -65,6 +68,7 @@ public class CreateManagingOrganization extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text+time);
 		}
 		else {
+			//System.out.println(((int)(Math.random()*10000))+timef);
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
 		}
 	}	

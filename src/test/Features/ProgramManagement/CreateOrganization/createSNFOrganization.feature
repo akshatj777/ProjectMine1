@@ -11,13 +11,13 @@ Feature: User completes entering SNF Organization details during creation proces
     Then I click on Organization link on Program Management page
 
   @Smoke
-  Scenario Outline: Create a SNF organization with valid data
+  Scenario Outline: Create a SNF organization with valid data (With Managing Organization)
                     (Manadatory + Non-manadatory fields)
 
     When I click on "SNF" organization tab on organization dashboard
     Then I click on create new Organization button on Program Management homepage
-    #And I select "Has a Management Organization" radio button for managing organization
-    #Then I select <MO_Name> managing organization name in Has a Management Organization drop down
+    And I select "Has a Management Organization" radio button for managing organization
+    Then I select <MO_Name> managing organization name in Has a Management Organization drop down
     And I enter <SNF_Org_Name> in "SNF Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page

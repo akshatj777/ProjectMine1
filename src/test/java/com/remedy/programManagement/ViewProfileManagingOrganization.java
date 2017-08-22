@@ -31,8 +31,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
-		System.out.println(result.trim().replace(",", ""));
-		Assert.assertEquals(result.trim().replace(",", ""), text);
+		Assert.assertEquals(result.replace(",", "").trim(), text);
 	}
 	
 	public void iVerifyOrganizationPresentUnderManagingOrganization(String org) {
