@@ -68,7 +68,7 @@ Feature: Complete CARL button
     Then I save and continue the complete CARL form
     Then I close the patient summary Page
     And I wait for 3000 milli seconds
-    Then I verify CARL button is appearing on the patient card or not
+    Then I verify CARL button is "appearing" on the patient card 
     Then I click on the searched name on the patient card
     Then I wait for 12000 milli seconds
     Then I click on the Clinical Documents tab in the patient summary Page
@@ -83,7 +83,7 @@ Feature: Complete CARL button
     Then I click on the Clinical Documents tab in the patient summary Page
     Then I verify that if user submits a patient form status should be read as Active
     Then I close the patient summary Page
-    Then I verify CARL button is appearing on the patient card or not
+    Then I verify CARL button is "appearing" on the patient card
     Then I click on the searched name on the patient card
     Then I will wait to see and click on "Transitions" followed by "span" tag
     Then I switch to PatientTransitions frame

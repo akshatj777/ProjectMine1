@@ -252,6 +252,10 @@ public class ReadmissionWorklist extends BaseClass {
 		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
 		actions.moveToElement(driver.findElement(By.cssSelector("li.select2-highlighted"))).click().perform();
 		
+	}
+
+	public void Iremovethedischargedateonthetransitionpage() {
+		clickElement(driver.findElement(By.cssSelector("div.field-admitDate.form-group.row > div > div > span:nth-child(3) > button > i")));
 	}	
     }
 		

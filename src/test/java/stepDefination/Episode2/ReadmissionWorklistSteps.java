@@ -159,4 +159,9 @@ public class ReadmissionWorklistSteps extends DriverScript {
 		admission.Iselectthefacilityonaddanewtransition(admissiontype,facilityvalue,locator);
 	}
 	
+	@Then ("^I remove the discharge date on the transition page$")
+	public void I_remove_the_discharge_date_on_the_transition_page()
+	{
+		admission.Iremovethedischargedateonthetransitionpage();
+	}
 }
