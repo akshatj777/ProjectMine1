@@ -18,8 +18,8 @@ Scenario Outline: User should be able to verify physician report appearing under
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     
     Examples: 
-      | email                              | Menu 1     |
-      | shutestaug231132a@yopmail.com      | Dashboards |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
       
 Scenario Outline: Verify clicking on attributed physician name is opening scorecard dashboard
    
@@ -38,8 +38,17 @@ Scenario Outline: Verify clicking on attributed physician name is opening scorec
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     When I click the first name under attributed physican column
+    And I switch to new window
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    Then I verify "Episodes (Eps)" scorecard is appearing under performance scorecard
+    Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
+    Then I verify "% Disch to SNF" scorecard is appearing under performance scorecard
+    Then I verify "SNF Days" scorecard is appearing under performance scorecard
+    Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
     
     Examples: 
-      | email                              | Menu 1     |
-      | shutestaug231132a@yopmail.com      | Dashboards |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
    

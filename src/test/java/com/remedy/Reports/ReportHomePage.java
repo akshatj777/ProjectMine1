@@ -952,7 +952,20 @@ public class ReportHomePage extends BaseClass {
         verifyTextForElement(driver.findElement(By.cssSelector("#tableTitleObj")), text);
     }
     
-    public void iClickOnFirstNameUnderAttributedPhysicianColumn(){
+    public void iClickOnFirstNameUnderAttributedPhysicianColumn() throws InterruptedException {
+    	Thread.sleep(20000);
     	clickElement(driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr:first-child>td:first-child")));
+    }
+    
+    public void iWillWaitToSeeAfterClickingAttributedPhysicianName(String text){
+    	iWillWaitToSee(By.xpath("//div[contains(text(),'"+text+"')]"));
+    }
+    
+    public void iVerifyScorecardsUnderPerformanceScoreCardDashboard(){
+    	isElementVisible(driver.findElement(By.cssSelector("#topKPIRow>div")));
+    }
+    
+    public void iVerifyScorecardUnderPerformanceScorecard(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]/ancestor::div[@class='templateRow']")));
     }
 }

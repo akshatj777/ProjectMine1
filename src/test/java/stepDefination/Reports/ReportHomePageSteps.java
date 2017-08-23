@@ -1202,4 +1202,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_the_first_name_under_attributed_physician_column() throws Throwable{
     	reportHomePage.iClickOnFirstNameUnderAttributedPhysicianColumn();
     }
+    
+    @And("^I will wait to see \"([^\"]*)\" in the newly opened tab after clicking attributed physician$")
+    public void i_will_wait_to_see_in_the_newly_opened_tab_after_clicking_attributed_physician(String text) throws Throwable{
+    	reportHomePage.iWillWaitToSeeAfterClickingAttributedPhysicianName(text);
+    }
+    
+    @Then("^I verify scorecards appearing on performance scorecard dashboard page$")
+    public void i_verify_scorecards_appearing_on_the_performance_scorecard_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyScorecardsUnderPerformanceScoreCardDashboard();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" scorecard is appearing under performance scorecard$")
+    public void i_verify_scorecard_is_appearing_under_performance_scorecard(String text) throws Throwable{
+    	reportHomePage.iVerifyScorecardUnderPerformanceScorecard(text);
+    }
 }
