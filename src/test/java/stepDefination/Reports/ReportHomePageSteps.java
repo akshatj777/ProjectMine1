@@ -1157,4 +1157,34 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_wait_until_loading_message_disappears_inside_frame_in_reports() throws Throwable{
     	reportHomePage.iWaitUntillLoadingMessageDisappearsIndideFrameInReports();
     }
+    
+    @And("^I click on \"([^\"]*)\" in the filter value list for anchor facility$")
+    public void i_click_on_in_the_filter_value_list_for_anchor_facility(String filterText) throws Throwable {
+         reportHomePage.iClickOnAnchorFacilityTextFromFilterValueListSingleQuotes(filterText);
+    }
+    
+    @Then("^I click on \"([^\"]*)\" appearing in the new window after clicking on drill through$")
+    public void i_click_on_select_column_appearing_in_new_window_after_clicking_on_drill_through(String text) throws Throwable{
+    	reportHomePage.iClickOnSelectColumnInNewWindowAfterClikingDrillThrough(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" title is appearing on popup after clicking select columns$")
+    public void i_verify_title_is_appearing_on_popup_after_clicking_select_columns(String text) throws Throwable{
+    	reportHomePage.iVerifyTitleOnPopupAfterClickingSelectColumns(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" checkbox in the popup of select drill through columns$")
+    public void i_click_checkbox_of_selectdrill_through_columns_popup(String text) throws Throwable{
+    	reportHomePage.iClickOnCheckBoxInEpisodeDrillThroughPopUp(text);
+    }
+    
+    @And("^I click on ok button after selecting drill through column$")
+    public void i_click_on_ok_button_after_selecting_drill_through_column() throws Throwable {
+        reportHomePage.iClickOkButtonFromFilterModal();
+    }
+    
+    @When("^I enter \"([^\"]*)\" in the search field box under select drill through columns$")
+    public void i_enter_in_the_search_field_box_under_select_drill_through_columns(String text) throws Throwable{
+    	reportHomePage.iEnterValueInTextBoxUnderSelectDrillThroughColumns(text);
+    }
 }
