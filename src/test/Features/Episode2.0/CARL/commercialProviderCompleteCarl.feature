@@ -302,7 +302,6 @@ Feature: As an EMBLEM associated provider I would like to complete the CARL form
     Then I click on Done button present on the Filter Page
     Then I verify CARL button is "not appearing" on the patient card
 
-    
   Scenario: While patient is showing "complete carl" with active episode M2 in anchor admission with CARL scenarios save/submit without discharge date
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
@@ -384,9 +383,8 @@ Feature: As an EMBLEM associated provider I would like to complete the CARL form
     Then I click on Done button present on the Filter Page
     Then I scroll the page to bottom by "-100"
     Then I verify CARL button is "not appearing" on the patient card
-    
-  Scenario: While patient is showing "complete carl" with active episode M2 in anchor admission with CARL scenarios save/submit with discharge date   
-    
+
+  Scenario: While patient is showing "complete carl" with active episode M2 in anchor admission with CARL scenarios save/submit with discharge date
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -474,4 +472,3 @@ Feature: As an EMBLEM associated provider I would like to complete the CARL form
     Then I click on Done button present on the Filter Page
     Then I scroll the page to bottom by "-100"
     Then I verify CARL button is "appearing" on the patient card
-    

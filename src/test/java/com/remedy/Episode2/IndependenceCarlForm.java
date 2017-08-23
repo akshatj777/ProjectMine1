@@ -88,12 +88,12 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IverifyCARLRecommendationfieldondischargesection(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector("p.info-message.text-bold-700")),text);
+		verifyTextForElement(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")),text);
 		
 	}
 
 	public void IverifytextnotpresentonCARLRecommendationfieldondischargesection(String text) {
-		Assert.assertNotEquals(driver.findElement(By.cssSelector("p.text-bold-700.ng-scope")).getText(), text);
+		Assert.assertNotEquals(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")).getText(), text);
 	}
 
 }

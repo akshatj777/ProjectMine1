@@ -195,4 +195,17 @@ public class SummarySectionSteps extends DriverScript {
 	{
 		patientclinical.Ienterfiltervalueunderfilter();
 	}
+	
+	@Then ("^I will wait to see \"([^\"]*)\" appearing in the \"([^\"]*)\" \"([^\"]*)\" column in row \"([^\"]*)\" in Document table in Clinical Documents$")
+	public void I_will_wait_to_see_link_appearing_in_document_table(String text,String Document_head,int column,int row)
+	{
+		patientclinical.Iwillwaittoseelinkappearingindocumenttable(text,Document_head,column,row);
+	}
+	
+	@Then ("^I will click on \"([^\"]*)\" appearing in the \"([^\"]*)\" \"([^\"]*)\" column in row \"([^\"]*)\" in Document table in Clinical Documents$")
+	public void I_will_click_on_link_appearing_in_document_table(String text,String Document_head,int column,int row)
+	{
+		patientclinical.Iwillclickonlinkappearingindocumenttable(text,Document_head,column,row);
+	}
+	
 }

@@ -25,6 +25,7 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I wait for 3000 milli seconds
     Then I wait to the see the visibility of loader to disappear
     Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
     Then I will wait to see "Transition Info" followed by "a" tag
     Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "8" days
@@ -76,7 +77,7 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I select "Finger Stick" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "More than once daily" radio option under "Finger Stick" for Transition Care Needs
     Then I select "Wound Care" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily or less often" radio option under "Finger Stick" for Transition Care Needs
+    Then I click "Once daily or less often" radio option under "Wound Care" for Transition Care Needs
     Then I save and continue the complete CARL form
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
     Then I verify CARL Recommendation field should show "Home with Limited Services (HOM)" on discharge section when total score is "less than or equal to 16"
@@ -115,8 +116,8 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I wait for 3000 milli seconds
     Then I wait to the see the visibility of loader to disappear
     Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
     Then I will wait to see "Transition Info" followed by "a" tag
-    Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "8" days
     Then I wait to the see the visibility of loader to disappear
     Then I select the care setting value "HHH - Hospital" on add a new transition
@@ -166,7 +167,7 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I select "Finger Stick" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "More than once daily" radio option under "Finger Stick" for Transition Care Needs
     Then I select "Wound Care" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily or less often" radio option under "Finger Stick" for Transition Care Needs
+    Then I click "Once daily or less often" radio option under "Wound Care" for Transition Care Needs
     Then I save and continue the complete CARL form
     Then I click on "Discharge" section on left navigator
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
@@ -275,7 +276,7 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I select "Finger Stick" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "More than once daily" radio option under "Finger Stick" for Transition Care Needs
     Then I select "Wound Care" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "Once daily or less often" radio option under "Finger Stick" for Transition Care Needs
+    Then I click "Once daily or less often" radio option under "Wound Care" for Transition Care Needs
     Then I select "CPAP" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "Existing" radio option under "CPAP" for Transition Care Needs
     Then I select "BIPAP" checkbox for Transition of Care Needs on Anticipated Discharge Needs

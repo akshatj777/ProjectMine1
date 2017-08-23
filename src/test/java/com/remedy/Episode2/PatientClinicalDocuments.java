@@ -73,6 +73,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IsaveandcontinuethecompleteCARLform() {
+		delay();
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Save & Continue')]")));
 	}
 
@@ -198,6 +199,7 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void ThenIclickonaddanewtransitiontoaddanewepisode() {
 		try{
+			delay();
 			iWillWaitToSee(By.cssSelector("#btnNewTransition"));
 			clickElement(driver.findElement(By.cssSelector("#btnNewTransition")));
 		}catch(Exception e){
@@ -509,6 +511,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IclickontheCancelbuttononEpisodepresentontheAddPatientpage() {
+		iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 	}
 
@@ -725,6 +728,29 @@ public class PatientClinicalDocuments extends BaseClass {
 			iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
 			iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")),attribute_value);
 			
+		}
+
+		public void Iwillwaittoseelinkappearingindocumenttable(String text, String document_head, int column, int row) {
+		
+			if(column==1)
+			{
+		    iWillWaitToSee(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/a/span[contains(text(),'"+text+"')]"));
+			isElementVisible(driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/a/span[contains(text(),'"+text+"')]")));
+			}else if(column==2)
+			{
+				iWillWaitToSee(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/span[contains(text(),'"+text+"')]"));
+				isElementVisible(driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/span[contains(text(),'"+text+"')]")));
+			}
+		}
+
+		public void Iwillclickonlinkappearingindocumenttable(String text, String document_head, int column, int row) {
+			if(column==1)
+			{
+			clickElement(driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/a/span[contains(text(),'"+text+"')]")));
+			}else if(column==2)
+			{
+		    clickElement(driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/span[contains(text(),'"+text+"')]")));
+			}
 		}
 
 	

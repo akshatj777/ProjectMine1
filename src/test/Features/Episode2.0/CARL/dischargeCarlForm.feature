@@ -132,7 +132,7 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
   And I wait for 4000 milli seconds
   Then I click on "Discharge" section on left navigator
-    Then I verify No  server error should appear if user edits and saves the subform with new values
+  Then I verify No  server error should appear if user edits and saves the subform with new values
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(HHH) Hospital" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
@@ -174,7 +174,7 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I verify the correct "CareSetting" "(HOM) Home" which user has selected by the time of filling the form should appearing after saving the done form
   Then I verify the correct "DischargeLocation" "No Discharge Facility" which user has selected by the time of filling the form should appearing after saving the done form
   Then I click on edit button to update the values of discharge subform under discharge test in Carl form
-      Then I verify No  server error should appear if user edits and saves the subform with new values
+  Then I verify No  server error should appear if user edits and saves the subform with new values
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(EXPIRED) Expired" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on Calendar Icon On Discharge date under subform on Discharge section
