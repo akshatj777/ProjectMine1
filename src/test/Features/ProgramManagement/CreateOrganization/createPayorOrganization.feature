@@ -26,12 +26,12 @@ Feature: User completes entering Payor Organization details during creation proc
     And I enter <Contact_Phone> in "Contact Phone" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I enter <EIN> in "EIN" on create organization page
-
-    #Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+    And I provide unique EIN in "EIN" on create organization page
+    Then I click on "Submit" button on create organization page
+    Then I verify "Success! Payor Organization Successfully Created." after submitting the create ogranization page
     Examples: 
-      | Payor_Org_Name | Contact_Person    | Contact_Email                | Contact_Phone | Address1 | Address2  | City      | State    | Postal_Code | EIN    |
-      | OrgPayor       | TestContactPerson | contactemailtest@example.com |    1234569870 | Block C  | Street XV | New jersy | New York |       10045 | 155646 |
+      | Payor_Org_Name | Contact_Person    | Contact_Email                | Contact_Phone | Address1 | Address2  | City      | State    | Postal_Code |
+      | OrgPayor       | TestContactPerson | contactemailtest@example.com |    1234569870 | Block C  | Street XV | New jersy | New York |       10045 |
 
   @Smoke
   Scenario Outline: Create a Payor organization with valid data
@@ -45,7 +45,8 @@ Feature: User completes entering Payor Organization details during creation proc
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    #Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+    Then I click on "Submit" button on create organization page
+    Then I verify "Success! Payor Organization Successfully Created." after submitting the create ogranization page
 
     Examples: 
       | Payor_Org_Name | Address1 | City       | State    | Postal_Code |

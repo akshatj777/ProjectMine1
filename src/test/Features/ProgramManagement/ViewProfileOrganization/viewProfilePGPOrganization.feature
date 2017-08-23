@@ -16,6 +16,7 @@ Feature: User is able to view a PGP Organization's Profile
     And I see "1 Organization" search count on organization
     And I click <PGP_Name> field in search list on organization page
     And I verify <Address1> in "address1" on view profile of "PGP" Organization
+    And I verify <Address2> in "address2" on view profile of "PGP" Organization
     And I verify <City> in "city" on view profile of "PGP" Organization
     And I verify <State> in "state" on view profile of "PGP" Organization
     And I verify <Postal_Code> in "zip" on view profile of "PGP" Organization
@@ -24,7 +25,7 @@ Feature: User is able to view a PGP Organization's Profile
     And I verify Managing Organization name <MO_Name> on view profile of "PGP" organization
     And I verify Participant Id <ParticipantId> on view profile of "PGP" Organization
 
-    #ShortName and Region in present for now
+    #ShortName and Region,Market in present for now
     Examples: 
-      | PGP_Name            | MO_Name               | ParticipantId | Address1 | City      | State | Postal_Code | EIN/TIN    | NPI        |
-      | TestPGPOrganization | TestManagingOrgedited |       4571253 | street2, | new york, | NY    |       10052 | 9876543210 | 1234567890 |
+      | PGP_Name              | MO_Name            | ParticipantId | Address1 | Address2 | City   | State | Postal_Code | EIN/TIN  | NPI       |
+      | Automate PGP Org Name | Automate Manag Org |            26 | Street A | Street B | City A | FL    |       10002 | 12131410 | 101312110 |

@@ -34,4 +34,4 @@ Feature: User is able to view a Hospital Organization's Profile
 
     Examples: 
       | Hosp_Name             | Address1  | Address2 | City  | State | Postal_Code | CCN      | EIN/TIN  | NPI      | Region    | Market  | MO_Name           | Participant_Id |
-      | Automate Hospital Org | ABC Block | X Stree  | New A | CT    |       50002 | 10121314 | 10111213 | 10121213 | SouthEast | Florida | Automate Mang Org |             26 |
+      | Automate Hospital Org | ABC Block | X Street | New A | CT    |       50002 | 10121314 | 10111213 | 10121213 | SouthEast | Florida | Automate Mang Org |             26 |

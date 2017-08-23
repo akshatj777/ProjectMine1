@@ -15,6 +15,7 @@ Feature: verify the UI under Payor organization for profile page , edit page and
     And I see "1 Organization" search count on organization
     And I click <Payor_Name> field in search list on organization page
     And I verify <Address1> in "address1" on view profile of "Payor" Organization
+    And I verify <Address2> in "address2" on view profile of "Payor" Organization
     And I verify <City> in "city" on view profile of "Payor" Organization
     And I verify <State> in "state" on view profile of "Payor" Organization
     And I verify <Postal_Code> in "zip" on view profile of "Payor" Organization
@@ -22,6 +23,7 @@ Feature: verify the UI under Payor organization for profile page , edit page and
     And I verify <C_Phone> in "contact-phone" on view profile of "Payor" Organization
     And I verify <C_Email> in "contact-email" on view profile of "Payor" Organization
 
+# EIN is not present on UI for View
     Examples: 
-      | Payor_Name    | Address1   | City   | State | Postal_Code | C_Name     | C_Phone | C_Email            |
-      | Test Payorone | Addressone | Albany | NY    |       45006 | cpersonone | Cperson | cemail@yopmail.com |
+      | Payor_Name              | Address1 | Address2 | City    | State | Postal_Code | C_Name      | C_Phone    | C_Email                   |
+      | Automate Payor Org Name | Street A | Street B | City SA | FL    |       45464 | Automate CP | 7879747576 | Automateemail@yopmail.com |

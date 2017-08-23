@@ -63,14 +63,14 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifyNPIOnViewProfilePGPOrganization(String num) {
 		if(isElementPresentOnPage(By.cssSelector(".id-npi"))) {	
 			String text = getTextForElement(driver.findElement(By.cssSelector(".id-npi"))); 
-		    Assert.assertEquals("NPI: "+num,text.replace("|",""));
+		    Assert.assertEquals("NPI: "+num,text.replace("|","").trim());
 			}
 	}
 	
 	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {
 		if(isElementPresentOnPage(By.cssSelector(".id.market-name"))) {
 		String text = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view>.id.market-name"))); 
-        Assert.assertEquals("Managing Organization: "+name,text.replace("|",""));
+        Assert.assertEquals("Managing Organization: "+name,text.replace("|","").trim());
 	        }
     }
 }

@@ -27,11 +27,11 @@ Feature: User completes inputting PGP Organization details during creation,
     And I enter <Market> in Market on "create" organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I enter <EIN> in "EIN" on create organization page
-    And I enter <NPI> in "NPI" on create organization page
-    Then I click on "Submit" button on create organization page
-    Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+    And I provide unique EIN in "EIN" on create organization page
+    And I provide unique NPI in "NPI" on create organization page
+    #Then I click on "Submit" button on create organization page
+    #Then I verify "Success! PGP Organization Successfully Created." after submitting the create ogranization page
 
     Examples: 
-      | MO_Name    | PGP_Org_Name | Short_Name | Region | Market     | Address1  | Address2   | City | State    | Postal_Code | EIN        | NPI        |
-      | MONameTest | PGP1ORG      | Shrt1Name  | West   | Oil States | Floor 9th | Building E | Test | New York |       10000 | 1234567890 | 7894561230 |
+      | MO_Name               | PGP_Org_Name | Short_Name | Region | Market     | Address1  | Address2   | City | State    | Postal_Code | 
+      | 26 Automate Manag Org | PGP1ORG      | Shrt1Name  | West   | Oil States | Floor 9th | Building E | Test | New York |       10000 |

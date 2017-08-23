@@ -25,9 +25,9 @@ Feature: User completes entering Hospital Organization details during creation p
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I enter <CCN> in "CCN" on create organization page
-    And I enter <EIN> in "EIN" on create organization page
-    And I enter <NPI> in "NPI" on create organization page
+    And I provide unique CCN in "CCN" on create organization page
+    And I provide unique EIN in "EIN" on create organization page
+    And I provide unique NPI in "NPI" on create organization page
     Then I verify "Location 1" on "create" SNF organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <LAddress1> for Location "1" on "create" organization page
@@ -38,8 +38,8 @@ Feature: User completes entering Hospital Organization details during creation p
     And I enter market <LMarket> for Location "1" on "create" organization page
     And I enter state <LState> for Location "1" on "create" organization page
     And I enter zip <LPostal_Code> for Location "1" on "create" organization page
-
-    #Submit is not included for now!!
+    Then I click on "Submit" button on create organization page
+    Then I verify "Success! Hospital Organization Successfully Created." after submitting the create ogranization page
     Examples: 
-      | MO_Name  | Hosp_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | CCN    | EIN    | NPI       | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code |
-      | 16 MName | ACH           | Address  | Short      | Addresss | Cy   | New York |       40045 | 123456 | 789456 | 456789123 | Loc_Name | LBlockA   | Swing bed | bBlockLoc | West    | CityL | Oil States | New York |        40006 |
+      | MO_Name               | Hosp_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code |
+      | 26 Automate Manag Org | ACH           | Address  | Short      | Addresss | Cy   | New York |       40045 | Loc_Name | LBlockA   | Swing bed | bBlockLoc | West    | CityL | Oil States | New York |        40006 |

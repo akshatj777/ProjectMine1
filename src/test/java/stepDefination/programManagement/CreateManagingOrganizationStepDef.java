@@ -43,6 +43,21 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iEnterDetailsInFieldsOnCreateOrganizationPage(text,field);
 	    }
 	 
+	 @And("^I provide unique CCN in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_CNN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
+		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
+	    }
+	 
+	 @And("^I provide unique NPI in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
+		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
+	    }
+	 
+	 @And("^I provide unique EIN in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
+		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
+	    }
+	 
 	 @And("^I select ([^\"]*) in State on create organization page$")
 	  public void i_Selecct_State_FromDropDown_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iSelectStateFromDropDownOnCreateOrganizationPage(text);

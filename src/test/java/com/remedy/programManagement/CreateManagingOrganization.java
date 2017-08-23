@@ -3,9 +3,6 @@ package com.remedy.programManagement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
-import org.jboss.netty.channel.socket.ClientSocketChannelFactory;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,10 +15,6 @@ import com.remedy.baseClass.BaseClass;
 
 public class CreateManagingOrganization extends BaseClass {
 
-	public CreateManagingOrganization(WebDriver driver) {
-		super(driver);
-	}
-	
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	DateFormat datef = new SimpleDateFormat("ddMMyy");
 	Date ts = new Date();
@@ -31,10 +24,14 @@ public class CreateManagingOrganization extends BaseClass {
 	final String time = df.format(timestamp);
 	static String orgName;
 	
+	public CreateManagingOrganization(WebDriver driver) {
+		super(driver);
+	}
+	
 	public void iClickOnCreateNewOrgButtonOnProgramManagementHomepage() {
-		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-		 clickElement(driver.findElement(By.cssSelector("button[name='createNewOrg']")));
-		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		clickElement(driver.findElement(By.cssSelector("button[name='createNewOrg']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
 	public void iVerifyHeaderTextOnCreateOrganizationPage(String text) {
@@ -68,13 +65,17 @@ public class CreateManagingOrganization extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text+time);
 		}
 		else {
-			//System.out.println(((int)(Math.random()*10000))+timef);
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
 		}
+			
 	}	
 	
+	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String field) {
+		String num = (int)(Math.random()*10000)+timef;
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), num);
+	}
+	
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
-		//driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();;
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
