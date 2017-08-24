@@ -968,4 +968,48 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyScorecardUnderPerformanceScorecard(String text){
     	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]/ancestor::div[@class='templateRow']")));
     }
+    
+    public void iVerifyInitiallyTop100PhysiciansLoaded(String text){
+    	isElementVisible(driver.findElement(By.xpath("//*[@id='performanceTableObjTable_info'][contains(text(),'"+text+"')]")));
+    }
+    
+    public void iVerifyPhysicianCountUnderAttributedPhysicians(int count){
+    	verifyElementCount(("td.column0.string"), count);
+    }
+    
+    public void iVerifyDiffernetCountButtonsOnDashboardPhyisician(String text){
+    	verifyTextForElementFromListByXpath("//button[@name='render_phyRangeSelectorButton']", text);
+    }
+    
+    public void iVerifyPaginationIsPresentAboveOnDashboardPhysicianPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("#performanceTableObjTable_paginate")));
+    }
+    
+    public void iVerifyTabsAppearingUnderPaginationOnAbovePagination(String text){
+    	verifyTextForElementfromList(".paginate_button", text);
+    }
+    
+    public void iVerifyPaginationIsPresentBottomOnDashboardPhysicianPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".col-sm-7>div")));
+    }
+    
+    public void iVerifyTabsAppearingUnderPaginationOnBelowPagination(String text){
+    	verifyTextForElementfromList(".col-sm-7>div>a", text);
+    }
+    
+    public void iVerifyOneToHundreadAbovePhysicians(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#performanceTableObjTable_info")),text);
+    }
+    
+    public void iVerifyOneToHundreadBelowPhysicians(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("(//div[@class='dataTables_info'])[2]")),text);
+    }
+    
+    public void iVerifyFilternameAppearingInScorecardPage(String text){
+    	verifyTextForElementFromListByXpath("//div[@class='filter-title']", text);
+    }
+    
+    public void iVerifyFilterBoxAppearingInScorecardPage(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
+    }
 }

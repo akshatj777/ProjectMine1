@@ -1217,4 +1217,59 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_scorecard_is_appearing_under_performance_scorecard(String text) throws Throwable{
     	reportHomePage.iVerifyScorecardUnderPerformanceScorecard(text);
     }
+    
+    @Then("^I verify initially top \"([^\"]*)\" physicians are loaded$")
+    public void i_verify_initially_top_physicians_are_loaded(String text) throws Throwable{
+    	reportHomePage.iVerifyInitiallyTop100PhysiciansLoaded(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" physicians are present under attributed physician column on dashboard physician report$")
+    public void i_verify_physician_count_under_attributed_physician_column_on_dashboard_physician_report(int count) throws Throwable{
+    	reportHomePage.iVerifyPhysicianCountUnderAttributedPhysicians(count);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" count button appearing on the dashborad physician page$")
+    public void i_verify_count_button_appearing_on_the_dashboard_physician_page(String text) throws Throwable{
+    	reportHomePage.iVerifyDiffernetCountButtonsOnDashboardPhyisician(text);
+    }
+    
+    @Then("^I verify pagination section is appearing above of physicians on the dashboard physician page$")
+    public void i_verify_pagination_section_is_appearing_on_the_dashboard_physician_page() throws Throwable{
+    	reportHomePage.iVerifyPaginationIsPresentAboveOnDashboardPhysicianPage();
+    }
+    
+    @And("^I verify \"([^\"]*)\" tab is appearing above physicians inside the pagination section on dashboard physician page$")
+    public void i_verify_tab_is_appearing_inside_the_pagination_section_on_dashboard_physician_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTabsAppearingUnderPaginationOnAbovePagination(text);
+    }
+    
+    @Then("^I verify pagination section is appearing at bottom of physicians on the dashboard physician page$")
+    public void i_verify_pagination_section_is_appearing_at_bottom_of_physician_on_the_dashboard_physician_page() throws Throwable{
+    	reportHomePage.iVerifyPaginationIsPresentBottomOnDashboardPhysicianPage();
+    }
+    
+    @And("^I verify \"([^\"]*)\" tab is appearing below physicians inside the pagination section on dashboard physician page$")
+    public void i_verify_tab_is_appearing_below_physicians_inside_the_pagination_section_on_dashboard_physician_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTabsAppearingUnderPaginationOnBelowPagination(text);
+    }
+    
+    @Then("I verify \"([^\"]*)\" is appearing above physicians on dashboard physician report")
+    public void i_verify_onetohundread_appearing_above_physicians_on_dashboard_physician_report(String text) throws Throwable{
+    	reportHomePage.iVerifyOneToHundreadAbovePhysicians(text);
+    }
+    
+    @Then("I verify \"([^\"]*)\" is appearing below physicians on dashboard physician report")
+    public void i_verify_onetohundread_appearing_below_physicians_on_dashboard_physician_report(String text) throws Throwable{
+    	reportHomePage.iVerifyOneToHundreadBelowPhysicians(text);
+    }
+    
+    @Then("I verify \"([^\"]*)\" is appearing under filter options in newly opened scorecard page")
+    public void i_verify_is_appearing_under_filter_options_in_newly_opened_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyFilternameAppearingInScorecardPage(text);
+    }
+    
+    @Then("I verify \"([^\"]*)\" filter is appearing under filter options under scorecard page")
+    public void i_verify_filter_is_appearing_under_filter_options_under_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyFilterBoxAppearingInScorecardPage(text);
+    }
 }
