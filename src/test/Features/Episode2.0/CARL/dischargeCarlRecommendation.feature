@@ -81,7 +81,11 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I save and continue the complete CARL form
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
     Then I verify CARL Recommendation field should show "Home with Limited Services (HOM)" on discharge section when total score is "less than or equal to 16"
-    Then I verify a legal message should appear when Carl recommendation field show Home with Limited Services
+    Then I close the patient summary Page
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I click on the complete CARL on the Patient Summary
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    And I wait for 2000 milli seconds
     Then I click on "Independence" section on left navigator
     Then I will wait to see the CARL section "Independence" header appears on the CARL form
     Then I click on "Ambulatory Status" dropdown on Independece Section
@@ -172,6 +176,11 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I click on "Discharge" section on left navigator
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
     Then I verify CARL Recommendation field should show "Home Health Agency (HHA)" on discharge section when total score is "equal to 17"
+    Then I close the patient summary Page
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I click on the complete CARL on the Patient Summary
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    And I wait for 2000 milli seconds
     Then I click on "Independence" section on left navigator
     Then I will wait to see the CARL section "Independence" header appears on the CARL form
     Then I click on "Cognitive Status" dropdown on Independece Section
@@ -180,6 +189,10 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I click on "Discharge" section on left navigator
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
     Then I verify CARL Recommendation field should show "Home Health Agency (HHA)" on discharge section when total score is "greater than 17(equal to 18)"
+    Then I close the patient summary Page
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I click on the complete CARL on the Patient Summary
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     Then I click on "Anticipated Discharge Needs" section on left navigator
     Then I will wait to see the CARL section "Anticipated Discharge Needs" header appears on the CARL form
     Then I select "CPAP" checkbox for Transition of Care Needs on Anticipated Discharge Needs
@@ -190,6 +203,10 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I click on "Discharge" section on left navigator
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form
     Then I verify CARL Recommendation field should show "Home Health Agency (HHA)" on discharge section when total score is "less than 25(equal to 24)"
+    Then I close the patient summary Page
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I click on the complete CARL on the Patient Summary
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     Then I click on "Independence" section on left navigator
     Then I will wait to see the CARL section "Independence" header appears on the CARL form
     Then I click on "Activities of Daily Living" dropdown on Independece Section
@@ -284,7 +301,7 @@ Feature: As a user, I would like to see the recommended next site of care within
     Then I select "New disease process or diagnosis" checkbox for Transition of Care Needs on Anticipated Discharge Needs
     Then I click "One" radio option under "New disease process or diagnosis" for Transition Care Needs
     Then I select "New discharge medication" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    Then I click "One" radio option under "CPAP" for Transition Care Needs
+    Then I click "One" radio option under "New discharge medication" for Transition Care Needs
     Then I save and continue the complete CARL form
     Then I click on "Discharge" section on left navigator
     Then I will wait to see the CARL section "Discharge" header appears on the CARL form

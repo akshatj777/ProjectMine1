@@ -511,10 +511,11 @@ public class PatientsPage extends BaseClass {
 	public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
 		clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
 		selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
+		delay();
 	}
 
 	public void iClickOnAdmittingFacilityPresentOnTheAddPatientPage() {
-		clickElement(driver.findElement(By.cssSelector("a.select2-choice.select2-default")));
+		clickElement(driver.findElement(By.cssSelector("div.select2-container.admin_facilities_user.form-control")));
 	}
 
 	public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
@@ -530,6 +531,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
+		longDelay();
+		iWillWaitToSee(By.cssSelector("button#submitButton"));
 		clickElement(driver.findElement(By.cssSelector("button#submitButton")));
 	}
 
@@ -560,6 +563,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyTextIsPresentOnTheAddPatientPage(String text) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[text()='" + text + "']"));
 		isElementVisible(driver.findElement(By.xpath("//*[text()='" + text + "']")));
 	}
 
@@ -950,7 +955,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
-
+        longDelay();
+		iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 	}
 

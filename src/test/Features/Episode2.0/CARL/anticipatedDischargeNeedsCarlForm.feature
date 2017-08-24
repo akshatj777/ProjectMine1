@@ -5,7 +5,6 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
     Then I verify current page "Remedy Partners" title
@@ -63,13 +62,11 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I click on "Anticipated Discharge Needs" section on left navigator
     And I wait for 4000 milli seconds
     Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
-    And I wait for 3000 milli seconds
     Then I verify "Physical therapy" checkbox is clickable
     Then I verify "Speech and language" checkbox is clickable
     Then I verify "Occupational therapy" checkbox is clickable
     Then I verify "None" checkbox is not clickable
     Then I click "Physical therapy" checkbox under Therapies Needed on Anticipated Discharge Needs section
-    And I wait for 3000 milli seconds
     Then I click "None" checkbox under Therapies Needed on Anticipated Discharge Needs section
     Then I verify "Physical therapy" checkbox is not clickable
     Then I verify "Speech and language" checkbox is not clickable
@@ -101,13 +98,11 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I click on Physical Therapy dropdown on Patients Restoration Potential
     And I wait for 3000 milli seconds
     Then I verify "Select" text in place holder of Physical Therapy dropdown on Patients Restoration Potential
-    And I wait for 3000 milli seconds
     Then I verify "Good restoration potential" option in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I verify "Questionable restoration potential" option in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I verify "Poor restoration potentia" option in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I select "Good restoration potential" in Physical Therapy dropdown on Anticipated Discharge Needs
     Then I verify "Good restoration potential" is selected in Physical Therapy place holder on Anticipated Discharge Needs
-    And I wait for 2000 milli seconds
 
   Scenario Outline: To verify the options present under Transition of Care Needs on the Anticicpated section of the Carl Form
     Given I am on the login page
@@ -127,20 +122,14 @@ Feature: To verify the options and functionality of Anticipated Discharge Needs 
     Then I click on the complete CARL on the Patient Summary
     Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
     Then I click on "Anticipated Discharge Needs" section on left navigator
-    And I wait for 2000 milli seconds
     Then I select "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs
-    And I wait for 1000 milli seconds
     Then I verify upon select "<Check>" checkbox sub field section appears for Transition of Care Needs
     Then I verify on selecting "<Check>" requierd field "<Label>" appears for Transition of Care Needs
     Then I verify "<Radio1>" radio option appears under "<Check>" for Transition Care Needs
-    And I wait for 1000 milli seconds
     Then I verify "<Radio2>" radio option appears under "<Check>" for Transition Care Needs
-    And I wait for 1000 milli seconds
     Then I click "<Radio1>" radio option under "<Check>" for Transition Care Needs
-    And I wait for 1000 milli seconds
     Then I verify "<Radio1>" radio option is checked under "<Check>" for Transition Care Needs
     Then I click "<Radio2>" radio option under "<Check>" for Transition Care Needs
-    And I wait for 1000 milli seconds
     Then I verify "<Radio2>" radio option is checked under "<Check>" for Transition Care Needs
     Then I verify "<Radio1>" radio option is not checked under "<Check>" for Transition Care Needs
     Then I uncheck "<Check>" checkbox for Transition of Care Needs on Anticipated Discharge Needs

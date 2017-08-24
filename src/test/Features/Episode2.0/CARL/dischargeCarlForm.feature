@@ -74,7 +74,7 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I verify second question "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
   Then I verify "Who disagrees?" dropdown for "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
   Then I verify "Reason for Disagreement" dropdown for "Why didn't the patient transfer to the recommended Next Site of Care?" under Discharge section
-    Then I verify "Additional Comments" section below "Why didn't the patient transfer to the recommended Next Site of Care" question under Discharge section
+  Then I verify "Additional Comments" section below "Why didn't the patient transfer to the recommended Next Site of Care" question under Discharge section
   Then I verify the legal messages appears with an i icon under Discharge section
   Then I Verify that Clicking done should show a read only field with the information filled
   
@@ -132,7 +132,6 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
   And I wait for 4000 milli seconds
   Then I click on "Discharge" section on left navigator
-  Then I verify No  server error should appear if user edits and saves the subform with new values
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(HHH) Hospital" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
@@ -150,7 +149,6 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I verify the correct "Caretype" "Inpatient" which user has selected by the time of filling the form should appearing after saving the done form
   Then I verify the correct "DischargeLocation" "Allentown" which user has selected by the time of filling the form should appearing after saving the done form
   Then I click on edit button to update the values of discharge subform under discharge test in Carl form
-  Then I verify No  server error should appear if user edits and saves the subform with new values
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(UNK) Unknown" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on Calendar Icon On Discharge date under subform on Discharge section
@@ -162,7 +160,7 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I verify the correct "CareSetting" "(UNK) Unknown" which user has selected by the time of filling the form should appearing after saving the done form
   Then I verify the correct "DischargeLocation" "No Discharge Facility" which user has selected by the time of filling the form should appearing after saving the done form
   Then I click on edit button to update the values of discharge subform under discharge test in Carl form
-     Then I verify No  server error should appear if user edits and saves the subform with new values
+     
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(HOM) Home" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on Calendar Icon On Discharge date under subform on Discharge section
@@ -174,7 +172,6 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I verify the correct "CareSetting" "(HOM) Home" which user has selected by the time of filling the form should appearing after saving the done form
   Then I verify the correct "DischargeLocation" "No Discharge Facility" which user has selected by the time of filling the form should appearing after saving the done form
   Then I click on edit button to update the values of discharge subform under discharge test in Carl form
-  Then I verify No  server error should appear if user edits and saves the subform with new values
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(EXPIRED) Expired" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on Calendar Icon On Discharge date under subform on Discharge section
@@ -288,7 +285,6 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
   Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
   And I wait for 4000 milli seconds
   Then I click on "Discharge" section on left navigator
-   Then I verify No  server error should appear if user edits and saves the subform with new values
   Then I click on "Actual Care Setting" subform dropdown under Recommendation on Discharge section
   Then I select "(SNF) Skilled Nursing Facility" in subform dropdown for "Actual Care Setting" on Discharge section
   Then I click on "Care Type" subform dropdown under Recommendation on Discharge section
@@ -513,3 +509,79 @@ Feature: To verify the options and functionality of Discharge section of Carl fo
     Then I verify "Discharge" section should appear with "Additional Comments" on label "None" on the review page
     Then I verify "Discharge" section should appear with "Reason for disagreement?" on label "Not enough caregiver support" on the review page
     Then I verify "Discharge" section should appear with "Additional Comments" on label "Additional" on the review page
+    
+    Scenario: As a user I would like to Save my progress in the CARL form and return to a previous page by selecting the "Save & Go Back" link 
+    Given I am on the login page
+    When I enter email field qa.emblemrn@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes 2.0
+    When I click on the "Episodes 2.0" tile
+    Then I verify current page "Remedy Partners" title
+    Then I click on the Impatient tab on the patient Card Page
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I get the patient last name who have no CARL button in it
+    Then I will wait to see and click on "Patient Details" followed by "span" tag
+    Then I wait to the see the visibility of loader to disappear
+    Then I switch to PatientTransitions frame
+    Then I will fetch the value attribute of "Social Security Number" on patient details
+    When I switch to default window from iframe
+    Then I will wait to see and click on "Transitions" followed by "span" tag
+    Then I switch to PatientTransitions frame
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 3000 milli seconds
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on add a new transition to add a new episode
+    Then I wait to the see the visibility of loader to disappear
+    Then I will wait to see "Transition Info" followed by "a" tag
+    Then I wait for 3000 milli seconds
+    Then I fill in "Admit" with logic "minus" with "8" days
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I select the facility value "Stamford Hospital" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "61" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I wait for 5000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    Then I wait to the see the visibility of loader to disappear
+    When I switch to default window from iframe
+    Then I wait for 1000 milli seconds
+    Then I close the patient summary Page
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter
+    Then I click on Done button present on the Filter Page
+    Then I scroll the page to bottom by "-100"
+    Then I click on the patient on the patient card page that has no CARL button in it
+    Then I click on the complete CARL on the Patient Summary
+    Then I Verify that Clicking on Complete CARL button Carl form should appear as a takeover page
+    And I wait for 2000 milli seconds
+    Then I will wait to see the CARL section "Caregiver" header appears on the CARL form
+    Then I verify Save and Go Back does not appear on the "Caregiver" section on CARL form
+    Then I click on Yes, 24 hours a day option under Does the patient have a capable caregiver
+    Then I save and continue the complete CARL form
+    Then I click on "Independence" section on left navigator
+    Then I will wait to see the CARL section "Independence" header appears on the CARL form
+    Then I click on "Cognitive Status" dropdown on Independece Section
+    Then I select "Forgetful" option in dropdown for cognitive status
+    Then I click on "Activities of Daily Living" dropdown on Independece Section
+    Then I select "Assistance needed for one or more ADLs" option in dropdown for cognitive status
+    Then I click on "Ambulatory Status" dropdown on Independece Section
+    Then I select "Assistive device needed" option in dropdown for cognitive status
+    Then I click on the Save and Go Back on the "Independence" section on CARL form
+    Then I will wait to see the CARL section "Caregiver" header appears on the CARL form
+    Then I verify on Yes, 24 hours a day option is enabled under Does the patient have a capable caregiver
+    Then I click on "Independence" section on left navigator
+    Then I verify "Forgetful" option appears in dropdown for "Cognitive Status" label on "Independence" on CARL form
+    Then I verify "Assistance needed for one or more ADLs" option appears in dropdown for "Activities of Daily Living" label on "Independence" on CARL form
+    Then I verify "Assistive device needed" option appears in dropdown for "Ambulatory Status" label on "Independence" on CARL form

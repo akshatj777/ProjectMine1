@@ -1,5 +1,9 @@
 package com.remedy.Episode2;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,6 +18,14 @@ import java.util.Random;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.cyberneko.html.HTMLEventInfo.SynthesizedItem;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -31,6 +43,14 @@ public class DischargeCarlForm extends BaseClass {
 	public final static DateFormat df = new SimpleDateFormat("dd");
 	public final static Date timestamp = new Date();
 	public final static String time = df.format(timestamp);
+	private String CHAR_LIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private String INT_LIST = "123456789";
+	private static final int RANDOM_STRING_LENGTH = 5;
+	private static String firstname  = null;
+	private static String lastname  = null;
+	private static String final_ssn  = null;
+	
+	
 	
 	public DischargeCarlForm(WebDriver driver) {
 		super(driver);
@@ -417,8 +437,125 @@ public class DischargeCarlForm extends BaseClass {
 			public void Iverifysectionshouldappearwithvaluefordescriptivetitleonthereviewpage(String section,String label,String descriptive_title,String value) {
 				isElementVisible(driver.findElement(By.xpath("//div[@class='therapies-needed']//div[contains(text(),'"+value+"')]/following-sibling::div/div[contains(text(),'"+label+"')]/following-sibling::div[contains(text(),'"+descriptive_title+"')]")));	
 				}
+
+			
+
+			public void IclickontheSaveandGoBackonsectiononCARLform() {
+				delay();
+				clickElement(driver.findElement(By.xpath("//a[@ng-click='saveCarlAndPrevious($event)']")));			
 				
 			}
+
+			public void Iverifyradiobuttonisenableoncaregiversection() {
+			Assert.assertTrue(driver.findElement(By.cssSelector("section > div:nth-child(2) > div > label > span")).isSelected());
+			}
+
+			
+
+			public void Iverifyoptionappearsindropdownforcarlsection(String option) {
+				isElementVisible(driver.findElement(By.xpath("//span[@class='ui-select-match-text pull-left' and text()='"+option+"']")));	
+			}
+
+			public void IverifySaveandGoBackdoesnotappear() {
+			delay();
+			WebDriverWait wait=new WebDriverWait(driver,5);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@ng-click='saveCarlAndPrevious($event)']")));
+			}
+
+			public void iEnterDetailsInTextboxFieldPresentOnAddPatientModal(String detailFileds) {
+				 String start; 
+				if(detailFileds.equals("firstName"))
+				  {
+				  start="Patient";
+				  String end=generateRandomString();
+				  firstname=start+end;
+				  iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), firstname);
+				  }else
+				  {
+				  start="Automation";
+				  String end=generateRandomString();
+				  lastname=start+end;
+				  iFillInText(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")), lastname);
+				  }
+				 
+				  
+				}
+			
+			  public String generateRandomString(){
+				    StringBuffer randStr = new StringBuffer();
+			        for(int i=0; i<RANDOM_STRING_LENGTH; i++){
+			            int number = getRandomNumber();
+			            char ch = CHAR_LIST.charAt(number);
+			            randStr.append(ch);
+			        }
+			            return randStr.toString();
+			    }
+			     
+			  
+			     
+			    private int getRandomNumber() {
+			        int randomInt = 0;
+			        Random randomGenerator = new Random();
+			        randomInt = randomGenerator.nextInt(CHAR_LIST.length());
+			        if (randomInt - 1 == -1) {
+			            return randomInt;
+			        } else {
+			            return randomInt - 1;
+			        }
+			    }
+			    public void makePostJsonRequest()
+				{
+					 String jsonString="{\"firstName\":\""+firstname+"\" ,\"lastName\":\""+lastname+"\",\"gender\":\"M\",\"dob\": \"1995-05-01\",\"ssn\": \""+final_ssn+"\",\"medicareid\": \"WA784654785\",\"startDate\": \"1937-07-14\",\"endDate\": \"2020-05-20\",\"payer\":100002,\"eligible\": true}";
+					 System.out.println("%%% Json String is"+jsonString);
+					 CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+				    try {
+				        HttpPost postRequest = new HttpPost("https://qa.remedypartners.com/api/secure/enrollmentUpdate/v1/enrollment.json");
+				        postRequest.setHeader("X-AUTH-EMAIL", "qa.admin@yopmail.com");
+				        postRequest.setHeader("Content-type", "application/json");
+				        StringEntity entity = new StringEntity(jsonString);
+	                    postRequest.setEntity(entity);
+	            
+	                    HttpResponse response = httpClient.execute(postRequest);
+	                    System.out.println("##Response is"+response);
+				 //       long elapsedTime = System.currentTimeMillis() - startTime;
+				        //System.out.println("Time taken : "+elapsedTime+"ms");
+
+				        InputStream is = response.getEntity().getContent();
+				        System.out.println("$$$ String is"+is);
+				        Reader reader = new InputStreamReader(is);
+				        BufferedReader bufferedReader = new BufferedReader(reader);
+				        StringBuilder builder = new StringBuilder();
+//				        while (true) {
+//				            try {
+//				                String line = bufferedReader.readLine();
+//				                if (line != null) {
+//				                    builder.append(line);
+//				                } else {
+//				                    break;
+//				                }
+//				            } catch (Exception e) {
+//				                e.printStackTrace();
+//				            }
+//				        }
+				        //System.out.println(builder.toString());
+				        //System.out.println("****************");
+				    } catch (Exception ex) {
+				        ex.printStackTrace();
+				    }
+				}
+
+				public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
+					Random r = new Random( System.currentTimeMillis() );
+					String ssn_start="7842";
+				    int ssn_end=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+				    final_ssn=ssn_start+Integer.toString(ssn_end);
+					iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
+					
+				}
+			}
+			
+				
+			
 		
 			
 	     

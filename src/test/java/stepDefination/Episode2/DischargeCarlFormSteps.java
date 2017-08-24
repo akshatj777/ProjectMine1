@@ -329,4 +329,52 @@ public class DischargeCarlFormSteps extends DriverScript {
     	dischargecarlform.Iverifysectionshouldappearwithvaluefordescriptivetitleonthereviewpage(section,label,descriptive_title,value);
     }
     
+    @Then ("^I click on the Save and Go Back on the \"([^\"]*)\" section on CARL form$")
+    public void I_click_on_the_Save_and_Go_Back_on_section_on_CARL_form()
+    {
+    	dischargecarlform.IclickontheSaveandGoBackonsectiononCARLform();
+    }
+    
+    @Then ("^I verify on Yes, 24 hours a day option is enabled under Does the patient have a capable caregiver$")
+    public void I_verify_radio_button_is_enable_on_caregiver_section()
+    {
+    	dischargecarlform.Iverifyradiobuttonisenableoncaregiversection();
+    }
+    
+    @Then ("^I verify \"([^\"]*)\" option appears in dropdown for \"([^\"]*)\" label on \"([^\"]*)\" on CARL form$")
+    public void I_verify_option_appears_in_dropdown_for_carl_Section(String option,String label,String section1)
+    {
+    	dischargecarlform.Iverifyoptionappearsindropdownforcarlsection(option);
+    }
+    
+    @Then("^I verify Save and Go Back does not appear on the \"([^\"]*)\" section on CARL form$")
+    public void I_verify_Save_and_Go_Back_does_not_appear()
+    {
+    	dischargecarlform.IverifySaveandGoBackdoesnotappear();
+    }
+    
+    @Then("^I enter random Patient First Name in the first name text box field present on the Add Patient page$")
+    public void i_enter_in_the_first_name_text_box_field_present_on_the_Add_Patient_page() throws Throwable {
+      dischargecarlform.iEnterDetailsInTextboxFieldPresentOnAddPatientModal("firstName");
+    }
+            
+            
+
+    @Then("^I enter random Patient Last Name in the last name text box field present on the Add Patient page$")
+    public void i_enter_in_the_last_name_text_box_field_present_on_the_Add_Patient_page() throws Throwable {
+    	dischargecarlform.iEnterDetailsInTextboxFieldPresentOnAddPatientModal("lastName");
+    }
+    
+    @Then("^I enter random social security number in the SSN text box field present on the Add Patient page$")
+    public void I_enter_random_social_security_number_in_the_SSN_text_box_field_present_on_the_Add_Patient_page()
+    {
+    	dischargecarlform.IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage();
+    }
+    
+    @Then ("^I create a post request$")
+    public void I_create_a_post_request()
+    {
+    	dischargecarlform.makePostJsonRequest();
+    }
+    
 }

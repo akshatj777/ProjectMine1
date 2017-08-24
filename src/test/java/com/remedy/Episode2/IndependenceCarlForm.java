@@ -18,10 +18,15 @@ public class IndependenceCarlForm extends BaseClass {
 
 	public void IClickOnSideNavigationTabOnCarlForm(String text) {
 		delay();
-		iWillWaitToSee(By.xpath("//span[text()='" + text + "']"));
+		iWillWaitToSee(By.xpath("//a/div/h5/div/span[text()='" + text + "']"));
+		try{
+			clickElement(driver.findElement(By.xpath("//a/div/h5/div/span[text()='" + text + "']")));
+		}catch(Exception e)
+		{
 		Actions actions=new Actions(driver);
-		actions.moveToElement(driver.findElement(By.xpath("//span[text()='" + text + "']"))).click().perform();
-	}
+		actions.moveToElement(driver.findElement(By.xpath("//a/div/h5/div/span[text()='" + text + "']"))).click().perform();
+		}
+		}
 
 	public void IVerifySelectedSectionOnTheCarlFormUponClickingOnIt(String text) {
 
@@ -88,12 +93,13 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IverifyCARLRecommendationfieldondischargesection(String text) {
+		delay();
 		verifyTextForElement(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")),text);
 		
 	}
 
 	public void IverifytextnotpresentonCARLRecommendationfieldondischargesection(String text) {
-		Assert.assertNotEquals(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")).getText(), text);
+		Assert.assertTrue(!(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")).getText().equals(text)));
 	}
 
 }
