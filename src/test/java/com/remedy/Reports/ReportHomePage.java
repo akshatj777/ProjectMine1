@@ -912,7 +912,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iWaitUntillLoadingIconDisappears(){
-    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img blockUIDefaultImg")));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img.blockUIDefaultImg")));
     }
     
     public void iWaitToSeeOverallProgramUnderDashboardReport(String text){
@@ -953,7 +953,6 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFirstNameUnderAttributedPhysicianColumn() throws InterruptedException {
-    	Thread.sleep(20000);
     	clickElement(driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr:first-child>td:first-child")));
     }
     
@@ -1011,5 +1010,21 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyFilterBoxAppearingInScorecardPage(String text){
     	isElementVisible(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
+    }
+    
+    public void iVerifySpotlightColorBesideAttributedPhysicians(String text){
+    	isElementVisible(driver.findElement(By.cssSelector(".circle."+text+"")));
+    }
+    
+    public void iShouldVerifySpotlightsNotAppearingOnPhysicianDashboard(){
+    	isElementNotPresentOnPage(".circle.green");
+    }
+    
+    public void iShouldVerifySymbolInTheColumn(String symbol,String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[thead[tr[th[text()='"+text+"']]]] //td[contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifyTableIsAppearingAfterSelectingTableUnderPhysicianDashboardReport(String text){
+    	isElementVisible(driver.findElement(By.xpath(".//*[@id='"+text+"TableObjTable']")));
     }
 }

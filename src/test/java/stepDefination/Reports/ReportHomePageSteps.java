@@ -1253,23 +1253,43 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyTabsAppearingUnderPaginationOnBelowPagination(text);
     }
     
-    @Then("I verify \"([^\"]*)\" is appearing above physicians on dashboard physician report")
+    @Then("^I verify \"([^\"]*)\" is appearing above physicians on dashboard physician report$")
     public void i_verify_onetohundread_appearing_above_physicians_on_dashboard_physician_report(String text) throws Throwable{
     	reportHomePage.iVerifyOneToHundreadAbovePhysicians(text);
     }
     
-    @Then("I verify \"([^\"]*)\" is appearing below physicians on dashboard physician report")
+    @Then("^I verify \"([^\"]*)\" is appearing below physicians on dashboard physician report$")
     public void i_verify_onetohundread_appearing_below_physicians_on_dashboard_physician_report(String text) throws Throwable{
     	reportHomePage.iVerifyOneToHundreadBelowPhysicians(text);
     }
     
-    @Then("I verify \"([^\"]*)\" is appearing under filter options in newly opened scorecard page")
+    @Then("^I verify \"([^\"]*)\" is appearing under filter options in newly opened scorecard page$")
     public void i_verify_is_appearing_under_filter_options_in_newly_opened_scorecard_page(String text) throws Throwable{
     	reportHomePage.iVerifyFilternameAppearingInScorecardPage(text);
     }
     
-    @Then("I verify \"([^\"]*)\" filter is appearing under filter options under scorecard page")
+    @Then("^I verify \"([^\"]*)\" filter is appearing under filter options under scorecard page$")
     public void i_verify_filter_is_appearing_under_filter_options_under_scorecard_page(String text) throws Throwable{
     	reportHomePage.iVerifyFilterBoxAppearingInScorecardPage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" spotlights is appearing beside the attributed physicians$")
+    public void i_verify_spotlights_is_appearng_beside_the_attributed_physician(String text) throws Throwable{
+    	reportHomePage.iVerifySpotlightColorBesideAttributedPhysicians(text);
+    }
+    
+    @And("^I should verify spotlights are not appearing on the physician dashboard page$")
+    public void i_should_verify_spotlights_are_not_appearing_on_the_physician_dashboard_page() throws Throwable{
+    	reportHomePage.iShouldVerifySpotlightsNotAppearingOnPhysicianDashboard();
+    }
+    
+    @Then("^I should verify \"([^\"]*)\" is appearing before the count under \"([^\"]*)\" column$")
+    public void i_should_verify_symbol_is_appearing_before_the_count_under_column(String symbol,String text) throws Throwable{
+    	reportHomePage.iShouldVerifySymbolInTheColumn(symbol, text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" table is appearing after selecting table option under dashboard physician report$")
+    public void i_verify_table_is_appearing_after_selecting_table_option_under_physician_report(String text) throws Throwable{
+    	reportHomePage.iVerifyTableIsAppearingAfterSelectingTableUnderPhysicianDashboardReport(text);
     }
 }

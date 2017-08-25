@@ -92,7 +92,7 @@ Scenario Outline: Verify top hundread,count,three sections and pagination on phy
       
 Scenario Outline: Verify attributed physician appearing in performance scorecard page
    
-   Given I am on the login page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
@@ -118,5 +118,89 @@ Scenario Outline: Verify attributed physician appearing in performance scorecard
       | email                         |
       | shutestaug231132a@yopmail.com |
     
+Scenario Outline: Verify spotlights is appearing in greeen,yellow and red on the physician dashboard page
+    
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "red" spotlights is appearing beside the attributed physicians
+    Then I verify "green" spotlights is appearing beside the attributed physicians
+    Then I verify "yellow" spotlights is appearing beside the attributed physicians
+    
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+      
+Scenario Outline: Verify table view under filter options and verify tables are appearing and check for drill through of physicians
    
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I click on "Table" button for view filter under filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    And I should verify spotlights are not appearing on the physician dashboard page
+    Then I should verify "$" is appearing before the count under "Avg Episode Cost" column
+    Then I should verify "%" is appearing before the count under "% Disch to SNF" column
+    Then I should verify "%" is appearing before the count under "% Eps with Readmit" column
+    Then I verify "performance" table is appearing after selecting table option under dashboard physician report
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+      
+Scenario Outline: Verify physician report under dashboard is appearing for RPFIN role user for medicare,emblem and multiple payer users
+
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    
+    Examples: 
+      | email                          |
+      #| Medicare                      |
+      | shutestaug231132a@yopmail.com  |
+      #| Emblem                        |
+      | emblemachrpfin@yopmail.com     |
+      #| Multiple Payer User           |
+      | multipayerachrpfin@yopmail.com |
+      #| Model3 PGP User               |
+      #| shutestauf171115a@yopmail.com  |                          
    
