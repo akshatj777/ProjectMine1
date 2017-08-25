@@ -250,6 +250,7 @@ public class PatientClinicalDocuments extends BaseClass {
 
 	public void IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG() {
      	iWillWaitToSee(By.xpath("//a[contains(text(),'Diagnosis and DRG')]"));
+     	delay();
 		Actions actions=new Actions(driver);
 		actions.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Diagnosis and DRG')]"))).click().perform();
     }
@@ -553,6 +554,8 @@ public class PatientClinicalDocuments extends BaseClass {
 		 L_name=driver.findElement(By.cssSelector("span.pull-left.ng-binding")).getText();
          
 }
+	
+	
    public void IclickonthecompleteCARLonthePatientSummary1() {
 		WebElement element1 = driver.findElement(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope"));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.btn.btn-primary.ng-binding.ng-scope")));
@@ -714,6 +717,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 		public void Iwillwaittoseeandclickontext(String text, String tag) {
+			longDelay();
 			iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
 			clickElement(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
 			delay();
@@ -750,6 +754,19 @@ public class PatientClinicalDocuments extends BaseClass {
 			}else if(column==2)
 			{
 		    clickElement(driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]/span[contains(text(),'"+text+"')]")));
+			}
+		}
+
+		public void IverifyuponsavingCARLformPatientshouldshowinworklist(String define,String worklist) {
+			if(define.equals("show"))
+			{
+			iFillInText(driver.findElement(By.cssSelector("search-bar > div.elastic-input-directive.ng-isolate-scope.open > div > input")), L_name);
+			longDelay();
+			isElementVisible(driver.findElement(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + L_name + "')]")));	
+			}else
+			{
+				WebDriverWait wait=new WebDriverWait(driver,5);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + L_name + "')]")));
 			}
 		}
 

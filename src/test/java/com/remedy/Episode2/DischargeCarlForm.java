@@ -79,7 +79,7 @@ public class DischargeCarlForm extends BaseClass {
 	}
 	
 	public void ISelectOptionFromSubFormDropDownUnderRecommendationOnDischargeSectionOnCarlForm(String dropdown, String subForm) {
-		delay();
+		longDelay();
 		iWillWaitToSee(By.xpath("//label[text()='"+subForm+"']/preceding-sibling::div//div[text()='"+dropdown+"']"));
 		clickElement(driver.findElement(By.xpath("//label[text()='"+subForm+"']/preceding-sibling::div//div[text()='"+dropdown+"']")));
 	}
@@ -551,6 +551,21 @@ public class DischargeCarlForm extends BaseClass {
 				    final_ssn=ssn_start+Integer.toString(ssn_end);
 					iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
 					
+				}
+
+				public void Ienterfiltervalueunderfiltertoseeemblempatient() {
+					iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
+					iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")),final_ssn);
+					
+				}
+
+			
+
+				public void IverifyusershouldbeabletosubmittheCARLformuponclickingtheSubmitlinkontheCARLReviewform() {
+					clickElement(driver.findElement(By.cssSelector("div.content-well > footer > div.top-row > div:nth-child(2) > button")));			
+					longDelay();
+					WebDriverWait wait=new WebDriverWait(driver,5);
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.content-well > footer > div.top-row > div:nth-child(2) > button")));
 				}
 			}
 			

@@ -41,7 +41,8 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IverifyCARLbuttonisappearingonthepatientcardornot(String link) {
-    		if(link.equals("appearing")){
+    	longDelay();	
+		if(link.equals("appearing")){
 	        isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
 	}else{
 		WebDriverWait wait=new WebDriverWait(driver,5);

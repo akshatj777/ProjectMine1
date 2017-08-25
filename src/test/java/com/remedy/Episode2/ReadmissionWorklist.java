@@ -232,6 +232,7 @@ public class ReadmissionWorklist extends BaseClass {
 	public void IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(int patientno) {
 		try {
 			clickElement(driver.findElement(By.cssSelector("div:nth-child("+ patientno +") > div > div > div > div > div > a > span.attestation-label.ng-binding")));
+			longDelay();
 			}catch(Exception e){
 				return;
 			}
@@ -255,7 +256,7 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void Iremovethedischargedateonthetransitionpage() {
-		clickElement(driver.findElement(By.cssSelector("div.field-admitDate.form-group.row > div > div > span:nth-child(3) > button > i")));
+		clickElement(driver.findElement(By.cssSelector("div.field-dischargeDate.form-group.row > div > div > span:nth-child(3) > button > i")));
 	}	
     }
 		

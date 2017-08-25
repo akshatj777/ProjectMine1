@@ -2,6 +2,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
 
   Scenario Outline: Discharge from anchor yesterday to HHH-Scheduled without discharge & Discharge from anchor 7 days ago (today is day 1) to HHH-Inpatient without discharge.
     Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -10,7 +47,18 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I wait to the see the visibility of loader to disappear
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -52,9 +100,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I close the patient summary Page
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -76,12 +121,10 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I click on "Discharge" section on left navigator
     Then I save and continue the complete CARL form
     Then I click on the Submit button to submit the CARL form
+    Then I wait to the see the visibility of loader to disappear
     Then I verify current page "Remedy Partners" title
     Then I click on "All" tab in the filter bar on patients page
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -95,6 +138,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
 
   Scenario Outline: Discharge from anchor 7 days to HHH-Inpatient with discharge yesterday
     Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -103,7 +183,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -131,7 +221,7 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I select the "3" LOS days on Discharge date on Add Transition
     Then I select the "Discharge" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
-    Then I select the "Discharge" facility "Inpatient" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
+    Then I select the "Discharge" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "61" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -146,9 +236,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I close the patient summary Page
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -173,9 +260,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I verify current page "Remedy Partners" title
     Then I click on "All" tab in the filter bar on patients page
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -183,6 +267,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I verify CARL button is "appearing" on the patient card
 
   Scenario Outline: Discharge from anchor 8 days ago to HHH-Inpatient admitted 7 days ago no discharge
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -192,7 +313,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -235,9 +366,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I close the patient summary Page
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -262,9 +390,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I verify current page "Remedy Partners" title
     Then I click on "All" tab in the filter bar on patients page
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -272,6 +397,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I verify CARL button is "appearing" on the patient card
 
   Scenario Outline: Discharge from anchor 8 days ago to HHH-Inpatient admitted 7 days ago no discharge
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -281,7 +443,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -324,9 +496,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I close the patient summary Page
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -351,9 +520,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I verify current page "Remedy Partners" title
     Then I click on "All" tab in the filter bar on patients page
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -361,6 +527,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I verify CARL button is "appearing" on the patient card
 
   Scenario Outline: discharge two weeks ago to HHH-inpatient WITHOUT creating the new readmission
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -370,7 +573,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -407,9 +620,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I scroll the page to bottom by "-100"
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -444,6 +654,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
 
   Scenario Outline: discharge two weeks ago to HHH-inpatient WITH creating the new readmission
     Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -452,7 +699,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -489,9 +746,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I scroll the page to bottom by "-100"
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -584,6 +838,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
 
   Scenario: each admission should have its own CARL
     Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -592,7 +883,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -629,9 +930,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I scroll the page to bottom by "-100"
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -779,8 +1077,50 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I scroll the page to bottom by "-100"
     Then I verify current page "Remedy Partners" title
     Then I click on "All" tab in the filter bar on patients page
+    When I click on Filter button present on Patient Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter
+    Then I click on Done button present on the Filter Page
+    Then I verify CARL button is "not appearing" on the patient card
 
   Scenario: Discharge from anchor to SNF with new admission to SNF.
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
     Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -790,7 +1130,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -828,9 +1178,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I scroll the page to bottom by "-100"
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -898,6 +1245,43 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
 
   Scenario: Create readmission few days ago that excluded the previous one
     Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+    When I click on "Patient List" in the Patients dropdown menu
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I verify "Patient Information" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I wait for 4000 milli seconds
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    And I wait for 4000 milli seconds
+    When I click on Admitting Facility present on the Add Patient page
+    And I wait for 2000 milli seconds
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I wait for 4000 milli seconds
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I wait for 8000 milli seconds
+    Then I switch back to old window
+    And I wait for 2000 milli seconds
+    And I click on the top user account link
+    And I wait for 1000 milli seconds
+    Then I select Log Out option from the dropdown
+    Given I am on the login page
     When I enter email field qa.emblemrn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -906,7 +1290,17 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     When I click on the "Episodes 2.0" tile
     And I wait for 4000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
+    Then I create a post request
+    Then I click on "All" tab in the filter bar on patients page
+    Then I wait to the see the visibility of loader to disappear
+    Then I verify current page "Remedy Partners" title
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify SSN Filter is displayed under List of Filter Options
+    When I click on SSN Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter "SSN" value under "ssn" filter to_see_emblem_patient
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I wait to see and enable the attestation on the "1" patient on the Patient Card page
     Then I wait to the see the visibility of loader to disappear
@@ -942,9 +1336,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I scroll the page to bottom by "-100"
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page
@@ -971,9 +1362,6 @@ Feature: As a user, I should be able to complete and submit a CARL form for an E
     Then I close the patient summary Page
     Then I verify current page "Remedy Partners" title
     When I click on Filter button present on Patient Page
-    And I click on Filters button present on Filter Page
-    Then I verify SSN Filter is displayed under List of Filter Options
-    When I click on SSN Filter present on Filter Page
     And I wait for 2000 milli seconds
     Then I enter "SSN" value under "ssn" filter
     Then I click on Done button present on the Filter Page

@@ -377,4 +377,15 @@ public class DischargeCarlFormSteps extends DriverScript {
     	dischargecarlform.makePostJsonRequest();
     }
     
+    @Then ("^I enter \"([^\"]*)\" value under \"([^\"]*)\" filter to_see_emblem_patient$")
+	public void I_enter_filter_value_under_filter_to_see_emblem_patient(String ssn,String ssn1)
+	{
+    	dischargecarlform.Ienterfiltervalueunderfiltertoseeemblempatient();
+	}
+    
+    @Then ("^I verify user should be able to submit the CARL form upon clicking the Submit link on the CARL Review form$")
+    public void I_verify_user_should_be_able_to_submit_the_CARL_form_upon_clicking_the_Submit_link_on_the_CARL_Review_form()
+    {
+    	dischargecarlform.IverifyusershouldbeabletosubmittheCARLformuponclickingtheSubmitlinkontheCARLReviewform();
+    }
 }
