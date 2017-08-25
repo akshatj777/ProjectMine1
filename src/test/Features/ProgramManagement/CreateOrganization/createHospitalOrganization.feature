@@ -10,7 +10,7 @@ Feature: User completes entering Hospital Organization details during creation p
     Then I verify "Welcome to Program Management" header on the page
     Then I click on Organization link on Program Management page
 
-  @Smoke
+ 
   Scenario Outline: Create a Hospital organization with valid data
                     (Manadatory + Non-manadatory fields)
 

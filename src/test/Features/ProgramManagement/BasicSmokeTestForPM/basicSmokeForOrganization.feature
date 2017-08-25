@@ -17,7 +17,7 @@ Feature: Cover the basic smoke test for create one org, edit one og and view one
     And I verify "Payor" in organization type on homepage
     And I verify "SNF" in organization type on homepage
 
-  @Smoke
+
   Scenario Outline: Create Managing Organization with all the available fields
     When I click on create new Organization button on Program Management homepage
     And I verify "Create Management Organization" header text on create organization page
@@ -30,9 +30,9 @@ Feature: Cover the basic smoke test for create one org, edit one og and view one
     And I enter <Contact_Phone> in "Contact Phone" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-
-    #Then I click on "Submit" button on create organization page
-    #Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+    Then I click on "Submit" button on create organization page
+    Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+    
     Examples: 
       | MO_Name    | Contact_Person | Contact_Email                | Contact_Phone | Address1  | Address2 | City | State      | Postal_Code |
       | MOAutoName | AutoCPerson    | autocontactemail@yopmail.com |    1213141516 | Street XX | Block XX | City | California |       10000 |

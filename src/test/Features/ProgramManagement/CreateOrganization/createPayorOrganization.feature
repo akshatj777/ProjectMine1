@@ -10,7 +10,7 @@ Feature: User completes entering Payor Organization details during creation proc
     Then I verify "Welcome to Program Management" header on the page
     Then I click on Organization link on Program Management page
 
-  @Smoke
+
   Scenario Outline: Create a Payor organization with valid data
                     (Manadatory + Non-manadatory fields)
 
@@ -33,7 +33,7 @@ Feature: User completes entering Payor Organization details during creation proc
       | Payor_Org_Name | Contact_Person    | Contact_Email                | Contact_Phone | Address1 | Address2  | City      | State    | Postal_Code |
       | OrgPayor       | TestContactPerson | contactemailtest@example.com |    1234569870 | Block C  | Street XV | New jersy | New York |       10045 |
 
-  @Smoke
+
   Scenario Outline: Create a Payor organization with valid data
                     (Only Mandatory fields)
 

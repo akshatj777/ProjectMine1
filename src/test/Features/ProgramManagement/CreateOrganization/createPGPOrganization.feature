@@ -10,7 +10,7 @@ Feature: User completes inputting PGP Organization details during creation,
     Then I verify "Welcome to Program Management" header on the page
     Then I click on Organization link on Program Management page
 
-  @Smoke
+
   Scenario Outline: Create a PGP organization with valid data (With Managing Organization)
                     (Manadatory + Non-manadatory fields)
 
@@ -29,8 +29,8 @@ Feature: User completes inputting PGP Organization details during creation,
     And I enter <Postal_Code> in "Postal Code" on create organization page
     And I provide unique EIN in "EIN" on create organization page
     And I provide unique NPI in "NPI" on create organization page
-    #Then I click on "Submit" button on create organization page
-    #Then I verify "Success! PGP Organization Successfully Created." after submitting the create ogranization page
+    Then I click on "Submit" button on create organization page
+    Then I verify "Success! PGP Organization Successfully Created." after submitting the create ogranization page
 
     Examples: 
       | MO_Name               | PGP_Org_Name | Short_Name | Region | Market     | Address1  | Address2   | City | State    | Postal_Code | 

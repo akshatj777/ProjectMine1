@@ -10,7 +10,7 @@ Feature: User completes entering SNF Organization details during creation proces
     Then I verify "Welcome to Program Management" header on the page
     Then I click on Organization link on Program Management page
 
-  @Smoke
+
   Scenario Outline: Create a SNF organization with valid data (With Managing Organization)
                     (Manadatory + Non-manadatory fields)
 

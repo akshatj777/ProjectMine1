@@ -46,7 +46,7 @@ Feature: Create a Managing Organization, verify the details fields
       | MO_Name | Address1 | City | State      | Postal_Code |
       | MO_Name | Address  | ABCd | California |       10000 |
 
-  @Smoke
+
   Scenario Outline: Create Managing Organization with all the available fields
     When I click on Organization link on Program Management page
     Then I click on create new Organization button on Program Management homepage
