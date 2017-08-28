@@ -18,6 +18,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by salam on 8/5/15.
@@ -77,7 +79,9 @@ public class CommonSteps extends DriverScript {
 
     @And("^I verify current page \"([^\"]*)\" title$")
     public void iVerifyCurrentPageTitle(String pageTitle) {
-        Assert.assertEquals(driver.getTitle(), pageTitle);
+    	 WebDriverWait wait = new WebDriverWait(driver, 60);
+    	 wait.until(ExpectedConditions.titleContains(pageTitle));
+         Assert.assertEquals(driver.getTitle(), pageTitle);
     }
 
     @And("^I wait for ([^\"]*) milli seconds$")

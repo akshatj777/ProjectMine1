@@ -19,9 +19,9 @@ public class CompleteCarlformSteps extends DriverScript {
 		completecarl.IclosethepatientsummaryPage();
 	}
 
-	@Then("^I verify CARL button is appearing on the patient card or not$")
-	public void I_verify_CARL_button_is_appearing_on_the_patient_card_or_not() throws Throwable {
-		completecarl.IverifyCARLbuttonisappearingonthepatientcardornot();
+	@Then("^I verify CARL button is \"([^\"]*)\" on the patient card$")
+	public void I_verify_CARL_button_is_appearing_on_the_patient_card_or_not(String link) throws Throwable {
+		completecarl.IverifyCARLbuttonisappearingonthepatientcardornot(link);
 	}
 
 	@Then("^I select the button to delete the transition$")
@@ -238,6 +238,12 @@ public class CompleteCarlformSteps extends DriverScript {
 	public void I_Enter_FirstName_and_LastName_On_AddCaregiverForm(String f_Name, String l_Name) throws Throwable {
 		completecarl.IEnterFisrtAndLastNameOnCarlFormAddCaregiver(f_Name, l_Name);
 	}
+	
+	@Then ("^I select \"([^\"]*)\" option from \"([^\"]*)\" dropdown to create Caregiver$")
+	public void I_select_option_from_dropdown_to_create_Caregiver(String value,String dropdown) throws Throwable
+	{
+		completecarl.IselectoptionfromdropdowntocreateCaregiver(value);
+	}
 
 	@Then("^I click on Create button to add Caregiver$")
 	public void I_Click_On_CreateButton_To_AddCaregiver() throws Throwable {
@@ -253,4 +259,10 @@ public class CompleteCarlformSteps extends DriverScript {
 	public void I_ClickOn_AnticipatedDischargeNeeds_On_SideMenuOption() throws Throwable {
 		completecarl.IClickOnAnticipatedDischargeNeedsOnSideMenuOption();
 	}
+	
+	@Then ("^I will wait to see the CARL section \"([^\"]*)\" header appears on the CARL form$")
+	public void I_will_wait_to_see_the_CARL_section_header_appears_on_the_CARL_form(String text) throws Throwable {
+		completecarl.IwillwaittoseetheCARLsectionheaderappearsontheCARLform();
+	}
+	
 }

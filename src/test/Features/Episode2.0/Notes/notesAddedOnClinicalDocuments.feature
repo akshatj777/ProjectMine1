@@ -15,6 +15,7 @@ Feature: Notes Sorting on Clinical Documents
     Then I click on the agree button on the Patient Card page
     Then I wait for 10000 milli seconds
     Then I click on quick action button for note creation on Patient Card page
+    And I verify to submit the Note Topic is the mandatory field to fill
     Then I verify whether topic drop down appears on Add Clinical Document on Patient Card page
     And I select the "Baseline" from the topic drop down on Add Clinical Document on Patient Card
     And I enter the Note Text in the textarea on Add Clinical Document on Patient Card
@@ -42,20 +43,3 @@ Feature: Notes Sorting on Clinical Documents
     Then I Verify that the notification logs activity date on the Notification on Activity tab on Patient Summary
     Then I Verify that the notification logs activity name  on the Notification on Activity tab on Patient Summary
     Then I Verify that the notification logs user name  on the Notification on Activity tab on Patient Summary
-
-  Scenario: To verify to submit the Note Topic is the mandatory field to fill
-    Given I am on the login page
-    When I enter email field qa.emblemrn@yopmail.com for login
-    And I enter password field Episode1! for Login
-    Then I click Access button
-    And I wait for 2000 milli seconds
-    Then I should see Tile text Episodes 2.0
-    When I click on the "Episodes 2.0" tile
-    And I wait for 4000 milli seconds
-    Then I verify current page "Remedy Partners" title
-    Then I click on the Impatient tab on the patient Card Page
-    And I wait for 8000 milli seconds
-    Then I click on the agree button on the Patient Card page
-    Then I wait for 10000 milli seconds
-    Then I click on quick action button for note creation on Patient Card page
-    And I verify to submit the Note Topic is the mandatory field to fill

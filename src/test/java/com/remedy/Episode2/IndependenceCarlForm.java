@@ -3,7 +3,7 @@ package com.remedy.Episode2;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.interactions.Actions;
 import com.remedy.baseClass.BaseClass;
 
 public class IndependenceCarlForm extends BaseClass {
@@ -14,8 +14,16 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IClickOnSideNavigationTabOnCarlForm(String text) {
-		clickElement(driver.findElement(By.xpath("//span[text()='" + text + "']")));
-	}
+		delay();
+		iWillWaitToSee(By.xpath("//a/div/h5/div/span[text()='" + text + "']"));
+		try{
+			clickElement(driver.findElement(By.xpath("//a/div/h5/div/span[text()='" + text + "']")));
+		}catch(Exception e)
+		{
+		Actions actions=new Actions(driver);
+		actions.moveToElement(driver.findElement(By.xpath("//a/div/h5/div/span[text()='" + text + "']"))).click().perform();
+		}
+		}
 
 	public void IVerifySelectedSectionOnTheCarlFormUponClickingOnIt(String text) {
 
@@ -45,7 +53,14 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void IClickOnTheDropDownOnIndependenceSection(String text) {
+		try{
+		iWillWaitToSee(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']"));
 		clickElement(driver.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']")));
+		}catch(Exception e)
+		{
+			Actions actions=new Actions(driver);
+			actions.moveToElement(driver.findElement(By.xpath("//section[@label='" + text + "']//span[@aria-label='Select box activate']"))).click().perform();
+		}
 	}
 
 	public void IVerifyOptionsPresentInDropDownOnIndependeceSection(String option) {
@@ -53,6 +68,7 @@ public class IndependenceCarlForm extends BaseClass {
 	}
 
 	public void ISelectTheOptionInTheDropDownOnIndependenceSection(String option) {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[text()='" + option + "']")));
 	}
 
@@ -71,6 +87,16 @@ public class IndependenceCarlForm extends BaseClass {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void IverifyCARLRecommendationfieldondischargesection(String text) {
+		delay();
+		verifyTextForElement(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")),text);
+		
+	}
+
+	public void IverifytextnotpresentonCARLRecommendationfieldondischargesection(String text) {
+		Assert.assertTrue(!(driver.findElement(By.cssSelector("p.text-bold-700.margin-left-20.margin-top-0")).getText().equals(text)));
 	}
 
 }

@@ -17,6 +17,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.remedy.baseClass.BaseClass;
 
 public class NoteCreation extends BaseClass {
@@ -80,7 +83,7 @@ public class NoteCreation extends BaseClass {
 	}
 
 	public void IclickonquickactionbuttonfornotecreationonPatientCardpage() {
-
+		 iWillWaitToSee(By.cssSelector("i.valentino-icon-plus"));
 		clickElement(driver.findElement(By.cssSelector("i.valentino-icon-plus")));
 	}
 
@@ -427,6 +430,16 @@ public class NoteCreation extends BaseClass {
 	public void Iclickonnavigationbartoreturntoremedyconnect() {
 		clickElement(driver.findElement(By.cssSelector("li.dropdown.dropdown-user")));
 		clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-logout")));
+	}
+
+	public void Iwaittotheseethevisibilityofloadertodisappear() {
+		try{
+		WebDriverWait wait=new WebDriverWait(driver,60);
+		wait.until(ExpectedConditions.attributeContains(driver.findElement(By.cssSelector("div.row.row-loader.ng-scope")),"class","ng-hide"));
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
     }

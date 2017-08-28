@@ -1,6 +1,9 @@
 package stepDefination.Episode2;
 
+
 import com.remedy.Episode2.PatientClinicalDocuments;
+
+
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.Then;
 
@@ -146,7 +149,11 @@ public class SummarySectionSteps extends DriverScript {
 	public void I_get_the_patient_last_name_who_have_no_CARL_button_in_it() throws Throwable {
 		patientclinical.IgetthepatientlastnamewhohavenoCARLbuttoninit();
 	}
-
+	@Then ("^I verify upon saving CARL form Patient should \"([^\"]*)\" in \"([^\"]*)\" work list$")
+	public void I_verify_upon_saving_CARL_form_Patient_should_show_in_work_list(String define,String worklist)
+	{
+		patientclinical.IverifyuponsavingCARLformPatientshouldshowinworklist(define,worklist);
+	}
 	@Then("^I click on the cancel button to delete the searched patient from the search box$")
 	public void I_click_on_the_cancel_button_to_delete_the_searched_patient_from_the_search_box() throws Throwable {
 		patientclinical.Iclickonthecancelbuttontodeletethesearchedpatientfromthesearchbox();
@@ -166,4 +173,40 @@ public class SummarySectionSteps extends DriverScript {
 	public void I_verify_created_note_should_appear_in_the_document_section() throws Throwable {
 		patientclinical.Iverifycreatednoteshouldappearinthedocumentsection();
 	}
+	
+	@Then("^I fill in \"([^\"]*)\" with logic \"([^\"]*)\" with \"([^\"]*)\" days$")
+	public void I_fill_date_in_with_logic_with_n_days(String logic,String operator,int days) throws Throwable{
+	    patientclinical.Ifilldateinwithlogicwithndays(logic,days);
+	}
+	
+	@Then("^I will wait to see \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
+	public void Iwillwaittoseetext(String text,String tag) throws Throwable {
+		patientclinical.Iwillwaittoseetext(text,tag);
+	}
+	
+	@Then("^I will wait to see and click on \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
+	public void Iwillwaittoseeandclickontext(String text,String tag) throws Throwable {
+		patientclinical.Iwillwaittoseeandclickontext(text,tag);
+	}
+	
+	@Then ("^I will fetch the value attribute of \"([^\"]*)\" on patient details$")
+	public void I_will_fetch_the_value_attribute_of_variable_on_patient_details(String value) throws Throwable  {
+		patientclinical.Iwillfetchthevalueattributeofvariableonpatientdetails();
+	}
+	
+	@Then ("^I enter \"([^\"]*)\" value under \"([^\"]*)\" filter$")
+	public void I_enter_filter_value_under_filter(String ssn,String ssn1) throws Throwable  {
+		patientclinical.Ienterfiltervalueunderfilter();
+	}
+	
+	@Then ("^I will wait to see \"([^\"]*)\" appearing in the \"([^\"]*)\" \"([^\"]*)\" column in row \"([^\"]*)\" in Document table in Clinical Documents$")
+	public void I_will_wait_to_see_link_appearing_in_document_table(String text,String Document_head,int column,int row) throws Throwable {
+		patientclinical.Iwillwaittoseelinkappearingindocumenttable(text,Document_head,column,row);
+	}
+	
+	@Then ("^I will click on \"([^\"]*)\" appearing in the \"([^\"]*)\" \"([^\"]*)\" column in row \"([^\"]*)\" in Document table in Clinical Documents$")
+	public void I_will_click_on_link_appearing_in_document_table(String text,String Document_head,int column,int row) throws Throwable {
+		patientclinical.Iwillclickonlinkappearingindocumenttable(text,Document_head,column,row);
+	}
+	
 }

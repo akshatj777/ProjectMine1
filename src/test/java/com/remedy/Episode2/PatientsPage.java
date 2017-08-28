@@ -75,6 +75,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnFilterButtonPresentOnPatientPage() {
+		delay();
+		iWillWaitToSee(By.cssSelector(".filter-bar-search-left .btn-quaternary span"));
 		clickElement(driver.findElement(By.cssSelector(".filter-bar-search-left .btn-quaternary span")));
 	}
 
@@ -91,6 +93,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnFiltersButtonPresentOnFilterPage() {
+		delay();
+		iWillWaitToSee(By.cssSelector("div.row-controls>a"));
 		clickElement(driver.findElement(By.cssSelector("div.row-controls>a")));
 	}
 
@@ -115,6 +119,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifySSNFilterIsDisplayedUnderListOfFilterOptions() {
+		iWillWaitToSee((By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'SSN')]")));
 		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'SSN')]")));
 	}
 
@@ -283,6 +288,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnDoneButtonPresentOnTheFilterPage() {
+		iWillWaitToSee(By.cssSelector("button[class='btn btn-primary'][ng-click='closeFilters()']"));
 		clickElement(driver.findElement(By.cssSelector("button[class='btn btn-primary'][ng-click='closeFilters()']")));
 	}
 
@@ -505,10 +511,11 @@ public class PatientsPage extends BaseClass {
 	public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
 		clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
 		selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
+		delay();
 	}
 
 	public void iClickOnAdmittingFacilityPresentOnTheAddPatientPage() {
-		clickElement(driver.findElement(By.cssSelector("a.select2-choice.select2-default")));
+		clickElement(driver.findElement(By.cssSelector("div.select2-container.admin_facilities_user.form-control")));
 	}
 
 	public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
@@ -524,6 +531,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
+		longDelay();
+		iWillWaitToSee(By.cssSelector("button#submitButton"));
 		clickElement(driver.findElement(By.cssSelector("button#submitButton")));
 	}
 
@@ -554,6 +563,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyTextIsPresentOnTheAddPatientPage(String text) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[text()='" + text + "']"));
 		isElementVisible(driver.findElement(By.xpath("//*[text()='" + text + "']")));
 	}
 
@@ -707,6 +718,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyLastNameFilterIsDisplayedUnderListOfFilterOptions() {
+		delay();
+		iWillWaitToSee(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]"));
 		isElementVisible(driver.findElement(By.xpath("//ul[@class='list-unstyled']/li[contains(text(),'Last Name')]")));
 	}
 
@@ -754,7 +767,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iEnterUnderFirstNameFilter(String patient) {
-		iFillInText(driver.findElement(By.xpath("//input[@class='form-control ng-pristine ng-untouched ng-valid ng-empty']")),patient);
+		iFillInText(driver.findElement(By.cssSelector("div.filter-sections-hide-scrollbar.ng-scope > div > div  > div > div > div > div > input")),patient);
 	}
 
 	public void iClickOnGenderFilterPresentOnFilterPage() {
@@ -827,10 +840,11 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnSSNFilter() {
-		clickElement(driver.findElement(By.cssSelector("div.filters-list>ul>li:nth-child(24)")));
+		clickElement(driver.findElement(By.cssSelector("div.filters-dropdown-content.filters-list > ul > li:nth-child(25)")));
 	}
 
 	public void iEnterUnderSSNFilter(String ssn) {
+		iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
 		iFillInText(driver.findElement(By.xpath("//div[@class='ng-scope']/input")), ssn);
 	}
 
@@ -941,7 +955,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
-
+        longDelay();
+		iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 	}
 

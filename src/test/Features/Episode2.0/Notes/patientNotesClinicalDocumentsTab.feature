@@ -1,4 +1,3 @@
-
 Feature: Created Patient Note Comparision in EC1 and viewed in EC2
 
   Scenario Outline: To verify Notes created in EC1 through i framing should only be accessible on EC2 care plan tab should not be seen under Clinical Documents tab .
@@ -107,8 +106,6 @@ Feature: Created Patient Note Comparision in EC1 and viewed in EC2
     And I wait for 10000 milli seconds
     Then I click on the "Notes" tab appearing under care plan frame on patient summary page
     Then I verify the notes created in the episode1 should not appear in the notes section in care plan in episode2
-    
-    
 
     Examples: 
       | email                | password  | patient first name | patient last name |
