@@ -258,6 +258,7 @@ Feature: Verification of physician report under dashboard
     When I click the first name under attributed physican column
     And I switch to new window
     Then I verify current page "Performance Scorecard Dashboard" title
+    Then I wait until loading icon disappears in physician dashboard report
     And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
     Then I verify scorecards appearing on performance scorecard dashboard page
     And I verify "Episodes (Eps)" KPI is appearing under performance scorecard
@@ -265,7 +266,43 @@ Feature: Verification of physician report under dashboard
     And I verify "% Disch to SNF" KPI is appearing under performance scorecard
     And I verify "SNF Days" KPI is appearing under performance scorecard
     And I verify "% Eps w Readmit" KPI is appearing under performance scorecard
-    Then I verify "Top 5 Bundle Performance" is appearing on the performance scorecard dashboard page
+    Then I verify "Top 5 Bundle Performance" section is appearing on the performance scorecard dashboard page
+    Then I verify "Top 5 Facility Performance" section is appearing on the performance scorecard dashboard page
+    Then I verify "Post-Acute Care Discharge Disposition" section is appearing on the performance scorecard dashboard page
+    And I verify Top 5 "Bundle" performance table is appearing on the performance scorecard dashboard page
+    And I verify Top 5 "Facility" performance table is appearing on the performance scorecard dashboard page
+    Then I verify bar containers appearing under post acute care discharge disposition on the performance scorecard dashboard page
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify filters are preselected on the performance scorecard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    And I verify "All" is appearing under "physician" filter field in performance scorecard dashboard page
+    And I verify "All" is appearing under "payer" filter field in performance scorecard dashboard page
+    And I verify "All" is appearing under "participant" filter field in performance scorecard dashboard page
+    And I verify "All" is appearing under "initiator" filter field in performance scorecard dashboard page
+    And I verify "All" is appearing under "facility" filter field in performance scorecard dashboard page
+    And I verify "All" is appearing under "bundle" filter field in performance scorecard dashboard page
 
     Examples: 
       | email                         |

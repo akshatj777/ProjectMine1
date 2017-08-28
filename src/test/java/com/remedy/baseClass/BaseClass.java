@@ -436,4 +436,18 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
+	
+	public void iVerifyTextFromListOfElement(By locator, String text) {
+		List<WebElement> listItems = driver.findElements(locator);
+		String value = null;
+
+		for (WebElement item : listItems) {
+			System.out.println(item.getText());
+
+			  if (item.getText().trim().contentEquals(text)) {
+				  value=item.getText().trim();  
+			  } 
+		}
+		Assert.assertEquals(text,value);
+	}	
 }

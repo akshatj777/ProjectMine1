@@ -1084,6 +1084,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("I verify \"([^\"]*)\" is appearing under \"([^\"]*)\" filter field after applying filter")
+    @And("^I verify \"([^\"]*)\" is appearing under \"([^\"]*)\" filter field in performance scorecard dashboard page$")
     public void i_verify_is_appearing_under_participant_filter_field_after_aplying_filter(String participant,String text) throws Throwable{
     	reportHomePage.iVerifyParticipantFieldAfterApplyingFilter(participant,text);
     }
@@ -1296,6 +1297,16 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I verify \"([^\"]*)\" section is appearing on the performance scorecard dashboard page$")
     public void i_verify_section_is_appearing_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
-    	
+    	reportHomePage.iVerifySectionUnderPerformanceScorecardDashboard(text);
+    }
+    
+    @And("^I verify Top 5 \"([^\"]*)\" performance table is appearing on the performance scorecard dashboard page$")
+    public void i_verify_top_5_performance_table_is_appearing_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTop5PerformanceTableOnPerformanceScorecardDashbaord(text);
+    }
+    
+    @Then("^I verify bar containers appearing under post acute care discharge disposition on the performance scorecard dashboard page$")
+    public void i_verify_bar_containers_appearing_under_post_acute_care_discharge_disposition_on_the_performance_scorecard_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyBarContainersUnderPostAcuteCareDischargeDisposition();
     }
 }

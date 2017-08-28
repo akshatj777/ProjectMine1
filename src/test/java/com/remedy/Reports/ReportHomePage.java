@@ -1029,6 +1029,14 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifySectionUnderPerformanceScorecardDashboard(String text){
-    	
+    	iVerifyTextFromListOfElement(By.cssSelector(".groupTitlePhy"),text);
+    }
+    
+    public void iVerifyTop5PerformanceTableOnPerformanceScorecardDashbaord(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#key"+text+"TableObjTable")));
+    }
+    
+    public void iVerifyBarContainersUnderPostAcuteCareDischargeDisposition(){
+    	isElementVisible(driver.findElement(By.cssSelector(".dataBarContainer>svg")));
     }
 }
