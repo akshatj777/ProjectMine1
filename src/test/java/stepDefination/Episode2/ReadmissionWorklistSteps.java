@@ -144,8 +144,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
     
 	@Then ("^I wait to see and enable the attestation on the \"([^\"]*)\" patient on the Patient Card page$")
-	public void I_wait_to_see_and_enable_the_attestation_on_the_patient_for_on_the_Patient_Card_page(int patientno) throws Throwable
-	{
+	public void I_wait_to_see_and_enable_the_attestation_on_the_patient_for_on_the_Patient_Card_page(int patientno) throws Throwable {
 		admission.IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(patientno);
 	}
 	
@@ -160,8 +159,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 	
 	@Then ("^I remove the discharge date on the transition page$")
-	public void I_remove_the_discharge_date_on_the_transition_page() throws Throwable
-	{
+	public void I_remove_the_discharge_date_on_the_transition_page() throws Throwable {
 		admission.Iremovethedischargedateonthetransitionpage();
 	}
 }

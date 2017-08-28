@@ -28,7 +28,7 @@ public class CompleteCarlform extends BaseClass {
 		delay();
 		js.executeScript("arguments[0].click();", element);
 		delay();
-}
+   }
 
 	public void IverifyCARLbuttonsappearsonthepatientsummary() {
 		WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));

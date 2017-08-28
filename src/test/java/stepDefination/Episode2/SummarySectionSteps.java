@@ -190,12 +190,12 @@ public class SummarySectionSteps extends DriverScript {
 	}
 	
 	@Then ("^I will fetch the value attribute of \"([^\"]*)\" on patient details$")
-	public void I_will_fetch_the_value_attribute_of_variable_on_patient_details(String value) {
+	public void I_will_fetch_the_value_attribute_of_variable_on_patient_details(String value) throws Throwable  {
 		patientclinical.Iwillfetchthevalueattributeofvariableonpatientdetails();
 	}
 	
 	@Then ("^I enter \"([^\"]*)\" value under \"([^\"]*)\" filter$")
-	public void I_enter_filter_value_under_filter(String ssn,String ssn1) {
+	public void I_enter_filter_value_under_filter(String ssn,String ssn1) throws Throwable  {
 		patientclinical.Ienterfiltervalueunderfilter();
 	}
 	
