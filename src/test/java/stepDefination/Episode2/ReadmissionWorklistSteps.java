@@ -119,7 +119,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the edit button on the \"([^\"]*)\" transition to edit the Active transition$")
-	public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException {
+	public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException,Throwable {
 		admission.IclickontheeditbuttontoedittheActivetransition(transition_value);
 	}
 
@@ -129,7 +129,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the delete button on the transition to delete all the transitions$")
-	public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions() throws InterruptedException {
+	public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions() throws InterruptedException,Throwable {
 		admission.Iclickonthedeletebuttononthetransitiontodeleteallthetransitions();
 	}
 
@@ -144,7 +144,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
     
 	@Then ("^I wait to see and enable the attestation on the \"([^\"]*)\" patient on the Patient Card page$")
-	public void I_wait_to_see_and_enable_the_attestation_on_the_patient_for_on_the_Patient_Card_page(int patientno)
+	public void I_wait_to_see_and_enable_the_attestation_on_the_patient_for_on_the_Patient_Card_page(int patientno) throws Throwable
 	{
 		admission.IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(patientno);
 	}
@@ -160,7 +160,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 	
 	@Then ("^I remove the discharge date on the transition page$")
-	public void I_remove_the_discharge_date_on_the_transition_page()
+	public void I_remove_the_discharge_date_on_the_transition_page() throws Throwable
 	{
 		admission.Iremovethedischargedateonthetransitionpage();
 	}

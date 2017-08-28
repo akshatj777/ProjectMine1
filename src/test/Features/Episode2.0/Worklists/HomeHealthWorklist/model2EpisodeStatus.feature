@@ -72,7 +72,7 @@ Feature: Patient status on Home Health Worklist
     Then I wait to the see the visibility of loader to disappear
     Then I click on the edit button on the "2" transition to edit the Active transition
     Then I wait to the see the visibility of loader to disappear
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG 
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I wait for 2000 milli seconds
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition

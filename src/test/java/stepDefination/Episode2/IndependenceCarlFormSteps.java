@@ -76,13 +76,13 @@ public class IndependenceCarlFormSteps extends DriverScript {
 	}
 	
 	@Then("^I verify CARL Recommendation field should show \"([^\"]*)\" on discharge section when total score is \"([^\"]*)\"$")
-	public void I_verify_CARL_Recommendation_field_on_discharge_section(String text,String condition)
+	public void I_verify_CARL_Recommendation_field_on_discharge_section(String text,String condition) throws Throwable
 	{
 		independencecarl.IverifyCARLRecommendationfieldondischargesection(text);
 	}
 	
 	@Then("^I verify CARL Recommendation field should not show \"([^\"]*)\" on discharge section when total score is \"([^\"]*)\"$")
-	public void I_verify_text_not_present_CARL_Recommendation_field_on_discharge_section(String text,String condition)
+	public void I_verify_text_not_present_CARL_Recommendation_field_on_discharge_section(String text,String condition) throws Throwable
 	{
 		independencecarl.IverifytextnotpresentonCARLRecommendationfieldondischargesection(text);
 	}

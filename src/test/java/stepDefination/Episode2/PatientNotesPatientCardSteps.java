@@ -235,7 +235,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	}
 	
 	@Then ("^I wait to the see the visibility of loader to disappear$")
-	public void I_wait_to_the_see_the_visibility_of_loader_to_disappear()
+	public void I_wait_to_the_see_the_visibility_of_loader_to_disappear() throws Throwable
 	{
 		noteCreation.Iwaittotheseethevisibilityofloadertodisappear();
 	}

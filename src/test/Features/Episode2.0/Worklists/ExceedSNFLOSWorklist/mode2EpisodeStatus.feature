@@ -310,9 +310,9 @@ Feature: Patient status on Exceed SNF LOS Work List
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
-      
-    Scenario Outline: Episode state other than Active and pending cancellation
-  Given I am on the login page
+
+  Scenario Outline: Episode state other than Active and pending cancellation
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
@@ -373,7 +373,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
-   
+
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |

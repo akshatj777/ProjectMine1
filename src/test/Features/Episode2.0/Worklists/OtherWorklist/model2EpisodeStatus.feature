@@ -195,7 +195,7 @@ Feature: Patient status on Other/Alternative Work List
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Leave of Absence |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTALTERNATIVE   | Custodial Care   |
 
- Scenario Outline: M2 Active episode patient discharge and then admitted to discharge facility to SNF with future care setting
+  Scenario Outline: M2 Active episode patient discharge and then admitted to discharge facility to SNF with future care setting
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login

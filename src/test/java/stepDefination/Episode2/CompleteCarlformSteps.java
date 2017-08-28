@@ -240,7 +240,7 @@ public class CompleteCarlformSteps extends DriverScript {
 	}
 	
 	@Then ("^I select \"([^\"]*)\" option from \"([^\"]*)\" dropdown to create Caregiver$")
-	public void I_select_option_from_dropdown_to_create_Caregiver(String value,String dropdown)
+	public void I_select_option_from_dropdown_to_create_Caregiver(String value,String dropdown) throws Throwable
 	{
 		completecarl.IselectoptionfromdropdowntocreateCaregiver(value);
 	}

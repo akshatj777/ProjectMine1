@@ -208,6 +208,3 @@ Feature: Patient status on Readmission Discharges Work List
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name    |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | READMISSIONDISCHARGE |
-      
-  
-    

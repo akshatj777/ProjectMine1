@@ -349,7 +349,7 @@ public class PatientsPageSteps extends DriverScript {
     }
 
     @Then("^I Verify Not Eligible ESRD is present in the Eligibility Dropdown on the patient summary page$")
-    public void i_Verify_Not_Eligible_ESRD_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable {
+    public void i_Verify_Not_Eligible_ESRD_is_present_in_the_Eligibility_Dropdown_on_the_patient_summary_page() throws Throwable{
         patientsPage.iVerifyNotEligibleESRDIsPresentInTheEligibilityDropdownOnThePatientSummaryPage();
     }
 
@@ -1249,7 +1249,7 @@ public class PatientsPageSteps extends DriverScript {
     }
     
     @Then("^I verify \"([^\"]*)\" message is appearing after selecting the filter to export$")
-    public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text){
+    public void i_verify_message_is_appearing_after_selecting_the_filter_to_export(String text) throws Throwable{
     	patientsPage.iVerifyTextAfterSelectingFilterToExport(text);
     }
 
@@ -1577,7 +1577,7 @@ public class PatientsPageSteps extends DriverScript {
     }
    
     @Then ("^I verify the notes created in the episode1 should not appear in the notes section in care plan in episode2$")
-    public void I_verify_the_notes_created_in_the_episode1_should_not_appear_in_the_notes_section_in_care_plan_in_episode2()
+    public void I_verify_the_notes_created_in_the_episode1_should_not_appear_in_the_notes_section_in_care_plan_in_episode2() throws Throwable
     {
     	patientsPage.Iverifythenotescreatedintheepisode1shouldnotappearinthenotessectionincareplaninepisode2();
     }

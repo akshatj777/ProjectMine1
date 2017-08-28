@@ -1,6 +1,6 @@
 Feature: Patient status on Exceed SNF LOS Work List
 
-  Scenario Outline: Verify patient included in Exceed SNF when LOS is above the ELOS range 
+  Scenario Outline: Verify patient included in Exceed SNF when LOS is above the ELOS range
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -30,12 +30,12 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "30" days
     Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition   
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition   
+    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
@@ -58,7 +58,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     When I click on Filter button present on Patient Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page 
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
     Then I click on the "<Patient Last Name>" searched patient on the Patient Card Page
@@ -84,19 +84,20 @@ Feature: Patient status on Exceed SNF LOS Work List
     When I click on Filter button present on Patient Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page 
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient present on the Patient Card Page
+
     Examples: 
       | email                | password  | Patient First Name | Patient Last Name |
       | qa.admin@yopmail.com | Episode1! | PATIENT            | TESTEXCEEDSNF     |
-      
+
   Scenario Outline: Verify patient included in Exceed SNF when LOS is below ELOS
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
-    And I wait for 2000 milli seconds     
+    And I wait for 2000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
     Then I verify current page "Remedy Partners" title
@@ -122,12 +123,12 @@ Feature: Patient status on Exceed SNF LOS Work List
     Then I wait for 3000 milli seconds
     Then I fill in "Admit" with logic "minus" with "8" days
     Then I wait to the see the visibility of loader to disappear
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition   
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition   
+    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I wait to the see the visibility of loader to disappear
     Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
@@ -150,7 +151,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     When I click on Filter button present on Patient Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page 
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
     Then I click on the edit button on the "2" transition to edit the Active transition
@@ -171,7 +172,7 @@ Feature: Patient status on Exceed SNF LOS Work List
     When I click on Filter button present on Patient Page
     And I wait for 2000 milli seconds
     Then I enter <Patient Last Name> under first name filter
-    Then I click on Done button present on the Filter Page 
+    Then I click on Done button present on the Filter Page
     Then I wait to the see the visibility of loader to disappear
     Then I verify the "<Patient Last Name>" patient not present on the Patient Card Page
 

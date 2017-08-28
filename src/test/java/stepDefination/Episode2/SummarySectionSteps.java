@@ -180,38 +180,32 @@ public class SummarySectionSteps extends DriverScript {
 	}
 	
 	@Then("^I will wait to see \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
-	public void Iwillwaittoseetext(String text,String tag)
-	{
+	public void Iwillwaittoseetext(String text,String tag) throws Throwable {
 		patientclinical.Iwillwaittoseetext(text,tag);
 	}
 	
 	@Then("^I will wait to see and click on \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
-	public void Iwillwaittoseeandclickontext(String text,String tag)
-	{
+	public void Iwillwaittoseeandclickontext(String text,String tag) throws Throwable {
 		patientclinical.Iwillwaittoseeandclickontext(text,tag);
 	}
 	
 	@Then ("^I will fetch the value attribute of \"([^\"]*)\" on patient details$")
-	public void I_will_fetch_the_value_attribute_of_variable_on_patient_details(String value)
-	{
+	public void I_will_fetch_the_value_attribute_of_variable_on_patient_details(String value) {
 		patientclinical.Iwillfetchthevalueattributeofvariableonpatientdetails();
 	}
 	
 	@Then ("^I enter \"([^\"]*)\" value under \"([^\"]*)\" filter$")
-	public void I_enter_filter_value_under_filter(String ssn,String ssn1)
-	{
+	public void I_enter_filter_value_under_filter(String ssn,String ssn1) {
 		patientclinical.Ienterfiltervalueunderfilter();
 	}
 	
 	@Then ("^I will wait to see \"([^\"]*)\" appearing in the \"([^\"]*)\" \"([^\"]*)\" column in row \"([^\"]*)\" in Document table in Clinical Documents$")
-	public void I_will_wait_to_see_link_appearing_in_document_table(String text,String Document_head,int column,int row)
-	{
+	public void I_will_wait_to_see_link_appearing_in_document_table(String text,String Document_head,int column,int row) throws Throwable {
 		patientclinical.Iwillwaittoseelinkappearingindocumenttable(text,Document_head,column,row);
 	}
 	
 	@Then ("^I will click on \"([^\"]*)\" appearing in the \"([^\"]*)\" \"([^\"]*)\" column in row \"([^\"]*)\" in Document table in Clinical Documents$")
-	public void I_will_click_on_link_appearing_in_document_table(String text,String Document_head,int column,int row)
-	{
+	public void I_will_click_on_link_appearing_in_document_table(String text,String Document_head,int column,int row) throws Throwable {
 		patientclinical.Iwillclickonlinkappearingindocumenttable(text,Document_head,column,row);
 	}
 	
