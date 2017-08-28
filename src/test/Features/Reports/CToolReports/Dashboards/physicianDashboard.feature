@@ -1,7 +1,6 @@
 Feature: Verification of physician report under dashboard
 
-Scenario Outline: User should be able to verify physician report appearing under dashboard
-
+  Scenario Outline: User should be able to verify physician report appearing under dashboard
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -16,13 +15,12 @@ Scenario Outline: User should be able to verify physician report appearing under
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
-    
+
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      
-Scenario Outline: Verify clicking on attributed physician name is opening scorecard dashboard
-   
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify clicking on attributed physician name is opening scorecard dashboard
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -47,13 +45,12 @@ Scenario Outline: Verify clicking on attributed physician name is opening scorec
     Then I verify "% Disch to SNF" scorecard is appearing under performance scorecard
     Then I verify "SNF Days" scorecard is appearing under performance scorecard
     Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
-    
+
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      
-Scenario Outline: Verify top hundread,count,three sections and pagination on physicain dashboard report
-   
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify top hundread,count,three sections and pagination on physicain dashboard report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -85,13 +82,12 @@ Scenario Outline: Verify top hundread,count,three sections and pagination on phy
     And I verify "Last" tab is appearing below physicians inside the pagination section on dashboard physician page
     Then I verify "Showing 1 to 20 of 100 entries" is appearing above physicians on dashboard physician report
     Then I verify "Showing 1 to 20 of 100 entries" is appearing below physicians on dashboard physician report
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
-Scenario Outline: Verify attributed physician appearing in performance scorecard page
-   
+
+  Scenario Outline: Verify attributed physician appearing in performance scorecard page
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -113,13 +109,12 @@ Scenario Outline: Verify attributed physician appearing in performance scorecard
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "Attributed Physician" is appearing under filter options in newly opened scorecard page
     Then I verify "physician" filter is appearing under filter options under scorecard page
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-    
-Scenario Outline: Verify spotlights is appearing in greeen,yellow and red on the physician dashboard page
-    
+
+  Scenario Outline: Verify spotlights is appearing in greeen,yellow and red on the physician dashboard page
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -137,13 +132,12 @@ Scenario Outline: Verify spotlights is appearing in greeen,yellow and red on the
     Then I verify "red" spotlights is appearing beside the attributed physicians
     Then I verify "green" spotlights is appearing beside the attributed physicians
     Then I verify "yellow" spotlights is appearing beside the attributed physicians
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
-Scenario Outline: Verify table view under filter options and verify tables are appearing and check for drill through of physicians
-   
+
+  Scenario Outline: Verify table view under filter options and verify tables are appearing and check for drill through of physicians
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -171,13 +165,12 @@ Scenario Outline: Verify table view under filter options and verify tables are a
     Then I verify current page "Performance Scorecard Dashboard" title
     And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
     Then I verify scorecards appearing on performance scorecard dashboard page
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
-Scenario Outline: Verify physician report under dashboard is appearing for RPFIN role user for medicare,emblem and multiple payer users
 
+  Scenario Outline: Verify physician report under dashboard is appearing for RPFIN role user for medicare,emblem and multiple payer users
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -192,7 +185,7 @@ Scenario Outline: Verify physician report under dashboard is appearing for RPFIN
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
-    
+
     Examples: 
       | email                          |
       #| Medicare                      |
@@ -201,6 +194,79 @@ Scenario Outline: Verify physician report under dashboard is appearing for RPFIN
       | emblemachrpfin@yopmail.com     |
       #| Multiple Payer User           |
       | multipayerachrpfin@yopmail.com |
-      #| Model3 PGP User               |
-      #| shutestauf171115a@yopmail.com  |                          
-   
+
+  Scenario Outline: Verify dashboard category is not appearing for model 3 users
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    Then I verify current page "Reports" title
+    And I should not see Reports Tile text as <Menu 1>
+
+    Examples: 
+      | email                         | Menu 1     |
+      | shutestauf171115a@yopmail.com | Dashboards |
+
+  Scenario Outline: Verify user has the ability to scan the performance of particular attributed physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    Then I verify "Episodes (Eps)" scorecard is appearing under performance scorecard
+    Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
+    Then I verify "% Disch to SNF" scorecard is appearing under performance scorecard
+    Then I verify "SNF Days" scorecard is appearing under performance scorecard
+    Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify user should see kpi boxes,tabular view and disposition graphs in performance scorecard dashboard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    And I verify "Episodes (Eps)" KPI is appearing under performance scorecard
+    And I verify "Avg Episode Cost" KPI is appearing under performance scorecard
+    And I verify "% Disch to SNF" KPI is appearing under performance scorecard
+    And I verify "SNF Days" KPI is appearing under performance scorecard
+    And I verify "% Eps w Readmit" KPI is appearing under performance scorecard
+    Then I verify "Top 5 Bundle Performance" is appearing on the performance scorecard dashboard page
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |

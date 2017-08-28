@@ -1027,4 +1027,8 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyTableIsAppearingAfterSelectingTableUnderPhysicianDashboardReport(String text){
     	isElementVisible(driver.findElement(By.xpath(".//*[@id='"+text+"TableObjTable']")));
     }
+    
+    public void iVerifySectionUnderPerformanceScorecardDashboard(String text){
+    	
+    }
 }

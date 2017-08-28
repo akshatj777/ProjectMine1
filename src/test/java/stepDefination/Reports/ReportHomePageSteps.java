@@ -1214,6 +1214,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("^I verify \"([^\"]*)\" scorecard is appearing under performance scorecard$")
+    @And("^I verify \"([^\"]*)\" KPI is appearing under performance scorecard$")
     public void i_verify_scorecard_is_appearing_under_performance_scorecard(String text) throws Throwable{
     	reportHomePage.iVerifyScorecardUnderPerformanceScorecard(text);
     }
@@ -1291,5 +1292,10 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I verify \"([^\"]*)\" table is appearing after selecting table option under dashboard physician report$")
     public void i_verify_table_is_appearing_after_selecting_table_option_under_physician_report(String text) throws Throwable{
     	reportHomePage.iVerifyTableIsAppearingAfterSelectingTableUnderPhysicianDashboardReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" section is appearing on the performance scorecard dashboard page$")
+    public void i_verify_section_is_appearing_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
+    	
     }
 }
