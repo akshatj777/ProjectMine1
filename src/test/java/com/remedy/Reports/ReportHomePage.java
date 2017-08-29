@@ -1039,4 +1039,28 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyBarContainersUnderPostAcuteCareDischargeDisposition(){
     	isElementVisible(driver.findElement(By.cssSelector(".dataBarContainer>svg")));
     }
+    
+    public void iClickOnKpiBoxOnPerformanceScoreCardForDrillThrough(String text){
+    	clickElement(driver.findElement(By.xpath("//div[div[contains(text(),'"+text+"')]]")));
+    }
+    
+    public void iClickOnTop5TableUnderPerformanceScorecardDashboard(String text){
+    	clickElement(driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr:nth-child(1)")));
+    }
+    
+    public void iClickOnBarGraphUnderPostAcuteDischargeDispositionSection(){
+    	clickElement(driver.findElement(By.cssSelector("#postAcuteTableObjTable>tbody>tr:nth-child(1)")));
+    }
+    
+    public void iVerifyActualValueInKpiBox(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]/following-sibling::div[@class='value']")));
+    }
+    
+    public void iVerifyAdjustedValueInKpiBox(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[div[contains(text(),'"+text+"')]] //div[starts-with(@class,'var')]")));
+    }
+    
+    public void iVerifyColumnUnderTop5PerformanceTable(String column,String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//table[@id='key"+text+"TableObjTable']//th[contains(text(),'"+column+"')]")),column);
+    }
 }

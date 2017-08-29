@@ -1115,6 +1115,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("I will wait to see \"([^\"]*)\" is appearing inside the iframe")
+    @Then("^I will wait to see \"([^\"]*)\" is appearing in the new window$")
     public void i_will_wait_to_see_is_appearing_inside_the_iframe(String reportname) throws Throwable{
     	reportHomePage.iWillWaitToSeeReportNameInsideIframe(reportname);
     }
@@ -1155,6 +1156,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("I wait until loading message disappears inside frame in reports")
+    @Then("^I wait until loading message disappears in the new window after clicking on element$")
     public void i_wait_until_loading_message_disappears_inside_frame_in_reports() throws Throwable{
     	reportHomePage.iWaitUntillLoadingMessageDisappearsIndideFrameInReports();
     }
@@ -1210,6 +1212,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("^I verify scorecards appearing on performance scorecard dashboard page$")
+    @And("^I verify the user is on the same page by verifying the performance scorecards are appearing$")
     public void i_verify_scorecards_appearing_on_the_performance_scorecard_dashboard_page() throws Throwable{
     	reportHomePage.iVerifyScorecardsUnderPerformanceScoreCardDashboard();
     }
@@ -1308,5 +1311,35 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I verify bar containers appearing under post acute care discharge disposition on the performance scorecard dashboard page$")
     public void i_verify_bar_containers_appearing_under_post_acute_care_discharge_disposition_on_the_performance_scorecard_dashboard_page() throws Throwable{
     	reportHomePage.iVerifyBarContainersUnderPostAcuteCareDischargeDisposition();
+    }
+    
+    @And("^I click on \"([^\"]*)\" is kpi box on the performance scorecard dashboard page$")
+    public void i_click_on_kpibox_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
+    	reportHomePage.iClickOnKpiBoxOnPerformanceScoreCardForDrillThrough(text);
+    }
+    
+    @And("^I click on a row under top 5 \"([^\"]*)\" performance table$")
+    public void i_click_on_a_row_under_top5_performance_table(String text) throws Throwable{
+    	reportHomePage.iClickOnTop5TableUnderPerformanceScorecardDashboard(text);
+    }
+    
+    @Then("^I click on one of the bar graph present under post acute care discharge disposition section$")
+    public void i_click_on_one_of_the_bar_graph_present_under_post_acute_care_discharge_disposition_section() throws Throwable{
+    	reportHomePage.iClickOnBarGraphUnderPostAcuteDischargeDispositionSection();
+    }
+    
+    @Then("^I verify actual calculation is appearing on the \"([^\"]*)\" kpi box$")
+    public void i_verify_actual_calculation_is_appearing_on_the_kpi_box(String text) throws Throwable{
+    	reportHomePage.iVerifyActualValueInKpiBox(text);
+    }
+    
+    @And("^I verify adjusted calculation is appearing on the \"([^\"]*)\" kpi box$")
+    public void i_verify_adjusted_calculation_is_appearing_on_the_kpi_box(String text) throws Throwable{
+    	reportHomePage.iVerifyAdjustedValueInKpiBox(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" column is appearing under top 5 \"([^\"]*)\" performance table$")
+    public void i_verify_column_is_appearing_under_top5_performance_table(String column,String text) throws Throwable{
+    	reportHomePage.iVerifyColumnUnderTop5PerformanceTable(column, text);
     }
 }

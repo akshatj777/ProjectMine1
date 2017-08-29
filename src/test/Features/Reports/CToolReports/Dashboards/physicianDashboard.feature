@@ -307,3 +307,229 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify user should be able to drill through of kpi boxes in performance scorecard dashboard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    Then I verify "Episodes (Eps)" scorecard is appearing under performance scorecard
+    Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
+    Then I verify "% Disch to SNF" scorecard is appearing under performance scorecard
+    Then I verify "SNF Days" scorecard is appearing under performance scorecard
+    Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
+    And I click on "Episodes (Eps)" is kpi box on the performance scorecard dashboard page
+    And I verify the user is on the same page by verifying the performance scorecards are appearing
+    And I click on "Avg Episode Cost" is kpi box on the performance scorecard dashboard page
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Spending" title
+    Then I will wait to see "Spending" is appearing in the new window
+    And I switch back to old window
+    And I click on "% Disch to SNF" is kpi box on the performance scorecard dashboard page
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Performance" title
+    Then I will wait to see "Performance" is appearing in the new window
+    And I switch back to old window
+    And I click on "SNF Days" is kpi box on the performance scorecard dashboard page
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Performance" title
+    Then I will wait to see "Performance" is appearing in the new window
+    And I switch back to old window
+    And I click on "% Eps w Readmit" is kpi box on the performance scorecard dashboard page
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Readmissions Claims" title
+    Then I will wait to see "Readmissions Claims" is appearing in the new window
+    And I switch back to old window
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify user should be able to drill through top 5 bundle performance values
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "Top 5 Bundle Performance" section is appearing on the performance scorecard dashboard page
+    And I click on a row under top 5 "Bundle" performance table
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Spending" title
+    Then I will wait to see "Spending" is appearing in the new window
+    And I switch back to old window
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify user should be able to drill through top 5 bundle performance values
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "Top 5 Facility Performance" section is appearing on the performance scorecard dashboard page
+    And I click on a row under top 5 "Facility" performance table
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Spending" title
+    Then I will wait to see "Spending" is appearing in the new window
+    And I switch back to old window
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify user should be able to drill through post acute care discharge disposition graphs
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "Post-Acute Care Discharge Disposition" section is appearing on the performance scorecard dashboard page
+    Then I click on one of the bar graph present under post acute care discharge disposition section
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Performance" title
+    Then I will wait to see "Performance" is appearing in the new window
+    And I switch back to old window
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify the user should be able to see actual values appearing appearing on the kpi boxesw in in performance scorecard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I wait until loading icon disappears in physician dashboard report
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    And I verify "Episodes (Eps)" KPI is appearing under performance scorecard
+    And I verify "Avg Episode Cost" KPI is appearing under performance scorecard
+    And I verify "% Disch to SNF" KPI is appearing under performance scorecard
+    And I verify "SNF Days" KPI is appearing under performance scorecard
+    And I verify "% Eps w Readmit" KPI is appearing under performance scorecard
+    Then I verify actual calculation is appearing on the "Episodes (Eps)" kpi box
+    Then I verify actual calculation is appearing on the "Avg Episode Cost" kpi box
+    Then I verify actual calculation is appearing on the "% Disch to SNF" kpi box
+    Then I verify actual calculation is appearing on the "SNF Days" kpi box
+    Then I verify actual calculation is appearing on the "% Eps w Readmit" kpi box
+    #And I verify adjusted calculation is appearing on the "Episodes (Eps)" kpi box
+    And I verify adjusted calculation is appearing on the "Avg Episode Cost" kpi box
+    And I verify adjusted calculation is appearing on the "% Disch to SNF" kpi box
+    And I verify adjusted calculation is appearing on the "SNF Days" kpi box
+    And I verify adjusted calculation is appearing on the "% Eps w Readmit" kpi box
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+Scenario Outline: Verify user should be able to verify the column names in the financial performance tables
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "Top 5 Bundle Performance" section is appearing on the performance scorecard dashboard page
+    And I verify "Bundle" column is appearing under top 5 "Bundle" performance table
+    And I verify "Episode Volume" column is appearing under top 5 "Bundle" performance table
+    And I verify "Avg. Episode Cost" column is appearing under top 5 "Bundle" performance table
+    And I verify "Avg Target Price" column is appearing under top 5 "Bundle" performance table
+    Then I verify "Top 5 Facility Performance" section is appearing on the performance scorecard dashboard page
+    And I verify "Facility" column is appearing under top 5 "Facility" performance table
+    And I verify "Episode Volume" column is appearing under top 5 "Facility" performance table
+    And I verify "Avg. Episode Cost" column is appearing under top 5 "Facility" performance table
+    And I verify "Avg Target Price" column is appearing under top 5 "Facility" performance table
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |      
