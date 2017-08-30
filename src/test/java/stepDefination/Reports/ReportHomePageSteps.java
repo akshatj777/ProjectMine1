@@ -1342,4 +1342,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_column_is_appearing_under_top5_performance_table(String column,String text) throws Throwable{
     	reportHomePage.iVerifyColumnUnderTop5PerformanceTable(column, text);
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the actual value of \"([^\"]*)\" kpi box$")
+    public void i_verify_symbol_is_appearing_on_the_actual_value_of_kpi_box(String symbol,String kpibox) throws Throwable{
+    	reportHomePage.iVerifySymbolOnKPIBox(symbol, kpibox);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the adjusted value of \"([^\"]*)\" kpi box$")
+    public void i_verify_symbol_is_appearing_on_the_adjusted_value_of_kpi_box(String symbol,String kpibox) throws Throwable{
+    	reportHomePage.iVerifySymbolForAdjustedValueOnKPIBox(symbol, kpibox);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" symbol is appearing in the values under avg episode cost and avg target price in \"([^\"]*)\" table$")
+    public void i_verify_symbol_is_appearing_in_the_values_under_avg_episode_cost(String symbol,String text) throws Throwable{
+    	reportHomePage.iVerifySymbolAppearingUnderAvgEpisodeCostInBundleTable(symbol,text);
+    }
 }

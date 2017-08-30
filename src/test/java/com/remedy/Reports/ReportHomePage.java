@@ -1063,4 +1063,16 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyColumnUnderTop5PerformanceTable(String column,String text){
     	verifyTextForElement(driver.findElement(By.xpath("//table[@id='key"+text+"TableObjTable']//th[contains(text(),'"+column+"')]")),column);
     }
+    
+    public void iVerifySymbolOnKPIBox(String symbol,String kpibox){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+kpibox+"')]/following-sibling::div[contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifySymbolForAdjustedValueOnKPIBox(String symbol,String kpibox){
+    	isElementVisible(driver.findElement(By.xpath("//div[div[contains(text(),'"+kpibox+"')]] //div[starts-with(@class,'var')][contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifySymbolAppearingUnderAvgEpisodeCostInBundleTable(String symbol,String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='key"+text+"TableObjTable']/tbody/tr/td[contains(text(),'"+symbol+"')]")));
+    }
 }
