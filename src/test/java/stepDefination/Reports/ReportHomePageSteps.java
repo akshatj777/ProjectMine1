@@ -1357,4 +1357,54 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_symbol_is_appearing_in_the_values_under_avg_episode_cost(String symbol,String text) throws Throwable{
     	reportHomePage.iVerifySymbolAppearingUnderAvgEpisodeCostInBundleTable(symbol,text);
     }
+    
+    @Then("^I verify attributed physician names are center alligned$")
+    public void i_verify_attributed_physician_names_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyAttributedPhysicianColumnValuesCenterAlligned();
+    }
+    
+    @Then("^I verify episode eps column values are center alligned$")
+    public void i_verify_episodes_column_values_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyEpisodesColumnValuesCenterAlligned();
+    }
+    
+    @Then("^I verify avg episode cost column spotlights are center alligned$")
+    public void i_verify_avg_episode_cost_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyAvgEpisodeCostValuesCenterAlligned();
+    }
+    
+    @Then("^I verify disch to snf column spotlights are center alligned$")
+    public void i_verify_disch_to_snf_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyDischToSnfValuesCenterAlligned();
+    }
+    
+    @Then("^I verify snf days column spotlights are center alligned$")
+    public void i_verify_snf_days_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifySnfDaysValuesCenterAlligned();
+    }
+    
+    @Then("^I verify eps with readmit column spotlights are center alligned$")
+    public void i_verify_eps_with_readmit_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyEpsWithReadmitValuesCenterAlligned();
+    }
+    
+    @Then("^I verify actual values in kpi boxes are center alligned in performance scorecard page$")
+    public void i_verify_actual_values_in_kpi_boxes_are_center_alligned_in_performance_scorecard_page() throws Throwable{
+    	reportHomePage.iVerifyKPIBoxesValuesCenterAlligned();
+    }
+    
+    @Then("^I verify episode volume column values under \"([^\"]*)\" performance table are center alligned$")
+    public void i_verify_episode_volume_column_under_performance_table_are_center_alligned(String text) throws Throwable{
+    	reportHomePage.iVerifyEpsiodeVolumeColumnUnderPerformanceTable(text);
+    }
+    
+    @Then("^I verify avg episode cost column values under \"([^\"]*)\" performance table are center alligned$")
+    public void i_verify_avg_episode_cost_column_under_performance_table_are_center_alligned(String text) throws Throwable{
+    	reportHomePage.iVerifyAvgEpisodeCostColumnUnderPerformanceTable(text);
+    }
+    
+    @Then("^I verify avg target price column values under \"([^\"]*)\" performance table are center alligned$")
+    public void i_verify_avg_target_price_column_under_performance_table_are_center_alligned(String text) throws Throwable{
+    	reportHomePage.iVerifyAvgTargetPriceColumnUnderPerformanceTable(text);
+    }
 }

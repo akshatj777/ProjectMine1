@@ -565,3 +565,60 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify the values under performance evaluation by physician table values are center alligned
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify attributed physician names are center alligned
+    Then I verify episode eps column values are center alligned
+    Then I verify avg episode cost column spotlights are center alligned
+    Then I verify disch to snf column spotlights are center alligned
+    Then I verify snf days column spotlights are center alligned
+    Then I verify eps with readmit column spotlights are center alligned
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify the values in kpi boxes are center alligned under performance scorecard dashboard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify actual values in kpi boxes are center alligned in performance scorecard page
+    Then I verify episode volume column values under "Bundle" performance table are center alligned
+    Then I verify avg episode cost column values under "Bundle" performance table are center alligned
+    Then I verify avg target price column values under "Bundle" performance table are center alligned
+    Then I verify episode volume column values under "Facility" performance table are center alligned
+    Then I verify avg episode cost column values under "Facility" performance table are center alligned
+    Then I verify avg target price column values under "Facility" performance table are center alligned
+    
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
