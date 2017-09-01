@@ -734,6 +734,7 @@ public class ReportHomePage extends BaseClass {
     	iWillWaitToSee(By.xpath(path));
     	clickElement(driver.findElement(By.xpath(path)));
     	delay();
+    	//clickElement(driver.findElement(By.xpath("(//*[@id='SNFChartRow']//*[@cursor='pointer'])[4]")));
     }
     
     public void iClickOnPostAcuteUtilizationGraphPoint(String text){
@@ -1130,9 +1131,17 @@ public class ReportHomePage extends BaseClass {
     	Assert.assertEquals("center", allignment);
     }
     
-    public void iVerifyAvgTargetPriceColumnUnderPerformanceTable(String text){
+    public  void iVerifyAvgTargetPriceColumnUnderPerformanceTable(String text){
     	WebElement physician = driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column3"));
     	String allignment=physician.getCssValue("text-align");
     	Assert.assertEquals("center", allignment);
+    }
+    
+    public void iVerifyAdjustedHistoricButtonOnPhysicianDashboardReport(){
+    	isElementVisible(driver.findElement(By.xpath("//button[@name='render_benchmarkSelector']")));
+    }
+    
+    public void iVerifyClaimsUnderDataSourceUnderPhysicianReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     }
 }

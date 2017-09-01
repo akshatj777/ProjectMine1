@@ -618,7 +618,57 @@ Feature: Verification of physician report under dashboard
     Then I verify episode volume column values under "Facility" performance table are center alligned
     Then I verify avg episode cost column values under "Facility" performance table are center alligned
     Then I verify avg target price column values under "Facility" performance table are center alligned
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify adjusted historic button is visible beside benchmark on the physician dashboard page and performance scorecard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify Adjusted Historic button is appearing beside benchmark option on physician dashboard page
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I verify Adjusted Historic button is appearing beside benchmark option on performance scorecard page
     
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+ Scenario Outline: Verify claims option is appearing under data source
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "Claims" option is appearing beside data source on the physician dashboard report page
+    Then I verify "Claims" option is appearing beside data source on the physician dashboard report page 
+    And I verify "Claims" option is appearing beside data source on the performance scorecard page
+    
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+    

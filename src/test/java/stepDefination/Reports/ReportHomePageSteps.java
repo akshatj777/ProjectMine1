@@ -1407,4 +1407,16 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_avg_target_price_column_under_performance_table_are_center_alligned(String text) throws Throwable{
     	reportHomePage.iVerifyAvgTargetPriceColumnUnderPerformanceTable(text);
     }
+    
+    @Then("^I verify Adjusted Historic button is appearing beside benchmark option on physician dashboard page$")
+    @And("^I verify Adjusted Historic button is appearing beside benchmark option on performance scorecard page$")
+    public void i_verify_adjusted_historic_button_is_appearing_beside_benchmark_option_on_physician_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyAdjustedHistoricButtonOnPhysicianDashboardReport();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" option is appearing beside data source on the physician dashboard report page$")
+    @And("I verify \"([^\"]*)\" option is appearing beside data source on the performance scorecard page")
+    public void i_verify_option_is_appearing_beside_data_source_on_the_physician_dashboard_report_page(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsUnderDataSourceUnderPhysicianReport(text);
+    }
 }
