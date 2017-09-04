@@ -132,3 +132,131 @@ Feature: Verification of Readmissions EC report
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
+
+  Scenario Outline: Verify last working bundle filter doesnot show duplicates
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Last Working Bundle" field filter under "Last Working DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Last Working Bundle" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "Amputation" in the filter value list
+    And I should see "Back & neck except spinal fusion" in the filter value list
+    And I should see "Cardiac valve" in the filter value list
+    And I should see "Cervical spinal fusion" in the filter value list
+    And I should see "Congestive heart failure" in the filter value list
+    And I should see "Coronary artery bypass graft" in the filter value list
+    And I should see "Double joint replacement, lower extremities" in the filter value list
+    And I should see "Fractures of the femur and hip or pelvis" in the filter value list
+    And I should see "Hip & femur procedures except major joint" in the filter value list
+    And I should see "Lower Major joint replacement" in the filter value list
+    And I should see "Medical non-infectious orthopedic" in the filter value list
+    And I should see "Other vascular surgery" in the filter value list
+    And I should see "Percutaneous coronary intervention" in the filter value list
+    And I should see "Revision of the hip or knee" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify last final bundle filter doesnot show duplicates
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Last Final Bundle" field filter under "Last Final DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Last Final Bundle" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "Acute myocardial infarction" in the filter value list
+    And I should see "Amputation" in the filter value list
+    And I should see "Cardiac valve" in the filter value list
+    And I should see "Cervical spinal fusion" in the filter value list
+    And I should see "Congestive heart failure" in the filter value list
+    And I should see "Coronary artery bypass graft" in the filter value list
+    And I should see "Fractures of the femur and hip or pelvis" in the filter value list
+    And I should see "Hip & femur procedures except major joint" in the filter value list
+    And I should see "Lower Major joint replacement" in the filter value list
+    And I should see "Medical non-infectious orthopedic" in the filter value list
+    And I should see "Other vascular surgery" in the filter value list
+    And I should see "Percutaneous coronary intervention" in the filter value list
+    And I should see "Revision of the hip or knee" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify patient risk filter doesnot show duplicates
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "High" in the filter value list
+    And I should see "Low" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+      
+Scenario Outline: Verify patient risk filter doesnot show duplicates
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Risk Score" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Risk Score" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "1" in the filter value list
+    And I should see "2" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+

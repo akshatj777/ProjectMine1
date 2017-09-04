@@ -1144,4 +1144,8 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyClaimsUnderDataSourceUnderPhysicianReport(String text){
     	isElementVisible(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     }
+    
+    public void iVerifyFilterFieldAfterSearching(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='field measure dojoDndItem uncommon']")),text);
+    }
 }

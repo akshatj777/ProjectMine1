@@ -1419,4 +1419,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_option_is_appearing_beside_data_source_on_the_physician_dashboard_report_page(String text) throws Throwable{
     	reportHomePage.iVerifyClaimsUnderDataSourceUnderPhysicianReport(text);
     }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the fields after searching$")
+    public void i_verify_is_appearing_in_the_fields_after_searching(String text) throws Throwable{
+    	reportHomePage.iVerifyFilterFieldAfterSearching(text);
+    }
 }

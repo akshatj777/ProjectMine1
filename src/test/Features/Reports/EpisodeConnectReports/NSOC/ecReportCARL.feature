@@ -133,3 +133,26 @@ Feature: Verification of CARL EC Report
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
+
+  Scenario Outline: Verify user should be able to search PAC % Actual NSOC in the availbale filter fields
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "PAC % Actual NSOC" in the search field textbox for filters
+    And I verify "PAC % Actual NSOC" is appearing in the fields after searching
+    
+    Examples: 
+      | email                          |
+      | shutestaug231132a@yopmail.com  |
