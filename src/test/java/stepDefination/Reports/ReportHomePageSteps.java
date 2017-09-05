@@ -1424,4 +1424,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_is_appearing_in_the_fields_after_searching(String text) throws Throwable{
     	reportHomePage.iVerifyFilterFieldAfterSearching(text);
     }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the available fields under next site of care summary report$")
+    public void i_verify_is_appearing_in_the_available_fields_under_next_site_of_care_summary_report(String text) throws Throwable{
+    	reportHomePage.iVerifyInAvailableFieldsAfterSearchingUnderNextSiteOfCareSummary(text);
+    }
+    
+    @And("^I click on clear search field element$")
+    public void i_click_on_clear_search_field_element(){
+    	reportHomePage.IClickOnCloseToClearTextBox();
+    }
+    
+    @Then("I should not see \"([^\"]*)\" is not appearing in the default measures list")
+    public void i_should_not_see_is_not_appearing_in_the_default_measures_list(String text) throws Throwable{
+    	reportHomePage.iVerifyTextNotAppearingInDefaultMeasure(text);
+    }
+    
+    @And("I should not see \"([^\"]*)\" in the searched results under the measures")
+    public void i_should_not_see_in_the_searched_results_under_the_measures(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeeUnderSearchedMeasuresResults(text);
+    }
 }

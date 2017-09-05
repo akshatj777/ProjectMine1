@@ -1148,4 +1148,20 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyFilterFieldAfterSearching(String text){
     	verifyTextForElement(driver.findElement(By.xpath("//div[@class='field measure dojoDndItem uncommon']")),text);
     }
+    
+    public void iVerifyInAvailableFieldsAfterSearchingUnderNextSiteOfCareSummary(String text){
+    	verifyTextForElementFromListByXpath("//div[@class='field attribute dojoDndItem uncommon']",text);
+    }
+    
+    public void IClickOnCloseToClearTextBox(){
+    	clickElement(driver.findElement(By.cssSelector("#clearSearchField")));
+    }
+    
+    public void iVerifyTextNotAppearingInDefaultMeasure(String text){
+    	verifyTextNotPresentForElementFromList("div[type='measure']>div:nth-child(1)",text);
+    }
+    
+    public void iShouldNotSeeUnderSearchedMeasuresResults(String text){
+    	verifyTextNotPresentForElementFromList("#GROUP0DIV>div",text);
+    }
 }
