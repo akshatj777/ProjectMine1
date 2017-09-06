@@ -19,11 +19,11 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users              |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Emblem Payer Users                |
+      #| Emblem Payer Users            |
       | emblemachrpfin@yopmail.com     |
-      #| Multiple Payer Users              |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see default measures for performance claims report under physician
@@ -64,11 +64,11 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users              |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Emblem Payer Users                |
+      #| Emblem Payer Users            |
       | emblemachrpfin@yopmail.com     |
-      #| Multiple Payer Users              |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see levels fields for performance claims report under physician
@@ -154,11 +154,11 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users              |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Emblem Payer Users                |
+      #| Emblem Payer Users            |
       | emblemachrpfin@yopmail.com     |
-      #| Multiple Payer Users              |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove the default filters for performance claims report under physician
@@ -180,11 +180,11 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users              |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Emblem Payer Users                |
+      #| Emblem Payer Users            |
       | emblemachrpfin@yopmail.com     |
-      #| Multiple Payer Users              |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify initial snf los is appearing and not initial snf los (adj hist) in performance report under physician in measures available fields
