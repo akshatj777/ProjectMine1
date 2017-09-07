@@ -84,7 +84,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     Then I enter "Network Tier" in the search field textbox for filters
     And I verify "Network Tier (Anchor Discharge)" is appearing in the available fields under next site of care summary report
-    And I verify "Network Tier (Anchor Discharge)" is appearing in the available fields under next site of care summary report
+    And I verify "Network Tier (Post Acute Admission)" is appearing in the available fields under next site of care summary report
 
     Examples: 
       | email                         |

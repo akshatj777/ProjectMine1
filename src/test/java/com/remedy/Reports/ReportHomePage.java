@@ -1164,4 +1164,10 @@ public class ReportHomePage extends BaseClass {
     public void iShouldNotSeeUnderSearchedMeasuresResults(String text){
     	verifyTextNotPresentForElementFromList("#GROUP0DIV>div",text);
     }
+    
+    public void iVerifyHeaderNameCenterAlligned(String text){
+    	WebElement physician = driver.findElement(By.xpath("//th[text()='"+text+"']"));
+    	String allignment=physician.getCssValue("text-align");
+    	Assert.assertEquals("center", allignment);
+    }
 }

@@ -490,7 +490,6 @@ Feature: Verification of physician report under dashboard
     Then I verify actual calculation is appearing on the "% Disch to SNF" kpi box
     Then I verify actual calculation is appearing on the "SNF Days" kpi box
     Then I verify actual calculation is appearing on the "% Eps w Readmit" kpi box
-    #And I verify adjusted calculation is appearing on the "Episodes (Eps)" kpi box
     And I verify adjusted calculation is appearing on the "Avg Episode Cost" kpi box
     And I verify adjusted calculation is appearing on the "% Disch to SNF" kpi box
     And I verify adjusted calculation is appearing on the "SNF Days" kpi box
@@ -644,12 +643,12 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
     And I verify Adjusted Historic button is appearing beside benchmark option on performance scorecard page
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
- Scenario Outline: Verify claims option is appearing under data source
+
+  Scenario Outline: Verify claims option is appearing under data source
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -665,8 +664,64 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     Then I verify "Claims" option is appearing beside data source on the physician dashboard report page
-    Then I verify "Claims" option is appearing beside data source on the physician dashboard report page 
+    Then I verify "Claims" option is appearing beside data source on the physician dashboard report page
     And I verify "Claims" option is appearing beside data source on the performance scorecard page
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify the global filters are appearing on the physician dashboard report page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I switch to default window from iframe
+    When I see "0" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    And I verify apply button is appearing under global filters
+    Then I see <payer> appearing under payer filter of global filters
+    Then I see <participant> appearing under participant filter of global filters
+
+    Examples: 
+      | email                         | payer    | participant |
+      | shutestaug231132a@yopmail.com | Medicare | Penn        |
+
+  Scenario Outline: Verify the headers of the columns are center alligned
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    And I verify "Attributed Physician" header name is center alligned on physician dashboard report
+    And I verify "Episodes (Eps)" header name is center alligned on physician dashboard report
+    And I verify "Avg Episode Cost" header name is center alligned on physician dashboard report
+    And I verify "% Disch to SNF" header name is center alligned on physician dashboard report
+    And I verify "SNF Days" header name is center alligned on physician dashboard report
+    And I verify "% Eps with Readmit" header name is center alligned on physician dashboard report
     
     Examples: 
       | email                         |

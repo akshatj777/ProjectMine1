@@ -1444,4 +1444,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_not_see_in_the_searched_results_under_the_measures(String text) throws Throwable{
     	reportHomePage.iShouldNotSeeUnderSearchedMeasuresResults(text);
     }
+    
+    @And("^I verify \"([^\"]*)\" header name is center alligned on physician dashboard report$")
+    public void i_verify_header_name_is_center_alligned_on_physician_dashbaord_report(String text) throws Throwable{
+    	reportHomePage.iVerifyHeaderNameCenterAlligned(text);
+    }
 }
