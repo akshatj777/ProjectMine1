@@ -1,9 +1,8 @@
 package com.remedy.baseClass;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
@@ -26,6 +25,7 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
+	//WebDriverWait wait = new WebDriverWait(driver, 30);
 
 	public BaseClass(final WebDriver driver) {
 
@@ -450,4 +450,14 @@ public class BaseClass {
 		}
 		Assert.assertEquals(text,value);
 	}	
+	
+	public void clickSingleElementFromList(By locator, String text) {
+	    List <WebElement> element = driver.findElements(locator);
+	    for(WebElement ele: element) {
+	    	if (ele.getText().contentEquals(text)) {
+	    		ele.click();
+	    	}
+	    }
+	}	
 }
+

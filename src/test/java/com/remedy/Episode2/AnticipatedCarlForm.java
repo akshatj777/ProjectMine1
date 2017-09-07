@@ -24,10 +24,12 @@ public class AnticipatedCarlForm extends BaseClass {
 	}
 
 	public void IClickOnCheckBoxUnderTherapiesNeededOnAnticipatedDischargeNeedsSection(String text) {
+		delay();
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'" + text + "')]")));
 	}
 
 	public void IVerifyTheEnabledCheckboxForTherapiesNeededOnAnticipatedDischargeNeedsSection(String checkbox) {
+		delay();
 		boolean value = true;
 		try {
 			driver.findElement(By.xpath("//span[contains(text(),'" + checkbox + "')]/ancestor::div[@disabled='disabled']"));
@@ -46,16 +48,19 @@ public class AnticipatedCarlForm extends BaseClass {
 	}
 
 	public void IVerifyTheSelectTextInPlaceHolderOfPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(String text) {
+		longDelay();
 		String text1 = driver.findElement(By.cssSelector("div.restoration-potential.ng-scope > div > input.form-control")).getAttribute("placeholder");
 		Assert.assertEquals(text, text1);
 
 	}
 
 	public void IClickOnPhysicalTherapyDropDownOnPatientRestorationPotentialSection() {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[@class='restoration-potential ng-scope']//span[@tabindex='-1']")));
 	}
 
 	public void IVerifyTheOtionsInPhysicalTherapyDropDownOnAnticipatedDischargeNeeds(String text) {
+		longDelay();
 		verifyTextForElementFromListByXpath("//div[@class='restoration-potential ng-scope']//li//div[@class='ng-binding ng-scope']", text);
 	}
 
@@ -68,6 +73,7 @@ public class AnticipatedCarlForm extends BaseClass {
 	}
 
 	public void ISelectTheCheckBoxOptionUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text) {
+		delay();
 		clickElement(driver.findElement(By.xpath("//label[@for='" + text + "']")));
 	}
 
@@ -77,6 +83,7 @@ public class AnticipatedCarlForm extends BaseClass {
 	}
 
 	public void IVeriyUponSelectTheCheckBoxOptionSubFieldSectionAppearUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String text) {
+		delay();
 		Assert.assertTrue((driver.findElement(By.xpath("//input[@id='" + text + "' and (contains(@class,'ng-not-empty'))]")).isSelected()));
 		Assert.assertTrue((driver.findElement(By.xpath("//div[div[input[@id='" + text + "']]]/following-sibling::div[contains(@class,'survey-section')]")).isDisplayed()));
 	}
@@ -86,10 +93,12 @@ public class AnticipatedCarlForm extends BaseClass {
 	}
 
 	public void IVeriyRadioOptionsUponSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text) {
+		delay();
 		Assert.assertTrue(driver.findElement(By.xpath("//div[input[contains(@id,'" + text + "')]]//label//span[contains(text(),'" + radio + "')]")).isDisplayed());
 	}
 
 	public void IClickRadioOptionAfterSelectingCheckBoxUnderTransitionOfCareNeedsOnAnticipatedDischargeNeeds(String radio, String text) {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[input[contains(@id,'" + text + "')]]//label//span[contains(text(),'" + radio + "')]")));
 	}
 

@@ -44,9 +44,9 @@ public class ExceededSnfLosSteps extends DriverScript {
 		exceed.Iclickondatepickerbuttontoselecttheadmitdateonnewtransition();
 	}
 
-	@Then("^I verify LOS is below the ELOS on the patient card page$")
-	public void I_verify_LOS_is_below_the_ELOS_on_the_patient_card_page() throws Throwable {
-		exceed.IverifyLOSisbelowtheELOSonthepatientcardpage();
+	@Then("^I verify LOS is \"([^\"]*)\" the ELOS on the patient card page$")
+	public void I_verify_LOS_with_ELOS_on_the_patient_card_page(String flag) throws Throwable {
+		exceed.IverifyLOSwithELOSonthepatientcardpage(flag);
 	}
 
 }

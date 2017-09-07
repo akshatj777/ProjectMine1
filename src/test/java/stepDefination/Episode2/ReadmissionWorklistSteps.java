@@ -119,7 +119,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the edit button on the \"([^\"]*)\" transition to edit the Active transition$")
-	public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException {
+	public void I_click_on_the_edit_button_to_edit_the_Active_transition(String transition_value) throws InterruptedException,Throwable {
 		admission.IclickontheeditbuttontoedittheActivetransition(transition_value);
 	}
 
@@ -129,7 +129,7 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	}
 
 	@Then("^I click on the delete button on the transition to delete all the transitions$")
-	public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions() throws InterruptedException {
+	public void I_click_on_the_delete_button_on_the_transition_to_delete_all_the_transitions() throws InterruptedException,Throwable {
 		admission.Iclickonthedeletebuttononthetransitiontodeleteallthetransitions();
 	}
 
@@ -142,5 +142,24 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	public void I_enter_on_create_transition_page_on_transition_tab_on_Patient_Summary(String admitreason) throws Throwable {
 		admission.IenteroncreatetransitionpageontransitiontabonPatientSummary(admitreason);
 	}
-
+    
+	@Then ("^I wait to see and enable the attestation on the \"([^\"]*)\" patient on the Patient Card page$")
+	public void I_wait_to_see_and_enable_the_attestation_on_the_patient_for_on_the_Patient_Card_page(int patientno) throws Throwable {
+		admission.IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(patientno);
+	}
+	
+	@Then("^I select the \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" by \"([^\"]*)\" on add a new transition$")
+	public void I_select_drop_down_value_on_add_a_new_transition(String admissiontype,String variable,String value,String css) throws Throwable {
+		admission.Iselectdropdownvalueonaddanewtransition(admissiontype,variable,value,css);
+	}
+	
+	@Then("^I select the \"([^\"]*)\" facility \"([^\"]*)\" by \"([^\"]*)\" on add a new transition$")
+	public void I_select_facility_on_add_a_transition(String admissiontype,String facilityvalue,String locator) throws Throwable {
+		admission.Iselectthefacilityonaddanewtransition(admissiontype,facilityvalue,locator);
+	}
+	
+	@Then ("^I remove the discharge date on the transition page$")
+	public void I_remove_the_discharge_date_on_the_transition_page() throws Throwable {
+		admission.Iremovethedischargedateonthetransitionpage();
+	}
 }

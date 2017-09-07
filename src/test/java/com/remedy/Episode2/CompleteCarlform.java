@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -26,7 +28,7 @@ public class CompleteCarlform extends BaseClass {
 		delay();
 		js.executeScript("arguments[0].click();", element);
 		delay();
-}
+   }
 
 	public void IverifyCARLbuttonsappearsonthepatientsummary() {
 		WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.ng-binding.ng-scope"));
@@ -38,8 +40,14 @@ public class CompleteCarlform extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("a.valentino-icon-x.pull-right")));
 	}
 
-	public void IverifyCARLbuttonisappearingonthepatientcardornot() {
-		isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
+	public void IverifyCARLbuttonisappearingonthepatientcardornot(String link) {
+    	longDelay();	
+		if(link.equals("appearing")){
+	        isElementVisible(driver.findElement(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
+	}else{
+		WebDriverWait wait=new WebDriverWait(driver,5);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("button.btn.btn-primary.btn-auto-square.ng-scope")));
+	}
 	}
 
 	public void Iselectonthebuttontodeletethetransition() {
@@ -56,7 +64,8 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IVerifythatClickingonCompleteCARLbuttonCarlformshouldappearasatakeoverpage() {
-        isElementVisible(driver.findElement(By.cssSelector("div.takeover-content.container.carl.ng-scope > form")));
+		iWillWaitToSee(By.cssSelector("div.takeover-content.container.carl.ng-scope > form"));
+		delay();
 	}
 
 	public void IVerifythatCarlformshouldappearwithWhitebarwithPatientNameLastFirstnameandxicononthepage(String lastname, String firstname) {
@@ -173,6 +182,7 @@ public class CompleteCarlform extends BaseClass {
 	}
 
 	public void IClickOnCareTeamOnNavBarOnPatientSummaryPage(String text) {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'" + text + "')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'" + text + "')]")));
 	}
 
@@ -186,6 +196,7 @@ public class CompleteCarlform extends BaseClass {
 
 	public void IClickOnOkToDeleteThePatient() {
 		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
+		delay();
 	}
 
 	public void IVerifyFirstNameIsMandatoryFieldToCreateCaregiver() {
@@ -277,4 +288,15 @@ public class CompleteCarlform extends BaseClass {
 		verifyarraylist(requiredcombolisttext, mylist);
 	}
 
+	public void IwillwaittoseetheCARLsectionheaderappearsontheCARLform() {
+		iWillWaitToSee(By.cssSelector("h2.ng-binding"));
+	}
+
+	public void IselectoptionfromdropdowntocreateCaregiver(String value) {
+		clickElement(driver.findElement(By.cssSelector("div:nth-child(3) > div.col-xs-8 > div > div.ui-select-match.ng-scope")));
+		clickElement(driver.findElement(By.xpath("//span[@class='ui-select-choices-row-inner']/div[text()='"+value+"']")));
+		
+	}
+
+	
 }
