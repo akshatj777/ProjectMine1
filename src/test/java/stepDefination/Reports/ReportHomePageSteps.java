@@ -1431,7 +1431,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("^I click on clear search field element$")
-    public void i_click_on_clear_search_field_element(){
+    public void i_click_on_clear_search_field_element() throws Throwable{
     	reportHomePage.IClickOnCloseToClearTextBox();
     }
     

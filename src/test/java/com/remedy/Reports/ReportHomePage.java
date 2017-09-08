@@ -734,7 +734,6 @@ public class ReportHomePage extends BaseClass {
     	iWillWaitToSee(By.xpath(path));
     	clickElement(driver.findElement(By.xpath(path)));
     	delay();
-    	//clickElement(driver.findElement(By.xpath("(//*[@id='SNFChartRow']//*[@cursor='pointer'])[4]")));
     }
     
     public void iClickOnPostAcuteUtilizationGraphPoint(String text){
@@ -953,7 +952,7 @@ public class ReportHomePage extends BaseClass {
         verifyTextForElement(driver.findElement(By.cssSelector("#tableTitleObj")), text);
     }
     
-    public void iClickOnFirstNameUnderAttributedPhysicianColumn() throws InterruptedException {
+    public void iClickOnFirstNameUnderAttributedPhysicianColumn(){
     	clickElement(driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr:first-child>td:first-child")));
     }
     
