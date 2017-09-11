@@ -19,7 +19,6 @@ Feature: Verification of spending claims reports episode list drill through unde
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
-    #Then I should verify "CCN" is appearing under Episodes table
     Then I should verify "Anchor Facility" is appearing under Episodes table
     Then I should verify "Bundle" is appearing under Episodes table
     Then I should verify "DRG Code" is appearing under Episodes table

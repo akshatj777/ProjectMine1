@@ -1077,63 +1077,43 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAttributedPhysicianColumnValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column0"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column0"),"text-align");
     }
     
     public void iVerifyEpisodesColumnValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column1"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column1"),"text-align");
     }
     
     public void iVerifyAvgEpisodeCostValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column2"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column2"),"text-align");
     }
     
     public void iVerifyDischToSnfValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column5"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column5"),"text-align");
     }
     
     public void iVerifySnfDaysValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column8"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column8"),"text-align");
     }
     
     public void iVerifyEpsWithReadmitValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column11"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column11"),"text-align");
     }
     
     public void iVerifyKPIBoxesValuesCenterAlligned(){
-    	WebElement physician = driver.findElement(By.cssSelector(".value"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector(".value"),"text-align");
     }
     
     public void iVerifyEpsiodeVolumeColumnUnderPerformanceTable(String text){
-    	WebElement physician = driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column1"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column1"),"text-align");
     }
     
     public void iVerifyAvgEpisodeCostColumnUnderPerformanceTable(String text){
-    	WebElement physician = driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column2"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column2"),"text-align");
     }
     
     public  void iVerifyAvgTargetPriceColumnUnderPerformanceTable(String text){
-    	WebElement physician = driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column3"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column3"),"text-align");
     }
     
     public void iVerifyAdjustedHistoricButtonOnPhysicianDashboardReport(){
@@ -1165,8 +1145,6 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyHeaderNameCenterAlligned(String text){
-    	WebElement physician = driver.findElement(By.xpath("//th[text()='"+text+"']"));
-    	String allignment=physician.getCssValue("text-align");
-    	Assert.assertEquals("center", allignment);
+    	VerifyElementCssProperty(By.xpath("//th[text()='"+text+"']"),"text-align");
     }
 }

@@ -458,6 +458,12 @@ public class BaseClass {
 	    		ele.click();
 	    	}
 	    }
-	}	
+	}
+	
+	public void VerifyElementCssProperty(By by,String property){
+		WebElement ele = driver.findElement(by);
+    	String allignment=ele.getCssValue(property);
+    	Assert.assertEquals("center", allignment);
+	}
 }
 

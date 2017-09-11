@@ -234,7 +234,7 @@ Feature: Verification of Readmissions EC report
       | email                         |
       | shutestaug231132a@yopmail.com |
       
-Scenario Outline: Verify patient risk filter doesnot show duplicates
+Scenario Outline: Verify risk score filter doesnot show duplicates
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
