@@ -1084,6 +1084,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("I verify \"([^\"]*)\" is appearing under \"([^\"]*)\" filter field after applying filter")
+    @And("^I verify \"([^\"]*)\" is appearing under \"([^\"]*)\" filter field in performance scorecard dashboard page$")
     public void i_verify_is_appearing_under_participant_filter_field_after_aplying_filter(String participant,String text) throws Throwable{
     	reportHomePage.iVerifyParticipantFieldAfterApplyingFilter(participant,text);
     }
@@ -1114,6 +1115,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("I will wait to see \"([^\"]*)\" is appearing inside the iframe")
+    @Then("^I will wait to see \"([^\"]*)\" is appearing in the new window$")
     public void i_will_wait_to_see_is_appearing_inside_the_iframe(String reportname) throws Throwable{
     	reportHomePage.iWillWaitToSeeReportNameInsideIframe(reportname);
     }
@@ -1154,6 +1156,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("I wait until loading message disappears inside frame in reports")
+    @Then("^I wait until loading message disappears in the new window after clicking on element$")
     public void i_wait_until_loading_message_disappears_inside_frame_in_reports() throws Throwable{
     	reportHomePage.iWaitUntillLoadingMessageDisappearsIndideFrameInReports();
     }
@@ -1186,5 +1189,264 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I enter \"([^\"]*)\" in the search field box under select drill through columns$")
     public void i_enter_in_the_search_field_box_under_select_drill_through_columns(String text) throws Throwable{
     	reportHomePage.iEnterValueInTextBoxUnderSelectDrillThroughColumns(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" appearing under physician dashboard reports$")
+    public void i_should_see_appearing_under_physician_dashboard_reports(String text) throws Throwable {
+        reportHomePage.iVerifyTextUnderPhysicianDashboardReport(text);
+    }
+    
+    @Then("^I wait until loading icon disappears in physician dashboard report$")
+    public void i_wait_until_loading_icon_disappears_in_physician_dashboard_report() throws Throwable{
+    	reportHomePage.iWaitUntillLoadingIconDisappears();
+    }
+    
+    @When("^I click the first name under attributed physican column$")
+    public void i_click_the_first_name_under_attributed_physician_column() throws Throwable{
+    	reportHomePage.iClickOnFirstNameUnderAttributedPhysicianColumn();
+    }
+    
+    @And("^I will wait to see \"([^\"]*)\" in the newly opened tab after clicking attributed physician$")
+    public void i_will_wait_to_see_in_the_newly_opened_tab_after_clicking_attributed_physician(String text) throws Throwable{
+    	reportHomePage.iWillWaitToSeeAfterClickingAttributedPhysicianName(text);
+    }
+    
+    @Then("^I verify scorecards appearing on performance scorecard dashboard page$")
+    @And("^I verify the user is on the same page by verifying the performance scorecards are appearing$")
+    public void i_verify_scorecards_appearing_on_the_performance_scorecard_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyScorecardsUnderPerformanceScoreCardDashboard();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" scorecard is appearing under performance scorecard$")
+    @And("^I verify \"([^\"]*)\" KPI is appearing under performance scorecard$")
+    public void i_verify_scorecard_is_appearing_under_performance_scorecard(String text) throws Throwable{
+    	reportHomePage.iVerifyScorecardUnderPerformanceScorecard(text);
+    }
+    
+    @Then("^I verify initially top \"([^\"]*)\" physicians are loaded$")
+    public void i_verify_initially_top_physicians_are_loaded(String text) throws Throwable{
+    	reportHomePage.iVerifyInitiallyTop100PhysiciansLoaded(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" physicians are present under attributed physician column on dashboard physician report$")
+    public void i_verify_physician_count_under_attributed_physician_column_on_dashboard_physician_report(int count) throws Throwable{
+    	reportHomePage.iVerifyPhysicianCountUnderAttributedPhysicians(count);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" count button appearing on the dashborad physician page$")
+    public void i_verify_count_button_appearing_on_the_dashboard_physician_page(String text) throws Throwable{
+    	reportHomePage.iVerifyDiffernetCountButtonsOnDashboardPhyisician(text);
+    }
+    
+    @Then("^I verify pagination section is appearing above of physicians on the dashboard physician page$")
+    public void i_verify_pagination_section_is_appearing_on_the_dashboard_physician_page() throws Throwable{
+    	reportHomePage.iVerifyPaginationIsPresentAboveOnDashboardPhysicianPage();
+    }
+    
+    @And("^I verify \"([^\"]*)\" tab is appearing above physicians inside the pagination section on dashboard physician page$")
+    public void i_verify_tab_is_appearing_inside_the_pagination_section_on_dashboard_physician_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTabsAppearingUnderPaginationOnAbovePagination(text);
+    }
+    
+    @Then("^I verify pagination section is appearing at bottom of physicians on the dashboard physician page$")
+    public void i_verify_pagination_section_is_appearing_at_bottom_of_physician_on_the_dashboard_physician_page() throws Throwable{
+    	reportHomePage.iVerifyPaginationIsPresentBottomOnDashboardPhysicianPage();
+    }
+    
+    @And("^I verify \"([^\"]*)\" tab is appearing below physicians inside the pagination section on dashboard physician page$")
+    public void i_verify_tab_is_appearing_below_physicians_inside_the_pagination_section_on_dashboard_physician_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTabsAppearingUnderPaginationOnBelowPagination(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing above physicians on dashboard physician report$")
+    public void i_verify_onetohundread_appearing_above_physicians_on_dashboard_physician_report(String text) throws Throwable{
+    	reportHomePage.iVerifyOneToHundreadAbovePhysicians(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing below physicians on dashboard physician report$")
+    public void i_verify_onetohundread_appearing_below_physicians_on_dashboard_physician_report(String text) throws Throwable{
+    	reportHomePage.iVerifyOneToHundreadBelowPhysicians(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under filter options in newly opened scorecard page$")
+    public void i_verify_is_appearing_under_filter_options_in_newly_opened_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyFilternameAppearingInScorecardPage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" filter is appearing under filter options under scorecard page$")
+    public void i_verify_filter_is_appearing_under_filter_options_under_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyFilterBoxAppearingInScorecardPage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" spotlights is appearing beside the attributed physicians$")
+    public void i_verify_spotlights_is_appearng_beside_the_attributed_physician(String text) throws Throwable{
+    	reportHomePage.iVerifySpotlightColorBesideAttributedPhysicians(text);
+    }
+    
+    @And("^I should verify spotlights are not appearing on the physician dashboard page$")
+    public void i_should_verify_spotlights_are_not_appearing_on_the_physician_dashboard_page() throws Throwable{
+    	reportHomePage.iShouldVerifySpotlightsNotAppearingOnPhysicianDashboard();
+    }
+    
+    @Then("^I should verify \"([^\"]*)\" is appearing before the count under \"([^\"]*)\" column$")
+    public void i_should_verify_symbol_is_appearing_before_the_count_under_column(String symbol,String text) throws Throwable{
+    	reportHomePage.iShouldVerifySymbolInTheColumn(symbol, text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" table is appearing after selecting table option under dashboard physician report$")
+    public void i_verify_table_is_appearing_after_selecting_table_option_under_physician_report(String text) throws Throwable{
+    	reportHomePage.iVerifyTableIsAppearingAfterSelectingTableUnderPhysicianDashboardReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" section is appearing on the performance scorecard dashboard page$")
+    public void i_verify_section_is_appearing_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
+    	reportHomePage.iVerifySectionUnderPerformanceScorecardDashboard(text);
+    }
+    
+    @And("^I verify Top 5 \"([^\"]*)\" performance table is appearing on the performance scorecard dashboard page$")
+    public void i_verify_top_5_performance_table_is_appearing_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTop5PerformanceTableOnPerformanceScorecardDashbaord(text);
+    }
+    
+    @Then("^I verify bar containers appearing under post acute care discharge disposition on the performance scorecard dashboard page$")
+    public void i_verify_bar_containers_appearing_under_post_acute_care_discharge_disposition_on_the_performance_scorecard_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyBarContainersUnderPostAcuteCareDischargeDisposition();
+    }
+    
+    @And("^I click on \"([^\"]*)\" is kpi box on the performance scorecard dashboard page$")
+    public void i_click_on_kpibox_on_the_performance_scorecard_dashboard_page(String text) throws Throwable{
+    	reportHomePage.iClickOnKpiBoxOnPerformanceScoreCardForDrillThrough(text);
+    }
+    
+    @And("^I click on a row under top 5 \"([^\"]*)\" performance table$")
+    public void i_click_on_a_row_under_top5_performance_table(String text) throws Throwable{
+    	reportHomePage.iClickOnTop5TableUnderPerformanceScorecardDashboard(text);
+    }
+    
+    @Then("^I click on one of the bar graph present under post acute care discharge disposition section$")
+    public void i_click_on_one_of_the_bar_graph_present_under_post_acute_care_discharge_disposition_section() throws Throwable{
+    	reportHomePage.iClickOnBarGraphUnderPostAcuteDischargeDispositionSection();
+    }
+    
+    @Then("^I verify actual calculation is appearing on the \"([^\"]*)\" kpi box$")
+    public void i_verify_actual_calculation_is_appearing_on_the_kpi_box(String text) throws Throwable{
+    	reportHomePage.iVerifyActualValueInKpiBox(text);
+    }
+    
+    @And("^I verify adjusted calculation is appearing on the \"([^\"]*)\" kpi box$")
+    public void i_verify_adjusted_calculation_is_appearing_on_the_kpi_box(String text) throws Throwable{
+    	reportHomePage.iVerifyAdjustedValueInKpiBox(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" column is appearing under top 5 \"([^\"]*)\" performance table$")
+    public void i_verify_column_is_appearing_under_top5_performance_table(String column,String text) throws Throwable{
+    	reportHomePage.iVerifyColumnUnderTop5PerformanceTable(column, text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the actual value of \"([^\"]*)\" kpi box$")
+    public void i_verify_symbol_is_appearing_on_the_actual_value_of_kpi_box(String symbol,String kpibox) throws Throwable{
+    	reportHomePage.iVerifySymbolOnKPIBox(symbol, kpibox);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the adjusted value of \"([^\"]*)\" kpi box$")
+    public void i_verify_symbol_is_appearing_on_the_adjusted_value_of_kpi_box(String symbol,String kpibox) throws Throwable{
+    	reportHomePage.iVerifySymbolForAdjustedValueOnKPIBox(symbol, kpibox);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" symbol is appearing in the values under avg episode cost and avg target price in \"([^\"]*)\" table$")
+    public void i_verify_symbol_is_appearing_in_the_values_under_avg_episode_cost(String symbol,String text) throws Throwable{
+    	reportHomePage.iVerifySymbolAppearingUnderAvgEpisodeCostInBundleTable(symbol,text);
+    }
+    
+    @Then("^I verify attributed physician names are center alligned$")
+    public void i_verify_attributed_physician_names_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyAttributedPhysicianColumnValuesCenterAlligned();
+    }
+    
+    @Then("^I verify episode eps column values are center alligned$")
+    public void i_verify_episodes_column_values_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyEpisodesColumnValuesCenterAlligned();
+    }
+    
+    @Then("^I verify avg episode cost column spotlights are center alligned$")
+    public void i_verify_avg_episode_cost_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyAvgEpisodeCostValuesCenterAlligned();
+    }
+    
+    @Then("^I verify disch to snf column spotlights are center alligned$")
+    public void i_verify_disch_to_snf_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyDischToSnfValuesCenterAlligned();
+    }
+    
+    @Then("^I verify snf days column spotlights are center alligned$")
+    public void i_verify_snf_days_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifySnfDaysValuesCenterAlligned();
+    }
+    
+    @Then("^I verify eps with readmit column spotlights are center alligned$")
+    public void i_verify_eps_with_readmit_column_spotlights_are_center_alligned() throws Throwable{
+    	reportHomePage.iVerifyEpsWithReadmitValuesCenterAlligned();
+    }
+    
+    @Then("^I verify actual values in kpi boxes are center alligned in performance scorecard page$")
+    public void i_verify_actual_values_in_kpi_boxes_are_center_alligned_in_performance_scorecard_page() throws Throwable{
+    	reportHomePage.iVerifyKPIBoxesValuesCenterAlligned();
+    }
+    
+    @Then("^I verify episode volume column values under \"([^\"]*)\" performance table are center alligned$")
+    public void i_verify_episode_volume_column_under_performance_table_are_center_alligned(String text) throws Throwable{
+    	reportHomePage.iVerifyEpsiodeVolumeColumnUnderPerformanceTable(text);
+    }
+    
+    @Then("^I verify avg episode cost column values under \"([^\"]*)\" performance table are center alligned$")
+    public void i_verify_avg_episode_cost_column_under_performance_table_are_center_alligned(String text) throws Throwable{
+    	reportHomePage.iVerifyAvgEpisodeCostColumnUnderPerformanceTable(text);
+    }
+    
+    @Then("^I verify avg target price column values under \"([^\"]*)\" performance table are center alligned$")
+    public void i_verify_avg_target_price_column_under_performance_table_are_center_alligned(String text) throws Throwable{
+    	reportHomePage.iVerifyAvgTargetPriceColumnUnderPerformanceTable(text);
+    }
+    
+    @Then("^I verify Adjusted Historic button is appearing beside benchmark option on physician dashboard page$")
+    @And("^I verify Adjusted Historic button is appearing beside benchmark option on performance scorecard page$")
+    public void i_verify_adjusted_historic_button_is_appearing_beside_benchmark_option_on_physician_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyAdjustedHistoricButtonOnPhysicianDashboardReport();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" option is appearing beside data source on the physician dashboard report page$")
+    @And("I verify \"([^\"]*)\" option is appearing beside data source on the performance scorecard page")
+    public void i_verify_option_is_appearing_beside_data_source_on_the_physician_dashboard_report_page(String text) throws Throwable{
+    	reportHomePage.iVerifyClaimsUnderDataSourceUnderPhysicianReport(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the fields after searching$")
+    public void i_verify_is_appearing_in_the_fields_after_searching(String text) throws Throwable{
+    	reportHomePage.iVerifyFilterFieldAfterSearching(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the available fields under next site of care summary report$")
+    public void i_verify_is_appearing_in_the_available_fields_under_next_site_of_care_summary_report(String text) throws Throwable{
+    	reportHomePage.iVerifyInAvailableFieldsAfterSearchingUnderNextSiteOfCareSummary(text);
+    }
+    
+    @And("^I click on clear search field element$")
+    public void i_click_on_clear_search_field_element() throws Throwable{
+    	reportHomePage.IClickOnCloseToClearTextBox();
+    }
+    
+    @Then("I should not see \"([^\"]*)\" is not appearing in the default measures list")
+    public void i_should_not_see_is_not_appearing_in_the_default_measures_list(String text) throws Throwable{
+    	reportHomePage.iVerifyTextNotAppearingInDefaultMeasure(text);
+    }
+    
+    @And("I should not see \"([^\"]*)\" in the searched results under the measures")
+    public void i_should_not_see_in_the_searched_results_under_the_measures(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeeUnderSearchedMeasuresResults(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" header name is center alligned on physician dashboard report$")
+    public void i_verify_header_name_is_center_alligned_on_physician_dashbaord_report(String text) throws Throwable{
+    	reportHomePage.iVerifyHeaderNameCenterAlligned(text);
     }
 }

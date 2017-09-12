@@ -449,7 +449,7 @@ public class BaseClass {
 			  } 
 		}
 		Assert.assertEquals(text,value);
-	}
+	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
 	    List <WebElement> element = driver.findElements(locator);
@@ -460,6 +460,10 @@ public class BaseClass {
 	    }
 	}
 	
-	
+	public void VerifyElementCssProperty(By by,String property){
+		WebElement ele = driver.findElement(by);
+    	String allignment=ele.getCssValue(property);
+    	Assert.assertEquals("center", allignment);
+	}
 }
 

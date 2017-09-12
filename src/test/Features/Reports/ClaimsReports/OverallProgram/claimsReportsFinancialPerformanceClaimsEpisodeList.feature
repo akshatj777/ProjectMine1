@@ -44,30 +44,3 @@ Feature: Verification of Financial Performance Claims Reports Filters
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-
-  Scenario Outline: User should remove the existing default filters
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Financial Performance" is appearing inside the iframe
-    When I click on show all filters icon button
-    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
-    Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
-    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-
-    Examples: 
-      | email                          |
-      #| Medicare Payer Users          |
-      | shutestaug231132a@yopmail.com  |
-      #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
-      #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
