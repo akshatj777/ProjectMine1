@@ -130,7 +130,29 @@ Feature: Verification Claims Report For Performance (Claims)
     Then I enter "Initial SNF LOS" in the search field textbox for filters
     And I verify "Initial SNF LOS" is appearing in the fields after searching
     And I should not see "Initial SNF LOS (Adj Hist)" in the searched results under the measures
-    
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture filters in performance claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "fracture" in the search field textbox for filters
+    And I verify "Fracture/Non-Fracture" is appearing in the level fields after searching
+
     Examples: 
       | email                          |
-      | shutestaug231132a@yopmail.com  |
+      | multipayerachrpfin@yopmail.com |

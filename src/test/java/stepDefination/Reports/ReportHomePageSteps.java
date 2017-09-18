@@ -1426,6 +1426,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("^I verify \"([^\"]*)\" is appearing in the available fields under next site of care summary report$")
+    @Then("^I verify \"([^\"]*)\" is appearing in the level fields after searching$")
     public void i_verify_is_appearing_in_the_available_fields_under_next_site_of_care_summary_report(String text) throws Throwable{
     	reportHomePage.iVerifyInAvailableFieldsAfterSearchingUnderNextSiteOfCareSummary(text);
     }

@@ -210,3 +210,25 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture filters in performance claims report under physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Performance (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "fracture" in the search field textbox for filters
+    And I verify "Fracture/Non-Fracture" is appearing in the level fields after searching
+
+    Examples: 
+      | email                          |
+      | multipayerachrpfin@yopmail.com |
