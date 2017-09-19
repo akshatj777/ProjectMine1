@@ -1,5 +1,6 @@
 package stepDefination.programManagement;
 
+import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.EditManagingOrganization;
 import com.remedy.resources.DriverScript;
 
@@ -10,7 +11,7 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 	
 	@And("^I click ([^\"]*) field in search list on organization page$")
 	  public void i_Click_Field_In_SearchList_On_Organization_Page(String field) throws Throwable {
-		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(field);
+		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
 	    }
 	
 	@And("^I click on \"([^\"]*)\" button on particular organization$")

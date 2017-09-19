@@ -1,5 +1,6 @@
 package stepDefination.programManagement;
 
+import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.ViewProfileSNFOrganization;
 import com.remedy.resources.DriverScript;
 
@@ -16,7 +17,7 @@ public class ViewProfileSNFOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify CCN ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_CCN_On_ViewProfile_Of_Slecetd_Organization(String id, String org) throws Throwable {
-		viewSNFOrg.iVerifyCCNOnViewProfileOfSelectedOrganization(id);
+		viewSNFOrg.iVerifyCCNOnViewProfileOfSelectedOrganization(CreateManagingOrganization.CCN);
 	}
 
 	@And("^I verify header name \"([^\"]*)\" under \"([^\"]*)\" for \"([^\"]*)\" organization$")

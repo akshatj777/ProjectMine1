@@ -1,5 +1,6 @@
 package stepDefination.programManagement;
 
+import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.ViewProfileManagingOrganization;
 import com.remedy.resources.DriverScript;
 
@@ -47,12 +48,12 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify EIN/TIN id ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_EIN_TIN_Id_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-		viewProfileMO.iVerifyEINTINIdOnViewProfilePGPOrganization(text);
+		viewProfileMO.iVerifyEINTINIdOnViewProfilePGPOrganization(CreateManagingOrganization.EIN);
 	}
 	
 	@And("^I verify NIP number ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_NPI_On_View_Profile_Of_Organization(String text, String org) throws Throwable {
-		viewProfileMO.iVerifyNPIOnViewProfilePGPOrganization(text);
+		viewProfileMO.iVerifyNPIOnViewProfilePGPOrganization(CreateManagingOrganization.NPI);
 	}
 	
 	@And("^I verify Managing Organization name ([^\"]*) on view profile of \"([^\"]*)\" organization$")

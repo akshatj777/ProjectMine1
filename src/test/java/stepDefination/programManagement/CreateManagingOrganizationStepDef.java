@@ -50,12 +50,12 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 
 	 @And("^I provide unique NPI in \"([^\"]*)\" on create organization page$")
 	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
-		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
+		 createMO.iEnterNPIOnCreateOrganizationPage(field);
 	    }
 	 
 	 @And("^I provide unique EIN in \"([^\"]*)\" on create organization page$")
 	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
-		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
+		 createMO.iEnterEINIdOnCreateOrganizationPage(field);
 	    }
 	 
 	 @And("^I select ([^\"]*) in State on create organization page$")

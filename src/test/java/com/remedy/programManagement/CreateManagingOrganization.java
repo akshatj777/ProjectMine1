@@ -3,6 +3,8 @@ package com.remedy.programManagement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,8 +24,10 @@ public class CreateManagingOrganization extends BaseClass {
 	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
-	static String orgName;
-	
+	public static String orgName;
+	public static String CCN;
+	public static String EIN;
+	public static String NPI;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -50,7 +54,8 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
-		delay();
+		// delay();
+		longDelay(); 
 	}
 	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
@@ -61,8 +66,8 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) {
 		if(field.contains("Organization Name")) {
-		orgName= text+time+"ORGName";
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text+time);
+		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
 		else {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
@@ -71,10 +76,19 @@ public class CreateManagingOrganization extends BaseClass {
 	}	
 	
 	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String field) {
-		String num = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), num);
+		CCN = (int)(Math.random()*10000)+timef;
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CCN);
 	}
 	
+	public void iEnterEINIdOnCreateOrganizationPage(String field) {
+		EIN = (int)(Math.random()*10000)+timef;
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), EIN);
+	}
+	
+	public void iEnterNPIOnCreateOrganizationPage(String field) {
+		NPI = (int)(Math.random()*10000)+timef;
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
+	}
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
 		delay();
