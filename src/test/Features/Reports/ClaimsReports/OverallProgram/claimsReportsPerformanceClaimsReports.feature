@@ -150,8 +150,16 @@ Feature: Verification Claims Report For Performance (Claims)
     And I will wait to see "Performance" is appearing inside the iframe
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
-    Then I enter "fracture" in the search field textbox for filters
-    And I verify "Fracture/Non-Fracture" is appearing in the level fields after searching
+    #Then I enter "fracture" in the search field textbox for filters
+    #And I verify "Fracture/Non-Fracture" is appearing in the level fields after searching
+    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Fracture/Non-Fracture" in the header text of filter page
+    And I should see "Fracture" in the filter value list
+    And I should see "Non-Fracture" in the filter value list
+    And I should see "Not Applicable" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
 
     Examples: 
       | email                          |

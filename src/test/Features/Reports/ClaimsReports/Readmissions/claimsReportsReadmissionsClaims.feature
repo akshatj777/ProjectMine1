@@ -146,3 +146,33 @@ Feature: Verification of Readmissions Claims Report
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture filters in readmissions claims report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions (Claims)" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    #Then I enter "fracture" in the search field textbox for filters
+    #And I verify "Fracture/Non-Fracture" is appearing in the level fields after searching
+    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Fracture/Non-Fracture" in the header text of filter page
+    And I should see "Fracture" in the filter value list
+    And I should see "Non-Fracture" in the filter value list
+    And I should see "Not Applicable" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+
+    Examples: 
+      | email                          |
+      | multipayerachrpfin@yopmail.com |
