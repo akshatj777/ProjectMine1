@@ -1,5 +1,7 @@
 package stepDefination.programManagement;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.EditManagingOrganization;
 import com.remedy.resources.DriverScript;
@@ -14,6 +16,11 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
 	    }
 	
+	@And("^I edited click ([^\"]*) field in search list on organization page$")
+	  public void i_Click_EditedField_In_SearchList_On_Organization_Page(String field) throws Throwable {
+		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
+	    }
+	
 	@And("^I click on \"([^\"]*)\" button on particular organization$")
 	  public void i_Click_On_Button_On_Particular_Organization(String button) throws Throwable {
 		editManagingOrg.iClickOnButtonOnParticularOrganization(button);
@@ -21,7 +28,16 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 	
 	@And("^I edit \"([^\"]*)\" field to ([^\"]*) for organization$")
 	  public void i_Edit_All_Fields_Of_Organization(String field1, String field2) throws Throwable {
-		editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);
+		if (field2.contains("MONAME"))
+		{
+			CreateManagingOrganization.editedOrgName = RandomStringUtils.randomAlphabetic(8);
+			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedOrgName);
+		}
+		else
+		{
+			editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);
+		}
+
 	    }
 	 
 	@And("^I edit ([^\"]*) field for organization$")

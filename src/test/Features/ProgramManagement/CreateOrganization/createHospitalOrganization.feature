@@ -42,4 +42,4 @@ Feature: User completes entering Hospital Organization details during creation p
     Then I verify "Success! Hospital Organization Successfully Created." after submitting the create ogranization page
     Examples: 
       | MO_Name               | Hosp_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code |
-      | 26 Automate Manag Org | ACH           | Address  | Short      | Addresss | Cy   | New York |       40045 | Loc_Name | LBlockA   | Swing bed | bBlockLoc | West    | CityL | Oil States | New York |        40006 |
+      | 26 Automate Manag Orgg | ACH           | Address  | Short      | Addresss | Cy   | New York |       40045 | Loc_Name | LBlockA   | Swing bed | bBlockLoc | West    | CityL | Oil States | New York |        40006 |

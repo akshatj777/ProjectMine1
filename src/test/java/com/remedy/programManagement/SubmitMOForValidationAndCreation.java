@@ -61,7 +61,7 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 		iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), text);
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-        delay();
+         delay();
 	}
 
 }

@@ -21,7 +21,7 @@ public class MailCreateUser extends BaseClass{
 	String time = df.format(timestamp);
 	String mail = "test.automatemail";
 	final String email = mail+"+"+time+"@gmail.com";
-
+	
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
 	}
@@ -29,7 +29,7 @@ public class MailCreateUser extends BaseClass{
 	public void iAmOnMailLoginPage() throws InterruptedException {
 		Thread.sleep(5000);
         driver.navigate().to("https://accounts.google.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);   
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {

@@ -13,7 +13,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify ([^\"]*) name on the header of view profile$")
 	  public void i_Verify_Name_On_Header_On_View_Profile(String text) throws Throwable {
-		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(text);
+		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(CreateManagingOrganization.orgName);
 	    }
 	
 	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
