@@ -238,5 +238,6 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                          |
-      | multipayerachrpfin@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |

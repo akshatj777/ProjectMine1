@@ -249,5 +249,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                          |
-      | multipayerachrpfin@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
