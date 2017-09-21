@@ -16,11 +16,6 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
 	    }
 	
-//	@And("^I edited click ([^\"]*) field in search list on organization page$")
-//	  public void i_Click_EditedField_In_SearchList_On_Organization_Page(String field) throws Throwable {
-//		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
-//	    }
-	
 	@And("^I click on \"([^\"]*)\" button on particular organization$")
 	  public void i_Click_On_Button_On_Particular_Organization(String button) throws Throwable {
 		editManagingOrg.iClickOnButtonOnParticularOrganization(button);
