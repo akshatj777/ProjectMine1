@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 public class CreateManagingOrganization extends BaseClass {
 
@@ -68,6 +69,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) {
 		if(field.contains("Organization Name")) {
 		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+		DriverScript.Cache.setProperty("MO_NAME", orgName);
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
 		else {

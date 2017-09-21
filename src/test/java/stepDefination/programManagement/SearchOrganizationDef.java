@@ -14,10 +14,10 @@ public class SearchOrganizationDef extends DriverScript{
 		 searchorganization.iSearchFieldOnOrganizationInSearchBox(CreateManagingOrganization.orgName);
 	    }
 	
-	@And("^I search edited with ([^\"]*) on organization in search box$")
+	/*@And("^I search edited with ([^\"]*) on organization in search box$")
 	  public void i_Search_EditedField_On_Organization_In_SearchBox(String text) throws Throwable {
 		 searchorganization.iSearchFieldOnOrganizationInSearchBox(CreateManagingOrganization.editedOrgName);
-	    }
+	    }*/
 	
 	@And("^I see \"([^\"]*)\" search count on organization$")
 	  public void i_See_SearchCount_On_Organization(String text) throws Throwable {

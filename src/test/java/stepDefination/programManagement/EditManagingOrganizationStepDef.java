@@ -16,10 +16,10 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
 	    }
 	
-	@And("^I edited click ([^\"]*) field in search list on organization page$")
-	  public void i_Click_EditedField_In_SearchList_On_Organization_Page(String field) throws Throwable {
-		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
-	    }
+//	@And("^I edited click ([^\"]*) field in search list on organization page$")
+//	  public void i_Click_EditedField_In_SearchList_On_Organization_Page(String field) throws Throwable {
+//		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
+//	    }
 	
 	@And("^I click on \"([^\"]*)\" button on particular organization$")
 	  public void i_Click_On_Button_On_Particular_Organization(String button) throws Throwable {
@@ -30,7 +30,8 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 	  public void i_Edit_All_Fields_Of_Organization(String field1, String field2) throws Throwable {
 		if (field2.contains("MONAME"))
 		{
-			CreateManagingOrganization.editedOrgName = RandomStringUtils.randomAlphabetic(8);
+			CreateManagingOrganization.editedOrgName = "MONAME" + RandomStringUtils.randomAlphabetic(8) + "ORGName" ;
+			CreateManagingOrganization.orgName = CreateManagingOrganization.editedOrgName;
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedOrgName);
 		}
 		else
