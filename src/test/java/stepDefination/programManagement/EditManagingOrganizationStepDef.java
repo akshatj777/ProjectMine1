@@ -2,6 +2,7 @@ package stepDefination.programManagement;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import com.remedy.baseClass.BaseClass;
 import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.EditManagingOrganization;
 import com.remedy.resources.DriverScript;
@@ -10,6 +11,7 @@ import cucumber.api.java.en.And;
 
 public class EditManagingOrganizationStepDef extends DriverScript{
 	EditManagingOrganization editManagingOrg = new EditManagingOrganization(driver);
+	BaseClass objBaseClass = new BaseClass(driver);
 	
 	@And("^I click ([^\"]*) field in search list on organization page$")
 	  public void i_Click_Field_In_SearchList_On_Organization_Page(String field) throws Throwable {
@@ -27,6 +29,7 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		{
 			CreateManagingOrganization.editedOrgName = "MONAME" + RandomStringUtils.randomAlphabetic(8) + "ORGName" ;
 			CreateManagingOrganization.orgName = CreateManagingOrganization.editedOrgName;
+			objBaseClass.writeProperty("MO_NAME", CreateManagingOrganization.editedOrgName);
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedOrgName);
 		}
 		else

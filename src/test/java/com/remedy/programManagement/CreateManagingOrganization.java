@@ -1,5 +1,6 @@
 package com.remedy.programManagement;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -66,10 +67,10 @@ public class CreateManagingOrganization extends BaseClass {
 		System.out.println(text);
 	}
 	
-	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) {
+	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
 		if(field.contains("Organization Name")) {
 		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-		DriverScript.Cache.setProperty("MO_NAME", orgName);
+		writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
 		else {

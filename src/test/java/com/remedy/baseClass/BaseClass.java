@@ -8,9 +8,17 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.remedy.resources.DriverScript;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +34,9 @@ public class BaseClass {
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
 	//WebDriverWait wait = new WebDriverWait(driver, 30);
+	public static Properties Cache=new Properties();
+	FileInputStream fisCache;
+	OutputStream outPropFile;
 
 	public BaseClass(final WebDriver driver) {
 
@@ -458,6 +469,18 @@ public class BaseClass {
 	    		ele.click();
 	    	}
 	    }
+	}
+	
+	public void writeProperty(String Key, String Value) throws IOException
+	{
+		fisCache = new FileInputStream(System.getProperty("user.dir")
+				+ "//src//test//java//com//remedy//resources//Cache.properties");
+		outPropFile = new FileOutputStream(System.getProperty("user.dir")
+						+ "//src//test//java//com//remedy//resources//Cache.properties");
+		Cache.load(fisCache);
+		Cache.setProperty(Key, Value);
+		Cache.store(outPropFile, null);
+		outPropFile.close();
 	}
 	
 	

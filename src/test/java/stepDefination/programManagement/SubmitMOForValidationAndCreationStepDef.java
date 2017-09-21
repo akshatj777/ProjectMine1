@@ -1,11 +1,13 @@
 package stepDefination.programManagement;
 
+import com.remedy.baseClass.BaseClass;
 import com.remedy.programManagement.SubmitMOForValidationAndCreation;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
 
 public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
+	BaseClass objBaseClass = new BaseClass(driver);
 	
 	SubmitMOForValidationAndCreation submitmo = new SubmitMOForValidationAndCreation(driver);
 	
@@ -42,7 +44,7 @@ public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
 	 
 	 @And("^I select ([^\"]*) managing organization name in Has a Management Organization drop down$")
 	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String text) throws Throwable {
-		 text = DriverScript.Cache.getProperty("MO_NAME");
+		 text = objBaseClass.Cache.getProperty("MO_NAME");
 		 submitmo.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(text);
 	 }
 

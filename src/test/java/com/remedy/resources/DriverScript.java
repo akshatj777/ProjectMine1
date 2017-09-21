@@ -3,7 +3,9 @@ package com.remedy.resources;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -23,9 +25,7 @@ public class DriverScript {
 
 	protected static WebDriver driver;
 	public static Properties Config = null;
-	public static Properties Cache = null;
 	public static FileInputStream fis;
-	public static FileInputStream fisCache;
 	public static File directory = new File(".");
 	public static String os;
 	public static String browser;
@@ -43,18 +43,14 @@ public class DriverScript {
 		if (Config == null) {
 
 			Config = new Properties();
-			Cache =  new Properties();
 
 			try {
 				fis = new FileInputStream(System.getProperty("user.dir")
 						+ "//src//test//java//com//remedy//resources//config.properties");
-				fisCache = new FileInputStream(System.getProperty("user.dir")
-						+ "//src//test//java//com//remedy//resources//Cache.properties");
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 			try {
-				Cache.load(fisCache);
 				Config.load(fis);
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -53,7 +53,7 @@ Feature: Create a Managing Organization, verify the details fields
   Scenario Outline: Edit and save changes for all fields of Managing Organization
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
-    And I see "1 Organization" search count on organization
+   # And I see "1 Organization" search count on organization
     And I verify <MO_Name> field in search list on organization page
     And I click <MO_Name> field in search list on organization page
     And I click on "Edit" button on particular organization
@@ -70,7 +70,7 @@ Feature: Create a Managing Organization, verify the details fields
     When I search with <MO_Name> on organization in search box
     And I click <MO_Name> field in search list on organization page
     And I verify <MO_Name> name on the header of view profile
-    #And I verify Participant Id <ParticipantId> on view profile of "Managing" Organization
+    And I verify Participant Id <ParticipantId> on view profile of "Managing" Organization
     And I verify <Address1> in "address1" on view profile of "Managing" Organization
     And I verify <Address2> in "address2" on view profile of "Managing" Organization
     And I verify <City> in "city" on view profile of "Managing" Organization
@@ -81,5 +81,5 @@ Feature: Create a Managing Organization, verify the details fields
     And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
 
     Examples: 
-      | MO_Name   | MO_Name1 | Contact_Person    | Contact_Email             | Contact_Phone | Address1  | Address2  | City | State      | Postal_Code | StateInitials |
-      | NewMngOrg | MONAME   | ContactPersonTest | contact_email@yopmail.com |    4567891230 | 7th Floor | Street XI | Test | California |       10000 | CA           |
+      | MO_Name   | MO_Name1 | Contact_Person    | Contact_Email             | Contact_Phone | Address1  | Address2  | City | State      | Postal_Code | StateInitials |ParticipantId|
+      | NewMngOrg | MONAME   | ContactPersonTest | contact_email@yopmail.com |    4567891230 | 7th Floor | Street XI | Test | California |       10000 | CA           |123|
