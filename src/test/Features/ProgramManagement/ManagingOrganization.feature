@@ -82,4 +82,4 @@ Feature: Create a Managing Organization, verify the details fields
 
     Examples: 
       | MO_Name   | MO_Name1 | Contact_Person    | Contact_Email             | Contact_Phone | Address1  | Address2  | City | State      | Postal_Code | StateInitials |ParticipantId|
-      | NewMngOrg | MONAME   | ContactPersonTest | contact_email@yopmail.com |    4567891230 | 7th Floor | Street XI | Test | California |       10000 | CA           |123|
+      | MONAME | MONAME   | ContactPersonTest | contact_email@yopmail.com |    4567891230 | 7th Floor | Street XI | Test | California |       10000 | CA           |123|

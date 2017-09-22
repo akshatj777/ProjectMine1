@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,8 @@ public class BaseClass {
 	protected static long LongDelay_Time = 5000L;
 	//WebDriverWait wait = new WebDriverWait(driver, 30);
 	public static Properties Cache=new Properties();
+	public static Properties properties=new Properties();
+	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
 
@@ -441,7 +444,7 @@ public class BaseClass {
 	public void iWillWaitToSee(By locator) {
 
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 80);
+			WebDriverWait wait = new WebDriverWait(driver, 200);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -469,7 +472,7 @@ public class BaseClass {
 	    		ele.click();
 	    	}
 	    }
-	}
+	}  
 	
 	public void writeProperty(String Key, String Value) throws IOException
 	{
@@ -482,6 +485,30 @@ public class BaseClass {
 		Cache.store(outPropFile, null);
 		outPropFile.close();
 	}
+	
+	public String readProperty(String property) {
+        
+        try {
+        	String propertyFilePath = System.getProperty("user.dir")
+					+ "//src//test//java//com//remedy//resources//Cache.properties";
+            inPropFile = new FileInputStream(propertyFilePath);
+            properties.load(inPropFile);
+
+        } catch (IOException e) {
+        }
+        try
+        {
+        String value = properties.getProperty(property);
+        return value;
+        }
+        catch(Exception e)
+     { 
+     
+     }
+		return null;
+
+      
+    }
 	
 	
 }

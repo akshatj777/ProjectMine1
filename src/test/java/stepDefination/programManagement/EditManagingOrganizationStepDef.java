@@ -15,7 +15,7 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 	
 	@And("^I click ([^\"]*) field in search list on organization page$")
 	  public void i_Click_Field_In_SearchList_On_Organization_Page(String field) throws Throwable {
-		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(CreateManagingOrganization.orgName);
+		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(field);
 	    }
 	
 	@And("^I click on \"([^\"]*)\" button on particular organization$")
@@ -29,8 +29,14 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		{
 			CreateManagingOrganization.editedOrgName = "MONAME" + RandomStringUtils.randomAlphabetic(8) + "ORGName" ;
 			CreateManagingOrganization.orgName = CreateManagingOrganization.editedOrgName;
-			objBaseClass.writeProperty("MO_NAME", CreateManagingOrganization.editedOrgName);
+			//objBaseClass.writeProperty("MO_NAME", CreateManagingOrganization.editedOrgName);
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedOrgName);
+		}
+		else if(field2.contains("ACH"))
+		{
+			CreateManagingOrganization.editedACHName = "ACH" + RandomStringUtils.randomAlphabetic(8) + "Name" ;
+			CreateManagingOrganization.ACHName = CreateManagingOrganization.editedACHName;
+			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedACHName);
 		}
 		else
 		{

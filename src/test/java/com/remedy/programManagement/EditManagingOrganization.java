@@ -19,21 +19,50 @@ public class EditManagingOrganization extends BaseClass {
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	public void iClickFieldInSearchListOnOrganizationPage(String field) {
-		clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		if(field.contains("MONAME"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.orgName+"']")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else if(field.contains("ACH"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.ACHName+"']")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+
+		}
 	}
 	
 	public void iClickOnButtonOnParticularOrganization(String button) throws IOException {
-		System.out.println("Hello");
-		//System.out.println(driver.findElement(By.cssSelector(".participant-id")).getText().substring(driver.findElement(By.cssSelector(".participant-id")).getText().indexOf(":"),driver.findElement(By.cssSelector(".participant-id")).getText().indexOf("|")));
-		//writeProperty("PARTICIPANT_ID", driver.findElement(By.cssSelector(".participant-id")).getText().substring(driver.findElement(By.cssSelector(".participant-id")).getText().indexOf(":"),driver.findElement(By.cssSelector(".participant-id")).getText().indexOf("|")));
+		
+		try
+		{
+			String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
+			String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
+			value = value.trim();
+			writeProperty("PARTICIPANT_ID", value);
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	
+		
+		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		/*if(driver.findElement(By.cssSelector(".participant-id")).isDisplayed())
+		{
 		String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
 		String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
 		value = value.trim();
-		System.out.println(value);
 		writeProperty("PARTICIPANT_ID", value);
+		}
 		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));*/
 
 	}
 	

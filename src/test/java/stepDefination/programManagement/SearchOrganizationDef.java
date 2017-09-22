@@ -11,7 +11,7 @@ public class SearchOrganizationDef extends DriverScript{
 
 	@And("^I search with ([^\"]*) on organization in search box$")
 	  public void i_Search_Field_On_Organization_In_SearchBox(String text) throws Throwable {
-		 searchorganization.iSearchFieldOnOrganizationInSearchBox(CreateManagingOrganization.orgName);
+		 searchorganization.iSearchFieldOnOrganizationInSearchBox(text);
 	    }
 	
 	/*@And("^I search edited with ([^\"]*) on organization in search box$")

@@ -1,5 +1,6 @@
 package com.remedy.programManagement;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,8 +21,25 @@ public class SearchOrganization extends BaseClass{
 	
 	
 	public void iSearchFieldOnOrganizationInSearchBox(String text) {
-		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);
-		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		if(text.contains("MONAME"))
+		{
+			CreateManagingOrganization.orgName = text + RandomStringUtils.randomAlphabetic(8) + "ORGNAME";
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgName);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else if(text.contains("ACH"))
+		{
+			CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.editedACHName);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else
+		{
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+	
+		
 	}
 	
 	public void iSeeSearchCountOnOrganization(String text) {

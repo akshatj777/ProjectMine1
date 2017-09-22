@@ -32,6 +32,7 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 	}
 	
 	public void iClickOnParticularOrganizationTabOrganizationDashboard(String text) {
+		delay();
 		List<WebElement> element = driver.findElements(By.cssSelector(".navLink.noselect"));
 		for (WebElement ele : element) {
 			if(ele.getText().contains(text)){

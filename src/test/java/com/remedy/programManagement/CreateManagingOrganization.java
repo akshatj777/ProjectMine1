@@ -28,6 +28,8 @@ public class CreateManagingOrganization extends BaseClass {
 	final String time = df.format(timestamp);
 	public static String orgName;
 	public static String editedOrgName;
+	public static String ACHName;
+	public static String editedACHName;
 	public static String CCN;
 	public static String EIN;
 	public static String NPI;
@@ -68,10 +70,16 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
-		if(field.contains("Organization Name")) {
+		if(text.contains("Organization Name")) {
 		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-		writeProperty("MO_NAME", orgName);		
+		//writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
+		}
+		else if (text.contains("ACH"))
+		{
+			ACHName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+			//writeProperty("MO_NAME", orgName);	
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
 		}
 		else {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
