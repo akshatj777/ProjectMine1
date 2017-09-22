@@ -147,7 +147,7 @@ Feature: Verification of Readmissions Claims Report
       | email                         |
       | shutestaug231132a@yopmail.com |
       
-Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture filters in readmissions claims report under readmissions
+Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture values when anchor admission quarter is > = 2016Q4 in readmissions claims report under readmissions
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -162,21 +162,113 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
-    #Then I enter "fracture" in the search field textbox for filters
-    #And I verify "Fracture/Non-Fracture" is appearing in the level fields after searching
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "BPID" in the header text of filter page
+    And I should see "<BPID1>" in the filter value list
+    And I should see "<BPID2>" in the filter value list
+    And I click on "<BPID1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<BPID2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "DRG Code" field filter under "DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "DRG Code" in the header text of filter page
+    And I should see "<DRG Code1>" in the filter value list
+    And I should see "<DRG Code2>" in the filter value list
+    And I click on "<DRG Code1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<DRG Code2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
     And I should see "Fracture" in the filter value list
     And I should see "Non-Fracture" in the filter value list
-    And I should see "Not Applicable" in the filter value list
+    And I should not see "Not Applicable" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
+      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
+      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
+      
+Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in readmissions claims report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions (Claims)" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "BPID" in the header text of filter page
+    And I should see "<BPID1>" in the filter value list
+    And I should see "<BPID2>" in the filter value list
+    And I click on "<BPID1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<BPID2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "DRG Code" field filter under "DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "DRG Code" in the header text of filter page
+    And I should see "<DRG Code1>" in the filter value list
+    And I should see "<DRG Code2>" in the filter value list
+    And I click on "<DRG Code1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<DRG Code2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Fracture/Non-Fracture" in the header text of filter page
+    And I should see "Fracture" in the filter value list
+    And I should see "Non-Fracture" in the filter value list
+    And I should not see "Not Applicable" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+
+    Examples: 
+      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
+      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
+      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |

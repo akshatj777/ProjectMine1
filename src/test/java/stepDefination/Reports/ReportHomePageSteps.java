@@ -1450,4 +1450,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_header_name_is_center_alligned_on_physician_dashbaord_report(String text) throws Throwable{
     	reportHomePage.iVerifyHeaderNameCenterAlligned(text);
     }
+    
+    @And("^I should not see \"([^\"]*)\" in the filter value list$")
+    public void i_should_not_see_in_the_filter_value_list(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeeElementInTheFilterValueList(text);
+    }
+    
+    @Then("^I drag and drop \"([^\"]*)\" from available fields to rows under layout$")
+    public void i_drag_and_drop_from_available_fields_to_rows_under_layout(String text) throws Throwable{
+    	reportHomePage.iDragAndDropFieldsToLayout(text);
+    }
 }

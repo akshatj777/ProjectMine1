@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -1146,5 +1147,20 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyHeaderNameCenterAlligned(String text){
     	VerifyElementCssProperty(By.xpath("//th[text()='"+text+"']"),"text-align");
+    }
+    
+    public void iShouldNotSeeElementInTheFilterValueList(String text){
+    	verifyTextNotPresentForElementFromList("#FT_valueList div",text);
+    }
+    
+    public void iDragAndDropFieldsToLayout(String text){
+    	WebElement From = driver.findElement(By.xpath(""));
+    	WebElement To = driver.findElement(By.xpath(""));
+    	Actions builder = new Actions(driver);
+    	Action dragAndDrop = builder.clickAndHold(From)
+    	.moveToElement(To)
+    	.release(To)
+    	.build();
+    	dragAndDrop.perform();
     }
 }
