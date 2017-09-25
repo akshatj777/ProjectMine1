@@ -38,6 +38,18 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 			CreateManagingOrganization.ACHName = CreateManagingOrganization.editedACHName;
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedACHName);
 		}
+		else if(field2.contains("SNF"))
+		{
+			CreateManagingOrganization.editedSNFName = "SNF" + RandomStringUtils.randomAlphabetic(8) + "Name" ;
+			CreateManagingOrganization.SNFName = CreateManagingOrganization.editedSNFName;
+			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedSNFName);
+		}
+		else if(field2.contains("PAYOR"))
+		{
+			CreateManagingOrganization.editedPAYORName = "PAYOR" + RandomStringUtils.randomAlphabetic(8) + "Name" ;
+			CreateManagingOrganization.PAYORName = CreateManagingOrganization.editedPAYORName;
+			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedPAYORName);
+		}
 		else
 		{
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);

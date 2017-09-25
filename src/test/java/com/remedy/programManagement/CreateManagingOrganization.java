@@ -29,7 +29,13 @@ public class CreateManagingOrganization extends BaseClass {
 	public static String orgName;
 	public static String editedOrgName;
 	public static String ACHName;
+	public static String SNFName;
+	public static String PAYORName;
+	public static String PGPName;
 	public static String editedACHName;
+	public static String editedSNFName;
+	public static String editedPAYORName;
+	public static String editedPGPName;
 	public static String CCN;
 	public static String EIN;
 	public static String NPI;
@@ -59,8 +65,8 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
-		// delay();
-		longDelay(); 
+		delay();
+		// longDelay(); 
 	}
 	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
@@ -82,7 +88,31 @@ public class CreateManagingOrganization extends BaseClass {
 			System.out.println(ACHName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
 		}
-		else {
+		else if (text.contains("SNF"))
+		{
+			SNFName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+			//writeProperty("MO_NAME", orgName);	
+			System.out.println(SNFName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), SNFName);
+		}
+		else if (text.contains("PAYOR"))
+		{
+			PAYORName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+			//writeProperty("MO_NAME", orgName);	
+			System.out.println(PAYORName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PAYORName);
+		}
+		
+		else if (text.contains("PGP"))
+		{
+			PGPName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+			//writeProperty("MO_NAME", orgName);	
+			System.out.println(PGPName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PGPName);
+		}
+		
+		else 
+		{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
 		}
 			

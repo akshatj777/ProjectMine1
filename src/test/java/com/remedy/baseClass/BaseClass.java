@@ -444,7 +444,7 @@ public class BaseClass {
 	public void iWillWaitToSee(By locator) {
 
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 200);
+			WebDriverWait wait = new WebDriverWait(driver, 250);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
