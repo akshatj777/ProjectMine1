@@ -29,8 +29,8 @@ public class SearchOrganization extends BaseClass{
 		}
 		else if(text.contains("ACH"))
 		{
-			CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.editedACHName);
+			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.ACHName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else

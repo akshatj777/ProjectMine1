@@ -79,6 +79,7 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			ACHName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
 			//writeProperty("MO_NAME", orgName);	
+			System.out.println(ACHName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
 		}
 		else {
