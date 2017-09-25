@@ -242,6 +242,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForReadmissionsReports(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//div[label[text()='Readmissions']]/following-sibling::div/a"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
         selectElementByTextDescByXpath("//div[label[text()='Readmissions']]/following-sibling::div/a", text);
     }
 
@@ -1151,16 +1154,5 @@ public class ReportHomePage extends BaseClass {
     
     public void iShouldNotSeeElementInTheFilterValueList(String text){
     	verifyTextNotPresentForElementFromList("#FT_valueList div",text);
-    }
-    
-    public void iDragAndDropFieldsToLayout(String text){
-    	WebElement From = driver.findElement(By.xpath(""));
-    	WebElement To = driver.findElement(By.xpath(""));
-    	Actions builder = new Actions(driver);
-    	Action dragAndDrop = builder.clickAndHold(From)
-    	.moveToElement(To)
-    	.release(To)
-    	.build();
-    	dragAndDrop.perform();
     }
 }
