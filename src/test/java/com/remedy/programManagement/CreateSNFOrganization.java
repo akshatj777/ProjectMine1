@@ -2,6 +2,7 @@ package com.remedy.programManagement;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -37,7 +38,7 @@ public class CreateSNFOrganization extends BaseClass {
     	num = num-1;
     	driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	delay();
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);   
+    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
     }	
     
     public void iEnterAddress2ForLocationOnSNFOrg(String add2, int num) {

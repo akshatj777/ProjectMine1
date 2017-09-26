@@ -1,19 +1,18 @@
 package com.remedy.programManagement;
 
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 
-
+import stepDefination.Hooks.InitialSetup;
 
 public class SubmitMOForValidationAndCreation extends BaseClass{
+	
 
 	public SubmitMOForValidationAndCreation(WebDriver driver) {
 		super(driver);
@@ -37,6 +36,7 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 		for (WebElement ele : element) {
 			if(ele.getText().contains(text)){
 				ele.click();
+				InitialSetup.logger.info("Element "+text+"clicked successfully");
 			}
 		}
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
