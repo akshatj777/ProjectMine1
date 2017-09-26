@@ -23,31 +23,26 @@ public class SearchOrganization extends BaseClass{
 	public void iSearchFieldOnOrganizationInSearchBox(String text) {
 		if(text.contains("MONAME"))
 		{
-			CreateManagingOrganization.orgName = text + RandomStringUtils.randomAlphabetic(8) + "ORGNAME";
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else if(text.contains("ACH"))
 		{
-			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.ACHName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else if(text.contains("SNF"))
 		{
-			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.SNFName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else if(text.contains("PAYOR"))
 		{
-			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.PAYORName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else if(text.contains("PGP"))
 		{
-			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.PGPName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}

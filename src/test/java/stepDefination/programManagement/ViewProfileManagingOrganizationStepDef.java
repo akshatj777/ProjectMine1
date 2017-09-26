@@ -61,6 +61,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify Managing Organization name ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_ManagingOrgName_On_View_Profile_Of_Organization(String name, String org) throws Throwable {
+		name = CreateManagingOrganization.orgName;
 		viewProfileMO.iVerifyManagingOrganizationNameOnViewProfileOfOrganization(name);
 	}
 }

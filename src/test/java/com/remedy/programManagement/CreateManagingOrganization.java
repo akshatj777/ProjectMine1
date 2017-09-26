@@ -62,6 +62,7 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
+		delay();
 		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
@@ -76,29 +77,26 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
-		if(text.contains("Organization Name")) {
+		if(text.contains("MONAME")) {
 		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-		//writeProperty("MO_NAME", orgName);		
+		writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
 		else if (text.contains("ACH"))
 		{
 			ACHName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			//writeProperty("MO_NAME", orgName);	
 			System.out.println(ACHName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
 		}
 		else if (text.contains("SNF"))
 		{
 			SNFName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			//writeProperty("MO_NAME", orgName);	
 			System.out.println(SNFName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), SNFName);
 		}
 		else if (text.contains("PAYOR"))
 		{
 			PAYORName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			//writeProperty("MO_NAME", orgName);	
 			System.out.println(PAYORName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PAYORName);
 		}
@@ -106,7 +104,6 @@ public class CreateManagingOrganization extends BaseClass {
 		else if (text.contains("PGP"))
 		{
 			PGPName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			//writeProperty("MO_NAME", orgName);	
 			System.out.println(PGPName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PGPName);
 		}
