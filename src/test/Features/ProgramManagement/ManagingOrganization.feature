@@ -47,7 +47,7 @@ Feature: Create a Managing Organization, verify the details fields
 
     Examples: 
       | MO_Name | Contact_Person | Contact_Email   | Contact_Phone | Address1 | Address2 | City | State      | Postal_Code |
-      | MONAME  | ContactPerson  | reddy@gmail.com |    9563569366 | Address1 | Address2 | City | California |       10000 |
+      | MOName  | ContactPerson  | reddy@gmail.com |    9563569366 | Address1 | Address2 | City | California |       10000 |
 
   @Smoke
   Scenario Outline: Edit and save changes for all fields of Managing Organization
