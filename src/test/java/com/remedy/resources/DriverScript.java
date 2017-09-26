@@ -17,6 +17,8 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import stepDefination.Hooks.InitialSetup;
+
 
 /**
  * Created by salam on 8/5/15.
@@ -45,8 +47,10 @@ public class DriverScript {
 			Config = new Properties();
 
 			try {
-				fis = new FileInputStream(System.getProperty("user.dir")
-						+ "//src//test//java//com//remedy//resources//config.properties");
+				String fisFilePath = System.getProperty("user.dir")
+						+ "//src//test//java//com//remedy//resources//config.properties";
+				fis = new FileInputStream(fisFilePath);
+				InitialSetup.logger.info("Configuration file path is - " + fisFilePath);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -73,8 +77,10 @@ public class DriverScript {
 
 		browser = Config.getProperty("Browser");
 		os = Config.getProperty("OS");
-		System.out.println("initialize Browser: " + browser);
-		System.out.println("initialize OS: " + os);
+		InitialSetup.logger.info("Browser Selected - " + browser);
+		InitialSetup.logger.info("Operating System Selected - " + os);
+		//System.out.println("initialize Browser: " + browser);
+		//System.out.println("initialize OS: " + os);
 
 		switch (browser) {
 		case "chrome":

@@ -2,6 +2,8 @@ package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
 
+import stepDefination.Hooks.InitialSetup;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +22,7 @@ public class LoginPage extends BaseClass {
 		iEnteruserEmail(userName);
 		iEnterPassword(passWord);
 		iClickLogInButton();
+		InitialSetup.logger.info("User logs in with Username - " + userName + " and password - " + passWord);
 	}
 
 	public void iClickForgotPassword() {

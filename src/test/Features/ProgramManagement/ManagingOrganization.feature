@@ -53,7 +53,6 @@ Feature: Create a Managing Organization, verify the details fields
   Scenario Outline: Edit and save changes for all fields of Managing Organization
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
-   # And I see "1 Organization" search count on organization
     And I verify <MO_Name> field in search list on organization page
     And I click <MO_Name> field in search list on organization page
     And I click on "Edit" button on particular organization
