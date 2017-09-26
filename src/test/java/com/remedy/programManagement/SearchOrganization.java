@@ -33,6 +33,24 @@ public class SearchOrganization extends BaseClass{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.ACHName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
+		else if(text.contains("SNF"))
+		{
+			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.SNFName);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else if(text.contains("PAYOR"))
+		{
+			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.PAYORName);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else if(text.contains("PGP"))
+		{
+			//CreateManagingOrganization.editedACHName = CreateManagingOrganization.ACHName;
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.PGPName);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 		else
 		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);

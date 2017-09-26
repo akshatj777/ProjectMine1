@@ -29,6 +29,21 @@ public class EditManagingOrganization extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.ACHName+"']")));
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
+		else if(field.contains("SNF"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.SNFName+"']")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else if(field.contains("PAYOR"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.PAYORName+"']")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else if(field.contains("PGP"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.PGPName+"']")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 		else
 		{
 			clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
