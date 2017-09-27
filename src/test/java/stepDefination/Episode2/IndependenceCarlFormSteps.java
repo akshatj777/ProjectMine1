@@ -9,7 +9,7 @@ import cucumber.api.java.en.Then;
 public class IndependenceCarlFormSteps extends DriverScript {
 	
 	IndependenceCarlForm independencecarl = new IndependenceCarlForm(driver);
-	
+
 	@Then("^I click on \"([^\"]*)\" section on left navigator$") 
 	public void I_Click_On_SideNavigationTab_On_CarlForm(String text) throws Throwable {
 		independencecarl.IClickOnSideNavigationTabOnCarlForm(text);
@@ -74,5 +74,17 @@ public class IndependenceCarlFormSteps extends DriverScript {
 	public void I_Verify_The_Selected_RadioButton_Present_On_IndependenceSection(String text) throws Throwable {
 		independencecarl.IVerifyTheSelectedRadioButtonOnIndependenceSection(text);
 	}
-
+	
+	@Then("^I verify CARL Recommendation field should show \"([^\"]*)\" on discharge section when total score is \"([^\"]*)\"$")
+	public void I_verify_CARL_Recommendation_field_on_discharge_section(String text,String condition) throws Throwable
+	{
+		independencecarl.IverifyCARLRecommendationfieldondischargesection(text);
+	}
+	
+	@Then("^I verify CARL Recommendation field should not show \"([^\"]*)\" on discharge section when total score is \"([^\"]*)\"$")
+	public void I_verify_text_not_present_CARL_Recommendation_field_on_discharge_section(String text,String condition) throws Throwable
+	{
+		independencecarl.IverifytextnotpresentonCARLRecommendationfieldondischargesection(text);
+	}
+	
 }

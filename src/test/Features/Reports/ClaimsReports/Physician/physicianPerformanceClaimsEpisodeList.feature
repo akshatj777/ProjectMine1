@@ -5,17 +5,17 @@ Feature: Verification of performance claims reports episode list drill through u
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
+    And I wait to see "Physician" under reports tile text
     When I click on the Reports Tile with text "Physician"
     Then I click on "Performance (Claims)" report text for Physician Reports
-    And I wait for 30000 milli seconds
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
     Then I click on a number under episodes column
-    And I wait for 10000 milli seconds
     Then I switch to new window
-    And I wait for 5000 milli seconds
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
@@ -26,7 +26,6 @@ Feature: Verification of performance claims reports episode list drill through u
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table
-    #Then I should verify "DOB (Key)" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table
@@ -40,7 +39,6 @@ Feature: Verification of performance claims reports episode list drill through u
     Then I should verify "Post Acute CCN" is appearing under Episodes table
     Then I should verify "Post Acute Facility" is appearing under Episodes table
     Then I should verify "Post Acute Category" is appearing under Episodes table
-    Then I should verify "Post Acute Type" is appearing under Episodes table
     Then I should verify "Readmission CCN 1" is appearing under Episodes table
     Then I should verify "Readmission Facility Name 1" is appearing under Episodes table
     Then I should verify "Readmission DRG 1" is appearing under Episodes table
@@ -71,7 +69,6 @@ Feature: Verification of performance claims reports episode list drill through u
     Then I should verify "Readmission Admit Date 5" is appearing under Episodes table
     Then I should verify "Readmission Discharge Date 5" is appearing under Episodes table
     Then I should verify "Readmission PDGNS_CD 5" is appearing under Episodes table
-    Then I should verify "Anchor Month" is appearing under Episodes table
     Then I should verify "Readmission Count" is appearing under Episodes table
 
     Examples: 

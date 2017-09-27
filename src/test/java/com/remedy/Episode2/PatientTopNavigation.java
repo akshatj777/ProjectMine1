@@ -7,23 +7,23 @@ import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
-public class PatientTopNavigation extends BaseClass{
+public class PatientTopNavigation extends BaseClass {
 
 	public PatientTopNavigation(WebDriver driver) {
-        super(driver);
+		super(driver);
 	}
-	
-	public void iShouldSeeProductListIcon(){
+
+	public void iShouldSeeProductListIcon() {
 		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
 	}
-	
-	public void iClickOnProductListIcon(){
+
+	public void iClickOnProductListIcon() {
 		clickElement(driver.findElement(By.xpath("(//menu-toggle)[1]")));
 	}
-	
-	public void iScrollPageToTop(){
+
+	public void iScrollPageToTop() {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-    	WebElement element = driver.findElement(By.cssSelector("div.row>h2"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
-    }
+		WebElement element = driver.findElement(By.cssSelector("div.row>h2"));
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
 }

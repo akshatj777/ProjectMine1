@@ -1,6 +1,6 @@
-Feature: Created Patient Note Comparision in EC1 and viewed in EC2 
+Feature: Created Patient Note Comparision in EC1 and viewed in EC2
 
-Scenario Outline: To verify Notes created in EC1 through i framing should only be accessible on EC2 care plan tab should not be seen under Clinical Documents tab .
+  Scenario Outline: To verify Notes created in EC1 through i framing should only be accessible on EC2 care plan tab should not be seen under Clinical Documents tab .
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -61,20 +61,52 @@ Scenario Outline: To verify Notes created in EC1 through i framing should only b
     Then I click on create note button
     And I wait for 15000 milli seconds
     Then I switch back to old window
-    And  I wait for 8000 milli seconds
+    And I wait for 8000 milli seconds
     Then I should see Tile text Episodes 2.0
     When I click on the "Episodes 2.0" tile
-    And  I wait for 8000 milli seconds
+    And I wait for 8000 milli seconds
     Then I verify current page "Remedy Partners" title
-    Then I click on the ALL Tab on Patient page 
-    And  I wait for 10000 milli seconds
+    Then I click on the ALL Tab on Patient page
+    And I wait for 10000 milli seconds
     Then I should see search box appearing on the patients page
-    Then I enter "<patient last name>" in the search box on the patients page
-    And I wait for 60000 milli seconds
-   
-    Examples:
+    When I click on Filter button present on Patient Page
+    And I click on Filters button present on Filter Page
+    Then I verify Last Name Filter is displayed under List of Filter Options
+    When I click on last name Filter present on Filter Page
+    And I wait for 2000 milli seconds
+    Then I enter <patient Last Name> under first name filter
+    And I wait for 3000 milli seconds
+    Then I click on Done button present on the Filter Page
+    And I wait for 3000 milli seconds
+    Then I click on the agree button on the Patient Card page
+    Then I wait for 8000 milli seconds
+    Then I click on the "<patient last name>" searched patient on the Patient Card Page
+    And I wait for 15000 milli seconds
+    Then I switch to PatientTransitions frame
+    Then I wait for 7000 milli seconds
+    Then I click on the delete button on the transition to delete all the transitions
+    Then I wait for 7000 milli seconds
+    Then I click on add a new transition to add a new episode
+    Then I wait for 7000 milli seconds
+    Then I click on the Transition Info on add a new transition
+    Then I click on datepicker button to select the admit date on add a new transition
+    Then I click on the centre of the calendar header to select date and month on Transition Page
+    Then I click on the previous next link to select the required year "0" on date picker
+    Then I select the month "0" from calendar from date picker
+    Then I select the "0" from the calendar from date picker on Transition Page
+    Then I select the "0" time from the calendar from date picker on Transition Page
+    Then I wait for 1000 milli seconds
+    Then I select the care setting value "HHH - Hospital" on add a new transition
+    Then I wait for 1000 milli seconds
+    Then I select the care type value "Inpatient" on add a new transition
+    Then I wait for 2000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
+    And I wait for 8000 milli seconds
+    Then I click on "Care Plan" tab appearing under patient summary page to verify care plan created
+    And I wait for 10000 milli seconds
+    Then I click on the "Notes" tab appearing under care plan frame on patient summary page
+    Then I verify the notes created in the episode1 should not appear in the notes section in care plan in episode2
 
+    Examples: 
       | email                | password  | patient first name | patient last name |
-      | qa.admin@yopmail.com | Episode1! |   HHHHZZZZZZ       |   KKKKYYYYYYY     |     
-
-      
+      | qa.admin@yopmail.com | Episode1! | PATIENT            | AUTOMATETESTNOTES |

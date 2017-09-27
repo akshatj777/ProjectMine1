@@ -14,7 +14,6 @@ Feature: Readmssion Worklist Acceptamce Criteria
     And I wait for 2000 milli seconds
     Then I click on "Readmissions" worklist under "Inpatient" worklist on episode home page
     And I wait for 5000 milli seconds
-    Then I verify days to readmission section is appearing on the patient cards under readmission worklist
     Then I see number of days to inepisode is appearing on the patient cards under readmission worklist
     Then I see readmission count appearing on the patient cards under readmission worklist
     And I verify episode progress knob appearing on patient cards under readmission worklist

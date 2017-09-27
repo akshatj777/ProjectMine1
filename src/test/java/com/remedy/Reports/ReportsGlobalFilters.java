@@ -173,4 +173,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iVerifyParticipantUnderFilterOptions(String text){
 		verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#participantFilterObj .selectorValue")),text);
 	}
+	
+	public void iVerifyApplyFilterButtonUnderGlobalFilters(){
+		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-primary")));
+	}
 }

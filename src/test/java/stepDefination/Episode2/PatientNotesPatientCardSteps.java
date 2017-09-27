@@ -2,8 +2,6 @@ package stepDefination.Episode2;
 
 import java.awt.AWTException;
 import com.remedy.Episode2.NoteCreation;
-import com.remedy.Episode2.PatientsPage;
-import com.remedy.Episode2.Readmission;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -44,7 +42,7 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	 }
 
 	 @Then ("^I select the month \"(.*)\" from calendar from date picker$")
-	 public void I_select_the_month_from_calendar_from_date_picker(int date) throws InterruptedException
+	 public void I_select_the_month_from_calendar_from_date_picker(int date) throws InterruptedException,Throwable 
 	 {
 		 noteCreation.Iselectthemonthfromcalendarfromdatepicker(date);
 	 }   
@@ -235,4 +233,11 @@ public class PatientNotesPatientCardSteps extends DriverScript {
 	public void I_enter_the_Note_Text_in_the_textarea_on_Add_Clinical_Document_on_Patient_Card(String Notetext)throws Throwable {
 		noteCreation.IentertheNoteTextinthetextareaonAddClinicalDocumentonPatientCard(Notetext);
 	}
-}
+	
+	@Then ("^I wait to the see the visibility of loader to disappear$")
+	public void I_wait_to_the_see_the_visibility_of_loader_to_disappear() throws Throwable
+	{
+		noteCreation.Iwaittotheseethevisibilityofloadertodisappear();
+	}
+	
+	}

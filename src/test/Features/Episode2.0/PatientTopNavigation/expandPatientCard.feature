@@ -13,8 +13,7 @@ Feature: Episode 2.0 Expand Patient Card  for Patient Summary
     Then I verify current page "Remedy Partners" title
     
     When I click on the Expand button on the patient card on the patient page
-    Then I verify Quick action button (Add Clinical Document, New Task) is present on the patient summary page
-    Then I Verify Current Location is present on the patient summary page
+     Then I Verify Current Location is present on the patient summary page
     Then I Verify Anchor Facility is present on the patient summary page
     Then I Verify Account status is present on the patient summary page
     Then I Verify MRNs is present on the patient summary page

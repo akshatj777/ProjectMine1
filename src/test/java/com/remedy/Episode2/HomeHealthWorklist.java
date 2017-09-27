@@ -16,12 +16,12 @@ public class HomeHealthWorklist extends BaseClass {
 	}
 
 	public void Ideletetheactivetransitiontomakethepatientcancelled(String transition_value) throws InterruptedException {
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div")));
-		Thread.sleep(5000);
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+transition_value+"]/td[contains(@class, 'settings-column')]/div/ul/li[3]/a")));
-		Thread.sleep(5000);
+		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div"));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div")));
+		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div/ul/li[3]/a"));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + transition_value+ "]/td[contains(@class, 'settings-column')]/div/ul/li[3]/a")));
+		iWillWaitToSee(By.xpath("//button[contains(text(),'OK')]"));
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'OK')]")));
-		Thread.sleep(10000);
-	
+		Thread.sleep(3000);
 	}
 }

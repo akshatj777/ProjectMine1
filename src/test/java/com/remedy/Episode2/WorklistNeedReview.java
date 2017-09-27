@@ -70,7 +70,6 @@ public class WorklistNeedReview extends BaseClass {
 		LocalDate localDate = LocalDate.now();
 		LocalDate b = localDate.minus(Period.ofDays(days));
 		String date = dtf.format(b);
-		System.out.println(dtf.format(b));
 		return date;
 	}
 

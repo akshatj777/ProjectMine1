@@ -3,7 +3,12 @@ package com.remedy.Episode2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.remedy.baseClass.BaseClass;
 
 public class HomeLimitedServicesWorklist extends BaseClass {
@@ -13,6 +18,7 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IclickonthePostAcutetabonthepatientCardPage() {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Post Acute')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
 	}
 
@@ -25,11 +31,16 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 	}
 
 	public void IselecttheDRGvalueontheDiagnosisandDRGtabonaddanewtransition(String DRG) throws InterruptedException {
-		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg")));
-		Thread.sleep(5000);
-		iFillInText(driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input")), DRG);
-		Thread.sleep(5000);
-		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		iWillWaitToSee(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_drg"))).click().perform();
+		iWillWaitToSee(By.cssSelector("#select2-drop > div > input.select2-input"));
+		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
+		js.executeScript("arguments[0].click();", element2);
+		iFillInText(element2,DRG);
+		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
+		actions.moveToElement(driver.findElement(By.cssSelector("li.select2-highlighted"))).click().perform();
 	}
 
 	public void IselectthefacilityvalueStamfordonaddanewtransition(String facilityvalue) throws InterruptedException {
@@ -39,7 +50,7 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 		clickElement(element1);
 		Thread.sleep(5000);
 		WebElement element2 = driver.findElement(By.cssSelector("#s2id_autogen9_search"));
-        js.executeScript("arguments[0].click();", element2);
+		js.executeScript("arguments[0].click();", element2);
 		element2.sendKeys(facilityvalue);
 		Thread.sleep(10000);
 		WebElement element3 = driver.findElement(By.cssSelector("li.select2-highlighted"));
@@ -56,4 +67,28 @@ public class HomeLimitedServicesWorklist extends BaseClass {
 		WebElement element = driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate"));
 		clickElement(element);
 	}
+
+	public void IclickonthePostAcutetabonthepatientCardPageJavaScript() {
+
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 15);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Post Acute')]")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Post Acute')]"))).click();
+		}   catch (WebDriverException wde) {
+			scrollToElement(driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")));
+			driver.findElement(By.xpath("//span[contains(text(),'Post Acute')]")).click();
+		}
+	}
+
+	private void scrollToElement(WebElement el) {
+		if (driver instanceof JavascriptExecutor) {
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
+		}
+	}
+
+	public void Ireloadmypage() {
+		driver.navigate().refresh();
+
+	}
+
 }

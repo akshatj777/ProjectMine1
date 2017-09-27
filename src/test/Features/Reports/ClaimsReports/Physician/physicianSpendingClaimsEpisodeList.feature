@@ -5,21 +5,20 @@ Feature: Verification of spending claims reports episode list drill through unde
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
+    And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait for 2000 milli seconds
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Spending (Claims)" report text for Overall Program Reports
-    And I wait for 30000 milli seconds
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Spending (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
+    And I will wait to see "Physician Spending" is appearing inside the iframe
     Then I click on a number under episodes column of spending claims report
-    And I wait for 10000 milli seconds
     Then I switch to new window
-    And I wait for 5000 milli seconds
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Episode Initiator" is appearing under Episodes table
-    Then I should verify "CCN" is appearing under Episodes table
     Then I should verify "Anchor Facility" is appearing under Episodes table
     Then I should verify "Bundle" is appearing under Episodes table
     Then I should verify "DRG Code" is appearing under Episodes table
