@@ -28,7 +28,6 @@ Feature: User completes entering Payor Organization details during creation proc
     And I provide unique EIN in "EIN" on create organization page
     Then I click on "Submit" button on create organization page
     Then I verify "Success! Payor Organization Successfully Created." after submitting the create ogranization page
-    #When I click on "Payor" organization tab on organization dashboard
     Then I search with <Payor_Org_Name> on organization in search box
     And I click <Payor_Org_Name> field in search list on organization page
     And I verify <Address1> in "address1" on view profile of "Payor" Organization
@@ -48,7 +47,7 @@ Feature: User completes entering Payor Organization details during creation proc
   Scenario Outline: Edit and save changes for all fields of Payor Organization
     When I click on "Payor" organization tab on organization dashboard
     Then I search with <Payor_Org_Name> on organization in search box
-    And I see "1 Organization" search count on organization
+    #And I see "1 Organization" search count on organization
     # And I verify <Payor_Name> field in search list on organization page
     And I click <Payor_Org_Name> field in search list on organization page
     And I click on "Edit" button on particular organization

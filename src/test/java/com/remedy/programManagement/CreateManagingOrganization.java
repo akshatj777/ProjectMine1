@@ -141,12 +141,25 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
-		System.out.println(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")).getText());
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 	}
 	
 	public void iSearchManagingOrganizationInSearchBox(String mOrg) {
 		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), mOrg+time);
+	}
+	
+	public void iFetchParticipantIdAssignedToOrganization() {
+		try
+		{
+			String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
+			String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
+			value = value.trim();
+			writeProperty("PARTICIPANT_ID", value);
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 }

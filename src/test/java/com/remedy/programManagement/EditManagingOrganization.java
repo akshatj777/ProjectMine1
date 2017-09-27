@@ -53,20 +53,7 @@ public class EditManagingOrganization extends BaseClass {
 	}
 	
 	public void iClickOnButtonOnParticularOrganization(String button) throws IOException {
-		
-		try
-		{
-			String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
-			String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
-			value = value.trim();
-			writeProperty("PARTICIPANT_ID", value);
-		} catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-	
-		
+
 		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		/*if(driver.findElement(By.cssSelector(".participant-id")).isDisplayed())

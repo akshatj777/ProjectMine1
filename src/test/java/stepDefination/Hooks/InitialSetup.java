@@ -50,10 +50,10 @@ public class InitialSetup {
                 scenario.embed(screenshot, "image/png");
             }
         } finally {
-        	//DriverScript.outPropFile.close();
-
-            //new DriverScript().quitDriver();
+        	
+        	new DriverScript().quitDriver();
             logger.info("User quits the driver and closes the browser");
+        
         }
 
     }

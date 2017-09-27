@@ -13,7 +13,6 @@ Feature: User is able to view a SNF Organization's Profile
   Scenario Outline: Verify view profile details of SNF Organization
     When I click on "SNF" organization tab on organization dashboard
     Then I search with <SNF_Name> on organization in search box
-    #And I see "1 Organization" search count on organization
     And I click <SNF_Name> field in search list on organization page
     And I verify <Address1> in "address1" on view profile of "SNF" Organization
     And I verify <City> in "city" on view profile of "SNF" Organization

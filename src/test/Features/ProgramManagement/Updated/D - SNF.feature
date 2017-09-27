@@ -50,6 +50,17 @@ Feature: User completes entering SNF Organization details during creation proces
     And I verify NIP number <NPI> on view profile of "SNF" organization
     And I verify Region name <Region> on view profile of "SNF" organization
     And I verify Market name <Market> on view profile of "SNF" organization
+    
+    And I verify Managing Organization name <MO_Name> on view profile of "SNF" organization
+    And I verify Participant Id <Participant_Id> on view profile of "SNF" Organization
+    
+    And I verify header name "ID" under "Location" for "SNF" organization
+    And I verify header name "Location Name" under "Location" for "SNF" organization
+    And I verify header name "Address" under "Location" for "SNF" organization
+    And I verify header name "Type" under "Location" for "SNF" organization
+    And I verify header name "Region" under "Location" for "SNF" organization
+    And I verify header name "Market" under "Location" for "SNF" organization
+    
 
     Examples: 
       | MO_Name               | SNF_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Region | Market     | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | State_verification |
@@ -67,9 +78,7 @@ Feature: User completes entering SNF Organization details during creation proces
     And I edit "City" field to <City> for organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
-    And I edit "CCN" field to <CCN> for organization
-    And I edit "EIN" field to <EIN> for organization
-    And I edit "NPI" field to <NPI> for organization
+    
     And I edit Location "Location Name" field to <L_Name> for Location "1" for organization
     And I edit Location "address1" field to <L_Address1> for Location "1" for organization
     And I edit Location Type dropdown field to <L_Type> for Location "1" for organization
@@ -80,6 +89,20 @@ Feature: User completes entering SNF Organization details during creation proces
     And I edit Location State dropdown field to <L_State> for Location "1" for organization
     And I edit Location "postalCode" field to <L_Postal_Code> for Location "1" for organization
     Then I click on "Submit" button on create organization page
+    
+    Then I search with <SNF_Org_Name> on organization in search box
+    And I click <SNF_Org_Name> field in search list on organization page
+    And I verify <Address1> in "address1" on view profile of "SNF" Organization
+    And I verify <City> in "city" on view profile of "SNF" Organization
+    And I verify <State_verification> in "state" on view profile of "SNF" Organization
+    And I verify <Postal_Code> in "zip" on view profile of "SNF" Organization
+    And I verify CCN <CCN> on view profile of "SNF" organization
+    And I verify EIN/TIN id <EIN/TIN> on view profile of "SNF" organization
+    And I verify NIP number <NPI> on view profile of "SNF" organization
+    And I verify Region name <Region> on view profile of "SNF" organization
+    And I verify Market name <Market> on view profile of "SNF" organization
+    
+
 
     Examples: 
       | SNF_Org_Name | SNF_Name1 | Address1 | Short_Name | Address2 | City   | State    | Postal_Code | CCN    | EIN    | NPI    | L_Name         | L_Address1       | L_Type          | L_Address2       | L_Region | L_Market | L_City            | L_State | L_Postal_Code |
@@ -157,6 +180,19 @@ Feature: User completes entering SNF Organization details during creation proces
     And I edit Location State dropdown field to <L_State> for Location "1" for organization
     And I edit Location "postalCode" field to <L_Postal_Code> for Location "1" for organization
     Then I click on "Submit" button on create organization page
+    Then I search with <SNF_Org_Name> on organization in search box
+    And I click <SNF_Org_Name> field in search list on organization page
+    And I verify <Address1> in "address1" on view profile of "SNF" Organization
+    And I verify <City> in "city" on view profile of "SNF" Organization
+    And I verify <State_verification> in "state" on view profile of "SNF" Organization
+    And I verify <Postal_Code> in "zip" on view profile of "SNF" Organization
+    And I verify CCN <CCN> on view profile of "SNF" organization
+    And I verify EIN/TIN id <EIN/TIN> on view profile of "SNF" organization
+    And I verify NIP number <NPI> on view profile of "SNF" organization
+    And I verify Region name <Region> on view profile of "SNF" organization
+    And I verify Market name <Market> on view profile of "SNF" organization
+    
+    
 
     Examples: 
       | SNF_Org_Name | SNF_Name1 | Address1 | Short_Name | Address2 | City   | State    | Postal_Code | CCN    | EIN    | NPI    | L_Name         | L_Address1       | L_Type          | L_Address2       | L_Region | L_Market | L_City            | L_State | L_Postal_Code |
