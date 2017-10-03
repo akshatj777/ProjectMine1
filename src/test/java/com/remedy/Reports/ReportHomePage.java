@@ -660,9 +660,9 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){
     	JavascriptExecutor js = ((JavascriptExecutor) driver);
-    	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']"));
+    	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']"));
     	js.executeScript("arguments[0].scrollIntoView(true);",element);
-    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']")));
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']")));
     }
     
     public void iClickOnEpisodesColumnNumberForEpisodewithDRGIssues(){
@@ -1154,5 +1154,13 @@ public class ReportHomePage extends BaseClass {
     
     public void iShouldNotSeeElementInTheFilterValueList(String text){
     	verifyTextNotPresentForElementFromList("#FT_valueList div",text);
+    }
+    
+    public void iShouldSeeColumnAfterClickingAddToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//td[@title='"+text+"']")));
+    }
+    
+    public void iVerifyRowsNameUnderDRG(String text){
+    	verifyTextForElementFromListByXpath("//td[@class='inner'][@formula='[DRG].[DRG]']",text);
     }
 }

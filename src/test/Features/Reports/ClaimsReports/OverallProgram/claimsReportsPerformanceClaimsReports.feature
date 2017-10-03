@@ -735,3 +735,77 @@ Scenario Outline: User should only see anchor admission values >= 2016Q4 when dr
       | shutestaug15240p@yopmail.com       |       469 |       470 | 
       | shutestaug221145a@yopmail.com      |       469 |       470 |
       
+Scenario Outline: User should see corresponding DRG when selected 469 drg code in the report in performance claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "DRG Code" field filter under "DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "DRG Code" in the header text of filter page
+    And I should see "<DRG Code1>" in the filter value list
+    And I click on "<DRG Code1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "DRG" field filter under "DRG" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "DRG" column is added to report after selecing add to report option
+    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC" is appearing in the drg column rows
+    
+    Examples: 
+      | email                              | DRG Code1 |
+      | shutestaug231132a@yopmail.com      |       469 |
+      | shutestaug221130a@yopmail.com      |       469 |
+      | reptestachmodel2opsfin@yopmail.com |       469 |
+      | shutestaug15240p@yopmail.com       |       469 |
+      | shutestaug221145a@yopmail.com      |       469 |
+      
+Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in performance claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "DRG Code" field filter under "DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "DRG Code" in the header text of filter page
+    And I should see "<DRG Code1>" in the filter value list
+    And I click on "<DRG Code1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "DRG" field filter under "DRG" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "DRG" column is added to report after selecing add to report option
+    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC" is appearing in the drg column rows
+    
+    Examples: 
+      | email                              | DRG Code1 |
+      | shutestaug231132a@yopmail.com      |       470 |
+      | shutestaug221130a@yopmail.com      |       470 |
+      | reptestachmodel2opsfin@yopmail.com |       470 |
+      | shutestaug15240p@yopmail.com       |       470 |
+      | shutestaug221145a@yopmail.com      |       470 |
+      

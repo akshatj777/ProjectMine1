@@ -1455,4 +1455,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_not_see_in_the_filter_value_list(String text) throws Throwable{
     	reportHomePage.iShouldNotSeeElementInTheFilterValueList(text);
     }
+    
+    @Then("^I verify \"([^\"]*)\" column is added to report after selecing add to report option$")
+    public void i_velrify_column_is_added_to_report_after_selecting_add_to_report_option(String text) throws Throwable{
+    	reportHomePage.iShouldSeeColumnAfterClickingAddToReport(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the drg column rows$")
+    public void i_verify_text_is_appearing_in_the_drg_column_rows(String text) throws Throwable{
+    	reportHomePage.iVerifyRowsNameUnderDRG(text);
+    }
 }

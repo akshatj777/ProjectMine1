@@ -24,6 +24,7 @@ Feature: Verification of SNF Performance Claims Reports Filters
     Then I should verify "Bundle" is appearing under Episodes table
     Then I should verify "MDC" is appearing under Episodes table
     Then I should verify "DRG Code" is appearing under Episodes table
+    Then I should verify "Fracture/Non-Fracture" is appearing under Episodes table
     Then I should verify "Beneficiary HIC" is appearing under Episodes table
     Then I should verify "Beneficiary First Name" is appearing under Episodes table
     Then I should verify "Beneficiary Last Name" is appearing under Episodes table

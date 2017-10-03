@@ -22,6 +22,7 @@ Feature: Verification of spending claims reports episode list drill through unde
     Then I should verify "Anchor Facility" is appearing under Episodes table
     Then I should verify "Bundle" is appearing under Episodes table
     Then I should verify "DRG Code" is appearing under Episodes table
+    Then I should verify "Fracture/Non-Fracture" is appearing under Episodes table
     Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
     Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
     Then I should verify "Anchor End Date" is appearing under Episodes table
