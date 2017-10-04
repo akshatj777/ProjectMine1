@@ -23,6 +23,7 @@ Feature: Selecting columns in drill through for claims reports
     And I click on "Anchor Facility Type" checkbox in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Anchor Facility Type" is appearing under Episodes table
 
     Examples: 

@@ -130,7 +130,6 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Then I should see "Readmission PDGNS_CD 3" appearing under "level" field
     Then I should see "Readmission PDGNS_CD 4" appearing under "level" field
     Then I should see "Readmission PDGNS_CD 5" appearing under "level" field
-    Then I should see "SNF Network Tier" appearing under "level" field
 
     Examples: 
       | email                          |
@@ -624,6 +623,15 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -632,15 +640,6 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
     And I click on "<DRG Code1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Admission Quarter" in the header text of filter page
-    When I click on select from list option on the filter page
-    And I should see "<anchor admission quarter1>" in the filter value list
-    And I click on "<anchor admission quarter1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -655,8 +654,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
 																																																										
     Examples: 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q4                    |
-      | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q4                    |
+      | shutestaug15252p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
+      | shutestaug15220p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
       
 Scenario Outline: User should see Fracture/Non-Fracture/Not-Applicable filters in filter value list in volume claims report under physician
     Given I am on the login page
