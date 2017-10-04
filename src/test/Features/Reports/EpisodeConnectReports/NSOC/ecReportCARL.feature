@@ -271,11 +271,11 @@ Feature: Verification of CARL EC Report
     And I wait until refresh button is disappeared
     Then I enter "Onboarding Status" in the search field textbox for filters
     Then I verify "Onboarding Status" is appearing in the level fields after searching
-    
+
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      #| shutestaug221130a@yopmail.com      |
-      #| reptestachmodel2opsfin@yopmail.com |
-      #| shutestaug15240p@yopmail.com       |
-      #| shutestaug221145a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |

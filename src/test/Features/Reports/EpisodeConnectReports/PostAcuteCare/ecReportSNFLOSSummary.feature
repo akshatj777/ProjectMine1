@@ -103,6 +103,8 @@ Scenario Outline: User should not see fracture/non-fracture filters in the avail
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
     And I wait to see "Post Acute Care" under reports tile text
     When I click on the Reports Tile with text "Post Acute Care"
     Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports
@@ -115,6 +117,37 @@ Scenario Outline: User should not see fracture/non-fracture filters in the avail
     Then I enter "Fracture/Non-Fracture" in the search field textbox for filters
     And I should not see "Fracture/Non-Fracture" in the searched results under the measures
     
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+      
+Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in snf los summary report under post acute care
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Post Acute Care" under reports tile text
+    When I click on the Reports Tile with text "Post Acute Care"
+    Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Patient Risk" in the search field textbox for filters
+    Then I verify "Patient Risk" is appearing in the level fields after searching
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    Then I enter "Onboarding Status" in the search field textbox for filters
+    Then I verify "Onboarding Status" is appearing in the level fields after searching
+
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |

@@ -51,6 +51,8 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I should verify "Record Creator" is appearing under Episodes table
     Then I should verify "Physician Name" is appearing under Episodes table
     Then I should verify "Days Left in Bundle" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
+    Then I should verify "Onboarding Status" is appearing under Episodes table
 
     Examples: 
       | email                          |
