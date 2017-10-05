@@ -807,3 +807,29 @@ Scenario Outline: User should see corresponding DRG when selected 470 drg code i
       | email                              | DRG Code1 |
       | shutestaug231132a@yopmail.com      |       470 |
       | shutestaug221130a@yopmail.com      |       470 |
+      
+Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in spending claims report under physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Spending (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Spending" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Patient Risk" in the search field textbox for filters
+    And I should not see "Patient Risk" in the searched results under the levels
+    And I click on clear search field element
+    Then I enter "Onboarding Status" in the search field textbox for filters
+    And I should not see "Patient Risk" in the searched results under the levels
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |

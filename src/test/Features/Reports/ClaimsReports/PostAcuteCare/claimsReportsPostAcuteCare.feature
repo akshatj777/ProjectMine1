@@ -801,3 +801,29 @@ Scenario Outline: User should see corresponding DRG when selected 470 drg code i
       | reptestachmodel2opsfin@yopmail.com |       470 |
       | shutestaug15240p@yopmail.com       |       470 |
       | shutestaug221145a@yopmail.com      |       470 |
+      
+Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in post acute care claims report under post acute care
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Post Acute Care" under reports tile text
+    When I click on the Reports Tile with text "Post Acute Care"
+    Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Patient Risk" in the search field textbox for filters
+    And I should not see "Patient Risk" in the searched results under the levels
+    And I click on clear search field element
+    Then I enter "Onboarding Status" in the search field textbox for filters
+    And I should not see "Patient Risk" in the searched results under the levels
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |

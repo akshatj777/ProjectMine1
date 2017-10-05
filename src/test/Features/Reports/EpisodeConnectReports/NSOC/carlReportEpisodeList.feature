@@ -68,7 +68,7 @@ Feature: Episode List Verification Under CARL Reports
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through
+  Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through in carl report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -89,7 +89,13 @@ Feature: Episode List Verification Under CARL Reports
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    And I click on "Patient Risk" checkbox in the popup of select drill through columns
+    And I click on "Onboarding Status" checkbox under "Onboarding Status" in the popup of select drill through columns
+    And I click on "Patient Risk" checkbox under "Patient" in the popup of select drill through columns
+    And I click on ok button after selecting drill through column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
     
     Examples: 
       | email                          |

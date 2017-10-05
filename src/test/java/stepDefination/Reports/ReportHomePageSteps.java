@@ -1176,9 +1176,9 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyTitleOnPopupAfterClickingSelectColumns(text);
     }
     
-    @And("^I click on \"([^\"]*)\" checkbox in the popup of select drill through columns$")
-    public void i_click_checkbox_of_selectdrill_through_columns_popup(String text) throws Throwable{
-    	reportHomePage.iClickOnCheckBoxInEpisodeDrillThroughPopUp(text);
+    @And("^I click on \"([^\"]*)\" checkbox under \"([^\"]*)\" in the popup of select drill through columns$")
+    public void i_click_checkbox_of_selectdrill_through_columns_popup(String text,String type) throws Throwable{
+    	reportHomePage.iClickOnCheckBoxInEpisodeDrillThroughPopUp(text,type);
     }
     
     @And("^I click on ok button after selecting drill through column$")
@@ -1442,6 +1442,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("I should not see \"([^\"]*)\" in the searched results under the measures")
+    @Then("I should not see \"([^\"]*)\" in the searched results under the levels")
     public void i_should_not_see_in_the_searched_results_under_the_measures(String text) throws Throwable{
     	reportHomePage.iShouldNotSeeUnderSearchedMeasuresResults(text);
     }
@@ -1464,5 +1465,20 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I verify \"([^\"]*)\" is appearing in the drg column rows$")
     public void i_verify_text_is_appearing_in_the_drg_column_rows(String text) throws Throwable{
     	reportHomePage.iVerifyRowsNameUnderDRG(text);
+    }
+    
+    @Then("^I click on a number under episodes column of next site of care summary report$")
+    public void i_click_on_a_number_under_episodes_column_of_next_site_of_care_summary_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodeNumberUnderEpisodesColumnofNextSiteOfCareSummaryReport();
+    }
+    
+    @Then("^I click on a number under episodes column of initial snf length of stay summary report$")
+    public void i_click_on_a_number_under_episodes_column_of_initial_snf_length_of_stay_summary_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodeNumberUnderEpisodesColumnofInitialSNFLengthOfStaySummaryReport();
+    }
+    
+    @Then("^I verify whether \"([^\"]*)\" checkbox under \"([^\"]*)\" is checked$")
+    public void i_verify_whether_checkbox_under_is_checked(String text,String type) throws Throwable{
+    	reportHomePage.iVerifyCheckboxIsCheckedForDrillThrough(text, type);
     }
 }

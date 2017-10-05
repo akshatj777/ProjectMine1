@@ -947,8 +947,8 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath("//td[text()='"+text+"']")),text);
     }
     
-    public void iClickOnCheckBoxInEpisodeDrillThroughPopUp(String text){
-    	clickElement(driver.findElement(By.xpath("//div[@formula='[Anchor Facility].["+text+"]']/input")));
+    public void iClickOnCheckBoxInEpisodeDrillThroughPopUp(String text,String type){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")));
     }
     
     public void iEnterValueInTextBoxUnderSelectDrillThroughColumns(String text){
@@ -1165,5 +1165,20 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyRowsNameUnderDRG(String text){
     	verifyTextForElementFromListByXpath("//td[@class='inner'][@formula='[DRG].[DRG]']",text);
+    }
+    
+    public void iClickOnEpisodeNumberUnderEpisodesColumnofNextSiteOfCareSummaryReport(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,3)']")));
+    }
+    
+    public void iClickOnEpisodeNumberUnderEpisodesColumnofInitialSNFLengthOfStaySummaryReport(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
+    }
+    
+    public void iVerifyCheckboxIsCheckedForDrillThrough(String text,String type){
+    	if ( driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")).isSelected())
+    	{
+    		clickElement(driver.findElement(By.id("dlgBtnSave")));
+    	}
     }
 }
