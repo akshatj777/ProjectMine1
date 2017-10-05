@@ -311,8 +311,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 469       |       470 | 2016Q4                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 469       |       470 | 2016Q4                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 469       |       470 | 2016Q4                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 469       |       470 | 2016Q4                    |
 
 Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in post acute care claims report under post acute care
     Given I am on the login page
@@ -371,8 +371,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 469       |       470 | 2016Q3                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 469       |       470 | 2016Q3                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 469       |       470 | 2016Q3                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 469       |       470 | 2016Q3                    |
       
 Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in post acute care claims report under post acute care
     Given I am on the login page
@@ -616,7 +616,7 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
       | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-      | shutestaug26212p@yopmail.com | 6005-063 | 065       |       066 | 2016Q3                    |
+      | shutestaug26212p@yopmail.com | 6005-063 | 064       |       065 | 2016Q2                    |
       | shutestjul26420p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
       | shutestjul26415@yopmail.com  | 6005-169 | 177       |       178 | 2016Q3                    |
       

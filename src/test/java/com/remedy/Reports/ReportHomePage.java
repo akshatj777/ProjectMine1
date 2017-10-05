@@ -261,6 +261,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
     }
 
