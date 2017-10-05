@@ -50,21 +50,18 @@ Feature: User completes entering SNF Organization details during creation proces
     And I verify NIP number <NPI> on view profile of "SNF" organization
     And I verify Region name <Region> on view profile of "SNF" organization
     And I verify Market name <Market> on view profile of "SNF" organization
-    
     And I verify Managing Organization name <MO_Name> on view profile of "SNF" organization
     And I verify Participant Id <Participant_Id> on view profile of "SNF" Organization
-    
     And I verify header name "ID" under "Location" for "SNF" organization
     And I verify header name "Location Name" under "Location" for "SNF" organization
     And I verify header name "Address" under "Location" for "SNF" organization
     And I verify header name "Type" under "Location" for "SNF" organization
     And I verify header name "Region" under "Location" for "SNF" organization
     And I verify header name "Market" under "Location" for "SNF" organization
-    
 
     Examples: 
-      | MO_Name               | SNF_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Region | Market     | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | State_verification |
-      | 26 Automate Manag Org | SNF          | Address  | Short      | Addresss | Cy   | New York |       40045 | West   | Oil States | LocNameL | LBlockA   | TCU      | bacd      | West    | Citya | Oil States | New York |        40006 | NY                 |
+      | MO_Name | SNF_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Region | Market     | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | State_verification |
+      | MONAME  | SNF          | Address1 | Short      | Address2 | City | New York |       10000 | West   | Oil States | LocName  | LAddress1 | TCU      | LAddress2 | West    | LCity | Oil States | New York |        10000 | NY                 |
 
   @Smoke
   Scenario Outline: Edit and save changes for all fields of SNF Organization
@@ -78,7 +75,6 @@ Feature: User completes entering SNF Organization details during creation proces
     And I edit "City" field to <City> for organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
-    
     And I edit Location "Location Name" field to <L_Name> for Location "1" for organization
     And I edit Location "address1" field to <L_Address1> for Location "1" for organization
     And I edit Location Type dropdown field to <L_Type> for Location "1" for organization
@@ -89,7 +85,6 @@ Feature: User completes entering SNF Organization details during creation proces
     And I edit Location State dropdown field to <L_State> for Location "1" for organization
     And I edit Location "postalCode" field to <L_Postal_Code> for Location "1" for organization
     Then I click on "Submit" button on create organization page
-    
     Then I search with <SNF_Org_Name> on organization in search box
     And I click <SNF_Org_Name> field in search list on organization page
     And I verify <Address1> in "address1" on view profile of "SNF" Organization
@@ -101,21 +96,17 @@ Feature: User completes entering SNF Organization details during creation proces
     And I verify NIP number <NPI> on view profile of "SNF" organization
     And I verify Region name <Region> on view profile of "SNF" organization
     And I verify Market name <Market> on view profile of "SNF" organization
-    
-
 
     Examples: 
-      | SNF_Org_Name | SNF_Name1 | Address1 | Short_Name | Address2 | City   | State    | Postal_Code | CCN    | EIN    | NPI    | L_Name         | L_Address1       | L_Type          | L_Address2       | L_Region | L_Market | L_City            | L_State | L_Postal_Code |
-      | SNF          | SNF       | A Block  | TestSNF    | B Block  | A City | New York |       14001 | 123123 | 456456 | 123456 | SNFEditTestLoc | Edit Block A Loc | Skilled Nursing | Edit Block B Loc | Midwest  | Chicago  | City EditTest Loc | Alaska  |         15015 |
+      | SNF_Org_Name | SNF_Name1 | Address1       | Short_Name | Address2       | City       | State      | Postal_Code | CCN | EIN | NPI | L_Name      | L_Address1      | L_Type          | L_Address2      | L_Region | L_Market | L_City            | L_State | L_Postal_Code | StateVerification |
+      | SNF          | SNF       | EditedAddress1 | Short      | EditedAddress2 | EditedCity | California |       10001 | NPI | EIN | NPI | EditedLName | EditedLAddress1 | Skilled Nursing | EditedLAddress2 | Midwest  | Chicago  | City EditTest Loc | Alaska  |         10001 | CA                |
 
-      
- Scenario Outline: Create a SNF organization with valid data (Without Managing Organization)
-                    (Manadatory + Non-manadatory fields)
+  Scenario Outline: Create a SNF organization with valid data (Without Managing Organization)
+                     (Manadatory + Non-manadatory fields)
 
     When I click on "SNF" organization tab on organization dashboard
     Then I click on create new Organization button on Program Management homepage
     And I select "No Management Organization" radio button for managing organization
-   # Then I select <MO_Name> managing organization name in Has a Management Organization drop down
     And I enter <SNF_Org_Name> in "SNF Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page
@@ -142,7 +133,7 @@ Feature: User completes entering SNF Organization details during creation proces
     And I click <SNF_Org_Name> field in search list on organization page
     And I verify <Address1> in "address1" on view profile of "SNF" Organization
     And I verify <City> in "city" on view profile of "SNF" Organization
-    And I verify <State_verification> in "state" on view profile of "SNF" Organization
+    And I verify <StateVerification> in "state" on view profile of "SNF" Organization
     And I verify <Postal_Code> in "zip" on view profile of "SNF" Organization
     And I verify CCN <CCN> on view profile of "SNF" organization
     And I verify EIN/TIN id <EIN/TIN> on view profile of "SNF" organization
@@ -151,11 +142,10 @@ Feature: User completes entering SNF Organization details during creation proces
     And I verify Market name <Market> on view profile of "SNF" organization
 
     Examples: 
-      | SNF_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Region | Market     | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | State_verification |
-      | SNF          | Address  | Short      | Addresss | Cy   | New York |       40045 | West   | Oil States | LocNameL | LBlockA   | TCU      | bacd      | West    | Citya | Oil States | New York |        40006 | NY                 |
- 
- 
- @Smoke
+      | SNF_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Region | Market     | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | StateVerification |
+      | SNF          | Address1 | Short      | Address2 | City | New York |       10000 | West   | Oil States | LocName  | LAddress1 | TCU      | LAddress2 | West    | Citya | Oil States | New York |        10000 | NY                 |
+
+  @Smoke
   Scenario Outline: Edit and save changes for all fields of SNF Organization without MO
     When I click on "SNF" organization tab on organization dashboard
     Then I search with <SNF_Org_Name> on organization in search box
@@ -191,11 +181,7 @@ Feature: User completes entering SNF Organization details during creation proces
     And I verify NIP number <NPI> on view profile of "SNF" organization
     And I verify Region name <Region> on view profile of "SNF" organization
     And I verify Market name <Market> on view profile of "SNF" organization
-    
-    
 
     Examples: 
-      | SNF_Org_Name | SNF_Name1 | Address1 | Short_Name | Address2 | City   | State    | Postal_Code | CCN    | EIN    | NPI    | L_Name         | L_Address1       | L_Type          | L_Address2       | L_Region | L_Market | L_City            | L_State | L_Postal_Code |
-      | SNF          | SNF       | A Block  | TestSNF    | B Block  | A City | New York |       14001 | 123123 | 456456 | 123456 | SNFEditTestLoc | Edit Block A Loc | Skilled Nursing | Edit Block B Loc | Midwest  | Chicago  | City EditTest Loc | Alaska  |         15015 |
- 
- 
+      | SNF_Org_Name | SNF_Name1 | Address1       | Short_Name | Address2 | City       | State      | Postal_Code | CCN | EIN | NPI | L_Name      | L_Address1      | L_Type          | L_Address2      | L_Region | L_Market | L_City      | L_State | L_Postal_Code | StateVerification |
+      | SNF          | SNF       | EditedAddress1 | Short      | Address2 | EditedCity | California |       10001 | CCN | EIN | NPI | EditedLName | EditedLAddress1 | Skilled Nursing | EditedLAddress2 | Midwest  | Chicago  | EditedLCity | Alaska  |         10001 | CA                |

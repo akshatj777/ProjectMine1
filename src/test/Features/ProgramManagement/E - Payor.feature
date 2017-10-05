@@ -1,5 +1,4 @@
-Feature: User completes entering Payor Organization details during creation process,
-     	 submit the information for validation and creation
+Feature: Payor organization functionality tests
 
   Background: 
     Given I am on the login page
@@ -40,15 +39,13 @@ Feature: User completes entering Payor Organization details during creation proc
     And I verify <Contact_Email> in "contact-email" on view profile of "Payor" Organization
 
     Examples: 
-      | Payor_Org_Name | Contact_Person    | Contact_Email                | Contact_Phone | Address1 | Address2  | City      | State    | Postal_Code | State_verification |
-      | PAYOR          | TestContactPerson | contactemailtest@example.com |    9742569870 | Block C  | Street XV | New jersy | New York |       10045 | NY                 |
+      | Payor_Org_Name | Contact_Person | Contact_Email      | Contact_Phone | Address1 | Address2 | City      | State    | Postal_Code | State_verification |
+      | PAYOR          | ContactPerson  | Sample@yopmail.com |    9999955555 | Address1 | Address2 | New jersy | New York |       10000 | NY                 |
 
   @Smoke
   Scenario Outline: Edit and save changes for all fields of Payor Organization
     When I click on "Payor" organization tab on organization dashboard
     Then I search with <Payor_Org_Name> on organization in search box
-    #And I see "1 Organization" search count on organization
-    # And I verify <Payor_Name> field in search list on organization page
     And I click <Payor_Org_Name> field in search list on organization page
     And I click on "Edit" button on particular organization
     And I edit "Payor Organization Name" field to <Payor_Name1> for organization
@@ -74,5 +71,5 @@ Feature: User completes entering Payor Organization details during creation proc
     And I verify <Contact_Email> in "contact-email" on view profile of "Payor" Organization
 
     Examples: 
-      | Payor_Org_Name | Payor_Name1 | Address1   | Contact_Person | Address2    | Contact_Email         | City       | Contact_Phone | State  | Postal_Code | EIN        | State_verification |
-      | PAYOR          | PAYOR       | OneAddress | OneCPerson     | OneAddressA | Onecemail@yopmail.com | New Castle |    1237894560 | Nevada |       40045 | 7894561230 | NV                 |
+      | Payor_Org_Name | Payor_Name1 | Address1       | Contact_Person      | Address2       | Contact_Email       | City       | Contact_Phone | State  | Postal_Code | EIN | StateVerification |
+      | PAYOR          | PAYOR       | EditedAddress1 | EditedContactPerson | EditedAddress2 | Sample1@yopmail.com | EditedCity |    5555599999 | Nevada |       10001 | EIN | NV                |

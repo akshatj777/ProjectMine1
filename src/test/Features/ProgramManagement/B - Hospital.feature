@@ -1,5 +1,4 @@
-Feature: User completes entering Hospital Organization details during creation process,
-       	 submit the information for validation and creation
+Feature: Hospital organization functionality tests
 
   Background: 
     Given I am on the login page
@@ -49,7 +48,6 @@ Feature: User completes entering Hospital Organization details during creation p
     And I verify NIP number <NPI> on view profile of "Hospital" organization
     And I verify Region name <LRegion> on view profile of "Hospital" organization
     And I verify Market name <LMarket> on view profile of "Hospital" organization
-    
     And I verify header name "ID" under "Location" for "Hospital" organization
     And I verify header name "Location Name" under "Location" for "Hospital" organization
     And I verify header name "Address" under "Location" for "Hospital" organization
@@ -58,8 +56,8 @@ Feature: User completes entering Hospital Organization details during creation p
     And I verify header name "Market" under "Location" for "Hospital" organization
 
     Examples: 
-      | MO_Name               | Hosp_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification |
-      | 26 Automate Manag Org | ACH           | Address  | Short      | Addresss | Cy   | New York |       40045 | LocName  | LBlockA   | Swing bed | bBlockLoc | West    | CityL | Oil States | New York |        40006 | 123 | 123 | 123 | NY                |
+      | MO_Name | Hosp_Org_Name | Address1 | Short_Name | Address2  | City | State      | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification |
+      | MONAME  | ACH           | Address1 | Short      | Addresss2 | City | California |       10000 | LocName  | LAddress1 | Swing bed | LAddress2 | West    | LCity | Oil States | New York |        10000 | CCN | EIN | NPI | CA                |
 
   Scenario Outline: Edit Hospital organization without MO
     When I click on "Hospital" organization tab on organization dashboard
@@ -94,10 +92,9 @@ Feature: User completes entering Hospital Organization details during creation p
     And I verify Region name <L_Region> on view profile of "Hospital" organization
     And I verify Market name <L_Market> on view profile of "Hospital" organization
 
-
     Examples: 
-      | Hosp_Name         | Hosp_Name1 | Address1  | Short_Name   | Address2  | City   | State   | Postal_Code | CCN      | EIN      | NPI      | L_Name              | L_Address1       | L_Type   | L_Address2       | L_Region | L_Market      | L_City       | L_State | L_Postal_Code | StateVerification |
-      | Hosp Org Ach Name | ACH        | Street AB | Hos Ach Name | Street BA | City Y | Arizona |       10041 | 14001400 | 15001500 | 12001200 | Test Edit Loca Name | Block A Loca Add | Children | Block BA Loc Add | West     | Desert Island | City New Loc | Kansas  |         79845 | AZ                |
+      | Hosp_Name | Hosp_Name1 | Address1       | Short_Name | Address2       | City       | State   | Postal_Code | CCN | EIN | NPI | L_Name      | L_Address1      | L_Type   | L_Address2      | L_Region | L_Market      | L_City      | L_State | L_Postal_Code | StateVerification |
+      | ACH       | ACH        | EditedAddress1 | ShortName  | EditedAddress2 | EditedCity | Arizona |       10001 | CCN | EIN | NPI | EditedLName | EditedLAddress1 | Children | EditedLAddress2 | West     | Desert Island | EditedLCity | Kansas  |         10001 | AZ                |
 
   Scenario Outline: Create a Hospital organization with valid data with MO
                    (Manadatory + Non-manadatory fields)
@@ -140,10 +137,9 @@ Feature: User completes entering Hospital Organization details during creation p
     And I verify Region name <LRegion> on view profile of "Hospital" organization
     And I verify Market name <LMarket> on view profile of "Hospital" organization
 
-
     Examples: 
-      | MO_Name                | Hosp_Org_Name | Address1 | Short_Name | Address2 | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification |
-      | 26 Automate Manag Orgg | ACH           | Address  | Short      | Addresss | Cy   | New York |       40045 | LocName  | LBlockA   | Swing bed | bBlockLoc | West    | CityL | Oil States | New York |        40006 | 123 | 123 | 123 | NY                |
+      | MO_Name | Hosp_Org_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification |
+      | MONAME  | ACH           | Address1 | Short      | Address2 | City | California |       10000 | LocName  | LAddress1 | Swing bed | LAddress2 | West    | LCity | Oil States | New York |        10000 | CCN | EIN | NPI | CA                |
 
   Scenario Outline: Edit and save changes for all fields of Hospital Organization
     When I click on "Hospital" organization tab on organization dashboard
@@ -178,7 +174,6 @@ Feature: User completes entering Hospital Organization details during creation p
     And I verify Region name <L_Region> on view profile of "Hospital" organization
     And I verify Market name <L_Market> on view profile of "Hospital" organization
 
-
     Examples: 
-      | Hosp_Name | Address1  | Short_Name   | Address2  | City   | State   | Postal_Code | CCN | EIN      | NPI      | L_Name              | L_Address1       | L_Type   | L_Address2       | L_Region | L_Market      | L_City       | L_State | L_Postal_Code | StateVerification |
-      | ACH       | Street AB | Hos Ach Name | Street BA | City Y | Arizona |       10041 | 123 | 15001500 | 12001200 | Test Edit Loca Name | Block A Loca Add | Children | Block BA Loc Add | West     | Desert Island | City New Loc | Kansas  |         79845 | AZ                |
+      | Hosp_Name | Address1       | Short_Name | Address2       | City       | State   | Postal_Code | CCN | EIN | NPI | L_Name      | L_Address1      | L_Type   | L_Address2      | L_Region | L_Market      | L_City       | L_State | L_Postal_Code | StateVerification |
+      | ACH       | EditedAddress1 | Short      | EditedAddress2 | EditedCity | Arizona |       10001 | CCN | EIN | NPI | EditedLName | EditedLAddress1 | Children | EditedLAddress2 | West     | Desert Island | City New Loc | Kansas  |         10001 | AZ                |

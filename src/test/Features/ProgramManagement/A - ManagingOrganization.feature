@@ -1,5 +1,4 @@
-Feature: Create a Managing Organization, verify the details fields
-  and Verifying successfull creation message
+Feature: Managing organization functionality tests  
 
   Background: 
     Given I am on the login page
@@ -44,15 +43,44 @@ Feature: Create a Managing Organization, verify the details fields
     And I enter <Postal_Code> in "Postal Code" on create organization page
     Then I click on "Submit" button on create organization page
     Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
-    
     Then I search with <MO_Name> on organization in search box
     And I verify <MO_Name> field in search list on organization page
     And I click <MO_Name> field in search list on organization page
- 
+    And I verify <MO_Name> name on the header of view profile
+    And I verify Participant Id <ParticipantId> on view profile of "Managing" Organization
+    And I verify <Address1> in "address1" on view profile of "Managing" Organization
+    And I verify <Address2> in "address2" on view profile of "Managing" Organization
+    And I verify <City> in "city" on view profile of "Managing" Organization
+    And I verify <StateInitials> in "state" on view profile of "Managing" Organization
+    And I verify <Postal_Code> in "zip" on view profile of "Managing" Organization
+    Then I verify <Contact_Person> in "contact-name" on view profile of "Managing" Organization
+    And I verify <Contact_Phone> in "contact-phone" on view profile of "Managing" Organization
+    And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
+    And I verify "ACH" organization present under "Managing" Organization
+    And I verify "PGP" organization present under "Managing" Organization
+    And I verify "SNF" organization present under "Managing" Organization
+    Then I verify "ACH" organization by default selected under Managing Organization
+    And I verify "CCN" header label under "ACH" organization in Managing Organization
+    And I verify "ACH Organization Name" header label under "ACH" organization in Managing Organization
+    And I verify "City" header label under "ACH" organization in Managing Organization
+    And I verify "State" header label under "ACH" organization in Managing Organization
+    And I verify "Postal Code" header label under "ACH" organization in Managing Organization
+    And I click on "PGP" organization under Managing Organization
+    And I verify "TIN/EIN" header label under "PGP" organization in Managing Organization
+    And I verify "PGP Organization Name" header label under "PGP" organization in Managing Organization
+    And I verify "City" header label under "PGP" organization in Managing Organization
+    And I verify "State" header label under "PGP" organization in Managing Organization
+    And I verify "Postal Code" header label under "PGP" organization in Managing Organization
+    And I click on "SNF" organization under Managing Organization
+    And I verify "CCN" header label under "SNF" organization in Managing Organization
+    And I verify "SNF Organization Name" header label under "SNF" organization in Managing Organization
+    And I verify "City" header label under "SNF" organization in Managing Organization
+    And I verify "State" header label under "SNF" organization in Managing Organization
+    And I verify "Postal Code" header label under "SNF" organization in Managing Organization
 
     Examples: 
-      | MO_Name | Contact_Person | Contact_Email   | Contact_Phone | Address1 | Address2 | City | State      | Postal_Code |
-      | MONAME  | ContactPerson  | reddy@gmail.com |    9563569366 | Address1 | Address2 | City | California |       10000 |
+      | MO_Name | Contact_Person | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State      | Postal_Code | StateInitials | ParticipantId |
+      | MONAME  | ContactPerson  | Sample@yopmail.com |    9999955555 | Address1 | Address2 | City | California |       10000 | CA            | Sample        |
 
   @Smoke
   Scenario Outline: Edit and save changes for all fields of Managing Organization
@@ -84,7 +112,6 @@ Feature: Create a Managing Organization, verify the details fields
     Then I verify <Contact_Person> in "contact-name" on view profile of "Managing" Organization
     And I verify <Contact_Phone> in "contact-phone" on view profile of "Managing" Organization
     And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
-  
     And I verify "ACH" organization present under "Managing" Organization
     And I verify "PGP" organization present under "Managing" Organization
     And I verify "SNF" organization present under "Managing" Organization
@@ -106,8 +133,7 @@ Feature: Create a Managing Organization, verify the details fields
     And I verify "City" header label under "SNF" organization in Managing Organization
     And I verify "State" header label under "SNF" organization in Managing Organization
     And I verify "Postal Code" header label under "SNF" organization in Managing Organization
-    
 
     Examples: 
-      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email             | Contact_Phone | Address1  | Address2  | City | State      | Postal_Code | StateInitials | ParticipantId |
-      | MONAME  | MONAME   | ContactPersonTest | contact_email@yopmail.com |    4567891230 | 7th Floor | Street XI | Test | California |       10000 | CA            |           123 |
+      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email       | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | StateInitials | ParticipantId |
+      | MONAME  | MONAME   | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | NY            | Sample        |
