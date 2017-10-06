@@ -312,8 +312,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 469       |       470 | 2016Q4                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 469       |       470 | 2016Q4                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 469       |       470 | 2016Q4                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 469       |       470 | 2016Q4                    |
 
 Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in SNF Performance report under post acute care
     Given I am on the login page
@@ -372,8 +372,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 469       |       470 | 2016Q3                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 469       |       470 | 2016Q3                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 469       |       470 | 2016Q3                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 469       |       470 | 2016Q3                    |
       
 Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in snf performance claims report under post acute care
     Given I am on the login page
@@ -401,6 +401,15 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -409,15 +418,6 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I click on "<DRG Code1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Admission Quarter" in the header text of filter page
-    When I click on select from list option on the filter page
-    And I should see "<anchor admission quarter1>" in the filter value list
-    And I click on "<anchor admission quarter1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -432,11 +432,11 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
 
     Examples: 
       | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q3                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q3                    |
-      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 216       | 217       | 2013Q3                    |
-      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 | 216       | 217       | 2016Q3                    |
-      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q3                    |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 252       | 253       | 2016Q3                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 252       | 253       | 2016Q3                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 252       | 253       | 2016Q3                    |
+      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 | 252       | 253       | 2016Q3                    |
+      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 | 252       | 253       | 2016Q3                    |
       
 Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in snf performance claims report under post acute care
     Given I am on the login page
@@ -497,7 +497,7 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
       | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
       | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
       | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
-      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 216       | 217       | 2013Q4                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
       | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
       | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
       
@@ -557,7 +557,7 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
       | shutestaug15252p@yopmail.com | 6005-169 | 242       |       246 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 242       |       246 | 2016Q4                    |
-      | shutestaug26212p@yopmail.com | 6005-063 | 065       |       308 | 2016Q4                    |
+      | shutestaug26212p@yopmail.com | 6005-063 | 064       |       065 | 2016Q4                    |
       | shutestjul26420p@yopmail.com | 6005-169 | 242       |       246 | 2016Q4                    |
       | shutestjul26415@yopmail.com  | 6005-169 | 242       |       246 | 2016Q4                    |
       
@@ -617,9 +617,9 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
       | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-      | shutestaug26212p@yopmail.com | 6005-063 | 065       |       066 | 2016Q3                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 177       |       178 | 2016Q3                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 177       |       178 | 2016Q3                    |
+      | shutestaug26212p@yopmail.com | 6005-063 | 064       |       065 | 2016Q3                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 177       |       178 | 2016Q3                    |
       
 Scenario Outline: User should see Fracture/Non-Fracture/Not-Applicable filters in filter value list in snf performance report under post acute care 
     Given I am on the login page
@@ -669,11 +669,6 @@ Scenario Outline: User should see Fracture/Non-Fracture/Not-Applicable filters i
       | reptestachmodel2opsfin@yopmail.com |       216 |       217 |
       | shutestaug15240p@yopmail.com       |       216 |       217 | 
       | shutestaug221145a@yopmail.com      |       216 |       217 |
-      | shutestaug15252p@yopmail.com       |       177 |       178 |
-      | shutestaug15220p@yopmail.com       |       177 |       178 |
-      | shutestaug26212p@yopmail.com       |       065 |       066 |
-      | shutestjul26420p@yopmail.com       |       177 |       178 |
-      | shutestjul26415@yopmail.com        |       177 |       178 |
       
 Scenario Outline: User should only see anchor admission values >= 2016Q4 when drg code selected are 469,470 and fracture and non-fracture both filters in snf performance report under post acute care
     Given I am on the login page

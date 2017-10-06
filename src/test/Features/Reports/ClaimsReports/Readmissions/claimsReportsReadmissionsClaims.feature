@@ -330,8 +330,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 469       |       470 | 2016Q4                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 469       |       470 | 2016Q4                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 469       |       470 | 2016Q4                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 469       |       470 | 2016Q4                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 469       |       470 | 2016Q4                    |
 
 Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in readmission claims report under post acute care
     Given I am on the login page
@@ -390,8 +390,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 469       |       470 | 2016Q3                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 469       |       470 | 2016Q3                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 469       |       470 | 2016Q3                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 469       |       470 | 2016Q3                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 469       |       470 | 2016Q3                    |
       
 Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in readmissions claims report under readmissions
     Given I am on the login page
@@ -576,8 +576,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 065       |       066 | 2016Q4                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 242       |       243 | 2016Q4                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 242       |       243 | 2016Q4                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 242       |       243 | 2016Q4                    |
       
 Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in readmission claims report under post acute care
     Given I am on the login page
@@ -636,8 +636,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 065       |       066 | 2016Q3                    |
-      | shutestjul26420p@yopmail.com | 6005-063 | 177       |       178 | 2016Q3                    |
-      | shutestjul26415@yopmail.com  | 6005-063 | 177       |       178 | 2016Q3                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 177       |       178 | 2016Q3                    |
       
 Scenario Outline: User should see Fracture/Non-Fracture/Not-Applicable filters in filter value list in readmission claims report under readmission 
     Given I am on the login page
@@ -687,11 +687,6 @@ Scenario Outline: User should see Fracture/Non-Fracture/Not-Applicable filters i
       | reptestachmodel2opsfin@yopmail.com |       216 |       217 |
       | shutestaug15240p@yopmail.com       |       216 |       217 | 
       | shutestaug221145a@yopmail.com      |       216 |       217 |
-      | shutestaug15252p@yopmail.com       |       177 |       178 |
-      | shutestaug15220p@yopmail.com       |       177 |       178 |
-      | shutestaug26212p@yopmail.com       |       065 |       066 |
-      | shutestjul26420p@yopmail.com       |       177 |       178 |
-      | shutestjul26415@yopmail.com        |       177 |       178 |
       
 Scenario Outline: User should only see anchor admission values >= 2016Q4 when drg code selected are 469,470 and fracture and non-fracture both filters in readmission claims report under readmission
     Given I am on the login page
