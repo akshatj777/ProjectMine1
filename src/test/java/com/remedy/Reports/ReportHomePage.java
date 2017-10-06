@@ -1181,4 +1181,21 @@ public class ReportHomePage extends BaseClass {
     		clickElement(driver.findElement(By.id("dlgBtnSave")));
     	}
     }
+    
+    public void iSeeAnchorPostAcuteAdmissionYearFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Year]']/span")),text);
+    }
+    
+    public void iSeeIsAnchorAdmissionFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[isAnchorAdmission].[isAnchorAdmission]']/span")),text);
+    }
+    
+    public void iVerifyReportTextNotPresent(String text){
+        delay();
+        verifyTextNotPresentForElementFromList("a.ng-binding.ng-scope", text);
+    }
+    
+    public void iClickOnNumberOfEpisodesColumnUnderNsocModel3Report(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,0)']")));
+    }
 }

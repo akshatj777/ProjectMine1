@@ -23,7 +23,7 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyReportsTextforTiles(text);
     }
     
-    @And("^I should not see Reports Tile text as ([^\"]*)$")
+    @And("^I should not see Reports Tile text as \"([^\"]*)\"$")
     public void iShouldNotSeeReportsTileTextAs(String element) throws Throwable {
         reportHomePage.iVerifyReportsTextNotPresent(element);
     }
@@ -1480,5 +1480,25 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I verify whether \"([^\"]*)\" checkbox under \"([^\"]*)\" is checked$")
     public void i_verify_whether_checkbox_under_is_checked(String text,String type) throws Throwable{
     	reportHomePage.iVerifyCheckboxIsCheckedForDrillThrough(text, type);
+    }
+    
+    @Then("^I verify anchor post acute admission year \"([^\"]*)\" is preselected under nsoc model3 report$")
+    public void i_verify_anchor_post_acute_admission_year_is_preselected_under_nsoc_model3_report(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorPostAcuteAdmissionYearFilterPreselected(text);
+    }
+    
+    @Then("^I verify isAnchorAdmission filter having \"([^\"]*)\" under preselected nsoc model3 filter$")
+    public void i_verify_isanchoradmission_filter_having_under_preselected_nsoc_model3_filter(String text) throws Throwable{
+    	reportHomePage.iSeeIsAnchorAdmissionFilterPreselected(text);
+    }
+    
+    @And("^I should not see Report with text as \"([^\"]*)\"$")
+    public void iShouldNotSeeReportWithTextAs(String element) throws Throwable {
+        reportHomePage.iVerifyReportsTextNotPresent(element);
+    }
+    
+    @Then("^I click on a number under episodes column of nsoc model3 report$")
+    public void i_click_on_a_number_under_episodes_column_of_nsoc_model3_report() throws Throwable{
+    	reportHomePage.iClickOnNumberOfEpisodesColumnUnderNsocModel3Report();
     }
 }
