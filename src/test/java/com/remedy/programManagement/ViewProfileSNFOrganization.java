@@ -20,6 +20,10 @@ public class ViewProfileSNFOrganization extends BaseClass {
 		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), tab);	
 	}
 	
+	public void iVerifyHeaderNameUnderHHAOrganization(String tab) {
+		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), tab);	
+	}
+	
 	public void iVerifyCCNOnViewProfileOfSelectedOrganization(String id) {
 		if(isElementPresentOnPage(By.cssSelector(".id-ccn"))) {	
 			String text = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 

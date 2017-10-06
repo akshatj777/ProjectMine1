@@ -33,7 +33,9 @@ public class CreateManagingOrganization extends BaseClass {
 	public static String SNFName;
 	public static String PAYORName;
 	public static String PGPName;
+	public static String HHAName;
 	public static String editedACHName;
+	public static String editedHHAName;
 	public static String editedSNFName;
 	public static String editedPAYORName;
 	public static String editedPGPName;
@@ -64,7 +66,7 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
 		delay();
-		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
 		delay();
@@ -109,6 +111,12 @@ public class CreateManagingOrganization extends BaseClass {
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PGPName);
 		}
 		
+		else if (text.contains("HHA"))
+		{
+			HHAName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+			System.out.println(HHAName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), HHAName);
+		}
 		else 
 		{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	

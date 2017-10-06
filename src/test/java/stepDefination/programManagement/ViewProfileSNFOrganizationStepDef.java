@@ -35,4 +35,9 @@ public class ViewProfileSNFOrganizationStepDef extends DriverScript {
 		viewSNFOrg.iVerifyMarketNameInVeiwProfileOfSelectedOrganization(name);
 	}
 	
+	@And("^I verify header name \"([^\"]*)\" for \"([^\"]*)\" organization$")
+	  public void i_Verify_Header_Name_UnderTab_For_HHA_Organization(String tab, String org) throws Throwable {
+		viewSNFOrg.iVerifyHeaderNameUnderHHAOrganization(tab);
+	}
+	
 }

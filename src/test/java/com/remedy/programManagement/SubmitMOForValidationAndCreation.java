@@ -59,6 +59,7 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 	}
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String text) {
+		delay();
 		iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), text);
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
