@@ -61,7 +61,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iClickOnReportTileOnTopOfReportPage(String report,String tile){
-		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]")));
+		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']]//ul/li/a[span[text()='"+report+"']]")));
 	}
 	
 	public void iMovetoElementToClickOnReportTileOnTopOfReportPage(String moveToElementLocator){
@@ -69,7 +69,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iSeeReportTileOnTopOfReportPage(String report,String tile){
-		isElementVisible(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]")));
+		isElementVisible(driver.findElement(By.xpath("//li[button[text()='"+tile+"']]//ul/li/a[span[text()='"+report+"']]")));
 	}
 	
 	public void iVerifyParticipantIDAppearingInSelectedFilter(String participantid){

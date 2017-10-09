@@ -21,7 +21,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Patient ID" under reports tile text
     And I wait to see "Patient ID" under reports tile text
@@ -277,7 +277,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
@@ -424,7 +424,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
@@ -581,7 +581,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Patient ID" under reports tile text
     And I should see Reports Tile text as <Menu 2>

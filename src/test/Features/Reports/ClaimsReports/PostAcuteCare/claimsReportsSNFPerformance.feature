@@ -251,7 +251,7 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
       | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
       | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
       | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
-      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 469       | 470       | 2013Q3                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
       | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
       | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
       
@@ -615,11 +615,11 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
 
     Examples: 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-      | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
+      | shutestaug15252p@yopmail.com | 6005-169 | 193       |       194 | 2016Q3                    |
+      | shutestaug15220p@yopmail.com | 6005-169 | 193       |       194 | 2016Q3                    |
       | shutestaug26212p@yopmail.com | 6005-063 | 064       |       065 | 2016Q3                    |
-      | shutestjul26420p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-      | shutestjul26415@yopmail.com  | 6005-169 | 177       |       178 | 2016Q3                    |
+      | shutestjul26420p@yopmail.com | 6005-169 | 193       |       194 | 2016Q3                    |
+      | shutestjul26415@yopmail.com  | 6005-169 | 193       |       194 | 2016Q3                    |
       
 Scenario Outline: User should see Fracture/Non-Fracture/Not-Applicable filters in filter value list in snf performance report under post acute care 
     Given I am on the login page

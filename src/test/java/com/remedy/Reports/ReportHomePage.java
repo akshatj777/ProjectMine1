@@ -172,6 +172,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportsTextForReportsTextName(String reportsTextName, String reportTile){
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	WebElement element = driver.findElement(By.xpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a"));
+    	js.executeScript("arguments[0].scrollIntoView(true);",element);
         selectElementByTextDescByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", reportTile);
         longDelay();
     }

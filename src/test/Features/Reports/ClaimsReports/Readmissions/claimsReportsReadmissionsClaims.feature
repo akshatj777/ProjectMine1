@@ -259,9 +259,9 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
-    And I should see "Fracture" in the filter value list
-    And I should see "Non-Fracture" in the filter value list
-    And I should not see "Not Applicable" in the filter value list
+    And I should not see "Fracture" in the filter value list
+    And I should not see "Non-Fracture" in the filter value list
+    And I should see "Not Applicable" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
 
@@ -442,9 +442,9 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
-    And I should see "Fracture" in the filter value list
-    And I should see "Non-Fracture" in the filter value list
-    And I should not see "Not Applicable" in the filter value list
+    And I should not see "Fracture" in the filter value list
+    And I should not see "Non-Fracture" in the filter value list
+    And I should see "Not Applicable" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
 
@@ -505,9 +505,9 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
-    And I should see "Fracture" in the filter value list
-    And I should see "Non-Fracture" in the filter value list
-    And I should not see "Not Applicable" in the filter value list
+    And I should not see "Fracture" in the filter value list
+    And I should not see "Non-Fracture" in the filter value list
+    And I should see "Not Applicable" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
 
