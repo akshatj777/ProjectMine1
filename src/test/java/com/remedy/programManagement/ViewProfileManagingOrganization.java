@@ -20,13 +20,17 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {
-		if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
-		   if(("Participant Id: "+id).contentEquals(text)) {
-		    }
-		   else {
-			   Assert.assertEquals("Participant Id: "+id+"|", text);
-		    }}
+		
+		verifyTextForElement(driver.findElement(By.cssSelector(".participant-id")), id);
+
+		
+	//	if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
+		//	String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
+		  // if(("Participant Id: "+id).contentEquals(text)) {
+		    //}
+		   //else {
+			 //  Assert.assertEquals("Participant Id: "+id+"|", text);
+		    //}}
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
@@ -34,7 +38,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		Assert.assertEquals(result.replace(",", "").trim(), text);
 	}
 	
-	public void iVerifyOrganizationPresentUnderManagingOrganization(String org) {
+	public void iVerifyOrganizationPresentUnderManagingOrganization(String org, String org1) {
 		verifyTextForElementfromList(".navLink.noselect", org);
 	}
 	

@@ -20,7 +20,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
 	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-		text = objBaseClass.Cache.getProperty("PARTICIPANT_ID");
+		//text = objBaseClass.Cache.getProperty("PARTICIPANT_ID");
 		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(text);
 	    }
 	
@@ -30,8 +30,8 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	    }
 	
 	@And("^I verify \"([^\"]*)\" organization present under \"([^\"]*)\" Organization$")
-	  public void i_Verify_Organziation_Present_Under_Managing_Organization(String org) throws Throwable {
-		viewProfileMO.iVerifyOrganizationPresentUnderManagingOrganization(org);
+	  public void i_Verify_Organziation_Present_Under_Managing_Organization(String org, String org1) throws Throwable {
+		viewProfileMO.iVerifyOrganizationPresentUnderManagingOrganization(org,org1);
 	    }
 	
 	@Then("^I verify \"([^\"]*)\" organization by default selected under Managing Organization$")

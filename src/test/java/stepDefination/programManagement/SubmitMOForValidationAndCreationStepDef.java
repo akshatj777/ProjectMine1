@@ -44,9 +44,7 @@ public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
 	 
 	 @And("^I select ([^\"]*) managing organization name in Has a Management Organization drop down$")
 	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String text) throws Throwable {
-		 String id = objBaseClass.readProperty("PARTICIPANT_ID");
 		 text = objBaseClass.readProperty("MO_NAME");
-		 
 		 submitmo.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(text);
 	 }
 
