@@ -153,3 +153,72 @@ Feature: Verification of Next site of care summmary model3 report
     Examples: 
       | email                      |
       | rmsnfrpfinmod3@yopmail.com |
+
+  Scenario Outline: Nsoc Model3 report unde nsoc should not appear for the user with model 3 and provider type pgp/ach and model 2 with provider type pgp/ach
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    And I should not see Report with text as "Next Site of Care Summary [Model 3]"
+
+    Examples: 
+      | email                         |
+      | shutestauf171115a@yopmail.com |
+      | shutestaug231132a@yopmail.com |
+      | shutestaug15252p@yopmail.com  |
+
+  Scenario Outline: Global filters should be available in nsoc model3 report and should be able to apply the global filters
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    Then I verify "Next Site of Care Summary [Model 3]" in the reports header page
+    When I see "0" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I see <payer1> appearing under payer filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I see <participant1> appearing under participant filter of global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I see <episode initiator1> appearing under episode initiator filter of global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    Then I see <anchor facility1> appearing under anchor facility filter of global filters
+    Then I click on <payer1> checkbox under payer for global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    Then I click on <participant1> checkbox under participant for global filters
+    And I verify <participant1> is appearing under applied participant on global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    And I click on Apply filters button for global filters
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in program overview report
+    When I switch to default window from iframe
+    When I see "4" filters applied under global filters applied count
+    When I switch to reports embedded iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
+    When I switch to default window from iframe
+
+    Examples: 
+      | email                      | payer1   | participant1                       | episode initiator1                        | anchor facility1           | participantid1 | bpid1    | ccn1   |
+      | RPFINHHAModel3@yopmail.com | Medicare | United Health Services of New York | UHS - Twin Tier Home Health Care - Vestal | Twin Tier Home Health, Inc | 807551         | 3090-209 | 337181 |
