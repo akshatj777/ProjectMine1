@@ -46,6 +46,10 @@ public class CreateManagingOrganization extends BaseClass {
 		super(driver);
 	}
 	
+	public void iVerifyButtonUnderOrganizationTab(String text) {
+		iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
+	}
+	
 	public void iClickOnCreateNewOrgButtonOnProgramManagementHomepage() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		clickElement(driver.findElement(By.cssSelector("button[name='createNewOrg']")));
@@ -74,9 +78,12 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
+		if(!text.equals(null)) {
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
 		Assert.assertTrue(bol);
 		System.out.println(text);
+		}
+
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
@@ -117,7 +124,10 @@ public class CreateManagingOrganization extends BaseClass {
 			System.out.println(HHAName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), HHAName);
 		}
-		else 
+		else if (text.equals(""))
+		{	
+		}
+	    else 	
 		{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
 		}

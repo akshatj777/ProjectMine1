@@ -8,6 +8,11 @@ import cucumber.api.java.en.And;
 public class CreateManagingOrganizationStepDef extends DriverScript{
 	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
 	
+	@And("^I verify \"([^\"]*)\" button under organization tab$")
+	  public void i_Verify_Button_Under_Organization_Tab(String button) throws Throwable {
+		 createMO.iVerifyButtonUnderOrganizationTab(button);
+	    }
+	
 	 @And("^I click on create new Organization button on Program Management homepage$")
 	  public void i_Click_On_Create_NewOrganizationButton_On_ProgramManagement_Homepage() throws Throwable {
 		 createMO.iClickOnCreateNewOrgButtonOnProgramManagementHomepage();
