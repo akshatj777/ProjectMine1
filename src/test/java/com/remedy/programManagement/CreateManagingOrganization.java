@@ -9,6 +9,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -78,11 +79,20 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
-		if(!text.equals(null)) {
+		if(!text.equals("")) {
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
 		Assert.assertTrue(bol);
 		System.out.println(text);
 		}
+	}
+		
+		
+	public void iVerifyCreateOrganizationwithDuplicatenameerrormsg(String text) {
+			if(!text.equals("")) {
+			boolean bol1 = isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger"));
+			Assert.assertTrue(bol1);
+			System.out.println(text);
+			}
 
 	}
 	
@@ -149,10 +159,11 @@ public class CreateManagingOrganization extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
 	}
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
+		if(!text.equals("")){
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-        
+		}
 		/*Select dropdownState = new Select(driver.findElement(By.name("address.stateSelection")));
         dropdownState.selectByVisibleText(text);*/
 	}
@@ -180,4 +191,7 @@ public class CreateManagingOrganization extends BaseClass {
 		
 	}
 
+	public void iSwitchFocusToButton(String text) {
+		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
+	}
 }

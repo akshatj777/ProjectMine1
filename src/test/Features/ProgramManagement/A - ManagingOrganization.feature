@@ -8,7 +8,6 @@ Feature: Managing organization functionality tests
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
 
-  
   Scenario: Verification Mandatory and Optional fields available on Create Managing Organization
   When I click on Organization link on Program Management page
   Then I verify "+" button under organization tab
@@ -51,39 +50,62 @@ Feature: Managing organization functionality tests
   | MONAME  | Address1 | City | California |             | Please enter a Zip Code           |
   
   Scenario Outline: Verification of Field Charcter Limits and Format
-    When I click on Organization link on Program Management page
-    Then I click on create new Organization button on Program Management homepage
-    And I verify "Create Management Organization" header text on create organization page
-    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
-    And I enter <Address1> in "Address 1" on create organization page
-    And I enter <Contact_Person> in "Contact Person" on create organization page
-    And I enter <Address2> in "Address 2" on create organization page
-    And I enter <Contact_Email> in "Contact Email" on create organization page
-    And I enter <City> in "City" on create organization page
-    And I enter <Contact_Phone> in "Contact Phone" on create organization page
-    And I select <State> in State on create organization page
-    And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I verify "<ValidationOrgName>" mandatory field validation message on create organization page
-    And I verify "<ValidationAddress>" mandatory field validation message on create organization page
-    And I verify "<ValidationContactPerson>" mandatory field validation message on create organization page
-    And I verify "<ValidationAddress2>" mandatory field validation message on create organization page
-    And I verify "<ValidationContactEmail>" mandatory field validation message on create organization page
-    And I verify "<ValidationCity>" mandatory field validation message on create organization page
-    And I verify "<ValidationContactPhone>" mandatory field validation message on create organization page
-    And I verify "<ValidationZipCode>" mandatory field validation message on create organization page
+  When I click on Organization link on Program Management page
+  Then I click on create new Organization button on Program Management homepage
+  And I verify "Create Management Organization" header text on create organization page
+  Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+  And I enter <Address1> in "Address 1" on create organization page
+  And I enter <Contact_Person> in "Contact Person" on create organization page
+  And I enter <Address2> in "Address 2" on create organization page
+  And I enter <Contact_Email> in "Contact Email" on create organization page
+  And I enter <City> in "City" on create organization page
+  And I enter <Contact_Phone> in "Contact Phone" on create organization page
+  And I select <State> in State on create organization page
+  And I enter <Postal_Code> in "Postal Code" on create organization page
+  And I switch the focus to "submit" button
+  And I verify "<ValidationOrgName>" mandatory field validation message on create organization page
+  And I verify "<ValidationAddress>" mandatory field validation message on create organization page
+  And I verify "<ValidationContactPerson>" mandatory field validation message on create organization page
+  And I verify "<ValidationAddress2>" mandatory field validation message on create organization page
+  And I verify "<ValidationContactEmail>" mandatory field validation message on create organization page
+  And I verify "<ValidationCity>" mandatory field validation message on create organization page
+  And I verify "<ValidationContactPhone>" mandatory field validation message on create organization page
+  And I verify "<ValidationZipCode>" mandatory field validation message on create organization page
+  
+  Examples:
+  | MO_Name                                                                      | Address1                                       | Contact_Person                                 | Address2                                       | Contact_Email                                  | City                                           | Contact_Phone | State      | Postal_Code | ValidationOrgName                                            | ValidationAddress                                             | ValidationContactPerson                                   | ValidationAddress2                                             | ValidationContactEmail                                   | ValidationCity                                  | ValidationContactPhone               | ValidationZipCode             |
+  | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst | abcdefghijklmnopqrstuvwxyzabcdefgh@yopmail.com | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |   98745612301 | California | 10000-00000 | The Organization Name may not be greater than 75 characters. | The first address line may not be greater than 45 characters. | The Contact Person may not be greater than 45 characters. | The second address line may not be greater than 45 characters. | The Contact Email may not be greater than 45 characters. | The City may not be greater than 45 characters. | The Contact Phone format is invalid. | Please enter a valid Zip Code |
+  | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                |                                                |                                                |                                                |                                                |               |            |             | The Organization Name may not be greater than 75 characters. |                                                               |                                                           |                                                                |                                                          |                                                 |                                      |                               |
+  |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |                                                |               |            |             |                                                              | The first address line may not be greater than 45 characters. |                                                           |                                                                |                                                          |                                                 |                                      |                               |
+  |                                                                              |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |               |            |             |                                                              |                                                               | The Contact Person may not be greater than 45 characters. |                                                                |                                                          |                                                 |                                      |                               |
+  |                                                                              |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |               |            |             |                                                              |                                                               |                                                           | The second address line may not be greater than 45 characters. |                                                          |                                                 |                                      |                               |
+  |                                                                              |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefgh@yopmail.com |                                                |               |            |             |                                                              |                                                               |                                                           |                                                                | The Contact Email may not be greater than 45 characters  |                                                 |                                      |                               |
+  |                                                                              |                                                |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |               |            |             |                                                              |                                                               |                                                           |                                                                |                                                          | The City may not be greater than 45 characters. |                                      |                               |
+  |                                                                              |                                                |                                                |                                                |                                                |                                                |   98745612301 |            |             |                                                              |                                                               |                                                           |                                                                |                                                          |                                                 | The Contact Phone format is invalid. |                               |
+  |                                                                              |                                                |                                                |                                                |                                                |                                                |               |            | 10000-00000 |                                                              |                                                               |                                                           |                                                                |                                                          |                                                 |                                      | Please enter a valid Zip Code |
+  | !@2356%124&68jkk*6()$@!                                                      | !@#$%^56%12**4&68jkk*6()$@!                    | %^&*876%6%&^5                                  | %^&*876%6%5                                    | #$76%^7$^&%@yopmail.com                        | @#34&^56                                       |   98745612301 | California | 10000-0000  |                                                              |                                                               |                                                           |                                                                |                                                          |                                                 |                                      |                               |
+  |                                                                              |                                                |                                                |                                                |                                                |                                                |               |            | abcdefgh    |                                                              |                                                               |                                                           |                                                                |                                                          |                                                 |                                      | Please enter a valid Zip Code |
+  
+  Scenario Outline: Create Managing Organization with Mandatory fields only
+  When I click on Organization link on Program Management page
+  Then I click on create new Organization button on Program Management homepage
+  And I verify "Create Management Organization" header text on create organization page
+  Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+  And I enter <Address1> in "Address 1" on create organization page
+  And I enter <City> in "City" on create organization page
+  And I select <State> in State on create organization page
+  And I enter <Postal_Code> in "Postal Code" on create organization page
+  Then I click on "Submit" button on create organization page
+  Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+  Then I verify <ValidateMsg> after submitting the create ogranization page
+  
+  Examples:
+  | MO_Name        | Contact_Person | Address1 | City | State      | Postal_Code | StateInitials | ParticipantId | ValidateMsg                                                                                      |
+  | MONAME         | ContactPerson  | Address1 | City | California |       10000 | CA            |           123 |                                                                                                  |
+  | newmo edited12 | ContactPerson  | Address1 | City | California |       10000 | CA            |           123 | There is a conflict error because an entity with similar identifying attributes already existed. |
+  Scenario Outline: Create a Hospital organization with valid data without MO
+     (Manadatory + Non-manadatory fields)
 
-    Examples: 
-      | MO_Name                                                                      | Address1                                       | Contact_Person                                 | Address2                                       | Contact_Email                                  | City                                           | Contact_Phone | State      | Postal_Code | ValidationOrgName                                            | ValidationAddress                                             | ValidationContactPerson                                   | ValidationAddress2                                             | ValidationContactEmail                                   | ValidationCity                                  | ValidationContactPhone               | ValidationZipCode             |
-      | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst | abcdefghijklmnopqrstuvwxyzabcdefgh@yopmail.com | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |   98745612301 | California | 10000-00000 | The Organization Name may not be greater than 75 characters. | The first address line may not be greater than 45 characters. | The Contact Person may not be greater than 45 characters. | The second address line may not be greater than 45 characters. | The Contact Email may not be greater than 45 characters. | The City may not be greater than 45 characters. | The Contact Phone format is invalid. | Please enter a valid Zip Code |
-      | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                |                                                |                                                |                                                |                                                |               |            |             | The Organization Name may not be greater than 75 characters. |                                                               |                                                           |                                                                |                                                          |                                                 |                                      |                               |
-      |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |                                                |               |            |             |                                                              | The first address line may not be greater than 45 characters. |                                                           |                                                                |                                                          |                                                 |                                      |                               |
-      |                                                                              |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |               | California |             |                                                              |                                                               | The Contact Person may not be greater than 45 characters. |                                                                |                                                          |                                                 |                                      |                               |
-      |                                                                              |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |               | California |             |                                                              |                                                               |                                                           | The second address line may not be greater than 45 characters. |                                                          |                                                 |                                      |                               |
-      |                                                                              |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefgh@yopmail.com |                                                |               | California |             |                                                              |                                                               |                                                           |                                                                | The Contact Email may not be greater than 45 characters  |                                                 |                                      |                               |
-      |                                                                              |                                                |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |               | California |             |                                                              |                                                               |                                                           |                                                                |                                                          | The City may not be greater than 45 characters. |                                      |                               |
-      |                                                                              |                                                |                                                |                                                |                                                |                                                |   98745612301 | California |             |                                                              |                                                               |                                                           |                                                                |                                                          |                                                 | The Contact Phone format is invalid. |                               |
-      |                                                                              |                                                |                                                |                                                |                                                |                                                |               | California | 10000-00000 |                                                              |                                                               |                                                           |                                                                |                                                          |                                                 |                                      | Please enter a valid Zip Code |
-  Scenario Outline: Create Managing Organization with all the available fields
     When I click on Organization link on Program Management page
     Then I click on create new Organization button on Program Management homepage
     And I verify "Create Management Organization" header text on create organization page
@@ -98,63 +120,6 @@ Feature: Managing organization functionality tests
     And I enter <Postal_Code> in "Postal Code" on create organization page
     Then I click on "Submit" button on create organization page
     Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
-    Then I search with <MO_Name> on organization in search box
-    And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
-    And I verify <MO_Name> name on the header of view profile
-    And I verify Participant Id <ParticipantId> on view profile of "Managing" Organization
-    And I verify <Address1> in "address1" on view profile of "Managing" Organization
-    And I verify <Address2> in "address2" on view profile of "Managing" Organization
-    And I verify <City> in "city" on view profile of "Managing" Organization
-    And I verify <StateInitials> in "state" on view profile of "Managing" Organization
-    And I verify <Postal_Code> in "zip" on view profile of "Managing" Organization
-    Then I verify <Contact_Person> in "contact-name" on view profile of "Managing" Organization
-    And I verify <Contact_Phone> in "contact-phone" on view profile of "Managing" Organization
-    And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
-    And I verify "ACH" organization present under "Managing" Organization
-    And I verify "PGP" organization present under "Managing" Organization
-    And I verify "SNF" organization present under "Managing" Organization
-    Then I verify "ACH" organization by default selected under Managing Organization
-    And I verify "CCN" header label under "ACH" organization in Managing Organization
-    And I verify "ACH Organization Name" header label under "ACH" organization in Managing Organization
-    And I verify "City" header label under "ACH" organization in Managing Organization
-    And I verify "State" header label under "ACH" organization in Managing Organization
-    And I verify "Postal Code" header label under "ACH" organization in Managing Organization
-    And I click on "PGP" organization under Managing Organization
-    And I verify "TIN/EIN" header label under "PGP" organization in Managing Organization
-    And I verify "PGP Organization Name" header label under "PGP" organization in Managing Organization
-    And I verify "City" header label under "PGP" organization in Managing Organization
-    And I verify "State" header label under "PGP" organization in Managing Organization
-    And I verify "Postal Code" header label under "PGP" organization in Managing Organization
-    And I click on "SNF" organization under Managing Organization
-    And I verify "CCN" header label under "SNF" organization in Managing Organization
-    And I verify "SNF Organization Name" header label under "SNF" organization in Managing Organization
-    And I verify "City" header label under "SNF" organization in Managing Organization
-    And I verify "State" header label under "SNF" organization in Managing Organization
-    And I verify "Postal Code" header label under "SNF" organization in Managing Organization
-
-    Examples: 
-      | MO_Name | Contact_Person | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State      | Postal_Code | StateInitials | ParticipantId |
-      | MONAME  | ContactPerson  | Sample@yopmail.com |    9999955555 | Address1 | Address2 | City | California |       10000 | CA            |           123 |
-
-  @Smoke
-  Scenario Outline: Edit and save changes for all fields of Managing Organization
-    When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
-    And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
-    And I fetch Participant Id assigned to the organization
-    And I click on "Edit" button on particular organization
-    And I edit "Managing Organization Name" field to <MO_Name1> for organization
-    And I edit "Address 1" field to <Address1> for organization
-    And I edit "Contact Person" field to <Contact_Person> for organization
-    And I edit "Address 2" field to <Address2> for organization
-    And I edit "Contact Email" field to <Contact_Email> for organization
-    And I edit "City" field to <City> for organization
-    And I edit "Contact Phone" field to <Contact_Phone> for organization
-    And I edit <State> field for organization
-    And I edit "Postal Code" field to <Postal_Code> for organization
-    Then I click on "Submit" button on create organization page
     When I search with <MO_Name> on organization in search box
     And I click <MO_Name> field in search list on organization page
     And I verify <MO_Name> name on the header of view profile
@@ -190,5 +155,84 @@ Feature: Managing organization functionality tests
     And I verify "Postal Code" header label under "SNF" organization in Managing Organization
 
     Examples: 
-      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email       | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | StateInitials | ParticipantId |
-      | MONAME  | MONAME   | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | NY            | Sample        |
+      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | StateInitials | ParticipantId |
+      | MONAME  | MONAME   | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | NY            | Sample        |
+
+  @Smoke
+  Scenario Outline: Edit and save changes for all fields of Managing Organization
+  When I click on Organization link on Program Management page
+  Then I search with <MO_Name> on organization in search box
+  And I verify <MO_Name> field in search list on organization page
+  And I click <MO_Name> field in search list on organization page
+  And I fetch Participant Id assigned to the organization
+  And I click on "Edit" button on particular organization
+  And I edit "Managing Organization Name" field to <MO_Name1> for organization
+  And I edit "Address 1" field to <Address1> for organization
+  And I edit "Contact Person" field to <Contact_Person> for organization
+  And I edit "Address 2" field to <Address2> for organization
+  And I edit "Contact Email" field to <Contact_Email> for organization
+  And I edit "City" field to <City> for organization
+  And I edit "Contact Phone" field to <Contact_Phone> for organization
+  And I edit <State> field for organization
+  And I edit "Postal Code" field to <Postal_Code> for organization
+  Then I click on "Submit" button on create organization page
+  When I search with <MO_Name> on organization in search box
+  And I click <MO_Name> field in search list on organization page
+  And I verify <MO_Name> name on the header of view profile
+  And I verify Participant Id <ParticipantId> on view profile of "Managing" Organization
+  And I verify <Address1> in "address1" on view profile of "Managing" Organization
+  And I verify <Address2> in "address2" on view profile of "Managing" Organization
+  And I verify <City> in "city" on view profile of "Managing" Organization
+  And I verify <StateInitials> in "state" on view profile of "Managing" Organization
+  And I verify <Postal_Code> in "zip" on view profile of "Managing" Organization
+  Then I verify <Contact_Person> in "contact-name" on view profile of "Managing" Organization
+  And I verify <Contact_Phone> in "contact-phone" on view profile of "Managing" Organization
+  And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
+  And I verify "ACH" organization present under "Managing" Organization
+  And I verify "PGP" organization present under "Managing" Organization
+  And I verify "SNF" organization present under "Managing" Organization
+  Then I verify "ACH" organization by default selected under Managing Organization
+  And I verify "CCN" header label under "ACH" organization in Managing Organization
+  And I verify "ACH Organization Name" header label under "ACH" organization in Managing Organization
+  And I verify "City" header label under "ACH" organization in Managing Organization
+  And I verify "State" header label under "ACH" organization in Managing Organization
+  And I verify "Postal Code" header label under "ACH" organization in Managing Organization
+  And I click on "PGP" organization under Managing Organization
+  And I verify "TIN/EIN" header label under "PGP" organization in Managing Organization
+  And I verify "PGP Organization Name" header label under "PGP" organization in Managing Organization
+  And I verify "City" header label under "PGP" organization in Managing Organization
+  And I verify "State" header label under "PGP" organization in Managing Organization
+  And I verify "Postal Code" header label under "PGP" organization in Managing Organization
+  And I click on "SNF" organization under Managing Organization
+  And I verify "CCN" header label under "SNF" organization in Managing Organization
+  And I verify "SNF Organization Name" header label under "SNF" organization in Managing Organization
+  And I verify "City" header label under "SNF" organization in Managing Organization
+  And I verify "State" header label under "SNF" organization in Managing Organization
+  And I verify "Postal Code" header label under "SNF" organization in Managing Organization
+  
+  Examples:
+  | MO_Name | MO_Name1 | Contact_Person    | Contact_Email       | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | StateInitials | ParticipantId |
+  | MONAME  | MONAME   | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | NY            | Sample        |
+  
+  Scenario Outline: Cancel the process of creating new Managing organization
+    When I click on Organization link on Program Management page
+    Then I click on create new Organization button on Program Management homepage
+    And I verify "Create Management Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Cancel" button on create organization page
+    And A confirmation pop-up should appear for cancellation
+    And I click on Yes button and Observe the page
+    And After click on the Yes button, Create a new Managing Organization process is terminated
+    And User navigated to home page of Manage organization
+
+    Examples: 
+      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | StateInitials | ParticipantId |
+      | MONAME  | MONAME   | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | NY            | Sample        |

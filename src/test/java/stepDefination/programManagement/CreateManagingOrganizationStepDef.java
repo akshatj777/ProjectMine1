@@ -42,6 +42,12 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
+	 
+	 @And("^I verify ([^\"]*) after submitting the create ogranization page$")
+	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text) throws Throwable {
+		 createMO.iVerifyCreateOrganizationwithDuplicatenameerrormsg(text);
+	    }
+	
 		
 	 @And("^I enter ([^\"]*) in \"([^\"]*)\" on create organization page$")
 	  public void i_Enter_Details_In_Fileds_On_Create_Organization_Page(String text,String field) throws Throwable {
@@ -82,4 +88,30 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Verify_ParticipantId_Assigned_To_Organization() throws Throwable {
 		 createMO.iFetchParticipantIdAssignedToOrganization();
 	 }
+	 
+	 @And("^I switch the focus to \"([^\"]*)\" button$")
+	  public void i_Switch_The_Focus_To_Button(String type) throws Throwable {
+		 createMO.iSwitchFocusToButton(type);
+	 }
+	 
+	 @And("^A confirmation pop-up should appear for cancellation$")
+	  public void a_confirmation_pop_up_should_appear_for_cancellation() throws Throwable {
+		 createMO.iFetchParticipantIdAssignedToOrganization();
+	 }
+	 
+	 @And("^I click on Yes button and Observe the page$")
+	  public void I_click_on_Yes_button_and_Observe_the_page() throws Throwable {
+		 createMO.iFetchParticipantIdAssignedToOrganization();
+	 }
+	 
+	 @And("^After click on the Yes button, Create a new Managing Organization process is terminated$")
+	  public void After_click_on_the_Yes_button_Create_a_new_Managing_Organization_process_is_terminated() throws Throwable {
+		 createMO.iFetchParticipantIdAssignedToOrganization();
+	 }
+	 
+	 @And("^User navigated to home page of Manage organization$")
+	  public void User_navigated_to_homepage_of_Manage_organization() throws Throwable {
+		 createMO.iFetchParticipantIdAssignedToOrganization();
+	 }
+	 
 }
