@@ -548,3 +548,25 @@ Feature: Global Filters Verification for Multiple Scenarios
       | shutestaug231132a@yopmail.com  | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      |               |
       | emblemachrpfin@yopmail.com     | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
       | multipayerachrpfin@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |
+
+  Scenario Outline: User should not be able to use global filters when in collapsed state
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    When I see "0" filters applied under global filters applied count
+    Then I should not see "Hide Summary" appearing in the global filters
+    
+    Examples: 
+      | email                        |
+      | shutestaug26212p@yopmail.com |

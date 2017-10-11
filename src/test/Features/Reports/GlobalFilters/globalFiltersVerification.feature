@@ -425,7 +425,6 @@ Feature: Global Filters Verification
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    When I switch to default window from iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters

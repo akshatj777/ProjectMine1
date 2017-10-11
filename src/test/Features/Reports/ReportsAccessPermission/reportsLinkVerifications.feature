@@ -601,7 +601,7 @@ Feature: User only see reports per report tiles based on their role (external an
     When I click on "Post Acute Care (Claims)" reports text for "Post Acute Care" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "SNF Performance" is appearing inside the iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see "Post Acute Care" in the Post Acute Care report page header
     And I navigate back

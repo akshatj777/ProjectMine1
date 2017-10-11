@@ -20,7 +20,7 @@ Feature: Selecting columns in drill through for claims reports
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    And I click on "Anchor Facility Type" checkbox under "" in the popup of select drill through columns
+    And I click on "Anchor Facility Type" checkbox under "Anchor Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode

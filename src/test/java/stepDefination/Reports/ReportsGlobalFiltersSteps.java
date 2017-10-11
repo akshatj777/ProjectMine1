@@ -225,4 +225,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_verify_apply_button_is_appearing_under_global_filters() throws Throwable{
 		globalfilters.iVerifyApplyFilterButtonUnderGlobalFilters();
 	}
+	
+	@Then("^I should not see \"([^\"]*)\" appearing in the global filters$")
+	public void i_should_not_see_appearing_in_the_global_filters(String text) throws Throwable{
+		globalfilters.iShouldNotSeeHideSummaryAppearingInGlobalFilters(text);
+	}
 }

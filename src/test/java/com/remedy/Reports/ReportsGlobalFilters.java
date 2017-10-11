@@ -177,4 +177,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iVerifyApplyFilterButtonUnderGlobalFilters(){
 		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-primary")));
 	}
+	
+	public void iShouldNotSeeHideSummaryAppearingInGlobalFilters(String text){
+		verifyTextNotPresentForElementFromList(".toggle-page-summary.ng-binding",text);
+	}
 }
