@@ -42,6 +42,16 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		verifyTextForElementfromList(".navLink.noselect", org);
 	}
 	
+	public void iVerifytheCountfortheassociatedOrganizations() {
+		WebElement industries = driver.findElement(By.cssSelector(".selection-bar.organization-type-selector>ul"));
+		List<WebElement> links = industries.findElements(By.tagName("div"));
+		for (int i = 1; i < links.size(); i++)
+		{
+		    System.out.println(links.get(i).getText());
+		}
+	}
+	
+	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
 		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
 		Assert.assertTrue(bol);

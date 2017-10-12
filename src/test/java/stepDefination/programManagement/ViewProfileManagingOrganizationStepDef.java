@@ -29,11 +29,15 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyDetailsInFieldOnViewProfileOfOrganization(text,sel);
 	    }
 	
+	@And("^I Verify the count for the associated Organizations$")
+	  public void I_Verify_the_count_for_the_associated_Organizations() throws Throwable {
+		viewProfileMO.iVerifytheCountfortheassociatedOrganizations();
+	    }
+	
 	@And("^I verify \"([^\"]*)\" organization present under \"([^\"]*)\" Organization$")
 	  public void i_Verify_Organziation_Present_Under_Managing_Organization(String org, String org1) throws Throwable {
 		viewProfileMO.iVerifyOrganizationPresentUnderManagingOrganization(org,org1);
 	    }
-	
 	@Then("^I verify \"([^\"]*)\" organization by default selected under Managing Organization$")
 	  public void i_Verify_Organization_By_Default_Selected_Under_ManagingOrganization(String org) throws Throwable {
 		viewProfileMO.iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(org);
@@ -41,6 +45,11 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization in Managing Organization$")
 	  public void i_Verify_Header_Label_Under_Organization_In_ManagingOrganization(String header,String org) throws Throwable {
+		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
+	}
+	
+	@And("^I verify the count associated with the ACH organization$")
+	  public void I_verify_the_count_associated_with_the_ACH_organization(String header,String org) throws Throwable {
 		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
 	}
 	

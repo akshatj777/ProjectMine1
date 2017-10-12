@@ -43,6 +43,11 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
 	 
+	 @And("^I verify \"([^\"]*)\" validation message should not appear on create organization page$")
+	  public void i_Verify_ValidationMessage_Should_NOT_Appear_On_Create_Organization_Page(String text) throws Throwable {
+		 createMO.iVerifyFieldValidationMessageShouldNotAppearOnCreateOrganizationPage(text);
+	    }
+	 
 	 @And("^I verify ([^\"]*) after submitting the create ogranization page$")
 	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyCreateOrganizationwithDuplicatenameerrormsg(text);

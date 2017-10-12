@@ -411,13 +411,14 @@ public class BaseClass {
 		return value;
 	}
 
-	public void isElementNotPresentOnPage(String ele) {
-
+	public boolean isElementNotPresentOnPage(String ele) {
+		boolean value = false;
 		try {
 			driver.findElement(By.cssSelector(ele));
 		} catch (Exception e) {
-			return;
+			value = true;
 		}
+		return value;
 	}
 
 	public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext) {
