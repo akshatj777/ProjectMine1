@@ -243,7 +243,6 @@ Feature: User only see reports per report tiles based on their role (external an
     And I navigate back
     Then I verify current page "Reports" title
     And I wait to see "Readmissions" under reports tile text
-    When I click on "Readmissions" reports text for "Readmissions" report tile
     When I click on the Reports Tile with text "<Menu 6>"
     When I click on "Readmissions (Claims)" reports text for "Readmissions" report tile
     And I wait for the reports embedded iframe to load

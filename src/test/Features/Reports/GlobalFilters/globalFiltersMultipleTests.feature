@@ -82,6 +82,7 @@ Feature: Global Filters Verification for Multiple Scenarios
     When I switch to default window from iframe
     Then I click on Show Summary button to unhide the available global filters
     When I click on Clear button to clear the selected filter
+    Then I wait for 3000 milli seconds
     Then I click on <payer1> checkbox under payer for global filters
     And I verify <payer1> is appearing under applied payer on global filters
     Then I click on <participant1> checkbox under participant for global filters
@@ -566,7 +567,7 @@ Feature: Global Filters Verification for Multiple Scenarios
     When I switch to default window from iframe
     When I see "0" filters applied under global filters applied count
     Then I should not see "Hide Summary" appearing in the global filters
-    
+
     Examples: 
       | email                        |
       | shutestaug26212p@yopmail.com |

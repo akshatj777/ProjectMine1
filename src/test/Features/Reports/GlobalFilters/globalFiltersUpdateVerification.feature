@@ -105,7 +105,6 @@ Feature: Global Filter Verification After Update
     When I switch to reports embedded iframe
     And I will wait to see "Financial Performance" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    When I switch to reports embedded iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
