@@ -87,5 +87,16 @@ public class ViewProfileManagingOrganization extends BaseClass{
         Assert.assertEquals("Managing Organization: "+name,text.replace("|","").trim());
 	        }
     }
+	
+	public void iClickontheCrossButton(String text) {
+		iWillWaitToSeeElement(driver.findElement(By.cssSelector(".back-button.col-md-offset-11")), text);
+		clickElement(driver.findElement(By.cssSelector(".back-button.col-md-offset-11")));
+	}
+	
+	public void userShouldGetRedirectedToTheManagingOrganizationTabPage(String text) {
+       
+		iWillWaitToSeeElement(driver.findElement(By.cssSelector(".row.col-md-10")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".row.col-md-10")),text);
+	}
 }
 

@@ -68,6 +68,7 @@ public class SearchOrganization extends BaseClass{
 	
 	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
 		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+		verifyTextForElement(driver.findElement(By.xpath("//div[text()='Automate Manag Orgg']")), text);
 	}
 
 }

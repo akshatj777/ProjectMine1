@@ -74,4 +74,14 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		name=objBaseClass.readProperty("MO_NAME");
 		viewProfileMO.iVerifyManagingOrganizationNameOnViewProfileOfOrganization(name);
 	}
+	
+	@And("^I click on the cross button$")
+	  public void i_click_on_the_cross_button(String text) throws Throwable {
+		viewProfileMO.iClickontheCrossButton(text);
+	}
+	
+	@And("^user should get redirected to the managing organization tab page$")
+	  public void user_should_get_redirected_to_the_managing_organization_tab_page(String text) throws Throwable {
+		viewProfileMO.userShouldGetRedirectedToTheManagingOrganizationTabPage(text);
+	}
 }
