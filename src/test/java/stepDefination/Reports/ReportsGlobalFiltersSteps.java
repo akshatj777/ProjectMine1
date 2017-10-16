@@ -230,4 +230,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_should_not_see_appearing_in_the_global_filters(String text) throws Throwable{
 		globalfilters.iShouldNotSeeHideSummaryAppearingInGlobalFilters(text);
 	}
+	
+	@Then("^User executes query$")
+	public void i_make_connection_with_database_for_reports(String query) throws Throwable{
+		globalfilters.executeQuery(query);
+	}
 }

@@ -1,12 +1,13 @@
 package com.remedy.Reports;
 
+import java.sql.*;
+import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import com.remedy.baseClass.BaseClass; 
+import com.remedy.baseClass.BaseClass;
 
 public class ReportsGlobalFilters extends BaseClass{
-
+	HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
 	public ReportsGlobalFilters(WebDriver driver) {
 		
 		super(driver);
@@ -181,4 +182,28 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iShouldNotSeeHideSummaryAppearingInGlobalFilters(String text){
 		verifyTextNotPresentForElementFromList(".toggle-page-summary.ng-binding",text);
 	}
+	
+	public void executeQuery(String query) throws ClassNotFoundException, SQLException  {
+		  System.out.println(query);
+		  Class.forName("com.mysql.jdbc.Driver");
+		  String connectionString = "jdbc:mysql://http://rds-qa.remedypartners.com/"; 
+		  Connection con=DriverManager.getConnection(connectionString,"ssingh","#rsry@319");  
+		  Statement stmt=con.createStatement();  
+		  ResultSet rs=stmt.executeQuery(query);
+		  ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+		  while(rs.next())
+		  {
+		   HashMap<String, String> column = new HashMap<String, String>();
+		      for(int i=1;i<=rsmd.getColumnCount();i++)
+		      {
+		      //columnData.add(rs.getString(i));
+		      //columnName.add(rsmd.getColumnName(i));
+		      column.put(rsmd.getColumnName(i),rs.getString(i));
+		      }
+		      String a = Integer.toString(rs.getRow());
+		      
+			row.put(a, column);
+		  }
+		   ((ResultSet) con).close();
+		 }
 }
