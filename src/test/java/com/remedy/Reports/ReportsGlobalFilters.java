@@ -2,8 +2,13 @@ package com.remedy.Reports;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Map;
+
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.remedy.baseClass.BaseClass;
 
 public class ReportsGlobalFilters extends BaseClass{
@@ -186,7 +191,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void executeQuery(String query) throws ClassNotFoundException, SQLException  {
 		  System.out.println(query);
 		  Class.forName("com.mysql.jdbc.Driver");
-		  String connectionString = "jdbc:mysql://http://rds-qa.remedypartners.com/"; 
+		  String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306"; 
 		  Connection con=DriverManager.getConnection(connectionString,"ssingh","#rsry@319");  
 		  Statement stmt=con.createStatement();  
 		  ResultSet rs=stmt.executeQuery(query);
@@ -204,6 +209,20 @@ public class ReportsGlobalFilters extends BaseClass{
 		      
 			row.put(a, column);
 		  }
-		   ((ResultSet) con).close();
+		  System.out.println(row.toString());
+		   con.close();
 		 }
+	
+	public void iVerifyCCNInDatabase(Map data){
+		Object[] keySet=data.keySet().toArray();
+		for(int i =0; i<data.size();i++)
+		{
+			String b = Integer.toString(i+1);
+			String dbValue=row.get(b).get("ccn");
+			String a = (String) keySet[i];
+			String ccnUIValue =data.get(a).toString();
+			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"')+1, ccnUIValue.lastIndexOf('"'));
+			Assert.assertEquals(dbValue, ccnUIValue);
+		}
+	}
 }

@@ -1,8 +1,11 @@
 package stepDefination.Reports;
 
+import java.util.Map;
+
 import com.remedy.Reports.ReportsGlobalFilters;
 import com.remedy.resources.DriverScript;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -234,5 +237,13 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	@Then("^User executes query$")
 	public void i_make_connection_with_database_for_reports(String query) throws Throwable{
 		globalfilters.executeQuery(query);
+	}
+	
+	@Then("^User verifies the data from database$")
+	public void user_verifies_the_ccn_from_database(DataTable dataTable) throws Throwable{
+		Map<String, String> data;
+		data=dataTable.asMap(String.class, String.class);
+		globalfilters.iVerifyCCNInDatabase(data);
+		
 	}
 }
