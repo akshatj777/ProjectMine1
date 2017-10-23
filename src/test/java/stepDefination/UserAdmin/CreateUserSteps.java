@@ -30,7 +30,7 @@ public class CreateUserSteps extends DriverScript{
         landingPage.iClickOnApplicateTile("//p[text()='"+tile+"']");
     }
 
-    @Then("^I click on Create User button$")
+    @Then("^I click on Add User button$")
     public void IClickCreateUserButton() throws Throwable {
         userAdminPage.clickCreateUserButton();
     }
@@ -334,5 +334,11 @@ public class CreateUserSteps extends DriverScript{
     @Then("^I verify the institute dashboard page after clicking on Institute tile under specific user login page$")
     public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage() throws Throwable{
     	createUser.iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage();
+    }
+    
+    @Then("^I verify the availability of fields \"([^\"]*)\"$")
+    public void verifyFields(String fieldName) throws Throwable {
+        createUser.verifyFieldNames(fieldName);
+        
     }
 }

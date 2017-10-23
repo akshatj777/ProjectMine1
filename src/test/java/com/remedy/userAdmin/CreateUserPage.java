@@ -208,8 +208,8 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iverifyCreateUserPageHeader(String header) {
-    	iWillWaitToSee(By.cssSelector(".user-form-general>h3"));
-        verifyTextForElement(driver.findElement(By.cssSelector(".ng-scope>h2")), header);
+    	//iWillWaitToSee(By.cssSelector(".user-form-general>h3"));
+        verifyTextForElement(driver.findElement(By.xpath("//h2/span")), header);
     }
 
     public void iVerifyTheDropdownListForUser() {
@@ -410,5 +410,9 @@ public class CreateUserPage extends BaseClass{
    
    public void iVerifyTheInstituteDashboardPageAfterClickingOnInstituteTileUnderSpecificUserLoginPage(){
 	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
+   }
+   public void verifyFieldNames(String fieldName)
+   {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("div[@class='component-field-label']/label[text()='"+fieldName+"']")));
    }
 }

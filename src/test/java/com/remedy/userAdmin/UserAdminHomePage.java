@@ -16,7 +16,7 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void clickCreateUserButton() {
 		delay();
-		clickElement(driver.findElement(By.cssSelector("button[href='#/user/create']")));
+		clickElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
 	}
 
 	public void clickImportUsers() {
