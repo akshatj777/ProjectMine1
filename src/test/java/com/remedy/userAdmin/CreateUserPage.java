@@ -413,6 +413,17 @@ public class CreateUserPage extends BaseClass{
    }
    public void verifyFieldNames(String fieldName)
    {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("div[@class='component-field-label']/label[text()='"+fieldName+"']")));
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[text()='"+fieldName+"']")));
    }
+   
+   public void verifyMandatoryFieldNames(String fieldName)
+   {
+	   iVerifyTextFromListOfElement(By.xpath("//label[@class='required']"), fieldName);
+   }
+   
+   public void verifyRoleNames(String fieldName)
+   {
+	   iVerifyTextFromListOfElement(By.xpath("//label[@class='required']"), fieldName);
+   }
+   
 }

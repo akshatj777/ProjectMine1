@@ -341,4 +341,15 @@ public class CreateUserSteps extends DriverScript{
         createUser.verifyFieldNames(fieldName);
         
     }
+    
+    @Then("^I verify the availability of mandatory fields \"([^\"]*)\"$")
+    public void verifyMandatoryFields(String fieldName) throws Throwable {
+    	createUser.verifyMandatoryFieldNames(fieldName);
+    }
+    
+    @Then("^I verify the availability of role \"([^\"]*)\"$")
+    public void verifyRoles(String roleName) throws Throwable {
+    	createUser.verifyRoleNames(roleName);
+    }
+
 }
