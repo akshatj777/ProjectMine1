@@ -213,12 +213,12 @@ public class ReportsGlobalFilters extends BaseClass{
 		   con.close();
 		 }
 	
-	public void iVerifyCCNInDatabase(Map data){
+	public void iVerifyCCNInDatabase(Map data,String columnname){
 		Object[] keySet=data.keySet().toArray();
 		for(int i =0; i<data.size();i++)
 		{
 			String b = Integer.toString(i+1);
-			String dbValue=row.get(b).get("ccn");
+			String dbValue=row.get(b).get(columnname);
 			String a = (String) keySet[i];
 			String ccnUIValue =data.get(a).toString();
 			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"')+1, ccnUIValue.lastIndexOf('"'));

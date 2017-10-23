@@ -239,11 +239,10 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 		globalfilters.executeQuery(query);
 	}
 	
-	@Then("^User verifies the data from database$")
-	public void user_verifies_the_ccn_from_database(DataTable dataTable) throws Throwable{
+	@Then("^User verifies the data from database for \"([^\"]*)\"$")
+	public void user_verifies_the_ccn_from_database(String columnname,DataTable dataTable) throws Throwable{
 		Map<String, String> data;
 		data=dataTable.asMap(String.class, String.class);
-		globalfilters.iVerifyCCNInDatabase(data);
-		
+		globalfilters.iVerifyCCNInDatabase(data,columnname);	
 	}
 }
