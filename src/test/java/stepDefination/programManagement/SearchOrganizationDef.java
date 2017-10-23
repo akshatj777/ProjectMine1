@@ -4,6 +4,7 @@ import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.SearchOrganization;
 import com.remedy.resources.DriverScript;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 
 public class SearchOrganizationDef extends DriverScript{
@@ -12,6 +13,11 @@ public class SearchOrganizationDef extends DriverScript{
 	@And("^I search with ([^\"]*) on organization in search box$")
 	  public void i_Search_Field_On_Organization_In_SearchBox(String text) throws Throwable {
 		 searchorganization.iSearchFieldOnOrganizationInSearchBox(text);
+	    }
+	
+	@And("^I search and verify with search list options on organization search box$")
+	  public void i_Search_With_Search_List_Field_On_Organization_In_SearchBox(DataTable table) throws Throwable {
+		 searchorganization.iSearchWithSearchListFieldOnOrganizationInSearchBox(table);
 	    }
 	
 	/*@And("^I search edited with ([^\"]*) on organization in search box$")

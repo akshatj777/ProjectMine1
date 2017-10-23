@@ -43,6 +43,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public static String CCN;
 	public static String EIN;
 	public static String NPI;
+	public static String participant_id;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}

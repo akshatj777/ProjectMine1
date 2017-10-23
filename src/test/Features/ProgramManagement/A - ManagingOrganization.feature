@@ -109,7 +109,7 @@ Feature: Managing organization functionality tests
   | MONAME         | ContactPerson  | Address1 | City | California |       10000 | CA            |           123 |                                                                                                  |
   | newmo edited12 | ContactPerson  | Address1 | City | California |       10000 | CA            |           123 | There is a conflict error because an entity with similar identifying attributes already existed. |
   
-  Scenario Outline: Create a Manging organization with valid data without MO
+  Scenario Outline: Create a Manging organization with valid data and also cover search functionality
   (Manadatory + Non-manadatory fields)
   
   When I click on Organization link on Program Management page
@@ -126,10 +126,18 @@ Feature: Managing organization functionality tests
   And I enter <Postal_Code> in "Postal Code" on create organization page
   Then I click on "Submit" button on create organization page
   Then I verify "Success! Management Organization Successfully Created." after submitting the create ogranization page
+  Then I search and verify with search list options on organization search box
+  |PostalCode|<Postal_Code>|
+  |State|<StateInitials>|
+  |City|<City>|
   When I search with <MO_Name> on organization in search box
   And I click <MO_Name> field in search list on organization page
-  And I verify <MO_Name> name on the header of view profile
+  And I fetch Participant Id assigned to the organization
   And I verify Participant Id <ParticipantId> on view profile of "Managing" Organization
+  And I click on the cross button
+  Then I search and verify with search list options on organization search box
+  |Participant_Id|ID|
+ 
   And I verify <Address1> in "address1" on view profile of "Managing" Organization
   And I verify <Address2> in "address2" on view profile of "Managing" Organization
   And I verify <City> in "city" on view profile of "Managing" Organization
@@ -340,6 +348,7 @@ Feature: Managing organization functionality tests
   | Automate Manag Orgg | Automate Manag Org    | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | CCN | EIN | NPI |          |           |          |           |         |       |         |        |              | NY            | Sample        |
   | Automate Manag Orgg | Automate PGP Org Name | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | CCN | EIN | NPI |          |           |          |           |         |       |         |        |              | NY            | Sample        |
   | Automate Manag Orgg | SNF                   | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | CCN | EIN | NPI |          |           |          |           |         |       |         |        |              | NY            | Sample        |
+ 
   Scenario Outline: Edit operations performed on MO
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box

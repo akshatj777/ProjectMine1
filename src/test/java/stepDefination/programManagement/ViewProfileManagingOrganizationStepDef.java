@@ -20,8 +20,8 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
 	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-		//text = objBaseClass.Cache.getProperty("PARTICIPANT_ID");
-		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(text);
+		CreateManagingOrganization.participant_id = objBaseClass.Cache.getProperty("PARTICIPANT_ID");
+		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(CreateManagingOrganization.participant_id);
 	    }
 	
 	@And("^I verify ([^\"]*) in \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
@@ -76,8 +76,8 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	}
 	
 	@And("^I click on the cross button$")
-	  public void i_click_on_the_cross_button(String text) throws Throwable {
-		viewProfileMO.iClickontheCrossButton(text);
+	  public void i_click_on_the_cross_button() throws Throwable {
+		viewProfileMO.iClickontheCrossButton();
 	}
 	
 	@And("^user should get redirected to the managing organization tab page$")
