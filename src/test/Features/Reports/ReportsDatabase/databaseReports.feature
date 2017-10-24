@@ -947,3 +947,5 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
     Examples: 
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
+      
+#Overall Program - Spending Claims database related test cases
