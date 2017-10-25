@@ -1,16 +1,103 @@
 Feature: UA2 Front End Automation
 
+  
   Background: Login with predefined user on Gmail account and delete the previous mail
-    Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    Then I click on Inbox in mail
-    Then I click on select all checkbox in mail
-    Then I click on delete icon in mail
-    Then I signout form mail account
-    
-   Scenario Outline: Create user
+  Given I am on mail login page
+  Then I enter username "test.automatemail" to login mail account
+  Then I enter password "Intel@01" to login mail account
+  Then I click on Mail icon in my account
+  Then I click on Inbox in mail
+  Then I click on select all checkbox in mail
+  Then I click on delete icon in mail
+  Then I signout form mail account
+  
+  Scenario Outline: Create USER (<Scenario Description>)
+    Given I am on the login page
+    When I enter email field <UserName> for login
+    And I enter password field <Password> for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "User Management"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I click on Select button
+    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+    Then I select "<LearningPathwaySearchParameter>" from the results
+    Then I click on Next button
+    Then I click on Select button
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I click on Select All Locations button
+    Then I click on Submit button
+
+    Examples: 
+      | Scenario Description             | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                                             | NPI        | LearningPathwaySearchParameter | Health System     |
+      | Create user without phone number | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File                                    |            | Care Coordinators External     | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0 , Reports, Lessons,Share File                                                     | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                                   | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy TCS                      | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy LPN                      | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy RN                       | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Field RN                 | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy PM                       | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Sales Team               | Internal support, Reports, Lessons,Share File, TCI                                                       | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Executive                | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Prospective Partner Executive   | Lessons                                                                                                  | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Other                    | Internal support, Episodes, Episodes 2.0, Lessons, TCI                                                   | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Program Administrator   | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                 | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Program Administrator    | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect, TCI            | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect, Administration | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Create user with valid NPI       | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                                             | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Prospective Partner Executive   | Lessons                                                                                                  | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Other                    | Internal support, Episodes, Episodes 2.0, Lessons, TCI                                                   | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Partner Program Administrator   | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                 | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Program Administrator    | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect, TCI            | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect, Administration | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com             | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                                             | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+  
+  Scenario Outline: Create USER (<Scenario Description>)
+  Given I am on the login page
+  When I log in as super user
+  Then I should see Tile text User Admin
+  And I click on the "User Admin" tile
+  Then I should see header text "User Management"
+  When I click on Add User button
+  Then I should see "Add New User" on the user creation page
+  And I fill in First Name with "<FirstName>"
+  Then I fill in Last Name with <LastName>
+  And I enter Email "<Email>" to Create user
+  Then I pick a Organizational <Role>
+  Then I click on Next button
+  Then I verify Learning Pathway search box is not available
+  Then I select "<Applications>" product
+  Then I click on Select button
+  Then I enter "<LearningPathwayName>" in Learning Pathway search box
+  Then I select "<LearningPathwayName>" from the results
+  Then I clear the Learning Pathway search box
+  Then I enter "<LearningPathwayID>" in Learning Pathway search box
+  Then I select "<LearningPathwayID>" from the results
+  Then I click on Next button
+  And I search for health system with <Health System>
+  And I select a <Health System>
+  Then I click on Select All Locations button
+  Then I click on Submit button
+  
+  Examples:
+  | Scenario Description                     | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | LearningPathwayName        | LearningPathwayID | Health System     |
+  | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
+ 
+  Scenario Outline: Create a user <Scenario Description>
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -18,95 +105,25 @@ Feature: UA2 Front End Automation
     Then I should see header text "User Management"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
-    
-    
-    
-    When I click the Organizational Role Field
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
     Then I pick a Organizational <Role>
-    And I fill in First Name with "Newuser"
-    Then I fill in Last Name with <lastName>
-    And I enter Email to Create user
-    Then I enter Phone field with <Phone>
-    And I enter NPI field with <NPI>
-    When I click the payer Field under data
-    Then I pick payer type from data section <payer>
-    And I click on Health System field
-    And I search for health system with <HealthSystem Search>
+    Then I click on Next button
+    Then I select "<Applications>" product
+    Then I click on Next button
+    And I search for health system with <Health System>
     And I select a <Health System>
-    When I enter <Provider> search text
-    Then I click the select all Facilites checkbox for the provider
-    Then I select all the application for the role
-    And I turn off the share file application
-    And I click on Create button
-    And I click on the top user account link
-    Then I select Log Out option from the dropdown
-    And I should see Log in widget
-    Then I open new tab and close the last tab
-    And I switch to new window
-    Given I am on mail login page
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    Then I click on Inbox in mail
-    Then I verify Account Verification in Inbox in my account
-    Then I click on Account Verification mail in Inbox
-    Then I verify "Confirm my account!" link in mail content
-    Then I click on "Confirm my account!" link in mail content
-    And I switch to new window
-    Then I enter email to generate password link
-    And I click on send mail button
-    Then I switch back to old window
-    Then I click on Inbox in mail
-    Then I verify the unread mail in inbox in my account
-    Then I verify Change Password mail in Inbox in my account
-    Then I click on Change Password mail in Inbox
-    Then I verify "Change my password" link in mail content
-    Then I click on "Change my password" link in mail content
-    And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
-    And I click on submit button to set new password
-    Then I enter newuser email for login to Remedy
-    Then I enter newuser password for login to Remedy
-    And I click Access button
-    Then I should see Tile text <Episode1>
-    And I should see Tile text <RemedyU>
-    And I should see Tile text <Reports>
-    And I should see Tile text <Administration>
-    And I should see Tile text <Episode2>
-    And I should see Tile text <Physican connect>
-    And I should see Tile text <Institute>
-    And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    And I click on Institute tile under specific user login page <Institute>
-    And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer>
-    And I click on RemedyU tile under specific user login page <RemedyU>
-    And I click on Physican connect tile under specific user login page <Physican connect>
-    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    Then I select Support option from the dropdown under specific user login page <Support>
-    Then I select Reset Password option from the dropdown
-    And I should see text popup for reset password "Password Reset"
-    And I click Okay button for reset password popup
-    And I click on the top user account link
-    Then I select Log Out option from the dropdown
-    And I should see Log in widget
+    Then I click on Select button
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations
+    Then I click on Submit button
 
     Examples: 
-      | Role                            | lastName                        | HealthSystem Search | Health System   | Provider | Phone        | payer         | NPI        | Episode1 | RemedyU | Reports | Episode2     | Institute | Physican connect             | Administration | userroletext   | Internal Support | Support |
-      | Remedy Technical Administrator  | Remedy Technical Administrator  | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_ADMIN     | Internal Support | Support |
-      | Executive                       | Executive                       | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       | Internal Support | Support |
-      | Manager                         | Manager                         | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PRM       |                  | Support |
-      | Case Manager                    | Case Manager                    | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       |                  | Support |
-      | Physicians                      | Physicians                      | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health | 1234567890 | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_CLINICIAN |                  | Support |
-      | Remedy TCS                      | Remedy TCS                      | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_TCS       | Internal Support | Support |
-      | Remedy LPN                      | Remedy LPN                      | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_LPN       | Internal Support | Support |
-      | Remedy RN                       | Remedy RN                       | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_RN        | Internal Support | Support |
-      | Remedy Field RN                 | Remedy Field RN                 | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_FRN       | Internal Support | Support |
-      | Remedy PM                       | Remedy PM                       | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PM        | Internal Support | Support |
-      | Remedy Sales Team               | Remedy Sales Team               | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            |          | RemedyU | Reports |              | Institute |                              |                |                | Internal Support |         |
-      | Remedy Executive                | Remedy Executive                | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute |                              |                | ROLE_PM        | Internal Support | Support |
-      | Prospective Partner Executive   | Prospective Partner Executive   | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            |          | RemedyU |         |              | Institute |                              |                |                |                  |         |
-      | Remedy Other                    | Remedy Other                    | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU |         | Episodes 2.0 | Institute |                              |                | ROLE_PRM       | Internal Support | Support |
-      | Partner Program Administrator   | Partner Program Administrator   | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support | Support |
-      | Remedy Program Administrator    | Remedy Program Administrator    | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey |                | ROLE_PRM       | Internal Support | Support |
-      | Partner Technical Administrator | Partner Technical Administrator | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports | Episodes 2.0 | Institute | Gainsharing Physician Survey | User Admin     | ROLE_PM        | Internal Support | Support |
-      | Transitional Case Manager       | Transitional Case Manager       | RP Payer Test A     | RP Payer Test A | *        | 302-459-1143 | Emblem Health |            | Episodes | RemedyU | Reports |              | Institute |                              |                | ROLE_TCS       |                  | Support |
+      | Scenario Description                                  | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
+      | Create user with only one program all locations       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
+      | Create user with only one program one location        | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
+      | Create user with only one program multiple locations  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
+      | Create user with multiple programs all locations      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
+      | Create user with multiple programs one location       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
+      | Create user with multiple programs multiple locations | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |

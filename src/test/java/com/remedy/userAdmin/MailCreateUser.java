@@ -78,8 +78,16 @@ public class MailCreateUser extends BaseClass{
 		iWillWaitToSee(By.id("headingText"));
 	}
 	
-	public void iEnterEmailToCreateUser() {
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+	public void iEnterEmailToCreateUser(String emailName) {
+		if(emailName.equalsIgnoreCase("test.automatemail"))
+			{
+				driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+			}
+		else
+			{
+			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(emailName);
+			}
+		
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {

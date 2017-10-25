@@ -431,4 +431,14 @@ public class BaseClass {
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
+	
+	public void isSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals("true", flag);
+	}
+	
+	public void isNotSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals("false", flag);
+	}
 }

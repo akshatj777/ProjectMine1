@@ -5,9 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import com.remedy.baseClass.BaseClass;
 
+import cucumber.api.java.en.Then;
 import edu.emory.mathcs.backport.java.util.Arrays;
 
 import org.junit.Assert;
@@ -259,10 +261,11 @@ public class CreateUserPage extends BaseClass{
         clickAllElementofAlistbyXpath("//div[@class='row']/div/ul/li/div/label");
     }
     
-    public void iSelectTileForTheRole(String tile){
-    	if(tile.isEmpty()!=true){
-    		clickElement(driver.findElement(By.xpath("//label[@for='"+tile+"']")));
-    	}
+    public void iSelectTileForTheRole(String appList){
+    	StringTokenizer st = new StringTokenizer(appList,",");
+        while (st.hasMoreTokens()) {  
+        	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
+        } 
     }
 
     public void iClickOnContinueToDashboardMessage() {
@@ -423,7 +426,108 @@ public class CreateUserPage extends BaseClass{
    
    public void verifyRoleNames(String fieldName)
    {
-	   iVerifyTextFromListOfElement(By.xpath("//label[@class='required']"), fieldName);
+	   iVerifyTextFromListOfElement(By.xpath("//div[@class='ui fluid selection dropdown']"), fieldName);
    }
    
+   public void clickOnFieldButton(String fieldName)
+   {
+	   if(fieldName.equalsIgnoreCase("Role"))
+	   {
+		   clickElement(driver.findElement(By.xpath("//div[text()='Select Role']")));
+	   }
+	   else
+	   {
+		   clickElement(driver.findElement(By.xpath("//input[@placeholder='"+fieldName+"']")));
+	   }
+   }
+   
+   public void switchFocus()
+   {
+	   driver.findElement(By.xpath("")).sendKeys(Keys.TAB);
+   }
+   
+   public void ValidateMessage(String fieldName, String validationMessage)
+   {
+	   if(fieldName.equalsIgnoreCase("Phone"))
+	   {
+		   Assert.assertEquals(validationMessage, driver.findElement(By.xpath("//label[@class='error']")).getText().trim());
+	   }
+	   else
+	   {
+		   Assert.assertEquals(validationMessage, driver.findElement(By.xpath("//label[@class='required error']")).getText().trim());
+	   }
+   }
+   
+   public void clickNextButton() throws Throwable {
+   	clickElement(driver.findElement(By.xpath("//button[.='Next >']")));
+   }
+
+   public void clickSelectAllLocationsButton() throws Throwable {
+	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']")));   
+   }
+
+   public void clickSubmitButton() throws Throwable {
+	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+   }
+   
+   public void verifyAppUnchecked(String fieldName) throws Throwable {
+	   isNotSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+   }
+   public void verifyAppChecked(String fieldName) throws Throwable {
+	   isSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+   }
+   
+   public void verifyApplicationList(String appList) throws Throwable {
+       StringTokenizer st = new StringTokenizer(appList,",");
+       while (st.hasMoreTokens()) {  
+           isElementPresentOnPage(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
+       } 
+   }
+   
+   
+   public void verifyLearningPathwayNotAvailable() throws Throwable {
+	   isElementNotPresentOnPage("input[placeholder='Search']");
+   }
+
+   
+   public void clickLessonsSelectButton() throws Throwable {
+       clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
+   }
+
+   
+   public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
+       iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), searchParam);
+   }
+
+   
+   public void selectLearningPath(String searchParam) throws Throwable {
+       clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
+   }
+   
+   public void clearLearningPathwaySearchBox() throws Throwable {
+	   driver.findElement(By.xpath("//input[@placeholder='Search']")).clear();
+   }
+   
+   public void verifyLoginButton() throws Throwable {
+   	isElementPresentOnPage(By.xpath("//*[contains(text(),'Log In')]"));
+   }
+   
+   public void selectPrograms(String programList) throws Throwable {
+	   StringTokenizer st = new StringTokenizer(programList,",");
+       while (st.hasMoreTokens()) {  
+           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
+       } 
+   }
+   
+   public void selectLocations(String locationList) throws Throwable {
+	   StringTokenizer st = new StringTokenizer(locationList,",");
+       while (st.hasMoreTokens()) {  
+           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
+       }
+   }
+   
+   public void verifyDefaultProgramOrganization(String programName) throws Throwable {
+       clickElement(driver.findElement(By.xpath("//span[text()='"+programName+"']")));
+	   isSelected(driver.findElement(By.xpath("//label[text()='"+programName+"']")));
+   }
 }

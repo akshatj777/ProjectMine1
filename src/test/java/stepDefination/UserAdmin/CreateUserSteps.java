@@ -1,5 +1,7 @@
 package stepDefination.UserAdmin;
 
+import org.openqa.selenium.By;
+
 import com.remedy.resources.Constants;
 import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.LandingPage;
@@ -235,9 +237,9 @@ public class CreateUserSteps extends DriverScript{
        createUser.iclickAllAppsfortheRole();
     }
     
-    @Then("^I select ([^\"]*) product tile for user creation$")
-    public void iSelectTileForTheRole(String tile) throws Throwable{
-    	createUser.iSelectTileForTheRole(tile);
+    @Then("^I select \"([^\"]*)\" product$")
+    public void iSelectTileForTheRole(String appList) throws Throwable{
+    	createUser.iSelectTileForTheRole(appList);
     }
     
     @And("^I turn off the share file application$")
@@ -351,5 +353,94 @@ public class CreateUserSteps extends DriverScript{
     public void verifyRoles(String roleName) throws Throwable {
     	createUser.verifyRoleNames(roleName);
     }
+    
+    @Then("^I click on \"([^\"]*)\"$")
+    public void clickOnField(String fieldName) throws Throwable {
+    	createUser.clickOnFieldButton(fieldName);
+    }
 
+    @Then("^I switch the focus to Next button$")
+    public void switchFocus() throws Throwable {
+    	createUser.switchFocus();
+    }
+
+    @Then("^I verify the \"([^\"]*)\" validation message \"([^\"]*)\"$")
+    public void verifyValidationMessage(String fieldName, String validationMessage) throws Throwable {
+    	createUser.ValidateMessage(fieldName,validationMessage);
+    }
+
+    @Then("^I click on Next button$")
+    public void clickNextButton() throws Throwable {
+    	createUser.clickNextButton();
+    }
+
+    @Then("^I click on Select All Locations button$")
+    public void clickSelectAllLocationsButton() throws Throwable {
+    	createUser.clickSelectAllLocationsButton();
+    }
+
+    @Then("^I click on Submit button$")
+    public void clickSubmitButton() throws Throwable {
+    	createUser.clickSubmitButton();
+    }
+    
+    @Then("^I verify application \"([^\"]*)\" is unchecked$")
+    public void verifyAppUnchecked(String appName) throws Throwable {
+    	createUser.verifyAppUnchecked(appName);
+    }
+    
+    @Then("^I verify application \"([^\"]*)\" is checked$")
+    public void verifyAppChecked(String appName) throws Throwable {
+    	createUser.verifyAppChecked(appName);
+    }
+    
+    @Then("^I verify the list of applications \"([^\"]*)\"$")
+    public void verifyApplicationList(String appList) throws Throwable {
+    	createUser.verifyApplicationList(appList);
+    }
+    
+    @Then("^I verify Learning Pathway search box is not available$")
+    public void verifyLearningPathwayNotAvailable() throws Throwable {
+    	createUser.verifyLearningPathwayNotAvailable();
+    }
+
+    @Then("^I click on Select button$")
+    public void clickLessonsSelectButton() throws Throwable {
+    	createUser.clickLessonsSelectButton();
+    }
+
+    @Then("^I enter \"([^\"]*)\" in Learning Pathway search box$")
+    public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
+    	createUser.enterTextLearningPathwaySearchBox(searchParam);
+    }
+
+    @Then("^I select \"([^\"]*)\" from the results$")
+    public void selectLearningPath(String searchParam) throws Throwable {
+    	createUser.selectLearningPath(searchParam);
+    }
+    
+    @Then("^I clear the Learning Pathway search box$")
+    public void clearLearningPathwaySearchBox() throws Throwable {
+    	createUser.clearLearningPathwaySearchBox();
+    }
+    
+    @Then("^I verify login button$")
+    public void verifyLoginButton() throws Throwable {
+    	createUser.verifyLoginButton();
+    }
+    
+    @Then("^I select \"([^\"]*)\" programs$")
+    public void selectPrograms(String programList) throws Throwable {
+    	createUser.selectPrograms(programList);
+    }
+    
+    @Then("^I select \"([^\"]*)\" locations$")
+    public void selectLocations(String locationList) throws Throwable {
+    	createUser.selectLocations(locationList);
+    }
+    
+    @Then("^I verify default program \"([^\"]*)\" associated with organization$")
+    public void verifyDefaultProgramOrganization(String programName) throws Throwable {
+    	createUser.verifyDefaultProgramOrganization(programName);
+    }
 }
