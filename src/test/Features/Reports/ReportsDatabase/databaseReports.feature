@@ -122,7 +122,7 @@ Feature: Verification of database test cases under reports
       | email                         | bundle1                      | bundle2    | bundle3                            | bundle4         | bundle5               | bundle6                      | bundle7                     | bundle8                       | bundle9                                   | bundle10                      | bundle11                         | bundle12                                 |
       | shutestaug231132a@yopmail.com | Coronary artery bypass graft | Amputation | Percutaneous coronary intervention | Atherosclerosis | Major bowel procedure | Gastrointestinal obstruction | Revision of the hip or knee | Lower Major joint replacement | Hip & femur procedures except major joint | Removal of orthopedic devices | Back & neck except spinal fusion | Fractures of the femur and hip or pelvis |
 
-  Scenario Outline: User should be able to verify episode initiator appearing in ui and database are same in episode drg issue report under patient id
+  Scenario Outline: User should be able to verify anchor facility appearing in ui and database are same in episode drg issue report under patient id
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -280,7 +280,7 @@ Feature: Verification of database test cases under reports
       | email                         | bundle1                      | bundle2    | bundle3                            | bundle4         | bundle5               | bundle6                      | bundle7                     | bundle8                       | bundle9                                   | bundle10                      | bundle11                         | bundle12                                 |
       | shutestaug231132a@yopmail.com | Coronary artery bypass graft | Amputation | Percutaneous coronary intervention | Atherosclerosis | Major bowel procedure | Gastrointestinal obstruction | Revision of the hip or knee | Lower Major joint replacement | Hip & femur procedures except major joint | Removal of orthopedic devices | Back & neck except spinal fusion | Fractures of the femur and hip or pelvis |
 
-  Scenario Outline: User should be able to verify episode initiator appearing in ui and database are same in inpatient episode clearing report under patient id
+  Scenario Outline: User should be able to verify anchor facility appearing in ui and database are same in inpatient episode clearing report under patient id
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -438,7 +438,7 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
       | email                         | bundle1                      | bundle2    | bundle3                            | bundle4         | bundle5               | bundle6                      | bundle7                     | bundle8                       | bundle9                                   | bundle10                      | bundle11                         | bundle12                                 |
       | shutestaug231132a@yopmail.com | Coronary artery bypass graft | Amputation | Percutaneous coronary intervention | Atherosclerosis | Major bowel procedure | Gastrointestinal obstruction | Revision of the hip or knee | Lower Major joint replacement | Hip & femur procedures except major joint | Removal of orthopedic devices | Back & neck except spinal fusion | Fractures of the femur and hip or pelvis |
 
-  Scenario Outline: User should be able to verify episode initiator appearing in ui and database are same in SNF Length of Stay Summary Report under post acute care
+  Scenario Outline: User should be able to verify anchor facility appearing in ui and database are same in SNF Length of Stay Summary Report under post acute care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -596,7 +596,7 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
       | email                         | bundle1                      | bundle2    | bundle3                            | bundle4         | bundle5               | bundle6                      | bundle7                     | bundle8                       | bundle9                                   | bundle10                      | bundle11                         | bundle12                                 |
       | shutestaug231132a@yopmail.com | Coronary artery bypass graft | Amputation | Percutaneous coronary intervention | Atherosclerosis | Major bowel procedure | Gastrointestinal obstruction | Revision of the hip or knee | Lower Major joint replacement | Hip & femur procedures except major joint | Removal of orthopedic devices | Back & neck except spinal fusion | Fractures of the femur and hip or pelvis |
 
-  Scenario Outline: User should be able to verify episode initiator appearing in ui and database are same in CARL report under next site of care
+  Scenario Outline: User should be able to verify anchor facility appearing in ui and database are same in CARL report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -754,7 +754,7 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
       | email                         | bundle1                      | bundle2    | bundle3                            | bundle4         | bundle5               | bundle6                      | bundle7                     | bundle8                       | bundle9                                   | bundle10                      | bundle11                         | bundle12                                 |
       | shutestaug231132a@yopmail.com | Coronary artery bypass graft | Amputation | Percutaneous coronary intervention | Atherosclerosis | Major bowel procedure | Gastrointestinal obstruction | Revision of the hip or knee | Lower Major joint replacement | Hip & femur procedures except major joint | Removal of orthopedic devices | Back & neck except spinal fusion | Fractures of the femur and hip or pelvis |
 
-  Scenario Outline: User should be able to verify episode initiator appearing in ui and database are same in next site of care summary report under next site of care
+  Scenario Outline: User should be able to verify anchor facility appearing in ui and database are same in next site of care summary report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -912,7 +912,7 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
       | email                         | bundle1                      | bundle2    | bundle3                            | bundle4         | bundle5               | bundle6                      | bundle7                     | bundle8                       | bundle9                                   | bundle10                      | bundle11                         | bundle12                                 |
       | shutestaug231132a@yopmail.com | Coronary artery bypass graft | Amputation | Percutaneous coronary intervention | Atherosclerosis | Major bowel procedure | Gastrointestinal obstruction | Revision of the hip or knee | Lower Major joint replacement | Hip & femur procedures except major joint | Removal of orthopedic devices | Back & neck except spinal fusion | Fractures of the femur and hip or pelvis |
 
-  Scenario Outline: User should be able to verify episode initiator appearing in ui and database are same in readmissions report under readmissions
+  Scenario Outline: User should be able to verify anchor facility appearing in ui and database are same in readmissions report under readmissions
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
