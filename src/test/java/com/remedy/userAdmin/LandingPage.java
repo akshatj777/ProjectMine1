@@ -62,10 +62,6 @@ public class LandingPage extends BaseClass{
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
     
-    //UA2
-public void iClickOnTheTopUserdropdown(){
-	clickElement(driver.findElement(By.className("dropdown icon")));
-}
 
 }
 

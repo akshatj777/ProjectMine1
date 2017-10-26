@@ -22,7 +22,7 @@ public class CreateUserSteps extends DriverScript{
 
     @When("^I log in as super user$")
     public void ILoginWith() throws Throwable {
-        loginPage.iLoginAsSupperUser(Config.getProperty("SuperUserEmail"), "Testing1");
+        loginPage.iLoginAsSupperUser(Config.getProperty("SuperUserEmail"), "abcABC1!");
     }
 
     @And("^I click on the \"([^\"]*)\" tile$")
