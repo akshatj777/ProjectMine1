@@ -1201,4 +1201,20 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnNumberOfEpisodesColumnUnderNsocModel3Report(){
     	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,0)']")));
     }
+    
+    public void iVerifyReportNameIsStillAppearingAfterWaitingForSomeTime(String text){
+    	isElementVisible(driver.findElement(By.xpath("//*[@id='RPT001ReportName'][text()='"+text+"']")));
+    }
+    
+    public void iVerifyColumnAfterClikingOnAddToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyPayerFilterTextInPreselectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']/span")),text);
+    }
+    
+    public void iShouldNotSeePayerPreselectedTextInFilterList(String text){
+    	verifyTextNotPresentForElementFromList("#RPT001filters>div>div>span", text);
+    }
 }

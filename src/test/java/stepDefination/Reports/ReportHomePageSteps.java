@@ -1501,4 +1501,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_a_number_under_episodes_column_of_nsoc_model3_report() throws Throwable{
     	reportHomePage.iClickOnNumberOfEpisodesColumnUnderNsocModel3Report();
     }
+    
+    @And("^I verify \"([^\"]*)\" is still appearing on the reports page$")
+    public void i_verify_is_still_appearing_on_the_reports_page(String text) throws Throwable{
+    	reportHomePage.iVerifyReportNameIsStillAppearingAfterWaitingForSomeTime(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" field is appearing in the report table after clicking on add to report$")
+    public void i_verify_field_is_appearing_in_the_report_table_after_clicking_on_add_to_report(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAfterClikingOnAddToReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in the preselected filter for payer$")
+    public void i_verify_is_appearing_in_the_preselected_filter_for_payer(String text) throws Throwable{
+    	reportHomePage.iVerifyPayerFilterTextInPreselectedFilters(text);
+    }
+    
+    @And("^I should not see \"([^\"]*)\" in the preselected filter for payer$")
+    public void i_should_not_see_in_the_preslected_filter_for_payer(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeePayerPreselectedTextInFilterList(text);
+    }
 }
