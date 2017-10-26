@@ -55,6 +55,24 @@ Feature: UA2 Front End Automation
   Then I verify the availability of role "Transitional Case Manager "
   Then I verify the availability of role "Downstream Provider"
   
+  Scenario: Verify availability of values in Role dropdown on General Information tab while adding a user
+  Given I am on the login page
+  When I enter email field autoptauser@mailinator.com for login
+  And I enter password field Testing1 for Login
+  Then I click Access button
+  Then I should see Tile text User Admin
+  And I click on the "User Admin" tile
+  Then I should see header text "User Management"
+  When I click on Add User button
+  Then I should see "Add New User" on the user creation page
+  Then I verify the availability of role "Executive"
+  Then I verify the availability of role "Manager"
+  Then I verify the availability of role "Case Manager"
+  Then I verify the availability of role "Physicians"
+  Then I verify the availability of role "Prospective Partner Executive"
+  Then I verify the availability of role "Partner Program Administrator"
+  Then I verify the availability of role "Transitional Case Manager"
+  
   Scenario Outline: Verify the validation messages on General Information tab of Add new user
   Given I am on the login page
   When I log in as super user
