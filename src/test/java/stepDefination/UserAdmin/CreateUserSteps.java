@@ -443,4 +443,30 @@ public class CreateUserSteps extends DriverScript{
     public void verifyDefaultProgramOrganization(String programName) throws Throwable {
     	createUser.verifyDefaultProgramOrganization(programName);
     }
+    
+    @Then("^I verify unavailability of organization drop down$")
+    public void verifyUnavailabilityOrganizationDropDown() throws Throwable {
+    	createUser.verifyUnavailabilityOrganizationDropDown();
+    }
+    
+    @Then("^I search for \"([^\"]*)\"$")
+    public void searchLocation(String location) throws Throwable {
+    	createUser.searchLocation(location);
+    }
+
+    @Then("^I select the \"([^\"]*)\"$")
+    public void selectLocation(String location) throws Throwable {
+    	createUser.selectLocation(location);
+    }
+    
+    @Then("^I click on General Information tab$")
+    public void clickGeneralInformationTab() throws Throwable {
+        
+    }
+
+    @Then("^I verify availability of organization drop down$")
+    public void verifyAvailabilityOrganizationDropDown() throws Throwable {
+        
+    }
+
 }

@@ -262,10 +262,18 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iSelectTileForTheRole(String appList){
-    	StringTokenizer st = new StringTokenizer(appList,",");
-        while (st.hasMoreTokens()) {  
-        	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
-        } 
+    	if(appList.contains(","))
+    	{
+    		StringTokenizer st = new StringTokenizer(appList,",");
+            while (st.hasMoreTokens()) {  
+            	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
+            }
+    	}
+    	else
+    	{
+    		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
+    	}
+    	 
     }
 
     public void iClickOnContinueToDashboardMessage() {
@@ -513,21 +521,56 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void selectPrograms(String programList) throws Throwable {
-	   StringTokenizer st = new StringTokenizer(programList,",");
-       while (st.hasMoreTokens()) {  
-           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
-       } 
+	   if(programList.contains(","))
+	   {
+		   StringTokenizer st = new StringTokenizer(programList,",");
+	       while (st.hasMoreTokens()) {  
+	           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
+	       }   
+	   }
+	   else
+	   {
+		   clickElement(driver.findElement(By.xpath("//label[text()='"+programList+"']")));
+	   }
+	    
    }
    
    public void selectLocations(String locationList) throws Throwable {
-	   StringTokenizer st = new StringTokenizer(locationList,",");
-       while (st.hasMoreTokens()) {  
-           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
-       }
+	   
+	   if(locationList.contains(","))
+	   {
+		   StringTokenizer st = new StringTokenizer(locationList,",");
+	       while (st.hasMoreTokens()) {  
+	           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
+	       } 
+	   }
+	   else
+	   {
+		   clickElement(driver.findElement(By.xpath("//label[text()='"+locationList+"']")));
+	   }
+	   
    }
    
    public void verifyDefaultProgramOrganization(String programName) throws Throwable {
        clickElement(driver.findElement(By.xpath("//span[text()='"+programName+"']")));
 	   isSelected(driver.findElement(By.xpath("//label[text()='"+programName+"']")));
+   }
+   
+   public void verifyUnavailabilityOrganizationDropDown() throws Throwable {
+       isElementNotPresentOnPage("");
+   }
+   
+   public void searchLocation(String location) throws Throwable {
+       iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), location);
+   }
+   public void selectLocation(String location) throws Throwable {
+	   clickElement(driver.findElement(By.xpath("//label[text()='"+location+"']")));
+   }
+   
+   public void clickGeneralInformationTab() throws Throwable {
+       clickElement(driver.findElement(By.xpath("//a[text()='1. General Information']")));
+   }
+   public void verifyAvailabilityOrganizationDropDown() throws Throwable {
+       isElementPresentOnPage(By.xpath(""));
    }
 }
