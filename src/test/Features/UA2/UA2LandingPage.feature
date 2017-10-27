@@ -24,9 +24,9 @@ Feature: Landing page verification
     And I should see Date Created column in the table
     And I wait for 1000 milli seconds
     And I should see Pagination at bottom of the landing page
-    And I click on the top user account link
+    And I click on the top user link
     And I wait for 1000 milli seconds
-    Then I select Log Out option from the dropdown
+    Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
     Examples: 
@@ -45,7 +45,7 @@ Feature: Landing page verification
   #Then I should see Tile text <Episodes2.0>
   #Then I should see Tile text <sharefile>
   #Then I should see Tile text <Institue>
-  #
+  
   #Examples:
   #| email                              | Gainsharing Physician Survey | Episode1 | RemedyU | Reports | Episodes2.0  | sharefile    | Institue  |
   #| shutestaug231132a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
@@ -54,6 +54,7 @@ Feature: Landing page verification
   #| shutestaug15240p@yopmail.com       | Gainsharing Physician Survey | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
   #| shutestaug221145a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
   #| repopsnofintest@yopmail.com        |                              | Episodes | RemedyU | Reports |              |              | Institute |
+  
   #Search cases
   Scenario: Search user by FirstName
     Given I am on the login page
@@ -97,20 +98,20 @@ Feature: Landing page verification
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
     And I enter password field abcABC1! for Login
     Then I click Access button
-    And I click on the top user account link
-    Then I select Log Out option from the dropdown
+    And I click on the top user link
+    Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
-  Scenario: Internal Support link test from top menu
+  #Scenario: Internal Support link test from top menu
     Given I am on the login page
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
     And I enter password field abcABC1! for Login
     Then I click Access button
-    And I click on the top user account link
-    Then I select Internal Support option from the dropdown
+     And I click on the top user link
+    Then I select "Internal Support" option from the dropdown list
     When I switch to new window
     And I verify current page "Login - Service Desk" title
-    #And I should see Jira Log in Page text "Service Desk (2.5.9)"
+    And I should see Jira Log in Page text "Service Desk (2.5.9)"
     Then I switch back to old window
 
   Scenario: Reset Password link test from top menu
@@ -118,8 +119,8 @@ Feature: Landing page verification
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
     And I enter password field abcABC1! for Login
     Then I click Access button
-    And I click on the top user account link
-    Then I select Reset Password option from the dropdown
+    And I click on the top user link
+    Then I select "Reset Password" option from the dropdown list
     And I should see text popup for reset password "Password Reset"
     And I click Okay button for reset password popup
 
@@ -128,16 +129,16 @@ Feature: Landing page verification
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
     And I enter password field abcABC1! for Login
     Then I click Access button
-    And I click on the top user account link
-    Then I select Support option from the dropdown
+    And I click on the top user link
+    Then I select "Support" option from the dropdown list
     When I switch to new window
     And I verify current page "Login - Service Desk" title
-    #And I should see Jira Log in Page text "Service Desk (2.5.9)"
+    And I should see Jira Log in Page text "Service Desk (2.5.9)"
     Then I switch back to old window
 
   #Lock unlock cases
   Scenario: Verification of Lock and Unlock Users on user admin landing page
-    Given I am on the login page
+   	Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
     Then I should see Tile text User Adming
@@ -146,7 +147,7 @@ Feature: Landing page verification
     And I wait for 5000 milli seconds
     Then I verify users with "Lock" button present on useradmin Landing page
     Then I verify users with "Unlock" button present on useradmin Landing page
-    # Locking and unlocking a user
+     #Locking and unlocking a user
     Then I click on "Lock" radio button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
     Then I click on "Unlock" radio button on the table in useradmin Landing page
@@ -178,17 +179,17 @@ Feature: Landing page verification
     Then I should be able to sort users based on Email funtionality
     Then I should be able to sort users based on Date created
 
-  Scenario: Users link test
-    Given I am on the login page
-    When I log in as super user
-    And I wait for 1000 milli seconds
-    Then I should see Tile text User Adming
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
-    And I wait for 5000 milli seconds
-    Then I click on any User from the table
-    And I wait for 1000 milli seconds
-    And I should be navigated to that user page
-    Then I click on "Users" link
-    And I wait for 5000 milli seconds
-    And I should be navigated back to the landing page
+  #Scenario: Users link test
+    #Given I am on the login page
+    #When I log in as super user
+    #And I wait for 1000 milli seconds
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    #Then I should see header text "User Management"
+    #And I wait for 5000 milli seconds
+    #Then I click on any User from the table
+    #And I wait for 1000 milli seconds
+    #And I should be navigated to that user page
+    #Then I click on "Users" link
+    #And I wait for 5000 milli seconds
+    #And I should be navigated back to the landing page

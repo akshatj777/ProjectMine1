@@ -1,7 +1,10 @@
 package com.remedy.userAdmin;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -13,12 +16,12 @@ public class UA2LandingPage extends BaseClass {
 	}
 
 	public void iVerifyUsersLink(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//a[contains(@href, 'https://user-admin')]")), text);
+		verifyTextForElement(driver.findElements(By.xpath("//a[contains(@href, 'https://user-admin')]")).get(0), text);
 	}
 
 	public void iSeeUsersTable() {
 		isElementVisible(
-				driver.findElement(By.xpath("//table[@class='ui celled sortable striped table users-table']")));
+				driver.findElements(By.xpath("//table[@class='ui celled sortable striped table users-table']")).get(0));
 	}
 
 	public void iSeeAccountStatusColumn() {
@@ -49,4 +52,28 @@ public class UA2LandingPage extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), text);
 		delay();
 	}
+
+	public void iVerifySearchResult(String text) {
+		driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]"));
+	}
+
+	public void iVerifyFirstNameFromSearchResult(String text) {
+		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0), text);
+	}
+
+	public void iVerifyRoleFromSearchResult(String text) {
+		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1), text);
+	}
+
+	public void iClickOnTopUserDropDown() {
+		delay();
+		clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
+	}
+
+	public void iSelectOptionFromDropdown(String text) {
+		selectElementByDesc(".item", text);
+	}
+	public void iVerifyLockedUser(){
+	}
+
 }

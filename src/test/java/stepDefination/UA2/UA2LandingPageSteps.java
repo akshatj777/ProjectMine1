@@ -56,29 +56,36 @@ public class UA2LandingPageSteps extends DriverScript {
 	}
 
 	@Then("^I should see \"([^\"]*)\" for search results in landing page$")
-	public void i_should_see_for_search_results_in_landing_page(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_for_search_results_in_landing_page(String text) throws Throwable {
+	ua2LandingPage.iVerifySearchResult(text);
 	}
 
 	@Then("^I should see \"([^\"]*)\" for First Name in landing page$")
-	public void i_should_see_for_First_Name_in_landing_page(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_for_First_Name_in_landing_page(String text) throws Throwable {
+		ua2LandingPage.iVerifyFirstNameFromSearchResult(text);
 	}
 
 	@Then("^I should see \"([^\"]*)\" for Last Name in landing page$")
-	public void i_should_see_for_Last_Name_in_landing_page(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_for_Last_Name_in_landing_page(String text) throws Throwable {
+		ua2LandingPage.iVerifyFirstNameFromSearchResult(text);
 	}
 
 	@Then("^I should see \"([^\"]*)\" for User Role in landing page$")
-	public void i_should_see_for_User_Role_in_landing_page(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_for_User_Role_in_landing_page(String text) throws Throwable {
+		ua2LandingPage.iVerifyRoleFromSearchResult(text);
+	}
+	
+	@Then("^I click on the top user link$")
+	public void i_click_on_the_top_user_link() throws Throwable {
+	   ua2LandingPage.iClickOnTopUserDropDown();
 	}
 
+	@Then("^I select \"([^\"]*)\" option from the dropdown list$")
+	public void i_select_option_from_the_dropdown_list(String text) throws Throwable {
+	  ua2LandingPage.iSelectOptionFromDropdown(text);
+	}
+	
+	
 	@Then("^I verify users with \"([^\"]*)\" button present on useradmin Landing page$")
 	public void i_verify_users_with_button_present_on_useradmin_Landing_page(String arg1) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
