@@ -29,6 +29,7 @@ public class CreateManagingOrganization extends BaseClass {
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
 	public static String orgName;
+	public static String editedOrgName;
 	public static String participant_id;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);

@@ -1,4 +1,4 @@
-Feature: Managing organization functionality tests
+Feature: Create Managing organization
 
   Background: 
     Given I am on the login page
