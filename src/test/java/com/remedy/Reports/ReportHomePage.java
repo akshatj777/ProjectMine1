@@ -1217,4 +1217,9 @@ public class ReportHomePage extends BaseClass {
     public void iShouldNotSeePayerPreselectedTextInFilterList(String text){
     	verifyTextNotPresentForElementFromList("#RPT001filters>div>div>span", text);
     }
+    
+    public void iRemovePayerFieldFilterFromDefaultFilters(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']//i[@title='Remove filter']")));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
 }

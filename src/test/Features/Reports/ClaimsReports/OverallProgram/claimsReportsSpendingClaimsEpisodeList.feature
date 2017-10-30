@@ -53,7 +53,10 @@ Feature: Verification of Spending Claims Report Filters
     When I switch to reports embedded iframe
     And I will wait to see "Spending" is appearing inside the iframe
     When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Current AtRisk" field filter under "Current AtRisk" filter field from default filters
+    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
+    Then I remove "Attributed Physician" field filter under "Physician" filter field from default filters
 
     Examples: 
       | email                          |

@@ -1521,4 +1521,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_not_see_in_the_preslected_filter_for_payer(String text) throws Throwable{
     	reportHomePage.iShouldNotSeePayerPreselectedTextInFilterList(text);
     }
+    
+    @Then("^I remove \"([^\"]*)\" field filter under filter field from default filters$")
+    public void i_remove_payer_field_filter_under_filter_field_from_default_filters(String text) throws Throwable{
+    	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
+    }
 }
