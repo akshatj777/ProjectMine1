@@ -58,6 +58,21 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Enter_Details_In_Fileds_On_Create_Organization_Page(String text,String field) throws Throwable {
 		 createMO.iEnterDetailsInFieldsOnCreateOrganizationPage(text,field);
 	    }
+	  
+	 @And("^I provide unique CCN in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_CNN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
+		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
+	    }
+	 
+	 @And("^I provide unique NPI in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
+		 createMO.iEnterNPIOnCreateOrganizationPage(field);
+	    }
+	 
+	 @And("^I provide unique EIN in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
+		 createMO.iEnterEINIdOnCreateOrganizationPage(field);
+	    }
 	 
 	 @And("^I select ([^\"]*) in State on create organization page$")
 	  public void i_Selecct_State_FromDropDown_On_Create_Organization_Page(String text) throws Throwable {
@@ -83,4 +98,50 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Switch_The_Focus_To_Button(String type) throws Throwable {
 		 createMO.iSwitchFocusToButton(type);
 	 } 
+	 
+	 @And("^I enter location name ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_LocationName_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterLocationNameForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter address1 ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Address1_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterAddress1ForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter location type ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_LocationType_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterLocationTypeForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter address2 ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Address2_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterAddress2ForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter region ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_region_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterRegionForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter city ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_City_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterCityForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter market ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Market_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterMarketForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter state ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_state_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterStateForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I enter zip ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_zip_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createMO.iEnterZipForLocationOnACHOrg(text,num);
+	    }
+
 }
