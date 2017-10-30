@@ -81,11 +81,11 @@ public class MailCreateUser extends BaseClass{
 	public void iEnterEmailToCreateUser(String emailName) {
 		if(emailName.equalsIgnoreCase("test.automatemail"))
 			{
-				driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+				driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
 			}
 		else
 			{
-			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(emailName);
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
 			}
 		
 	}
@@ -147,7 +147,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
-		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
+		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing@1234");
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException {

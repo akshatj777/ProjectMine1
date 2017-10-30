@@ -39,7 +39,7 @@ public class LandingPage extends BaseClass{
 
     public void iClickOnTheTopUserAccountIcon (){
     	delay();
-    	clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+    	clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){

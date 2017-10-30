@@ -34,7 +34,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickOrganizationalField() {
-        clickElement(driver.findElement(By.xpath("//div[@name='orgrole']/div[@placeholder='Select Role']/span")));
+        clickElement(driver.findElement(By.xpath("//div[text()='Select Role']")));
     }
 
     public void iTurnOffShareFile(){
@@ -54,8 +54,8 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc){
-        getTextForElementfromList(".ui-select-choices-row-inner");
-        selectElementByDesc(".ui-select-choices-row-inner", desc);
+        //getTextForElementfromList(".ui.fluid.selection.dropdown");
+        selectElementByDesc("div.menu.transition.visible>div", desc);
     }
     
     public void selectPayerFromData(String desc){
@@ -83,11 +83,11 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterFirstName(String text){
-        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='firstName']")), text);
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
     }
 
     public void iEnterLasttName(String text) {
-        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='lastName']")), text);
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
     }
 
     public final static String iGenerateEmail(String text) {
@@ -97,7 +97,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterEmail(String text) {
-        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='email']")), iGenerateEmail(text));
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Email']")), iGenerateEmail(text));
     }
 
     public void iEnterEmailForLoginAfterPasswordMailVerification(String text) {
@@ -147,17 +147,17 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterHealthSystemSerachText(String text) {
-    	boolean value = isElementPresentOnPage(By.xpath("//div[@placeholder='Search']/input[@type='search']"));
+    	boolean value = isElementPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input"));
     	if(value==true){
-        iFillInText(driver.findElement(By.xpath("//div[@placeholder='Search']/input[@type='search']")), text);
+        iFillInText(driver.findElement(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")), text);
     	}
     }
 
     public void iSelectHealthSystem(String desc) {
-    	boolean value = isElementPresentOnPage(By.cssSelector(".ui-select-choices-row-inner"));
+    	boolean value = isElementPresentOnPage(By.xpath("//div[text()='"+desc+"']"));
     	if(value==true){
-    		iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
-        clickElement(driver.findElement(By.cssSelector(".ui-select-choices-row-inner")));
+    		//iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
+        clickElement(driver.findElement(By.xpath("//div[text()='"+desc+"']")));
     	}
     }
 
@@ -494,7 +494,7 @@ public class CreateUserPage extends BaseClass{
    
    
    public void verifyLearningPathwayNotAvailable() throws Throwable {
-	   isElementNotPresentOnPage("input[placeholder='Search']");
+	   isElementNotPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input"));
    }
 
    
@@ -572,5 +572,23 @@ public class CreateUserPage extends BaseClass{
    }
    public void verifyAvailabilityOrganizationDropDown() throws Throwable {
        isElementPresentOnPage(By.xpath(""));
+   }
+   
+   public void clickLogOutButton(String arg1) throws Throwable {
+       clickElement(driver.findElement(By.xpath("//span[text()='Log Out']")));
+   }
+   
+   public void verifyProductTiles(String products) throws Throwable {
+	   StringTokenizer st = new StringTokenizer(products,",");
+       while (st.hasMoreTokens()) {
+    	   try{
+    		   driver.findElement(By.xpath("//p[text()='"+st.nextToken().trim()+"']")).isDisplayed();   
+    	   }
+    	   catch(Exception e)
+    	   {
+    		   
+    	   }
+           
+       } 
    }
 }

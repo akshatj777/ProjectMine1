@@ -461,12 +461,23 @@ public class CreateUserSteps extends DriverScript{
     
     @Then("^I click on General Information tab$")
     public void clickGeneralInformationTab() throws Throwable {
-        
+        createUser.clickGeneralInformationTab();
     }
 
     @Then("^I verify availability of organization drop down$")
     public void verifyAvailabilityOrganizationDropDown() throws Throwable {
-        
+        createUser.verifyAvailabilityOrganizationDropDown();
     }
+    
+    @Then("^I click on \"([^\"]*)\" button$")
+    public void clickLogOutButton(String arg1) throws Throwable {
+        createUser.clickLogOutButton(arg1);
+    }
+    
+
+@Then("^Then I verify \"([^\"]*)\" product$")
+public void verifyProductTiles(String products) throws Throwable {
+    createUser.verifyProductTiles(products);
+}
 
 }
