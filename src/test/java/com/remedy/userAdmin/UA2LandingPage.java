@@ -74,6 +74,24 @@ public class UA2LandingPage extends BaseClass {
 		selectElementByDesc(".item", text);
 	}
 	public void iVerifyLockedUser(){
+		clickElement(driver.findElements(By.xpath("//i[@id='auth0State']")).get(0));
+		delay();
+		isElementVisible( driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));	
 	}
-
+	public void iVerifyUnlockedUser(){
+		isElementVisible( driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));	
+	}
+	public void iClickOnLock(){
+		clickElement(driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));
+	}
+	public void iClickOnUnlock(){
+		clickElement(driver.findElements(By.xpath("//i[@id='auth0State']")).get(0));
+		delay();
+		clickElement( driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));
+	}
+	
+	public void iSeeAlertonUnlock(String text){
+	swithToFrame(text);
+	verifyTextForElement(driver.findElement(By.xpath("//h3[contains(text(),'"+text+"')]]")), text);
+	}
 }

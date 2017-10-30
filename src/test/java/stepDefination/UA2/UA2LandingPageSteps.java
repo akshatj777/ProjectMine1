@@ -86,22 +86,30 @@ public class UA2LandingPageSteps extends DriverScript {
 	}
 	
 	
-	@Then("^I verify users with \"([^\"]*)\" button present on useradmin Landing page$")
-	public void i_verify_users_with_button_present_on_useradmin_Landing_page(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+@Then("^I verify users with lock icon present on useradmin Landing page$")
+public void i_verify_users_with_lock_icon_present_on_useradmin_Landing_page() throws Throwable {
+  ua2LandingPage.iVerifyLockedUser();
+}
 
-	@Then("^I click on \"([^\"]*)\" radio button on the table in useradmin Landing page$")
-	public void i_click_on_radio_button_on_the_table_in_useradmin_Landing_page(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+@Then("^I verify users with Unlock icon button present on useradmin Landing page$")
+public void i_verify_users_with_Unlock_icon_button_present_on_useradmin_Landing_page() throws Throwable {
+   ua2LandingPage.iVerifyUnlockedUser();
+}
+
+@Then("^I click on Lock button on the table in useradmin Landing page$")
+public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
+ua2LandingPage.iClickOnLock();
+}
+
+@Then("^I click on Unlock button on the table in useradmin Landing page$")
+public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
+    ua2LandingPage.iClickOnUnlock();
+}
+
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
 	public void i_should_see_an_alert_with(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	
 	}
 
 	@Then("^I click on \"([^\"]*)\" button from the alert$")

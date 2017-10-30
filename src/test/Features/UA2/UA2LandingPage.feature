@@ -145,20 +145,20 @@ Feature: Landing page verification
     And I click on the "User Admin" tile
     Then I should see header text "User Management"
     And I wait for 5000 milli seconds
-    Then I verify users with "Lock" button present on useradmin Landing page
-    Then I verify users with "Unlock" button present on useradmin Landing page
+    Then I verify users with lock icon present on useradmin Landing page
+    Then I verify users with Unlock icon button present on useradmin Landing page
      #Locking and unlocking a user
-    Then I click on "Lock" radio button on the table in useradmin Landing page
+    Then I click on Lock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
-    Then I click on "Unlock" radio button on the table in useradmin Landing page
+    Then I click on Unlock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Unlock" button from the alert
     And I verify that the user is unlocked on the table in useradmin Landing page
     # Locking and cancelling on alert
-    Then I click on "Lock" radio button on the table in useradmin Landing page
+    Then I click on Lock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
-    Then I click on "Unlock" radio button on the table in useradmin Landing page
+   Then I click on Unlock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Cancel" button from the alert
