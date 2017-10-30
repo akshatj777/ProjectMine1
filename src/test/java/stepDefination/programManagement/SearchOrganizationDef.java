@@ -20,4 +20,9 @@ public class SearchOrganizationDef extends DriverScript{
 		 searchorganization.iVerifyFieldInSearchListOnOrganizationHomepage(CreateManagingOrganization.orgName);
 	    }
 	
+	@And("^I search and verify with search list options on organization search box$")
+	  public void i_Search_With_Search_List_Field_On_Organization_In_SearchBox(DataTable table) throws Throwable {
+		 searchorganization.iSearchWithSearchListFieldOnOrganizationInSearchBox(table);
+	    }
+	
 }
