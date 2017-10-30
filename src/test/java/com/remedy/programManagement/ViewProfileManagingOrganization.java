@@ -20,17 +20,15 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {
-		
-		//verifyTextForElement(driver.findElement(By.cssSelector(".participant-id")), id);
-
-		
-	if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
+		//verifyTextForElement(driver.findElement(By.cssSelector(".participant-id")), id);	
+		if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
 		   if(("Participant Id: "+id).contentEquals(text)) {
 		    }
 		   else {
 			   Assert.assertEquals("Participant Id: "+id+"|", text);
-		    }}
+		    }
+		  }
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
@@ -50,7 +48,6 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		    System.out.println(links.get(i).getText());
 		}
 	}
-	
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
 		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
@@ -93,7 +90,6 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void userShouldGetRedirectedToTheManagingOrganizationTabPage(String text) {
-       
 		iWillWaitToSeeElement(driver.findElement(By.cssSelector(".row.col-md-10")), text);
 		verifyTextForElement(driver.findElement(By.cssSelector(".row.col-md-10")),text);
 	}

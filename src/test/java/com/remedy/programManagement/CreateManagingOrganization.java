@@ -29,20 +29,6 @@ public class CreateManagingOrganization extends BaseClass {
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
 	public static String orgName;
-	public static String editedOrgName;
-	public static String ACHName;
-	public static String SNFName;
-	public static String PAYORName;
-	public static String PGPName;
-	public static String HHAName;
-	public static String editedACHName;
-	public static String editedHHAName;
-	public static String editedSNFName;
-	public static String editedPAYORName;
-	public static String editedPGPName;
-	public static String CCN;
-	public static String EIN;
-	public static String NPI;
 	public static String participant_id;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
@@ -101,7 +87,6 @@ public class CreateManagingOrganization extends BaseClass {
 		Assert.assertTrue(bol1);
 		System.out.println(text);
 		}
-
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
@@ -110,62 +95,16 @@ public class CreateManagingOrganization extends BaseClass {
 		writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
-		else if (text.contains("ACH"))
-		{
-			ACHName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			System.out.println(ACHName);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
-		}
-		else if (text.contains("SNF"))
-		{
-			SNFName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			System.out.println(SNFName);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), SNFName);
-		}
-		else if (text.contains("PAYOR"))
-		{
-			PAYORName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			System.out.println(PAYORName);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PAYORName);
-		}
 		
-		else if (text.contains("PGP"))
-		{
-			PGPName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			System.out.println(PGPName);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), PGPName);
-		}
-		
-		else if (text.contains("HHA"))
-		{
-			HHAName = text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-			System.out.println(HHAName);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), HHAName);
-		}
 		else if (text.equals(""))
 		{	
 		}
 	    else 	
 		{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
-		}
-			
+		}		
 	}	
-	
-	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String field) {
-		CCN = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CCN);
-	}
-	
-	public void iEnterEINIdOnCreateOrganizationPage(String field) {
-		EIN = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), EIN);
-	}
-	
-	public void iEnterNPIOnCreateOrganizationPage(String field) {
-		NPI = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
-	}
+
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
 		if(!text.equals("")){
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
@@ -196,7 +135,6 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 	public void iSwitchFocusToButton(String text) {

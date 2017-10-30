@@ -59,21 +59,6 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iEnterDetailsInFieldsOnCreateOrganizationPage(text,field);
 	    }
 	 
-	 @And("^I provide unique CCN in \"([^\"]*)\" on create organization page$")
-	  public void i_Enter_CNN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
-		 createMO.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(field);
-	    }
-	 
-	 @And("^I provide unique NPI in \"([^\"]*)\" on create organization page$")
-	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
-		 createMO.iEnterNPIOnCreateOrganizationPage(field);
-	    }
-	 
-	 @And("^I provide unique EIN in \"([^\"]*)\" on create organization page$")
-	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String field) throws Throwable {
-		 createMO.iEnterEINIdOnCreateOrganizationPage(field);
-	    }
-	 
 	 @And("^I select ([^\"]*) in State on create organization page$")
 	  public void i_Selecct_State_FromDropDown_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iSelectStateFromDropDownOnCreateOrganizationPage(text);
@@ -97,26 +82,5 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 @And("^I switch the focus to \"([^\"]*)\" button$")
 	  public void i_Switch_The_Focus_To_Button(String type) throws Throwable {
 		 createMO.iSwitchFocusToButton(type);
-	 }
-	 
-	 @And("^A confirmation pop-up should appear for cancellation$")
-	  public void a_confirmation_pop_up_should_appear_for_cancellation() throws Throwable {
-		 createMO.iFetchParticipantIdAssignedToOrganization();
-	 }
-	 
-	 @And("^I click on Yes button and Observe the page$")
-	  public void I_click_on_Yes_button_and_Observe_the_page() throws Throwable {
-		 createMO.iFetchParticipantIdAssignedToOrganization();
-	 }
-	 
-	 @And("^After click on the Yes button, Create a new Managing Organization process is terminated$")
-	  public void After_click_on_the_Yes_button_Create_a_new_Managing_Organization_process_is_terminated() throws Throwable {
-		 createMO.iFetchParticipantIdAssignedToOrganization();
-	 }
-	 
-	 @And("^User navigated to home page of Manage organization$")
-	  public void User_navigated_to_homepage_of_Manage_organization() throws Throwable {
-		 createMO.iFetchParticipantIdAssignedToOrganization();
-	 }
-	 
+	 } 
 }

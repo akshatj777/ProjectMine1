@@ -41,29 +41,4 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 		}
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
-	
-	public void iSelectRadioButtonForManagingOrganization(String value) {
-		clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='"+value+"']")));
-	}
-	
-	public void iSelectRegionFromDropDownOnCreateOrganization(String text) {
-	    delay();
-	    iFillInText(driver.findElement(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")), text);
-        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-}
-	
-	public void iSelectMarketFromDropDownOnCreateOrganization(String text) { 
-		delay();
-		iFillInText(driver.findElement(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")), text);
-        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-	}
-	
-	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String text) {
-		delay();
-		iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), text);
-		delay();
-        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-         delay();
-	}
-
 }
