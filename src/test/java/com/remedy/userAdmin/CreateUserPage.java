@@ -434,7 +434,7 @@ public class CreateUserPage extends BaseClass{
    
    public void verifyRoleNames(String fieldName)
    {
-	   iVerifyTextFromListOfElement(By.xpath("//div[@class='ui fluid selection dropdown']"), fieldName);
+	   iVerifyTextFromListOfElement(By.xpath("//div[@class='menu transition visible']/div"), fieldName);
    }
    
    public void clickOnFieldButton(String fieldName)
@@ -451,7 +451,7 @@ public class CreateUserPage extends BaseClass{
    
    public void switchFocus()
    {
-	   driver.findElement(By.xpath("")).sendKeys(Keys.TAB);
+	   driver.findElement(By.xpath("//button[text()='Cancel']")).sendKeys(Keys.TAB);
    }
    
    public void ValidateMessage(String fieldName, String validationMessage)
@@ -462,7 +462,7 @@ public class CreateUserPage extends BaseClass{
 	   }
 	   else
 	   {
-		   Assert.assertEquals(validationMessage, driver.findElement(By.xpath("//label[@class='required error']")).getText().trim());
+		   iVerifyTextFromListOfElement(By.xpath("//label[@class='required error']"), validationMessage);
 	   }
    }
    

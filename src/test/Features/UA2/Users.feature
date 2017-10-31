@@ -68,29 +68,29 @@ Feature: UA2 Front End Automation
     And I enter new password "Testing@1234" to set new password
     And I enter confirm new password "Testing@1234" to set new password
     And I click on submit button to set new password
-    Then I enter newuser email for login to Remedy
-    Then I enter newuser password for login to Remedy
-    And I click Access button
-    Then Then I verify "<Applications>" product
-    And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    And I click on Institute tile under specific user login page <Institute>
-    And I click on Reports tile under specific user login page <Reports>
-    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1>
-    And I click on RemedyU tile under specific user login page <RemedyU>
-    And I click on Physican connect tile under specific user login page <Physican connect>
-    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    Then I select Support option from the dropdown under specific user login page <Support>
-    Then I select Reset Password option from the dropdown
-    And I should see text popup for reset password "Password Reset"
-    And I click Okay button for reset password popup
-    And I click on the top user account link
-    Then I select Log Out option from the dropdown
-    And I should see Log in widget
+    #Then I enter newuser email for login to Remedy
+    #Then I enter newuser password for login to Remedy
+    #And I click Access button
+    #Then Then I verify "<Applications>" product
+    #And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
+    #And I click on Institute tile under specific user login page <Institute>
+    #And I click on Reports tile under specific user login page <Reports>
+    #And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1>
+    #And I click on RemedyU tile under specific user login page <RemedyU>
+    #And I click on Physican connect tile under specific user login page <Physican connect>
+    #And I click on Internal Support option from dropdown under specific user login page <Internal Support>
+    #Then I select Support option from the dropdown under specific user login page <Support>
+    #Then I select Reset Password option from the dropdown
+    #And I should see text popup for reset password "Password Reset"
+    #And I click Okay button for reset password popup
+    #And I click on the top user account link
+    #Then I select Log Out option from the dropdown
+    #And I should see Log in widget
 
     Examples: 
-      | Scenario Description             | UserName                            | Password | FirstName | LastName | Email             | Phone | Role      | Applications                                               | NPI | LearningPathwaySearchParameter | Health System     |
-      | Create user without phone number | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Executive | Internal Support, Episodes, Episodes 2.0, Reports, Lessons |     | Care Coordinators External     | Stamford Hospital |
-  #		| Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | Scenario Description             | UserName                            | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                                             | NPI        | LearningPathwaySearchParameter | Health System     |
+      | Create user without phone number | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Executive                       | Internal Support, Episodes, Episodes 2.0, Reports, Lessons                                               |            | Care Coordinators External     | Stamford Hospital |
+      | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
       | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0 , Reports, Lessons,Share File                                                     | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
       | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                                   | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
       | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Remedy TCS                      | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, TCI                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
@@ -107,72 +107,72 @@ Feature: UA2 Front End Automation
       | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect, Administration | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
       | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
       | Create user with valid NPI       | rkapur+devFirst2@remedypartners.com | abcABC1! | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                                             | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Executive                       | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File                                    | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                                   | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Prospective Partner Executive   | Lessons                                                                                                  | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Partner Program Administrator   | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                 | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-      | PTA User                         | autoptauser@mailinator.com             | abcABC1! | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
-  		
-  Scenario Outline: Create USER (<Scenario Description>)
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    Then I pick a Organizational <Role>
-    Then I click on Next button
-    Then I verify Learning Pathway search box is not available
-    Then I select "<Applications>" product
-    Then I click on Select button
-    Then I enter "<LearningPathwayName>" in Learning Pathway search box
-    Then I select "<LearningPathwayName>" from the results
-    Then I clear the Learning Pathway search box
-    Then I enter "<LearningPathwayID>" in Learning Pathway search box
-    Then I select "<LearningPathwayID>" from the results
-    Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select All Locations button
-    Then I click on Submit button
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Executive                       | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File                                    | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons,Share File                                                      | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                                   | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Prospective Partner Executive   | Lessons                                                                                                  | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Partner Program Administrator   | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File, Physician connect                 | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
+      | PTA User                         | autoptauser@mailinator.com          | abcABC1! | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                                               | 1234567890 | MLKWikk1JDA1                   | Stamford Hospital |
 
-    Examples: 
-      | Scenario Description                     | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | LearningPathwayName        | LearningPathwayID | Health System     |
-      | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
-
-  Scenario Outline: Create a user <Scenario Description>
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    Then I pick a Organizational <Role>
-    Then I click on Next button
-    Then I select "<Applications>" product
-    Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select button
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
-    Then I click on Submit button
-
-    Examples: 
-      | Scenario Description                                  | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
-      | Create user with only one program all locations       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
-      | Create user with only one program one location        | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
-      | Create user with only one program multiple locations  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
-      | Create user with multiple programs all locations      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
-      | Create user with multiple programs one location       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
-      | Create user with multiple programs multiple locations | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
+  #Scenario Outline: Create USER (<Scenario Description>)
+    #Given I am on the login page
+    #When I log in as super user
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "User Management"
+    #When I click on Add User button
+    #Then I should see "Add New User" on the user creation page
+    #And I fill in First Name with "<FirstName>"
+    #Then I fill in Last Name with <LastName>
+    #And I enter Email "<Email>" to Create user
+    #Then I pick a Organizational <Role>
+    #Then I click on Next button
+    #Then I verify Learning Pathway search box is not available
+    #Then I select "<Applications>" product
+    #Then I click on Select button
+    #Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    #Then I select "<LearningPathwayName>" from the results
+    #Then I clear the Learning Pathway search box
+    #Then I enter "<LearningPathwayID>" in Learning Pathway search box
+    #Then I select "<LearningPathwayID>" from the results
+    #Then I click on Next button
+    #And I search for health system with <Health System>
+    #And I select a <Health System>
+    #Then I click on Select All Locations button
+    #Then I click on Submit button
+#
+    #Examples: 
+      #| Scenario Description                     | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | LearningPathwayName        | LearningPathwayID | Health System     |
+      #| Create user with multiple Learning Paths | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
+#
+  #Scenario Outline: Create a user <Scenario Description>
+    #Given I am on the login page
+    #When I log in as super user
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "User Management"
+    #When I click on Add User button
+    #Then I should see "Add New User" on the user creation page
+    #And I fill in First Name with "<FirstName>"
+    #Then I fill in Last Name with <LastName>
+    #And I enter Email "<Email>" to Create user
+    #Then I pick a Organizational <Role>
+    #Then I click on Next button
+    #Then I select "<Applications>" product
+    #Then I click on Next button
+    #And I search for health system with <Health System>
+    #And I select a <Health System>
+    #Then I click on Select button
+    #Then I select "<Programs>" programs
+    #Then I select "<Locations>" locations
+    #Then I click on Submit button
+#
+    #Examples: 
+      #| Scenario Description                                  | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
+      #| Create user with only one program all locations       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
+      #| Create user with only one program one location        | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
+      #| Create user with only one program multiple locations  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
+      #| Create user with multiple programs all locations      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
+      #| Create user with multiple programs one location       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
+      #| Create user with multiple programs multiple locations | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
