@@ -432,3 +432,4 @@ public class BaseClass {
     	Assert.assertEquals("center", allignment);
 	}
 }
+    

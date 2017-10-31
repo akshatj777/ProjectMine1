@@ -57,11 +57,11 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".page-title>h1")), pageHeader);
+		verifyTextForElement(driver.findElement(By.cssSelector(".remedy-connect-title")), pageHeader);
 	}
 
 	public void iSeeCreateUserText(String createUser) {
-		verifyTextForElement(driver.findElement(By.xpath("//button[@href='#/user/create']")), createUser);
+		verifyTextForElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")), createUser);
 	}
 	
 	public void iSeeUserAdminPageLogo() {

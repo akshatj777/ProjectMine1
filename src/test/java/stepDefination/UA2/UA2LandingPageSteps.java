@@ -55,79 +55,74 @@ public class UA2LandingPageSteps extends DriverScript {
 		ua2LandingPage.SearchUserWithText(text);
 	}
 
-	@Then("^I should see \"([^\"]*)\" for search results in landing page$")
-	public void i_should_see_for_search_results_in_landing_page(String text) throws Throwable {
-	ua2LandingPage.iVerifySearchResult(text);
+	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in landing page$")
+	public void i_should_see_for_in_landing_page(String text, String name) throws Throwable {
+	    ua2LandingPage.iVerifyNameFromSearchResult(text, name);
 	}
 
-	@Then("^I should see \"([^\"]*)\" for First Name in landing page$")
-	public void i_should_see_for_First_Name_in_landing_page(String text) throws Throwable {
-		ua2LandingPage.iVerifyFirstNameFromSearchResult(text);
-	}
-
-	@Then("^I should see \"([^\"]*)\" for Last Name in landing page$")
-	public void i_should_see_for_Last_Name_in_landing_page(String text) throws Throwable {
-		ua2LandingPage.iVerifyFirstNameFromSearchResult(text);
-	}
 
 	@Then("^I should see \"([^\"]*)\" for User Role in landing page$")
 	public void i_should_see_for_User_Role_in_landing_page(String text) throws Throwable {
 		ua2LandingPage.iVerifyRoleFromSearchResult(text);
 	}
-	
+
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
-	   ua2LandingPage.iClickOnTopUserDropDown();
+		ua2LandingPage.iClickOnTopUserDropDown();
 	}
 
 	@Then("^I select \"([^\"]*)\" option from the dropdown list$")
 	public void i_select_option_from_the_dropdown_list(String text) throws Throwable {
-	  ua2LandingPage.iSelectOptionFromDropdown(text);
+		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
 	
-	
-@Then("^I verify users with lock icon present on useradmin Landing page$")
-public void i_verify_users_with_lock_icon_present_on_useradmin_Landing_page() throws Throwable {
-  ua2LandingPage.iVerifyLockedUser();
-}
+	@Then("^I should see text popup for reset password with \"([^\"]*)\"$")
+	public void i_should_see_text_popup_for_reset_password_with(String arg1) throws Throwable {
+	  ua2LandingPage.iVerifyResetPasswordPopUpText(arg1);
+	}
+	@Then("^I verify users with lock icon present on useradmin Landing page$")
+	public void i_verify_users_with_lock_icon_present_on_useradmin_Landing_page() throws Throwable {
+		ua2LandingPage.iVerifyLockedUser();
+	}
 
-@Then("^I verify users with Unlock icon button present on useradmin Landing page$")
-public void i_verify_users_with_Unlock_icon_button_present_on_useradmin_Landing_page() throws Throwable {
-   ua2LandingPage.iVerifyUnlockedUser();
-}
+	@Then("^I verify users with Unlock icon button present on useradmin Landing page$")
+	public void i_verify_users_with_Unlock_icon_button_present_on_useradmin_Landing_page() throws Throwable {
+		ua2LandingPage.iVerifyUnlockedUser();
+	}
 
-@Then("^I click on Lock button on the table in useradmin Landing page$")
-public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
-ua2LandingPage.iClickOnLock();
-}
+	@Then("^I click on Lock button on the table in useradmin Landing page$")
+	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
+		ua2LandingPage.iClickOnLock();
+	}
 
-@Then("^I click on Unlock button on the table in useradmin Landing page$")
-public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
-    ua2LandingPage.iClickOnUnlock();
-}
-
+	@Then("^I click on Unlock button on the table in useradmin Landing page$")
+	public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
+		ua2LandingPage.iClickOnUnlock();
+	}
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
-	public void i_should_see_an_alert_with(String arg1) throws Throwable {
-	
+	public void i_should_see_an_alert_with(String text) throws Throwable {
+		ua2LandingPage.iVerifyTextfromUnlockPopup(text);
 	}
 
-	@Then("^I click on \"([^\"]*)\" button from the alert$")
-	public void i_click_on_button_from_the_alert(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	@Then("^I click on \"([^\"]*)\" button from the alert to unlock user$")
+	public void i_click_on_button_from_the_alert_to_unlock_user(String arg1) throws Throwable {
+		ua2LandingPage.iClickOnUnlockButtonFromPopup();
+	}
+
+	@Then("^I click on \"([^\"]*)\" button from the alert to cancel unlock$")
+	public void i_click_on_button_from_the_alert_to_cancel_unlock(String arg1) throws Throwable {
+		ua2LandingPage.iClickOnCancelButtonFromPopup();
 	}
 
 	@Then("^I verify that the user is unlocked on the table in useradmin Landing page$")
 	public void i_verify_that_the_user_is_unlocked_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iVerifyThatUserIsUnlocked();
 	}
 
 	@Then("^I verify that the user is locked on the table in useradmin Landing page$")
 	public void i_verify_that_the_user_is_locked_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iVerifyThatUserIsLocked();
 	}
 
 	@Then("^I should be able to sort users based on lock funtionality$")

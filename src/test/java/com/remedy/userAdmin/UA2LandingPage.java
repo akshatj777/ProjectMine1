@@ -2,6 +2,7 @@ package com.remedy.userAdmin;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,12 +17,12 @@ public class UA2LandingPage extends BaseClass {
 	}
 
 	public void iVerifyUsersLink(String text) {
-		verifyTextForElement(driver.findElements(By.xpath("//a[contains(@href, 'https://user-admin')]")).get(0), text);
+		verifyTextForElement(driver.findElement(By.xpath("//a[contains(@href, 'https://user-admin')]")), text);
 	}
 
 	public void iSeeUsersTable() {
 		isElementVisible(
-				driver.findElements(By.xpath("//table[@class='ui celled sortable striped table users-table']")).get(0));
+				driver.findElement(By.xpath("//table[@class='ui celled sortable striped table users-table']")));
 	}
 
 	public void iSeeAccountStatusColumn() {
@@ -45,7 +46,7 @@ public class UA2LandingPage extends BaseClass {
 	}
 
 	public void iSeePagination() {
-		isElementVisible(driver.findElement(By.xpath("//th[@class='chevron-group']")));
+		isElementVisible(driver.findElement(By.xpath("//div[@class='chevron-group']")));
 	}
 
 	public void SearchUserWithText(String text) {
@@ -53,12 +54,19 @@ public class UA2LandingPage extends BaseClass {
 		delay();
 	}
 
-	public void iVerifySearchResult(String text) {
-		driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]"));
-	}
-
-	public void iVerifyFirstNameFromSearchResult(String text) {
-		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0), text);
+	public void iVerifyNameFromSearchResult(String text, String name) {
+		WebElement ele=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0);
+		String[] NameArray=ele.getText().split("\\s+");
+		String firstName= NameArray[0];
+		
+		String lastName=NameArray[1];
+		if (isElementVisible(ele)){
+			if(name.equals("First Name")) {
+			Assert.assertEquals(firstName, text);
+		}
+			else if (name.equals("Last Name"))
+			Assert.assertEquals(lastName, text);
+		}
 	}
 
 	public void iVerifyRoleFromSearchResult(String text) {
@@ -68,30 +76,61 @@ public class UA2LandingPage extends BaseClass {
 	public void iClickOnTopUserDropDown() {
 		delay();
 		clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
+	longDelay();
+	}
+	
+	public void iVerifyResetPasswordPopUpText(String text){
+		delay();
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='sso-reset-password-text-container']")),text);
 	}
 
 	public void iSelectOptionFromDropdown(String text) {
 		selectElementByDesc(".item", text);
-	}
-	public void iVerifyLockedUser(){
-		clickElement(driver.findElements(By.xpath("//i[@id='auth0State']")).get(0));
 		delay();
-		isElementVisible( driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));	
 	}
-	public void iVerifyUnlockedUser(){
-		isElementVisible( driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));	
+
+	public void iVerifyLockedUser() {
+		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
+		delay();
+		isElementVisible(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));
 	}
-	public void iClickOnLock(){
+
+	public void iVerifyUnlockedUser() {
+		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
+		delay();
+		isElementVisible(driver.findElement(By.xpath("//i[@class='lock large inverted icon']")));
+	}
+
+	public void iClickOnLock() {
 		clickElement(driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));
 	}
-	public void iClickOnUnlock(){
-		clickElement(driver.findElements(By.xpath("//i[@id='auth0State']")).get(0));
+
+	public void iClickOnUnlock() {
+		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
 		delay();
-		clickElement( driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));
+		clickElement(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));
+		delay();
+	}
+
+	public void iVerifyTextfromUnlockPopup(String text) {
+		verifyTextForElement(driver.findElement(By.xpath("//span/h3[1]")), text);
+		
+	}
+
+	public void iClickOnUnlockButtonFromPopup() {
+		clickElement(driver.findElement(By.xpath("//button[@class='ui green inverted button']")));
+		delay();
+	}
+
+	public void iClickOnCancelButtonFromPopup() {
+		clickElement(driver.findElement(By.xpath("//div[@class='actions']/a")));
+		delay();
 	}
 	
-	public void iSeeAlertonUnlock(String text){
-	swithToFrame(text);
-	verifyTextForElement(driver.findElement(By.xpath("//h3[contains(text(),'"+text+"')]]")), text);
+	public void iVerifyThatUserIsUnlocked(){
+		verifyElementAttributeContainsValue(driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0), "class", "lock large inverted icon");
+	}
+	public void iVerifyThatUserIsLocked(){
+		verifyElementAttributeContainsValue(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(0), "class", "lock large icon");
 	}
 }

@@ -6,11 +6,11 @@ Feature: Landing page verification
     And I enter password field abcABC1! for Login
     Then I click Access button
     And I wait for 4000 milli seconds
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see Program Administration logo on Top
-    And I wait for 2000 milli seconds
-    Then I should see header text "User Management"
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see Program Administration logo on Top
+    #And I wait for 2000 milli seconds
+    Then I should see header text "Management"
     And I wait for 2000 milli seconds
     And I should see "Add User" Button
     And I should see "Users" link
@@ -33,66 +33,41 @@ Feature: Landing page verification
       | Email                               |
       | rkapur+devFirst2@remedypartners.com |
 
-  #Scenario Outline: User should only have access to the applications they are provisioned to
-  #Given I am on the login page
-  #When I enter email field <email> for login
-  #And I enter password field Testing1 for Login
-  #Then I click Access button
-  #Then I should see Tile text <Gainsharing Physician Survey>
-  #Then I should see Tile text <Episode1>
-  #Then I should see Tile text <RemedyU>
-  #Then I should see Tile text <Reports>
-  #Then I should see Tile text <Episodes2.0>
-  #Then I should see Tile text <sharefile>
-  #Then I should see Tile text <Institue>
-  
-  #Examples:
-  #| email                              | Gainsharing Physician Survey | Episode1 | RemedyU | Reports | Episodes2.0  | sharefile    | Institue  |
-  #| shutestaug231132a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-  #| shutestaug221130a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-  #| reptestachmodel2opsfin@yopmail.com |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-  #| shutestaug15240p@yopmail.com       | Gainsharing Physician Survey | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-  #| shutestaug221145a@yopmail.com      |                              | Episodes | RemedyU | Reports | Episodes 2.0 | Shared Files | Institute |
-  #| repopsnofintest@yopmail.com        |                              | Episodes | RemedyU | Reports |              |              | Institute |
-  
   #Search cases
   Scenario: Search user by FirstName
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "User Management"
     And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "ACH"
+    Then I enter search box in landing page with "NOTO"
     And I wait for 3000 milli seconds
-    Then I should see "Users" for search results in landing page
-    And I should see "ACHMODEL2" for First Name in landing page
+    And I should see "IGNOTO" for "First Name" in landing page
 
   Scenario: Search user by Lastname
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "User Management"
     And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "REPTESTRPFIN"
+    Then I enter search box in landing page with "ACHE"
     And I wait for 3000 milli seconds
-    Then I should see "Users" for search results in landing page
-    And I should see "REPTESTRPFIN" for Last Name in landing page
+    And I should see "RACHEL" for "Last Name" in landing page
 
   Scenario: Search user by NPI
     Given I am on the login page
     When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "Management"
     And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "1234567891"
+    Then I enter search box in landing page with "123456"
     And I wait for 3000 milli seconds
-    Then I should see "Users" for search results in landing page
     And I should see "Physicians" for User Role in landing page
 
-  #Top menu cases
+  #top User link
   Scenario: Logout link test from top menu
     Given I am on the login page
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
@@ -102,16 +77,16 @@ Feature: Landing page verification
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
-  #Scenario: Internal Support link test from top menu
+  Scenario: Internal Support link test from top menu
     Given I am on the login page
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
     And I enter password field abcABC1! for Login
     Then I click Access button
-     And I click on the top user link
+    And I click on the top user link
     Then I select "Internal Support" option from the dropdown list
     When I switch to new window
     And I verify current page "Login - Service Desk" title
-    And I should see Jira Log in Page text "Service Desk (2.5.9)"
+    And I should see Jira Log in Page text "JIRA Service Desk (3.5.0)"
     Then I switch back to old window
 
   Scenario: Reset Password link test from top menu
@@ -121,7 +96,7 @@ Feature: Landing page verification
     Then I click Access button
     And I click on the top user link
     Then I select "Reset Password" option from the dropdown list
-    And I should see text popup for reset password "Password Reset"
+    And I should see text popup for reset password with "We have sent you an e-mail with a link to reset your password. Please check your e-mail."
     And I click Okay button for reset password popup
 
   Scenario: Support link test from top menu
@@ -133,35 +108,52 @@ Feature: Landing page verification
     Then I select "Support" option from the dropdown list
     When I switch to new window
     And I verify current page "Login - Service Desk" title
-    And I should see Jira Log in Page text "Service Desk (2.5.9)"
+    And I should see Jira Log in Page text "JIRA Service Desk (3.5.0)"
     Then I switch back to old window
 
   #Lock unlock cases
   Scenario: Verification of Lock and Unlock Users on user admin landing page
-   	Given I am on the login page
+    Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Adming
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    Then I should see header text "Management"
     And I wait for 5000 milli seconds
     Then I verify users with lock icon present on useradmin Landing page
     Then I verify users with Unlock icon button present on useradmin Landing page
-     #Locking and unlocking a user
+
+  Scenario: Unlocking a user
+    Given I am on the login page
+    When I log in as super user
+    And I wait for 1000 milli seconds
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    Then I should see header text "Management"
+    And I wait for 5000 milli seconds
     Then I click on Lock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
     Then I click on Unlock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
     Then I should see an alert with "Are you sure you want to unlock"
-    Then I click on "Unlock" button from the alert
+    Then I click on "Unlock" button from the alert to unlock user
     And I verify that the user is unlocked on the table in useradmin Landing page
-    # Locking and cancelling on alert
+
+  #To Execute:
+  Scenario: Cancelling unlock
+    Given I am on the login page
+    When I log in as super user
+    And I wait for 1000 milli seconds
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    Then I should see header text "Management"
+    And I wait for 5000 milli seconds
     Then I click on Lock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
-   Then I click on Unlock button on the table in useradmin Landing page
+    Then I click on Unlock button on the table in useradmin Landing page
     And I wait for 5000 milli seconds
     Then I should see an alert with "Are you sure you want to unlock"
-    Then I click on "Cancel" button from the alert
+    Then I click on "Cancel" button from the alert to cancel unlock
     And I verify that the user is locked on the table in useradmin Landing page
 
   #Sort users
@@ -178,18 +170,3 @@ Feature: Landing page verification
     Then I should be able to sort users based on Role funtionality
     Then I should be able to sort users based on Email funtionality
     Then I should be able to sort users based on Date created
-
-  #Scenario: Users link test
-    #Given I am on the login page
-    #When I log in as super user
-    #And I wait for 1000 milli seconds
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
-    #And I wait for 5000 milli seconds
-    #Then I click on any User from the table
-    #And I wait for 1000 milli seconds
-    #And I should be navigated to that user page
-    #Then I click on "Users" link
-    #And I wait for 5000 milli seconds
-    #And I should be navigated back to the landing page
