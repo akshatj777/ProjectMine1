@@ -17,7 +17,7 @@ public class SearchOrganizationDef extends DriverScript{
 	
 	@And("^I verify ([^\"]*) field in search list on organization page$")
 	  public void i_Verify_Field_In_Search_List_On_Organization_Homepage(String text) throws Throwable {
-		 searchorganization.iVerifyFieldInSearchListOnOrganizationHomepage(CreateManagingOrganization.orgName);
+		 searchorganization.iVerifyFieldInSearchListOnOrganizationHomepage(text);
 	    }
 	
 	@And("^I search and verify with search list options on organization search box$")

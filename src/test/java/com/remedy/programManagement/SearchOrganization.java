@@ -61,6 +61,14 @@ public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table)
 			  String test = listItems.get(4).getText();
 			  Assert.assertEquals(test,value);
 		  }
+		  else if (keySet[i].equals("Managing Organization Name")){
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  
+			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
+			  String test = listItems.get(1).getText();
+			  Assert.assertEquals(test,value);
+		  }
 		  else if (keySet[i].equals("State")){
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
 			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -70,19 +78,18 @@ public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table)
 			  Assert.assertEquals(test,value);
 		  }  
 		  else if (keySet[i].equals("Participant_Id")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), BaseClass.Cache.getProperty("PARTICIPANT_ID"));
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
 			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
 			  String test = listItems.get(0).getText();
 			  Assert.assertEquals(test,value);
 		  }
-	}}
-	
-	
+	      }
+		}
 	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
 		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[text()='Automate Manag Orgg']")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//div[text()='cCtrHManOrgKbNJmokq3823']")), text);
 	}
 
 }

@@ -21,7 +21,7 @@ public class EditManagingOrganization extends BaseClass {
 	public void iClickFieldInSearchListOnOrganizationPage(String field) {
 		if(field.contains("MONAME"))
 		{
-			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.orgName+"']")));
+			clickElement(driver.findElement(By.cssSelector(".data-table-cell.link-content")));
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
