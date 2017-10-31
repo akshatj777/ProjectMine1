@@ -833,3 +833,37 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
+      
+  Scenario Outline: fracture/non-fracture mapping in warehouse .dimDRG table should be 0,1,-99 in spending claims report under physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Spending (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Spending" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Fracture/Non-Fracture" in the header text of filter page
+    And I should see "Fracture" in the filter value list
+    And I should see "Non-Fracture" in the filter value list
+    And I should see "Not Applicable" in the filter value list
+    Then User executes query
+      """
+      select distinct drgSubCode from warehouse.dimDRG;
+      """
+    Then User verifies the data from database for "drgSubCode"
+      | NotApplicable | "<notapplicable>" |
+      | Fracture      | "<fracture>"      |
+      | NonFracture   | "<nonfracture>"   |
+
+    Examples: 
+      | email                         | notapplicable | fracture | nonfracture |
+      | shutestaug231132a@yopmail.com |           -99 |        0 |           1 |
