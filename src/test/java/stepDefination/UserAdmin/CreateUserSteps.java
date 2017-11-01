@@ -384,12 +384,12 @@ public class CreateUserSteps extends DriverScript{
     	createUser.clickSubmitButton();
     }
     
-    @Then("^I verify application \"([^\"]*)\" is unchecked$")
+    @Then("^I verify applications \"([^\"]*)\" are unchecked$")
     public void verifyAppUnchecked(String appName) throws Throwable {
     	createUser.verifyAppUnchecked(appName);
     }
     
-    @Then("^I verify application \"([^\"]*)\" is checked$")
+    @Then("^I verify applications \"([^\"]*)\" are checked$")
     public void verifyAppChecked(String appName) throws Throwable {
     	createUser.verifyAppChecked(appName);
     }
@@ -401,6 +401,11 @@ public class CreateUserSteps extends DriverScript{
     
     @Then("^I verify Learning Pathway search box is not available$")
     public void verifyLearningPathwayNotAvailable() throws Throwable {
+    	createUser.verifyLearningPathwayNotAvailable();
+    }
+    
+    @Then("^I verify Learning Pathway search box is available$")
+    public void verifyLearningPathwayAvailable() throws Throwable {
     	createUser.verifyLearningPathwayNotAvailable();
     }
 
@@ -478,6 +483,11 @@ public class CreateUserSteps extends DriverScript{
 @Then("^Then I verify \"([^\"]*)\" product$")
 public void verifyProductTiles(String products) throws Throwable {
     createUser.verifyProductTiles(products);
+}
+
+@Then("^I click on Add Another Organization button$")
+public void clickAddAnotherOrganization() throws Throwable {
+	createUser.clickAddAnotherOrganization();
 }
 
 }

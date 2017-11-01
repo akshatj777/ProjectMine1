@@ -55,7 +55,13 @@ public class CreateUserPage extends BaseClass{
 
     public void selectOrganizationalRole(String desc){
         //getTextForElementfromList(".ui.fluid.selection.dropdown");
-        selectElementByDesc("div.menu.transition.visible>div", desc);
+        //selectElementByDesc("div.menu.transition.visible>div", desc);
+    	delay();
+    	WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    	delay();
+    	element.click();
+    	
     }
     
     public void selectPayerFromData(String desc){
@@ -479,22 +485,33 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void verifyAppUnchecked(String fieldName) throws Throwable {
-	   isNotSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+	   StringTokenizer st = new StringTokenizer(fieldName,",");
+       while (st.hasMoreTokens()) {  
+    	   isNotSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+       } 
    }
    public void verifyAppChecked(String fieldName) throws Throwable {
-	   isSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+	   StringTokenizer st = new StringTokenizer(fieldName,",");
+       while (st.hasMoreTokens()) {  
+    	   isSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+       }
    }
    
    public void verifyApplicationList(String appList) throws Throwable {
        StringTokenizer st = new StringTokenizer(appList,",");
        while (st.hasMoreTokens()) {  
-           isElementPresentOnPage(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
+           
+        Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
        } 
    }
    
    
    public void verifyLearningPathwayNotAvailable() throws Throwable {
-	   isElementNotPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input"));
+	   Assert.assertTrue(isElementNotPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")));
+   }
+   
+   public void verifyLearningPathwayAvailable() throws Throwable {
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")));
    }
 
    
@@ -517,7 +534,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void verifyLoginButton() throws Throwable {
-   	isElementPresentOnPage(By.xpath("//*[contains(text(),'Log In')]"));
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[contains(text(),'Log In')]")));
    }
    
    public void selectPrograms(String programList) throws Throwable {
@@ -571,7 +588,7 @@ public class CreateUserPage extends BaseClass{
        clickElement(driver.findElement(By.xpath("//a[text()='1. General Information']")));
    }
    public void verifyAvailabilityOrganizationDropDown() throws Throwable {
-       isElementPresentOnPage(By.xpath(""));
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("")));
    }
    
    public void clickLogOutButton(String arg1) throws Throwable {
@@ -591,4 +608,9 @@ public class CreateUserPage extends BaseClass{
            
        } 
    }
+   
+   public void clickAddAnotherOrganization() throws Throwable {
+		clickElement(driver.findElement(By.xpath("//button[text()='Add Another Organization']")));
+   }
+
 }
