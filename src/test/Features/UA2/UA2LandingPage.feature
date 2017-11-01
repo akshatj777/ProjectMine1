@@ -27,8 +27,8 @@ Feature: Landing page verification
     And I click on the top user link
     And I wait for 1000 milli seconds
     Then I select "Log Out" option from the dropdown list
-    And I should see Log in widget
 
+    # And I should see Log in widget
     Examples: 
       | Email                               |
       | rkapur+devFirst2@remedypartners.com |
@@ -75,8 +75,8 @@ Feature: Landing page verification
     Then I click Access button
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
-    And I should see Log in widget
 
+  #And I should see Log in widget
   Scenario: Internal Support link test from top menu
     Given I am on the login page
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
@@ -85,6 +85,7 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Internal Support" option from the dropdown list
     When I switch to new window
+    And I wait for 3000 milli seconds
     And I verify current page "Login - Service Desk" title
     And I should see Jira Log in Page text "JIRA Service Desk (3.5.0)"
     Then I switch back to old window
@@ -107,6 +108,7 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Support" option from the dropdown list
     When I switch to new window
+    And I wait for 3000 milli seconds
     And I verify current page "Login - Service Desk" title
     And I should see Jira Log in Page text "JIRA Service Desk (3.5.0)"
     Then I switch back to old window
@@ -139,7 +141,6 @@ Feature: Landing page verification
     Then I click on "Unlock" button from the alert to unlock user
     And I verify that the user is unlocked on the table in useradmin Landing page
 
-  #To Execute:
   Scenario: Cancelling unlock
     Given I am on the login page
     When I log in as super user
@@ -161,12 +162,25 @@ Feature: Landing page verification
     Given I am on the login page
     When I log in as super user
     And I wait for 1000 milli seconds
-    Then I should see Tile text User Adming
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    Then I should see header text "Management"
     And I wait for 5000 milli seconds
     Then I should be able to sort users based on lock funtionality
     Then I should be able to sort users based on Name funtionality
     Then I should be able to sort users based on Role funtionality
     Then I should be able to sort users based on Email funtionality
     Then I should be able to sort users based on Date created
+
+  #Refreshing from Users link
+  Scenario: User should be able to refresh users from users link
+    Given I am on the login page
+    When I log in as super user
+    And I wait for 1000 milli seconds
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    Then I should see header text "Management"
+    And I wait for 5000 milli seconds
+    Then I click on "Users" link
+    And I wait for 1000 milli seconds
+    Then I am on refreshed landing page

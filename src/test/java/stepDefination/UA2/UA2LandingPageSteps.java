@@ -127,56 +127,37 @@ public class UA2LandingPageSteps extends DriverScript {
 
 	@Then("^I should be able to sort users based on lock funtionality$")
 	public void i_should_be_able_to_sort_users_based_on_lock_funtionality() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iSortBasedOnLock();
 	}
 
 	@Then("^I should be able to sort users based on Name funtionality$")
 	public void i_should_be_able_to_sort_users_based_on_Name_funtionality() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iSortFromName();
 	}
 
 	@Then("^I should be able to sort users based on Role funtionality$")
 	public void i_should_be_able_to_sort_users_based_on_Role_funtionality() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iSortFromRole();
 	}
 
 	@Then("^I should be able to sort users based on Email funtionality$")
 	public void i_should_be_able_to_sort_users_based_on_Email_funtionality() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iSortFromEmail();
 	}
 
 	@Then("^I should be able to sort users based on Date created$")
 	public void i_should_be_able_to_sort_users_based_on_Date_created() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		ua2LandingPage.iSortFromDate();
 	}
 
-	@Then("^I click on any User from the table$")
-	public void i_click_on_any_User_from_the_table() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
-	@Then("^I should be navigated to that user page$")
-	public void i_should_be_navigated_to_that_user_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
+	
 	@Then("^I click on \"([^\"]*)\" link$")
 	public void i_click_on_link(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	ua2LandingPage.iClickOnUsersLink();
 	}
 
-	@Then("^I should be navigated back to the landing page$")
-	public void i_should_be_navigated_back_to_the_landing_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	@Then("^I am on refreshed landing page$")
+	public void i_am_on_refreshed_landing_page() throws Throwable {
+	   ua2LandingPage.iSeeUsersTable();
 	}
-
 }

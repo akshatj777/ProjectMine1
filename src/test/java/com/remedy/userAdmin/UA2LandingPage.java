@@ -81,7 +81,7 @@ public class UA2LandingPage extends BaseClass {
 	
 	public void iVerifyResetPasswordPopUpText(String text){
 		delay();
-		verifyTextForElement(driver.findElement(By.xpath("//div[@class='sso-reset-password-text-container']")),text);
+		verifyTextForElement(driver.findElement(By.xpath("//div[2]/div[1]/div[1]/div/p")),text);
 	}
 
 	public void iSelectOptionFromDropdown(String text) {
@@ -133,4 +133,35 @@ public class UA2LandingPage extends BaseClass {
 	public void iVerifyThatUserIsLocked(){
 		verifyElementAttributeContainsValue(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(0), "class", "lock large icon");
 	}
+	public void iSortBasedOnLock(){
+		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
+		delay();
+		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//i[@id='auth0State']")), "class", "lock large icon");
+	}
+	public void iSortFromName(){
+		clickElement(driver.findElement(By.cssSelector("#lastName")));
+		delay();
+		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//th[@id='lastName']")), "class", "ascending sorted");
+	}
+	public void iSortFromRole(){
+		clickElement(driver.findElement(By.cssSelector("#logicalRoleId")));
+		delay();
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#logicalRoleId")), "class", "descending sorted");
+	}
+	public void iSortFromEmail(){
+		clickElement(driver.findElement(By.cssSelector("#email")));
+		delay();
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#email")), "class", "ascending sorted");
+	}
+	public void iSortFromDate(){
+		clickElement(driver.findElement(By.cssSelector("#insertedDate")));
+		delay();
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#insertedDate")), "class", "descending sorted");
+	}
+	
+	public void iClickOnUsersLink(){
+		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
+		delay();
+	}
+	
 }
