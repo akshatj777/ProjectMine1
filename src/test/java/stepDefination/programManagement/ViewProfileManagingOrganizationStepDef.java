@@ -15,7 +15,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify ([^\"]*) name on the header of view profile$")
 	  public void i_Verify_Name_On_Header_On_View_Profile(String text) throws Throwable {
-		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(CreateManagingOrganization.orgName);
+		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(text);
 	    }
 	
 	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
@@ -48,9 +48,9 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
 	}
 	
-	@And("^I verify the count associated with the \"([^\"]*)\" organization$")
-	  public void I_verify_the_count_associated_with_the_ACH_organization(String header,String org) throws Throwable {
-		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
+	@And("^I verify the count for the associated organization$")
+	  public void I_verify_the_count_associated_with_organization() throws Throwable {
+		viewProfileMO.iVerifytheCountFortheAssociatedorganization();
 	}
 	
 	@And("^I click on \"([^\"]*)\" organization under Managing Organization$")
@@ -81,7 +81,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	}
 	
 	@And("^user should get redirected to the managing organization tab page$")
-	  public void user_should_get_redirected_to_the_managing_organization_tab_page(String text) throws Throwable {
-		viewProfileMO.userShouldGetRedirectedToTheManagingOrganizationTabPage(text);
+	  public void user_should_get_redirected_to_the_managing_organization_tab_page() throws Throwable {
+		viewProfileMO.userShouldGetRedirectedToTheManagingOrganizationTabPage();
 	}
 }
