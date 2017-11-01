@@ -4,6 +4,7 @@ import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 
 public class CreateManagingOrganizationStepDef extends DriverScript{
 	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
@@ -38,6 +39,16 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	    }
 	 
+	 @And("^I click on cancel button on create organization page$")
+	  public void i_Click_On_Cancel_Button_On_Create_Organization_Page() throws Throwable {
+		 createMO.iClickOnCancelButtonOnCreateOrganizationPage();
+	    }
+	 
+	 @Then("^User navigated to view page$")
+	  public void user_navigated_to_view_page() throws Throwable {
+		 createMO.userNavigatedToViewPage();
+	    }
+	 
 	 @And("^I verify \"([^\"]*)\" mandatory field validation message on create organization page$")
 	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
@@ -50,7 +61,7 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 
 	 @And("^I verify ([^\"]*) after submitting the create ogranization page$")
 	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text) throws Throwable {
-		 createMO.iVerifyCreateOrganizationwithDuplicatenameerrormsg(text);
+		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
 	    }
 	
 		

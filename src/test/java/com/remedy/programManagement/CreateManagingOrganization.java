@@ -66,6 +66,19 @@ public class CreateManagingOrganization extends BaseClass {
 		// longDelay(); 
 	}
 	
+	public void iClickOnCancelButtonOnCreateOrganizationPage() {
+		delay();
+		WebElement element = driver.findElement(By.xpath("//button[text()='Cancel']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
+		delay();
+		// longDelay(); 
+	}
+	
+	public void userNavigatedToViewPage() {
+		driver.findElement(By.cssSelector(".navLink.noselect")).getText();
+	}
+
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
