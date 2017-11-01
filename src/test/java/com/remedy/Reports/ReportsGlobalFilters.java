@@ -6,6 +6,7 @@ import java.util.Map;
 
 import junit.framework.Assert;
 
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -189,10 +190,10 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void executeQuery(String query) throws ClassNotFoundException, SQLException  {
-		  System.out.println(query);
 		  Class.forName("com.mysql.jdbc.Driver");
 		  String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306"; 
-		  Connection con=DriverManager.getConnection(connectionString,"ssingh","#rsry@319");  
+		  //Connection con=DriverManager.getConnection(connectionString,"ssingh","#rsry@319");
+		  Connection con=DriverManager.getConnection(connectionString,"pgoel","1Welcome2"); 
 		  Statement stmt=con.createStatement();  
 		  ResultSet rs=stmt.executeQuery(query);
 		  ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
@@ -206,7 +207,7 @@ public class ReportsGlobalFilters extends BaseClass{
 		      column.put(rsmd.getColumnName(i),rs.getString(i));
 		      }
 		      String a = Integer.toString(rs.getRow());
-		      
+		      //System.out.println("The value of onboarding status is"+a);
 			row.put(a, column);
 		  }
 		  System.out.println(row.toString());
@@ -221,8 +222,16 @@ public class ReportsGlobalFilters extends BaseClass{
 			String dbValue=row.get(b).get(columnname);
 			String a = (String) keySet[i];
 			String ccnUIValue =data.get(a).toString();
-			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"')+1, ccnUIValue.lastIndexOf('"'));
-			Assert.assertEquals(dbValue, ccnUIValue);
+		    ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"')+1, ccnUIValue.lastIndexOf('"')); 
+		    if(dbValue == null)
+		    {
+				String abc = String.valueOf(dbValue);
+		    	Assert.assertEquals(abc, ccnUIValue);
+		    }
+		    else
+		    {
+		    	Assert.assertEquals(dbValue, ccnUIValue);
+		    }  
 		}
 	}
 }

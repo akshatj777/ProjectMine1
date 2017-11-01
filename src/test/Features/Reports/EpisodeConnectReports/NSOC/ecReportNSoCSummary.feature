@@ -159,8 +159,8 @@ Feature: Verification of Next Site of Care Summary EC Report
       | reptestachmodel2opsfin@yopmail.com |
       | shutestaug15240p@yopmail.com       |
       | shutestaug221145a@yopmail.com      |
-  
-Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify under next site of care sumary report under next site of care
+
+  Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify under next site of care sumary report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -169,10 +169,10 @@ Scenario Outline: User should be able to click on drill through column in episod
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "CARL" report text for NSoC Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "CARL" is appearing inside the iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -194,3 +194,132 @@ Scenario Outline: User should be able to click on drill through column in episod
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify onboarding status values in database for next site of care under next site of care summary
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Onboarding Status" in the header text of filter page
+    And I should see "Needs Onboarding" in the filter value list
+    And I should see "Not Onboarded" in the filter value list
+    And I should see "Onboarded" in the filter value list
+    And I should see "Unknown" in the filter value list
+    Then User executes query
+      """
+      select 
+      distinct (Lo.lookupValue)
+      from
+      warehouse.factECAdmissionEpisode PE
+      INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
+      INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
+      INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
+      INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
+      LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
+      INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
+      INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
+      INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
+      INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
+      where PE.bundleRisk = 1 and
+      PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus'
+      and PE.anchorDischargeDateKey<>0;
+      """
+    Then User verifies the data from database for "lookupValue"
+      | OnBoardingStatus1 | "<onboardingstatus1>" |
+      | OnBoardingStatus2 | "<onboardingstatus2>" |
+      | OnBoardingStatus3 | "<onboardingstatus3>" |
+      | OnBoardingStatus4 | "<onboardingstatus4>" |
+
+    Examples: 
+      | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      | rmexeallonboradvale@yopmail.com | Unknown           | Needs Onboarding  | Onboarded         | Not Onboarded     |
+
+  Scenario Outline: Verify patient risk values in database for next site of care under next site of care summary
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "Calculating Risk" in the filter value list
+    And I should see "High" in the filter value list
+    And I should see "Low" in the filter value list
+    Then User executes query
+      """
+      select 
+      distinct (Lr.lookupValue)
+      from
+      warehouse.factPatientEpisode PE
+      INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
+      INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
+      INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
+      INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
+      LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
+      INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
+      INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
+      INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
+      INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
+      where  PE.bundleRisk = 1 and
+      PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus';
+      """
+    Then User verifies the data from database for "lookupValue"
+      | PatientRisk1 | "<patientrisk1>" |
+      | PatientRisk2 | "<patientrisk2>" |
+      | PatientRisk3 | "<patientrisk3>" |
+
+    Examples: 
+      | email                           | patientrisk1     | patientrisk2 | patientrisk3 |
+      | rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
+
+  Scenario Outline: Verify the potential values in onboarding status are 0,1,2,3 in next site of care under next site of care summary
+    Then User executes query
+      """
+      select distinct onboardingStatus FROM warehouse.dimPatient;
+      """
+    Then User verifies the data from database for "onboardingStatus"
+      | OnBoardingStatus1 | "<onboardingstatus1>" |
+      | OnBoardingStatus2 | "<onboardingstatus2>" |
+      | OnBoardingStatus3 | "<onboardingstatus3>" |
+
+    Examples: 
+      | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      |                 0 |                 3 |                 2 |                 1 |
+
+  Scenario Outline: Verify the potential values in onboarding status contains null in next site of care under next site of care summary
+    Then User executes query
+      """
+      SELECT  distinct onboardingStatus FROM ec.patient;
+      """
+    Then User verifies the data from database for "onboardingStatus"
+      | OnBoardingStatus1 | "<onboardingstatus1>" |
+      | OnBoardingStatus2 | "<onboardingstatus2>" |
+      | OnBoardingStatus3 | "<onboardingstatus3>" |
+      | OnBoardingStatus4 | "<onboardingstatus4>" |
+      | OnBoardingStatus5 | "<onboardingstatus5>" |
+
+    Examples: 
+      | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 | onboardingstatus5 |
+      | null              |                 3 |                 2 |                 0 |                 1 |
