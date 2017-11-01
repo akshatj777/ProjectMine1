@@ -120,6 +120,11 @@ public class CreateManagingOrganization extends BaseClass {
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 	}
 	
+	public void iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(String msg) {
+		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+	}
+	
 	public void iSearchManagingOrganizationInSearchBox(String mOrg) {
 		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), mOrg+time);
 	}

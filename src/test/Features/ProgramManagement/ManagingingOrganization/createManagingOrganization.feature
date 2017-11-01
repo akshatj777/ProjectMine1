@@ -115,7 +115,7 @@ Feature: Managing organization functionality tests
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     Then I click on "Submit" button on create organization page
-    Then I verify "Oh no! There is a conflict error because an entity with similar identifying attributes already existed." after submitting the create ogranization page
+    Then I verify error message "Oh no! There is a conflict error because an entity with similar identifying attributes already existed." after submitting the create ogranization page
 
     Examples: 
       | MO_Name        | Address1 | City | State      | Postal_Code | ParticipantId |

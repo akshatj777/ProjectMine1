@@ -69,6 +69,11 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
 	 }
 	 
+	 @And("^I verify error message \"([^\"]*)\" after submitting the create ogranization page$")
+	  public void i_Verify_Error_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
+		 createMO.iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(text);
+	 }
+	 
 	 @And("^I search ([^\"]*) managing organization in search box$")
 	  public void i_Search_ManagingOrganization_In_Serach_Box(String text) throws Throwable {
 		 createMO.iSearchManagingOrganizationInSearchBox(text);
