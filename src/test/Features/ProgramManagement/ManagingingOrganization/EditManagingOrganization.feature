@@ -29,7 +29,7 @@ Feature: Edit the Managing organization
   
   Examples:
   | MO_Name | MO_Name1 | Contact_Person    | Contact_Email        | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | ValidateMsg                                            |
-  | MO_post | MO_post  | ContactPersonTest | Sample11@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | Success! Management Organization Successfully Updated. |
+  | MO_post | MO_post  | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | Success! Management Organization Successfully Updated. |
   Scenario Outline: Edit a Managing Organization With Invalid Data and missing the manadatory field
   When I click on Organization link on Program Management page
   Then I search with <MO_Name> on organization in search box

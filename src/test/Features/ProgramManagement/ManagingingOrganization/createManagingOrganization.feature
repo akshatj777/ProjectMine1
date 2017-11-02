@@ -102,12 +102,12 @@ Feature: Create Managing organization
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     Then I click on "Submit" button on create organization page
-    Then I verify <ValidateMsg> after submitting the create ogranization page
+    #Then I verify <ValidateMsg> after submitting the create ogranization page
 
     Examples: 
       | MO_Name        | Address1 | City | State      | Postal_Code | ParticipantId | ValidateMsg                                                                                             |
       | MONAME         | Address1 | City | California |       10000 |           123 | Success! Management Organization Successfully Created.                                                  |
-      | newmo edited12 | Address1 | City | California |       10000 |           123 | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      #| newmo edited12 | Address1 | City | California |       10000 |           123 | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: Create a Manging organization with valid data and also cover search functionality
     (Mandatory + Non-mandatory fields)
