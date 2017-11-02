@@ -65,6 +65,15 @@ public class CreateManagingOrganization extends BaseClass {
 		// longDelay(); 
 	}
 	
+	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
+		delay();
+		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.getText();
+		delay();
+		// longDelay(); 
+	}
+	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));

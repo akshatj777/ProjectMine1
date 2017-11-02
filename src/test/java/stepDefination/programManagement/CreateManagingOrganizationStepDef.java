@@ -37,6 +37,10 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Click_On_Button_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	    }
+	 @And("^I verify on \"([^\"]*)\" button on create organization page$")
+	  public void i_verify_On_Button_On_Create_Organization_Page(String text) throws Throwable {
+		 createMO.iVerifyOnButtonOnCreateOrganizationPage(text);
+	    }
 	 
 	 @And("^I verify \"([^\"]*)\" mandatory field validation message on create organization page$")
 	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text) throws Throwable {
