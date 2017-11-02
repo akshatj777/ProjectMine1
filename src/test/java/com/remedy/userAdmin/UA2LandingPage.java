@@ -73,6 +73,9 @@ public class UA2LandingPage extends BaseClass {
 		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1), text);
 	}
 
+	public void iVerifyEmailFromSearchResult(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//td[@class='five wide']")),text);
+	}
 	public void iClickOnTopUserDropDown() {
 		delay();
 		clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
@@ -146,7 +149,7 @@ public class UA2LandingPage extends BaseClass {
 	public void iSortFromRole(){
 		clickElement(driver.findElement(By.cssSelector("#logicalRoleId")));
 		delay();
-		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#logicalRoleId")), "class", "descending sorted");
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#logicalRoleId")), "class", "ascending sorted");
 	}
 	public void iSortFromEmail(){
 		clickElement(driver.findElement(By.cssSelector("#email")));
@@ -156,12 +159,24 @@ public class UA2LandingPage extends BaseClass {
 	public void iSortFromDate(){
 		clickElement(driver.findElement(By.cssSelector("#insertedDate")));
 		delay();
-		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#insertedDate")), "class", "descending sorted");
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#insertedDate")), "class", "ascending sorted");
 	}
 	
 	public void iClickOnUsersLink(){
 		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
 		delay();
+	}
+	public void iClickOnAddUserButton(){
+		clickElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
+	}
+	public void iverifyAddUserButton(){
+		isElementVisible(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
+	}
+	public void iVerifyAddUserPage(){
+		isElementVisible(driver.findElement(By.xpath("//h2/span")));
+	}
+	public void iClickOnCloseIconFromAddUserPage(){
+		clickElement(driver.findElement(By.xpath("//i[@class='close icon']")));
 	}
 	
 }

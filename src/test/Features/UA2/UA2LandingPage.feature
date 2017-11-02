@@ -12,8 +12,6 @@ Feature: Landing page verification
     #And I wait for 2000 milli seconds
     Then I should see header text "Management"
     And I wait for 2000 milli seconds
-    And I should see "Add User" Button
-    And I should see "Users" link
     And I should see users table
     And I should see Account status column in the table
     And I wait for 1000 milli seconds
@@ -24,11 +22,17 @@ Feature: Landing page verification
     And I should see Date Created column in the table
     And I wait for 1000 milli seconds
     And I should see Pagination at bottom of the landing page
+    And I should see "Add User" Button in landing page
+    Then I click on "Add User" Button
+    Then I am navigated to user creation page
+    Then I click on close icon from user creation page
+    And I wait for 1000 milli seconds
+    Then I am on refreshed landing page
     And I click on the top user link
     And I wait for 1000 milli seconds
     Then I select "Log Out" option from the dropdown list
+    And I should see Log in widget
 
-    # And I should see Log in widget
     Examples: 
       | Email                               |
       | rkapur+devFirst2@remedypartners.com |
@@ -67,6 +71,17 @@ Feature: Landing page verification
     And I wait for 3000 milli seconds
     And I should see "Physicians" for User Role in landing page
 
+  Scenario: Search user by email
+    Given I am on the login page
+    When I log in as super user
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "Management"
+    And I wait for 3000 milli seconds
+    Then I enter search box in landing page with "rignoto"
+    And I wait for 3000 milli seconds
+    And I should see "rignoto@remedypartners.com" for email in landing page
+
   #top User link
   Scenario: Logout link test from top menu
     Given I am on the login page
@@ -75,8 +90,8 @@ Feature: Landing page verification
     Then I click Access button
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
+    And I should see Log in widget
 
-  #And I should see Log in widget
   Scenario: Internal Support link test from top menu
     Given I am on the login page
     Then I enter email field rkapur+devFirst2@remedypartners.com for login
@@ -85,7 +100,6 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Internal Support" option from the dropdown list
     When I switch to new window
-    And I wait for 3000 milli seconds
     And I verify current page "Login - Service Desk" title
     And I should see Jira Log in Page text "JIRA Service Desk (3.5.0)"
     Then I switch back to old window
@@ -108,7 +122,6 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Support" option from the dropdown list
     When I switch to new window
-    And I wait for 3000 milli seconds
     And I verify current page "Login - Service Desk" title
     And I should see Jira Log in Page text "JIRA Service Desk (3.5.0)"
     Then I switch back to old window

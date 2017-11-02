@@ -17,6 +17,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iLoginAsSupperUser(String userName, String passWord) {
+		longDelay();
 		iEnteruserEmail(userName);
 		iEnterPassword(passWord);
 		iClickLogInButton();
@@ -86,7 +87,7 @@ public class LoginPage extends BaseClass {
 
 	public void iClickLogInButton() {
 		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
-		delay();
+		//clickElement(driver.findElement(By.xpath("//span[@class='auth0-label-submit']")));
 	}
 
 	public void iVerifyLogInWidget() {

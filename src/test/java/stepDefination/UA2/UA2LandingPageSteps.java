@@ -14,7 +14,27 @@ public class UA2LandingPageSteps extends DriverScript {
 	public void i_should_see_link(String text) throws Throwable {
 		ua2LandingPage.iVerifyUsersLink(text);
 	}
+	
+	@Then("^I click on \"([^\"]*)\" Button$")
+	public void i_click_on_Button(String arg1) throws Throwable {
+	    ua2LandingPage.iClickOnAddUserButton();
+	}
 
+	@Then("^I am navigated to user creation page$")
+	public void i_am_navigated_to_user_creation_page() throws Throwable {
+	    ua2LandingPage.iVerifyAddUserPage();
+	}
+	@Then("^I should see \"([^\"]*)\" Button in landing page$")
+	public void i_should_see_Button_in_landing_page(String arg1) throws Throwable {
+	    ua2LandingPage.iverifyAddUserButton();
+	}
+
+	@Then("^I click on close icon from user creation page$")
+	public void i_click_on_close_icon_from_user_creation_page() throws Throwable {
+	 ua2LandingPage.iClickOnCloseIconFromAddUserPage();
+	}
+	
+		
 	@Then("^I should see users table$")
 	public void i_should_see_users_table() throws Throwable {
 		ua2LandingPage.iSeeUsersTable();
@@ -65,7 +85,11 @@ public class UA2LandingPageSteps extends DriverScript {
 	public void i_should_see_for_User_Role_in_landing_page(String text) throws Throwable {
 		ua2LandingPage.iVerifyRoleFromSearchResult(text);
 	}
-
+	
+	@Then("^I should see \"([^\"]*)\" for email in landing page$")
+	public void i_should_see_for_email_in_landing_page(String arg1) throws Throwable {
+	    ua2LandingPage.iVerifyEmailFromSearchResult(arg1);
+	}
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
 		ua2LandingPage.iClickOnTopUserDropDown();
