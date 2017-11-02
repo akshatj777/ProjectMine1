@@ -28,7 +28,6 @@ Feature: Managing organization functionality tests
   And I verify "*City" field on create organization page
   And I verify "*State" drop down field on create organization page
   And I verify "*Postal Code" field on create organization page
-  #And I verify "Cancel" button on create organization page
   Then I click on "Submit" button on create organization page
   And I verify "Please enter an Organization Name" mandatory field validation message on create organization page
   And I verify "Please enter an Address" mandatory field validation message on create organization page
@@ -119,7 +118,7 @@ Feature: Managing organization functionality tests
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     Then I click on "Submit" button on create organization page
-    #Then I verify error message "Oh no! There is a conflict error because an entity with similar identifying attributes already existed." after submitting the create ogranization page
+    Then I verify error message "Oh no! There is a conflict error because an entity with similar identifying attributes already existed." after submitting the create ogranization page
 
     Examples: 
       | MO_Name        | Address1 | City | State      | Postal_Code |
