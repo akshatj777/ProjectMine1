@@ -827,14 +827,14 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
     And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC" is appearing in the drg column rows
-    
+
     Examples: 
       | email                              | DRG Code1 |
       | shutestaug231132a@yopmail.com      |       469 |
       | shutestaug221130a@yopmail.com      |       469 |
       | reptestachmodel2opsfin@yopmail.com |       469 |
-      
-Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in financial performance claims report under overall program
+
+  Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -862,14 +862,14 @@ Scenario Outline: User should see corresponding DRG when selected 470 drg code i
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
     And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC" is appearing in the drg column rows
-    
+
     Examples: 
       | email                              | DRG Code1 |
       | shutestaug231132a@yopmail.com      |       470 |
       | shutestaug221130a@yopmail.com      |       470 |
       | reptestachmodel2opsfin@yopmail.com |       470 |
-      
-Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in financial performance claims report under overall program
+
+  Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -892,9 +892,9 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     And I should not see "Patient Risk" in the searched results under the levels
 
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
   Scenario Outline: fracture/non-fracture mapping in warehouse .dimDRG table should be 0,1,-99 in financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
@@ -928,3 +928,74 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     Examples: 
       | email                         | notapplicable | fracture | nonfracture |
       | shutestaug231132a@yopmail.com |           -99 |        0 |           1 |
+
+  Scenario Outline: Fracture values should display 0 and 1 only when executed the below query for financial performance claims reports under overall program
+    Then User executes query
+      """
+      select distinct (fracture)
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt >= '2016-10-01' and bpid like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+      | Fracture2 | "<fracture2>" |
+
+    Examples: 
+      | fracture1 | fracture2 |
+      |         0 |         1 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for financial performance claims reports under overall program
+    Then User executes query
+      """
+      select distinct (fracture) 
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt < '2016-10-01' and bpid like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for financial performance claims reports under overall program
+    Then User executes query
+      """
+      select distinct (fracture) 
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt >= '2016-10-01' and bpid not like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for financial performance claims reports under overall program
+    Then User executes query
+      """
+      select distinct (fracture) 
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt < '2016-10-01' and bpid not like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for financial performance claims reports under overall program
+    Then User executes query
+      """
+      select distinct fracture 
+      from reporting.episodeSummary where anchor_ms_drg not in (469, 470) 
+      and anchor_beg_dt >= '2016-10-01' and bpid like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |

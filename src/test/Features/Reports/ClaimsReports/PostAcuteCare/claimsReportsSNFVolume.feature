@@ -809,3 +809,74 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     Examples: 
       | email                         | notapplicable | fracture | nonfracture |
       | shutestaug231132a@yopmail.com |           -99 |        0 |           1 |
+      
+  Scenario Outline: Fracture values should display 0 and 1 only when executed the below query for snf volume report under post acute care
+    Then User executes query
+      """
+      select distinct (fracture) 
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt >= '2016-10-01' and bpid like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+      | Fracture2 | "<fracture2>" |
+
+    Examples: 
+      | fracture1 | fracture2 |
+      |         0 |         1 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for snf volume report under post acute care
+    Then User executes query
+      """
+      select distinct (fracture)
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt < '2016-10-01' and bpid like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for snf volume report under post acute care
+    Then User executes query
+      """
+      select distinct (fracture)
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt >= '2016-10-01' and bpid not like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for snf volume report under post acute care
+    Then User executes query
+      """
+      select distinct (fracture)
+      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
+      and anchor_beg_dt < '2016-10-01' and bpid not like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
+
+  Scenario Outline: Fracture values should display -99 when executed the below query for snf volume report under post acute care
+    Then User executes query
+      """
+      select distinct fracture 
+      from reporting.episodeSummary where anchor_ms_drg not in (469, 470) 
+      and anchor_beg_dt >= '2016-10-01' and bpid like '2070%';
+      """
+    Then User verifies the data from database for "fracture"
+      | Fracture1 | "<fracture1>" |
+
+    Examples: 
+      | fracture1 |
+      |       -99 |
