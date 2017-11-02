@@ -110,7 +110,7 @@ Feature: Create Managing organization
       | newmo edited12 | Address1 | City | California |       10000 |           123 | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: Create a Manging organization with valid data and also cover search functionality
-    (Manadatory + Non-manadatory fields)
+    (Mandatory + Non-mandatory fields)
 
     When I click on Organization link on Program Management page
     Then I click on create new Organization button on Program Management homepage
