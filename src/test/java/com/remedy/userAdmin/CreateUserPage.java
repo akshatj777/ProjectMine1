@@ -503,8 +503,7 @@ public class CreateUserPage extends BaseClass{
            
         Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
        } 
-   }
-   
+   } 
    
    public void verifyLearningPathwayNotAvailable() throws Throwable {
 	   Assert.assertTrue(isElementNotPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")));
@@ -513,18 +512,15 @@ public class CreateUserPage extends BaseClass{
    public void verifyLearningPathwayAvailable() throws Throwable {
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")));
    }
-
    
    public void clickLessonsSelectButton() throws Throwable {
        clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
    }
 
-   
    public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), searchParam);
    }
 
-   
    public void selectLearningPath(String searchParam) throws Throwable {
        clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
    }
@@ -549,7 +545,6 @@ public class CreateUserPage extends BaseClass{
 	   {
 		   clickElement(driver.findElement(By.xpath("//label[text()='"+programList+"']")));
 	   }
-	    
    }
    
    public void selectLocations(String locationList) throws Throwable {
@@ -565,7 +560,6 @@ public class CreateUserPage extends BaseClass{
 	   {
 		   clickElement(driver.findElement(By.xpath("//label[text()='"+locationList+"']")));
 	   }
-	   
    }
    
    public void verifyDefaultProgramOrganization(String programName) throws Throwable {
@@ -605,12 +599,12 @@ public class CreateUserPage extends BaseClass{
     	   {
     		   
     	   }
-           
        } 
    }
    
    public void clickAddAnotherOrganization() throws Throwable {
 		clickElement(driver.findElement(By.xpath("//button[text()='Add Another Organization']")));
    }
+   
 
 }
