@@ -105,8 +105,8 @@ Feature: View the Managing organization
     And I verify the count for the associated organization
 
     Examples: 
-      | MO_Name             | Hosp_Org_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | CCN | EIN | NPI | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket | LState | LPostal_Code | StateInitials | ParticipantId |  |
-      | Automate Manag Orgg | ACH           | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | CCN | EIN | NPI |          |           |          |           |         |       |         |        |              | NY            | Sample        |  |
+      | MO_Name             | Hosp_Org_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | CCN | EIN | NPI | Loc_Name | LAddress1 | Loc_Type | LAddress2 | LRegion | LCity | LMarket | LState | LPostal_Code | StateInitials | ParticipantId |
+      | Automate Manag Orgg | ACH           | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | CCN | EIN | NPI | way123   | LAddress  |          |           |         |       |         |        |              | NY            | Sample        |
 
   Scenario Outline: View managing organization and click on the cross button
     When I click on Organization link on Program Management page
@@ -131,7 +131,15 @@ Feature: View the Managing organization
     Then I verify "ACH" organization by default selected under Managing Organization
     When I search with <Org_Name> on organization in search box
     And I click <Org_Name> field in search list on organization page
+    And I click on the cross button
+    And I click on "PGP" organization under Managing Organization
+    When I search with <Org_Name1> on organization in search box
+    And I click <Org_Name1> field in search list on organization page
+    And I click on the cross button
+    And I click on "SNF" organization under Managing Organization
+    When I search with <Org_Name2> on organization in search box
+    And I click <Org_Name2> field in search list on organization page
 
     Examples: 
-      | MO_Name       | Org_Name |
-      | EditTestMnOrg |          |
+      | MO_Name       | Org_Name | Org_Name1       | Org_Name2  |
+      | EditTestMnOrg | fghfhfhf | pgpnamewertfcsc | snfnamedef |
