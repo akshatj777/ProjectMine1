@@ -511,6 +511,14 @@ public class BaseClass {
       
     }
 	
+	public boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } catch (org.openqa.selenium.NoSuchElementException e) {
+	      return false;
+	    }
+	}
 	
 }
 

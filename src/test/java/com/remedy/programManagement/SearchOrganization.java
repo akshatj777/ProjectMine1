@@ -36,9 +36,8 @@ public class SearchOrganization extends BaseClass{
 		}	
 	}
 	
-public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table){
-		
-		Map<String, String> data;
+	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table){
+		  Map<String, String> data;
 		  data=table.asMap(String.class, String.class);
 		  Object[] keySet=data.keySet().toArray();
 		  for(int i =0; i<data.size();i++)
@@ -89,7 +88,20 @@ public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table)
 		}
 	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
 		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[text()='cCtrHManOrgKbNJmokq3823']")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//div[text()='EditedHManOrgNmokq3823']")), text);
+	}
+	
+	public void iVerifySearchBarOnOrganizationPage(String text) {
+		iWillWaitToSee(By.cssSelector(".text-input-field-organizationFilterTerm"));
+		isElementPresent(By.cssSelector(".text-input-field-organizationFilterTerm"));
+	}
+	
+	public void iVerifytheNewMatchesMessage() {
+		getTextForElement(driver.findElement(By.cssSelector(".data-table-overlay-message")));
+	}
+	
+	public void iVerifytheCreateNewManagingOrganizationLink() {
+		getTextForElement(driver.findElement(By.cssSelector(".data-table-overlay-link>a")));
 	}
 
 }
