@@ -54,28 +54,35 @@ public class UA2LandingPage extends BaseClass {
 		delay();
 	}
 
-	public void iVerifyNameFromSearchResult(String text, String name) {
-		WebElement ele=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0);
-		String[] NameArray=ele.getText().split("\\s+");
-		String firstName= NameArray[0];
+	public void iVerifySearchResult(String result, String searchBy) {
+		WebElement name=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0);
+		WebElement role=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1);
+		WebElement email=driver.findElements(By.xpath("//td[@class='five wide']")).get(0);
 		
-		String lastName=NameArray[1];
-		if (isElementVisible(ele)){
-			if(name.equals("First Name")) {
-			Assert.assertEquals(firstName, text);
+			
+		if (searchBy.equalsIgnoreCase("First Name")||searchBy.equalsIgnoreCase("Last Name") ){
+			/*String[] NameArray=name.getText().split("\\s+");
+			String firstName= NameArray[0];
+			String lastName=NameArray[1];*/
+			
+			verifyTextForElement(name,result);
 		}
-			else if (name.equals("Last Name"))
-			Assert.assertEquals(lastName, text);
+		else if(isElementVisible(role)&& searchBy.equalsIgnoreCase("Role")){
+			verifyTextForElement(role,result);
+		}
+		else if(isElementVisible(email)&& searchBy.equalsIgnoreCase("email")){
+			verifyTextForElement(email,result);
 		}
 	}
 
-	public void iVerifyRoleFromSearchResult(String text) {
+	/*public void iVerifyRoleFromSearchResult(String text) {
 		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1), text);
 	}
 
 	public void iVerifyEmailFromSearchResult(String text){
 		verifyTextForElement(driver.findElement(By.xpath("//td[@class='five wide']")),text);
-	}
+	}*/
+	
 	public void iClickOnTopUserDropDown() {
 		delay();
 		clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));

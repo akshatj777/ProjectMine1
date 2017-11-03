@@ -37,50 +37,24 @@ Feature: Landing page verification
       | Email                               |
       | rkapur+devFirst2@remedypartners.com |
 
-  #Search cases
-  Scenario: Search user by FirstName
-    Given I am on the login page
-    When I log in as super user
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
-    And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "NOTO"
-    And I wait for 3000 milli seconds
-    And I should see "IGNOTO" for "First Name" in landing page
-
-  Scenario: Search user by Lastname
-    Given I am on the login page
-    When I log in as super user
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
-    And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "ACHE"
-    And I wait for 3000 milli seconds
-    And I should see "RACHEL" for "Last Name" in landing page
-
-  Scenario: Search user by NPI
+  #search cases
+  Scenario Outline: Search user by Role/Name/Email
     Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see header text "Management"
     And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "123456"
+    Then I enter search box in landing page with <Search>
     And I wait for 3000 milli seconds
-    And I should see "Physicians" for User Role in landing page
+    And I should see <Result> for <category> in landing page
 
-  Scenario: Search user by email
-    Given I am on the login page
-    When I log in as super user
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "Management"
-    And I wait for 3000 milli seconds
-    Then I enter search box in landing page with "rignoto"
-    And I wait for 3000 milli seconds
-    And I should see "rignoto@remedypartners.com" for email in landing page
+    Examples: 
+      | Search  | Result                     | Category   |
+      | PHY     | Physicians                 | Role       |
+      | RACHEl  | IGNOTO RACHEL              | Last Name  |
+      | IGNOTO  | IGNOTO RACHEL              | First Name |
+      | rignoto | rignoto@remedypartners.com | Email      |
 
   #top User link
   Scenario: Logout link test from top menu
@@ -197,3 +171,5 @@ Feature: Landing page verification
     Then I click on "Users" link
     And I wait for 1000 milli seconds
     Then I am on refreshed landing page
+
+

@@ -70,18 +70,11 @@ public class UA2LandingPageSteps extends DriverScript {
 		ua2LandingPage.iSeePagination();
 	}
 
-	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text);
-	}
-
-	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in landing page$")
-	public void i_should_see_for_in_landing_page(String text, String name) throws Throwable {
-	    ua2LandingPage.iVerifyNameFromSearchResult(text, name);
-	}
 
 
-	@Then("^I should see \"([^\"]*)\" for User Role in landing page$")
+
+
+	/*@Then("^I should see \"([^\"]*)\" for User Role in landing page$")
 	public void i_should_see_for_User_Role_in_landing_page(String text) throws Throwable {
 		ua2LandingPage.iVerifyRoleFromSearchResult(text);
 	}
@@ -89,7 +82,7 @@ public class UA2LandingPageSteps extends DriverScript {
 	@Then("^I should see \"([^\"]*)\" for email in landing page$")
 	public void i_should_see_for_email_in_landing_page(String arg1) throws Throwable {
 	    ua2LandingPage.iVerifyEmailFromSearchResult(arg1);
-	}
+	}*/
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
 		ua2LandingPage.iClickOnTopUserDropDown();
@@ -183,5 +176,15 @@ public class UA2LandingPageSteps extends DriverScript {
 	@Then("^I am on refreshed landing page$")
 	public void i_am_on_refreshed_landing_page() throws Throwable {
 	   ua2LandingPage.iSeeUsersTable();
+	}
+
+	@Then("^I enter search box in landing page with ([^\"]*)$")
+	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
+	ua2LandingPage.SearchUserWithText(text);
+	}
+
+	@Then("^I should see ([^\"]*) for ([^\"]*) in landing page$")
+	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
+	    ua2LandingPage.iVerifySearchResult(result, searchBy);
 	}
 }
