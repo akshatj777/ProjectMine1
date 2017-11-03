@@ -1526,4 +1526,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_remove_payer_field_filter_under_filter_field_from_default_filters(String text) throws Throwable{
     	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
     }
+    
+    @Then("^I drag and drop the BPID field from panel to layout$")
+    public void i_drag_and_drop_the_BPID_field_from_panel_to_layout(String from,String to) throws Throwable{
+    	reportHomePage.iDragandDropBPIDField();
+    }
+    
+    @Then("^I drag and drop the BPID field in reports$")
+    public void i_drag_and_drop_the_BPID_field_in_reports() throws Throwable{
+    	reportHomePage.iDragandDropBPIDFieldWithMovetoElement(".//*[@id='dojoUnique16']","(//span[text()='Drop Level Here'])[1]");
+    }
 }

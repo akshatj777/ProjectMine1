@@ -999,3 +999,28 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     Examples: 
       | fracture1 |
       |       -99 |
+
+  Scenario Outline: Drag and drop functionality verification.
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Financial Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    Then I wait for 4000 milli seconds
+    #Then I drag and drop the BPID field from panel to layout
+    Then I drag and drop the BPID field in reports
+    Then I wait for 4000 milli seconds
+    
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
