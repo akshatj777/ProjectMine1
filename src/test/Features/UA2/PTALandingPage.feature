@@ -3,7 +3,7 @@ Feature: Landing page verification
   Scenario Outline: Login as admin users and verify the content at Landing Page
     Given I am on the login page
     When I enter email field <Email> for login
-    And I enter password field abcABC1! for Login
+    And I enter password field Testing11 for Login
     Then I click Access button
     And I wait for 4000 milli seconds
     #Then I should see Tile text User Admin
@@ -34,33 +34,72 @@ Feature: Landing page verification
     And I should see Log in widget
 
     Examples: 
-      | Email                               |
-      | rkapur+devFirst2@remedypartners.com |
+      | Email              |
+      | joepta@yopmail.com |
 
-  #search cases
-  Scenario Outline: Search user by Role/Name/Email
+  #permission
+  Scenario Outline: PTA user can only see users he is provisioned to
     Given I am on the login page
-    When I log in as super user
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see header text "Management"
     And I wait for 3000 milli seconds
     Then I enter search box in landing page with <Search>
     And I wait for 3000 milli seconds
-    And I should see <Result> for <Search By> in landing page
+    Then I should see users with <Role1>
+    And I should not see Users with <Role2>
 
     Examples: 
-      | Search  | Result                     | Search By  |
-      | PHY     | Physicians                 | Role       |
-      | RACHEl  | IGNOTO RACHEL              | Last Name  |
-      | IGNOTO  | IGNOTO RACHEL              | First Name |
-      | rignoto | rignoto@remedypartners.com | Email      |
+      | Search                          | Role1                         | Role2                           |
+      | Executive                       | Executive                     |                                 |
+      | Manager                         | Manager                       |                                 |
+      | Case Manager                    | Case Manager                  |                                 |
+      | Physicians                      | Physicians                    |                                 |
+      | Prospective Partner Executive   | Prospective Partner Executive |                                 |
+      | Partner Program Administrator   | Partner Program Administrator |                                 |
+      | Transitional Case Manager       | Transitional Case Manager     |                                 |
+      | Remedy TCS                      |                               | Remedy TCS                      |
+      | Remedy LPN                      |                               | Remedy LPN                      |
+      | Remedy RN                       |                               | Remedy RN                       |
+      | Remedy Field RN                 |                               | Remedy Field RN                 |
+      | Remedy PM                       |                               | Remedy PM                       |
+      | Remedy Sales Team               |                               | Remedy Sales Team               |
+      | Remedy Executive                |                               | Remedy Executive                |
+      | Remedy Other                    |                               | Remedy Other                    |
+      | Remedy Program Administrator    |                               | Remedy Program Administrator    |
+      | Partner Technical Administrator |                               | Partner Technical Administrator |
+      | Remedy Technical Administrator  |                               | Remedy Technical Administrator  |
+      | Downstream Provider             |                               | Downstream Provider             |
+
+  #search cases
+  Scenario Outline: Search user by Role/Name/Email
+    Given I am on the login page
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    #Then I should see header text "Management"
+    And I wait for 3000 milli seconds
+    Then I enter search box in landing page with <Search>
+    And I wait for 3000 milli seconds
+    And I should see <Result> for <category> in landing page
+
+    Examples: 
+      | Search             | Result             | Category   |
+      | PHY                | Physicians         | Role       |
+      | Green              | Rachel Green       | Last Name  |
+      | Rachel             | Rachel Green       | First Name |
+      | rachel@yopmail.com | rachel@yopmail.com | Email      |
 
   #top User link
   Scenario: Logout link test from top menu
     Given I am on the login page
-    Then I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
     Then I click Access button
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
@@ -68,8 +107,8 @@ Feature: Landing page verification
 
   Scenario: Internal Support link test from top menu
     Given I am on the login page
-    Then I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
     Then I click Access button
     And I click on the top user link
     Then I select "Internal Support" option from the dropdown list
@@ -80,8 +119,8 @@ Feature: Landing page verification
 
   Scenario: Reset Password link test from top menu
     Given I am on the login page
-    Then I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
     Then I click Access button
     And I click on the top user link
     Then I select "Reset Password" option from the dropdown list
@@ -90,8 +129,8 @@ Feature: Landing page verification
 
   Scenario: Support link test from top menu
     Given I am on the login page
-    Then I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
     Then I click Access button
     And I click on the top user link
     Then I select "Support" option from the dropdown list
@@ -103,7 +142,9 @@ Feature: Landing page verification
   #Lock unlock cases
   Scenario: Verification of Lock and Unlock Users on user admin landing page
     Given I am on the login page
-    When I log in as super user
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
@@ -114,7 +155,9 @@ Feature: Landing page verification
 
   Scenario: Unlocking a user
     Given I am on the login page
-    When I log in as super user
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
@@ -130,7 +173,9 @@ Feature: Landing page verification
 
   Scenario: Cancelling unlock
     Given I am on the login page
-    When I log in as super user
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
@@ -147,7 +192,9 @@ Feature: Landing page verification
   #Sort users
   Scenario: User able to sort the users in landing page
     Given I am on the login page
-    When I log in as super user
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
@@ -162,7 +209,9 @@ Feature: Landing page verification
   #Refreshing from Users link
   Scenario: User should be able to refresh users from users link
     Given I am on the login page
-    When I log in as super user
+    Then I enter email field joepta@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
     And I wait for 1000 milli seconds
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
