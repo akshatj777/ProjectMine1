@@ -21,7 +21,7 @@ Feature: Verification of DOB Date format for Claims Reports
     Then I verify the DOB column format is in YYYY-MM-DD for "Patient Detail"
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
-    And I wait to see "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
     Then I verify current page "Reports" title
 
     Examples: 

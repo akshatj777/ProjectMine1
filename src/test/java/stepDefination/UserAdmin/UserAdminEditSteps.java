@@ -24,6 +24,11 @@ public class UserAdminEditSteps extends DriverScript {
 		UserEdit.iVerifyTheUserDetailsPageForEditing();
 	}
 	
+	@And("^I verify the user ([^\"]*) address$")
+	public void i_Verify_The_User_Email_Address(String email) throws Throwable{
+		UserEdit.i_Verify_The_User_Email_Address(email);
+	}
+	
 	@Then("^I clicked on Edit button under user Role row$")
 	public void i_Clicked_On_Edit_Button_Under_User_Role_Row() throws Throwable{
 		UserEdit.iClickedOnEditButtonUnderUserRoleRow();
