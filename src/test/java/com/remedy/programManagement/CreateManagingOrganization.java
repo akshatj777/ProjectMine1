@@ -29,6 +29,7 @@ public class CreateManagingOrganization extends BaseClass {
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
 	public static String orgName;
+	public static String ACHName;
 	public static String editedOrgName;
 	public static String participant_id;
 	public static String CCN;
@@ -99,6 +100,13 @@ public class CreateManagingOrganization extends BaseClass {
 		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
 		writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
+		}
+		
+		else if (text.contains("ACH"))
+		{
+			ACHName = text+RandomStringUtils.randomAlphabetic(8)+"ACHName";
+			System.out.println(ACHName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
 		}
 		
 		else if (text.equals(""))

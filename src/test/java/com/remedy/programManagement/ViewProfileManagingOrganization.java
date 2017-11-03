@@ -61,7 +61,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifytheCountFortheAssociatedorganization() {
 		delay();
-		driver.findElement(By.cssSelector(".data-table-overlay-content")).getText();
+		getTextForElement(driver.findElement(By.cssSelector(".fixed-data-table.noselect>div")));
 	}
 	
 	public void iClickOnOrganizationUnderManagingOrganization(String org) {
