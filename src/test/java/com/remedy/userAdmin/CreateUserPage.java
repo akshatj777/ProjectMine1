@@ -606,5 +606,14 @@ public class CreateUserPage extends BaseClass{
 		clickElement(driver.findElement(By.xpath("//button[text()='Add Another Organization']")));
    }
    
+   public void enterCharacterInLocationSearch(String text) throws Throwable {
+	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), text);
+	   delay();
+   }
+   
+   public void shouldNotSeeFieldWithLabel(String text) throws Throwable {
+	   boolean val = isElementPresentOnPage(By.xpath("//label[text()='All Location']"));
+	   Assert.assertFalse(val);
+   }
 
 }
