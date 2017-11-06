@@ -37,8 +37,19 @@ public class SearchOrganization extends BaseClass{
 	}
 	
 	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
-		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[text()='Automate Manag Orgg']")), text);
+		if(text.contains("MONAME"))
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), CreateManagingOrganization.orgName);
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgName+"']"));
+		}
+		else
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), text);
+			isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
+		}
+		
 	}
 
 }

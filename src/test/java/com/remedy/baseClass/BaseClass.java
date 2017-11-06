@@ -154,7 +154,6 @@ public class BaseClass {
 	}
 
 	public void selectElementByIndex(String element, int idx) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		listItems.get(idx).click();
 	}
@@ -175,13 +174,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		for (WebElement item : listItems) {
 			item.getText().equalsIgnoreCase(itemtext);
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -264,9 +256,7 @@ public class BaseClass {
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
-            //item.getText().equalsIgnoreCase(itemtext);
             Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
-            //Assert.assertNotEquals();
         }
     }
         
@@ -331,15 +321,7 @@ public class BaseClass {
 	public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -348,7 +330,6 @@ public class BaseClass {
 	}
 
 	public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
-		// actionEvent.moveToElement(toElement).click().build().perform();
 		actionEvent.moveToElement(moveToElement).perform();
 		clickToElement.click();
 	}
@@ -380,7 +361,6 @@ public class BaseClass {
 		}
 		return value;
 	}
-
 
 	public boolean isElementNotPresentOnPage(String ele) {
 		boolean value = false;
@@ -474,14 +454,8 @@ public class BaseClass {
      { 
      
      }
-		return null;
-
-      
+		return null;      
     }
-	
-	
-
-
 
 	public void VerifyElementCssProperty(By by,String property){
 		WebElement ele = driver.findElement(by);

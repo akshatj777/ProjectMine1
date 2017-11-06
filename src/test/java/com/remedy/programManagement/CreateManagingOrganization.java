@@ -68,9 +68,26 @@ public class CreateManagingOrganization extends BaseClass {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
 		delay();
-		// longDelay(); 
 	}
 	
+	public void iClickOnCancelButtonOnCreateOrganizationPage() {
+		delay();
+		WebElement element = driver.findElement(By.xpath("//button[text()='Cancel']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
+	}
+	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
+		delay();
+		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.getText();
+		delay();
+	}
+	
+	public void userNavigatedToViewPage() {
+		driver.findElement(By.cssSelector(".navLink.noselect")).getText();
+	}
+
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
@@ -101,16 +118,11 @@ public class CreateManagingOrganization extends BaseClass {
 		writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
-		
 		else if (text.contains("ACH"))
 		{
 			ACHName = text+RandomStringUtils.randomAlphabetic(8)+"ACHName";
 			System.out.println(ACHName);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), ACHName);
-		}
-		
-		else if (text.equals(""))
-		{	
 		}
 	    else 	
 		{
@@ -139,13 +151,16 @@ public class CreateManagingOrganization extends BaseClass {
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
-		/*Select dropdownState = new Select(driver.findElement(By.name("address.stateSelection")));
-        dropdownState.selectByVisibleText(text);*/
 	}
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+	}
+	
+	public void iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(String msg) {
+		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	}
 	
 	public void iSearchManagingOrganizationInSearchBox(String mOrg) {
@@ -220,6 +235,4 @@ public class CreateManagingOrganization extends BaseClass {
     	num = num-1;
     	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.postalCode']")), text);
     }
-
-	
 }
