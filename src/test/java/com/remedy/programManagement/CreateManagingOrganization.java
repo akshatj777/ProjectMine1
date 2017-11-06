@@ -62,7 +62,6 @@ public class CreateManagingOrganization extends BaseClass {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
 		delay();
-		// longDelay(); 
 	}
 	
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
@@ -71,7 +70,6 @@ public class CreateManagingOrganization extends BaseClass {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.getText();
 		delay();
-		// longDelay(); 
 	}
 	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
@@ -104,10 +102,6 @@ public class CreateManagingOrganization extends BaseClass {
 		writeProperty("MO_NAME", orgName);		
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
-		
-		else if (text.equals(""))
-		{	
-		}
 	    else 	
 		{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
@@ -120,8 +114,6 @@ public class CreateManagingOrganization extends BaseClass {
 		delay();
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
-		/*Select dropdownState = new Select(driver.findElement(By.name("address.stateSelection")));
-        dropdownState.selectByVisibleText(text);*/
 	}
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
