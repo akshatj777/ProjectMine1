@@ -1,4 +1,4 @@
-package com.remedy.userAdmin;
+package com.remedy.UA2;
 
 import java.util.List;
 
@@ -56,7 +56,6 @@ public class UA2LandingPage extends BaseClass {
 
 	public void iVerifySearchResult(String result, String searchBy) {
 		WebElement name=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0);
-		WebElement role=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1);
 		WebElement email=driver.findElements(By.xpath("//td[@class='five wide']")).get(0);
 		
 			
@@ -67,10 +66,10 @@ public class UA2LandingPage extends BaseClass {
 			
 			verifyTextForElement(name,result);
 		}
-		else if(isElementVisible(role)&& searchBy.equalsIgnoreCase("Role")){
-			verifyTextForElement(role,result);
+		else if(searchBy.equalsIgnoreCase("Role")){
+			iVerifyTextFromListOfElement(By.xpath("//td[contains(@class,'four wide')]"), result);
 		}
-		else if(isElementVisible(email)&& searchBy.equalsIgnoreCase("email")){
+		else if(searchBy.equalsIgnoreCase("email")){
 			verifyTextForElement(email,result);
 		}
 	}

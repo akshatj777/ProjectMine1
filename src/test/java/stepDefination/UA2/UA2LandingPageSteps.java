@@ -1,8 +1,7 @@
 package stepDefination.UA2;
 
+import com.remedy.UA2.UA2LandingPage;
 import com.remedy.resources.DriverScript;
-
-import com.remedy.userAdmin.UA2LandingPage;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
