@@ -1,4 +1,4 @@
-package com.remedy.userAdmin;
+package com.remedy.UA2;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
-public class UA2LandingPage extends BaseClass {
+public class SuperUserLandingPage extends BaseClass {
 
-	public UA2LandingPage(WebDriver driver) {
+	public SuperUserLandingPage(WebDriver driver) {
 
 		super(driver);
 	}
@@ -75,13 +75,6 @@ public class UA2LandingPage extends BaseClass {
 		}
 	}
 
-	/*public void iVerifyRoleFromSearchResult(String text) {
-		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1), text);
-	}
-
-	public void iVerifyEmailFromSearchResult(String text){
-		verifyTextForElement(driver.findElement(By.xpath("//td[@class='five wide']")),text);
-	}*/
 	
 	public void iClickOnTopUserDropDown() {
 		delay();

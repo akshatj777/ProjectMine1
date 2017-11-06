@@ -1,14 +1,13 @@
 package stepDefination.UA2;
 
+import com.remedy.UA2.SuperUserLandingPage;
 import com.remedy.resources.DriverScript;
-
-import com.remedy.userAdmin.UA2LandingPage;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 
 public class UA2LandingPageSteps extends DriverScript {
-	UA2LandingPage ua2LandingPage = new UA2LandingPage(driver);
+	SuperUserLandingPage ua2LandingPage = new SuperUserLandingPage(driver);
 
 	@Then("^I should see \"([^\"]*)\" link$")
 	public void i_should_see_link(String text) throws Throwable {
@@ -70,19 +69,6 @@ public class UA2LandingPageSteps extends DriverScript {
 		ua2LandingPage.iSeePagination();
 	}
 
-
-
-
-
-	/*@Then("^I should see \"([^\"]*)\" for User Role in landing page$")
-	public void i_should_see_for_User_Role_in_landing_page(String text) throws Throwable {
-		ua2LandingPage.iVerifyRoleFromSearchResult(text);
-	}
-	
-	@Then("^I should see \"([^\"]*)\" for email in landing page$")
-	public void i_should_see_for_email_in_landing_page(String arg1) throws Throwable {
-	    ua2LandingPage.iVerifyEmailFromSearchResult(arg1);
-	}*/
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
 		ua2LandingPage.iClickOnTopUserDropDown();
