@@ -6,7 +6,7 @@ import com.remedy.resources.DriverScript;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 
-public class UA2LandingPageSteps extends DriverScript {
+public class SuperUserLandingPageSteps extends DriverScript {
 	SuperUserLandingPage ua2LandingPage = new SuperUserLandingPage(driver);
 
 	@Then("^I should see \"([^\"]*)\" link$")

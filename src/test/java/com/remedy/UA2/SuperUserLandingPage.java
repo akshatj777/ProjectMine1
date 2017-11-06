@@ -55,23 +55,15 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifySearchResult(String result, String searchBy) {
-		WebElement name=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(0);
-		WebElement role=driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1);
-		WebElement email=driver.findElements(By.xpath("//td[@class='five wide']")).get(0);
-		
-			
+					
 		if (searchBy.equalsIgnoreCase("First Name")||searchBy.equalsIgnoreCase("Last Name") ){
-			/*String[] NameArray=name.getText().split("\\s+");
-			String firstName= NameArray[0];
-			String lastName=NameArray[1];*/
-			
-			verifyTextForElement(name,result);
+		iVerifyTextFromListOfElement(By.xpath("//td[contains(@class,'four wide')]"), result);
 		}
-		else if(isElementVisible(role)&& searchBy.equalsIgnoreCase("Role")){
-			verifyTextForElement(role,result);
+		else if(searchBy.equalsIgnoreCase("Role")){
+			iVerifyTextFromListOfElement(By.xpath("//td[contains(@class,'four wide')]"), result);
 		}
-		else if(isElementVisible(email)&& searchBy.equalsIgnoreCase("email")){
-			verifyTextForElement(email,result);
+		else if(searchBy.equalsIgnoreCase("email")){
+			iVerifyTextFromListOfElement(By.xpath("//td[@class='five wide']"), result);
 		}
 	}
 
