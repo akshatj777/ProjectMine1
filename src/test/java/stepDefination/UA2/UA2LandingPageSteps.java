@@ -175,6 +175,7 @@ public class UA2LandingPageSteps extends DriverScript {
 	@Then("^I am on refreshed landing page$")
 	public void i_am_on_refreshed_landing_page() throws Throwable {
 	   ua2LandingPage.iSeeUsersTable();
+	   
 	}
 
 	@Then("^I enter search box in landing page with ([^\"]*)$")

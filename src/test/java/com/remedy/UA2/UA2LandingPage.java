@@ -23,7 +23,8 @@ public class UA2LandingPage extends BaseClass {
 	public void iSeeUsersTable() {
 		isElementVisible(
 				driver.findElement(By.xpath("//table[@class='ui celled sortable striped table users-table']")));
-	}
+		delay();
+		}
 
 	public void iSeeAccountStatusColumn() {
 		isElementVisible(driver.findElement(By.xpath("//i[@class='lock large icon']")));
@@ -74,17 +75,11 @@ public class UA2LandingPage extends BaseClass {
 		}
 	}
 
-	/*public void iVerifyRoleFromSearchResult(String text) {
-		verifyTextForElement(driver.findElements(By.xpath("//td[contains(@class,'four wide')]")).get(1), text);
-	}
-
-	public void iVerifyEmailFromSearchResult(String text){
-		verifyTextForElement(driver.findElement(By.xpath("//td[@class='five wide']")),text);
-	}*/
 	
 	public void iClickOnTopUserDropDown() {
 		delay();
-		clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
+		//clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
+		clickElement(driver.findElement(By.cssSelector("div.text")));
 	longDelay();
 	}
 	
