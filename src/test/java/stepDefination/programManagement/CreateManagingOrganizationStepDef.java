@@ -47,6 +47,11 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 @Then("^User navigated to view page$")
 	  public void user_navigated_to_view_page() throws Throwable {
 		 createMO.userNavigatedToViewPage();
+	 }
+		 
+	 @And("^And I verify \"([^\"]*)\" button on create organization page$")
+	  public void i_verify_On_Button_On_Create_Organization_Page(String text) throws Throwable {
+		 createMO.iVerifyOnButtonOnCreateOrganizationPage(text);
 	    }
 	 
 	 @And("^I verify \"([^\"]*)\" mandatory field validation message on create organization page$")
@@ -78,6 +83,11 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 @And("^I verify \"([^\"]*)\" after submitting the create ogranization page$")
 	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
+	 }
+	 
+	 @And("^I verify error message \"([^\"]*)\" after submitting the create ogranization page$")
+	  public void i_Verify_Error_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
+		 createMO.iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(text);
 	 }
 	 
 	 @And("^I search ([^\"]*) managing organization in search box$")

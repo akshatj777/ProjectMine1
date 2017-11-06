@@ -71,8 +71,13 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='Cancel']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
+	}
+	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
 		delay();
-		// longDelay(); 
+		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.getText();
+		delay();
 	}
 	
 	public void userNavigatedToViewPage() {
@@ -132,6 +137,11 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+	}
+	
+	public void iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(String msg) {
+		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	}
 	
 	public void iSearchManagingOrganizationInSearchBox(String mOrg) {

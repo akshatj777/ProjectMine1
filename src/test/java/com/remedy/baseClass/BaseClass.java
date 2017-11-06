@@ -473,9 +473,7 @@ public class BaseClass {
      { 
      
      }
-		return null;
-
-      
+		return null;      
     }
 
 	public void VerifyElementCssProperty(By by,String property){
