@@ -22,6 +22,7 @@ Feature: View the Managing organization
     Then I verify <Contact_Person> in "contact-name" on view profile of "Managing" Organization
     And I verify <Contact_Phone> in "contact-phone" on view profile of "Managing" Organization
     And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
+    And I Verify the Edit button on View page
     And I verify "ACH" organization present under "Managing" Organization
     And I verify "PGP" organization present under "Managing" Organization
     And I verify "SNF" organization present under "Managing" Organization

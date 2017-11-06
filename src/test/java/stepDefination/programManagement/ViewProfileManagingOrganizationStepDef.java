@@ -84,4 +84,9 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	  public void user_should_get_redirected_to_the_managing_organization_tab_page() throws Throwable {
 		viewProfileMO.userShouldGetRedirectedToTheManagingOrganizationTabPage();
 	}
+	
+	@And("^I Verify the Edit button on View page$")
+	  public void i_Verify_the_Edit_button_on_view_page() throws Throwable {
+		viewProfileMO.iVerifyTheEditButtonontheViewPage();
+	}
 }

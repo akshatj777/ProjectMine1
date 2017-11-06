@@ -1,4 +1,4 @@
-2017-11-06 17:16:54 INFO  Class:44 - USer navigates to URL - https://cdn-qa.remedypartners.com/
-2017-11-06 17:16:58 INFO  Class:25 - User logs in with Username - lbarinstein+qaadmin@remedypartners.com and password - Testing1
-2017-11-06 17:17:09 INFO  Class:80 - User switched to new window
-2017-11-06 17:19:37 INFO  Class:55 - User quits the driver and closes the browser
+2017-11-06 18:05:07 INFO  Class:44 - USer navigates to URL - https://cdn-qa.remedypartners.com/
+2017-11-06 18:05:10 INFO  Class:25 - User logs in with Username - lbarinstein+qaadmin@remedypartners.com and password - Testing1
+2017-11-06 18:05:17 INFO  Class:80 - User switched to new window
+2017-11-06 18:06:48 INFO  Class:55 - User quits the driver and closes the browser

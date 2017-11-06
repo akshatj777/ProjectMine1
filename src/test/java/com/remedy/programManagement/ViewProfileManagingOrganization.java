@@ -97,5 +97,10 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		    Assert.assertEquals("NPI: "+num,text.replace("|","").trim());
 			}
 	}
+	
+	public void iVerifyTheEditButtonontheViewPage() {
+		getTextForElement(driver.findElement(By.cssSelector(".edit-button.col-md-offset-11")));
+	}
+	
 }
 
