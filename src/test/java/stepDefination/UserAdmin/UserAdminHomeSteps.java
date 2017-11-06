@@ -160,8 +160,8 @@ public class UserAdminHomeSteps extends DriverScript{
         }
 
         @Then("^I should see \"([^\"]*)\" for search results$")
-        public void iShouldSeeForSearchResults(String userCount) throws Throwable {
-            userAdminHome.iverifyUserSearchResult(userCount);
+        public void iShouldSeeForSearchResults(String text) throws Throwable {
+            userAdminHome.iverifyUserSearchResult(text);
         }
         
         @And("^I should see Pagination at bottom$")

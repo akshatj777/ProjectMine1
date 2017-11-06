@@ -912,7 +912,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iWaitUntillLoadingIconDisappears(){
-    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img blockUIDefaultImg")));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img.blockUIDefaultImg")));
     }
     
     public void iWaitToSeeOverallProgramUnderDashboardReport(String text){
@@ -946,5 +946,205 @@ public class ReportHomePage extends BaseClass {
     
     public void iEnterValueInTextBoxUnderSelectDrillThroughColumns(String text){
     	iFillInText(driver.findElement(By.cssSelector("#searchFieldDrill")), text);
+    }
+    
+    public void iVerifyTextUnderPhysicianDashboardReport(String text){
+        verifyTextForElement(driver.findElement(By.cssSelector("#tableTitleObj")), text);
+    }
+    
+    public void iClickOnFirstNameUnderAttributedPhysicianColumn(){
+    	clickElement(driver.findElement(By.cssSelector("#performanceTableObjTable>tbody>tr:first-child>td:first-child")));
+    }
+    
+    public void iWillWaitToSeeAfterClickingAttributedPhysicianName(String text){
+    	iWillWaitToSee(By.xpath("//div[contains(text(),'"+text+"')]"));
+    }
+    
+    public void iVerifyScorecardsUnderPerformanceScoreCardDashboard(){
+    	isElementVisible(driver.findElement(By.cssSelector("#topKPIRow>div")));
+    }
+    
+    public void iVerifyScorecardUnderPerformanceScorecard(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]/ancestor::div[@class='templateRow']")));
+    }
+    
+    public void iVerifyInitiallyTop100PhysiciansLoaded(String text){
+    	isElementVisible(driver.findElement(By.xpath("//*[@id='performanceTableObjTable_info'][contains(text(),'"+text+"')]")));
+    }
+    
+    public void iVerifyPhysicianCountUnderAttributedPhysicians(int count){
+    	verifyElementCount(("td.column0.string"), count);
+    }
+    
+    public void iVerifyDiffernetCountButtonsOnDashboardPhyisician(String text){
+    	verifyTextForElementFromListByXpath("//button[@name='render_phyRangeSelectorButton']", text);
+    }
+    
+    public void iVerifyPaginationIsPresentAboveOnDashboardPhysicianPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("#performanceTableObjTable_paginate")));
+    }
+    
+    public void iVerifyTabsAppearingUnderPaginationOnAbovePagination(String text){
+    	verifyTextForElementfromList(".paginate_button", text);
+    }
+    
+    public void iVerifyPaginationIsPresentBottomOnDashboardPhysicianPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".col-sm-7>div")));
+    }
+    
+    public void iVerifyTabsAppearingUnderPaginationOnBelowPagination(String text){
+    	verifyTextForElementfromList(".col-sm-7>div>a", text);
+    }
+    
+    public void iVerifyOneToHundreadAbovePhysicians(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector("#performanceTableObjTable_info")),text);
+    }
+    
+    public void iVerifyOneToHundreadBelowPhysicians(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("(//div[@class='dataTables_info'])[2]")),text);
+    }
+    
+    public void iVerifyFilternameAppearingInScorecardPage(String text){
+    	verifyTextForElementFromListByXpath("//div[@class='filter-title']", text);
+    }
+    
+    public void iVerifyFilterBoxAppearingInScorecardPage(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
+    }
+    
+    public void iVerifySpotlightColorBesideAttributedPhysicians(String text){
+    	isElementVisible(driver.findElement(By.cssSelector(".circle."+text+"")));
+    }
+    
+    public void iShouldVerifySpotlightsNotAppearingOnPhysicianDashboard(){
+    	isElementNotPresentOnPage(".circle.green");
+    }
+    
+    public void iShouldVerifySymbolInTheColumn(String symbol,String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[thead[tr[th[text()='"+text+"']]]] //td[contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifyTableIsAppearingAfterSelectingTableUnderPhysicianDashboardReport(String text){
+    	isElementVisible(driver.findElement(By.xpath(".//*[@id='"+text+"TableObjTable']")));
+    }
+    
+    public void iVerifySectionUnderPerformanceScorecardDashboard(String text){
+    	iVerifyTextFromListOfElement(By.cssSelector(".groupTitlePhy"),text);
+    }
+    
+    public void iVerifyTop5PerformanceTableOnPerformanceScorecardDashbaord(String text){
+    	isElementVisible(driver.findElement(By.cssSelector("#key"+text+"TableObjTable")));
+    }
+    
+    public void iVerifyBarContainersUnderPostAcuteCareDischargeDisposition(){
+    	isElementVisible(driver.findElement(By.cssSelector(".dataBarContainer>svg")));
+    }
+    
+    public void iClickOnKpiBoxOnPerformanceScoreCardForDrillThrough(String text){
+    	clickElement(driver.findElement(By.xpath("//div[div[contains(text(),'"+text+"')]]")));
+    }
+    
+    public void iClickOnTop5TableUnderPerformanceScorecardDashboard(String text){
+    	clickElement(driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr:nth-child(1)")));
+    }
+    
+    public void iClickOnBarGraphUnderPostAcuteDischargeDispositionSection(){
+    	clickElement(driver.findElement(By.cssSelector("#postAcuteTableObjTable>tbody>tr:nth-child(1)")));
+    }
+    
+    public void iVerifyActualValueInKpiBox(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]/following-sibling::div[@class='value']")));
+    }
+    
+    public void iVerifyAdjustedValueInKpiBox(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[div[contains(text(),'"+text+"')]] //div[starts-with(@class,'var')]")));
+    }
+    
+    public void iVerifyColumnUnderTop5PerformanceTable(String column,String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//table[@id='key"+text+"TableObjTable']//th[contains(text(),'"+column+"')]")),column);
+    }
+    
+    public void iVerifySymbolOnKPIBox(String symbol,String kpibox){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+kpibox+"')]/following-sibling::div[contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifySymbolForAdjustedValueOnKPIBox(String symbol,String kpibox){
+    	isElementVisible(driver.findElement(By.xpath("//div[div[contains(text(),'"+kpibox+"')]] //div[starts-with(@class,'var')][contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifySymbolAppearingUnderAvgEpisodeCostInBundleTable(String symbol,String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='key"+text+"TableObjTable']/tbody/tr/td[contains(text(),'"+symbol+"')]")));
+    }
+    
+    public void iVerifyAttributedPhysicianColumnValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column0"),"text-align");
+    }
+    
+    public void iVerifyEpisodesColumnValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column1"),"text-align");
+    }
+    
+    public void iVerifyAvgEpisodeCostValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column2"),"text-align");
+    }
+    
+    public void iVerifyDischToSnfValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column5"),"text-align");
+    }
+    
+    public void iVerifySnfDaysValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column8"),"text-align");
+    }
+    
+    public void iVerifyEpsWithReadmitValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector("#performanceTableObjTable>tbody>tr>td.column11"),"text-align");
+    }
+    
+    public void iVerifyKPIBoxesValuesCenterAlligned(){
+    	VerifyElementCssProperty(By.cssSelector(".value"),"text-align");
+    }
+    
+    public void iVerifyEpsiodeVolumeColumnUnderPerformanceTable(String text){
+    	VerifyElementCssProperty(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column1"),"text-align");
+    }
+    
+    public void iVerifyAvgEpisodeCostColumnUnderPerformanceTable(String text){
+    	VerifyElementCssProperty(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column2"),"text-align");
+    }
+    
+    public  void iVerifyAvgTargetPriceColumnUnderPerformanceTable(String text){
+    	VerifyElementCssProperty(By.cssSelector("#key"+text+"TableObjTable>tbody>tr>td.column3"),"text-align");
+    }
+    
+    public void iVerifyAdjustedHistoricButtonOnPhysicianDashboardReport(){
+    	isElementVisible(driver.findElement(By.xpath("//button[@name='render_benchmarkSelector']")));
+    }
+    
+    public void iVerifyClaimsUnderDataSourceUnderPhysicianReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iVerifyFilterFieldAfterSearching(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='field measure dojoDndItem uncommon']")),text);
+    }
+    
+    public void iVerifyInAvailableFieldsAfterSearchingUnderNextSiteOfCareSummary(String text){
+    	verifyTextForElementFromListByXpath("//div[@class='field attribute dojoDndItem uncommon']",text);
+    }
+    
+    public void IClickOnCloseToClearTextBox(){
+    	clickElement(driver.findElement(By.cssSelector("#clearSearchField")));
+    }
+    
+    public void iVerifyTextNotAppearingInDefaultMeasure(String text){
+    	verifyTextNotPresentForElementFromList("div[type='measure']>div:nth-child(1)",text);
+    }
+    
+    public void iShouldNotSeeUnderSearchedMeasuresResults(String text){
+    	verifyTextNotPresentForElementFromList("#GROUP0DIV>div",text);
+    }
+    
+    public void iVerifyHeaderNameCenterAlligned(String text){
+    	VerifyElementCssProperty(By.xpath("//th[text()='"+text+"']"),"text-align");
     }
 }
