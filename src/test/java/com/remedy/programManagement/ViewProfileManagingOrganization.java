@@ -16,7 +16,8 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyNameOnHeaderOnViewProfile(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".organization-name.row")), text);
+		//verifyTextForElement(driver.findElement(By.cssSelector(".organization-name.row")), text);
+		isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 	}
 	
 	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {	

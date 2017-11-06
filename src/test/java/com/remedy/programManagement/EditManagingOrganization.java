@@ -48,4 +48,8 @@ public class EditManagingOrganization extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 	}
+	
+	public void clickStateClearButton() throws Throwable {
+		driver.findElement(By.xpath("//span[@class='Select-clear']")).click();
+    }
 }

@@ -44,4 +44,8 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		 editManagingOrg.iEditStateFieldForOrganization(text);
 	 }
 	 
+	@And("^I click on State Clear cross button$")
+	  public void clickStateClearButton() throws Throwable {
+		editManagingOrg.clickStateClearButton();
+	    }
 }
