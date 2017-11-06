@@ -2,6 +2,8 @@ package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +23,7 @@ public class LoginPage extends BaseClass {
 		iEnteruserEmail(userName);
 		iEnterPassword(passWord);
 		iClickLogInButton();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.MILLISECONDS);
 	}
 
 	public void iClickForgotPassword() {
@@ -88,6 +91,7 @@ public class LoginPage extends BaseClass {
 	public void iClickLogInButton() {
 		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
 		//clickElement(driver.findElement(By.xpath("//span[@class='auth0-label-submit']")));
+		longDelay();
 	}
 
 	public void iVerifyLogInWidget() {

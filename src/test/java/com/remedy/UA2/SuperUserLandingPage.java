@@ -98,6 +98,7 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void iClickOnLock() {
 		clickElement(driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));
+		delay();
 	}
 
 	public void iClickOnUnlock() {
@@ -156,7 +157,7 @@ public class SuperUserLandingPage extends BaseClass {
 	
 	public void iClickOnUsersLink(){
 		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
-		delay();
+		longDelay();
 	}
 	public void iClickOnAddUserButton(){
 		clickElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
@@ -169,6 +170,7 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 	public void iClickOnCloseIconFromAddUserPage(){
 		clickElement(driver.findElement(By.xpath("//i[@class='close icon']")));
+		delay();
 	}
 	
 }
