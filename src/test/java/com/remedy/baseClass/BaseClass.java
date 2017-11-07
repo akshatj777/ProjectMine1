@@ -433,40 +433,6 @@ public class BaseClass {
 	    	}
 	    }
 	}  
-	
-	public void writeProperty(String Key, String Value) throws IOException
-	{
-		fisCache = new FileInputStream(System.getProperty("user.dir")
-				+ "//src//test//java//com//remedy//resources//Cache.properties");
-		outPropFile = new FileOutputStream(System.getProperty("user.dir")
-						+ "//src//test//java//com//remedy//resources//Cache.properties");
-		Cache.load(fisCache);
-		Cache.setProperty(Key, Value);
-		Cache.store(outPropFile, null);
-		outPropFile.close();
-	}
-	
-	public String readProperty(String property) {
-        
-        try {
-        	String propertyFilePath = System.getProperty("user.dir")
-					+ "//src//test//java//com//remedy//resources//Cache.properties";
-            inPropFile = new FileInputStream(propertyFilePath);
-            properties.load(inPropFile);
-
-        } catch (IOException e) {
-        }
-        try
-        {
-        String value = properties.getProperty(property);
-        return value;
-        }
-        catch(Exception e)
-     { 
-     
-     }
-		return null;      
-    }
 
 	public void VerifyElementCssProperty(By by,String property){
 		WebElement ele = driver.findElement(by);

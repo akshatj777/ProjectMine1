@@ -27,6 +27,7 @@ public class CreateManagingOrganization extends BaseClass {
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
 	public static String orgName;
+	public static String tempOrgName;
 	public static String participant_id;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
@@ -96,9 +97,8 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
 		if(text.contains("MONAME")) {
-		orgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-		writeProperty("MO_NAME", orgName);		
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
+		tempOrgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempOrgName);
 		}
 	    else 	
 		{
@@ -117,6 +117,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+		orgName = tempOrgName;
 	}
 	
 	public void iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(String msg) {
@@ -134,7 +135,6 @@ public class CreateManagingOrganization extends BaseClass {
 			String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
 			String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
 			value = value.trim();
-			writeProperty("PARTICIPANT_ID", value);
 		} catch(Exception e)
 		{
 			e.printStackTrace();
