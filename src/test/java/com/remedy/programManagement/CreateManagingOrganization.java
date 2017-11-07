@@ -100,7 +100,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
 		if(text.contains("MONAME")) {
 		tempOrgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempOrgName);
 		}
 	    else 	
 		{
