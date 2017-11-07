@@ -28,8 +28,7 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		if (field2.contains("MONAME"))
 		{
 			CreateManagingOrganization.editedOrgName = "MONAME" + RandomStringUtils.randomAlphabetic(8) + "ORGName" ;
-			CreateManagingOrganization.orgName = CreateManagingOrganization.editedOrgName;
-			//objBaseClass.writeProperty("MO_NAME", CreateManagingOrganization.editedOrgName);
+			CreateManagingOrganization.tempOrgName = CreateManagingOrganization.editedOrgName;
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedOrgName);
 		}
 				else

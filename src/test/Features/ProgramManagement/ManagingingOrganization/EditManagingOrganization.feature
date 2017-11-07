@@ -50,21 +50,6 @@ Feature: Edit the Managing organization
       | MO_Name | MO_Name1 | Contact_Person    | Contact_Email       | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | ValidateMsg                                            |
       | MONAME  | MONAME   | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | Success! Management Organization Successfully Updated. |
 
-  Scenario Outline: Edit a Managing Organization Cancel Button Functionality
-    When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
-    And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
-    And I click on "Edit" button on particular organization
-    And I edit "Contact Email" field to <Contact_Email> for organization
-    And I click on cancel button on create organization page
-    Then User navigated to view page
-    And I verify <Contact_Email> name on the header of view profile
-
-    Examples: 
-      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email            | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code |
-      | MONAME  | MONAME   | ContactPersonTest | SampleEdited@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 |
-
   Scenario Outline: Edit managing Organization With Invalid Data (Contact Phone, Contact Email, Postal Code) and missing all manadatory field
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
@@ -93,3 +78,19 @@ Feature: Edit the Managing organization
       | MO_Name | MO_Name1 | Contact_Person    | Contact_Email            | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | ValidationOrgName                 | ValidationAddress       | ValidationContactPerson | ValidationAddress2 | ValidationContactEmail               | ValidationCity      | ValidationContactPhone               | ValidationState       | ValidationZipCode             |
       | MONAME  |          | ContactPersonTest | Sample11@yopmail.com     |    5555599999 |                | EditedAddress2 |            |          |             | Please enter an Organization Name | Please enter an Address |                         |                    |                                      | Please enter a City |                                      | Please select a State | Please enter a Zip Code       |
       | MONAME  | MONAME   | ContactPersonTest | @$%%6%^7$^&%@yopmail.com |   98745612301 | EditedAddress1 | EditedAddress2 | EditedCity | New York | abcdefg     |                                   |                         |                         |                    | The Contact Email format is invalid. |                     | The Contact Phone format is invalid. |                       | Please enter a valid Zip Code |
+
+      Scenario Outline: Edit a Managing Organization Cancel Button Functionality
+    When I click on Organization link on Program Management page
+    Then I search with <MO_Name> on organization in search box
+    And I verify <MO_Name> field in search list on organization page
+    And I click <MO_Name> field in search list on organization page
+    And I click on "Edit" button on particular organization
+    And I edit "Contact Email" field to <Contact_Email> for organization
+    And I click on cancel button on create organization page
+    Then User navigated to view page
+    And I verify <Contact_Email> name on the header of view profile
+
+    Examples: 
+      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email            | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code |
+      | MONAME  | MONAME   | ContactPersonTest | SampleEdited@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 |
+      
