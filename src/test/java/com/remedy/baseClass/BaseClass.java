@@ -34,7 +34,6 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
-	//WebDriverWait wait = new WebDriverWait(driver, 30);
 	public static Properties Cache=new Properties();
 	public static Properties properties=new Properties();
 	static InputStream inPropFile = null;
@@ -154,7 +153,6 @@ public class BaseClass {
 	}
 
 	public void selectElementByIndex(String element, int idx) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		listItems.get(idx).click();
 	}
@@ -264,9 +262,7 @@ public class BaseClass {
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
-            //item.getText().equalsIgnoreCase(itemtext);
             Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
-            //Assert.assertNotEquals();
         }
     }
         
@@ -304,7 +300,6 @@ public class BaseClass {
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getText().equalsIgnoreCase(itemtext);
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
@@ -319,7 +314,6 @@ public class BaseClass {
 	public void selectElementByTextDescByXpath(String element, String desc) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			if (item.getText().equalsIgnoreCase(desc)) {
 				item.click();
 				delay();
@@ -331,7 +325,6 @@ public class BaseClass {
 	public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
@@ -348,7 +341,6 @@ public class BaseClass {
 	}
 
 	public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
-		// actionEvent.moveToElement(toElement).click().build().perform();
 		actionEvent.moveToElement(moveToElement).perform();
 		clickToElement.click();
 	}
@@ -358,7 +350,6 @@ public class BaseClass {
 	}
 
 	public void clickAllElementofAlistbyXpath(String xpathElement) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
 		for (WebElement item : listItems) {
 			item.click();
