@@ -231,66 +231,6 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-  Scenario Outline: Verify onboarding status values in database for snf los summary under post acute care
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Post Acute Care" under reports tile text
-    When I click on the Reports Tile with text "Post Acute Care"
-    Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Onboarding Status" in the header text of filter page
-    And I should see "Needs Onboarding" in the filter value list
-    And I should see "Not Onboarded" in the filter value list
-    And I should see "Onboarded" in the filter value list
-    And I should see "Unknown" in the filter value list
-    Then User executes query
-      """
-      select 
-      distinct (Lo.lookupValue)
-      from
-      warehouse.factECAdmissionEpisode PE
-      INNER JOIN warehouse.factECAdmissionEpisode PS ON(PS.anchorAdmissionKey=PE.admissionKey)
-      INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
-      INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
-      INNER JOIN warehouse.dimFacility Fs ON(Fs.facilitySK=PE.anchorDischargeFacilityKey)
-      INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
-      INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
-      LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
-      INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
-      INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
-      INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
-      INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
-      where E.BPID = '6005-191' and PE.bundleRisk = 1 and
-      PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus'
-      and PS.isSNFAdmissionReport = 1 and PE.anchorAdmissionKey=PE.admissionKey
-      and PS.dataQualityFlag IN('Valid SNF Record', 'Warning: Anchor Discharge facility Is Null',
-               'Warning: Potential duplicate admission record with same admit date',
-               'Warning: SNF admit care type is custodial care',
-      'Warning: Anchor Discharge facility not equal to SNF Admit Facility',
-               'Warning: Initial SNF Admission must occur after both the Anchor Admit Date and Anchor Discharge Date',
-               'Warning: SNF admit date is greater than the anchor discharge date', 
-      'Warning: Same admit and discharge facility on SNF Record');
-      """
-    Then User verifies the data from database for "lookupValue"
-      | OnBoardingStatus1 | "<onboardingstatus1>" |
-      | OnBoardingStatus2 | "<onboardingstatus2>" |
-      | OnBoardingStatus3 | "<onboardingstatus3>" |
-      | OnBoardingStatus4 | "<onboardingstatus4>" |
-
-    Examples: 
-      | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
-      | rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
-
   Scenario Outline: Verify patient risk values in database for snf los summary under post acute care
     Given I am on the login page
     When I enter email field <email> for login
