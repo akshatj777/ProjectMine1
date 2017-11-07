@@ -97,12 +97,14 @@ public class UA2LandingPage extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
 		delay();
 		isElementVisible(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));
+	delay();
 	}
 
 	public void iVerifyUnlockedUser() {
 		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
 		delay();
 		isElementVisible(driver.findElement(By.xpath("//i[@class='lock large inverted icon']")));
+	delay();
 	}
 
 	public void iClickOnLock() {

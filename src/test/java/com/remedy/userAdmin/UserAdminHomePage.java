@@ -58,6 +58,7 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
 		verifyTextForElement(driver.findElement(By.cssSelector(".remedy-connect-title")), pageHeader);
+		delay();
 	}
 
 	public void iSeeCreateUserText(String createUser) {
