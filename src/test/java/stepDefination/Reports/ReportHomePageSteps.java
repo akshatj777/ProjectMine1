@@ -879,6 +879,8 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("^I should not see \"([^\"]*)\" report after clicking on next site of care$")
+    @And("^I should not see \"([^\"]*)\" report after clicking on patient id$")
+    @When("^I should not see \"([^\"]*)\" report after clicking on readmissions$")
     public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
     	reportHomePage.iShouldNotSeeReportName(report);
     }
