@@ -316,8 +316,8 @@ Feature: Verification of database test cases under reports
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
 
-#SNF LOS Report Database test cases
-Scenario Outline: User should be able to verify ccn appearing in ui and database are same in SNF Length of Stay Summary Report under post acute care
+  #SNF LOS Report Database test cases
+  Scenario Outline: User should be able to verify ccn appearing in ui and database are same in SNF Length of Stay Summary Report under post acute care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -473,9 +473,9 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
     Examples: 
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
-      
-#CARL Report Database testcases
- Scenario Outline: User should be able to verify ccn appearing in ui and database are same in CARL report under next site of care
+
+  #CARL Report Database testcases
+  Scenario Outline: User should be able to verify ccn appearing in ui and database are same in CARL report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -631,9 +631,9 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
     Examples: 
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
-      
-#Next site of care summary report Database testcases
-Scenario Outline: User should be able to verify ccn appearing in ui and database are same in next site of care summary report under next site of care
+
+  #Next site of care summary report Database testcases
+  Scenario Outline: User should be able to verify ccn appearing in ui and database are same in next site of care summary report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -789,9 +789,9 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
     Examples: 
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
-      
-#Readmissions report Database testcases
-Scenario Outline: User should be able to verify ccn appearing in ui and database are same in readmissions report under readmissions
+
+  #Readmissions report Database testcases
+  Scenario Outline: User should be able to verify ccn appearing in ui and database are same in readmissions report under readmissions
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -947,5 +947,4 @@ Scenario Outline: User should be able to verify ccn appearing in ui and database
     Examples: 
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
-      
 #Overall Program - Spending Claims database related test cases

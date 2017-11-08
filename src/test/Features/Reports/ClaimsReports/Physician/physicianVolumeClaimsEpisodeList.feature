@@ -1,6 +1,6 @@
 Feature: Verification of volume claims reports episode list drill through under physician
 
-Scenario Outline: User should be able to click on episode list column and verify the drill through
+  Scenario Outline: User should be able to click on episode list column and verify the drill through
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

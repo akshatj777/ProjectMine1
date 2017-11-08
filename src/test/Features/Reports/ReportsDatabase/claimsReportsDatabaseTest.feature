@@ -2001,8 +2001,8 @@ Feature: Verification of database test cases under claims reports
       | email                         | anchorFacility1                  | anchorFacility2                                |
       | shutestaug231132a@yopmail.com | Penn Presbyterian Medical Center | Pennsylvania Hosp Of The Univ Of Pa Health Sys |
 
-#Readmission Claims report under readmissions
-Scenario Outline: User should be able to verify ccn appearing in ui and database are same in readmissions claims report under readmissions
+  #Readmission Claims report under readmissions
+  Scenario Outline: User should be able to verify ccn appearing in ui and database are same in readmissions claims report under readmissions
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

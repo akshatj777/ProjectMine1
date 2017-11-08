@@ -111,8 +111,8 @@ Feature: Verificaion of Timout scenarios under Claims Reports
     #Waiting for 14.55 Minutes here
     Then I wait for 873000 milli seconds
     And I verify "Spending" is still appearing on the reports page
-    
-#SNF Performance report under post acute care
+
+  #SNF Performance report under post acute care
   Scenario: User should not get logged out automatically in less than 15 mins in SNF Performance report under post acute care
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
@@ -150,8 +150,8 @@ Feature: Verificaion of Timout scenarios under Claims Reports
     Then I wait for 873000 milli seconds
     And I verify "SNF Performance" is still appearing on the reports page
 
-#SNF Volume claims report under post acute care
-Scenario: User should not get logged out automatically in less than 15 mins in SNF volume report under post acute care
+  #SNF Volume claims report under post acute care
+  Scenario: User should not get logged out automatically in less than 15 mins in SNF volume report under post acute care
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -187,9 +187,9 @@ Scenario: User should not get logged out automatically in less than 15 mins in S
     #Waiting for 14.55 Minutes here
     Then I wait for 873000 milli seconds
     And I verify "SNF Volume" is still appearing on the reports page
-    
-#Post acute care claims report under post acute care
-Scenario: User should not get logged out automatically in less than 15 mins in Post acute care claims report under post acute care
+
+  #Post acute care claims report under post acute care
+  Scenario: User should not get logged out automatically in less than 15 mins in Post acute care claims report under post acute care
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -225,9 +225,9 @@ Scenario: User should not get logged out automatically in less than 15 mins in P
     #Waiting for 14.55 Minutes here
     Then I wait for 873000 milli seconds
     And I verify "Post Acute Care" is still appearing on the reports page
-    
-#Performance claims report under physician
-Scenario: User should not get logged out automatically in less than 15 mins in Performance claims report under physician
+
+  #Performance claims report under physician
+  Scenario: User should not get logged out automatically in less than 15 mins in Performance claims report under physician
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -263,9 +263,9 @@ Scenario: User should not get logged out automatically in less than 15 mins in P
     #Waiting for 14.55 Minutes here
     Then I wait for 873000 milli seconds
     And I verify "Physician Performance" is still appearing on the reports page
-    
-#Volume claims report under physician
-Scenario: User should not get logged out automatically in less than 15 mins in Volume claims report under physician
+
+  #Volume claims report under physician
+  Scenario: User should not get logged out automatically in less than 15 mins in Volume claims report under physician
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -301,9 +301,9 @@ Scenario: User should not get logged out automatically in less than 15 mins in V
     #Waiting for 14.55 Minutes here
     Then I wait for 873000 milli seconds
     And I verify "Physician Volume" is still appearing on the reports page
-    
-#Spending claims report under physician
-Scenario: User should not get logged out automatically in less than 15 mins in spending claims report under physician
+
+  #Spending claims report under physician
+  Scenario: User should not get logged out automatically in less than 15 mins in spending claims report under physician
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -339,9 +339,9 @@ Scenario: User should not get logged out automatically in less than 15 mins in s
     #Waiting for 14.55 Minutes here
     Then I wait for 873000 milli seconds
     And I verify "Physician Spending" is still appearing on the reports page
-    
-#Readmissions claims report under readmissions
-Scenario: User should not get logged out automatically in less than 15 mins in Readmissions claims report under readmissions
+
+  #Readmissions claims report under readmissions
+  Scenario: User should not get logged out automatically in less than 15 mins in Readmissions claims report under readmissions
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login

@@ -329,7 +329,7 @@ Feature: Verification Claims Report For Spending
       | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
       | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
       | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
-      
+
   Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login

@@ -153,14 +153,14 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Then I should see "Network Tier" appearing under "level" field
 
     Examples: 
-      | email                          |
+      | email                         |
       #| Medicare Payer Users          |
-      | shutestaug231132a@yopmail.com  |
-      #| Emblem Payer Users            |
-      #| emblemachrpfin@yopmail.com     |
-      #| Multiple Payer Users          |
-      #| multipayerachrpfin@yopmail.com |
+      | shutestaug231132a@yopmail.com |
 
+  #| Emblem Payer Users            |
+  #| emblemachrpfin@yopmail.com     |
+  #| Multiple Payer Users          |
+  #| multipayerachrpfin@yopmail.com |
   Scenario Outline: User should be able to remove the default filters for performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
@@ -267,11 +267,11 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
-      
-Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in performance claims report under physician
+      | email                         | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2017Q1                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2017Q1                    |
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -327,11 +327,11 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
-      
-Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 in performance claims report under physician
+      | email                         | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2016Q3                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2016Q3                    |
+
+  Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -376,8 +376,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | email                        | BPID1    | anchor admission quarter1 |
       | shutestaug15252p@yopmail.com | 6005-169 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 2016Q4                    |
-      
-Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in performance claims report under physician
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -433,11 +433,11 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
-      
-Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in performance claims report under physician
+      | email                         | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
+
+  Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -491,10 +491,10 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
 
     Examples: 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug15252p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
-      | shutestaug15220p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
-      
-Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in performance claims report under physician
+      | shutestaug15252p@yopmail.com | 6005-169 |       242 |       243 | 2016Q4                    |
+      | shutestaug15220p@yopmail.com | 6005-169 |       242 |       243 | 2016Q4                    |
+
+  Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -548,8 +548,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
 
     Examples: 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-      | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
+      | shutestaug15252p@yopmail.com | 6005-169 |       177 |       178 | 2016Q3                    |
+      | shutestaug15220p@yopmail.com | 6005-169 |       177 |       178 | 2016Q3                    |
 
   Scenario Outline: User should only see anchor admission values >= 2016Q4 when drg code selected are 469,470 and fracture and non-fracture both filters in performance claims report under physician
     Given I am on the login page
@@ -598,11 +598,11 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
     And I should not see "2016Q3" in the filter value list
 
     Examples: 
-      | email                              | DRG Code1 | DRG Code2 |
-      | shutestaug231132a@yopmail.com      |       469 |       470 |
-      | shutestaug221130a@yopmail.com      |       469 |       470 |
-      
-Scenario Outline: User should see corresponding DRG when selected 469 drg code in the report in performance claims report under physician
+      | email                         | DRG Code1 | DRG Code2 |
+      | shutestaug231132a@yopmail.com |       469 |       470 |
+      | shutestaug221130a@yopmail.com |       469 |       470 |
+
+  Scenario Outline: User should see corresponding DRG when selected 469 drg code in the report in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -630,13 +630,13 @@ Scenario Outline: User should see corresponding DRG when selected 469 drg code i
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
     And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC" is appearing in the drg column rows
-    
+
     Examples: 
-      | email                              | DRG Code1 |
-      | shutestaug231132a@yopmail.com      |       469 |
-      | shutestaug221130a@yopmail.com      |       469 |
-      
-Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in perormance claims report under physician
+      | email                         | DRG Code1 |
+      | shutestaug231132a@yopmail.com |       469 |
+      | shutestaug221130a@yopmail.com |       469 |
+
+  Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in perormance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -664,13 +664,13 @@ Scenario Outline: User should see corresponding DRG when selected 470 drg code i
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
     And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC" is appearing in the drg column rows
-    
+
     Examples: 
-      | email                              | DRG Code1 |
-      | shutestaug231132a@yopmail.com      |       470 |
-      | shutestaug221130a@yopmail.com      |       470 |
-      
-Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in performance claims report under physician
+      | email                         | DRG Code1 |
+      | shutestaug231132a@yopmail.com |       470 |
+      | shutestaug221130a@yopmail.com |       470 |
+
+  Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -693,9 +693,9 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     And I should not see "Patient Risk" in the searched results under the levels
 
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
   Scenario Outline: fracture/non-fracture mapping in warehouse .dimDRG table should be 0,1,-99 in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
@@ -729,7 +729,7 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     Examples: 
       | email                         | notapplicable | fracture | nonfracture |
       | shutestaug231132a@yopmail.com |           -99 |        0 |           1 |
-      
+
   Scenario Outline: Fracture values should display 0 and 1 only when executed the below query for performance claims under physician
     Then User executes query
       """
