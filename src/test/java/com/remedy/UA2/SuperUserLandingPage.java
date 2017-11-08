@@ -173,4 +173,8 @@ public class SuperUserLandingPage extends BaseClass {
 		delay();
 	}
 	
+	public void iVerifythatIamNavigatedBackToBaseURL(){
+		iWillWaitToSee(By.xpath("//*[contains(text(),'Log In')]"));
+		isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
+	}
 }

@@ -173,4 +173,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
 	    ua2LandingPage.iVerifySearchResult(result, searchBy);
 	}
+	@Then("^I should not be able to login$")
+	public void iShouldNotBeAbleToLogin() throws Throwable {
+	   ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
+	}
+	
 }

@@ -81,6 +81,13 @@ Feature: Landing page verification
     Then I click on "Cancel" button from the alert to cancel unlock
     And I verify that the user is locked on the table in useradmin Landing page
 
+  Scenario: Locked user should not be able to login
+    Given I am on the login page
+    Then I enter email field abcfd@yopmail.com for login
+    And I enter password field Testing11 for Login
+    Then I click Access button
+    Then I should not be able to login
+
   #Sort users
   Scenario: User able to sort the users in landing page
     Given I am on the login page
