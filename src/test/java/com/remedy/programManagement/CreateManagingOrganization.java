@@ -75,7 +75,6 @@ public class CreateManagingOrganization extends BaseClass {
 		if(!text.equals("")) {
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
 		Assert.assertTrue(bol);
-		System.out.println(text);
 		}
 	}
 	
@@ -83,7 +82,6 @@ public class CreateManagingOrganization extends BaseClass {
 		if(!text.equals("")){
 		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
 		Assert.assertTrue(bol);
-		System.out.println(text);
 		}
 	}
 		
@@ -91,7 +89,6 @@ public class CreateManagingOrganization extends BaseClass {
 		if(!text.equals("")) {
 		boolean bol1 = isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger"));
 		Assert.assertTrue(bol1);
-		System.out.println(text);
 		}
 	}
 	

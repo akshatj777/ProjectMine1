@@ -224,7 +224,7 @@ public class BaseClass {
 
 	public String getTextForElement(WebElement ele) {
 		if (isElementVisible(ele)) {
-			System.out.println(ele.getText());
+			ele.getText();
 		}
 		return ele.getText();
     }
@@ -233,7 +233,6 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
-        System.out.println(countelement);
         Assert.assertEquals(countelement, count);
     }
 
@@ -417,7 +416,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
-			System.out.println(item.getText());
 			  if (item.getText().trim().contentEquals(text)) {
 				  value=item.getText().trim();  
 			  } 
