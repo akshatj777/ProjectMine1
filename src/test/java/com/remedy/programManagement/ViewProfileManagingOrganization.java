@@ -43,10 +43,6 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifytheCountfortheassociatedOrganizations() {
 		WebElement industries = driver.findElement(By.cssSelector(".selection-bar.organization-type-selector>ul"));
 		List<WebElement> links = industries.findElements(By.tagName("div"));
-		for (int i = 1; i < links.size(); i++)
-		{
-		    System.out.println(links.get(i).getText());
-		}
 	}
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
