@@ -18,12 +18,6 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(CreateManagingOrganization.orgName);
 	    }
 	
-	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
-	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-		CreateManagingOrganization.participant_id = objBaseClass.Cache.getProperty("PARTICIPANT_ID");
-		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(CreateManagingOrganization.participant_id);
-	    }
-	
 	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization in Managing Organization$")
 	  public void i_Verify_Header_Label_Under_Organization_In_ManagingOrganization(String header,String org) throws Throwable {
 		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);

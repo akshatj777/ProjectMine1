@@ -112,32 +112,16 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
+		if (msg.contains("Success!")){
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 		orgName = tempOrgName;
+	    }
+	    else {
+	    	iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+	    }
 	}
-	
-	public void iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(String msg) {
-		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
-		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
-	}
-	
-	public void iSearchManagingOrganizationInSearchBox(String mOrg) {
-		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), mOrg+time);
-	}
-	
-	public void iFetchParticipantIdAssignedToOrganization() {
-		try
-		{
-			String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
-			String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
-			value = value.trim();
-		} catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 	}
