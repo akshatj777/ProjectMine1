@@ -28,7 +28,6 @@ public class BaseClass {
 	//WebDriverWait wait = new WebDriverWait(driver, 30);
 
 	public BaseClass(final WebDriver driver) {
-
 		this.driver = driver;
 	}
 
@@ -72,27 +71,22 @@ public class BaseClass {
 	}
 
 	public List<String> getTextForElementfromList(String element) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		List<String> listtexts = new ArrayList<String>();
 		for (WebElement item : listItems) {
 
 			item.getText();
 			listtexts.add(item.getText());
-
 		}
 		return listtexts;
-
 	}
 
 	public List<WebElement> getElementsList(String element) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		return listItems;
 	}
 
 	public WebElement waitFindElement(WebElement parentElement, By by) {
-
 		WebElement ele = null;
 		if (parentElement == null) {
 			ele = driver.findElement(by);
@@ -108,7 +102,6 @@ public class BaseClass {
 			return driver.findElements(by);
 		}
 		return parentElement.findElements(by);
-
 	}
 
 	public WebElement findVisibleElement(WebDriver driver, By by) {
@@ -124,7 +117,6 @@ public class BaseClass {
 	}
 
 	public List<WebElement> waitFindElements(WebDriver driver, By by) {
-
 		return driver.findElements(by);
 	}
 
@@ -148,14 +140,12 @@ public class BaseClass {
 	}
 
 	public void selectElementByIndex(String element, int idx) {
-
 		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		listItems.get(idx).click();
 	}
 
 	public void selectElementByDesc(String element, String desc) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		for (WebElement item : listItems) {
 
@@ -168,13 +158,9 @@ public class BaseClass {
 	}
 
 	public void verifyTextForElementfromList(String element, String itemtext) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-
 		for (WebElement item : listItems) {
-
 			item.getText().equalsIgnoreCase(itemtext);
-
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
 			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
@@ -215,7 +201,6 @@ public class BaseClass {
 	public void iWillWaitToSeeElement(WebElement element, String text) {
 		if (isElementVisible(element)) {
 			Assert.assertTrue(element.isDisplayed());
-
 		}
 	}
 
@@ -230,28 +215,51 @@ public class BaseClass {
 			System.out.println(ele.getText());
 		}
 		return ele.getText();
-	}
+    }
 
+    public void verifyElementCount(String element, int count) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        delay();
+        System.out.println(countelement);
+        Assert.assertEquals(countelement, count);
+    }
+
+    public int getElementCount(String element) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        return countelement;
+    }
+
+    public void swithToFrame(String element) {
+        driver.switchTo().frame(driver.findElement(By.xpath(element)));
+    }
+
+    public void switchBacktoOldWindow() {
+        String parentWindow = driver.getWindowHandle();
+        Set<String> handles = driver.getWindowHandles();
+        driver.close();
+        for (String windowHandle : handles) {
+            if (!windowHandle.equals(parentWindow)) {
+                driver.switchTo().window(windowHandle);
+            }
+        }
+        delay();
+    }
+
+    public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        for (WebElement item : listItems) {
+            //item.getText().equalsIgnoreCase(itemtext);
+            Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
+            //Assert.assertNotEquals();
+        }
+    }
+        
 	public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text) {
 		if (isElementVisible(ele)) {
 			Assert.assertEquals(ele.getText().replaceAll("\\s+", " "), text);
 		}
-
-	}
-
-	public void verifyElementCount(String element, int count) {
-		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-		int countelement = listItems.size();
-		delay();
-		System.out.println(countelement);
-		Assert.assertEquals(countelement, count);
-	}
-
-	public int getElementCount(String element) {
-		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-		int countelement = listItems.size();
-		return countelement;
-
 	}
 
 	public void elementInformation(WebElement ele) {
@@ -266,60 +274,24 @@ public class BaseClass {
 		System.out.println("text-align" + ele.getAttribute("text-align"));
 		System.out.println("class" + ele.getAttribute("class"));
 		System.out.println("class" + ele.getAttribute("style"));
-
 		System.out.println("************************************");
-
-	}
-
-	public void swithToFrame(String element) {
-
-		driver.switchTo().frame(driver.findElement(By.xpath(element)));
 	}
 
 	public void switchToNewWindow() {
-
 		String parentWindow = driver.getWindowHandle();
 		Set<String> handles = driver.getWindowHandles();
 		for (String windowHandle : handles) {
 			if (!windowHandle.equals(parentWindow)) {
 				driver.switchTo().window(windowHandle);
-				//
 			}
-		}
-	}
-
-	public void switchBacktoOldWindow() {
-
-		String parentWindow = driver.getWindowHandle();
-		Set<String> handles = driver.getWindowHandles();
-		driver.close();
-		for (String windowHandle : handles) {
-			if (!windowHandle.equals(parentWindow)) {
-				driver.switchTo().window(windowHandle);
-
-			}
-		}
-		delay();
-	}
-
-	public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
-
-		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-		for (WebElement item : listItems) {
-			// item.getText().equalsIgnoreCase(itemtext);
-			Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
-			// Assert.assertNotEquals();
 		}
 	}
 
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
-
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
-
 		for (WebElement item : listItems) {
 			// System.out.println(item.getText());
 			item.getText().equalsIgnoreCase(itemtext);
-
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
 			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
@@ -343,12 +315,10 @@ public class BaseClass {
 	}
 
 	public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
-
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
 			// System.out.println(item.getText());
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
-
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
 			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
@@ -398,7 +368,6 @@ public class BaseClass {
 	}
 
 	public void isElementNotPresentOnPage(String ele) {
-
 		try {
 			driver.findElement(By.cssSelector(ele));
 		} catch (Exception e) {
@@ -428,7 +397,6 @@ public class BaseClass {
 	}
 
 	public void iWillWaitToSee(By locator) {
-
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 60);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -440,10 +408,8 @@ public class BaseClass {
 	public void iVerifyTextFromListOfElement(By locator, String text) {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
-
 		for (WebElement item : listItems) {
 			System.out.println(item.getText());
-
 			  if (item.getText().trim().contentEquals(text)) {
 				  value=item.getText().trim();  
 			  } 
@@ -466,4 +432,3 @@ public class BaseClass {
     	Assert.assertEquals("center", allignment);
 	}
 }
-

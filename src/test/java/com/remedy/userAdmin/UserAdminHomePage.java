@@ -15,7 +15,8 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void clickCreateUserButton() {
-		clickElement(driver.findElement(By.xpath("//button[contains(text(), 'Create User')]")));
+		delay();
+		clickElement(driver.findElement(By.cssSelector("button[href='#/user/create']")));
 	}
 
 	public void clickImportUsers() {
@@ -102,27 +103,22 @@ public class UserAdminHomePage extends BaseClass {
 	
 	public void iSeeExpandButtonOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-quaternary.valentino-icon-expand.pull-right")));
-		
 	}
 	
 	public void iSeeRoleOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("div[binding-id$='Role']")));
-		
 	}
 	
 	public void iSeeUserEmailOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("div[binding-id$='user.email']")));
-		
 	}
 	
 	public void iSeeLockButtonOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='lock']")));
-		
 	}
 	
 	public void iSeeUnLockButtonOnUserCard() {
 		isElementVisible(driver.findElement(By.cssSelector("button[ng-click^='unlock']")));
-		
 	}
 
 	public void iClickLoadMoreButton() {
@@ -141,12 +137,12 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void iverifyOrganizationalRoleForAUser(String OrganizationalRole) {
 		delay();
-		verifyTextForElement(driver.findElement(By.xpath("//div[5]/div[1]/div/div[2]/div[1]/div/div")),	OrganizationalRole);
+		verifyTextForElement(driver.findElement(By.cssSelector("div:nth-of-type(2)>div:nth-of-type(2)>div>div[ng-bind='::binding.value.name.value']")),	OrganizationalRole);
 		longDelay();
 	}
 
-	public void iverifyUserSearchResult(String userCount) {
-		verifyTextForElement(driver.findElement(By.xpath("//div[6]/div/div/div[3]/div[1]/strong")), userCount);
+	public void iverifyUserSearchResult(String text) {
+		driver.findElement(By.xpath("//strong[contains(text(),'"+text+"')]"));
 	}
 	
 	public void iSeePagination() {
@@ -190,5 +186,4 @@ public class UserAdminHomePage extends BaseClass {
 	public void iShouldSeeImportUsersButton(String Importusers){
 		verifyTextForElement(driver.findElement(By.cssSelector(".btn.btn-primary[feature='ua.importUsers']")), Importusers);
 	}
-
 }

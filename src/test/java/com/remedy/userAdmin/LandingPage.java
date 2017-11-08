@@ -16,7 +16,7 @@ public class LandingPage extends BaseClass{
         super(driver);}
 
     public void iVerifyTextforTiles(String text){
-    
+    	iWillWaitToSee(By.cssSelector(".title>p"));
        	if(text.isEmpty()!=true){
     		verifyTextForElementfromList(".title>p", text);
     	}
@@ -28,19 +28,22 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSwitchToNewWindow(){
+    	delay();
         switchToNewWindow();
     }
 
     public void iSwitchBackToOldWindow(){
+    	delay();
         switchBacktoOldWindow();
     }
 
     public void iClickOnTheTopUserAccountIcon (){
-        clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+    	delay();
+    	clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
-        selectElementByDesc(".btn.btn-flyout-nav", link);
+    	selectElementByDesc(".btn.btn-flyout-nav", link);
     }
 
     public void iVerifyTextForJiraLogInPage(String text){
