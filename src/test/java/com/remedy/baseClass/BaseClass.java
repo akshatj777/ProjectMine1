@@ -406,6 +406,7 @@ public class BaseClass {
 	}
 	
 	public void iVerifyTextFromListOfElement(By locator, String text) {
+		
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {

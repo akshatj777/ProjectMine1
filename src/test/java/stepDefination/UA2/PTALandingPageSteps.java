@@ -13,8 +13,4 @@ public class PTALandingPageSteps extends DriverScript {
 	  ptaLandingPage.iVerifyUsersPresentAsPerPermission(role);
 	}
 
-	@Then("^I should not see Users with ([^\"]*)$")
-	public void i_should_not_see_Users_with(String role) throws Throwable {
-	    ptaLandingPage.iVerifyUsersNotPresentAsPerPermission(role);
 	}
-}

@@ -1,6 +1,7 @@
 package com.remedy.UA2;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -109,6 +110,7 @@ public class UA2LandingPage extends BaseClass {
 
 	public void iClickOnLock() {
 		clickElement(driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));
+		delay();
 	}
 
 	public void iClickOnUnlock() {
@@ -181,5 +183,11 @@ public class UA2LandingPage extends BaseClass {
 	public void iClickOnCloseIconFromAddUserPage(){
 		clickElement(driver.findElement(By.xpath("//i[@class='close icon']")));
 	}
-	
+	public void iVerifythatIamNavigatedBackToBaseURL(){
+		iWillWaitToSee(By.xpath("//*[contains(text(),'Log In')]"));
+		isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
+		
+		
+       	
+	}
 }

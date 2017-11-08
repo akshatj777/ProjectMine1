@@ -2,12 +2,15 @@ package stepDefination.UA2;
 
 import com.remedy.UA2.UA2LandingPage;
 import com.remedy.resources.DriverScript;
+import com.remedy.userAdmin.LoginPage;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
+import stepDefination.CommonSteps;
 
 public class UA2LandingPageSteps extends DriverScript {
 	UA2LandingPage ua2LandingPage = new UA2LandingPage(driver);
+	
 
 	@Then("^I should see \"([^\"]*)\" link$")
 	public void i_should_see_link(String text) throws Throwable {
@@ -186,5 +189,10 @@ public class UA2LandingPageSteps extends DriverScript {
 	@Then("^I should see ([^\"]*) for ([^\"]*) in landing page$")
 	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
 	    ua2LandingPage.iVerifySearchResult(result, searchBy);
+	}
+	
+	@Then("^I should not be able to login$")
+	public void i_should_not_be_able_to_login() throws Throwable {
+	 ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
 }
