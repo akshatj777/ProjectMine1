@@ -57,7 +57,6 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyCreateOrganizationwithDuplicatenameerrormsg(text);
 	    }
-	
 		
 	 @And("^I enter ([^\"]*) in \"([^\"]*)\" on create organization page$")
 	  public void i_Enter_Details_In_Fileds_On_Create_Organization_Page(String text,String field) throws Throwable {

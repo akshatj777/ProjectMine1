@@ -1,5 +1,6 @@
 package com.remedy.baseClass;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -436,6 +437,10 @@ public class BaseClass {
 		WebElement ele = driver.findElement(by);
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
+	}
+	
+	public String createRandomName(String name){
+		return name+RandomStringUtils.randomAlphabetic(8);
 	}
 }
 

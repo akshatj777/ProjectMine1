@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -28,7 +26,6 @@ public class CreateManagingOrganization extends BaseClass {
 	final String time = df.format(timestamp);
 	public static String orgName;
 	public static String tempOrgName;
-	public static String participant_id;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -60,7 +57,6 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
-		delay();
 	}
 	
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
@@ -68,7 +64,6 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.getText();
-		delay();
 	}
 	
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
@@ -94,7 +89,7 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
 		if(text.contains("MONAME")) {
-		tempOrgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+		tempOrgName= createRandomName(text);
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempOrgName);
 		}
 	    else 	
@@ -106,7 +101,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
 		if(!text.equals("")){
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
-		delay();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption")));
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
 	}
