@@ -1,15 +1,11 @@
 package com.remedy.programManagement;
 
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
-import com.remedy.resources.DriverScript;
-import com.sun.mail.imap.protocol.FetchResponse;
 
 public class EditManagingOrganization extends BaseClass {
 
@@ -38,15 +34,17 @@ public class EditManagingOrganization extends BaseClass {
 	}
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {
-		if(field2.contains("MONAME")){
+		if(field2.contains("MONAME"))
+		{
 			CreateManagingOrganization.tempOrgName = createRandomName(field2);
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempOrgName);
-			}
-		else {
+		}
+		else
+		{
 		driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), field2);
-			}
+		}
 	}	
 	
 	public void iEditStateFieldForOrganization(String text) {

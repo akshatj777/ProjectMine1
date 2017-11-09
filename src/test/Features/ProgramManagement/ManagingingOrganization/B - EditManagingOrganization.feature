@@ -8,7 +8,7 @@ Feature: Edit the Managing organization
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
 
-  Scenario Outline: Edit and save changes for all fields of Managing Organization
+  Scenario Outline: Edit a managing organization with all available fileds
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
     And I verify <MO_Name> field in search list on organization page
@@ -59,7 +59,7 @@ Feature: Edit the Managing organization
       | Edit a Managing Organization With Mandatory Field Missing | MONAME  |          | ContactPersonTest | Sample11@yopmail.com     |    5555599999 |                | EditedAddress2 |            |          |             | Please enter an Organization Name | Please enter an Address |                                      | Please enter a City |                                      | Please select a State | Please enter a Zip Code       |
       | Edit a Managing Organization With Invalida Data           | MONAME  | MONAME   | ContactPersonTest | @$%%6%^7$^&%@yopmail.com |   98745612301 | EditedAddress1 | EditedAddress2 | EditedCity | New York | abcdefg     |                                   |                         | The Contact Email format is invalid. |                     | The Contact Phone format is invalid. |                       | Please enter a valid Zip Code |
 
-  Scenario Outline: Edit a Managing Organization Cancel Button Functionality
+  Scenario Outline: Verification of Cancel Button Functionality on edit a Managing Organization page
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
     And I verify <MO_Name> field in search list on organization page
@@ -71,5 +71,5 @@ Feature: Edit the Managing organization
     And I verify <Contact_Email> name on the header of view profile
 
     Examples: 
-      | MO_Name | Contact_Email            |
-      | MONAME  | SampleEdited@yopmail.com |
+      | Description                              | MO_Name | Contact_Email            |
+      | Verification of cancel button functionality | MONAME  | SampleEdited@yopmail.com |

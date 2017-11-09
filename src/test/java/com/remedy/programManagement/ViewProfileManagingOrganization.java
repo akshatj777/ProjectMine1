@@ -12,7 +12,6 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyNameOnHeaderOnViewProfile(String text) {
-		//verifyTextForElement(driver.findElement(By.cssSelector(".organization-name.row")), text);
 		isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 	}
 	
@@ -21,9 +20,10 @@ public class ViewProfileManagingOrganization extends BaseClass{
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
 		   if(("Participant Id: "+id).contentEquals(text)) {
 		    }
-		   else {
+		   else 
+		   {
 			   Assert.assertEquals("Participant Id: "+id+"|", text);
-		    }
+		   }
 		  }
 	}
 	
