@@ -1,6 +1,6 @@
 Feature: Landing page verification
 
-  Scenario Outline: Login as admin users and verify the content at Landing Page
+  Scenario Outline: Login with super admin and verify UI
     Given I am on the login page
     When I enter email field <Email> for login
     And I enter password field abcABC1! for Login
@@ -9,13 +9,7 @@ Feature: Landing page verification
     #And I click on the "User Admin" tile
     #Then I should see Program Administration logo on Top
     Then I should see header text "Management"
-    And I should see users table
-    And I should see Account status column in the table
-    And I should see Name column in the table
-    And I should see Role column in the table
-    And I should see Email column in the table
-    And I should see Date Created column in the table
-    And I should see Pagination at bottom of the landing page
+    And I verify UI of landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
     Then I am navigated to user creation page
@@ -41,9 +35,7 @@ Feature: Landing page verification
 
     Examples: 
       | Search  | Result                     | Category   |
-      | RACHEl  | IGNOTO RACHEL              | Last Name  |
-      | IGNOTO  | IGNOTO RACHEL              | First Name |
-      | rignoto | rignoto@remedypartners.com | Email      |
+
 
   #Lock unlock cases
   Scenario: Verification of Lock and Unlock Users on user admin landing page

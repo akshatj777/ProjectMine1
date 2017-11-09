@@ -20,35 +20,18 @@ public class SuperUserLandingPage extends BaseClass {
 		verifyTextForElement(driver.findElement(By.xpath("//a[contains(@href, 'https://user-admin')]")), text);
 	}
 
-	public void iSeeUsersTable() {
+	public void iVerifyLandingPageUI(){
 		isElementVisible(
-				driver.findElement(By.xpath("//table[@class='ui celled sortable striped table users-table']")));
-	}
-
-	public void iSeeAccountStatusColumn() {
+				driver.findElement(By.cssSelector("table.ui celled sortable striped table users-table")));
 		isElementVisible(driver.findElement(By.xpath("//i[@class='lock large icon']")));
-	}
-
-	public void iSeeNameColumn() {
 		isElementVisible(driver.findElement(By.xpath("//th[@id='lastName']")));
-	}
-
-	public void iSeeRoleColumn() {
 		isElementVisible(driver.findElement(By.xpath("//th[@id='logicalRoleId']")));
-	}
-
-	public void iSeeEmailColumn() {
 		isElementVisible(driver.findElement(By.xpath("//th[@id='email']")));
-	}
-
-	public void iSeeDateCreatedColumn() {
 		isElementVisible(driver.findElement(By.xpath("//th[@id='insertedDate']")));
-	}
-
-	public void iSeePagination() {
 		isElementVisible(driver.findElement(By.xpath("//div[@class='chevron-group']")));
 	}
-
+	
+	
 	public void SearchUserWithText(String text) {
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), text);
 		delay();

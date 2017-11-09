@@ -33,42 +33,13 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	 ua2LandingPage.iClickOnCloseIconFromAddUserPage();
 	}
 	
-		
-	@Then("^I should see users table$")
-	public void i_should_see_users_table() throws Throwable {
-		ua2LandingPage.iSeeUsersTable();
+	
+	@Then("^I verify UI of landing page$")
+	public void i_verify_landing_page_UI() throws Throwable {
+		ua2LandingPage.iVerifyLandingPageUI();
 	}
-
-	@Then("^I should see Account status column in the table$")
-	public void i_should_see_Account_status_column_in_the_table() throws Throwable {
-		ua2LandingPage.iSeeAccountStatusColumn();
-	}
-
-	@Then("^I should see Name column in the table$")
-	public void i_should_see_Name_column_in_the_table() throws Throwable {
-		ua2LandingPage.iSeeNameColumn();
-	}
-
-	@Then("^I should see Role column in the table$")
-	public void i_should_see_Role_column_in_the_table() throws Throwable {
-		ua2LandingPage.iSeeRoleColumn();
-	}
-
-	@Then("^I should see Email column in the table$")
-	public void i_should_see_Email_column_in_the_table() throws Throwable {
-		ua2LandingPage.iSeeEmailColumn();
-	}
-
-	@Then("^I should see Date Created column in the table$")
-	public void i_should_see_Date_Created_column_in_the_table() throws Throwable {
-		ua2LandingPage.iSeeDateCreatedColumn();
-	}
-
-	@Then("^I should see Pagination at bottom of the landing page$")
-	public void i_should_see_Pagination_at_bottom_of_the_landing_page() throws Throwable {
-		ua2LandingPage.iSeePagination();
-	}
-
+	
+	
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
 		ua2LandingPage.iClickOnTopUserDropDown();
@@ -159,9 +130,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	ua2LandingPage.iClickOnUsersLink();
 	}
 
-	@Then("^I am on refreshed landing page$")
+	@Then("^I am on landing page$")
 	public void i_am_on_refreshed_landing_page() throws Throwable {
-	   ua2LandingPage.iSeeUsersTable();
+	   ua2LandingPage.iVerifyLandingPageUI();
 	}
 
 	@Then("^I enter search box in landing page with ([^\"]*)$")
