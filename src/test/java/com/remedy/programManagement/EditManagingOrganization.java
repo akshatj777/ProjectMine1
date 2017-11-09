@@ -38,9 +38,16 @@ public class EditManagingOrganization extends BaseClass {
 	}
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {
+		if(field2.contains("MONAME")){
+			CreateManagingOrganization.tempMOName = createRandomName(field2);
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMOName);
+			}
+		else {
 		driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), field2);
-	}
+			}
+	}	
 	
 	public void iEditStateFieldForOrganization(String text) {
 		delay();

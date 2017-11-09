@@ -15,7 +15,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by salam on 8/4/15.
@@ -27,7 +26,7 @@ public class InitialSetup {
     @Before
     public  void beforeScenario() {
         driver = new DriverScript().getDriver();
-     }
+    }
 
     @After
     public void afterScenario(Scenario scenario) throws IOException {
@@ -40,8 +39,8 @@ public class InitialSetup {
             }
         } finally {
         	
-        	new DriverScript().quitDriver();
-        
+        	
+        	new DriverScript().quitDriver();        
         }
 
     }

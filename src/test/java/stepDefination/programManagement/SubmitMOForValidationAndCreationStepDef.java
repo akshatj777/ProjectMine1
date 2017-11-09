@@ -3,7 +3,6 @@ package stepDefination.programManagement;
 import com.remedy.baseClass.BaseClass;
 import com.remedy.programManagement.SubmitMOForValidationAndCreation;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 
 public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
@@ -19,5 +18,5 @@ public class SubmitMOForValidationAndCreationStepDef extends DriverScript {
 	 @And("^I click on \"([^\"]*)\" organization tab on organization dashboard$")
 	  public void i_Click_On_Particular_Organization_Tab_Organization_Dashboard(String text) throws Throwable {
 		 submitmo.iClickOnParticularOrganizationTabOrganizationDashboard(text);
-	 }
+	 	}
 	}

@@ -20,7 +20,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 	}
 	
-	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {	
+	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {
 		if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
 		   if(("Participant Id: "+id).contentEquals(text)) {

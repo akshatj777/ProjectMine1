@@ -1,5 +1,6 @@
 package com.remedy.baseClass;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -34,7 +35,6 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
-	//WebDriverWait wait = new WebDriverWait(driver, 30);
 	public static Properties Cache=new Properties();
 	public static Properties properties=new Properties();
 	static InputStream inPropFile = null;
@@ -218,7 +218,7 @@ public class BaseClass {
 
 	public String getTextForElement(WebElement ele) {
 		if (isElementVisible(ele)) {
-			System.out.println(ele.getText());
+			ele.getText();
 		}
 		return ele.getText();
     }
@@ -227,7 +227,6 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
-        System.out.println(countelement);
         Assert.assertEquals(countelement, count);
     }
 
@@ -294,7 +293,6 @@ public class BaseClass {
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getText().equalsIgnoreCase(itemtext);
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
@@ -309,7 +307,6 @@ public class BaseClass {
 	public void selectElementByTextDescByXpath(String element, String desc) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			if (item.getText().equalsIgnoreCase(desc)) {
 				item.click();
 				delay();
@@ -339,7 +336,6 @@ public class BaseClass {
 	}
 
 	public void clickAllElementofAlistbyXpath(String xpathElement) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
 		for (WebElement item : listItems) {
 			item.click();
@@ -406,7 +402,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
-			System.out.println(item.getText());
 			  if (item.getText().trim().contentEquals(text)) {
 				  value=item.getText().trim();  
 			  } 
@@ -422,44 +417,15 @@ public class BaseClass {
 	    	}
 	    }
 	}  
-	
-	public void writeProperty(String Key, String Value) throws IOException
-	{
-		fisCache = new FileInputStream(System.getProperty("user.dir")
-				+ "//src//test//java//com//remedy//resources//Cache.properties");
-		outPropFile = new FileOutputStream(System.getProperty("user.dir")
-						+ "//src//test//java//com//remedy//resources//Cache.properties");
-		Cache.load(fisCache);
-		Cache.setProperty(Key, Value);
-		Cache.store(outPropFile, null);
-		outPropFile.close();
-	}
-	
-	public String readProperty(String property) {
-        
-        try {
-        	String propertyFilePath = System.getProperty("user.dir")
-					+ "//src//test//java//com//remedy//resources//Cache.properties";
-            inPropFile = new FileInputStream(propertyFilePath);
-            properties.load(inPropFile);
-
-        } catch (IOException e) {
-        }
-        try
-        {
-        String value = properties.getProperty(property);
-        return value;
-        }
-        catch(Exception e)
-     { 
-     
-     }
-		return null;      
-    }
 
 	public void VerifyElementCssProperty(By by,String property){
 		WebElement ele = driver.findElement(by);
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
+	
+	public String createRandomName(String name){
+		return name+RandomStringUtils.randomAlphabetic(8);
+	}
 }
+

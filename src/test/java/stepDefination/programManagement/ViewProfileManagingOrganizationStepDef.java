@@ -1,10 +1,8 @@
 package stepDefination.programManagement;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.ViewProfileManagingOrganization;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -20,8 +18,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
 	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-		CreateManagingOrganization.participant_id = objBaseClass.Cache.getProperty("PARTICIPANT_ID");
-		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(CreateManagingOrganization.participant_id);
+//		verfiy participant id !!
 	    }
 	
 	@And("^I verify ([^\"]*) in \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
@@ -60,18 +57,18 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify EIN/TIN id ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_EIN_TIN_Id_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-		viewProfileMO.iVerifyEINTINIdOnViewProfilePGPOrganization(CreateManagingOrganization.EIN);
+//		viewProfileMO.iVerifyEINTINIdOnViewProfilePGPOrganization(CreateManagingOrganization.EIN);
 	}
 	
 	@And("^I verify NIP number ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_NPI_On_View_Profile_Of_Organization(String text, String org) throws Throwable {
-		viewProfileMO.iVerifyNPIOnViewProfilePGPOrganization(CreateManagingOrganization.NPI);
+//		viewProfileMO.iVerifyNPIOnViewProfilePGPOrganization(CreateManagingOrganization.NPI);
 	}
 	
 	@And("^I verify Managing Organization name ([^\"]*) on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_ManagingOrgName_On_View_Profile_Of_Organization(String name, String org) throws Throwable {
 		//name = CreateManagingOrganization.orgName;
-		name=objBaseClass.readProperty("MO_NAME");
+//		name=objBaseClass.readProperty("MO_NAME");
 		viewProfileMO.iVerifyManagingOrganizationNameOnViewProfileOfOrganization(name);
 	}
 	
@@ -90,3 +87,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyTheEditButtonontheViewPage();
 	}
 }
+
+  
+	
+

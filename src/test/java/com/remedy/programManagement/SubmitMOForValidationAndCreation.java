@@ -27,7 +27,8 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 		for (WebElement item : listItems) {
 			Assert.assertTrue(item.getText().contentEquals(null));
 			
-		}}
+			}
+		}
 	}
 	
 	public void iClickOnParticularOrganizationTabOrganizationDashboard(String text) {

@@ -99,8 +99,8 @@ public class DriverScript {
 			}
 			
 			ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
-            options.addArguments("--disable-extensions");
+            options.addArguments("--start-maximized");  
+			options.addArguments("--disable-extensions");
             driver = new ChromeDriver(options);
 
 			break;			
