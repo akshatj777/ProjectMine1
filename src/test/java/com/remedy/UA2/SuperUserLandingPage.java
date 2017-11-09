@@ -130,29 +130,45 @@ public class SuperUserLandingPage extends BaseClass {
 		verifyElementAttributeContainsValue(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(0), "class", "lock large icon");
 	}
 	public void iSortBasedOnLock(){
-		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
+		clickElement(driver.findElement(By.xpath("//th[@id='auth0State']")));
 		delay();
-		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//i[@id='auth0State']")), "class", "lock large icon");
+		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//th[@id='auth0State']")), "class", "center aligned ascending sorted");
+		delay();
+		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
+		longDelay();
 	}
 	public void iSortFromName(){
+		delay();
 		clickElement(driver.findElement(By.cssSelector("#lastName")));
 		delay();
-		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//th[@id='lastName']")), "class", "ascending sorted");
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#lastName")), "class", "ascending sorted");
+		delay();
+		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
+		longDelay();
 	}
 	public void iSortFromRole(){
 		clickElement(driver.findElement(By.cssSelector("#logicalRoleId")));
 		delay();
 		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#logicalRoleId")), "class", "ascending sorted");
+		delay();
+		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
+		longDelay();
 	}
 	public void iSortFromEmail(){
 		clickElement(driver.findElement(By.cssSelector("#email")));
 		delay();
 		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#email")), "class", "ascending sorted");
+		delay();
+		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
+		longDelay();
 	}
 	public void iSortFromDate(){
 		clickElement(driver.findElement(By.cssSelector("#insertedDate")));
 		delay();
-		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#insertedDate")), "class", "ascending sorted");
+		verifyElementAttributeContainsValue(driver.findElement(By.cssSelector("#insertedDate")), "class", "decending sorted");
+		delay();
+		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
+		longDelay();
 	}
 	
 	public void iClickOnUsersLink(){

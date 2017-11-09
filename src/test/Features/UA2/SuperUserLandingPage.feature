@@ -5,7 +5,6 @@ Feature: Landing page verification
     When I enter email field <Email> for login
     And I enter password field abcABC1! for Login
     Then I click Access button
-    #And I wait for 4000 milli seconds
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see Program Administration logo on Top
@@ -31,7 +30,7 @@ Feature: Landing page verification
       | rkapur+devFirst2@remedypartners.com |
 
   #search cases
-  Scenario Outline: Search user by Role/Name/Email
+  Scenario Outline: Search user by Name/Email
     Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Admin
@@ -42,7 +41,6 @@ Feature: Landing page verification
 
     Examples: 
       | Search  | Result                     | Category   |
-      | PHY     | Physicians                 | Role       |
       | RACHEl  | IGNOTO RACHEL              | Last Name  |
       | IGNOTO  | IGNOTO RACHEL              | First Name |
       | rignoto | rignoto@remedypartners.com | Email      |
@@ -100,16 +98,6 @@ Feature: Landing page verification
     Then I should be able to sort users based on Role funtionality
     Then I should be able to sort users based on Email funtionality
     Then I should be able to sort users based on Date created
-
-  #Refreshing from Users link
-  Scenario: User should be able to refresh users from users link
-    Given I am on the login page
-    When I log in as super user
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
-    Then I click on "Users" link
-    Then I am on refreshed landing page
 
   #top User link
   Scenario: Logout link test from top menu
