@@ -18,8 +18,8 @@ public class HomePagePM extends BaseClass {
 
 	 public HomePagePM (WebDriver driver ){
 	        super( driver);
-
 	    }
+	 
 	 public void iVerifyThePageHeaderOnProgramManagementPage(String text) {
 		 iWillWaitToSee(By.cssSelector("h1"));
 		 String value = getTextForElement(driver.findElement(By.cssSelector("h1")));
@@ -33,12 +33,11 @@ public class HomePagePM extends BaseClass {
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {
 		 iWillWaitToSee(By.xpath("//a[text()='Managing']"));
-		 delay();
+		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".navLink.noselect.activeNavLink")));
 		 verifyTextForElementfromList(".navLink.noselect.activeNavLink", "Managing");
 		}
 	 
 	 public void iVerifyOrganizationTypeOnHomepage(String text) {
 		 iWillWaitToSee(By.xpath("//a[text()='"+text+"']"));
-	 }
-	 
+	 } 
 }

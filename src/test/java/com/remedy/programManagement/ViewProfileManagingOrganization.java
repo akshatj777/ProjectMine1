@@ -1,12 +1,8 @@
 package com.remedy.programManagement;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import com.remedy.baseClass.BaseClass;
 
 public class ViewProfileManagingOrganization extends BaseClass{
@@ -20,7 +16,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 	}
 	
-	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {	
+	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {
 		if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
 		   if(("Participant Id: "+id).contentEquals(text)) {

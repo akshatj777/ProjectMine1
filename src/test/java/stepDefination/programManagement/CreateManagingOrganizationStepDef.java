@@ -38,7 +38,7 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Click_On_Button_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	    }
-	 
+
 	 @And("^I click on cancel button on create organization page$")
 	  public void i_Click_On_Cancel_Button_On_Create_Organization_Page() throws Throwable {
 		 createMO.iClickOnCancelButtonOnCreateOrganizationPage();
@@ -48,8 +48,8 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void user_navigated_to_view_page() throws Throwable {
 		 createMO.userNavigatedToViewPage();
 	 }
-		 
-	 @And("^And I verify \"([^\"]*)\" button on create organization page$")
+
+	 @And("^I verify \"([^\"]*)\" button on create organization page$")
 	  public void i_verify_On_Button_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyOnButtonOnCreateOrganizationPage(text);
 	    }
@@ -68,7 +68,6 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
 	    }
-	
 		
 	 @And("^I enter ([^\"]*) in \"([^\"]*)\" on create organization page$")
 	  public void i_Enter_Details_In_Fileds_On_Create_Organization_Page(String text,String field) throws Throwable {
@@ -83,21 +82,6 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 @And("^I verify \"([^\"]*)\" after submitting the create ogranization page$")
 	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
-	 }
-	 
-	 @And("^I verify error message \"([^\"]*)\" after submitting the create ogranization page$")
-	  public void i_Verify_Error_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
-		 createMO.iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(text);
-	 }
-	 
-	 @And("^I search ([^\"]*) managing organization in search box$")
-	  public void i_Search_ManagingOrganization_In_Serach_Box(String text) throws Throwable {
-		 createMO.iSearchManagingOrganizationInSearchBox(text);
-	 }
-	 
-	 @And("^I fetch Participant Id assigned to the organization$")
-	  public void i_Verify_ParticipantId_Assigned_To_Organization() throws Throwable {
-		 createMO.iFetchParticipantIdAssignedToOrganization();
 	 }
 	 
 	 @And("^I switch the focus to \"([^\"]*)\" button$")

@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,11 +11,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.resources.DriverScript;
 
 public class CreateManagingOrganization extends BaseClass {
 
@@ -31,7 +27,6 @@ public class CreateManagingOrganization extends BaseClass {
 	public static String orgName;
 	public static String editedOrgName;
 	public static String tempOrgName;
-	public static String participant_id;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -63,7 +58,6 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
-		delay();
 	}
 	
 	public void iClickOnCancelButtonOnCreateOrganizationPage() {
@@ -77,7 +71,6 @@ public class CreateManagingOrganization extends BaseClass {
 		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.getText();
-		delay();
 	}
 	
 	public void userNavigatedToViewPage() {
@@ -107,7 +100,7 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
 		if(text.contains("MONAME")) {
-		tempOrgName= text+RandomStringUtils.randomAlphabetic(8)+"ORGName";
+		tempOrgName= createRandomName(text);
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempOrgName);
 		}
 	    else 	
@@ -119,38 +112,22 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
 		if(!text.equals("")){
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
-		delay();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption")));
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
 	}
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
+		if (msg.contains("Success!")){
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 		orgName = tempOrgName;
+	    }
+	    else {
+	    	iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+	    }
 	}
-	
-	public void iVerifyErrorMessageAfterSubmittingCreateOrganizationPage(String msg) {
-		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
-		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
-	}
-	
-	public void iSearchManagingOrganizationInSearchBox(String mOrg) {
-		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), mOrg+time);
-	}
-	
-	public void iFetchParticipantIdAssignedToOrganization() {
-		try
-		{
-			String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
-			String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
-			value = value.trim();
-		} catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 	}

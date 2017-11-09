@@ -41,7 +41,6 @@ public class CommonSteps extends DriverScript {
     @Given("I am on the login page$")
     public void setup() throws Throwable {
         driver.navigate().to(Config.getProperty("BaseUrl"));
-        InitialSetup.logger.info("USer navigates to URL - " + Config.getProperty("BaseUrl"));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
@@ -77,7 +76,6 @@ public class CommonSteps extends DriverScript {
     @And("^I switch to new window$")
     public void iSwitchoNewWindow() {
         landingPage.iSwitchToNewWindow();
-        InitialSetup.logger.info("User switched to new window");
     }
 
     @And("^I switch back to old window$")
