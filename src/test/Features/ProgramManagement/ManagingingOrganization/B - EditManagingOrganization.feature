@@ -27,8 +27,8 @@ Feature: Edit the Managing organization
     Then I verify <ValidateMsg> after submitting the create ogranization page
 
     Examples: 
-      | MO_Name | MO_Name1 | Contact_Person    | Contact_Email       | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | ValidateMsg                                            |
-      | MONAME  | MONAME   | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | Success! Management Organization Successfully Updated. |
+      | Description                                            | MO_Name | MO_Name1 | Contact_Person    | Contact_Email       | Contact_Phone | Address1       | Address2       | City       | State    | Postal_Code | ValidateMsg                                            |
+      | Edit a Managing Organization With all available fields | MONAME  | MONAME   | ContactPersonTest | Sample1@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress2 | EditedCity | New York |       10001 | Success! Management Organization Successfully Updated. |
 
   Scenario Outline: Edit managing Organization With Invalid Data (Contact Phone, Contact Email, Postal Code) and missing all manadatory field
     When I click on Organization link on Program Management page

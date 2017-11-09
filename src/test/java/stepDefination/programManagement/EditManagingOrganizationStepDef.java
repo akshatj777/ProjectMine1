@@ -25,17 +25,7 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 	
 	@And("^I edit \"([^\"]*)\" field to ([^\"]*) for organization$")
 	  public void i_Edit_All_Fields_Of_Organization(String field1, String field2) throws Throwable {
-		if (field2.contains("MONAME"))
-		{
-			CreateManagingOrganization.editedOrgName = "MONAME" + RandomStringUtils.randomAlphabetic(8) + "ORGName" ;
-			CreateManagingOrganization.tempOrgName = CreateManagingOrganization.editedOrgName;
-			editManagingOrg.iEditAllFieldsOFOrganization(field1,CreateManagingOrganization.editedOrgName);
-		}
-				else
-		{
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);
-		}
-
 	 }
 	 
 	@And("^I edit ([^\"]*) field for organization$")
