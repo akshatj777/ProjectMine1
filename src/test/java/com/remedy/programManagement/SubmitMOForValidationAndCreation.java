@@ -36,7 +36,6 @@ public class SubmitMOForValidationAndCreation extends BaseClass{
 		for (WebElement ele : element) {
 			if(ele.getText().contains(text)){
 				ele.click();
-				InitialSetup.logger.info("Element "+text+"clicked successfully");
 			}
 		}
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
