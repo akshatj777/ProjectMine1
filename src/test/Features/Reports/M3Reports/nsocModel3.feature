@@ -59,3 +59,80 @@ Feature: M3 EC Next site of care summary report verification.
       | email                             |
       | RPFINM3SNFSaberHealth@yopmail.com |
       | RPFINM3HHAVisitingQA@yopmail.com  |
+
+  Scenario Outline: User should see only 3 value under model filter in nsoc model3 report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "Model" field filter under "Model" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Model" in the header text of filter page
+    And I should see "3" in the filter value list
+    And I should not see "2" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+
+    Examples: 
+      | email                             |
+      | RPFINM3SNFSaberHealth@yopmail.com |
+      | RPFINM3HHAVisitingQA@yopmail.com  |
+
+  Scenario Outline: User should see default measures as per the requirement
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-layout-icon button
+    Then I should see "# Episodes" under "measures" field
+    
+    Examples: 
+      | email                             |
+      | RPFINM3SNFSaberHealth@yopmail.com |
+      | RPFINM3HHAVisitingQA@yopmail.com  |
+      
+  Scenario Outline: User should see default dimensions as per the requirement
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-layout-icon button
+    Then I should see "Participant" under "dimensions" field
+    #Then I should see "Anchor Post Actute Provider" under "dimensions" field
+    #The above step field mentioned Y in excel but its not appearing under fields 
+    Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
+    Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
+    
+    Examples: 
+      | email                             |
+      | RPFINM3SNFSaberHealth@yopmail.com |
+      | RPFINM3HHAVisitingQA@yopmail.com  |
