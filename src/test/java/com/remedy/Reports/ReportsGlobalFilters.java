@@ -3,19 +3,15 @@ package com.remedy.Reports;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
-
 import junit.framework.Assert;
-
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.remedy.baseClass.BaseClass;
 
 public class ReportsGlobalFilters extends BaseClass{
 	HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
 	public ReportsGlobalFilters(WebDriver driver) {
-		
 		super(driver);
 	}
 
@@ -121,7 +117,6 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iClickOnTileOnTheTopNavigationOfReportsPage(String tile){
 		clickElement(driver.findElement(By.xpath("//button[text()='"+tile+"']")));
-		//driver.navigate().refresh();
 	}
 	
 	public void iVerifyEpisodeInitiatorUnderFilterOptions(String text){
@@ -167,9 +162,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(String text){
-		if(text!=null)
-		{
-		verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']", text);
+		if (text != null) {
+			verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']",text);
 		}
 	}
 	
@@ -191,47 +185,37 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void executeQuery(String query) throws ClassNotFoundException, SQLException  {
 		  Class.forName("com.mysql.jdbc.Driver");
-		  String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306"; 
-		  //Connection con=DriverManager.getConnection(connectionString,"ssingh","#rsry@319");
+		  String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306";
 		  Connection con=DriverManager.getConnection(connectionString,"pgoel","1Welcome2"); 
 		  Statement stmt=con.createStatement();  
 		  ResultSet rs=stmt.executeQuery(query);
 		  ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-		  while(rs.next())
-		  {
-		   HashMap<String, String> column = new HashMap<String, String>();
-		      for(int i=1;i<=rsmd.getColumnCount();i++)
-		      {
-		      //columnData.add(rs.getString(i));
-		      //columnName.add(rsmd.getColumnName(i));
-		      column.put(rsmd.getColumnName(i),rs.getString(i));
-		      }
-		      String a = Integer.toString(rs.getRow());
-		      //System.out.println("The value of onboarding status is"+a);
+		while (rs.next()) {
+			HashMap<String, String> column = new HashMap<String, String>();
+			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+				column.put(rsmd.getColumnName(i), rs.getString(i));
+			}
+			String a = Integer.toString(rs.getRow());
 			row.put(a, column);
-		  }
-		  System.out.println(row.toString());
-		   con.close();
-		 }
+		}
+		con.close();
+	}
 	
-	public void iVerifyCCNInDatabase(Map data,String columnname){
-		Object[] keySet=data.keySet().toArray();
-		for(int i =0; i<data.size();i++)
-		{
-			String b = Integer.toString(i+1);
-			String dbValue=row.get(b).get(columnname);
+	public void iVerifyCCNInDatabase(Map data, String columnname) {
+		Object[] keySet = data.keySet().toArray();
+		for (int i = 0; i < data.size(); i++) {
+			String b = Integer.toString(i + 1);
+			String dbValue = row.get(b).get(columnname);
 			String a = (String) keySet[i];
-			String ccnUIValue =data.get(a).toString();
-		    ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"')+1, ccnUIValue.lastIndexOf('"')); 
-		    if(dbValue == null)
-		    {
+			String ccnUIValue = data.get(a).toString();
+			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"') + 1,
+					ccnUIValue.lastIndexOf('"'));
+			if (dbValue == null) {
 				String abc = String.valueOf(dbValue);
-		    	Assert.assertEquals(abc, ccnUIValue);
-		    }
-		    else
-		    {
-		    	Assert.assertEquals(dbValue, ccnUIValue);
-		    }  
+				Assert.assertEquals(abc, ccnUIValue);
+			} else {
+				Assert.assertEquals(dbValue, ccnUIValue);
+			}
 		}
 	}
 }
