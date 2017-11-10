@@ -59,7 +59,7 @@ public class SuperUserLandingPage extends BaseClass {
 				n = n + 1;
 				isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
 			}
-			if (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true) {
+			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 				longDelay();
 				System.out.println("next page^^^^^^^^^^^^^");
