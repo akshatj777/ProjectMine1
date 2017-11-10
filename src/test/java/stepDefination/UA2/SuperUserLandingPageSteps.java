@@ -39,6 +39,11 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iVerifyLandingPageUI();
 	}
 	
+
+@Then("^I verify user information$")
+public void i_verify_user_information() throws Throwable {
+ua2LandingPage.verifyUserInformation();
+}
 	
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
