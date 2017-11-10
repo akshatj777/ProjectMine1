@@ -105,12 +105,12 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
-    
+
     Examples: 
       | email                             |
       | RPFINM3SNFSaberHealth@yopmail.com |
       | RPFINM3HHAVisitingQA@yopmail.com  |
-      
+
   Scenario Outline: User should see default dimensions as per the requirement
     Given I am on the login page
     When I enter email field <email> for login
@@ -127,12 +127,94 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
     Then I should see "Participant" under "dimensions" field
-    #Then I should see "Anchor Post Actute Provider" under "dimensions" field
-    #The above step field mentioned Y in excel but its not appearing under fields 
+    Then I should see "Episode Initiator" under "dimensions" field
+    #As per the comments in REP-3942 ticket added episode initiator field for internal users will add anchor post acute provider field while automating external users
     Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
     Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
-    
+
     Examples: 
       | email                             |
       | RPFINM3SNFSaberHealth@yopmail.com |
       | RPFINM3HHAVisitingQA@yopmail.com  |
+
+  Scenario Outline: User should see default columns as per the requirement
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-layout-icon button
+    Then I should see "Anchor Post Acute Admission Month" under "clomuns" field
+
+    Examples: 
+      | email                             |
+      | RPFINM3SNFSaberHealth@yopmail.com |
+      | RPFINM3HHAVisitingQA@yopmail.com  |
+
+  Scenario Outline: User should see all columns as per the requirement should be there in drill through
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column of nsoc model3 report
+    Then I should verify "Participant" is appearing under Episodes table
+    Then I should verify "BPID" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Provider" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Provider CCN" is appearing under Episodes table
+    Then I should verify "Eligibility" is appearing under Episodes table
+    Then I should verify "Medicare ID" is appearing under Episodes table
+    Then I should verify "Patient" is appearing under Episodes table
+    Then I should verify "DOB" is appearing under Episodes table
+    Then I should verify "DOD" is appearing under Episodes table
+    Then I should verify "Episode Status" is appearing under Episodes table
+    Then I should verify "Bundle" is appearing under Episodes table
+    Then I should verify "Bundle DRG Code" is appearing under Episodes table
+    Then I should verify "Bundle DRG Status" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Type Detail (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Type Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Setting Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes table
+    Then I should verify "Eps w Readmits" is appearing under Episodes table
+    Then I should verify "Total Readmits" is appearing under Episodes table
+
+    Examples: 
+      | email                             |
+      | RPFINM3SNFSaberHealth@yopmail.com |
+      | RPFINM3HHAVisitingQA@yopmail.com  |
+
+  Scenario Outline: Nsoc Model3 report unde nsoc should not appear for the user with model 3 and provider type pgp/ach and model 2 with provider type pgp/ach
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    And I should not see Report with text as "Next Site of Care Summary [Model 3]"
+
+    Examples: 
+      | email                         |
+      | shutestauf171115a@yopmail.com |
+      | shutestaug231132a@yopmail.com |
+      | shutestaug15252p@yopmail.com  |
