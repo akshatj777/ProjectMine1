@@ -15,18 +15,6 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 	}
 	
-	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) {
-		if(isElementPresentOnPage(By.cssSelector(".participant-id"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id"))); 
-		   if(("Participant Id: "+id).contentEquals(text)) {
-		    }
-		   else 
-		   {
-			   Assert.assertEquals("Participant Id: "+id+"|", text);
-		   }
-		  }
-	}
-	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
 		Assert.assertEquals(result.replace(",", "").trim(), text);
@@ -37,8 +25,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
-		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
-		Assert.assertTrue(bol);
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
 	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
@@ -47,8 +34,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iClickOnOrganizationUnderManagingOrganization(String org) {
 		clickElement(driver.findElement(By.xpath("//a[text()='"+org+"']")));
-		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
-		Assert.assertTrue(bol);
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
 	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {

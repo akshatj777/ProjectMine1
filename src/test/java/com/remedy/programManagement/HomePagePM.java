@@ -1,15 +1,12 @@
 package com.remedy.programManagement;
 
 import static org.junit.Assert.assertEquals;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
-
-
 
 public class HomePagePM extends BaseClass {
 	
