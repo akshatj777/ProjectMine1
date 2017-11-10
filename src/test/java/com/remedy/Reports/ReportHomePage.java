@@ -1,9 +1,7 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-
 import cucumber.api.DataTable;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,7 +11,6 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +25,6 @@ public class ReportHomePage extends BaseClass {
 	WebDriverWait wait = new WebDriverWait(driver, 60);
 
     public ReportHomePage(WebDriver driver){
-
         super(driver);
     }
 
@@ -43,13 +39,11 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTileWithText(String tile){
-        //  clickElement(driver.findElement(By.cssSelector(tile)));
         selectElementByDesc(".dropdown-tile-label.ng-binding", tile);
         delay();
     }
 
     public void iVerifyReportsTextForReportsTextName(String reportsTextName, String text){
-        //delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
@@ -59,7 +53,6 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsPageHeaderText(String tile){
-        //longDelay();
         verifyTextForElement(driver.findElement(By.xpath("//h5[@class='ng-binding' and text()='Report']")), tile);
     }
 
@@ -80,7 +73,6 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickReportFieldLayoutIconButton(){
-
         clickElement(driver.findElement(By.xpath(".//div[@class='field-layout-icon']")));
     }
 
@@ -96,12 +88,10 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
-        //longDelay();
         clickElement(driver.findElement(By.xpath(toLocator)));
     }
 
     public void iVerifyFilterModalHeaderText(String text){
-        //delay();
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
     
@@ -128,37 +118,30 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickAddSelectedArrowFromFilterModal() {
-
         clickElement(driver.findElement(By.id("FT_select_add")));
     }
     
     public void iClickSelectedFromFilterModal(String text) {
-
         clickElement(driver.findElement(By.xpath("//img[@title='"+text+"']")));
     }
 
     public void iClickOkButtonFromFilterModal() {
-
         clickElement(driver.findElement(By.id("dlgBtnSave")));
     }
     
     public void iClickButtonFromFilterModalToSelectField(String text) {
-
         clickElement(driver.findElement(By.xpath(".//table[@class='button-panel'] //button[text()='"+text+"']")));
     }
 
     public void iClickCancelButtonFromFilterModal() {
-
         clickElement(driver.findElement(By.id("dlgBtnCancel")));
     }
 
     public void iClickOnCloseReportsCrossLink() {
-        //delay();
         clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
     }
     
     public void iClickOnReportsTabOnReportsPage() {
-        //delay();
         clickElement(driver.findElement(By.xpath("//div[@href='#/']")));
     }
 
@@ -167,7 +150,6 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFollowingReportsTextsForReportsTile(String reportsTextName, String text){
-        //delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
@@ -234,7 +216,6 @@ public class ReportHomePage extends BaseClass {
     	iFillInText(driver.findElement(By.cssSelector("input#FT_condOp1")), value);
     }
 
-    //TODO - make function as parameter
     public void iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal(){
     	clickElement(driver.findElement(By.cssSelector("#FT_condOp")));
     	selectDropdownVisibleElement("#FT_condOp", "Less Than");
@@ -517,7 +498,6 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnExportSymbol(String export){
-    	//iWillWaitToSee(By.xpath("//*[@id='"+export+"ExportObj']/div"));
      	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
     	longDelay();
     }
@@ -579,7 +559,6 @@ public class ReportHomePage extends BaseClass {
     public void iSelectFilterInFilterOptions(String text){
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
-    	//clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
     }
     
     public void iClickOnDateRangeFilter(){
@@ -1221,45 +1200,5 @@ public class ReportHomePage extends BaseClass {
     public void iRemovePayerFieldFilterFromDefaultFilters(String text){
     	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']//i[@title='Remove filter']")));
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
-    }
-    
-    public void iDragandDropBPIDField(){
-    	Actions act=new Actions(driver);
-    	WebElement drag=driver.findElement(By.xpath(".//*[@id='dojoUnique16']"));
-    	WebElement drop=driver.findElement(By.xpath("(//span[text()='Drop Level Here'])[1]"));
-    	act.dragAndDrop(drag,drop).perform();
-    }
-    
-    public void iDragAndDropBPIDWithOtherPossiblity(){
-    	 WebElement From = driver.findElement(By.xpath(".//*[@id='dojoUnique16']"));
-		  WebElement To = driver.findElement(By.xpath(".//*[@id='rows_ui14']/div[1]"));
-		  Actions builder = new Actions(driver);
-	      Action dragAndDrop = builder.clickAndHold(From).moveToElement(To).release(To).build();
-		  dragAndDrop.perform();
-    }
-    
-    public void dragdrop() {
-    	WebElement LocatorFrom = driver.findElement(By.xpath(".//*[@id='dojoUnique16']"));
-    	WebElement LocatorTo = driver.findElement(By.xpath(".//*[@id='rows_ui14']/div[1]"));
-    	String xto=Integer.toString(LocatorTo.getLocation().x);
-    	String yto=Integer.toString(LocatorTo.getLocation().y);
-    	((JavascriptExecutor)driver).executeScript("function simulate(f,c,d,e){var b,a=null;"
-    			+ "for(b in eventMatchers)if(eventMatchers[b].test(c))"
-    			+ "{a=b;break}if(!a)return!1;document.createEvent?(b=document.createEvent(a),"
-    			+ "a==\"HTMLEvents\"?b.initEvent(c,!0,!0):b.initMouseEvent(c,!0,!0,document.defaultView,0,d,e,d,e,!1,!1,!1,!1,0,null),"
-    			+ "f.dispatchEvent(b)):(a=document.createEventObject(),"
-    			+ "a.detail=0,a.screenX=d,a.screenY=e,a.clientX=d,a.clientY=e,a.ctrlKey=!1,a.altKey=!1,a.shiftKey=!1,"
-    			+ "a.metaKey=!1,a.button=1,f.fireEvent(\"on\"+c,a));"
-    			+ "return!0} var eventMatchers={HTMLEvents:/^(?:load|unload|abort|error|select|change|submit|reset|focus|blur|resize|scroll)$/,MouseEvents:/^(?:click|dblclick|mouse(?:down|up|over|move|out))$/}; " +
-    	"simulate(arguments[0],\"mousedown\",0,0); simulate(arguments[0],\"mousemove\",arguments[1],"
-    	+ "arguments[2]); simulate(arguments[0],\"mouseup\",arguments[1],arguments[2]); ",
-    	LocatorFrom,xto,yto);
-    }
-    
-    public void iDragandDropBPIDFieldWithMovetoElement(String from,String to){
-    	Actions act=new Actions(driver);
-    	moveToTheElementAndClick(driver.findElement(By.xpath(from)), null);	
-    	moveToTheElementAndClick(driver.findElement(By.xpath(to)), null);
-    	act.dragAndDrop(driver.findElement(By.xpath(from)),driver.findElement(By.xpath(to))).perform();
     }
 }

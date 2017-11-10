@@ -2,13 +2,10 @@ package stepDefination.Reports;
 
 import com.remedy.Reports.ReportHomePage;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
 import org.openqa.selenium.By;
-
 import java.util.List;
 
 /**
@@ -162,7 +159,6 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see following Reports text for Overall Program reports$")
     public void i_should_see_following_Reports_text_for_Overall_Program_reports(List<String> reportLinks) throws Throwable {
          for (int i=0; i<reportLinks.size(); i++) {
-            //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Overall Program", reportLinks.get(i));
         }
     }
@@ -1527,15 +1523,5 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I remove \"([^\"]*)\" field filter under filter field from default filters$")
     public void i_remove_payer_field_filter_under_filter_field_from_default_filters(String text) throws Throwable{
     	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
-    }
-    
-    @Then("^I drag and drop the BPID field from panel to layout$")
-    public void i_drag_and_drop_the_BPID_field_from_panel_to_layout(String from,String to) throws Throwable{
-    	reportHomePage.iDragandDropBPIDField();
-    }
-    
-    @Then("^I drag and drop the BPID field in reports$")
-    public void i_drag_and_drop_the_BPID_field_in_reports() throws Throwable{
-    	reportHomePage.iDragandDropBPIDFieldWithMovetoElement(".//*[@id='dojoUnique16']","(//span[text()='Drop Level Here'])[1]");
     }
 }
