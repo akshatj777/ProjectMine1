@@ -8,29 +8,29 @@ Feature: Edit the Managing organization
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
 
-  Scenario Outline: Verification of availability of all the fields on Edit Managing Organization page
-    When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
-    And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
-    And I click on "Edit" button on particular organization
-    And I verify "Edit Management Organization" header text on edit organization page
-    And I verify "*Managing Organization Name" field on edit organization page
-    And I verify "Contact Person" field on edit organization page
-    And I verify "Contact Email" field on edit organization page
-    And I verify "Contact Phone" field on edit organization page
-    And I verify "*Address 1" field on edit organization page
-    And I verify "Address 2" field on edit organization page
-    And I verify "*City" field on edit organization page
-    And I verify "*State" drop down field on edit organization page
-    And I verify "*Postal Code" field on edit organization page
-    And I verify "Submit" button on edit organization page
-    And I verify "Cancel" button on edit organization page
-
-    Examples: 
-      | Description                                                                       | MO_Name |
-      | Verification of availability of all the fields on Edit Managing Organization page | MONAME  |
-
+  Scenario Outline: <Description>
+  When I click on Organization link on Program Management page
+  Then I search with <MO_Name> on organization in search box
+  And I verify <MO_Name> field in search list on organization page
+  And I click <MO_Name> field in search list on organization page
+  And I click on "Edit" button on particular organization
+  And I verify "Edit Management Organization" header text on edit organization page
+  And I verify "*Managing Organization Name" field on edit organization page
+  And I verify "Contact Person" field on edit organization page
+  And I verify "Contact Email" field on edit organization page
+  And I verify "Contact Phone" field on edit organization page
+  And I verify "*Address 1" field on edit organization page
+  And I verify "Address 2" field on edit organization page
+  And I verify "*City" field on edit organization page
+  And I verify "*State" drop down field on edit organization page
+  And I verify "*Postal Code" field on edit organization page
+  And I verify "Submit" button on edit organization page
+  And I verify "Cancel" button on edit organization page
+  
+  Examples:
+  | Description                                                                       | MO_Name |
+  | Verification of availability of all the fields on Edit Managing Organization page | MONAME  |
+  
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
@@ -85,7 +85,7 @@ Feature: Edit the Managing organization
       | Check Allowed Characters for ContactPhone field on Edit Managing Organization page | MONAME  |                                                                              |                                                |                                                |                                                |                                                |                                                |   98745612301 |       |             | The Contact Phone format is invalid.                           |
       | Check Allowed Characters for PostalCode field on Edit Managing Organization page   | MONAME  |                                                                              |                                                |                                                |                                                |                                                |                                                |               |       | abcdefgh    | Please enter a valid Zip Code                                  |
 
-  Scenario Outline: <Description>
+  Scenario Outline: Edit a managing organization with all available fileds
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
     And I verify <MO_Name> field in search list on organization page
@@ -110,11 +110,11 @@ Feature: Edit the Managing organization
       | Edit Managing Organization with Mandatory fields + Address2                                  | MONAME  | MONAME         |                   |                    |               | Address1 | Address2 | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + ContactName                               | MONAME  | MONAME         | ContactPersonTest |                    |               | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + ContactEmail                              | MONAME  | MONAME         |                   | Sample@yopmail.com |               | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
-      | Edit Managing Organization with Mandatory fields + ContactPhone                              | MONAME  | MONAME         |                   |                    |    5555599999 | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + Address2 + ContactName                    | MONAME  | MONAME         | ContactPersonTest |                    |               | Address1 | Address2 | City | New York |       10001 | Success! Management Organization Successfully Updated. |
+      | Edit Managing Organization with Mandatory fields + ContactPhone                              | MONAME  | MONAME         |                   |                    |    5555599999 | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + Address2 +  ContactEmail                  | MONAME  | MONAME         |                   | Sample@yopmail.com |               | Address1 | Address2 | City | New York |       10001 | Success! Management Organization Successfully Updated. |
-      | Edit Managing Organization with Mandatory fields  + Address2 + ContactPhone                  | MONAME  | MONAME         |                   |                    |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + Address2 + ContactName + ContactEmail     | MONAME  | MONAME         | ContactPersonTest | Sample@yopmail.com |               | Address1 | Address2 | City | New York |       10001 | Success! Management Organization Successfully Updated. |
+      | Edit Managing Organization with Mandatory fields  + Address2 + ContactPhone                  | MONAME  | MONAME         |                   |                    |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + ContactEmail + ContactName + ContactPhone | MONAME  | MONAME         | ContactPersonTest | Sample@yopmail.com |               | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + ContactEmail + ContactName                | MONAME  | MONAME         | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
       | Edit Managing Organization with Mandatory fields + ContactEmail + ContactPhone               | MONAME  | MONAME         |                   | Sample@yopmail.com |               | Address1 |          | City | New York |       10001 | Success! Management Organization Successfully Updated. |
