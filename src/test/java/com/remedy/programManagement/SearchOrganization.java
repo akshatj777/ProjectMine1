@@ -2,7 +2,6 @@ package com.remedy.programManagement;
 
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -61,7 +60,7 @@ public class SearchOrganization extends BaseClass{
 			  Assert.assertEquals(test,value);
 		  }
 		  else if (keySet[i].equals("Managing Organization Name")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
 			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
@@ -90,13 +89,11 @@ public class SearchOrganization extends BaseClass{
 			if(text.contains("MONAME"))
 				{
 					iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-					//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), CreateManagingOrganization.orgName);
 					isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
 				}
 				else
 				{
 					iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-					//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), text);
 					isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
 				}
 	}

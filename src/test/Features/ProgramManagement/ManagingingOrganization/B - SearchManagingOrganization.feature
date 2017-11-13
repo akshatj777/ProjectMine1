@@ -8,7 +8,7 @@ Feature: Search the Managing organization
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
 
-  Scenario Outline: Search Managing Organization
+  Scenario Outline: Search Managing Organization with search parameters
     When I click on Organization link on Program Management page
     Then I verify the Search bar on "Managing" organization page
     Then I search and verify with search list options on organization search box
@@ -19,16 +19,16 @@ Feature: Search the Managing organization
       | Participant_Id             | <ParticipantId> |
 
     Examples: 
-      | MO_Name                  | City      | State    | Postal_Code | StateInitials | ParticipantId |
-      | searchByIdsTOyptTGwg0135 | Beaverton | New York |       10020 | NY            |          1626 |
+      | Description                                         | MO_Name | City | State    | Postal_Code | StateInitials | ParticipantId |
+      | Search Managing Organization with search parameters | MONAME  | City | New York |       10001 | NY            |          1626 |
 
-  Scenario Outline: Search after editing the Managing organization name
+  Scenario Outline: Search for a managing organization after editing the Managing organization name
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
     And I verify <MO_Name> field in search list on organization page
     And I click <MO_Name> field in search list on organization page
     And I click on "Edit" button on particular organization
-    And I edit "Managing Organization Name" field to <MO_Name1> for organization
+    And I edit "Managing Organization Name" field to <Edited_MO_Name> for organization
     And I edit "Address 1" field to <Address1> for organization
     And I edit "Contact Person" field to <Contact_Person> for organization
     And I edit "Address 2" field to <Address2> for organization
@@ -38,20 +38,21 @@ Feature: Search the Managing organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
     Then I click on "Submit" button on create organization page
-    When I search with <MO_Name1> on organization in search box
-    And I click <MO_Name> field in search list on organization page
-    And I verify <MO_Name1> name on the header of view profile
+    Then I verify "Success! Management Organization Successfully Updated." after submitting the create ogranization page
+    When I search with <Edited_MO_Name> on organization in search box
+    And I click <Edited_MO_Name> field in search list on organization page
+    And I verify <Edited_MO_Name> name on the header of view profile
 
     Examples: 
-      | MO_Name                | MO_Name1               | Contact_Person    | Contact_Email        | Contact_Phone | Address1       | Address2        | City       | State    | Postal_Code | StateInitials | ParticipantId |
-      | EditedHManOrgNmokq3823 | EditedHManOrgNmokq3823 | ContactPersonTest | Sample11@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress12 | EditedCity | New York |       10001 | NY            | Sample        |
+      | Description                                                                     | MO_Name | Edited_MO_Name | Contact_Person    | Contact_Email        | Contact_Phone | Address1       | Address2        | City       | State    | Postal_Code |
+      | Search for a managing organization after editing the Managing organization name | MONAME  | MONAME         | ContactPersonTest | Sample11@yopmail.com |    5555599999 | EditedAddress1 | EditedAddress12 | EditedCity | New York |       10001 |
 
-  Scenario Outline: Error message if an organization is not found
+  Scenario Outline: Verification of error message if an organization is not found in search box
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
     Then I verify the No Matches message
     And I verify the Create New Managing Organization link
 
     Examples: 
-      | MO_Name   |
-      | searchorg |
+      | Description                                                                 | MO_Name   |
+      | Verification of error message if an organization is not found in search box | searchorg |
