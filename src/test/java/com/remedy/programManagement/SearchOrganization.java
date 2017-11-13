@@ -26,7 +26,7 @@ public class SearchOrganization extends BaseClass{
 	public void iSearchFieldOnOrganizationInSearchBox(String text) {
 		if(text.contains("MONAME"))
 		{
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgName);
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
@@ -41,7 +41,7 @@ public class SearchOrganization extends BaseClass{
 		{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
 			//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), CreateManagingOrganization.orgName);
-			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgName+"']"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
 		}
 		else
 		{

@@ -18,7 +18,7 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify Participant Id ([^\"]*) on view profile of \"([^\"]*)\" Organization$")
 	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization(String text,String org) throws Throwable {
-//		verfiy participant id !!
+		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(text);
 	    }
 	
 	@And("^I verify ([^\"]*) in \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
@@ -45,9 +45,9 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
 	}
 	
-	@And("^I verify the count for the associated organization$")
-	  public void I_verify_the_count_associated_with_organization() throws Throwable {
-		viewProfileMO.iVerifytheCountFortheAssociatedorganization();
+	@And("^I verify the count \"([^\"]*)\" for the associated organization$")
+	  public void I_verify_the_count_associated_with_organization(String count) throws Throwable {
+		viewProfileMO.iVerifytheCountFortheAssociatedorganization(count);
 	}
 	
 	@And("^I click on \"([^\"]*)\" organization under Managing Organization$")
@@ -82,9 +82,9 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.userShouldGetRedirectedToTheManagingOrganizationTabPage();
 	}
 	
-	@And("^I Verify the Edit button on View page$")
-	  public void i_Verify_the_Edit_button_on_view_page() throws Throwable {
-		viewProfileMO.iVerifyTheEditButtonontheViewPage();
+	@And("^I Verify the \"([^\"]*)\" button on View page$")
+	  public void i_Verify_The_Button_On_View_Page(String button) throws Throwable {
+		viewProfileMO.iVerifyTheEditButtonontheViewPage(button);
 	}
 }
 

@@ -31,9 +31,8 @@ public class HomePagePM extends BaseClass {
 	 }
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {
-		 iWillWaitToSee(By.xpath("//a[text()='Managing']"));
-		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".navLink.noselect.activeNavLink")));
-		 verifyTextForElementfromList(".navLink.noselect.activeNavLink", "Managing");
+		 iWillWaitToSee(By.cssSelector(".navLink.noselect.activeNavLink"));
+		 iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect.activeNavLink"), "Managing");
 		}
 	 
 	 public void iVerifyOrganizationTypeOnHomepage(String text) {

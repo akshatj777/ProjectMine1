@@ -24,7 +24,7 @@ public class CreateManagingOrganization extends BaseClass {
 	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
-	public static String orgName;
+	public static String orgMOName;
 	public static String ACHName;
 	public static String editedOrgName;
 	public static String participant_id;
@@ -149,7 +149,7 @@ public class CreateManagingOrganization extends BaseClass {
 		if (msg.contains("Success!")){
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-		orgName = tempMOName;
+		orgMOName = tempMOName;
 	    }
 	    else {
 	    	iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));

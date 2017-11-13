@@ -1,9 +1,6 @@
 package stepDefination.programManagement;
 
-import org.apache.commons.lang.RandomStringUtils;
-
 import com.remedy.baseClass.BaseClass;
-import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.EditManagingOrganization;
 import com.remedy.resources.DriverScript;
 
