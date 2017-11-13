@@ -32,7 +32,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickOrganizationalField() {
-        clickElement(driver.findElement(By.xpath("//form/fieldset[1]/div/div[1]/div[1]/div[1]/span")));
+        clickElement(driver.findElement(By.xpath("//div[@name='orgrole']/div[@placeholder='Select Role']/span")));
     }
 
     public void iTurnOffShareFile(){
@@ -76,16 +76,16 @@ public class CreateUserPage extends BaseClass{
     		 return;
     	}
     	else{
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[6]/input")), text);
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@placeholder='NPI']")), text);
     	}
     }
 
     public void iEnterFirstName(String text){
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[3]/input")), text);
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='firstName']")), text);
     }
 
     public void iEnterLasttName(String text) {
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[1]/div/div[4]/input")), text);
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='lastName']")), text);
     }
 
     public final static String iGenerateEmail(String text) {
@@ -95,7 +95,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterEmail(String text) {
-        iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[2]/input")), iGenerateEmail(text));
+        iFillInText(driver.findElement(By.xpath("//div/div/input[@name='email']")), iGenerateEmail(text));
     }
 
     public void iEnterEmailForLoginAfterPasswordMailVerification(String text) {
@@ -107,7 +107,8 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
-        iFillInText(driver.findElement(By.xpath("//form/fieldset/div/div[5]/input")), text);
+    	iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
     }
 
     public void iEnterTheEmailToGeneratePassword(String text) {
@@ -136,22 +137,24 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickHealthSystemField() {
-    	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span"));
+    	delay();
+    	boolean value = isElementPresentOnPage(By.xpath("//div[@name='participantSelect']/div[@placeholder='Search']/span"));
     	if(value==true){
-        clickElement(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/div[1]/span")));
+        clickElement(driver.findElement(By.xpath("//div[@name='participantSelect']/div[@placeholder='Search']/span")));
     	}
     }
 
     public void iEnterHealthSystemSerachText(String text) {
-    	boolean value = isElementPresentOnPage(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]"));
+    	boolean value = isElementPresentOnPage(By.xpath("//div[@placeholder='Search']/input[@type='search']"));
     	if(value==true){
-        iFillInText(driver.findElement(By.xpath("//form/fieldset[2]/div[3]/div/div[1]/div[1]/input[1]")), text);
+        iFillInText(driver.findElement(By.xpath("//div[@placeholder='Search']/input[@type='search']")), text);
     	}
     }
 
     public void iSelectHealthSystem(String desc) {
     	boolean value = isElementPresentOnPage(By.cssSelector(".ui-select-choices-row-inner"));
     	if(value==true){
+    		iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
         clickElement(driver.findElement(By.cssSelector(".ui-select-choices-row-inner")));
     	}
     }
@@ -171,7 +174,9 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iClickCreateButton() {
+    	iWillWaitToSee(By.cssSelector(".btn.btn-primary"));
         clickElement(driver.findElement(By.cssSelector(".btn.btn-primary")));
+        delay();
     }
 
     public void iVerifyOrganizationalRoleRequiredMessageText(String text) {
@@ -203,6 +208,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iverifyCreateUserPageHeader(String header) {
+    	iWillWaitToSee(By.cssSelector(".user-form-general>h3"));
         verifyTextForElement(driver.findElement(By.cssSelector(".ng-scope>h2")), header);
     }
 
@@ -211,6 +217,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterProviderSerachText(String text) {
+    	iWillWaitToSee(By.xpath("//div[@class='table-select-search']//input"));
         clickElement(driver.findElement(By.xpath("//div[@class='table-select-search']//input")));
         iFillInText(driver.findElement(By.xpath("//div[@class='table-select-search']//input")), text);
     }
@@ -229,6 +236,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iCheckAllProviderForTheHealthSystem() {
+	   iWillWaitToSee(By.cssSelector(".select-all-master>.checkbox"));
    	delay();
        clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
    }	
@@ -236,15 +244,19 @@ public class CreateUserPage extends BaseClass{
     public void iCheckTheProviderForTheHealthSystem(String facility,String provider) {
     	delay();
     	if(provider.contains("*")){
+    	iWillWaitToSee(By.cssSelector(".select-all-master>.checkbox"));
         clickElement(driver.findElement(By.cssSelector(".select-all-master>.checkbox")));
     	}
     	else {
-    	clickElement(driver.findElement(By.xpath("//span[(contains(@ng-bind,'providerName')) and text()='"+facility+"']")));	
+    		delay();
+    	iWillWaitToSee(By.xpath("//label//span[contains(text(),'"+facility+"')]"));
+    	clickElement(driver.findElement(By.xpath("//label//span[contains(text(),'"+facility+"')]")));	
     	}
     }
 
     public void iclickAllAppsfortheRole() {
-        clickAllElementofAlistbyXpath("//fieldset[2]/div[4]/div/ul/li/div/label");
+    	iWillWaitToSee(By.xpath("//div[@class='row']/div/ul/li/div/label"));
+        clickAllElementofAlistbyXpath("//div[@class='row']/div/ul/li/div/label");
     }
     
     public void iSelectTileForTheRole(String tile){
@@ -287,6 +299,7 @@ public class CreateUserPage extends BaseClass{
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String userrole){
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
+		   iWillWaitToSee(By.xpath("//p[text()='"+text+"']"));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
 		   switchToNewWindow();
 		   delay();
@@ -317,8 +330,9 @@ public class CreateUserPage extends BaseClass{
 	   if(text.isEmpty()!=true){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-		   delay();
+		   iWillWaitToSee(By.xpath("//div/div/div/div/label"));
 		   clickAllElementofAlistbyXpath("//div/div/div/div/label");
+		   delay();
 		   driver.navigate().back(); 
 	   }
     }
@@ -330,6 +344,7 @@ public class CreateUserPage extends BaseClass{
 		   delay();
 		   switchToNewWindow();
 		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
+		   delay();
 		   switchBacktoOldWindow();
    	}
    }
@@ -351,6 +366,7 @@ public class CreateUserPage extends BaseClass{
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
 		   delay();
+		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
 		   switchBacktoOldWindow(); 
    	}
@@ -358,12 +374,13 @@ public class CreateUserPage extends BaseClass{
    
    public void iSelectSupportOptionFromTheDropdownUnderSpecificUserLoginPage(String text){
 	   if(text.isEmpty()!=true){
+		   iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 		   switchToNewWindow();
 		   delay();
+		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
-		   delay();
 		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  
@@ -373,127 +390,12 @@ public class CreateUserPage extends BaseClass{
 	   driver.navigate().back();
    }
    
-   public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String role) {
-		   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Remedy TCS", "Remedy LPN", "Remedy RN",
-				   "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator","Remedy Executive", "Remedy Other", 
-				   "Partner Program Administrator" , "Partner Technical Administrator"};
-		   ArrayList<String> aray = new ArrayList<>();
-		   aray.addAll(Arrays.asList(orgRole));
-		   if (aray.contains(role)) {
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='internal_support']")));
-	       }
-	   else {
-		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='internal_support']")));
-	   }
+   public void iVerifyTheInternalSupportProductTileForSelectedUserRole(String text) {
+	 	if(text.isEmpty()!=true){
+   		verifyTextForElementfromList(".checkbox.checkbox-single.ng-not-empty.ng-valid>label>span", text);
+    	}
    }
-   
-   public void iVerifyThePhysicanConnectProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Physicians", "Remedy Program Administrator",
-			   "Partner Program Administrator" , "Partner Technical Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
-      }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='physician_portal']")));
-      }
-  }
-   
-   public void iVerifyTheEpisodesProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='episode_connect']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='episode_connect']")));
-    }
- }
-   
-   public void iVerifyTheLessonsProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			   "Prospective Partner Executive", "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='lessons']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='lessons']")));
-    }
- }
   
-   public void iVerifyTheReportsProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			     "Partner Program Administrator" , "Partner Technical Administrator", "Transitional Case Manager" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='reports']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='reports']")));
-    }
- }
-   
-   public void iVerifyTheAdministrationProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator","Partner Technical Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='admin']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='admin']")));
-    }
- }
-   
-   public void iVerifyTheShareFileProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM","Remedy Sales Team", "Remedy Program Administrator", "Remedy Executive",
-			     "Partner Program Administrator" , "Partner Technical Administrator" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='sharefile']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='sharefile']")));
-    }
- }
-   
-   public void iVerifyTheEpispdes2ProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator", "Executive", "Manager", "Case Manager", "Physicians", "Remedy TCS",
-			   "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM", "Remedy Program Administrator", "Remedy Executive",
-			   "Remedy Other", "Partner Program Administrator" , "Partner Technical Administrator", "Downstream Provider" };
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='episode_connect_2']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='episode_connect_2']")));
-    }
- }
-   
-   public void iVerifyTheInstituteProductTileForSelectedUserRole(String role) {
-	   String orgRole[] ={"Remedy Technical Administrator","Remedy TCS", "Remedy LPN", "Remedy RN", "Remedy Field RN", "Remedy PM",
-			   "Remedy Sales Team", "Remedy Executive", "Remedy Other", "Remedy Program Administrator"};
-	   ArrayList<String> aray = new ArrayList<>();
-	   aray.addAll(Arrays.asList(orgRole));
-	   if (aray.contains(role)) {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
-   }
-   else {
-	   Assert.assertFalse(isElementPresentOnPage(By.xpath("//label[@for='tci']")));
-    }
- }
    
    public void iVerifyTheUserroleUnderEc1DashboardPageAfterSpecificUserLogin(){
 	   isElementPresentOnPage(By.cssSelector(".username"));

@@ -1,5 +1,6 @@
 package com.remedy.baseClass;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -34,7 +35,6 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
-	//WebDriverWait wait = new WebDriverWait(driver, 30);
 	public static Properties Cache=new Properties();
 	public static Properties properties=new Properties();
 	static InputStream inPropFile = null;
@@ -42,7 +42,6 @@ public class BaseClass {
 	OutputStream outPropFile;
 
 	public BaseClass(final WebDriver driver) {
-
 		this.driver = driver;
 	}
 
@@ -86,27 +85,22 @@ public class BaseClass {
 	}
 
 	public List<String> getTextForElementfromList(String element) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		List<String> listtexts = new ArrayList<String>();
 		for (WebElement item : listItems) {
 
 			item.getText();
 			listtexts.add(item.getText());
-
 		}
 		return listtexts;
-
 	}
 
 	public List<WebElement> getElementsList(String element) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		return listItems;
 	}
 
 	public WebElement waitFindElement(WebElement parentElement, By by) {
-
 		WebElement ele = null;
 		if (parentElement == null) {
 			ele = driver.findElement(by);
@@ -122,7 +116,6 @@ public class BaseClass {
 			return driver.findElements(by);
 		}
 		return parentElement.findElements(by);
-
 	}
 
 	public WebElement findVisibleElement(WebDriver driver, By by) {
@@ -138,7 +131,6 @@ public class BaseClass {
 	}
 
 	public List<WebElement> waitFindElements(WebDriver driver, By by) {
-
 		return driver.findElements(by);
 	}
 
@@ -162,14 +154,11 @@ public class BaseClass {
 	}
 
 	public void selectElementByIndex(String element, int idx) {
-
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		listItems.get(idx).click();
 	}
 
 	public void selectElementByDesc(String element, String desc) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		for (WebElement item : listItems) {
 
@@ -182,20 +171,9 @@ public class BaseClass {
 	}
 
 	public void verifyTextForElementfromList(String element, String itemtext) {
-
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-
 		for (WebElement item : listItems) {
-
 			item.getText().equalsIgnoreCase(itemtext);
-
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -229,7 +207,6 @@ public class BaseClass {
 	public void iWillWaitToSeeElement(WebElement element, String text) {
 		if (isElementVisible(element)) {
 			Assert.assertTrue(element.isDisplayed());
-
 		}
 	}
 
@@ -241,31 +218,51 @@ public class BaseClass {
 
 	public String getTextForElement(WebElement ele) {
 		if (isElementVisible(ele)) {
-			System.out.println(ele.getText());
+			ele.getText();
 		}
 		return ele.getText();
-	}
+    }
 
+    public void verifyElementCount(String element, int count) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        delay();
+        Assert.assertEquals(countelement, count);
+    }
+
+    public int getElementCount(String element) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        int countelement = listItems.size();
+        return countelement;
+    }
+
+    public void swithToFrame(String element) {
+        driver.switchTo().frame(driver.findElement(By.xpath(element)));
+    }
+
+    public void switchBacktoOldWindow() {
+        String parentWindow = driver.getWindowHandle();
+        Set<String> handles = driver.getWindowHandles();
+        driver.close();
+        for (String windowHandle : handles) {
+            if (!windowHandle.equals(parentWindow)) {
+                driver.switchTo().window(windowHandle);
+            }
+        }
+        delay();
+    }
+
+    public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
+        List<WebElement> listItems = driver.findElements(By.cssSelector(element));
+        for (WebElement item : listItems) {
+            Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
+        }
+    }
+        
 	public void verifyTextForElementWithMultipleSpaces(WebElement ele, String text) {
 		if (isElementVisible(ele)) {
 			Assert.assertEquals(ele.getText().replaceAll("\\s+", " "), text);
 		}
-
-	}
-
-	public void verifyElementCount(String element, int count) {
-		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-		int countelement = listItems.size();
-		delay();
-		System.out.println(countelement);
-		Assert.assertEquals(countelement, count);
-	}
-
-	public int getElementCount(String element) {
-		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-		int countelement = listItems.size();
-		return countelement;
-
 	}
 
 	public void elementInformation(WebElement ele) {
@@ -280,60 +277,23 @@ public class BaseClass {
 		System.out.println("text-align" + ele.getAttribute("text-align"));
 		System.out.println("class" + ele.getAttribute("class"));
 		System.out.println("class" + ele.getAttribute("style"));
-
 		System.out.println("************************************");
-
-	}
-
-	public void swithToFrame(String element) {
-
-		driver.switchTo().frame(driver.findElement(By.xpath(element)));
 	}
 
 	public void switchToNewWindow() {
-
 		String parentWindow = driver.getWindowHandle();
 		Set<String> handles = driver.getWindowHandles();
 		for (String windowHandle : handles) {
 			if (!windowHandle.equals(parentWindow)) {
 				driver.switchTo().window(windowHandle);
-				//
 			}
-		}
-	}
-
-	public void switchBacktoOldWindow() {
-
-		String parentWindow = driver.getWindowHandle();
-		Set<String> handles = driver.getWindowHandles();
-		driver.close();
-		for (String windowHandle : handles) {
-			if (!windowHandle.equals(parentWindow)) {
-				driver.switchTo().window(windowHandle);
-
-			}
-		}
-		delay();
-	}
-
-	public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
-
-		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
-		for (WebElement item : listItems) {
-			// item.getText().equalsIgnoreCase(itemtext);
-			Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
-			// Assert.assertNotEquals();
 		}
 	}
 
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
-
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
-
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getText().equalsIgnoreCase(itemtext);
-
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
 			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
@@ -347,7 +307,6 @@ public class BaseClass {
 	public void selectElementByTextDescByXpath(String element, String desc) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			if (item.getText().equalsIgnoreCase(desc)) {
 				item.click();
 				delay();
@@ -357,19 +316,9 @@ public class BaseClass {
 	}
 
 	public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
-
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
-
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -378,7 +327,6 @@ public class BaseClass {
 	}
 
 	public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
-		// actionEvent.moveToElement(toElement).click().build().perform();
 		actionEvent.moveToElement(moveToElement).perform();
 		clickToElement.click();
 	}
@@ -388,7 +336,6 @@ public class BaseClass {
 	}
 
 	public void clickAllElementofAlistbyXpath(String xpathElement) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
 		for (WebElement item : listItems) {
 			item.click();
@@ -443,7 +390,6 @@ public class BaseClass {
 	}
 
 	public void iWillWaitToSee(By locator) {
-
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 250);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -455,16 +401,13 @@ public class BaseClass {
 	public void iVerifyTextFromListOfElement(By locator, String text) {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
-
 		for (WebElement item : listItems) {
-			System.out.println(item.getText());
-
 			  if (item.getText().trim().contentEquals(text)) {
 				  value=item.getText().trim();  
 			  } 
 		}
 		Assert.assertEquals(text,value);
-	}
+	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
 	    List <WebElement> element = driver.findElements(locator);
@@ -474,42 +417,8 @@ public class BaseClass {
 	    	}
 	    }
 	}  
-	
-	public void writeProperty(String Key, String Value) throws IOException
-	{
-		fisCache = new FileInputStream(System.getProperty("user.dir")
-				+ "//src//test//java//com//remedy//resources//Cache.properties");
-		outPropFile = new FileOutputStream(System.getProperty("user.dir")
-						+ "//src//test//java//com//remedy//resources//Cache.properties");
-		Cache.load(fisCache);
-		Cache.setProperty(Key, Value);
-		Cache.store(outPropFile, null);
-		outPropFile.close();
-	}
-	
-	public String readProperty(String property) {
-        
-        try {
-        	String propertyFilePath = System.getProperty("user.dir")
-					+ "//src//test//java//com//remedy//resources//Cache.properties";
-            inPropFile = new FileInputStream(propertyFilePath);
-            properties.load(inPropFile);
 
-        } catch (IOException e) {
-        }
-        try
-        {
-        String value = properties.getProperty(property);
-        return value;
-        }
-        catch(Exception e)
-     { 
-     
-     }
-		return null;
 
-      
-    }
 	
 	public boolean isElementPresent(By by) {
 	    try {
@@ -519,6 +428,15 @@ public class BaseClass {
 	      return false;
 	    }
 	}
+
+	public void VerifyElementCssProperty(By by,String property){
+		WebElement ele = driver.findElement(by);
+    	String allignment=ele.getCssValue(property);
+    	Assert.assertEquals("center", allignment);
+	}
 	
+	public String createRandomName(String name){
+		return name+RandomStringUtils.randomAlphabetic(8);
+	}
 }
 

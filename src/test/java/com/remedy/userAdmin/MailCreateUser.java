@@ -27,7 +27,6 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iAmOnMailLoginPage() throws InterruptedException {
-		Thread.sleep(5000);
         driver.navigate().to("https://accounts.google.com");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
@@ -39,19 +38,22 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterPasswordToLoginMailAccount(String password) {	
+		iWillWaitToSee(By.xpath("//input[@type='password']"));
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
-		delay();
 	}
 	
 	public void iClickOnMailIconOnMyAccount() {	
+		iWillWaitToSee(By.xpath("//a[@aria-label='Mail']"));
 		clickElement(driver.findElement(By.xpath("//a[@aria-label='Mail']")));
 	}
 	
 	public void iClickOnInboxUnderMail() {
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		delay();
-		driver.navigate().refresh();
+		for(int i=0;i<5;i++){
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
+		}
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
@@ -63,20 +65,25 @@ public class MailCreateUser extends BaseClass{
 		if(value == true)
 		{
 			clickElement(driver.findElement(By.xpath("//div[@aria-label='Delete']")));
+			//iWillWaitToSee(By.cssSelector(".bofITb"));
+			//System.out.println(driver.findElement(By.cssSelector(".bofITb")).getText());
 		}
 	}
 	
 	public void iSignOutFromMailAccount() {
-		clickElement(driver.findElement(By.cssSelector(".gb_8a.gbii")));
+		delay();
+		iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
+		clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
 		delay();
 		clickElement(driver.findElement(By.cssSelector("#gb_71")));
+		iWillWaitToSee(By.id("headingText"));
 	}
 	
 	public void iEnterEmailToCreateUser() {
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
 	
-	public void iVerifyAccountVerificationMailInInboxInMyAccount() {
+	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Verify your account')]"))));
 	}
 	
@@ -85,41 +92,50 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iVerifyLinkInMailContentInInboxInMyAccount(String text) {
+		iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		Assert.assertTrue(isElementPresentOnPage((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
 	
 	public void iClickOnLinkInMailContentInInboxInMyAccount(String text) {
+		iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
 		clickElement(driver.findElement((By.xpath("//a[contains(text(),'"+text+"')]"))));
 	}
 	
 	public void iEnterEmailToGeneratePasswordLink() {
-		delay();
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
 	
 	public void iClickOnSendEmailButton() {
+		iWillWaitToSee(By.xpath("//button[@type='submit']"));
 		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
 	
+	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (1)')]"));
+	}
+	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
-		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Change Your Password')]"))));
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"));
+    	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
 	}
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
-		System.out.println("Print::" +driver.findElement(By.xpath("//b[text()='Remedy Partners - Change Your Password']")).getText());
-		System.out.println("Print::" +driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).getText());
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
+		iWillWaitToSee(By.name("password"));
 		iFillInText(driver.findElement(By.name("password")), text);
 	}
 	
 	public void iEnterConfirmNewPasswordToSetNewPassword(String text) {
+		iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 	
 	public void iEnterNewUserEmailForLoginToRemedy() {
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), email);
 	}
 	

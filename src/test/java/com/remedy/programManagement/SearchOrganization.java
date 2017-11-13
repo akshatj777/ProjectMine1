@@ -26,7 +26,7 @@ public class SearchOrganization extends BaseClass{
 	public void iSearchFieldOnOrganizationInSearchBox(String text) {
 		if(text.contains("MONAME"))
 		{
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgName);
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
@@ -87,10 +87,19 @@ public class SearchOrganization extends BaseClass{
 	      }
 		}
 	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
-		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[text()='EditedHManOrgNmokq3823']")), text);
+			if(text.contains("MONAME"))
+				{
+					iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+					//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), CreateManagingOrganization.orgName);
+					isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
+				}
+				else
+				{
+					iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+					//verifyTextForElement(driver.findElement(By.xpath("//div[text()='MO_post']")), text);
+					isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
+				}
 	}
-	
 	public void iVerifySearchBarOnOrganizationPage(String text) {
 		iWillWaitToSee(By.cssSelector(".text-input-field-organizationFilterTerm"));
 		isElementPresent(By.cssSelector(".text-input-field-organizationFilterTerm"));
@@ -102,6 +111,7 @@ public class SearchOrganization extends BaseClass{
 	
 	public void iVerifytheCreateNewManagingOrganizationLink() {
 		getTextForElement(driver.findElement(By.cssSelector(".data-table-overlay-link>a")));
+
 	}
 
 }

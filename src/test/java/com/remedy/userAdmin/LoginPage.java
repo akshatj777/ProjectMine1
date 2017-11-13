@@ -22,7 +22,6 @@ public class LoginPage extends BaseClass {
 		iEnteruserEmail(userName);
 		iEnterPassword(passWord);
 		iClickLogInButton();
-		InitialSetup.logger.info("User logs in with Username - " + userName + " and password - " + passWord);
 	}
 
 	public void iClickForgotPassword() {
@@ -79,6 +78,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iEnterPassword(String passWord) {
+		iWillWaitToSee(By.name("password"));
 		iFillInText(driver.findElement(By.name("password")), passWord);
 	}
 

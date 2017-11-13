@@ -60,6 +60,11 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iVerifyAccountVerificationMailInInboxInMyAccount();
 	}
 	
+	@Then("^I verify the unread mail in inbox in my account$")
+	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account() throws Throwable{
+		mailcreateuser.i_Verify_The_Unread_Mail_In_Inbox_In_My_Account();
+	}
+	
 	@Then("^I verify Change Password mail in Inbox in my account$") 
 	public void i_Verify_ChangePassword_Mail_In_Inbox_In_MyAccount() throws Throwable {
 		mailcreateuser.iVerifyChangePasswordMailinInboxInMyAccount();

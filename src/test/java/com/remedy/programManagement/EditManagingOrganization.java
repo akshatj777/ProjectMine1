@@ -21,7 +21,7 @@ public class EditManagingOrganization extends BaseClass {
 	public void iClickFieldInSearchListOnOrganizationPage(String field) {
 		if(field.contains("MONAME"))
 		{
-			clickElement(driver.findElement(By.cssSelector(".data-table-cell.link-content")));
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']")));
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
@@ -35,22 +35,19 @@ public class EditManagingOrganization extends BaseClass {
 
 		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-		/*if(driver.findElement(By.cssSelector(".participant-id")).isDisplayed())
-		{
-		String fetchedText = driver.findElement(By.cssSelector(".participant-id")).getText();
-		String value = fetchedText.substring(fetchedText.indexOf(":")+1, fetchedText.indexOf("|"));
-		value = value.trim();
-		writeProperty("PARTICIPANT_ID", value);
-		}
-		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));*/
-
 	}
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {
+		if(field2.contains("MONAME")){
+			CreateManagingOrganization.tempMOName = createRandomName(field2);
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMOName);
+			}
+		else {
 		driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), field2);
-	}
+			}
+	}	
 	
 	public void iEditStateFieldForOrganization(String text) {
 		delay();
@@ -58,5 +55,8 @@ public class EditManagingOrganization extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 	}
-
+	
+	public void clickStateClearButton() throws Throwable {
+		driver.findElement(By.xpath("//span[@class='Select-clear']")).click();
+    }
 }

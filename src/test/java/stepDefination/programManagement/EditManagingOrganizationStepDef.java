@@ -1,7 +1,6 @@
 package stepDefination.programManagement;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.EditManagingOrganization;
 import com.remedy.resources.DriverScript;
 
@@ -31,4 +30,8 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		 editManagingOrg.iEditStateFieldForOrganization(text);
 	 }
 	 
+	@And("^I click on State Clear cross button$")
+	  public void clickStateClearButton() throws Throwable {
+		editManagingOrg.clickStateClearButton();
+	    }
 }
