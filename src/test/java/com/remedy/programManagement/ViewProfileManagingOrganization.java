@@ -4,7 +4,6 @@ import java.util.HashMap;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import java.sql.*;
 import com.remedy.baseClass.BaseClass;
 
@@ -25,8 +24,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public String fetchParticipantID() throws ClassNotFoundException, SQLException  {
-		   
-		String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+		    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
 		    Class.forName("com.mysql.jdbc.Driver");
 		    String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306"; 
 		    Connection con=DriverManager.getConnection(connectionString,"pgoel","1Welcome2"); 
@@ -58,8 +56,8 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		if(!text.isEmpty()) {
-			String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
-			Assert.assertEquals(result.replace(",", "").trim(), text);
+		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
+		Assert.assertEquals(result.replace(",", "").trim(), text);
 		}
 	}
 	
@@ -92,7 +90,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		if(isElementPresentOnPage(By.cssSelector(".id.market-name"))) {
 		String text = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view>.id.market-name"))); 
         Assert.assertEquals("Managing Organization: "+name,text.replace("|","").trim());
-	        }
+	    }
     }
 	
 	public void iClickontheCrossButton() {
@@ -100,23 +98,8 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void userShouldGetRedirectedToTheManagingOrganizationTabPage() {
-		delay();
-		WebElement elem= driver.findElement(By.cssSelector(".row.col-md-10"));
-		elem.getText();
-	}
-	
-	public void iVerifyEINTINIdOnViewProfilePGPOrganization(String id) {
-		if(isElementPresentOnPage(By.cssSelector(".id-ein"))) {	
-		String text = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-	    Assert.assertEquals("EIN/TIN: "+id,text.replace("|", ""));
-		}
-	}
-	
-	public void iVerifyNPIOnViewProfilePGPOrganization(String num) {
-		if(isElementPresentOnPage(By.cssSelector(".id-npi"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".id-npi"))); 
-		    Assert.assertEquals("NPI: "+num,text.replace("|","").trim());
-			}
+		iWillWaitToSee(By.cssSelector(".row.col-md-10"));
+		iVerifyTextFromListOfElement(By.cssSelector("navLink noselect activeNavLink"), "Managing");
 	}
 	
 	public void iVerifyTheEditButtonontheViewPage(String button) {

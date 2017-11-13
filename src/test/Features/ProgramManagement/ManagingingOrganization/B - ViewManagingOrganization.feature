@@ -1,4 +1,4 @@
-Feature: Verification of details on view profile page of Managing Organization
+Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF associated to it
 
   Scenario Outline: Verfication of details on view profile of Managing Organization
     Given I am on the login page
@@ -12,7 +12,7 @@ Feature: Verification of details on view profile page of Managing Organization
     And I click <MO_Name> field in search list on organization page
     And I Verify the "x" button on View page
     And I click on "x" button on particular organization
-    And user should get redirected to the managing organization tab page
+    And User should get redirected to the managing organization tab page
     And I verify "Managing" as default organizations tab selected on homepage
     When I search with <MO_Name> on organization in search box
     And I click <MO_Name> field in search list on organization page
@@ -27,11 +27,11 @@ Feature: Verification of details on view profile page of Managing Organization
     And I verify <Contact_Phone> in "contact-phone" on view profile of "Managing" Organization
     And I verify <Contact_Email> in "contact-email" on view profile of "Managing" Organization
     And I Verify the "Edit" button on View page
-    And I verify "ACH" organization present under "Managing" Organization
-    And I verify "PGP" organization present under "Managing" Organization
-    And I verify "SNF" organization present under "Managing" Organization
+    And I verify "ACH" organization tab present under "Managing" Organization
+    And I verify "PGP" organization tab present under "Managing" Organization
+    And I verify "SNF" organization tab present under "Managing" Organization
     Then I verify "+" button under organization tab
-    Then I verify "ACH" organization by default selected under Managing Organization
+    Then I verify "ACH" organization tab by default selected under Managing Organization
     And I verify "CCN" header label under "ACH" organization in Managing Organization
     And I verify "ACH Organization Name" header label under "ACH" organization in Managing Organization
     And I verify "City" header label under "ACH" organization in Managing Organization
