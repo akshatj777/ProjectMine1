@@ -1,10 +1,7 @@
 package stepDefination.programManagement;
 
-import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.SearchOrganization;
 import com.remedy.resources.DriverScript;
-
-import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 
 public class SearchOrganizationDef extends DriverScript{
@@ -19,5 +16,4 @@ public class SearchOrganizationDef extends DriverScript{
 	  public void i_Verify_Field_In_Search_List_On_Organization_Homepage(String text) throws Throwable {
 		 searchorganization.iVerifyFieldInSearchListOnOrganizationHomepage(text);
 	    }
-	
 }

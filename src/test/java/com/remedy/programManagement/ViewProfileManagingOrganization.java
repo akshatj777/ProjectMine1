@@ -66,8 +66,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
-		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
-		Assert.assertTrue(bol);
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
 	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
@@ -82,8 +81,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iClickOnOrganizationUnderManagingOrganization(String org) {
 		clickElement(driver.findElement(By.xpath("//a[text()='"+org+"']")));
-		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
-		Assert.assertTrue(bol);
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
 	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {
