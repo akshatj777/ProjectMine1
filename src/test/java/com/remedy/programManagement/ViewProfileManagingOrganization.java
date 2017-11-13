@@ -10,7 +10,7 @@ import com.remedy.baseClass.BaseClass;
 
 public class ViewProfileManagingOrganization extends BaseClass{
 
-	HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	static HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
 	public ViewProfileManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -24,7 +24,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		}
 	}
 	
-	public String fetchParticipantID() throws ClassNotFoundException, SQLException  {
+	public static String fetchParticipantID() throws ClassNotFoundException, SQLException  {
 		   
 		String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
 		    Class.forName("com.mysql.jdbc.Driver");

@@ -1,7 +1,9 @@
 package com.remedy.programManagement;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +37,7 @@ public class SearchOrganization extends BaseClass{
 		}	
 	}
 	
-	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table){
+	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table) throws ClassNotFoundException, SQLException{
 		  Map<String, String> data;
 		  data=table.asMap(String.class, String.class);
 		  Object[] keySet=data.keySet().toArray();
@@ -76,6 +78,7 @@ public class SearchOrganization extends BaseClass{
 			  Assert.assertEquals(test,value);
 		  }  
 		  else if (keySet[i].equals("Participant_Id")){
+			  value = ViewProfileManagingOrganization.fetchParticipantID();
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
 			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
