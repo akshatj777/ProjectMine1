@@ -73,8 +73,8 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void userShouldGetRedirectedToTheManagingOrganizationTabPage() {
-		iWillWaitToSee(By.cssSelector(".row.col-md-10"));
-		iVerifyTextFromListOfElement(By.cssSelector("navLink noselect activeNavLink"), "Managing");
+		iWillWaitToSee(By.cssSelector(".navLink.noselect.activeNavLink"));
+		iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect.activeNavLink"), "Managing");
 	}
 	
 	public void iVerifyTheEditButtonontheViewPage(String button) {
