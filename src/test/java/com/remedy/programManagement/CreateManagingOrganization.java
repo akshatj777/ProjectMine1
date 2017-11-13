@@ -100,6 +100,10 @@ public class CreateManagingOrganization extends BaseClass {
 		tempOrgName= createRandomName(text);
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempOrgName);
 		}
+		else if(text.contains("DUPLICATE_MO"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
+		}
 	    else 	
 		{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
