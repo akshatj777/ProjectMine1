@@ -1,6 +1,7 @@
 package com.remedy.UA2;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -21,12 +22,13 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifyUsersLink(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//a[contains(@href, 'https://user-admin')]")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector("a[href^='https://user-admin']")),text);
+			
 	}
 
 	public void iVerifyLandingPageUI() {
 		isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
-		isElementVisible(driver.findElement(By.cssSelector("th#auth0State.center.aligned.descending.sorted")));
+		isElementVisible(driver.findElement(By.cssSelector("th#auth0State")));
 		isElementVisible(driver.findElement(By.cssSelector("th#lastName")));
 		isElementVisible(driver.findElement(By.cssSelector("th#logicalRoleId")));
 		isElementVisible(driver.findElement(By.cssSelector("th#email")));
@@ -35,13 +37,13 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void verifyUserInformation() {
-		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("td.five.wide")));
 		do {
 			int size = driver.findElements(By.xpath("//*[@class='five wide']")).size();
 			System.out.println("*********size" + size);
 			for (int i = 0; i < size; i++) {
 				System.out.println("inside do");
-				//System.out.println("************ghfkd   "+driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(i).getAttribute("lastChild"));
+				
 				
 				isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(i));
 						
@@ -61,9 +63,9 @@ public class SuperUserLandingPage extends BaseClass {
 			}
 			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
-				longDelay();
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.chevron-group")));
 				System.out.println("next page^^^^^^^^^^^^^");
-				//wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
+				
 			}
 			else
 				break;
@@ -73,25 +75,24 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void SearchUserWithText(String text) {
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), text);
-		delay();
+		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("th#lastName")));
 	}
 
 	public void iVerifySearchResult(String result, String searchBy) {
 
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
-			iVerifyTextFromListOfElement(By.xpath("//td[contains(@class,'four wide')]"), result);
+			iVerifyTextFromListOfElement(By.cssSelector("td[class='four wide']"),result);
 		} else if (searchBy.equalsIgnoreCase("Role")) {
-			iVerifyTextFromListOfElement(By.xpath("//td[contains(@class,'four wide')]"), result);
+			iVerifyTextFromListOfElement(By.cssSelector("td[class='four wide']"), result);
 		} else if (searchBy.equalsIgnoreCase("email")) {
-			iVerifyTextFromListOfElement(By.xpath("//td[@class='five wide']"), result);
+			iVerifyTextFromListOfElement(By.cssSelector("td[class='four wide']"), result);
 		}
 	}
 
 	public void iClickOnTopUserDropDown() {
-		delay();
-		clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
-		longDelay();
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("i.dropdown.icon")));
+		clickElement(driver.findElements(By.cssSelector("i.dropdown.icon")).get(1));
 	}
 
 	public void iVerifyResetPasswordPopUpText(String text) {
@@ -101,19 +102,21 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void iSelectOptionFromDropdown(String text) {
 		selectElementByDesc(".item", text);
-		delay();
 	}
 
 	public void iVerifyLockedUser() {
-		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
-		delay();
-		isElementVisible(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(1));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("td.center.aligned.one.wide")));
+		isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(1));
+				
 	}
 
 	public void iVerifyUnlockedUser() {
-		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
-		delay();
-		isElementVisible(driver.findElement(By.xpath("//i[@class='lock large inverted icon']")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("th#auth0State")));
+		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("td.center.aligned.one.wide")));
+		isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(0));
 	}
 
 	public void iClickOnLock() {
@@ -210,21 +213,22 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnAddUserButton() {
-		clickElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
+		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
 	}
 
 	public void iverifyAddUserButton() {
 		isElementVisible(
-				driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
-	}
+				driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+						}
 
 	public void iVerifyAddUserPage() {
-		isElementVisible(driver.findElement(By.xpath("//h2/span")));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.add-user-form-content")));
+		isElementVisible(driver.findElement(By.cssSelector("div.add-user-form-content")));
 	}
 
 	public void iClickOnCloseIconFromAddUserPage() {
-		clickElement(driver.findElement(By.xpath("//i[@class='close icon']")));
-		delay();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("i.close.icon")));
+		clickElement(driver.findElement(By.cssSelector("i.close.icon")));
 	}
 
 	public void iVerifythatIamNavigatedBackToBaseURL() {

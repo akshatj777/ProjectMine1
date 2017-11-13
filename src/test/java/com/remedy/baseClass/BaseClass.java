@@ -355,7 +355,6 @@ public class BaseClass {
 		String attr = element.getAttribute(attribute);
 		Assert.assertTrue(attr.contains(contains));
 	}
-
 	public boolean isElementPresentOnPage(By locatorKey) {
 		boolean value = true;
 		try {

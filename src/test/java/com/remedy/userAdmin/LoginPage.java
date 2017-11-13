@@ -19,12 +19,11 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iLoginAsSupperUser(String userName, String passWord) {
-		longDelay();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.MILLISECONDS);
 		iEnteruserEmail(userName);
 		iEnterPassword(passWord);
 		iClickLogInButton();
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.MILLISECONDS);
-	}
+		}
 
 	public void iClickForgotPassword() {
 		clickElement(driver.findElement(By.xpath("//*[text()='Forgot password?']")));
@@ -91,7 +90,7 @@ public class LoginPage extends BaseClass {
 	public void iClickLogInButton() {
 		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
 		//clickElement(driver.findElement(By.xpath("//span[@class='auth0-label-submit']")));
-		longDelay();
+		
 	}
 
 	public void iVerifyLogInWidget() {

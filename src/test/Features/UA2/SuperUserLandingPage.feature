@@ -14,7 +14,6 @@ Feature: Landing page verification
     Then I click on "Add User" Button
     Then I am navigated to user creation page
     Then I click on close icon from user creation page
-    Then I am on refreshed landing page
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
@@ -23,14 +22,14 @@ Feature: Landing page verification
       | Email                               |
       | rkapur+devFirst2@remedypartners.com |
 
- Scenario: Verify user information in landing page
- Given I am on the login page
+  Scenario: Verification of user information in landing page
+    Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     Then I should see header text "Management"
     Then I verify user information
- 
+
   #search cases
   Scenario Outline: Search user by Name/Email
     Given I am on the login page
@@ -42,11 +41,11 @@ Feature: Landing page verification
     And I should see <Result> for <category> in landing page
 
     Examples: 
-      | Search  | Result                     | Category   |
-
+      | Search | Result        | Category   |
+     
 
   #Lock unlock cases
-  Scenario: Verification of Lock and Unlock Users on user admin landing page
+  Scenario: Verifying presence of Locked and Unlocked user in the page
     Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Adming
