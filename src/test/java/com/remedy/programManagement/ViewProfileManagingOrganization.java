@@ -1,9 +1,6 @@
 package com.remedy.programManagement;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.StringTokenizer;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,9 +24,10 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		}
 	}
 	
-	public void iVerifyParticipantIdOnVewProfileOfOrganization(String id) throws ClassNotFoundException, SQLException {
-		 String query = "SELECT participant_id from program_management.organization where name = '"+id+"'";
-		 Class.forName("com.mysql.jdbc.Driver");
+	public String fetchParticipantID() throws ClassNotFoundException, SQLException  {
+		   
+		String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+		    Class.forName("com.mysql.jdbc.Driver");
 		    String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306"; 
 		    Connection con=DriverManager.getConnection(connectionString,"pgoel","1Welcome2"); 
 		    Statement stmt=con.createStatement();  
@@ -43,17 +41,23 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		        column.put(rsmd.getColumnName(i),rs.getString(i));
 		        }
 		        String a = Integer.toString(rs.getRow());
-
-		   row.put(a, column);
-		    }
+		        row.put(a, column);
+		        }
 		    String pID = row.get("1").get("participant_id");
 		    con.close();
-		    String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
-		    Assert.assertEquals("Participant Id: "+pID+"|", text);
+		    
+		    return pID;
+	}
+	
+	public void iVerifyParticipantIdOnVewProfileOfOrganization() throws ClassNotFoundException, SQLException
+	{
+		String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
+	    String pID = fetchParticipantID();
+		Assert.assertEquals("Participant Id: "+pID+"|", text);
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
-		if(!text.equals(null)) {
+		if(!text.isEmpty()) {
 			String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
 			Assert.assertEquals(result.replace(",", "").trim(), text);
 		}
@@ -96,15 +100,9 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void userShouldGetRedirectedToTheManagingOrganizationTabPage() {
-		//verifyTextForElement(driver.findElement(By.cssSelector(".row.col-md-10")),text);
 		delay();
 		WebElement elem= driver.findElement(By.cssSelector(".row.col-md-10"));
 		elem.getText();
-	}
-	
-	public void iVerifytheCountfortheassociatedOrganizations() {
-		WebElement industries = driver.findElement(By.cssSelector(".selection-bar.organization-type-selector>ul"));
-		List<WebElement> links = industries.findElements(By.tagName("div"));
 	}
 	
 	public void iVerifyEINTINIdOnViewProfilePGPOrganization(String id) {
