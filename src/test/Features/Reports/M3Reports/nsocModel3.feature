@@ -1,6 +1,6 @@
 Feature: M3 EC Next site of care summary report verification.
 
-  Scenario Outline: User should see only model3 reports not other reports for snf and hha users
+  Scenario Outline: <role> role user with <facility> facility should see only model3 reports not other reports.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -33,11 +33,21 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should not see "Readmissions (Claims)" report after clicking on readmissions
 
     Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
 
-  Scenario Outline: User should have the default filters appearing under nsoc model3 report
+  Scenario Outline: <role> role user with <facility> facility should have the default filters appearing under nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -56,11 +66,53 @@ Feature: M3 EC Next site of care summary report verification.
     Then I verify isAnchorAdmission filter having "isAnchorAdmission includes 1" under preselected nsoc model3 filter
 
     Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
 
-  Scenario Outline: User should see only 3 value under model filter in nsoc model3 report
+  Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-layout-icon button
+    Then I should see "# Episodes" under "measures" field
+
+    Examples: 
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+
+  Scenario Outline: <role> role user with <facility> facility should see only 3 value under model filter in nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -85,11 +137,21 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
-
-  Scenario Outline: User should see default measures as per the requirement
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      
+  Scenario Outline: <role> role user with <facility> facility should see default columns as per the requirement
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -104,14 +166,24 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
-    Then I should see "# Episodes" under "measures" field
+    Then I should see "Anchor Post Acute Admission Month" under "clomuns" field
 
     Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
 
-  Scenario Outline: User should see default dimensions as per the requirement
+  Scenario Outline: <role> role user with <facility> facility should see default dimensions as per the requirement
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -133,33 +205,21 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
 
     Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
 
-  Scenario Outline: User should see default columns as per the requirement
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Next Site of Care" under reports tile text
-    When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-layout-icon button
-    Then I should see "Anchor Post Acute Admission Month" under "clomuns" field
-
-    Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
-
-  Scenario Outline: User should see all columns as per the requirement should be there in drill through
+  Scenario Outline: <role> role user with <facility> facility should see all columns as per the requirement should be there in drill through
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -198,11 +258,21 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should verify "Total Readmits" is appearing under Episodes table
 
     Examples: 
-      | email                             |
-      | RPFINM3SNFSaberHealth@yopmail.com |
-      | RPFINM3HHAVisitingQA@yopmail.com  |
+      | email                                 | role     | facility |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
 
-  Scenario Outline: Nsoc Model3 report unde nsoc should not appear for the user with model 3 and provider type pgp/ach and model 2 with provider type pgp/ach
+  Scenario Outline: User with <model> and having <facility> facility should not see Nsoc Model3 report under nsoc
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -214,7 +284,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should not see Report with text as "Next Site of Care Summary [Model 3]"
 
     Examples: 
-      | email                         |
-      | shutestauf171115a@yopmail.com |
-      | shutestaug231132a@yopmail.com |
-      | shutestaug15252p@yopmail.com  |
+      | email                         | faclity | model  |
+      | shutestauf171115a@yopmail.com | PGP     | Model3 |
+      | shutestaug231132a@yopmail.com | ACH     | Model2 |
+      | shutestaug15252p@yopmail.com  | PGP     | Model2 |
