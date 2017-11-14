@@ -3,11 +3,9 @@ package com.remedy.programManagement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
 
 public class SearchOrganization extends BaseClass{
-	WebDriverWait wait = new WebDriverWait(driver, 20);
 
 	public SearchOrganization(WebDriver driver) {
 		super(driver);
@@ -31,7 +29,6 @@ public class SearchOrganization extends BaseClass{
 		{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
 			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
-
 		}
 		else
 		{
