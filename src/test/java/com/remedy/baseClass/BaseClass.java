@@ -1,5 +1,6 @@
 package com.remedy.baseClass;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -8,9 +9,18 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.remedy.resources.DriverScript;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +35,11 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
-	//WebDriverWait wait = new WebDriverWait(driver, 30);
+	public static Properties Cache=new Properties();
+	public static Properties properties=new Properties();
+	static InputStream inPropFile = null;
+	FileInputStream fisCache;
+	OutputStream outPropFile;
 
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
@@ -140,7 +154,6 @@ public class BaseClass {
 	}
 
 	public void selectElementByIndex(String element, int idx) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		listItems.get(idx).click();
 	}
@@ -212,7 +225,7 @@ public class BaseClass {
 
 	public String getTextForElement(WebElement ele) {
 		if (isElementVisible(ele)) {
-			System.out.println(ele.getText());
+			ele.getText();
 		}
 		return ele.getText();
     }
@@ -221,7 +234,6 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
-        System.out.println(countelement);
         Assert.assertEquals(countelement, count);
     }
 
@@ -250,9 +262,7 @@ public class BaseClass {
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
-            //item.getText().equalsIgnoreCase(itemtext);
             Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
-            //Assert.assertNotEquals();
         }
     }
         
@@ -290,7 +300,6 @@ public class BaseClass {
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getText().equalsIgnoreCase(itemtext);
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
@@ -305,7 +314,6 @@ public class BaseClass {
 	public void selectElementByTextDescByXpath(String element, String desc) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			if (item.getText().equalsIgnoreCase(desc)) {
 				item.click();
 				delay();
@@ -317,7 +325,6 @@ public class BaseClass {
 	public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
@@ -334,7 +341,6 @@ public class BaseClass {
 	}
 
 	public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
-		// actionEvent.moveToElement(toElement).click().build().perform();
 		actionEvent.moveToElement(moveToElement).perform();
 		clickToElement.click();
 	}
@@ -344,7 +350,6 @@ public class BaseClass {
 	}
 
 	public void clickAllElementofAlistbyXpath(String xpathElement) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
 		for (WebElement item : listItems) {
 			item.click();
@@ -367,12 +372,15 @@ public class BaseClass {
 		return value;
 	}
 
-	public void isElementNotPresentOnPage(String ele) {
+
+	public boolean isElementNotPresentOnPage(String ele) {
+		boolean value = false;
 		try {
 			driver.findElement(By.cssSelector(ele));
 		} catch (Exception e) {
-			return;
+			value = true;
 		}
+		return value;
 	}
 
 	public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext) {
@@ -398,7 +406,7 @@ public class BaseClass {
 
 	public void iWillWaitToSee(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 60);
+			WebDriverWait wait = new WebDriverWait(driver, 250);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -409,7 +417,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
-			System.out.println(item.getText());
 			  if (item.getText().trim().contentEquals(text)) {
 				  value=item.getText().trim();  
 			  } 
@@ -420,15 +427,20 @@ public class BaseClass {
 	public void clickSingleElementFromList(By locator, String text) {
 	    List <WebElement> element = driver.findElements(locator);
 	    for(WebElement ele: element) {
-	    	if (ele.getText().contentEquals(text)) {
+	    	if (ele.getText().contains(text)) {
 	    		ele.click();
 	    	}
 	    }
-	}
-	
+	}  
+
 	public void VerifyElementCssProperty(By by,String property){
 		WebElement ele = driver.findElement(by);
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
+	
+	public String createRandomName(String name){
+		return name+RandomStringUtils.randomAlphabetic(8);
+	}
 }
+
