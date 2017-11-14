@@ -12,7 +12,7 @@ import com.remedy.baseClass.BaseClass;
 
 public class CreateManagingOrganization extends BaseClass {
 
-	public static String orgMOName = "Liberty Internal";
+	public static String orgMOName;
 	public static String participant_id;
 	public static String tempMOName;
 
