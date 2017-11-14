@@ -295,3 +295,92 @@ Feature: M3 EC Next site of care summary report verification.
       | shutestauf171115a@yopmail.com | PGP     | Model3 |
       | shutestaug231132a@yopmail.com | ACH     | Model2 |
       | shutestaug15252p@yopmail.com  | PGP     | Model2 |
+
+  Scenario Outline: User with <model> and having <facillity> facility should be able to validate participant field value for NSOC Model3 report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Participant" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Participant" in the header text of filter page
+    And I should see "<participant1>" in the filter value list
+    And I should see "<participant2>" in the filter value list
+    And I click on "<participant1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<participant1>" result in "Participant" field column for "Episode Initiator" filter field
+
+    Examples: 
+      | email                                 | role     | facility    | participant1                           | participant2                           |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Saber Health                           |                                        |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Visiting Nurse Service of NY Home Care |                                        |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Saber Health                           |                                        |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Visiting Nurse Service of NY Home Care |                                        |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Saber Health                           |                                        |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Visiting Nurse Service of NY Home Care |                                        |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Saber Health                           |                                        |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Visiting Nurse Service of NY Home Care |                                        |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Saber Health                           |                                        |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Visiting Nurse Service of NY Home Care |                                        |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Saber Health                           |                                        |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of NY Home Care |                                        |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                           | Visiting Nurse Service of NY Home Care |
+
+  Scenario Outline: User with <model> and having <facillity> facility should be able to validate bpid field value for NSOC Model3 report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "BPID" in the header text of filter page
+    And I should see "<BPID1>" in the filter value list
+    And I should see "<BPID2>" in the filter value list
+    And I should see "<BPID3>" in the filter value list
+    And I should see "<BPID4>" in the filter value list
+    And I should see "<BPID5>" in the filter value list
+    And I should see "<BPID6>" in the filter value list
+    And I should see "<BPID7>" in the filter value list
+    And I click on "<BPID1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
+
+    Examples: 
+      | email                                 | role     | facility    | BPID1    | BPID2    | BPID3    | BPID4    | BPID5    | BPID6    | BPID7    |
+      #| RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 3056-y63 | 3056-y67 | 3056-y68 | 3056-y85 | 3056-y95 | 3056-y98 | 3056-z13 |
+      #| RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 3056-003 |          |          |          |          |          |          |
+      #| OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      #| OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 3056-003 |          |          |          |          |          |          |
+      #| RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      #| RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 3056-003 |          |          |          |          |          |          |
+      #| OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      #| OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 3056-003 |          |          |          |          |          |          |
+      #| OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      #| OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 3056-003 |          |          |          |          |          |          |
+      #| ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      #| ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |

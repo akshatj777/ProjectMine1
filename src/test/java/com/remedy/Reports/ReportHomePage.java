@@ -100,9 +100,12 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFilterValueListModalText(String text){
-        delay();
-        verifyTextForElementfromList("#FT_valueList div", text);
-    }
+		if ("".equals(text)) {
+			return;
+		} else {
+			verifyTextForElementfromList("#FT_valueList div", text);
+		}
+	}
     
     public void iSeeFilterValueListText(String text){
         delay();
