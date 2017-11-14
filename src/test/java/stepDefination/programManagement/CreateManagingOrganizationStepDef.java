@@ -76,7 +76,6 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 @And("^I verify \"([^\"]*)\" after submitting the create ogranization page$")
 	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
-		 
 	 }
 	 
 	 @And("^I switch the focus to \"([^\"]*)\" button$")
@@ -84,4 +83,3 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iSwitchFocusToButton(type);
 	 } 
 }
-
