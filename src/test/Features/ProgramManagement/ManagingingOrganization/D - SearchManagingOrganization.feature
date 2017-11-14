@@ -8,20 +8,19 @@ Feature: Search the Managing organization
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
 
-  Scenario Outline: Search Managing Organization with search parameters
+  Scenario Outline: <Description>
     When I click on Organization link on Program Management page
     Then I verify the Search bar on "Managing" organization page
-    Then I search and verify with search list options on organization search box
-      | PostalCode                 | <Postal_Code>   |
-      | State                      | <StateInitials> |
-      | City                       | <City>          |
-      | Managing Organization Name | <MO_Name>       |
-      | Participant_Id             | <ParticipantId> |
+    Then I search "<SearchParam>" and verify with search list options on organization search box
 
     Examples: 
-      | Description                                         | MO_Name | City | State    | Postal_Code | StateInitials | ParticipantId |
-      | Search Managing Organization with search parameters | MONAME  | City | New York |       10001 | NY            |          1626 |
-
+      | Description                                             | SearchParam |
+      | Search Managing Organization with Postal Code           |       10001 |
+      | Search Managing Organization with State                 | NY          |
+      | Search Managing Organization with City                  | City        |
+      | Search Managing Organization with Managing Organization | MONAME      |
+      | Search Managing Organization with Paticipant ID         | PID         |
+  
   Scenario Outline: Search for a managing organization after editing the Managing organization name
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box

@@ -24,31 +24,6 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		}
 	}
 	
-	public static String fetchParticipantID() throws ClassNotFoundException, SQLException  {
-		   
-		String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
-		    Class.forName("com.mysql.jdbc.Driver");
-		    String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306"; 
-		    Connection con=DriverManager.getConnection(connectionString,"pgoel","1Welcome2"); 
-		    Statement stmt=con.createStatement();  
-		    ResultSet rs=stmt.executeQuery(query);
-		    ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-		    while(rs.next())
-		    {
-		     HashMap<String, String> column = new HashMap<String, String>();
-		        for(int i=1;i<=rsmd.getColumnCount();i++)
-		        {
-		        column.put(rsmd.getColumnName(i),rs.getString(i));
-		        }
-		        String a = Integer.toString(rs.getRow());
-		        row.put(a, column);
-		        }
-		    String pID = row.get("1").get("participant_id");
-		    con.close();
-		    
-		    return pID;
-	}
-	
 	public void iVerifyParticipantIdOnVewProfileOfOrganization() throws ClassNotFoundException, SQLException
 	{
 		String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));

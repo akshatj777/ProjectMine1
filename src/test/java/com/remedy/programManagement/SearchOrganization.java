@@ -3,11 +3,13 @@ package com.remedy.programManagement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 import cucumber.api.DataTable;
@@ -31,57 +33,31 @@ public class SearchOrganization extends BaseClass{
 		}	
 	}
 	
-	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(DataTable table) throws ClassNotFoundException, SQLException{
-		  Map<String, String> data;
-		  data=table.asMap(String.class, String.class);
-		  Object[] keySet=data.keySet().toArray();
-		  for(int i =0; i<data.size();i++)
-		  {
-		  String value = data.get((String )keySet[i]);
+	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(String searchParam) throws ClassNotFoundException, SQLException{
 		 
-		  if(keySet[i].equals("City")){
-		      iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-		      waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  
-		      List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
-		      String test = listItems.get(2).getText();
-		      Assert.assertEquals(test,value);
-		  }
-		  else if (keySet[i].equals("PostalCode")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  
-			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
-			  String test = listItems.get(4).getText();
-			  Assert.assertEquals(test,value);
-		  }
-		  else if (keySet[i].equals("Managing Organization Name")){
+		String value = searchParam;
+		  if (value.equals("MONAME")){
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  
-			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
-			  String test = listItems.get(1).getText();
-			  Assert.assertEquals(test,value);
+			  value = CreateManagingOrganization.orgMOName;
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
-		  else if (keySet[i].equals("State")){
+		  
+		  else if (value.equals("PID")){
+			  String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+			  value = fetchParticipantID(query);
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  
-			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
-			  String test = listItems.get(3).getText();
-			  Assert.assertEquals(test,value);
-		  }  
-		  else if (keySet[i].equals("Participant_Id")){
-			  value = ViewProfileManagingOrganization.fetchParticipantID();
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+		  }
+		  else
+		  {
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  
-			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
-			  String test = listItems.get(0).getText();
-			  Assert.assertEquals(test,value);
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
-	      }
-		}
+	     }
+		
 	
 	public void iVerifySearchBarOnOrganizationPage(String text) {
 		iWillWaitToSee(By.cssSelector(".text-input-field-organizationFilterTerm"));
