@@ -48,9 +48,14 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
-    public WebDriverWait wait = new WebDriverWait(driver, 60);
+    //public WebDriverWait wait = new WebDriverWait(driver, 60);
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
+	}
+	public WebDriverWait waitTo()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		return wait;
 	}
 
 	public void delay() {
@@ -399,7 +404,7 @@ public class BaseClass {
 
 	public void iWillWaitToSee(By locator) {
 		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			waitTo().until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}

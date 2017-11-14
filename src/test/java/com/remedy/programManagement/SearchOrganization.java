@@ -15,12 +15,12 @@ public class SearchOrganization extends BaseClass{
 		if(text.contains("MONAME"))
 		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
 		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}	
 	}
 	
