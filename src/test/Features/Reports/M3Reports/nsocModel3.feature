@@ -33,19 +33,20 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should not see "Readmissions (Claims)" report after clicking on readmissions
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
   Scenario Outline: <role> role user with <facility> facility should have the default filters appearing under nsoc model3 report
     Given I am on the login page
@@ -66,19 +67,20 @@ Feature: M3 EC Next site of care summary report verification.
     Then I verify isAnchorAdmission filter having "isAnchorAdmission includes 1" under preselected nsoc model3 filter
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
   Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement
     Given I am on the login page
@@ -98,19 +100,20 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should see "# Episodes" under "measures" field
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
   Scenario Outline: <role> role user with <facility> facility should see only 3 value under model filter in nsoc model3 report
     Given I am on the login page
@@ -137,20 +140,21 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
-      
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+
   Scenario Outline: <role> role user with <facility> facility should see default columns as per the requirement
     Given I am on the login page
     When I enter email field <email> for login
@@ -169,19 +173,20 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should see "Anchor Post Acute Admission Month" under "clomuns" field
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
   Scenario Outline: <role> role user with <facility> facility should see default dimensions as per the requirement
     Given I am on the login page
@@ -205,19 +210,20 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
   Scenario Outline: <role> role user with <facility> facility should see all columns as per the requirement should be there in drill through
     Given I am on the login page
@@ -258,19 +264,20 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should verify "Total Readmits" is appearing under Episodes table
 
     Examples: 
-      | email                                 | role     | facility |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF      |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA      |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF      |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA      |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF      |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA      |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF      |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA      |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF      |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA      |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF      |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA      |
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
   Scenario Outline: User with <model> and having <facility> facility should not see Nsoc Model3 report under nsoc
     Given I am on the login page
