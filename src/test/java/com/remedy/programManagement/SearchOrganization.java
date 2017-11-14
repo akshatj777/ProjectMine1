@@ -22,12 +22,12 @@ public class SearchOrganization extends BaseClass{
 		if(text.contains("MONAME"))
 		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
 		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}	
 	}
 	
@@ -41,7 +41,7 @@ public class SearchOrganization extends BaseClass{
 		 
 		  if(keySet[i].equals("City")){
 		      iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-		      wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		      waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 		      List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
 		      String test = listItems.get(2).getText();
@@ -49,7 +49,7 @@ public class SearchOrganization extends BaseClass{
 		  }
 		  else if (keySet[i].equals("PostalCode")){
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
 			  String test = listItems.get(4).getText();
@@ -57,7 +57,7 @@ public class SearchOrganization extends BaseClass{
 		  }
 		  else if (keySet[i].equals("Managing Organization Name")){
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
-			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
 			  String test = listItems.get(1).getText();
@@ -65,7 +65,7 @@ public class SearchOrganization extends BaseClass{
 		  }
 		  else if (keySet[i].equals("State")){
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
 			  String test = listItems.get(3).getText();
@@ -74,7 +74,7 @@ public class SearchOrganization extends BaseClass{
 		  else if (keySet[i].equals("Participant_Id")){
 			  value = ViewProfileManagingOrganization.fetchParticipantID();
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-			  wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  
 			  List<WebElement> listItems = driver.findElements(By.cssSelector(".data-table-cell.link-content"));
 			  String test = listItems.get(0).getText();

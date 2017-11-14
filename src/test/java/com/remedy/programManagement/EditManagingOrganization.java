@@ -17,18 +17,18 @@ public class EditManagingOrganization extends BaseClass {
 		if(field.contains("MONAME"))
 		{
 			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']")));
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
 		{
 			clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 	}
 	
 	public void iClickOnButtonOnParticularOrganization(String button) throws IOException {
 		clickElement(driver.findElement(By.xpath("//button[text()='"+button+"']")));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {

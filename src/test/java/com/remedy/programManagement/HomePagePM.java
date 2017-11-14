@@ -20,7 +20,7 @@ public class HomePagePM extends BaseClass {
 	
 	 public void iClickOnOrganizationalLinkOnProgramManagementPage() {
 		 clickElement(driver.findElement(By.cssSelector(".navLink.noselect")));
-		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		 waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	 }
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {
