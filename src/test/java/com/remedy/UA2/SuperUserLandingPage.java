@@ -14,7 +14,7 @@ import com.remedy.baseClass.BaseClass;
 
 public class SuperUserLandingPage extends BaseClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 30);
+	//WebDriverWait wait = new WebDriverWait(driver, 30);
 
 	public SuperUserLandingPage(WebDriver driver) {
 
@@ -37,7 +37,7 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void verifyUserInformation() {
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("td.five.wide")));
+		iWillWaitToSee(By.cssSelector("td.five.wide"));
 		do {
 			int size = driver.findElements(By.xpath("//*[@class='five wide']")).size();
 			System.out.println("*********size" + size);
@@ -63,7 +63,7 @@ public class SuperUserLandingPage extends BaseClass {
 			}
 			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
-				wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.chevron-group")));
+				iWillWaitToSee(By.cssSelector("div.chevron-group"));
 				System.out.println("next page^^^^^^^^^^^^^");
 				
 			}
@@ -76,7 +76,7 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void SearchUserWithText(String text) {
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("th#lastName")));
+		iWillWaitToSee(By.cssSelector("th#lastName"));
 	}
 
 	public void iVerifySearchResult(String result, String searchBy) {
@@ -91,12 +91,12 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnTopUserDropDown() {
-		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("i.dropdown.icon")));
+		iWillWaitToSee(By.cssSelector("i.dropdown.icon"));
 		clickElement(driver.findElements(By.cssSelector("i.dropdown.icon")).get(1));
 	}
 
 	public void iVerifyResetPasswordPopUpText(String text) {
-		delay();
+		iWillWaitToSee(By.xpath("//div[2]/div[1]/div[1]/div/p"));
 		verifyTextForElement(driver.findElement(By.xpath("//div[2]/div[1]/div[1]/div/p")), text);
 	}
 
@@ -105,23 +105,25 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifyLockedUser() {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("th#auth0State"))));
+		//iWillWaitToSee(By.cssSelector("th#auth0State"));
+		//longDelay();
 		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
-		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("td.center.aligned.one.wide")));
+		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
 		isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(1));
 				
 	}
 
 	public void iVerifyUnlockedUser() {
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("th#auth0State")));
+		longDelay();
 		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
-		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("td.center.aligned.one.wide")));
+		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
 		isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(0));
 	}
 
 	public void iClickOnLock() {
-		clickElement(driver.findElements(By.xpath("//i[@class='lock large inverted icon']")).get(0));
-		delay();
+		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
+		clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
 	}
 
 	public void iClickOnUnlock() {
@@ -222,12 +224,12 @@ public class SuperUserLandingPage extends BaseClass {
 						}
 
 	public void iVerifyAddUserPage() {
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.add-user-form-content")));
+		iWillWaitToSee(By.cssSelector("div.add-user-form-content"));
 		isElementVisible(driver.findElement(By.cssSelector("div.add-user-form-content")));
 	}
 
 	public void iClickOnCloseIconFromAddUserPage() {
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("i.close.icon")));
+		iWillWaitToSee(By.cssSelector("i.close.icon"));
 		clickElement(driver.findElement(By.cssSelector("i.close.icon")));
 	}
 

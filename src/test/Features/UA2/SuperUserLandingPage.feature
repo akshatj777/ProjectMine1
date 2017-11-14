@@ -37,23 +37,32 @@ Feature: Landing page verification
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see header text "Management"
+    
     Then I enter search box in landing page with <Search>
     And I should see <Result> for <category> in landing page
 
     Examples: 
       | Search | Result        | Category   |
-     
+
 
   #Lock unlock cases
-  Scenario: Verifying presence of Locked and Unlocked user in the page
-    Given I am on the login page
+  #Scenario: Verifying presence of Locked and Unlocked user in the page
+    #Given I am on the login page
+    #When I log in as super user
+    #Then I should see Tile text User Adming
+    #And I click on the "User Admin" tile
+    #Then I should see header text "Management"
+    #Then I verify users with lock icon present on useradmin Landing page
+    #Then I verify users with Unlock icon button present on useradmin Landing page
+
+  Scenario: Locking a user
+  Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
     Then I should see header text "Management"
-    Then I verify users with lock icon present on useradmin Landing page
-    Then I verify users with Unlock icon button present on useradmin Landing page
-
+    Then I click on Lock button on the table in useradmin Landing page
+    
   Scenario: Unlocking a user
     Given I am on the login page
     When I log in as super user
