@@ -87,22 +87,19 @@ public class CreateManagingOrganization extends BaseClass {
 
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
-		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
-		Assert.assertTrue(bol);
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='"+text+"']")));
 		}
 	}
 	
 	public void iVerifyFieldValidationMessageShouldNotAppearOnCreateOrganizationPage(String text) {
 		if(!text.equals("")){
-		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
-		Assert.assertTrue(bol);
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='"+text+"']")));
 		}
 	}
 		
 	public void iVerifyCreateOrganizationwithDuplicatenameerrormsg(String text) {
 		if(!text.equals("")) {
-		boolean bol1 = isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger"));
-		Assert.assertTrue(bol1);
+		Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger")));
 		}
 	}
 	
@@ -115,6 +112,10 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			tempACHName= createRandomName(text);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempACHName);
+		}
+		else if(text.contains("DUPLICATE_MO"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgMOName);
 		}
 	    else 	
 		{
@@ -156,6 +157,7 @@ public class CreateManagingOrganization extends BaseClass {
 			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	    }
 	}
+	
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 	}

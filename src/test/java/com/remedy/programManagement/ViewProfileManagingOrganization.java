@@ -4,13 +4,13 @@ import java.util.HashMap;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import java.sql.*;
 import com.remedy.baseClass.BaseClass;
 
 public class ViewProfileManagingOrganization extends BaseClass{
 
 	static HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	
 	public ViewProfileManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -52,14 +52,15 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifyParticipantIdOnVewProfileOfOrganization() throws ClassNotFoundException, SQLException
 	{
 		String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
-	    String pID = fetchParticipantID();
+	    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+	    String pID = fetchParticipantID(query);
 		Assert.assertEquals("Participant Id: "+pID+"|", text);
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		if(!text.isEmpty()) {
-			String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
-			Assert.assertEquals(result.replace(",", "").trim(), text);
+		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
+		Assert.assertEquals(result.replace(",", "").trim(), text);
 		}
 	}
 	
@@ -68,8 +69,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(String org) {
-		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
-		Assert.assertTrue(bol);
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
 	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
@@ -84,15 +84,14 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iClickOnOrganizationUnderManagingOrganization(String org) {
 		clickElement(driver.findElement(By.xpath("//a[text()='"+org+"']")));
-		boolean bol = driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org);
-		Assert.assertTrue(bol);
+		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
 	public void iVerifyManagingOrganizationNameOnViewProfileOfOrganization(String name) {
 		if(isElementPresentOnPage(By.cssSelector(".id.market-name"))) {
 		String text = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view>.id.market-name"))); 
         Assert.assertEquals("Managing Organization: "+name,text.replace("|","").trim());
-	        }
+	    }
     }
 	
 	public void iClickontheCrossButton() {
@@ -100,23 +99,8 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	}
 	
 	public void userShouldGetRedirectedToTheManagingOrganizationTabPage() {
-		delay();
-		WebElement elem= driver.findElement(By.cssSelector(".row.col-md-10"));
-		elem.getText();
-	}
-	
-	public void iVerifyEINTINIdOnViewProfilePGPOrganization(String id) {
-		if(isElementPresentOnPage(By.cssSelector(".id-ein"))) {	
-		String text = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-	    Assert.assertEquals("EIN/TIN: "+id,text.replace("|", ""));
-		}
-	}
-	
-	public void iVerifyNPIOnViewProfilePGPOrganization(String num) {
-		if(isElementPresentOnPage(By.cssSelector(".id-npi"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".id-npi"))); 
-		    Assert.assertEquals("NPI: "+num,text.replace("|","").trim());
-			}
+		iWillWaitToSee(By.cssSelector(".navLink.noselect.activeNavLink"));
+		iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect.activeNavLink"), "Managing");
 	}
 	
 	public void iVerifyTheEditButtonontheViewPage(String button) {

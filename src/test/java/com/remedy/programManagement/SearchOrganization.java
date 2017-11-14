@@ -3,7 +3,6 @@ package com.remedy.programManagement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
 
 import cucumber.api.DataTable;
-
-
 
 public class SearchOrganization extends BaseClass{
 	WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -88,18 +85,7 @@ public class SearchOrganization extends BaseClass{
 		  }
 	      }
 		}
-	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
-			if(text.contains("MONAME"))
-				{
-					iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-					isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
-				}
-				else
-				{
-					iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-					isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
-				}
-	}
+	
 	public void iVerifySearchBarOnOrganizationPage(String text) {
 		iWillWaitToSee(By.cssSelector(".text-input-field-organizationFilterTerm"));
 		isElementPresent(By.cssSelector(".text-input-field-organizationFilterTerm"));
@@ -111,7 +97,19 @@ public class SearchOrganization extends BaseClass{
 	
 	public void iVerifytheCreateNewManagingOrganizationLink() {
 		getTextForElement(driver.findElement(By.cssSelector(".data-table-overlay-link>a")));
-
 	}
 
+	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
+		if(text.contains("MONAME"))
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
+
+		}
+		else
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
+		}	
+	}
 }
