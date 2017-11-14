@@ -48,7 +48,7 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
-
+    public WebDriverWait wait = new WebDriverWait(driver, 60);
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
 	}
@@ -399,7 +399,6 @@ public class BaseClass {
 
 	public void iWillWaitToSee(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 60);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
@@ -451,7 +450,7 @@ public class BaseClass {
 		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
 	    Class.forName("com.mysql.jdbc.Driver");
 	    String connectionString = "jdbc:mysql://"+DriverScript.Config.getProperty("MySQLServerName")+":3306"; 
-	    Connection con=DriverManager.getConnection(connectionString,DriverScript.Config.getProperty("MySQLDBUserName"),DriverScript.Config.getProperty("MySQLDBPassword")); 
+	    Connection con=DriverManager.getConnection(connectionString,DriverScript.Config.getProperty("MySQLDBUserName"),DriverScript.Config.getProperty("MySQLPassword")); 
 	    Statement stmt=con.createStatement();  
 	    ResultSet rs=stmt.executeQuery(query);
 	    ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();

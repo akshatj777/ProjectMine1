@@ -11,29 +11,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 
 public class CreateManagingOrganization extends BaseClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 20);
-	DateFormat datef = new SimpleDateFormat("ddMMyy");
-	Date ts = new Date();
-	String timef = datef.format(ts);
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	final String time = df.format(timestamp);
 	public static String orgMOName;
-	public static String ACHName;
-	public static String editedOrgName;
 	public static String participant_id;
-	public static String CCN;
-	public static String NPI;
-	public static String EIN;
 	public static String tempMOName;
-	public static String tempACHName;
-	
 
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
@@ -91,12 +75,6 @@ public class CreateManagingOrganization extends BaseClass {
 		}
 	}
 	
-	public void iVerifyFieldValidationMessageShouldNotAppearOnCreateOrganizationPage(String text) {
-		if(!text.equals("")){
-		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='"+text+"']")));
-		}
-	}
-		
 	public void iVerifyCreateOrganizationwithDuplicatenameerrormsg(String text) {
 		if(!text.equals("")) {
 		Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger")));
@@ -108,11 +86,6 @@ public class CreateManagingOrganization extends BaseClass {
 			tempMOName= createRandomName(text);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempMOName);
 		}
-		else if (text.contains("ACH"))
-		{
-			tempACHName= createRandomName(text);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempACHName);
-		}
 		else if(text.contains("DUPLICATE_MO"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgMOName);
@@ -121,21 +94,6 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
 		}		
-	}
-	
-	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String field) {
-		CCN = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CCN);
-	}
-	
-	public void iEnterEINIdOnCreateOrganizationPage(String field) {
-		EIN = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), EIN);
-	}
-	
-	public void iEnterNPIOnCreateOrganizationPage(String field) {
-		NPI = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
 	}
 
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
@@ -161,56 +119,4 @@ public class CreateManagingOrganization extends BaseClass {
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 	}
-	public void iEnterLocationNameForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationName']")), text);
-    }
-    
-    public void iEnterAddress1ForLocationOnACHOrg(String add1, int num) {
-    	num = num-1;
-    	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.address1']")), add1);
-    }
-    
-    public void iEnterLocationTypeForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-    	delay();
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-    }	
-    
-    public void iEnterAddress2ForLocationOnACHOrg(String add2, int num) {
-    	num = num-1;
-    	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.address2']")), add2);
-    }
-    
-    
-    public void iEnterRegionForLocationOnACHOrg(String text, int num) {
-	    num = num-1;
-	    driver.findElements(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-	    delay();
-	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);    
-    }
-    
-    public void iEnterCityForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.city']")), text);
-    }
-    
-    public void iEnterMarketForLocationOnACHOrg(String text, int num) {
-	    num = num-1;
-	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-	    delay();
-	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);  
-    }
-    
-    public void iEnterStateForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-    }
-    
-    public void iEnterZipForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.postalCode']")), text);
-    }
 }

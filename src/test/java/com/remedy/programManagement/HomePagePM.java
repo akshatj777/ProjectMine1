@@ -4,13 +4,9 @@ import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 
 public class HomePagePM extends BaseClass {
-	
-	WebDriverWait wait = new WebDriverWait(driver, 10);
 
 	 public HomePagePM (WebDriver driver ){
 	        super( driver);

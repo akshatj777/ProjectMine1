@@ -4,10 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.server.handler.ClickElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 
 public class EditManagingOrganization extends BaseClass {
@@ -15,7 +12,6 @@ public class EditManagingOrganization extends BaseClass {
 	public EditManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
-	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	public void iClickFieldInSearchListOnOrganizationPage(String field) {
 		if(field.contains("MONAME"))
@@ -54,7 +50,7 @@ public class EditManagingOrganization extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
         clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
-		}
+	}
 	
 	public void clickStateClearButton() throws Throwable {
 		driver.findElement(By.xpath("//span[@class='Select-clear']")).click();
