@@ -15,6 +15,9 @@ public class CreateManagingOrganization extends BaseClass {
 	public static String orgMOName;
 	public static String participant_id;
 	public static String tempMOName;
+	public static String orgACHName;
+	public static String tempACHName;
+	
 
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
@@ -87,7 +90,15 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgMOName);
 		}
-	    else 	
+		else if(text.contains("ACHNAME")) {
+			tempACHName= createRandomName(text);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempACHName);
+		}
+		else if(text.contains("DUPLICATE_ACH"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgACHName);
+		}
+		else 	
 		{
 	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
 		}		
