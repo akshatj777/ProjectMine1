@@ -1,20 +1,22 @@
 package com.remedy.UA2;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
 public class SuperUserLandingPage extends BaseClass {
-
-	//WebDriverWait wait = new WebDriverWait(driver, 30);
+	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
+	Date timestamp = new Date();
+	String time = df.format(timestamp);
+	String mail = "test.automatemail";
+	final String email = mail+"+"+time+"@gmail.com";
 
 	public SuperUserLandingPage(WebDriver driver) {
 
@@ -75,18 +77,20 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void SearchUserWithText(String text) {
+		
+		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
-		iWillWaitToSee(By.cssSelector("th#lastName"));
+		
 	}
 
 	public void iVerifySearchResult(String result, String searchBy) {
-
+		iWillWaitToSee(By.cssSelector("th#lastName"));
+		
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
-			iVerifyTextFromListOfElement(By.cssSelector("td[class='four wide']"),result);
-		} else if (searchBy.equalsIgnoreCase("Role")) {
-			iVerifyTextFromListOfElement(By.cssSelector("td[class='four wide']"), result);
-		} else if (searchBy.equalsIgnoreCase("email")) {
-			iVerifyTextFromListOfElement(By.cssSelector("td[class='four wide']"), result);
+			iVerifyTextFromListOfElement(By.cssSelector("td.four.wide"),result);
+		}
+		 else if (searchBy.equalsIgnoreCase("email")) {
+			iVerifyTextFromListOfElement(By.cssSelector("td.five.wide"),email);
 		}
 	}
 
@@ -97,7 +101,8 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void iVerifyResetPasswordPopUpText(String text) {
 		iWillWaitToSee(By.xpath("//div[2]/div[1]/div[1]/div/p"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[2]/div[1]/div[1]/div/p")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector("p:(*'reset your password'*)")), text);
+			
 	}
 
 	public void iSelectOptionFromDropdown(String text) {
@@ -105,13 +110,7 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifyLockedUser() {
-		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("th#auth0State"))));
-		//iWillWaitToSee(By.cssSelector("th#auth0State"));
-		//longDelay();
-		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
-		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
-		isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(1));
-				
+			verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(0), "class", "lock-icon");
 	}
 
 	public void iVerifyUnlockedUser() {
@@ -121,10 +120,13 @@ public class SuperUserLandingPage extends BaseClass {
 		isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(0));
 	}
 
-	public void iClickOnLock() {
+	public void iLockUser(String text) {
 		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
-		clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
-	}
+		if(text.equalsIgnoreCase("mail")){
+			 clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+			 }
+		 }
+	
 
 	public void iClickOnUnlock() {
 		clickElement(driver.findElement(By.xpath("//i[@id='auth0State']")));
@@ -158,7 +160,8 @@ public class SuperUserLandingPage extends BaseClass {
 		verifyElementAttributeContainsValue(driver.findElements(By.xpath("//i[@class='lock large icon']")).get(0),
 				"class", "lock large icon");
 	}
-
+	
+/*
 	public void iSortBasedOnLock() {
 		clickElement(driver.findElement(By.xpath("//th[@id='auth0State']")));
 		delay();
@@ -207,7 +210,7 @@ public class SuperUserLandingPage extends BaseClass {
 		delay();
 		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
 		longDelay();
-	}
+	}*/
 
 	public void iClickOnUsersLink() {
 		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));

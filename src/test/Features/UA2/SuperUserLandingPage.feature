@@ -31,38 +31,50 @@ Feature: Landing page verification
     Then I verify user information
 
   #search cases
-  Scenario Outline: Search user by Name/Email
+  Scenario: Search user by First name/Last name/Email
     Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see header text "Management"
     
-    Then I enter search box in landing page with <Search>
-    And I should see <Result> for <category> in landing page
+    Then I enter search box in landing page with "FirstName"
+    And I should see "FirstName" for "First Name" in search result
+    Then I enter search box in landing page with "LastName"
+    And I should see "LastName" for "Last Name" in search result
+    Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
 
-    Examples: 
-      | Search | Result        | Category   |
 
-
+ 
+ 
   #Lock unlock cases
   #Scenario: Verifying presence of Locked and Unlocked user in the page
-    #Given I am on the login page
-    #When I log in as super user
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    #Then I should see header text "Management"
-    #Then I verify users with lock icon present on useradmin Landing page
-    #Then I verify users with Unlock icon button present on useradmin Landing page
-
+  #Given I am on the login page
+  #When I log in as super user
+  #Then I should see Tile text User Adming
+  #And I click on the "User Admin" tile
+  #Then I should see header text "Management"
+  #Then I verify users with lock icon present on useradmin Landing page
+  #Then I verify users with Unlock icon button present on useradmin Landing page
+  
   Scenario: Locking a user
-  Given I am on the login page
+    Given I am on the login page
     When I log in as super user
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
     Then I should see header text "Management"
-    Then I click on Lock button on the table in useradmin Landing page
-    
+    Then I enter search box in landing page with "test.automatemail"
+    Then I lock user with email "test.automatemail"
+    And I verify that user is locked
+    And I click on the top user link
+    Then I select "Log Out" option from the dropdown list
+    And I should see Log in widget
+    Then I enter email field "" for login
+  	And I enter password field Testing11 for Login
+  	Then I click Access button
+  	Then I should not be able to login
+
   Scenario: Unlocking a user
     Given I am on the login page
     When I log in as super user
@@ -87,25 +99,26 @@ Feature: Landing page verification
     Then I click on "Cancel" button from the alert to cancel unlock
     And I verify that the user is locked on the table in useradmin Landing page
 
-  Scenario: Locked user should not be able to login
-    Given I am on the login page
-    Then I enter email field abcfd@yopmail.com for login
-    And I enter password field Testing11 for Login
-    Then I click Access button
-    Then I should not be able to login
-
+  #Scenario: Locked user should not be able to login
+  #Given I am on the login page
+  #Then I enter email field abcfd@yopmail.com for login
+  #And I enter password field Testing11 for Login
+  #Then I click Access button
+  #Then I should not be able to login
+ 
+ 
   #Sort users
-  Scenario: User able to sort the users in landing page
-    Given I am on the login page
-    When I log in as super user
+  #Scenario: User able to sort the users in landing page
+    #Given I am on the login page
+    #When I log in as super user
     #Then I should see Tile text User Adming
     #And I click on the "User Admin" tile
-    Then I should see header text "Management"
-    Then I should be able to sort users based on lock funtionality
-    Then I should be able to sort users based on Name funtionality
-    Then I should be able to sort users based on Role funtionality
-    Then I should be able to sort users based on Email funtionality
-    Then I should be able to sort users based on Date created
+    #Then I should see header text "Management"
+    #Then I should be able to sort users based on lock funtionality
+    #Then I should be able to sort users based on Name funtionality
+    #Then I should be able to sort users based on Role funtionality
+    #Then I should be able to sort users based on Email funtionality
+    #Then I should be able to sort users based on Date created
 
   #top User link
   Scenario: Logout link test from top menu

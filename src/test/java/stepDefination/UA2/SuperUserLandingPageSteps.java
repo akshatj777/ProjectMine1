@@ -59,8 +59,8 @@ ua2LandingPage.verifyUserInformation();
 	public void i_should_see_text_popup_for_reset_password_with(String arg1) throws Throwable {
 	  ua2LandingPage.iVerifyResetPasswordPopUpText(arg1);
 	}
-	@Then("^I verify users with lock icon present on useradmin Landing page$")
-	public void i_verify_users_with_lock_icon_present_on_useradmin_Landing_page() throws Throwable {
+	@Then("^I verify that user is locked$")
+	public void i_verify_that_user_is_locked() throws Throwable {
 		ua2LandingPage.iVerifyLockedUser();
 	}
 
@@ -69,9 +69,9 @@ ua2LandingPage.verifyUserInformation();
 		ua2LandingPage.iVerifyUnlockedUser();
 	}
 
-	@Then("^I click on Lock button on the table in useradmin Landing page$")
-	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iClickOnLock();
+	@Then("^I lock user with email \"([^\"]*)\"$")
+	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
+		ua2LandingPage.iLockUser(text);
 	}
 
 	@Then("^I click on Unlock button on the table in useradmin Landing page$")
@@ -104,7 +104,7 @@ ua2LandingPage.verifyUserInformation();
 		ua2LandingPage.iVerifyThatUserIsLocked();
 	}
 
-	@Then("^I should be able to sort users based on lock funtionality$")
+	/*@Then("^I should be able to sort users based on lock funtionality$")
 	public void i_should_be_able_to_sort_users_based_on_lock_funtionality() throws Throwable {
 		ua2LandingPage.iSortBasedOnLock();
 	}
@@ -127,7 +127,7 @@ ua2LandingPage.verifyUserInformation();
 	@Then("^I should be able to sort users based on Date created$")
 	public void i_should_be_able_to_sort_users_based_on_Date_created() throws Throwable {
 		ua2LandingPage.iSortFromDate();
-	}
+	}*/
 
 	
 	@Then("^I click on \"([^\"]*)\" link$")
@@ -140,12 +140,12 @@ ua2LandingPage.verifyUserInformation();
 	   ua2LandingPage.iVerifyLandingPageUI();
 	}
 
-	@Then("^I enter search box in landing page with ([^\"]*)$")
+	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
 	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
 	ua2LandingPage.SearchUserWithText(text);
 	}
 
-	@Then("^I should see ([^\"]*) for ([^\"]*) in landing page$")
+	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in search result$")
 	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
 	    ua2LandingPage.iVerifySearchResult(result, searchBy);
 	}
