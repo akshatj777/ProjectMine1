@@ -3,7 +3,7 @@ package stepDefination.UA2;
 import com.remedy.UA2.SuperUserLandingPage;
 import com.remedy.resources.DriverScript;
 
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.Then;
 
 public class SuperUserLandingPageSteps extends DriverScript {
@@ -38,7 +38,10 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	public void i_verify_landing_page_UI() throws Throwable {
 		ua2LandingPage.iVerifyLandingPageUI();
 	}
-	
+	@Then("^I enter email field \"([^\"]*)\" for login$")
+	public void i_enter_email_field_for_login(String arg1) throws Throwable {
+	  
+	}
 
 @Then("^I verify user information$")
 public void i_verify_user_information() throws Throwable {
@@ -55,10 +58,7 @@ ua2LandingPage.verifyUserInformation();
 		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
 	
-	@Then("^I should see text popup for reset password with \"([^\"]*)\"$")
-	public void i_should_see_text_popup_for_reset_password_with(String arg1) throws Throwable {
-	  ua2LandingPage.iVerifyResetPasswordPopUpText(arg1);
-	}
+	
 	@Then("^I verify that user is locked$")
 	public void i_verify_that_user_is_locked() throws Throwable {
 		ua2LandingPage.iVerifyLockedUser();
@@ -94,42 +94,11 @@ ua2LandingPage.verifyUserInformation();
 		ua2LandingPage.iClickOnCancelButtonFromPopup();
 	}
 
-	@Then("^I verify that the user is unlocked on the table in useradmin Landing page$")
+	@Then("^I verify that the user is unlocked on Landing page$")
 	public void i_verify_that_the_user_is_unlocked_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iVerifyThatUserIsUnlocked();
+		ua2LandingPage.iVerifyUnlockedUser();
 	}
 
-	@Then("^I verify that the user is locked on the table in useradmin Landing page$")
-	public void i_verify_that_the_user_is_locked_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iVerifyThatUserIsLocked();
-	}
-
-	/*@Then("^I should be able to sort users based on lock funtionality$")
-	public void i_should_be_able_to_sort_users_based_on_lock_funtionality() throws Throwable {
-		ua2LandingPage.iSortBasedOnLock();
-	}
-
-	@Then("^I should be able to sort users based on Name funtionality$")
-	public void i_should_be_able_to_sort_users_based_on_Name_funtionality() throws Throwable {
-		ua2LandingPage.iSortFromName();
-	}
-
-	@Then("^I should be able to sort users based on Role funtionality$")
-	public void i_should_be_able_to_sort_users_based_on_Role_funtionality() throws Throwable {
-		ua2LandingPage.iSortFromRole();
-	}
-
-	@Then("^I should be able to sort users based on Email funtionality$")
-	public void i_should_be_able_to_sort_users_based_on_Email_funtionality() throws Throwable {
-		ua2LandingPage.iSortFromEmail();
-	}
-
-	@Then("^I should be able to sort users based on Date created$")
-	public void i_should_be_able_to_sort_users_based_on_Date_created() throws Throwable {
-		ua2LandingPage.iSortFromDate();
-	}*/
-
-	
 	@Then("^I click on \"([^\"]*)\" link$")
 	public void i_click_on_link(String arg1) throws Throwable {
 	ua2LandingPage.iClickOnUsersLink();
