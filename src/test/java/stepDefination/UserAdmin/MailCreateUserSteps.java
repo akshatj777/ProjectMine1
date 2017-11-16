@@ -50,9 +50,9 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iSignOutFromMailAccount();
 	}
 	
-	@Then("^I enter Email to Create user$") 
-	public void i_Enter_Email_To_CreateUser() throws Throwable {
-		mailcreateuser.iEnterEmailToCreateUser();
+	@Given("^I enter Email \"([^\"]*)\" to Create user$") 
+	public void i_Enter_Email_To_CreateUser(String email) throws Throwable {
+		mailcreateuser.iEnterEmailToCreateUser(email);			
 	}
 	
 	@Then("^I verify Account Verification in Inbox in my account$") 

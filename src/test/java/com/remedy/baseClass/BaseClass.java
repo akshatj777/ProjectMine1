@@ -373,6 +373,15 @@ public class BaseClass {
 			return;
 		}
 	}
+	
+	public boolean isElementNotPresentOnPage(By locator) {
+		try {
+			driver.findElement(locator);
+	        return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext) {
 		Assert.assertEquals(requiredcombolisttext, actualcombolisttext);
@@ -430,5 +439,16 @@ public class BaseClass {
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
+
+	
+	public void isSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals("true", flag);
+	}
+	
+	public void isNotSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals("false", flag);
+	}
 }
-    
+

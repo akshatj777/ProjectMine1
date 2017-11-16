@@ -1,5 +1,7 @@
 package stepDefination.UserAdmin;
 
+import org.openqa.selenium.By;
+
 import com.remedy.resources.Constants;
 import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.LandingPage;
@@ -14,6 +16,7 @@ import cucumber.api.java.en.When;
 /**
  * Created by salam on 7/29/15.
  */
+
 public class CreateUserSteps extends DriverScript{
     LoginPage loginPage = new LoginPage(driver);
     LandingPage landingPage = new LandingPage(driver);
@@ -341,4 +344,161 @@ public class CreateUserSteps extends DriverScript{
         createUser.verifyFieldNames(fieldName);
         
     }
+
+	@Then("^I verify the availability of mandatory fields \"([^\"]*)\"$")
+	public void verifyMandatoryFields(String fieldName) throws Throwable {
+		createUser.verifyMandatoryFieldNames(fieldName);
+	}
+
+	@Then("^I verify the availability of role \"([^\"]*)\"$")
+	public void verifyRoles(String roleName) throws Throwable {
+		createUser.verifyRoleNames(roleName);
+	}
+
+	@Then("^I click on \"([^\"]*)\"$")
+	public void clickOnField(String fieldName) throws Throwable {
+		createUser.clickOnFieldButton(fieldName);
+	}
+
+	@Then("^I switch the focus to Next button$")
+	public void switchFocus() throws Throwable {
+		createUser.switchFocus();
+	}
+
+	@Then("^I verify the \"([^\"]*)\" validation message \"([^\"]*)\"$")
+	public void verifyValidationMessage(String fieldName, String validationMessage) throws Throwable {
+		createUser.ValidateMessage(fieldName, validationMessage);
+	}
+
+	@Then("^I click on Next button$")
+	public void clickNextButton() throws Throwable {
+		createUser.clickNextButton();
+	}
+
+	@Then("^I click on Select All Locations button$")
+	public void clickSelectAllLocationsButton() throws Throwable {
+		createUser.clickSelectAllLocationsButton();
+	}
+
+	@Then("^I click on Submit button$")
+	public void clickSubmitButton() throws Throwable {
+		createUser.clickSubmitButton();
+	}
+
+	@Then("^I verify applications \"([^\"]*)\" are unchecked$")
+	public void verifyAppUnchecked(String appName) throws Throwable {
+		createUser.verifyAppUnchecked(appName);
+	}
+
+	@Then("^I verify applications \"([^\"]*)\" are checked$")
+	public void verifyAppChecked(String appName) throws Throwable {
+		createUser.verifyAppChecked(appName);
+	}
+
+	@Then("^I verify the list of applications \"([^\"]*)\"$")
+	public void verifyApplicationList(String appList) throws Throwable {
+		createUser.verifyApplicationList(appList);
+	}
+
+	@Then("^I verify Learning Pathway search box is not available$")
+	public void verifyLearningPathwayNotAvailable() throws Throwable {
+		createUser.verifyLearningPathwayNotAvailable();
+	}
+
+	@Then("^I verify Learning Pathway search box is available$")
+	public void verifyLearningPathwayAvailable() throws Throwable {
+		createUser.verifyLearningPathwayNotAvailable();
+	}
+
+	@Then("^I click on Select button$")
+	public void clickLessonsSelectButton() throws Throwable {
+		createUser.clickLessonsSelectButton();
+	}
+
+	@Then("^I enter \"([^\"]*)\" in Learning Pathway search box$")
+	public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
+		createUser.enterTextLearningPathwaySearchBox(searchParam);
+	}
+
+	@Then("^I select \"([^\"]*)\" from the results$")
+	public void selectLearningPath(String searchParam) throws Throwable {
+		createUser.selectLearningPath(searchParam);
+	}
+
+	@Then("^I clear the Learning Pathway search box$")
+	public void clearLearningPathwaySearchBox() throws Throwable {
+		createUser.clearLearningPathwaySearchBox();
+	}
+
+	@Then("^I verify login button$")
+	public void verifyLoginButton() throws Throwable {
+		createUser.verifyLoginButton();
+	}
+
+	@Then("^I select \"([^\"]*)\" programs$")
+	public void selectPrograms(String programList) throws Throwable {
+		createUser.selectPrograms(programList);
+	}
+
+	@Then("^I select \"([^\"]*)\" locations$")
+	public void selectLocations(String locationList) throws Throwable {
+		createUser.selectLocations(locationList);
+	}
+
+	@Then("^I verify default program \"([^\"]*)\" associated with organization$")
+	public void verifyDefaultProgramOrganization(String programName) throws Throwable {
+		createUser.verifyDefaultProgramOrganization(programName);
+	}
+
+	@Then("^I verify unavailability of organization drop down$")
+	public void verifyUnavailabilityOrganizationDropDown() throws Throwable {
+		createUser.verifyUnavailabilityOrganizationDropDown();
+	}
+
+	@Then("^I search for \"([^\"]*)\"$")
+	public void searchLocation(String location) throws Throwable {
+		createUser.searchLocation(location);
+	}
+
+	@Then("^I select the \"([^\"]*)\"$")
+	public void selectLocation(String location) throws Throwable {
+		createUser.selectLocation(location);
+	}
+
+	@Then("^I click on General Information tab$")
+	public void clickGeneralInformationTab() throws Throwable {
+		createUser.clickGeneralInformationTab();
+	}
+
+	@Then("^I verify availability of organization drop down$")
+	public void verifyAvailabilityOrganizationDropDown() throws Throwable {
+		createUser.verifyAvailabilityOrganizationDropDown();
+	}
+
+	@Then("^I click on \"([^\"]*)\" button$")
+	public void clickLogOutButton(String arg1) throws Throwable {
+		createUser.clickLogOutButton(arg1);
+	}
+
+	@Then("^Then I verify \"([^\"]*)\" product$")
+	public void verifyProductTiles(String products) throws Throwable {
+		createUser.verifyProductTiles(products);
+	}
+
+	@Then("^I click on Add Another Organization button$")
+	public void clickAddAnotherOrganization() throws Throwable {
+		createUser.clickAddAnotherOrganization();
+	}
+
+	@Then("^I enter characters \"([^\"]*)\" in location serach$")
+	public void enterCharacterInLocationSearch(String text) throws Throwable {
+		createUser.enterCharacterInLocationSearch(text);
+	}
+	
+	@Then("^I should not see \"([^\"]*)\" field$")
+	public void shouldNotSeeFieldWithLabel(String text) throws Throwable {
+		createUser.shouldNotSeeFieldWithLabel(text);
+	}
+
+
 }
