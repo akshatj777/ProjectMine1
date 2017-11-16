@@ -3,12 +3,14 @@ package com.remedy.userAdmin;
 import com.remedy.baseClass.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by salam on 7/29/15.
  */
 public class UserAdminHomePage extends BaseClass {
-
+WebDriverWait wait= new WebDriverWait(driver, 30);
 	public UserAdminHomePage(WebDriver driver) {
 
 		super(driver);
@@ -57,8 +59,8 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
+	wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".remedy-connect-title")));
 		verifyTextForElement(driver.findElement(By.cssSelector(".remedy-connect-title")), pageHeader);
-		delay();
 	}
 
 	public void iSeeCreateUserText(String createUser) {
@@ -67,6 +69,7 @@ public class UserAdminHomePage extends BaseClass {
 	
 	public void iSeeUserAdminPageLogo() {
 		isElementVisible(driver.findElement(By.cssSelector(".flex-item.order-2.btn.logo.valentino-icon-program-admin")));
+	
 	}
 
 	public void iSelectSortOption(String desc) {

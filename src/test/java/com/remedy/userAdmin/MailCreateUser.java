@@ -78,8 +78,16 @@ public class MailCreateUser extends BaseClass{
 		iWillWaitToSee(By.id("headingText"));
 	}
 	
-	public void iEnterEmailToCreateUser() {
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+	public void iEnterEmailToCreateUser(String emailName) {
+		if(emailName.equalsIgnoreCase("test.automatemail"))
+			{
+				driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
+			}
+		else
+			{
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
+			}
+		
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
@@ -139,7 +147,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
-		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
+		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing@1234");
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException {
