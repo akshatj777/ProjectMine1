@@ -237,11 +237,7 @@ public class CreateUserSteps extends DriverScript{
     public void iSelectAllTheApplicationForTheRole() throws Throwable {
        createUser.iclickAllAppsfortheRole();
     }
-    
-    @Then("^I select ([^\"]*) product tile for user creation$")
-    public void iSelectTileForTheRole(String tile) throws Throwable{
-    	createUser.iSelectTileForTheRole(tile);
-    }
+
     
     @And("^I turn off the share file application$")
     public void iTurnOffTheShareFileApplication() throws Throwable{
@@ -353,6 +349,10 @@ public class CreateUserSteps extends DriverScript{
 	@Then("^I verify the availability of role \"([^\"]*)\"$")
 	public void verifyRoles(String roleName) throws Throwable {
 		createUser.verifyRoleNames(roleName);
+	}
+	@Then("^I select \"([^\"]*)\" product$")
+	public void iSelectTileForTheRole(String appList) throws Throwable {
+		createUser.iSelectTileForTheRole(appList);
 	}
 
 	@Then("^I click on \"([^\"]*)\"$")
