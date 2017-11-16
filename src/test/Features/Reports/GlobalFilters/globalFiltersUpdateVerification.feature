@@ -369,5 +369,5 @@ Feature: Global Filter Verification After Update
     Examples: 
       | email                          | Menu 1     | participant1    | episode initiator1               | anchor facility1                 | participantid1 | bpid1    | ccn1   | payer1        | payer2        | selectedpayer | selectedparticipant |
       | shutestaug231132a@yopmail.com  | Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |         441348 | 2070-021 | 390223 | Medicare      |               | All           | All                 |
-      | emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                |         222222 | 7000-000 | 999999 | Emblem Health |               | All           | All                 |
-      | multipayerachrpfin@yopmail.com | Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |         441348 | 2070-021 | 390223 | Medicare      | Emblem Health | Medicare      | All                 |
+      #| emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                |         222222 | 7000-000 | 999999 | Emblem Health |               | All           | All                 |
+      #| multipayerachrpfin@yopmail.com | Dashboards | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |         441348 | 2070-021 | 390223 | Medicare      | Emblem Health | Medicare      | All                 |

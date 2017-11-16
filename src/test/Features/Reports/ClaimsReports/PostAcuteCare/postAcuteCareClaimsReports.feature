@@ -15,11 +15,11 @@ Feature: Post acute care claims
     When I switch to reports embedded iframe
     And I will wait to see "Post Acute Care" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Participant"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Episode Initiator"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Facility"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Bundle"
-    Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Admission Quarter"
+    #Then I should see Post Acute Care (Claims) reports column Tile text as "Participant"
+    #Then I should see Post Acute Care (Claims) reports column Tile text as "Episode Initiator"
+    #Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Facility"
+    #Then I should see Post Acute Care (Claims) reports column Tile text as "Bundle"
+    #Then I should see Post Acute Care (Claims) reports column Tile text as "Anchor Admission Quarter"
     When I click on field-panel-icon button
     When I click to "Payer" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field

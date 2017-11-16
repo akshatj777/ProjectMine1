@@ -243,4 +243,9 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 		data=dataTable.asMap(String.class, String.class);
 		globalfilters.iVerifyCCNInDatabase(data,columnname);	
 	}
+	
+	@And("^verify the data which is fetched from database for ccn$")
+	public void verify_the_data_which_is_fetched_from_database_for_ccn(){
+		globalfilters.verify();
+	}
 }

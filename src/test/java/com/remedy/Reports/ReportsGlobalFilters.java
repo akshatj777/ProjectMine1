@@ -1,12 +1,17 @@
 package com.remedy.Reports;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
+
 import junit.framework.Assert;
+
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.remedy.baseClass.BaseClass;
 
 public class ReportsGlobalFilters extends BaseClass{
@@ -199,6 +204,18 @@ public class ReportsGlobalFilters extends BaseClass{
 			row.put(a, column);
 		}
 		con.close();
+	}
+	
+	public void verify()
+	{
+		String a = row.get("1").get("ccn");
+		StringTokenizer st = new StringTokenizer(a, ",");
+		while(st.hasMoreTokens())
+		{
+			ArrayList arr = new ArrayList();
+			arr.add(st.nextToken());
+			System.out.println(st.nextToken());
+		}	
 	}
 	
 	public void iVerifyCCNInDatabase(Map data, String columnname) {

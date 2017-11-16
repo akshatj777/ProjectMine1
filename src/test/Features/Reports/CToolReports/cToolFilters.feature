@@ -35,9 +35,9 @@ Feature: CTool Filter Verification
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards | Penn            | All                 |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | All                 |
+      #| emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | All                 |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards | RP Payer Test A | RP Payer Test A     |
+      #| multipayerachrpfin@yopmail.com | Dashboards | RP Payer Test A | RP Payer Test A     |
 
   Scenario Outline: User should be able to select Episode Iniatiator filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer
     Given I am on the login page
@@ -74,9 +74,9 @@ Feature: CTool Filter Verification
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards | Rp Test Hospital Two             | All                              |
+      #| emblemachrpfin@yopmail.com     | Dashboards | Rp Test Hospital Two             | All                              |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards | Rp Test Hospital Two             | Rp Test Hospital Two             |
+      #| multipayerachrpfin@yopmail.com | Dashboards | Rp Test Hospital Two             | Rp Test Hospital Two             |
 
   Scenario Outline: User should be able to select Facility filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer
     Given I am on the login page
@@ -116,7 +116,7 @@ Feature: CTool Filter Verification
       #| Emblem Payer Users  |
       #| emblemachrpfin@yopmail.com     | Dashboards | Penn Presbyterian Medical Center | All                              |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
+      #| multipayerachrpfin@yopmail.com | Dashboards | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
 
   Scenario Outline: User should be able to select Bundle filters and changed in Graphs for RPFIN Role users with Medicare,Emblem and Multiple payer
     Given I am on the login page
@@ -153,6 +153,6 @@ Feature: CTool Filter Verification
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards | Amputation               | Amputation               |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards | Congestive heart failure | Congestive heart failure |
+      #| emblemachrpfin@yopmail.com     | Dashboards | Congestive heart failure | Congestive heart failure |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards | Amputation               | Amputation               |
+      #| multipayerachrpfin@yopmail.com | Dashboards | Amputation               | Amputation               |

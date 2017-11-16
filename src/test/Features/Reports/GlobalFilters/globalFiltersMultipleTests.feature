@@ -218,8 +218,8 @@ Feature: Global Filters Verification for Multiple Scenarios
     Examples: 
       | email                          | Menu 1     | participant1    | episode initiator1                                                        | anchor facility1                 | payer1        | payer2        | participantid1 |
       | shutestaug231132a@yopmail.com  | Dashboards | Penn            | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania | Medicare      |               |         441348 |
-      | emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2                | Emblem Health |               |         222222 |
-      | multipayerachrpfin@yopmail.com | Dashboards | Penn            | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania | Medicare      | Emblem Health |         441348 |
+      #| emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2                | Emblem Health |               |         222222 |
+      #| multipayerachrpfin@yopmail.com | Dashboards | Penn            | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania | Medicare      | Emblem Health |         441348 |
 
   Scenario Outline: User should clear the selected filters in global filters
     Given I am on the login page
@@ -271,8 +271,8 @@ Feature: Global Filters Verification for Multiple Scenarios
     Examples: 
       | email                          | Menu 1     | participant1    | episode initiator1                                                        | anchor facility1                 | payer1        | payer2        |
       | shutestaug231132a@yopmail.com  | Dashboards | Penn            | The Pennsylvania Hospital of The University of Pennsylvania Health System | Hospital Of Univ Of Pennsylvania | Medicare      |               |
-      | emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2                | Emblem Health |               |
-      | multipayerachrpfin@yopmail.com | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2                | Medicare      | Emblem Health |
+      #| emblemachrpfin@yopmail.com     | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2                | Emblem Health |               |
+      #| multipayerachrpfin@yopmail.com | Dashboards | RP Payer Test A | RP Test Hospital2                                                         | Rp Test Hospital2                | Medicare      | Emblem Health |
 
   Scenario Outline: User should be able to check multiple checkbox under global filters
     Given I am on the login page
@@ -486,8 +486,8 @@ Feature: Global Filters Verification for Multiple Scenarios
     Examples: 
       | email                          | participant1    | episode initiator1               | anchor facility1                 | payer1        | payer2        |
       | shutestaug231132a@yopmail.com  | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      |               |
-      | emblemachrpfin@yopmail.com     | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
-      | multipayerachrpfin@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |
+      #| emblemachrpfin@yopmail.com     | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
+      #| multipayerachrpfin@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |
 
   Scenario Outline: Filters applied should be displayed after clearing global filters but not applying the changes.
     Given I am on the login page
@@ -547,8 +547,8 @@ Feature: Global Filters Verification for Multiple Scenarios
     Examples: 
       | email                          | participant1    | episode initiator1               | anchor facility1                 | payer1        | payer2        |
       | shutestaug231132a@yopmail.com  | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      |               |
-      | emblemachrpfin@yopmail.com     | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
-      | multipayerachrpfin@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |
+      #| emblemachrpfin@yopmail.com     | RP Payer Test A | RP Test Hospital2                | Rp Test Hospital2                | Emblem Health |               |
+      #| multipayerachrpfin@yopmail.com | Penn            | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center | Medicare      | Emblem Health |
 
   Scenario Outline: User should not be able to use global filters when in collapsed state
     Given I am on the login page
