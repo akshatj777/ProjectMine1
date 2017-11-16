@@ -12,7 +12,7 @@ import com.remedy.baseClass.BaseClass;
 
 public class CreateManagingOrganization extends BaseClass {
 
-	public static String orgMOName;
+	public static String orgMOName = "Liberty Internal";
 	public static String participant_id;
 	public static String tempMOName;
 	public static String orgACHName;
@@ -71,7 +71,7 @@ public class CreateManagingOrganization extends BaseClass {
 
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
-		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='"+text+"']")));
+		iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
 		}
 	}
 	
@@ -90,7 +90,7 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgMOName);
 		}
-		else if(text.contains("ACHNAME")) {
+		else if(text.contains("ACHName")) {
 			tempACHName= createRandomName(text);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempACHName);
 		}
@@ -112,11 +112,18 @@ public class CreateManagingOrganization extends BaseClass {
 		}
 	}
 	
-	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
+	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
 		if (msg.contains("Success!")){
-		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
-		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-		orgMOName = tempMOName;
+			if(org.contains("MO")){
+				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+				orgMOName = tempMOName;
+			}
+			else if(org.contains("ACH")){
+				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+				orgACHName = tempACHName;
+			}
 	    }
 	    else {
 	    	iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));

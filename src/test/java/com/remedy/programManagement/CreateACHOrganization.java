@@ -48,26 +48,32 @@ public class CreateACHOrganization extends BaseClass{
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
-	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String ccn, String field) {
-		if(!ccn.isEmpty()){
-		CCN = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CCN);
+	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) {
+		if(id.equals("CCN")){
+			CCN = createRandomNumber(10);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CCN);
+			}
+		else if(id.equals("EIN")){
+			EIN = createRandomNumber(10);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), EIN);
+			}
+		else if(id.equals("NPI")){
+			NPI = createRandomNumber(10);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
+			}
+		else if(id.equals("lessThan6")){
+			String value = createRandomNumber(5);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+		}
+		else if(id.equals("greaterThan10")){
+			String value = createRandomNumber(11);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+		}
+		else {
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
+			delay();
 		}
 	}
-	
-	public void iEnterEINIdOnCreateOrganizationPage(String ein, String field) {
-		if(!ein.isEmpty()){
-		EIN = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), EIN);
-		}
-	}
-	
-	public void iEnterNPIOnCreateOrganizationPage(String npi, String field) {
-		if(!npi.isEmpty()){
-		NPI = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
-		}
-}
 	
 	public void iEnterLocationNameForLocationOnACHOrg(String text, int num) {
     	num = num-1;
@@ -83,7 +89,7 @@ public class CreateACHOrganization extends BaseClass{
     	num = num-1;
     	driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	delay();
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
     }	
     
     public void iEnterAddress2ForLocationOnACHOrg(String add2, int num) {
@@ -91,12 +97,12 @@ public class CreateACHOrganization extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.address2']")), add2);
     }
     
-    
     public void iEnterRegionForLocationOnACHOrg(String text, int num) {
 	    num = num-1;
 	    driver.findElements(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
 	    delay();
-	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);    
+	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+   
     }
     
     public void iEnterCityForLocationOnACHOrg(String text, int num) {
@@ -108,13 +114,13 @@ public class CreateACHOrganization extends BaseClass{
 	    num = num-1;
 	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
 	    delay();
-	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);  
+	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));  
     }
     
     public void iEnterStateForLocationOnACHOrg(String text, int num) {
     	num = num-1;
     	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
     }
     
     public void iEnterZipForLocationOnACHOrg(String text, int num) {
@@ -123,12 +129,20 @@ public class CreateACHOrganization extends BaseClass{
     }
 
 	public void iSelectRadioButtonForManagingOrganization(String text) { 
-		if(text.contentEquals("Has a Management Organization")) {
+		if(text.equals("true")) {
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='true']")));
 		}
-		else if (text.contentEquals("No Management Organization")){
+		else if (text.equals("false")){
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='false']")));
 		}
 	}
-
+	
+	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String text) {
+		if(text.contains("true")){
+			delay();
+			iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.orgMOName);
+			delay();
+		    clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+		}
+	}
 }

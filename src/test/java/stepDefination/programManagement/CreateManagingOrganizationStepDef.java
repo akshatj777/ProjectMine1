@@ -57,11 +57,6 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
-	 
-	 @And("^I verify ([^\"]*) after submitting the ([^\"]*) organization page$")
-	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text, String action) throws Throwable {
-		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
-	    }
 		
 	 @And("^I enter ([^\"]*) in \"([^\"]*)\" on create organization page$")
 	  public void i_Enter_Details_In_Fileds_On_Create_Organization_Page(String text,String field) throws Throwable {
@@ -73,9 +68,9 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iSelectStateFromDropDownOnCreateOrganizationPage(text);
 	 }
 	 
-	 @And("^I verify \"([^\"]*)\" after submitting the create ogranization page$")
-	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
-		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
+	 @And("^I verify \"([^\"]*)\" after submitting the \"([^\"]*)\" organization page$")
+	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text, String org) throws Throwable {
+		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text, org);
 	 }
 	 
 	 @And("^I switch the focus to \"([^\"]*)\" button$")

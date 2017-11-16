@@ -22,20 +22,20 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 		 createACH.iClickOnParticularOrganizationTabOrganizationDashboard(text);
 	 }
 	 
-	 @And("^I provide unique CCN \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
-	  public void i_Enter_CNN_In_Filed_On_Create_Organization_Page(String ccn, String field) throws Throwable {
-		 createACH.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(ccn, field);
+	 @And("^I provide unique \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
+	  public void i_Enter_Identifiers_In_Filed_On_Create_Organization_Page(String id, String field) throws Throwable {
+		 createACH.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(id, field);
 	    }
-	 
-	 @And("^I provide unique NPI \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
-	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String npi, String field) throws Throwable {
-		 createACH.iEnterNPIOnCreateOrganizationPage(npi, field);
-	    }
-	 
-	 @And("^I provide unique EIN \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
-	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String ein, String field) throws Throwable {
-		 createACH.iEnterEINIdOnCreateOrganizationPage(ein, field);
-	    }
+//	 
+//	 @And("^I provide unique NPI \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
+//	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String npi, String field) throws Throwable {
+//		 createACH.iEnterNPIOnCreateOrganizationPage(npi, field);
+//	    }
+//	 
+//	 @And("^I provide unique EIN \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
+//	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String ein, String field) throws Throwable {
+//		 createACH.iEnterEINIdOnCreateOrganizationPage(ein, field);
+//	    }
 	 
 	 @And("^I enter location name ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
 	  public void i_Enter_LocationName_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
@@ -86,5 +86,9 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 		 createACH.iSelectRadioButtonForManagingOrganization(text);
 	 }
 	
+	 @And("^I select managing organization name in \"([^\"]*)\" Has a Management Organization drop down$")
+	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String text) throws Throwable {
+		 createACH.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(text);
+	 }
 	
 }
