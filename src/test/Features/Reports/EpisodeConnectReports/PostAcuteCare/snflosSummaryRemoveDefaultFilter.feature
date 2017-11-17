@@ -32,4 +32,4 @@ Feature: Remove the default filters from SNF LOS Summary Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      #| multipayerachrpfin@yopmail.com |
+      | multipayerachrpfin@yopmail.com |

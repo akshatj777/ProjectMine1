@@ -34,4 +34,4 @@ Feature: EC Reports Verification
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Patient ID |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Patient ID |
+      | multipayerachrpfin@yopmail.com | Patient ID |

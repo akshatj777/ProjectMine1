@@ -44,9 +44,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export NPRA graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -92,9 +92,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export SNF graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -141,9 +141,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export Long Term Acute Care graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -190,9 +190,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export Inpatient Rehab graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -239,9 +239,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export Home Health graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -288,9 +288,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export Home graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -337,9 +337,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export Other graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -386,9 +386,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export Initial SNF Length of Stay graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -435,9 +435,9 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should click on export SNF Days graphs for RPFIN Role users with Medicare,Emblem and Multiple payer with ACH Provider Type
     Given I am on the login page
@@ -484,6 +484,6 @@ Feature: CTool Reports Export to PNG,CSV and XLS
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      #| emblemachrpfin@yopmail.com     | Dashboards |
+      | emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      #| multipayerachrpfin@yopmail.com | Dashboards |
+      | multipayerachrpfin@yopmail.com | Dashboards |
