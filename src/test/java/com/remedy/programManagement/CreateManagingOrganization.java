@@ -23,7 +23,7 @@ public class CreateManagingOrganization extends BaseClass {
 		iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
 	}
 	
-	public void iClickOnCreateNewOrgButtonOnProgramManagementHomepage() {
+	public void iClickOnCreateNewOrgButton() {
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		clickElement(driver.findElement(By.cssSelector("button[name='createNewOrg']")));
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));

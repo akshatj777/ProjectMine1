@@ -142,4 +142,8 @@ public class CreateACHOrganization extends BaseClass{
 		    clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		}
 	}
+	
+	public void iVerifyLocationHeaderOnOrganizationPage(String location) {
+		iVerifyTextFromListOfElement(By.cssSelector(".col-md-11.location-indcator"), location);
+	}
 }

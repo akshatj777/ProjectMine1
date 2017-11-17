@@ -69,7 +69,7 @@ Feature: Edit the Managing organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
     And I switch the focus to "submit" button
-    And I verify "<ValidationMessage>" mandatory field validation message on edit organization page
+    And I verify "<ValidationMessage>" field validation message on edit organization page
 
     Examples: 
       | Description                                                                        | MO_Name | Edited_MO_Name                                                               | Address1                                       | Contact_Person                                 | Address2                                       | Contact_Email                                  | City                                           | Contact_Phone | State | Postal_Code | ValidationMessage                                              |

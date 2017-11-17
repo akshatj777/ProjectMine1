@@ -30,7 +30,7 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     And I verify "ACH" organization tab present under "Managing" Organization
     And I verify "PGP" organization tab present under "Managing" Organization
     And I verify "SNF" organization tab present under "Managing" Organization
-    Then I verify "+" button under organization tab
+    Then I verify "+" button under "Manaing" organization page
     Then I verify "ACH" organization tab by default selected under Managing Organization
     And I verify "CCN" header label under "ACH" organization in Managing Organization
     And I verify "ACH Organization Name" header label under "ACH" organization in Managing Organization

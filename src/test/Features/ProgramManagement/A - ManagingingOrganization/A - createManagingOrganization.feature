@@ -10,13 +10,13 @@ Feature: Create Managing organization functionality tests
 
   Scenario: Verification of availability of all the fields on Create Managing Organization page
     When I click on Organization link on Program Management page
-    Then I verify "+" button under organization tab
+    Then I verify "+" button under "Manaing" organization page
     And I verify "Participant ID" header label under "Managing" organization in Managing Organization
     And I verify "Managing Organization Name" header label under "Managing" organization in Managing Organization
     And I verify "City" header label under "Managing" organization in Managing Organization
     And I verify "State" header label under "Managing" organization in Managing Organization
     And I verify "Postal Code" header label under "Managing" organization in Managing Organization
-    Then I click on create new Organization button on Program Management homepage
+    Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     And I verify "*Managing Organization Name" field on create organization page
     And I verify "Contact Person" field on create organization page
@@ -32,7 +32,8 @@ Feature: Create Managing organization functionality tests
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I click on create new Organization button on Program Management homepage
+    Then I verify "+" button under "Manaing" organization page
+    Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
@@ -52,7 +53,8 @@ Feature: Create Managing organization functionality tests
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I click on create new Organization button on Program Management homepage
+    Then I verify "+" button under "Manaing" organization page
+    Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
@@ -64,7 +66,7 @@ Feature: Create Managing organization functionality tests
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     And I switch the focus to "submit" button
-    And I verify "<ValidationMessage>" mandatory field validation message on create organization page
+    And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
       | Description                                     | MO_Name                                                                      | Address1                                       | Contact_Person                                 | Address2                                       | Contact_Email                                  | City                                           | Contact_Phone | State | Postal_Code | ValidationMessage                                              |
@@ -82,7 +84,8 @@ Feature: Create Managing organization functionality tests
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I click on create new Organization button on Program Management homepage
+    Then I verify "+" button under "Manaing" organization page
+    Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page

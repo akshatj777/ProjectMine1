@@ -80,5 +80,9 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String text) throws Throwable {
 		 createACH.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(text);
 	 }
-	
+	 
+	 @And("^I verify \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Verify_Location_Header_On_Organization_Page(String location, String org) throws Throwable {
+		 createACH.iVerifyLocationHeaderOnOrganizationPage(location);
+	 }
 }

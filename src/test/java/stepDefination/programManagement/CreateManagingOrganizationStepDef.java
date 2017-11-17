@@ -8,14 +8,9 @@ import cucumber.api.java.en.Then;
 public class CreateManagingOrganizationStepDef extends DriverScript{
 	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
 	
-	@And("^I verify \"([^\"]*)\" button under organization tab$")
-	  public void i_Verify_Button_Under_Organization_Tab(String button) throws Throwable {
+	@And("^I verify \"([^\"]*)\" button under \"([^\"]*)\" organization page$")
+	  public void i_Verify_Button_Under_Organization_Page(String button, String org) throws Throwable {
 		 createMO.iVerifyButtonUnderOrganizationTab(button);
-	    }
-	
-	 @And("^I click on create new Organization button on Program Management homepage$")
-	  public void i_Click_On_Create_NewOrganizationButton_On_ProgramManagement_Homepage() throws Throwable {
-		 createMO.iClickOnCreateNewOrgButtonOnProgramManagementHomepage();
 	    }
 	 
 	 @And("^I verify \"([^\"]*)\" header text on ([^\"]*) organization page$")
@@ -55,6 +50,11 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 
 	 @And("^I verify \"([^\"]*)\" mandatory field validation message on ([^\"]*) organization page$")
 	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text, String action) throws Throwable {
+		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
+	    }
+	 
+	 @And("^I verify \"([^\"]*)\" field validation message on ([^\"]*) organization page$")
+	  public void i_Verify_ValidationMessage_Under_Fields_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
 		

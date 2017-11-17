@@ -11,13 +11,13 @@ Feature: Create Hospital organization functionality tests
     When I click on "Hospital" organization tab on organization dashboard
 
   Scenario: Verification of availability of all the fields on Create Hospital Organization page
-    Then I verify "+" button under organization tab
+    Then I verify "+" button under "Hospital" organization page
     And I verify "CCN" header label under "Hospital" organization in Hospital Organization
     And I verify "ACH Organization Name " header label under "Hospital" organization in Hospital Organization
     And I verify "City" header label under "Hospital" organization in Hospital Organization
     And I verify "State" header label under "Hospital" organization in Hospital Organization
     And I verify "Postal Code" header label under "Hospital" organization in Hospital Organization
-    Then I click on create new Organization button on Program Management homepage
+    Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
     And I verify "*Hospital Organization Name" field on create organization page
     And I verify "Has a Management Organization" radio button on create organization page
@@ -44,7 +44,7 @@ Feature: Create Hospital organization functionality tests
     And I verify "Cancel" button on create organization page
 
   Scenario Outline: <Description>
-    Then I click on create new Organization button on Program Management homepage
+    Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
     Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
@@ -77,7 +77,7 @@ Feature: Create Hospital organization functionality tests
       | Check validation for blank Identifiers          | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 |     |     |     | At least one identification is required |
 
   Scenario Outline: <Description>
-    Then I click on create new Organization button on Program Management homepage
+    Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
     Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
@@ -94,7 +94,7 @@ Feature: Create Hospital organization functionality tests
     And I enter city <Loc_City> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     And I switch the focus to "submit" button
-    And I verify "<ValidationMessage>" mandatory field validation message on create organization page
+    And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
       | Description                                          | Hosp_Name                                                                    | Address1                                       | Short_Name                                     | Address2                                       | City                                           | Postal_Code | Loc_Name                                                                     | Loc_Address1                                   | Loc_Address2                                   | Loc_City                                       | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
@@ -118,7 +118,52 @@ Feature: Create Hospital organization functionality tests
       | Check Allowed Characters for NPI field               |                                                                              |                                                |                                                |                                                |                                                |             |                                                                              |                                                |                                                |                                                |                 |               |               | *@$%^93%#^&4  | The NPI field must be alphanumeric.                            |
 
   Scenario Outline: <Description>
-    Then I click on create new Organization button on Program Management homepage
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "<CCN>" in "CCN" on create organization page
+    And I provide unique "<EIN>" in "EIN" on create organization page
+    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I verify "Location 1" on "Create Hospital" organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I enter region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I enter market <Loc_Market> for Location "1" on "create" organization page
+    And I enter state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH" organization page
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Location 2" on "Create Hospital" organization page
+    And I enter location name <Loc_Name> for Location "2" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
+    And I enter location type <Loc_Type> for Location "2" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
+    And I enter region <Loc_Region> for Location "2" on "create" organization page
+    And I enter city <Loc_City> for Location "2" on "create" organization page
+    And I enter market <Loc_Market> for Location "2" on "create" organization page
+    And I enter state <Loc_State> for Location "2" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH" organization page
+
+    Examples: 
+      | Description                                                      | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                              |
+      | Create Hospital Organization with multiple location - Without MO | false  | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! Hospital Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
     And I select "<Has_MO>" radio button for managing organization
     Then I select managing organization name in "<Has_MO>" Has a Management Organization drop down
@@ -163,14 +208,14 @@ Feature: Create Hospital organization functionality tests
       | Create Hospital Organization with all the available fields - With MO                                                    | true   | ACHNAME       | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! Hospital Organization Successfully Created.                                                    |
 
   Scenario Outline: Identifiers - <Description>
-    Then I click on create new Organization button on Program Management homepage
+    Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
     And I provide unique "<CCN>" in "CCN" on create organization page
     And I provide unique "<EIN>" in "EIN" on create organization page
     And I provide unique "<NPI>" in "NPI" on create organization page
     And I switch the focus to "submit" button
-    And I verify "<Message>" mandatory field validation message on create organization page
-    And I verify "<Message1>" mandatory field validation message on create organization page
+    And I verify "<Message>" field validation message on create organization page
+    And I verify "<Message1>" field validation message on create organization page
 
     Examples: 
       | Description                                                              | CCN           | EIN           | NPI           | Message                            | Message1                           |
