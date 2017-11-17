@@ -1,18 +1,10 @@
 package com.remedy.programManagement;
 
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.remedy.baseClass.BaseClass;
-
-import cucumber.api.DataTable;
 
 public class SearchOrganization extends BaseClass{
 
@@ -23,7 +15,7 @@ public class SearchOrganization extends BaseClass{
 	public void iSearchFieldOnOrganizationInSearchBox(String text) {
 		if(text.contains("MONAME"))
 		{
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.moOrg.get("MONAME"));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
@@ -37,14 +29,14 @@ public class SearchOrganization extends BaseClass{
 		 
 		String value = searchParam;
 		  if (value.equals("MONAME")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.moOrg.get("MONAME"));
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreateManagingOrganization.orgMOName;
+			  value = CreateManagingOrganization.moOrg.get("MONAME");
 			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
 		  
 		  else if (value.equals("PID")){
-			  String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+			  String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
 			  value = fetchParticipantID(query);
 			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -76,7 +68,7 @@ public class SearchOrganization extends BaseClass{
 		if(text.contains("MONAME"))
 		{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
-			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
 		}
 		else
 		{

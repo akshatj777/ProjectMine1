@@ -39,7 +39,7 @@ Feature: Create Managing organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    Then I click on "Submit" button on create organization page
+    Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
@@ -93,7 +93,7 @@ Feature: Create Managing organization functionality tests
     And I enter <Contact_Phone> in "Contact Phone" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    Then I click on "Submit" button on create organization page
+    Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 

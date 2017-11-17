@@ -1,24 +1,20 @@
 package com.remedy.programManagement;
 
 import java.io.IOException;
+import java.util.HashMap;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class CreateManagingOrganization extends BaseClass {
-
-	public static String orgMOName = "Liberty Internal";
-	public static String participant_id;
-	public static String tempMOName;
-	public static String orgACHName;
-	public static String tempACHName;
-	
-
+	public static HashMap<String, String> tempMoOrg = new HashMap<String, String>();
+	public static HashMap<String, String> moOrg = new HashMap<String, String>();
+    
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -41,28 +37,25 @@ public class CreateManagingOrganization extends BaseClass {
 		iVerifyTextFromListOfElement(By.cssSelector(".input-field-caption"), text);
 	}
 	
+	public void iVerifyRadioButtonLabelOnCreateOrganizationPage(String text) {
+		iVerifyTextFromListOfElement(By.cssSelector(".radio-button-text"), text);
+	}
+	
 	public void iVerifyLabelDropDownFieldOnCreateOrganizationPage(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector(".select-field-caption.required")), text);
 	}
 	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
+		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		scrollIntoViewByJS(element);
 		delay();
-		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-		element.click();
+		clickElement(element);
 	}
-	
-	public void iClickOnCancelButtonOnCreateOrganizationPage() {
-		delay();
-		WebElement element = driver.findElement(By.xpath("//button[text()='Cancel']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-		element.click();
-	}
+
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
-		delay();
-		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-		element.getText();
+		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		scrollIntoViewByJS(element);
+		isElementPresent(By.xpath("//button[text()='"+text+"']"));
 	}
 	
 	public void userNavigatedToViewPage() {
@@ -83,20 +76,20 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
 		if(text.contains("MONAME")) {
-			tempMOName= createRandomName(text);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempMOName);
+			tempMoOrg.put("MONAME",createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempMoOrg.get("MONAME"));
 		}
 		else if(text.contains("DUPLICATE_MO"))
 		{
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgMOName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), moOrg.get("MONAME"));
 		}
-		else if(text.contains("ACHName")) {
-			tempACHName= createRandomName(text);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempACHName);
+		else if(text.contains("ACHNAME")) {
+			CreateACHOrganization.tempAchOrg.put("ACHNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
 		}
 		else if(text.contains("DUPLICATE_ACH"))
 		{
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgACHName);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
 		}
 		else 	
 		{
@@ -117,12 +110,12 @@ public class CreateManagingOrganization extends BaseClass {
 			if(org.contains("MO")){
 				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				orgMOName = tempMOName;
+				moOrg = tempMoOrg;
 			}
 			else if(org.contains("ACH")){
 				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				orgACHName = tempACHName;
+				CreateACHOrganization.achOrg = CreateACHOrganization.tempAchOrg;
 			}
 	    }
 	    else {
@@ -133,5 +126,6 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
+		delay();
 	}
 }

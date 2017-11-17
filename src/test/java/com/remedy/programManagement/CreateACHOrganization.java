@@ -1,29 +1,16 @@
 package com.remedy.programManagement;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
 
 public class CreateACHOrganization extends BaseClass{
-	
-	WebDriverWait wait = new WebDriverWait(driver, 20);
-	DateFormat datef = new SimpleDateFormat("ddMMyy");
-	Date ts = new Date();
-	String timef = datef.format(ts);
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	final String time = df.format(timestamp);
-	public static String CCN;
-	public static String EIN;
-	public static String NPI;	
+	public static HashMap<String, String> tempAchOrg = new HashMap<String, String>();
+	public static HashMap<String, String> achOrg = new HashMap<String, String>();
 
 	public CreateACHOrganization(WebDriver driver) {
 		super(driver);
@@ -48,19 +35,30 @@ public class CreateACHOrganization extends BaseClass{
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
-	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) {
+	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) throws InterruptedException {
 		if(id.equals("CCN")){
-			CCN = createRandomNumber(10);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CCN);
+			tempAchOrg.put(id, createRandomNumber(10));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get(id));
 			}
 		else if(id.equals("EIN")){
-			EIN = createRandomNumber(10);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), EIN);
+			tempAchOrg.put(id, createRandomNumber(10));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get(id));
 			}
 		else if(id.equals("NPI")){
-			NPI = createRandomNumber(10);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), NPI);
+			tempAchOrg.put(id, createRandomNumber(10));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get(id));
 			}
+		else if(id.contains("DUPLICATE")){
+			if(id.contains("CCN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+			}
+			else if(id.contains("EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
+			}
+			else if(id.contains("NPI")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
+			}
+		}
 		else if(id.equals("lessThan6")){
 			String value = createRandomNumber(5);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
@@ -139,8 +137,7 @@ public class CreateACHOrganization extends BaseClass{
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String text) {
 		if(text.contains("true")){
-			delay();
-			iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.orgMOName);
+			iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
 			delay();
 		    clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		}

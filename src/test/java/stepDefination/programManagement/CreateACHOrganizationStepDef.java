@@ -26,16 +26,6 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	  public void i_Enter_Identifiers_In_Filed_On_Create_Organization_Page(String id, String field) throws Throwable {
 		 createACH.iEnterCNNorNPIorEINIdOnCreateOrganizationPage(id, field);
 	    }
-//	 
-//	 @And("^I provide unique NPI \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
-//	  public void i_Enter_NPI_In_Filed_On_Create_Organization_Page(String npi, String field) throws Throwable {
-//		 createACH.iEnterNPIOnCreateOrganizationPage(npi, field);
-//	    }
-//	 
-//	 @And("^I provide unique EIN \"([^\"]*)\" in \"([^\"]*)\" on create organization page$")
-//	  public void i_Enter_EIN_In_Filed_On_Create_Organization_Page(String ein, String field) throws Throwable {
-//		 createACH.iEnterEINIdOnCreateOrganizationPage(ein, field);
-//	    }
 	 
 	 @And("^I enter location name ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
 	  public void i_Enter_LocationName_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {

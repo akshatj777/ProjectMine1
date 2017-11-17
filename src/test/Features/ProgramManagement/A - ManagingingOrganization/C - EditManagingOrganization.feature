@@ -42,7 +42,7 @@ Feature: Edit the Managing organization
     And I edit "City" field to <City> for organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
-    Then I click on "Submit" button on create organization page
+    Then I click on "Submit" button on "Edit" organization page
     And I verify "<ValidationMessage>" mandatory field validation message on edit organization page
 
     Examples: 
@@ -100,7 +100,7 @@ Feature: Edit the Managing organization
     And I edit "Contact Phone" field to <Contact_Phone> for organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
-    Then I click on "Submit" button on create organization page
+    Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit MO" organization page
 
     Examples: 
@@ -128,7 +128,7 @@ Feature: Edit the Managing organization
     And I click <MO_Name> field in search list on organization page
     And I click on "Edit" button on particular organization
     And I edit "Contact Email" field to <Contact_Email> for organization
-    And I click on cancel button on create organization page
+    And I click on "Cancel" button on "Edit" organization page
     Then User navigated to view page
     And I verify <Contact_Email> name on the header of view profile
 

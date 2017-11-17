@@ -428,8 +428,6 @@ public class BaseClass {
 	    	}
 	    }
 	}  
-
-
 	
 	public boolean isElementPresent(By by) {
 	    try {
@@ -476,7 +474,11 @@ public class BaseClass {
 	    String pID = row.get("1").get("participant_id");
 	    con.close();
 	    return pID;
-}
-
+	}
+	
+	public void scrollIntoViewByJS(WebElement element){
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+	
 }
 
