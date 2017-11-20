@@ -25,6 +25,7 @@ public class CreateManagingOrganization extends BaseClass {
 	Date timestamp = new Date();
 	final String time = df.format(timestamp);
 	public static String orgName;
+	public static String editedOrgName;
 	public static String tempOrgName;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
@@ -59,6 +60,12 @@ public class CreateManagingOrganization extends BaseClass {
 		element.click();
 	}
 	
+	public void iClickOnCancelButtonOnCreateOrganizationPage() {
+		delay();
+		WebElement element = driver.findElement(By.xpath("//button[text()='Cancel']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
+	}
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
 		delay();
 		WebElement element = driver.findElement(By.xpath("//button[text()='Submit']"));
@@ -66,24 +73,25 @@ public class CreateManagingOrganization extends BaseClass {
 		element.getText();
 	}
 	
+	public void userNavigatedToViewPage() {
+		driver.findElement(By.cssSelector(".navLink.noselect")).getText();
+	}
+
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
-		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
-		Assert.assertTrue(bol);
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='"+text+"']")));
 		}
 	}
 	
 	public void iVerifyFieldValidationMessageShouldNotAppearOnCreateOrganizationPage(String text) {
 		if(!text.equals("")){
-		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
-		Assert.assertTrue(bol);
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='"+text+"']")));
 		}
 	}
 		
 	public void iVerifyCreateOrganizationwithDuplicatenameerrormsg(String text) {
 		if(!text.equals("")) {
-		boolean bol1 = isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger"));
-		Assert.assertTrue(bol1);
+		Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger")));
 		}
 	}
 	
@@ -91,6 +99,10 @@ public class CreateManagingOrganization extends BaseClass {
 		if(text.contains("MONAME")) {
 		tempOrgName= createRandomName(text);
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempOrgName);
+		}
+		else if(text.contains("DUPLICATE_MO"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
 		}
 	    else 	
 		{
@@ -117,6 +129,7 @@ public class CreateManagingOrganization extends BaseClass {
 			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	    }
 	}
+	
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 	}

@@ -1,7 +1,6 @@
 package stepDefination.programManagement;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.ViewProfileManagingOrganization;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
@@ -13,8 +12,8 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	@And("^I verify ([^\"]*) name on the header of view profile$")
 	  public void i_Verify_Name_On_Header_On_View_Profile(String text) throws Throwable {
-		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(CreateManagingOrganization.orgName);
-	 }
+		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(text);
+	    }
 	
 	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization in Managing Organization$")
 	  public void i_Verify_Header_Label_Under_Organization_In_ManagingOrganization(String header,String org) throws Throwable {

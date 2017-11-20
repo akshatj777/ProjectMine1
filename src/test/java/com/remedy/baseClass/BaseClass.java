@@ -372,7 +372,6 @@ public class BaseClass {
 		return value;
 	}
 
-
 	public boolean isElementNotPresentOnPage(String ele) {
 		boolean value = false;
 		try {
@@ -406,7 +405,7 @@ public class BaseClass {
 
 	public void iWillWaitToSee(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 250);
+			WebDriverWait wait = new WebDriverWait(driver, 60);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();

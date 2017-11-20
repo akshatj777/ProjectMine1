@@ -4,6 +4,7 @@ import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 
 public class CreateManagingOrganizationStepDef extends DriverScript{
 	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
@@ -18,18 +19,18 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iClickOnCreateNewOrgButtonOnProgramManagementHomepage();
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" header text on create organization page$")
-	  public void i_Verify_HeaderText_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I verify \"([^\"]*)\" header text on ([^\"]*) organization page$")
+	  public void i_Verify_HeaderText_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyHeaderTextOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" field on create organization page$")
-	  public void i_Verify_Label_Fields_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I verify \"([^\"]*)\" field on ([^\"]*) organization page$")
+	  public void i_Verify_Label_Fields_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyLabelFieldsOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" drop down field on create organization page$")
-	  public void i_Verify_Label_DropDown_Field_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I verify \"([^\"]*)\" drop down field on ([^\"]*) organization page$")
+	  public void i_Verify_Label_DropDown_Field_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyLabelDropDownFieldOnCreateOrganizationPage(text);
 	    }
 	 
@@ -37,25 +38,35 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Click_On_Button_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	    }
+
+	 @And("^I click on cancel button on create organization page$")
+	  public void i_Click_On_Cancel_Button_On_Create_Organization_Page() throws Throwable {
+		 createMO.iClickOnCancelButtonOnCreateOrganizationPage();
+	    }
 	 
-	 @And("^I verify \"([^\"]*)\" button on create organization page$")
-	  public void i_verify_On_Button_On_Create_Organization_Page(String text) throws Throwable {
+	 @Then("^User navigated to view page$")
+	  public void user_navigated_to_view_page() throws Throwable {
+		 createMO.userNavigatedToViewPage();
+	 }
+
+	 @And("^I verify \"([^\"]*)\" button on ([^\"]*) organization page$")
+	  public void i_verify_On_Button_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyOnButtonOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" mandatory field validation message on create organization page$")
-	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I verify \"([^\"]*)\" mandatory field validation message on ([^\"]*) organization page$")
+	  public void i_Verify_ValidationMessage_Under_MandatoryFields_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" validation message should not appear on create organization page$")
-	  public void i_Verify_ValidationMessage_Should_NOT_Appear_On_Create_Organization_Page(String text) throws Throwable {
+	 @And("^I verify \"([^\"]*)\" validation message should not appear on ([^\"]*) organization page$")
+	  public void i_Verify_ValidationMessage_Should_NOT_Appear_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyFieldValidationMessageShouldNotAppearOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify ([^\"]*) after submitting the create ogranization page$")
-	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text) throws Throwable {
-		 createMO.iVerifyCreateOrganizationwithDuplicatenameerrormsg(text);
+	 @And("^I verify ([^\"]*) after submitting the ([^\"]*) ogranization page$")
+	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text, String action) throws Throwable {
+		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
 	    }
 		
 	 @And("^I enter ([^\"]*) in \"([^\"]*)\" on create organization page$")
