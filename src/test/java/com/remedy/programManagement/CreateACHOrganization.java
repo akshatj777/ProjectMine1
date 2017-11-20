@@ -16,10 +16,6 @@ public class CreateACHOrganization extends BaseClass{
 		super(driver);
 	}
 	
-	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
-		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), header);
-	}
-	
 	public void iVerifyLabelDropDownFieldOnCreateOrganizationPage(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector(".select-field-caption.required")), text);
 	}
@@ -118,7 +114,9 @@ public class CreateACHOrganization extends BaseClass{
     public void iEnterStateForLocationOnACHOrg(String text, int num) {
     	num = num-1;
     	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
+    	if(!text.isEmpty()){
     	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    	}
     }
     
     public void iEnterZipForLocationOnACHOrg(String text, int num) {
@@ -127,16 +125,18 @@ public class CreateACHOrganization extends BaseClass{
     }
 
 	public void iSelectRadioButtonForManagingOrganization(String text) { 
-		if(text.equals("true")) {
+		if(text.contains("YES")) {
+			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='true']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='true']")));
 		}
-		else if (text.equals("false")){
+		else if (text.contains("NO")){
+			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='false']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='false']")));
 		}
 	}
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String text) {
-		if(text.contains("true")){
+		if(text.contains("YES")){
 			iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
 			delay();
 		    clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));

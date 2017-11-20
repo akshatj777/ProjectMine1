@@ -47,7 +47,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
-	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
+	public void iVerifyHeaderLabelUnderSelectedOrganization(String header,String org) {
 		iWillWaitToSee(By.cssSelector(".data-table-header-cell>a"));
 		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), header);
 	}

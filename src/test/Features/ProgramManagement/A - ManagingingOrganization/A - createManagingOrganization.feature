@@ -11,11 +11,11 @@ Feature: Create Managing organization functionality tests
   Scenario: Verification of availability of all the fields on Create Managing Organization page
     When I click on Organization link on Program Management page
     Then I verify "+" button under "Manaing" organization page
-    And I verify "Participant ID" header label under "Managing" organization in Managing Organization
-    And I verify "Managing Organization Name" header label under "Managing" organization in Managing Organization
-    And I verify "City" header label under "Managing" organization in Managing Organization
-    And I verify "State" header label under "Managing" organization in Managing Organization
-    And I verify "Postal Code" header label under "Managing" organization in Managing Organization
+    And I verify "Participant ID" header label under "Managing" organization
+    And I verify "Managing Organization Name" header label under "Managing" organization
+    And I verify "City" header label under "Managing" organization
+    And I verify "State" header label under "Managing" organization
+    And I verify "Postal Code" header label under "Managing" organization
     Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     And I verify "*Managing Organization Name" field on create organization page

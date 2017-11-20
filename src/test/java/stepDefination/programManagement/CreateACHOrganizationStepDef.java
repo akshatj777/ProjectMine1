@@ -2,16 +2,10 @@ package stepDefination.programManagement;
 
 import com.remedy.programManagement.CreateACHOrganization;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 
 public class CreateACHOrganizationStepDef extends DriverScript {
 	 CreateACHOrganization createACH = new CreateACHOrganization(driver);
-
-	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization in Hospital Organization$")
-	  public void i_Verify_Header_Label_Under_Organization_In_HospitalOrganization(String header,String org) throws Throwable {
-		createACH.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
-		}
 	
 	@And("^I verify \"([^\"]*)\" dropdown field on create organization page$")
 	  public void i_Verify_Label_DropDown_Field_On_Create_Organization_Page(String text) throws Throwable {
