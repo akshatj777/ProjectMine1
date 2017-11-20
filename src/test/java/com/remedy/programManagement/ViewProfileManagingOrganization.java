@@ -9,7 +9,8 @@ import com.remedy.baseClass.BaseClass;
 
 public class ViewProfileManagingOrganization extends BaseClass{
 
-	HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	static HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	
 	public ViewProfileManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -22,7 +23,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 		}
 	}
-
+	
 	public void iVerifyParticipantIdOnVewProfileOfOrganization() throws ClassNotFoundException, SQLException
 	{
 		String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));

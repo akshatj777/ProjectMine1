@@ -48,7 +48,6 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
-    //public WebDriverWait wait = new WebDriverWait(driver, 60);
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
 	}
@@ -429,6 +428,17 @@ public class BaseClass {
 	    	}
 	    }
 	}  
+
+
+	
+	public boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } catch (org.openqa.selenium.NoSuchElementException e) {
+	      return false;
+	    }
+	}
 
 	public void VerifyElementCssProperty(By by,String property){
 		WebElement ele = driver.findElement(by);
