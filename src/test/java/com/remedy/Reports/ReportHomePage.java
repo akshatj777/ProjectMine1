@@ -1,7 +1,9 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import cucumber.api.DataTable;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,11 +13,14 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Created by salam on 5/6/16.
@@ -1203,5 +1208,13 @@ public class ReportHomePage extends BaseClass {
     public void iRemovePayerFieldFilterFromDefaultFilters(String text){
     	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']//i[@title='Remove filter']")));
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
+    
+    public void iVerifyInFilterValueListAfterSelectingFilterOption(String text){
+    	StringTokenizer st = new StringTokenizer(text,",");
+    	while(st.hasMoreTokens()){
+    		String verify=st.nextToken();
+			verifyTextForElementfromList("#FT_valueList div", verify);
+    	}		
     }
 }

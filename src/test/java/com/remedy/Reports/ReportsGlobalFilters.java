@@ -206,18 +206,14 @@ public class ReportsGlobalFilters extends BaseClass{
 		con.close();
 	}
 	
-	public void verify()
+	@SuppressWarnings("deprecation")
+	public void verify(String text,String column)
 	{
-		String a = row.get("1").get("ccn");
-		StringTokenizer st = new StringTokenizer(a, ",");
-		while(st.hasMoreTokens())
-		{
-			ArrayList arr = new ArrayList();
-			arr.add(st.nextToken());
-			System.out.println(st.nextToken());
-		}	
+		String a = row.get("1").get(column);
+		Assert.assertEquals(text.trim(), a.trim());
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void iVerifyCCNInDatabase(Map data, String columnname) {
 		Object[] keySet = data.keySet().toArray();
 		for (int i = 0; i < data.size(); i++) {
@@ -225,8 +221,7 @@ public class ReportsGlobalFilters extends BaseClass{
 			String dbValue = row.get(b).get(columnname);
 			String a = (String) keySet[i];
 			String ccnUIValue = data.get(a).toString();
-			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"') + 1,
-					ccnUIValue.lastIndexOf('"'));
+			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"') + 1,ccnUIValue.lastIndexOf('"'));
 			if (dbValue == null) {
 				String abc = String.valueOf(dbValue);
 				Assert.assertEquals(abc, ccnUIValue);

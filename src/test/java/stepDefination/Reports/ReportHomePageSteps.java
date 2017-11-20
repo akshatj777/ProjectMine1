@@ -1524,4 +1524,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_remove_payer_field_filter_under_filter_field_from_default_filters(String text) throws Throwable{
     	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
     }
+    
+    @And("^I should see \"([^\"]*)\" in the value list after selecting filter$")
+    public void i_should_see_in_the_value_list_after_selecting_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyInFilterValueListAfterSelectingFilterOption(text);
+    }
 }
