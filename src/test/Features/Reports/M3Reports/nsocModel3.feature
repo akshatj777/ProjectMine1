@@ -296,7 +296,7 @@ Feature: M3 EC Next site of care summary report verification.
       | shutestaug231132a@yopmail.com | ACH     | Model2 |
       | shutestaug15252p@yopmail.com  | PGP     | Model2 |
 
-  Scenario Outline: User with <model> and having <facillity> facility should be able to validate participant field value for NSOC Model3 report
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate participant field value for NSOC Model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -338,7 +338,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of NY Home Care |                                        |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                           | Visiting Nurse Service of NY Home Care |
 
-  Scenario Outline: User with <model> and having <facillity> facility should be able to validate bpid field value for NSOC Model3 report
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value for NSOC Model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -385,7 +385,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |
 
-  Scenario Outline: User with <model> and having <facillity> facility should be able to validate ccn field value for NSOC Model3 report in frontend and database
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate ccn field value for NSOC Model3 report in frontend and database
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -433,7 +433,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 337008                                           | 337008 |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 337008,345557,366253,495401,495411               | 366253 |
 
-  Scenario Outline: User with <model> and having <facillity> facility should be able to validate episode initiator field value for NSOC Model3 report in frontend and database
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate episode initiator field value for NSOC Model3 report in frontend and database
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
