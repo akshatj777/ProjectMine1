@@ -25,7 +25,7 @@ public class HomePagePM extends BaseClass {
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {
 		 iWillWaitToSee(By.cssSelector(".navLink.noselect.activeNavLink"));
-		 iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect.activeNavLink"), "Managing");
+		 iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect.activeNavLink"), text);
 		}
 	 
 	 public void iVerifyOrganizationTypeOnHomepage(String text) {
