@@ -2,7 +2,6 @@ package stepDefination.programManagement;
 
 import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -59,12 +58,7 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" validation message should not appear on ([^\"]*) organization page$")
-	  public void i_Verify_ValidationMessage_Should_NOT_Appear_On_Create_Organization_Page(String text, String action) throws Throwable {
-		 createMO.iVerifyFieldValidationMessageShouldNotAppearOnCreateOrganizationPage(text);
-	    }
-	 
-	 @And("^I verify ([^\"]*) after submitting the ([^\"]*) ogranization page$")
+	 @And("^I verify ([^\"]*) after submitting the ([^\"]*) organization page$")
 	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
 	    }
@@ -73,7 +67,7 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Enter_Details_In_Fileds_On_Create_Organization_Page(String text,String field) throws Throwable {
 		 createMO.iEnterDetailsInFieldsOnCreateOrganizationPage(text,field);
 	    }
-	 
+
 	 @And("^I select ([^\"]*) in State on create organization page$")
 	  public void i_Selecct_State_FromDropDown_On_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iSelectStateFromDropDownOnCreateOrganizationPage(text);
@@ -82,6 +76,7 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	 @And("^I verify \"([^\"]*)\" after submitting the create ogranization page$")
 	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
 		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
+		 
 	 }
 	 
 	 @And("^I switch the focus to \"([^\"]*)\" button$")
@@ -89,3 +84,4 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iSwitchFocusToButton(type);
 	 } 
 }
+

@@ -85,7 +85,7 @@ Feature: Edit the Managing organization
       | Check Allowed Characters for ContactPhone field on Edit Managing Organization page | MONAME  |                                                                              |                                                |                                                |                                                |                                                |                                                |   98745612301 |       |             | The Contact Phone format is invalid.                           |
       | Check Allowed Characters for PostalCode field on Edit Managing Organization page   | MONAME  |                                                                              |                                                |                                                |                                                |                                                |                                                |               |       | abcdefgh    | Please enter a valid Zip Code                                  |
 
-  Scenario Outline: Edit a managing organization with all available fileds
+  Scenario Outline: <Description>
     When I click on Organization link on Program Management page
     Then I search with <MO_Name> on organization in search box
     And I verify <MO_Name> field in search list on organization page
@@ -101,7 +101,7 @@ Feature: Edit the Managing organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
     Then I click on "Submit" button on create organization page
-    Then I verify <Message> after submitting the edit ogranization page
+    Then I verify <Message> after submitting the edit organization page
 
     Examples: 
       | Description                                                                                  | MO_Name | Edited_MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                                |

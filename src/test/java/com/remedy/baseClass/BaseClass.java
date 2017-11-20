@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.resources.DriverScript;
 
 import java.io.FileInputStream;
@@ -17,7 +18,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Properties;
@@ -40,9 +48,14 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
-
+    //public WebDriverWait wait = new WebDriverWait(driver, 60);
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
+	}
+	public WebDriverWait waitTo()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		return wait;
 	}
 
 	public void delay() {
@@ -174,13 +187,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		for (WebElement item : listItems) {
 			item.getText().equalsIgnoreCase(itemtext);
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -326,13 +332,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -405,8 +404,7 @@ public class BaseClass {
 
 	public void iWillWaitToSee(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 60);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			waitTo().until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -441,5 +439,29 @@ public class BaseClass {
 	public String createRandomName(String name){
 		return name+RandomStringUtils.randomAlphabetic(8);
 	}
+	
+	public String fetchParticipantID(String query) throws ClassNotFoundException, SQLException  {
+		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	    Class.forName("com.mysql.jdbc.Driver");
+	    String connectionString = "jdbc:mysql://"+DriverScript.Config.getProperty("MySQLServerName")+":3306"; 
+	    Connection con=DriverManager.getConnection(connectionString,DriverScript.Config.getProperty("MySQLDBUserName"),DriverScript.Config.getProperty("MySQLPassword")); 
+	    Statement stmt=con.createStatement();  
+	    ResultSet rs=stmt.executeQuery(query);
+	    ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	    while(rs.next())
+	    {
+	     HashMap<String, String> column = new HashMap<String, String>();
+	        for(int i=1;i<=rsmd.getColumnCount();i++)
+	        {
+	        column.put(rsmd.getColumnName(i),rs.getString(i));
+	        }
+	        String a = Integer.toString(rs.getRow());
+	        row.put(a, column);
+	        }
+	    String pID = row.get("1").get("participant_id");
+	    con.close();
+	    return pID;
+}
+
 }
 
