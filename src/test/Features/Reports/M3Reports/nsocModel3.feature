@@ -420,18 +420,18 @@ Feature: M3 EC Next site of care summary report verification.
     Examples: 
       | email                                 | role     | facility    | CCN                                              | CCN1   |
       | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 366253,495401,345557,495411,495407,366403,366395 | 366253 |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 337008                                           | 337008 |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 345557,366253,495401,495411                      | 366253 |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 337008                                           | 337008 |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 345557,366253,495401,495411                      | 366253 |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 337008                                           | 337008 |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 345557,366253,495401,495411                      | 366253 |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 337008                                           | 337008 |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 345557,366253,495401,495411                      | 366253 |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 337008                                           | 337008 |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 345557,366253,495401,495411                      | 366253 |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 337008                                           | 337008 |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 337008,345557,366253,495401,495411               | 366253 |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |                                           337008 | 337008 |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |                      345557,366253,495401,495411 | 366253 |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |                                           337008 | 337008 |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |                      345557,366253,495401,495411 | 366253 |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |                                           337008 | 337008 |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |                      345557,366253,495401,495411 | 366253 |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |                                           337008 | 337008 |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |                      345557,366253,495401,495411 | 366253 |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |                                           337008 | 337008 |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |                      345557,366253,495401,495411 | 366253 |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |                                           337008 | 337008 |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |               337008,345557,366253,495401,495411 | 366253 |
 
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate episode initiator field value for NSOC Model3 report in frontend and database
     Given I am on the login page
@@ -479,3 +479,60 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Amberwood Manor,Azalea Health,Liberty Ridge Health,Tyler's Retreat At Iron Bridge                                                        | 3056-y63','3056-y67','3056-y95','3056-z13                                  | Amberwood Manor                              |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service Of New York Home Care                                                                                             | 3056-003                                                                   | Visiting Nurse Service Of New York Home Care |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Visiting Nurse Service Of New York Home Care,Amberwood Manor,Azalea Health,Liberty Ridge Health,Tyler's Retreat At Iron Bridge           | 3056-003','3056-y63','3056-y67','3056-y95','3056-z13                       | Amberwood Manor                              |
+
+  Scenario Outline: Validate that the changes made to the Global Filters are reflected and applied to the NSOC  [Model 3] report for teh user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    Then I verify "Next Site of Care Summary [Model 3]" in the reports header page
+    When I see "0" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    Then I click on <payer1> checkbox under payer for global filters
+    Then I click on <participant1> checkbox under participant for global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    And I verify <participant1> is appearing under applied participant on global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    And I click on Apply filters button for global filters
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
+
+    Examples: 
+      | email                                 | role     | facility    | participant1                                 | episode initiator1                           | anchor facility1                     | participantid1 | bpid1    | ccn1   | payer1   |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
