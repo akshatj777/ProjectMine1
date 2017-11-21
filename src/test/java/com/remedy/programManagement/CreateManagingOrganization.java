@@ -114,14 +114,16 @@ public class CreateManagingOrganization extends BaseClass {
 			else if(org.contains("ACH - YES")){
 				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				CreateACHOrganization.achOrg = CreateACHOrganization.tempAchOrg;
+				CreateACHOrganization.achOrg.clear();
+				CreateACHOrganization.achOrg.putAll(CreateACHOrganization.tempAchOrg);
 				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			}
 			
 			else if(org.contains("ACH - NO")){
 				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				CreateACHOrganization.achOrg_noMO = CreateACHOrganization.tempAchOrg;
+				CreateACHOrganization.achOrg_noMO.clear();
+				CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
 				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			}
 	    }
