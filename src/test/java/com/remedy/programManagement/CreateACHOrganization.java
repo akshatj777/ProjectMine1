@@ -138,12 +138,12 @@ public class CreateACHOrganization extends BaseClass{
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String managingOrg, String text) {
 		if(text.equalsIgnoreCase("YES")){
-			if(managingOrg.equalsIgnoreCase("Valid")){
-				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
-				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+			if(managingOrg.equalsIgnoreCase("BLANK")){
+				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), "");	
 			}
 			else {
-				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);
+				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
+				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 			}
 		}
 	}

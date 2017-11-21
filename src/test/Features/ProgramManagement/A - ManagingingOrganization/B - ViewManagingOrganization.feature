@@ -1,6 +1,6 @@
 Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF associated to it
 
-  Scenario Outline: Verfication of details on view profile of Managing Organization
+  Scenario Outline: Verification of details on view profile of Managing Organization
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text Program Management
@@ -32,25 +32,25 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     And I verify "SNF" organization tab present under "Managing" Organization
     Then I verify "+" button under "Manaing" organization page
     Then I verify "ACH" organization tab by default selected under Managing Organization
-    And I verify "CCN" header label under "ACH" organization in Managing Organization
-    And I verify "ACH Organization Name" header label under "ACH" organization in Managing Organization
-    And I verify "City" header label under "ACH" organization in Managing Organization
-    And I verify "State" header label under "ACH" organization in Managing Organization
-    And I verify "Postal Code" header label under "ACH" organization in Managing Organization
+    And I verify "CCN" header label under "ACH" organization
+    And I verify "ACH Organization Name" header label under "ACH" organization
+    And I verify "City" header label under "ACH" organization
+    And I verify "State" header label under "ACH" organization
+    And I verify "Postal Code" header label under "ACH" organization
     And I verify the count "0 Organizations" for the associated organization
     And I click on "PGP" organization under Managing Organization
-    And I verify "TIN/EIN" header label under "PGP" organization in Managing Organization
-    And I verify "PGP Organization Name" header label under "PGP" organization in Managing Organization
-    And I verify "City" header label under "PGP" organization in Managing Organization
-    And I verify "State" header label under "PGP" organization in Managing Organization
-    And I verify "Postal Code" header label under "PGP" organization in Managing Organization
+    And I verify "TIN/EIN" header label under "PGP" organization
+    And I verify "PGP Organization Name" header label under "PGP" organization
+    And I verify "City" header label under "PGP" organization
+    And I verify "State" header label under "PGP" organization
+    And I verify "Postal Code" header label under "PGP" organization
     And I verify the count "0 Organizations" for the associated organization
     And I click on "SNF" organization under Managing Organization
-    And I verify "CCN" header label under "SNF" organization in Managing Organization
-    And I verify "SNF Organization Name" header label under "SNF" organization in Managing Organization
-    And I verify "City" header label under "SNF" organization in Managing Organization
-    And I verify "State" header label under "SNF" organization in Managing Organization
-    And I verify "Postal Code" header label under "SNF" organization in Managing Organization
+    And I verify "CCN" header label under "SNF" organization
+    And I verify "SNF Organization Name" header label under "SNF" organization
+    And I verify "City" header label under "SNF" organization
+    And I verify "State" header label under "SNF" organization
+    And I verify "Postal Code" header label under "SNF" organization
     And I verify the count "0 Organizations" for the associated organization
 
     Examples: 
