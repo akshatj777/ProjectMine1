@@ -107,7 +107,8 @@ public class CreateManagingOrganization extends BaseClass {
 			if(org.contains("Managing Organization")){
 				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				moOrg = tempMoOrg;
+				moOrg.clear();
+				moOrg.putAll(tempMoOrg);
 				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			}
 			else if(org.contains("ACH - YES")){
