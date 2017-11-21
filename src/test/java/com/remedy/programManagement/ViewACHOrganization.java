@@ -1,7 +1,5 @@
 package com.remedy.programManagement;
 
-import java.util.HashMap;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,11 +16,38 @@ public class ViewACHOrganization  extends BaseClass{
 		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), tab);	
 	}
 	
-	public void iVerifyCCNOnViewProfileOfSelectedOrganization(String id, String org) {
-		if(isElementPresentOnPage(By.cssSelector(".id-ccn"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
-		    Assert.assertEquals("CCN: "+id,text.replace("|", ""));
+	public void iVerifyCCNOnViewProfileOfSelectedOrganization(String text, String org) {
+		if (org.contains("Hospital")){
+			if (text.contains("YES")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
+			    Assert.assertEquals("CCN: "+CreateACHOrganization.achOrg.get("CCN"),actual.replace("|", ""));
 			}
+			else if (text.contains("NO")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
+			    Assert.assertEquals("CCN: "+CreateACHOrganization.achOrg_noMO.get("CCN"),actual.replace("|", ""));
+			}
+		}
+		else {
+			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
+		    Assert.assertEquals("CCN: "+text,actual.replace("|", ""));
+		}
+	}
+	
+	public void iVerifyEINTINIdOnViewProfileOrganization(String text, String org) {
+		if (org.contains("Hospital")){
+			if (text.contains("YES")){	
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+				Assert.assertEquals("EIN/TIN: "+CreateACHOrganization.achOrg.get("EIN"),actual.replace("|", ""));
+			}
+			else if (text.contains("NO")){
+			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+			Assert.assertEquals("EIN/TIN: "+CreateACHOrganization.achOrg_noMO.get("EIN"),actual.replace("|", ""));
+			}
+		}
+		else {
+			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+			Assert.assertEquals("EIN/TIN: "+text,actual.replace("|", ""));
+		}
 	}
 	
 	public void iVerifyRegionNameInVeiwProfileOfSelectedOrganization(String region) {
@@ -39,17 +64,21 @@ public class ViewACHOrganization  extends BaseClass{
 			}
 	}
 	
-	public void iVerifyEINTINIdOnViewProfileOrganization(String id, String org) {
-		if(isElementPresentOnPage(By.cssSelector(".id-ein"))) {	
-		String text = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-	    Assert.assertEquals("EIN/TIN: "+id,text.replace("|", ""));
-		}
-	}
-	
-	public void iVerifyNPIOnViewProfileOrganization(String num, String org) {
-		if(isElementPresentOnPage(By.cssSelector(".id-npi"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".id-npi"))); 
-		    Assert.assertEquals("NPI: "+num,text.replace("|","").trim());
+	public void iVerifyNPIOnViewProfileOrganization(String text, String org) {
+		if(text.contains("Hospital")){
+			if(text.contains("YES")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
+				Assert.assertEquals("NPI: "+CreateACHOrganization.achOrg.get("NPI"),actual.replace("|",""));
+			   }
+			else if(text.contains("NO")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
+				Assert.assertEquals("NPI: "+CreateACHOrganization.achOrg_noMO.get("NPI"),actual.replace("|", ""));	
+				}
+			}
+			else {
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
+				Assert.assertEquals("NPI: "+text,actual.replace("|", ""));	
+				
 			}
 	}
 	
@@ -67,7 +96,7 @@ public class ViewACHOrganization  extends BaseClass{
 	
 	public void userShouldGetRedirectedToTheOrganizationTabPage(String text){
 		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
-		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), text);
+		iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect"), text);
 
 	}
 	

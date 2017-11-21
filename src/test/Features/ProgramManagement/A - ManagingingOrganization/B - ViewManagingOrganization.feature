@@ -8,16 +8,16 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
-    When I search with <MO_Name> on organization in search box
-    And I click <MO_Name> field in search list on organization page
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
     And I Verify the "x" button on View page
     And I click on "x" button on particular organization
     And User should get redirected to the managing organization tab page
     And I verify "Managing" as default organizations tab selected on homepage
-    When I search with <MO_Name> on organization in search box
-    And I click <MO_Name> field in search list on organization page
-    And I verify <MO_Name> name on the header of view profile
-    And I verify Participant Id on view profile of Managing Organization
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
+    And I verify "<MO_Name>" name on the header of view profile
+    And I verify Participant Id on view profile of "Managing" Organization
     And I verify <Address1> in "address1" on view profile of "Managing" Organization
     And I verify <Address2> in "address2" on view profile of "Managing" Organization
     And I verify <City> in "city" on view profile of "Managing" Organization
