@@ -42,12 +42,12 @@ Feature: View the Hospital Organization Finctionality tests.
     Then I verify "Location 2" on "Edit" organization page
     And I enter location name <Loc_Name> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
-    And I enter location type <Loc_Type> for Location "2" on "create" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
-    And I enter region <Loc_Region> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I enter market <Loc_Market> for Location "2" on "create" organization page
-    And I enter state <Loc_State> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     When I search with <Hosp_Name> on organization in search box
