@@ -26,7 +26,7 @@ Feature: Create Hospital organization functionality tests
     And I verify "*Address 1" field on create organization page
     And I verify "Address 2" field on create organization page
     And I verify "*City" field on create organization page
-    And I verify "*State" drop down field on create organization page
+    And I verify "*State" dropdown field on create organization page
     And I verify "*Postal Code" field on create organization page
     And I verify "CCN" field on create organization page
     And I verify "EIN" field on create organization page
@@ -39,7 +39,7 @@ Feature: Create Hospital organization functionality tests
     And I verify "Region" dropdown field on create organization page
     And I verify "*City" field on create organization page
     And I verify "Market" dropdown field on create organization page
-    And I verify "*State" drop down field on create organization page
+    And I verify "*State" dropdown field on create organization page
     And I verify "*Postal Code" field on create organization page
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
@@ -67,25 +67,25 @@ Feature: Create Hospital organization functionality tests
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I enter state <Loc_State> for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
-      | Description                                      | Managing_Org | Hosp_Name | Address1 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | ValidationMsg                                 |
-      | Check validation for blank Managing Organization | Blank        | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | A Management Organization has to be selected. |
-      | Check validation for blank ACH name              | MONAME       |           | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter an Organization Name             |
-      | Check validation for blank Address1              | MONAME       | ACHNAME   |          | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter an Address                       |
-      | Check validation for blank City                  | MONAME       | ACHNAME   | Address1 |      | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter a City                           |
-      | Check validation for blank State                 | MONAME       | ACHNAME   | Address1 | City |            |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please select a State                         |
-      | Check validation for blank Postal code           | MONAME       | ACHNAME   | Address1 | City | California |             | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter a Zip Code                       |
-      | Check validation for blank Location name         | MONAME       | ACHNAME   | Address1 | City | California |       10000 |          | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter a Location Name                  |
-      | Check validation for blank Location Address1     | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  |              | LCity    | California |           10001 | CCN | EIN | NPI | Please enter an Address                       |
-      | Check validation for blank Location City         | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    |          | California |           10001 | CCN | EIN | NPI | Please enter a City                           |
-      | Check validation for blank Location State        | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    |            |           10001 | CCN | EIN | NPI | Please select a State                         |
-      | Check validation for blank Location Postal code  | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |                 | CCN | EIN | NPI | Please enter a Zip Code                       |
-      | Check validation for blank Identifiers           | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 |     |     |     | At least one identification is required       |
+      | Description                                      | Has_MO | Managing_Org | Hosp_Name | Address1 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | ValidationMsg                                 |
+      | Check validation for blank Managing Organization | YES    | Blank        | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | A Management Organization has to be selected. |
+      | Check validation for blank ACH name              | NO     | MONAME       |           | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter an Organization Name             |
+      | Check validation for blank Address1              | NO     | MONAME       | ACHNAME   |          | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter an Address                       |
+      | Check validation for blank City                  | NO     | MONAME       | ACHNAME   | Address1 |      | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter a City                           |
+      | Check validation for blank State                 | NO     | MONAME       | ACHNAME   | Address1 | City |            |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please select a State                         |
+      | Check validation for blank Postal code           | NO     | MONAME       | ACHNAME   | Address1 | City | California |             | LocName  | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter a Zip Code                       |
+      | Check validation for blank Location name         | NO     | MONAME       | ACHNAME   | Address1 | City | California |       10000 |          | LAddress1    | LCity    | California |           10001 | CCN | EIN | NPI | Please enter a Location Name                  |
+      | Check validation for blank Location Address1     | NO     | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  |              | LCity    | California |           10001 | CCN | EIN | NPI | Please enter an Address                       |
+      | Check validation for blank Location City         | NO     | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    |          | California |           10001 | CCN | EIN | NPI | Please enter a City                           |
+      | Check validation for blank Location State        | NO     | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    |            |           10001 | CCN | EIN | NPI | Please select a State                         |
+      | Check validation for blank Location Postal code  | NO     | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |                 | CCN | EIN | NPI | Please enter a Zip Code                       |
+      | Check validation for blank Identifiers           | NO     | MONAME       | ACHNAME   | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 |     |     |     | At least one identification is required       |
 
   Scenario Outline: <Description>
     Then I click on "+" button on "Hospital" organization page
@@ -146,23 +146,23 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter location type <Loc_Type> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-    And I enter region <Loc_Region> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I enter market <Loc_Market> for Location "1" on "create" organization page
-    And I enter state <Loc_State> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 2" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
-    And I enter location type <Loc_Type> for Location "2" on "create" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
-    And I enter region <Loc_Region> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I enter market <Loc_Market> for Location "2" on "create" organization page
-    And I enter state <Loc_State> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create ACH" organization page
@@ -193,23 +193,23 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter location type <Loc_Type> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-    And I enter region <Loc_Region> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I enter market <Loc_Market> for Location "1" on "create" organization page
-    And I enter state <Loc_State> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 2" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
-    And I enter location type <Loc_Type> for Location "2" on "create" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
-    And I enter region <Loc_Region> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I enter market <Loc_Market> for Location "2" on "create" organization page
-    And I enter state <Loc_State> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create ACH" organization page
@@ -237,111 +237,111 @@ Feature: Create Hospital organization functionality tests
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name1> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter location type <Loc_Type> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-    And I enter region <Loc_Region> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I enter market <Loc_Market> for Location "1" on "create" organization page
-    And I enter state <Loc_State> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 2" on "Create Hospital" organization page
     And I enter location name <Loc_Name2> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
-    And I enter location type <Loc_Type> for Location "2" on "create" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
-    And I enter region <Loc_Region> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I enter market <Loc_Market> for Location "2" on "create" organization page
-    And I enter state <Loc_State> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 3" on "Create Hospital" organization page
     And I enter location name <Loc_Name3> for Location "3" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "3" on "create" organization page
-    And I enter location type <Loc_Type> for Location "3" on "create" organization page
+    And I select location type <Loc_Type> for Location "3" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "3" on "create" organization page
-    And I enter region <Loc_Region> for Location "3" on "create" organization page
+    And I select region <Loc_Region> for Location "3" on "create" organization page
     And I enter city <Loc_City> for Location "3" on "create" organization page
-    And I enter market <Loc_Market> for Location "3" on "create" organization page
-    And I enter state <Loc_State> for Location "3" on "create" organization page
+    And I select market <Loc_Market> for Location "3" on "create" organization page
+    And I select state <Loc_State> for Location "3" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "3" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 4" on "Create Hospital" organization page
     And I enter location name <Loc_Name4> for Location "4" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "4" on "create" organization page
-    And I enter location type <Loc_Type> for Location "4" on "create" organization page
+    And I select location type <Loc_Type> for Location "4" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "4" on "create" organization page
-    And I enter region <Loc_Region> for Location "4" on "create" organization page
+    And I select region <Loc_Region> for Location "4" on "create" organization page
     And I enter city <Loc_City> for Location "4" on "create" organization page
-    And I enter market <Loc_Market> for Location "4" on "create" organization page
-    And I enter state <Loc_State> for Location "4" on "create" organization page
+    And I select market <Loc_Market> for Location "4" on "create" organization page
+    And I select state <Loc_State> for Location "4" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "4" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 5" on "Create Hospital" organization page
     And I enter location name <Loc_Name5> for Location "5" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "5" on "create" organization page
-    And I enter location type <Loc_Type> for Location "5" on "create" organization page
+    And I select location type <Loc_Type> for Location "5" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "5" on "create" organization page
-    And I enter region <Loc_Region> for Location "5" on "create" organization page
+    And I select region <Loc_Region> for Location "5" on "create" organization page
     And I enter city <Loc_City> for Location "5" on "create" organization page
-    And I enter market <Loc_Market> for Location "5" on "create" organization page
-    And I enter state <Loc_State> for Location "5" on "create" organization page
+    And I select market <Loc_Market> for Location "5" on "create" organization page
+    And I select state <Loc_State> for Location "5" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "5" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 6" on "Create Hospital" organization page
     And I enter location name <Loc_Name6> for Location "6" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "6" on "create" organization page
-    And I enter location type <Loc_Type> for Location "6" on "create" organization page
+    And I select location type <Loc_Type> for Location "6" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "6" on "create" organization page
-    And I enter region <Loc_Region> for Location "6" on "create" organization page
+    And I select region <Loc_Region> for Location "6" on "create" organization page
     And I enter city <Loc_City> for Location "6" on "create" organization page
-    And I enter market <Loc_Market> for Location "6" on "create" organization page
-    And I enter state <Loc_State> for Location "6" on "create" organization page
+    And I select market <Loc_Market> for Location "6" on "create" organization page
+    And I select state <Loc_State> for Location "6" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "6" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 7" on "Create Hospital" organization page
     And I enter location name <Loc_Name7> for Location "7" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "7" on "create" organization page
-    And I enter location type <Loc_Type> for Location "7" on "create" organization page
+    And I select location type <Loc_Type> for Location "7" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "7" on "create" organization page
-    And I enter region <Loc_Region> for Location "7" on "create" organization page
+    And I select region <Loc_Region> for Location "7" on "create" organization page
     And I enter city <Loc_City> for Location "7" on "create" organization page
-    And I enter market <Loc_Market> for Location "7" on "create" organization page
-    And I enter state <Loc_State> for Location "7" on "create" organization page
+    And I select market <Loc_Market> for Location "7" on "create" organization page
+    And I select state <Loc_State> for Location "7" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "7" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 8" on "Create Hospital" organization page
     And I enter location name <Loc_Name8> for Location "8" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "8" on "create" organization page
-    And I enter location type <Loc_Type> for Location "8" on "create" organization page
+    And I select location type <Loc_Type> for Location "8" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "8" on "create" organization page
-    And I enter region <Loc_Region> for Location "8" on "create" organization page
+    And I select region <Loc_Region> for Location "8" on "create" organization page
     And I enter city <Loc_City> for Location "8" on "create" organization page
-    And I enter market <Loc_Market> for Location "8" on "create" organization page
-    And I enter state <Loc_State> for Location "8" on "create" organization page
+    And I select market <Loc_Market> for Location "8" on "create" organization page
+    And I select state <Loc_State> for Location "8" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "8" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 9" on "Create Hospital" organization page
     And I enter location name <Loc_Name9> for Location "9" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "9" on "create" organization page
-    And I enter location type <Loc_Type> for Location "9" on "create" organization page
+    And I select location type <Loc_Type> for Location "9" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "9" on "create" organization page
-    And I enter region <Loc_Region> for Location "9" on "create" organization page
+    And I select region <Loc_Region> for Location "9" on "create" organization page
     And I enter city <Loc_City> for Location "9" on "create" organization page
-    And I enter market <Loc_Market> for Location "9" on "create" organization page
-    And I enter state <Loc_State> for Location "9" on "create" organization page
+    And I select market <Loc_Market> for Location "9" on "create" organization page
+    And I select state <Loc_State> for Location "9" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "9" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
     And I verify "Location 10" on "Create Hospital" organization page
     And I enter location name <Loc_Name10> for Location "10" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "10" on "create" organization page
-    And I enter location type <Loc_Type> for Location "10" on "create" organization page
+    And I select location type <Loc_Type> for Location "10" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "10" on "create" organization page
-    And I enter region <Loc_Region> for Location "10" on "create" organization page
+    And I select region <Loc_Region> for Location "10" on "create" organization page
     And I enter city <Loc_City> for Location "10" on "create" organization page
-    And I enter market <Loc_Market> for Location "10" on "create" organization page
-    And I enter state <Loc_State> for Location "10" on "create" organization page
+    And I select market <Loc_Market> for Location "10" on "create" organization page
+    And I select state <Loc_State> for Location "10" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "10" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create ACH" organization page
@@ -368,12 +368,12 @@ Feature: Create Hospital organization functionality tests
     And I provide unique "<NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
-    And I enter location type <Loc_Type> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
-    And I enter region <Loc_Region> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I enter market <Loc_Market> for Location "1" on "create" organization page
-    And I enter state <Loc_State> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page

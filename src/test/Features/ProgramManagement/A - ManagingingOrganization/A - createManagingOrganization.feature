@@ -25,7 +25,7 @@ Feature: Create Managing organization functionality tests
     And I verify "*Address 1" field on create organization page
     And I verify "Address 2" field on create organization page
     And I verify "*City" field on create organization page
-    And I verify "*State" drop down field on create organization page
+    And I verify "*State" dropdown field on create organization page
     And I verify "*Postal Code" field on create organization page
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page

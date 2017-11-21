@@ -22,7 +22,7 @@ Feature: Edit the Managing organization
   And I verify "*Address 1" field on edit organization page
   And I verify "Address 2" field on edit organization page
   And I verify "*City" field on edit organization page
-  And I verify "*State" drop down field on edit organization page
+  And I verify "*State" dropdown field on edit organization page
   And I verify "*Postal Code" field on edit organization page
   And I verify "Submit" button on edit organization page
   And I verify "Cancel" button on edit organization page

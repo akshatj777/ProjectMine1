@@ -27,12 +27,7 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 	  public void i_Verify_RadioButton_Label_On_Create_Organization_Page(String text, String action) throws Throwable {
 		 createMO.iVerifyRadioButtonLabelOnCreateOrganizationPage(text);
 	    }
-	 
-	 @And("^I verify \"([^\"]*)\" drop down field on ([^\"]*) organization page$")
-	  public void i_Verify_Label_DropDown_Field_On_Create_Organization_Page(String text, String action) throws Throwable {
-		 createMO.iVerifyLabelDropDownFieldOnCreateOrganizationPage(text);
-	    }
- 
+
 	 @And("^I click on \"([^\"]*)\" button on \"([^\"]*)\" organization page$")
 	  public void i_Click_On_Button_On_Create_Organization_Page(String text, String page) throws Throwable {
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
