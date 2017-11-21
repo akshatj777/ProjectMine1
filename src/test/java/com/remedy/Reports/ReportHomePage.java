@@ -1228,11 +1228,10 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyTheEpisodeCountWithDrillThrough(){
     	String count=getTextForElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
-    	System.out.println(count);
     	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
     	switchToNewWindow();
     	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
-    	System.out.println(getElementCount(".x-grid3-row-table>tbody>tr"));
-    	Assert.assertEquals(getElementCount(".x-grid3-row-table>tbody>tr"), count);
+    	String number=Integer.toString(getElementCount(".x-grid3-row-table>tbody>tr"));
+    	Assert.assertEquals(number, count);
     }
 }

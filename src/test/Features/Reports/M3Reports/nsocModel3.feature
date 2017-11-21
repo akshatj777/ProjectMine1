@@ -877,3 +877,15 @@ Scenario Outline:  Validate that the no. of Episodes on the drill through page w
     Examples: 
       | email                                 | role     | facility    |
       | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
