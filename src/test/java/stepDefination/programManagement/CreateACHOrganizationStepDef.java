@@ -70,13 +70,23 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 		 createACH.iSelectRadioButtonForManagingOrganization(text);
 	 }
 	
-	 @And("^I select managing organization name in \"([^\"]*)\" Has a Management Organization drop down$")
-	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String text) throws Throwable {
-		 createACH.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(text);
+	 @And("^I select \"([^\"]*)\" managing organization name in \"([^\"]*)\" Has a Management Organization drop down$")
+	  public void i_Select_ManagingOrg_Name_In_Has_A_Managing_Organization_DropDown(String mo, String text) throws Throwable {
+		 createACH.iSelectManagingOrgNameInHasAManagingOrganizationDropDown(mo, text);
 	 }
 	 
 	 @And("^I verify \"([^\"]*)\" on \"([^\"]*)\" organization page$")
 	  public void i_Verify_Location_Header_On_Organization_Page(String location, String org) throws Throwable {
 		 createACH.iVerifyLocationHeaderOnOrganizationPage(location);
+	 }
+	 
+	 @And("^I verify \"([^\"]*)\" location count on view \"([^\"]*)\" organization page$")
+	  public void i_Verify_Location_Count_On__View_Organization_Page(int count, String org) throws Throwable {
+		 createACH.iVerifyLocationCountOnViewOrganizationPage(count);
+	 }
+	 
+	 @And("^I verify \"([^\"]*)\" in Has a Management Organization dropdown$")
+	  public void i_Verify_Message_In_Has_Management_Organization_DropDown(String text) throws Throwable {
+		 createACH.iVerifyMessageInHasAManagementOrganization(text);
 	 }
 }

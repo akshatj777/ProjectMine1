@@ -97,7 +97,7 @@ Feature: Create Managing organization functionality tests
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create MO" organization page
+    Then I verify "<Message>" after submitting the "create Managing Organization" organization page
 
     Examples: 
       | Description                                                                                    | MO_Name      | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                                                                                 |
