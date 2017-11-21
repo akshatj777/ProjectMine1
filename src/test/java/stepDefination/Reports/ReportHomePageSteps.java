@@ -1529,4 +1529,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_in_the_value_list_after_selecting_filter(String text) throws Throwable{
     	reportHomePage.iVerifyInFilterValueListAfterSelectingFilterOption(text);
     }
+    
+    @And("^I should see \"([^\"]*)\" is added in layout section after clicking on add to report$")
+    public void i_should_see_is_added_in_layout_section_after_clicking_on_add_to_report(String text) throws Throwable{
+    	reportHomePage.iVerifyFieldUnderLayoutAfterAddingToReport(text);
+    }
+    
+    @Then("^I click on a number under episodes column to verify drill through$")
+    public void i_click_on_a_number_under_episodes_column_to_verify_drill_through() throws Throwable{
+    	reportHomePage.iClickOnNumberUnderEpisodesColumnToVerifyDrillThrough();
+    }
+    
+    @Then("^I verify the episodes count matches with dill through$")
+    public void i_verify_the_episodes_count_matches_with_drill_through() throws Throwable{
+    	reportHomePage.iVerifyTheEpisodeCountWithDrillThrough();
+    }
 }

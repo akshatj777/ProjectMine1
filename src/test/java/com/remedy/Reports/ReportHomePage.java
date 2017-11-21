@@ -1217,4 +1217,22 @@ public class ReportHomePage extends BaseClass {
 			verifyTextForElementfromList("#FT_valueList div", verify);
     	}		
     }
+    
+    public void iVerifyFieldUnderLayoutAfterAddingToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath(".//*[@class='gem-label'][text()='"+text+"']")));
+    }
+    
+    public void iClickOnNumberUnderEpisodesColumnToVerifyDrillThrough(){
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    }
+    
+    public void iVerifyTheEpisodeCountWithDrillThrough(){
+    	String count=getTextForElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    	System.out.println(count);
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    	switchToNewWindow();
+    	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
+    	System.out.println(getElementCount(".x-grid3-row-table>tbody>tr"));
+    	Assert.assertEquals(getElementCount(".x-grid3-row-table>tbody>tr"), count);
+    }
 }

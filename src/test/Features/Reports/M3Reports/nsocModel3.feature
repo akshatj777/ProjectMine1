@@ -480,7 +480,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service Of New York Home Care                                                                                             | 3056-003                                                                   | Visiting Nurse Service Of New York Home Care |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Visiting Nurse Service Of New York Home Care,Amberwood Manor,Azalea Health,Liberty Ridge Health,Tyler's Retreat At Iron Bridge           | 3056-003','3056-y63','3056-y67','3056-y95','3056-z13                       | Amberwood Manor                              |
 
-  Scenario Outline: Validate that the changes made to the Global Filters are reflected and applied to the NSOC  [Model 3] report for teh user with <role> role for <facility> facility
+  Scenario Outline: Validate that the changes made to the Global Filters are reflected and applied to the NSOC  [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -536,3 +536,344 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
+
+  Scenario Outline: Validate Bundle code is draggable in NSOC  [Model 3] report for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Bundle Code" field filter under "Bundle" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Bundle Code" in the header text of filter page
+    And I should see "<BundleCode>" in the filter value list
+    And I click on "<BundleCode>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<BundleCode>" result in "Bundle Code" field column for "Bundle" filter field
+    When I click to "Bundle Code" field filter under "Bundle" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Bundle Code" is added in layout section after clicking on add to report
+    Then I verify "Bundle Code" column is added to report after selecing add to report option
+
+    Examples: 
+      | email                                 | role     | facility    | BundleCode |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | CELLULITIS |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | CHF        |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | CELLULITIS |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | CHF        |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | CELLULITIS |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | CHF        |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | CELLULITIS |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | CHF        |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | CELLULITIS |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | CHF        |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | CELLULITIS |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | CHF        |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | CELLULITIS |
+
+  Scenario Outline: Validate CCN is draggable in NSOC [Model 3] report for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Dashboard - Anchor CCN" in the header text of filter page
+    And I should see "<ccn1>" in the filter value list
+    And I should see "<ccn2>" in the filter value list
+    And I should see "<ccn3>" in the filter value list
+    And I should see "<ccn4>" in the filter value list
+    And I should see "<ccn5>" in the filter value list
+    And I should see "<ccn6>" in the filter value list
+    And I should see "<ccn7>" in the filter value list
+    And I click on "<ccn1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
+    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Dashboard - Anchor CCN" is added in layout section after clicking on add to report
+    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
+
+    Examples: 
+      | email                                 | role     | facility    | ccn1   | ccn2   | ccn3   | ccn4   | ccn5   | ccn6   | ccn7   |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 366253 | 495401 | 345557 | 495411 | 495407 | 366403 | 366395 |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 337008 |        |        |        |        |        |        |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 337008 |        |        |        |        |        |        |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 337008 |        |        |        |        |        |        |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 337008 |        |        |        |        |        |        |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 337008 |        |        |        |        |        |        |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 337008 |        |        |        |        |        |        |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 337008 | 345557 | 366253 | 495401 | 495411 |        |        |
+
+  Scenario Outline: :Validate BPID is draggable in NSOC [Model 3] report for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "BPID" in the header text of filter page
+    And I should see "<bpid1>" in the filter value list
+    And I should see "<bpid2>" in the filter value list
+    And I should see "<bpid3>" in the filter value list
+    And I should see "<bpid4>" in the filter value list
+    And I should see "<bpid5>" in the filter value list
+    And I should see "<bpid6>" in the filter value list
+    And I should see "<bpid7>" in the filter value list
+    And I click on "<bpid1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<bpid1>" result in "BPID" field column for "Episode Initiator" filter field
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "BPID" is added in layout section after clicking on add to report
+    Then I verify "BPID" column is added to report after selecing add to report option
+
+    Examples: 
+      | email                                 | role     | facility    | bpid1    | bpid2    | bpid3    | bpid4    | bpid5    | bpid6    | bpid7    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 3056-y63 | 3056-y67 | 3056-y68 | 3056-y85 | 3056-y95 | 3056-y98 | 3056-z13 |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 3056-003 |          |          |          |          |          |          |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 3056-003 |          |          |          |          |          |          |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 3056-003 |          |          |          |          |          |          |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 3056-003 |          |          |          |          |          |          |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 3056-003 |          |          |          |          |          |          |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |
+
+  Scenario Outline: Validate Payer is draggable in NSOC  [Model 3] report for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Payer" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Payer" field is appearing in the report table after clicking on add to report
+    When I click to "Payer" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Payer" in the header text of filter page
+    And I should see "<payer1>" in the filter value list
+    And I click on "<payer1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<payer1>" result in "Payer" field column for "Episode Initiator" filter field
+
+    Examples: 
+      | email                                 | role     | facility    | payer1   |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Medicare |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Medicare |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Medicare |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Medicare |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Medicare |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Medicare |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Medicare |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Medicare |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Medicare |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Medicare |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Medicare |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Medicare |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Medicare |
+
+  Scenario Outline: Validate DOB field for NSOC [Model 3] report for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "DOB" field filter under "Patient" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "DOB" field is appearing in the report table after clicking on add to report
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+
+  Scenario Outline: Validate the On-boarding status field values on the NSOC  [Model 3] report and filters for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Onboarding Status" in the header text of filter page
+    And I should see "<onboardingstatus1>" in the filter value list
+    And I should see "<onboardingstatus2>" in the filter value list
+    And I should see "<onboardingstatus3>" in the filter value list
+    And I click on "<onboardingstatus1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
+
+    Examples: 
+      | email                                 | role     | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Unknown           |                   |                   |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Unknown           |                   |                   |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Unknown           |                   |                   |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Unknown           |                   |                   |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Unknown           |                   |                   |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
+
+  Scenario Outline: Validate the On-boarding status field values on the NSOC  [Model 3] report and filters for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "<patientrisk1>" in the filter value list
+    And I should see "<patientrisk2>" in the filter value list
+    And I should see "<patientrisk3>" in the filter value list
+    And I click on "<patientrisk1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<patientrisk1>" result in "Patient Risk" field column for "Patient" filter field
+
+    Examples: 
+      | email                                 | role     | facility    | patientrisk1     | patientrisk2 | patientrisk3 |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Calculating Risk | High         | Low          |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Calculating Risk |              |              |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Calculating Risk | Low          | High         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Calculating Risk |              |              |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Calculating Risk | Low          | High         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Calculating Risk |              |              |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Calculating Risk | Low          | High         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Calculating Risk |              |              |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Calculating Risk | Low          | High         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Calculating Risk |              |              |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Calculating Risk | Low          | High         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Calculating Risk |              |              |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Calculating Risk | High         | Low          |
+
+Scenario Outline:  Validate that the no. of Episodes on the drill through page with no. of episodes count on the report page for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I verify the episodes count matches with dill through
+    
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
