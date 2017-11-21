@@ -59,5 +59,19 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 		viewACH.iClickonAddNewLocationButton(text);
 	}
 	
+	@And("^User should get redirected to the \"([^\"]*)\" organization tab page$")
+	  public void user_should_get_redirected_to_the_managing_organization_tab_page(String text) throws Throwable {
+		viewACH.userShouldGetRedirectedToTheOrganizationTabPage(text);
+		}
+	
+	@And("^I verify ([^\"]*) name on view profile of \"([^\"]*)\" Organization$")
+	  public void i_Verify_MOName_On_ViewProfile_Of_Slecetd_Organization(String name, String org) throws Throwable {
+		//viewACH.iVerifyMONameInVeiwProfileOfSelectedOrganization(name);
+	}
+
+	@And("^I verify Participant Id on view profile of \"([^\"]*)\" Organization$")
+	  public void i_ParticipantId_On_ViewProfile_Of_Slecetd_Organization(String name, String org) throws Throwable {
+		//viewACH.iVerifyParticipantIDInVeiwProfileOfSelectedOrganization(name);
+	}
 
 }

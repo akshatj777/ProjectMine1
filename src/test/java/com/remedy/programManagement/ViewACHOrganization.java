@@ -64,4 +64,23 @@ public class ViewACHOrganization  extends BaseClass{
 	public void iVerifytheSaerchBarinLocationonProfilePage(String text){
 		isElementPresent(By.cssSelector(".text-input-field-locationFilterTerm"));
 	}
+	
+	public void userShouldGetRedirectedToTheOrganizationTabPage(String text){
+		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
+		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), text);
+
+	}
+	
+	public void iVerifyMONameInVeiwProfileOfSelectedOrganization(String name, String org){
+		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
+		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), name);
+
+	}
+
+	public void iVerifyParticipantIDInVeiwProfileOfSelectedOrganization(String name, String org){
+		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
+		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), name);
+
+	}
+
 }

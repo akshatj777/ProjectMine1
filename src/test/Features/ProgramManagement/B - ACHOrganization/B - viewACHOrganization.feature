@@ -15,11 +15,11 @@ Feature: View the Hospital Organization Finctionality tests.
     And I click <Hosp_Name> field in search list on organization page
     And I Verify the "x" button on View page
     And I click on "x" button on particular organization
-    And User should get redirected to the managing organization tab page
-    And I verify "Hospital" as default organizations tab selected on homepage
+    And User should get redirected to the "Hospital" organization tab page
     When I search with <Hosp_Name> on organization in search box
     And I click <Hosp_Name> field in search list on organization page
     And I verify <Hosp_Name> name on the header of view profile
+    And I verify <Organization Type> in "Organization Type" on view profile of "Hospital" Organization
     And I verify <Address1> in "address1" on view profile of "Hospital" Organization
     And I verify <City> in "city" on view profile of "Hospital" Organization
     And I verify <StateVerification> in "state" on view profile of "Hospital" Organization
@@ -56,7 +56,25 @@ Feature: View the Hospital Organization Finctionality tests.
     And I verify the count of the Location
 
     Examples: 
-      | Hosp_Org_Name | Address1 | Short_Name | Address2  | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification |
-      | ACH           | Address1 | Short      | Addresss2 | City | New York |       10000 | LocName  | LAddress1 | Swing bed | LAddress2 | West    | LCity | Oil States | New York |        10000 | CCN | EIN | NPI | NY                |
+      | Hosp_Name | Address1 | Short_Name | Address2  | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification | Organization Type |
+      | ACHNAME   | Address1 | Short      | Addresss2 | City | New York |       10000 | LocName  | LAddress1 | Swing bed | LAddress2 | West    | LCity | Oil States | New York |        10000 | CCN | EIN | NPI | NY                | ACH               |
 
-  
+  Scenario Outline: Verfication of details on view profile of Hospital Organization with MO
+    When I search with <Hosp_Name> on organization in search box
+    And I click <Hosp_Name> field in search list on organization page
+    And I verify <Hosp_Name> name on the header of view profile
+    And I verify <Address1> in "address1" on view profile of "Hospital" Organization
+    And I verify <City> in "city" on view profile of "Hospital" Organization
+    And I verify <StateVerification> in "state" on view profile of "Hospital" Organization
+    And I verify <Postal_Code> in "zip" on view profile of "Hospital" Organization
+    And I verify CCN <CCN> on view profile of "Hospital" organization
+    And I verify EIN/TIN id <EIN/TIN> on view profile of "Hospital" organization
+    And I verify NIP number <NPI> on view profile of "Hospital" organization
+    And I verify Region name <LRegion> on view profile of "Hospital" organization
+    And I verify Market name <LMarket> on view profile of "Hospital" organization
+    And I verify <Managing Organization> name on view profile of "Hospital" Organization
+    And I verify Participant Id on view profile of "Hospital" Organization
+
+    Examples: 
+      | Hosp_Name | Address1 | Short_Name | Address2  | City | State    | Postal_Code | Loc_Name | LAddress1 | Loc_Type  | LAddress2 | LRegion | LCity | LMarket    | LState   | LPostal_Code | CCN | EIN | NPI | StateVerification |
+      | ACHNAME   | Address1 | Short      | Addresss2 | City | New York |       10000 | LocName  | LAddress1 | Swing bed | LAddress2 | West    | LCity | Oil States | New York |        10000 | CCN | EIN | NPI | NY                |
