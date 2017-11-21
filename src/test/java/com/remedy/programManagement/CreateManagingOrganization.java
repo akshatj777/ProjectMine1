@@ -42,10 +42,6 @@ public class CreateManagingOrganization extends BaseClass {
 		iVerifyTextFromListOfElement(By.cssSelector(".radio-button-text"), text);
 	}
 	
-	public void iVerifyLabelDropDownFieldOnCreateOrganizationPage(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".select-field-caption.required")), text);
-	}
-	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
 		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		scrollIntoViewByJS(element);
