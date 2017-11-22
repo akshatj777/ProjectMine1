@@ -173,7 +173,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture values when anchor admission quarter is > = 2016Q4 in spending claims report under physician
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture values when anchor admission quarter is > = 2016Q4 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -229,11 +229,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2017Q1                    |
-      
-Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in spending claims report under physician
+      | email                         | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       469 | 2017Q1                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       469 | 2017Q1                    |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       470 | 2017Q1                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       470 | 2017Q1                    |
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg 469,470 is able to see fracture/non fracture values when anchor admission quarter is > = 2016Q4 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -282,6 +284,66 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
+    And I should see "Fracture" in the filter value list
+    And I should see "Non-Fracture" in the filter value list
+    And I should not see "Not Applicable" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+
+    Examples: 
+      | email                         | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2017Q1                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2017Q1                    |
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in spending claims report under physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Spending (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Spending" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "BPID" in the header text of filter page
+    And I should see "<BPID1>" in the filter value list
+    And I should see "<BPID2>" in the filter value list
+    And I click on "<BPID1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<BPID2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "DRG Code" field filter under "DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "DRG Code" in the header text of filter page
+    And I should see "<DRG Code1>" in the filter value list
+    And I click on "<DRG Code1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I should see "<anchor admission quarter2>" in the filter value list
+    And I click on "<anchor admission quarter2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Fracture/Non-Fracture" in the header text of filter page
     And I should not see "Fracture" in the filter value list
     And I should not see "Non-Fracture" in the filter value list
     And I should see "Not Applicable" in the filter value list
@@ -289,11 +351,13 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 469       | 470       | 2016Q3                    |
+      | email                         | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 | anchor admission quarter2 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       470 | 2016Q3                    | 2016Q2                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       470 | 2016Q3                    | 2016Q2                    |
 
-Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 in spending claims report under physician
+  Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -338,8 +402,8 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
       | email                        | BPID1    | anchor admission quarter1 |
       | shutestaug15252p@yopmail.com | 6005-169 | 2016Q4                    |
       | shutestaug15220p@yopmail.com | 6005-169 | 2016Q4                    |
-     
-Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under physician
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -395,11 +459,11 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 | 216       | 217       | 2016Q4                    |
-      
-Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under physician
+      | email                         | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
+      | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       216 |       217 | 2016Q4                    |
+
+  Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -453,10 +517,10 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
 
     Examples: 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug15252p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
-      | shutestaug15220p@yopmail.com | 6005-169 | 242       |       243 | 2016Q4                    |
-      
-Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under physician
+      | shutestaug15252p@yopmail.com | 6005-169 |       242 |       243 | 2016Q4                    |
+      | shutestaug15220p@yopmail.com | 6005-169 |       242 |       243 | 2016Q4                    |
+
+  Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 and drg code is not equal to 469 and 470 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -510,10 +574,10 @@ Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 
 
     Examples: 
       | email                        | BPID1    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug15252p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-      | shutestaug15220p@yopmail.com | 6005-169 | 177       |       178 | 2016Q3                    |
-            
-Scenario Outline: User should only see anchor admission values >= 2016Q4 when drg code selected are 469,470 and fracture and non-fracture both filters in spending claims report under physician
+      | shutestaug15252p@yopmail.com | 6005-169 |       177 |       178 | 2016Q3                    |
+      | shutestaug15220p@yopmail.com | 6005-169 |       177 |       178 | 2016Q3                    |
+
+  Scenario Outline: User should only see anchor admission values >= 2016Q4 when drg code selected are 469,470 and fracture and non-fracture both filters in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -560,11 +624,11 @@ Scenario Outline: User should only see anchor admission values >= 2016Q4 when dr
     And I should not see "2016Q3" in the filter value list
 
     Examples: 
-      | email                              | DRG Code1 | DRG Code2 |
-      | shutestaug231132a@yopmail.com      |       469 |       470 |
-      | shutestaug221130a@yopmail.com      |       469 |       470 |
-      
-Scenario Outline: User should see corresponding DRG when selected 469 drg code in the report in spending claims report under physician
+      | email                         | DRG Code1 | DRG Code2 |
+      | shutestaug231132a@yopmail.com |       469 |       470 |
+      | shutestaug221130a@yopmail.com |       469 |       470 |
+
+  Scenario Outline: User should see corresponding DRG when selected <DRG Code1> drg code in the report in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -591,48 +655,16 @@ Scenario Outline: User should see corresponding DRG when selected 469 drg code i
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
-    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC" is appearing in the drg column rows
-    
+    And I verify "<DRG>" is appearing in the drg column rows
+
     Examples: 
-      | email                              | DRG Code1 |
-      | shutestaug231132a@yopmail.com      |       469 |
-      | shutestaug221130a@yopmail.com      |       469 |
-      
-Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in spending claims report under physician
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Physician" under reports tile text
-    When I click on the Reports Tile with text "Physician"
-    Then I click on "Spending (Claims)" report text for Physician Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Physician Spending" is appearing inside the iframe
-    When I click on field-panel-icon button
-    And I wait until refresh button is disappeared
-    When I click to "DRG Code" field filter under "DRG" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "DRG Code" in the header text of filter page
-    And I should see "<DRG Code1>" in the filter value list
-    And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    When I click to "DRG" field filter under "DRG" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
-    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC" is appearing in the drg column rows
-    
-    Examples: 
-      | email                              | DRG Code1 |
-      | shutestaug231132a@yopmail.com      |       470 |
-      | shutestaug221130a@yopmail.com      |       470 |
-      
-Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in spending claims report under physician
+      | email                         | DRG Code1 | DRG                                                                |
+      | shutestaug231132a@yopmail.com |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug221130a@yopmail.com |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug231132a@yopmail.com |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | shutestaug221130a@yopmail.com |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+
+  Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -655,9 +687,9 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     And I should not see "Patient Risk" in the searched results under the levels
 
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
   Scenario Outline: fracture/non-fracture mapping in warehouse .dimDRG table should be 0,1,-99 in spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
@@ -691,7 +723,7 @@ Scenario Outline: User should not see patient risk and onboarding status level f
     Examples: 
       | email                         | notapplicable | fracture | nonfracture |
       | shutestaug231132a@yopmail.com |           -99 |        0 |           1 |
-      
+
   Scenario Outline: Fracture values should display 0 and 1 only when executed the below query for spending claims under physician
     Then User executes query
       """

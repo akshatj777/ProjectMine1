@@ -165,7 +165,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: User should not see fracture/non-fracture filters in the availble fields in inpatient episode clearing issues report under patient id
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in inpatient episode clearing issues report under patient id
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

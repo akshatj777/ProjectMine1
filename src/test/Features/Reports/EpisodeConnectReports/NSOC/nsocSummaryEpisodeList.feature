@@ -50,7 +50,7 @@ Feature: Episode List verification under next site of care summary report
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    Then I click on a number under episodes column of next site of care summary report
+    Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
     Then I click on "Select Columns" appearing in the new window after clicking on drill through

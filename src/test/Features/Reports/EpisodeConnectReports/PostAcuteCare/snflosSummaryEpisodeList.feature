@@ -14,7 +14,7 @@ Scenario Outline: User should be able to see Episodes List under Carl Report Aft
     When I switch to reports embedded iframe
     And I will wait to see "SNF LOS Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    Then I click on a number under episodes column of initial snf length of stay summary report
+    Then I click on a number under episodes column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table

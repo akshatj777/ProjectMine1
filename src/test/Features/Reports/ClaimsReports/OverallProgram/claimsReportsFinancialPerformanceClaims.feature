@@ -220,8 +220,69 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       | email                      | participant     |
       | emblemrpfin@yopmail.com    | RP Payer Test A |
       | emblemachrpfin@yopmail.com | RP Payer Test A |
+      
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture values when anchor admission quarter >= 2016Q4 in financial performance claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Financial Performance" is appearing inside the iframe
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "BPID" in the header text of filter page
+    And I should see "<BPID1>" in the filter value list
+    And I should see "<BPID2>" in the filter value list
+    And I click on "<BPID1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<BPID2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "DRG Code" field filter under "DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "DRG Code" in the header text of filter page
+    And I should see "<DRG Code1>" in the filter value list
+    And I click on "<DRG Code1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Admission Quarter" in the header text of filter page
+    When I click on select from list option on the filter page
+    And I should see "<anchor admission quarter1>" in the filter value list
+    And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Fracture/Non-Fracture" in the header text of filter page
+    And I should see "Fracture" in the filter value list
+    And I should see "Non-Fracture" in the filter value list
+    And I should not see "Not Applicable" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
 
-  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 is able to see fracture/non fracture values when anchor admission quarter >= 2016Q4 in financial performance claims report under overall program
+    Examples: 
+      | email                              | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2017Q1                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2017Q1                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       469 | 2017Q1                    |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2017Q1                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2017Q1                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       470 | 2017Q1                    |
+
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg 469,470 is able to see fracture/non fracture values when anchor admission quarter >= 2016Q4 in financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -282,7 +343,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       469 |       470 | 2017Q1                    |
       | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2017Q1                    |
 
-  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in financial performance claims report under overall program
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg 469 and 470 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is < 2016Q4 in financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -312,10 +373,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
-    And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on "<DRG Code2>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -325,6 +383,9 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I should see "<anchor admission quarter2>" in the filter value list
+    And I click on "<anchor admission quarter2>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -338,10 +399,13 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | DRG Code2 | anchor admission quarter1 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       469 |       470 | 2016Q3                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       469 |       470 | 2016Q3                    |
-      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       469 |       470 | 2016Q3                    |
+      | email                              | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 | anchor admission quarter2 |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q3                    | 2016Q2                    |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q3                    | 2016Q2                    |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       470 | 2016Q3                    | 2016Q2                    |
 
   Scenario Outline: Non-Remedy awardee convener whose BPID not starting with 2070 with model2 should see only not-applicable in fracture/non fracture filters when anchor admission quarter is >= 2016Q4 in financial performance claims report under overall program
     Given I am on the login page
@@ -619,7 +683,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       | shutestaug221130a@yopmail.com      |       469 |       470 |
       | reptestachmodel2opsfin@yopmail.com |       469 |       470 |
 
-  Scenario Outline: User should see corresponding DRG when selected 469 drg code in the report in financial performance claims report under overall program
+  Scenario Outline: User should see corresponding DRG when selected <DRG Code1> drg code in the report in financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -646,48 +710,16 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
-    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC" is appearing in the drg column rows
+    And I verify "<DRG>" is appearing in the drg column rows
 
     Examples: 
-      | email                              | DRG Code1 |
-      | shutestaug231132a@yopmail.com      |       469 |
-      | shutestaug221130a@yopmail.com      |       469 |
-      | reptestachmodel2opsfin@yopmail.com |       469 |
-
-  Scenario Outline: User should see corresponding DRG when selected 470 drg code in the report in financial performance claims report under overall program
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Financial Performance" is appearing inside the iframe
-    When I click on field-panel-icon button
-    And I wait until refresh button is disappeared
-    When I click to "DRG Code" field filter under "DRG" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "DRG Code" in the header text of filter page
-    And I should see "<DRG Code1>" in the filter value list
-    And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    When I click to "DRG" field filter under "DRG" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
-    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC" is appearing in the drg column rows
-
-    Examples: 
-      | email                              | DRG Code1 |
-      | shutestaug231132a@yopmail.com      |       470 |
-      | shutestaug221130a@yopmail.com      |       470 |
-      | reptestachmodel2opsfin@yopmail.com |       470 |
+      | email                              | DRG Code1 | DRG                                                                |
+      | shutestaug231132a@yopmail.com      |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug221130a@yopmail.com      |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | reptestachmodel2opsfin@yopmail.com |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug231132a@yopmail.com      |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | shutestaug221130a@yopmail.com      |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | reptestachmodel2opsfin@yopmail.com |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
 
   Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in financial performance claims report under overall program
     Given I am on the login page

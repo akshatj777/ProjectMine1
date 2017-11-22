@@ -640,7 +640,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFirstNumberUnderEpisodesColumn(){
-    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
     }
     
     public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){

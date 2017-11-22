@@ -102,7 +102,7 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                         | networktier1   | networktier2 |
       | shutestaug231132a@yopmail.com | Not in Network | Tier 1       |
 
-  Scenario Outline: User should not see fracture/non-fracture filters in the availble fields in NSOC report under next site of care summary
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in NSOC report under next site of care summary
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

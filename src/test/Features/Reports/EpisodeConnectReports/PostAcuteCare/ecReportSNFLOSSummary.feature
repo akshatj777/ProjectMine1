@@ -110,7 +110,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
       | email                         | networktier1   | networktier2 |
       | shutestaug231132a@yopmail.com | Not in Network | Tier 1       |
 
-  Scenario Outline: User should not see fracture/non-fracture filters in the availble fields in initial snf length of stay summary report under post acute care
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in initial snf length of stay summary report under post acute care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

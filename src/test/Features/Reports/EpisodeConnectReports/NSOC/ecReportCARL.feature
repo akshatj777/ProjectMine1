@@ -222,7 +222,7 @@ Feature: Verification of CARL EC Report
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-  Scenario Outline: User should not see fracture/non-fracture filters in the availble fields in CARL report under next site of care summary
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in CARL report under next site of care summary
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
