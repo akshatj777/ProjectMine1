@@ -103,35 +103,39 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
-		if (msg.contains("Success!")){
-			if(org.contains("Managing Organization")){
-				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
-				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				moOrg.clear();
-			    moOrg.putAll(tempMoOrg);
-				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				
+		if(getTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a"))).contains("Success"))
+			{
+				if(org.contains("MO"))
+				{
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					moOrg.clear();
+					moOrg.putAll(tempMoOrg);
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("ACH - YES"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					CreateACHOrganization.achOrg.clear();
+					CreateACHOrganization.achOrg.putAll(CreateACHOrganization.tempAchOrg);
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("ACH - NO"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					CreateACHOrganization.achOrg_noMO.clear();
+					CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
 			}
-			else if(org.contains("ACH - YES")){
-				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
-				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				CreateACHOrganization.achOrg.clear();
-			    CreateACHOrganization.achOrg.putAll(CreateACHOrganization.tempAchOrg);
-				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			}
-			
-			else if(org.contains("ACH - NO")){
-				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
-				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-				CreateACHOrganization.achOrg_noMO.clear();
-			    CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
-				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			}
-	    }
-	    else {
-	    	iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
-			verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
-			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-	    }
+	    else 
+	    	{
+	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+	    		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+	    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+	    	}
 	}
 	
 	public void iSwitchFocusToButton(String text) {

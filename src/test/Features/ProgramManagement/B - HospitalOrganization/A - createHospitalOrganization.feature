@@ -165,9 +165,9 @@ Feature: Create Hospital organization functionality tests
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create ACH" organization page
-    And I click "<Hosp_Name><Has_MO>" field in search list on organization page
-    And I verify "<Hosp_Name><Has_MO>" name on the header of view profile
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I verify "1" location count on view "Hospital" organization page
 
     Examples: 
@@ -212,7 +212,7 @@ Feature: Create Hospital organization functionality tests
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create ACH" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
 
     Examples: 
       | Description                                                                           | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1 | CCN | EIN | NPI | Message                                              |
@@ -344,7 +344,7 @@ Feature: Create Hospital organization functionality tests
     And I select state <Loc_State> for Location "10" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "10" on "create" organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create ACH" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
 
     Examples: 
       | Description                                                | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1 | Loc_Name2 | Loc_Name3 | Loc_Name4 | Loc_Name5 | Loc_Name6 | Loc_Name7 | Loc_Name8 | Loc_Name9 | Loc_Name10 | CCN | EIN | NPI | Message                                              |
