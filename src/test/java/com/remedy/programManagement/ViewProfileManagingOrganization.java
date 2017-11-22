@@ -54,8 +54,16 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		if(!text.isEmpty()) {
-		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
-		Assert.assertEquals(result.replace(",", "").trim(), text);
+		String result = driver.findElement(By.cssSelector(".organization-"+sel)).getText();
+		if(result.contains(","))
+		{
+			result = result.replace(",", "").trim();
+		}
+		if(result.contains("Organization Type:"))
+		{
+			result = result.substring(result.indexOf(":"), result.indexOf("|")-1).trim();
+		}
+		Assert.assertEquals(result, text.trim());
 		}
 	}
 	

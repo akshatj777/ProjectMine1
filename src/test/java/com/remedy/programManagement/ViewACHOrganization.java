@@ -1,10 +1,13 @@
 package com.remedy.programManagement;
 
+import java.sql.SQLException;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.remedy.baseClass.BaseClass;
+import com.sun.mail.handlers.text_html;
 
 public class ViewACHOrganization  extends BaseClass{
 
@@ -111,5 +114,27 @@ public class ViewACHOrganization  extends BaseClass{
 		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), name);
 
 	}
+	
+	public void iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(String text, String org) throws ClassNotFoundException, SQLException{
+		String result = null;	
+		if(text.contains("Yes"))
+			{
+				if(text.contains("Managing Organization"))
+				{
+					result = getTextForElement(driver.findElement(By.cssSelector(".id.market-name")));
+					result = result.substring(result.indexOf(":"), result.indexOf("|")-1).trim();
+					Assert.assertEquals(result,CreateManagingOrganization.moOrg.get("MONAME"));
+				}
+				else if(text.contains("Participant Id"))
+				{
+					String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
+					result = getTextForElement(driver.findElement(By.cssSelector(".id.participant-id")));
+					result = result.substring(result.indexOf(":")).trim();
+					String queryResult = fetchParticipantID(query);
+					Assert.assertEquals(result,queryResult);
+				}
+			}
+	}
+	
 
 }

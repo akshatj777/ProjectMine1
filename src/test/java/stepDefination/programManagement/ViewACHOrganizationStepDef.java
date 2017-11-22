@@ -24,7 +24,7 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 		viewACH.iVerifyEINTINIdOnViewProfileOrganization(text, org);
 	}
 	
-	@And("^I verify NIP number \"([^\"]*)\" on view profile of \"([^\"]*)\" organization$")
+	@And("^I verify NPI number \"([^\"]*)\" on view profile of \"([^\"]*)\" organization$")
 	  public void i_Verify_NPI_On_View_Profile_Of_Organization(String text, String org) throws Throwable {
 		viewACH.iVerifyNPIOnViewProfileOrganization(text, org);
 	}
@@ -63,4 +63,10 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 	  public void user_should_get_redirected_to_the_managing_organization_tab_page(String text) throws Throwable {
 		viewACH.userShouldGetRedirectedToTheOrganizationTabPage(text);
 		}
+	@And("^I verify \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
+	  public void I_Verify_ManagingOrganization_on_view_profile_of_organization(String text, String org) throws Throwable {
+		viewACH.iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(text,org);
+		}
+	
+	
 }
