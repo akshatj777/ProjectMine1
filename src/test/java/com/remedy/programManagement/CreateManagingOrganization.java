@@ -104,7 +104,6 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
 				
-		//if(getTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a"))).contains("Success"))
 		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
 		{
 				if(org.contains("MO"))
@@ -133,8 +132,7 @@ public class CreateManagingOrganization extends BaseClass {
 			}
 	    else 
 	    	{
-	    	delay();
-//	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
 	    		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	    	}
