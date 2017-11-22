@@ -656,7 +656,7 @@ Feature: Verification of Readmissions Claims Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     Then I verify "DRG" column is added to report after selecing add to report option
-    And I verify "MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC" is appearing in the drg column rows
+    And I verify "<DRG>" is appearing in the drg column rows
 
     Examples: 
       | email                              | DRG Code1 | DRG                                                                |
