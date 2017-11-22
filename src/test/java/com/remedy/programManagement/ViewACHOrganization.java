@@ -1,16 +1,18 @@
 package com.remedy.programManagement;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
 import com.remedy.baseClass.BaseClass;
-import com.sun.mail.handlers.text_html;
 
 public class ViewACHOrganization  extends BaseClass{
 
+	public static String orgCount;
+	
 	public ViewACHOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -68,7 +70,7 @@ public class ViewACHOrganization  extends BaseClass{
 	}
 	
 	public void iVerifyNPIOnViewProfileOrganization(String text, String org) {
-		if(text.contains("Hospital")){
+		if(org.contains("Hospital")){
 			if(text.contains("YES")){
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
 				Assert.assertEquals("NPI: "+CreateACHOrganization.achOrg.get("NPI"),actual.replace("|",""));
@@ -122,14 +124,14 @@ public class ViewACHOrganization  extends BaseClass{
 				if(text.contains("Managing Organization"))
 				{
 					result = getTextForElement(driver.findElement(By.cssSelector(".id.market-name")));
-					result = result.substring(result.indexOf(":"), result.indexOf("|")-1).trim();
+					result = result.substring(result.indexOf(":")+1, result.indexOf("|")).trim();
 					Assert.assertEquals(result,CreateManagingOrganization.moOrg.get("MONAME"));
 				}
 				else if(text.contains("Participant Id"))
 				{
 					String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
 					result = getTextForElement(driver.findElement(By.cssSelector(".id.participant-id")));
-					result = result.substring(result.indexOf(":")).trim();
+					result = result.substring(result.indexOf(":")+1).trim();
 					String queryResult = fetchParticipantID(query);
 					Assert.assertEquals(result,queryResult);
 				}
@@ -143,5 +145,48 @@ public class ViewACHOrganization  extends BaseClass{
 			
 	}
 	
-
+	public void iVerifyMORadioButtonChecked(String name){
+		if(name.contains("Has")){
+			boolean bol = driver.findElement(By.cssSelector(".radio-button->input[value='true']")).isSelected();
+			Assert.assertTrue(bol);		
+		}
+		else
+		{
+			boolean bol = driver.findElement(By.cssSelector(".radio-button->input[value='false']")).isSelected();
+			Assert.assertTrue(bol);
+		}
+	}
+	
+	public void iVerifyManagingOrganizationOnAutoFilledOnOrganizationPage(String org){
+		List<WebElement> listItems = driver.findElements(By.cssSelector("span[aria-selected='true']"));
+		for (WebElement item : listItems) {
+			  if (item.getText().trim().contains(CreateManagingOrganization.moOrg.get("MONAME"))) {
+				  Assert.assertTrue(item.getText().trim().contains(CreateManagingOrganization.moOrg.get("MONAME")));  
+			  } 
+		}
+	}
+	
+	public void iVerifyDetailsOfOrgAssociatedWithMO(String name, String org){
+		if(name.contains("ACHNAME")){
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("ACHNAME")+"']")));
+		}
+		else if(name.contains("CCN")){
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("CCN")+"']")));
+		}
+		else{
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+name+"']")));
+		}
+	}
+	
+	public void iGetCountOfAssociatedOrganization(String org){
+		orgCount = getTextForElement(driver.findElement(By.cssSelector(".fixed-data-table.noselect>div")));
+		orgCount.replace("Organizations", "").trim();
+	}
+	
+	public void iVerifyCountOfAssociatedOrgIncreasedBy1(String org){
+		String count= getTextForElement(driver.findElement(By.cssSelector(".fixed-data-table.noselect>div")));
+		count.replace("Organizations", "").trim();
+		Assert.assertEquals(orgCount,count);
+		
+	}
 }

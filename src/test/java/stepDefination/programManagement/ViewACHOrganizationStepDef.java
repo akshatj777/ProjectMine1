@@ -67,6 +67,31 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 	  public void I_Verify_ManagingOrganization_on_view_profile_of_organization(String text, String org) throws Throwable {
 		viewACH.iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(text,org);
 		}
+
+	@And("^I verify \"([^\"]*)\" radio button is checked$")
+	  public void I_Verify_MO_Radio_Button_Checked(String text) throws Throwable {
+		viewACH.iVerifyMORadioButtonChecked(text);
+		}
 	
+	@And("^I verify Managing Organization is auto filled on \"([^\"]*)\" Organization page$")
+	  public void I_Verify_ManagingOrganization_Auto_Filled_On_OrganizationPage(String org) throws Throwable {
+		viewACH.iVerifyManagingOrganizationOnAutoFilledOnOrganizationPage(org);
+		}
+	
+	@And("^I verify \"([^\"]*)\" details of \"([^\"]*)\" associated on Managing Organization page$")
+	  public void I_Verify_Details_Of_Org_Associated_On_OrganizationPage(String text, String org) throws Throwable {
+		viewACH.iVerifyDetailsOfOrgAssociatedWithMO(text,org);
+		}
+	
+	
+	@And("^I get the count of \"([^\"]*)\" organizations$")
+	  public void i_Get_Count_Of_Tab_Organizations(String org) throws Throwable {
+		viewACH.iGetCountOfAssociatedOrganization(org);
+		}
+	
+	@And("^I verify count of \"([^\"]*)\" organizations is increased by 1$")
+	  public void i_Verify_Count_Tab_Organizations_Increased1(String org) throws Throwable {
+		viewACH.iVerifyCountOfAssociatedOrgIncreasedBy1(org);
+		}
 	
 }

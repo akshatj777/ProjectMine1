@@ -61,9 +61,9 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		}
 		if(result.contains("Organization Type:"))
 		{
-			result = result.substring(result.indexOf(":"), result.indexOf("|")-1).trim();
+			result = result.substring(result.indexOf(":")+1, result.indexOf("|")).trim();
 		}
-		Assert.assertEquals(result, text.trim());
+		Assert.assertEquals(result.trim(), text.trim());
 		}
 	}
 	
@@ -109,6 +109,5 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifyTheEditButtonontheViewPage(String button) {
 		iVerifyTextFromListOfElement(By.cssSelector(".col-md-offset-11"), button);
 	}
-	
 }
 
