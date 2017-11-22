@@ -134,6 +134,13 @@ public class ViewACHOrganization  extends BaseClass{
 					Assert.assertEquals(result,queryResult);
 				}
 			}
+		else
+		{
+			result = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view"))).trim();
+			Assert.assertEquals(result,"This Organization does not have a Managing Organization");
+
+		}
+			
 	}
 	
 
