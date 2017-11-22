@@ -82,7 +82,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement
+  Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement under nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -155,7 +155,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see default columns as per the requirement
+  Scenario Outline: <role> role user with <facility> facility should see default columns as per the requirement under nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -188,7 +188,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see default dimensions as per the requirement
+  Scenario Outline: <role> role user with <facility> facility should see default dimensions as per the requirement under nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -225,7 +225,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see all columns as per the requirement should be there in drill through
+  Scenario Outline: <role> role user with <facility> facility should see all columns as per the requirement should be there in drill through under nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -239,7 +239,7 @@ Feature: M3 EC Next site of care summary report verification.
     When I switch to reports embedded iframe
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    Then I click on a number under episodes column of nsoc model3 report
+    Then I click on a number under episodes column
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Anchor Post Acute Provider" is appearing under Episodes table
@@ -709,6 +709,7 @@ Feature: M3 EC Next site of care summary report verification.
     When I click to "Payer" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
+    And I should see "Payer" is added in layout section after clicking on add to report
     Then I verify "Payer" field is appearing in the report table after clicking on add to report
     When I click to "Payer" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
@@ -751,9 +752,11 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
     When I click to "DOB" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
+    And I should see "DOB" is added in layout section after clicking on add to report
     Then I verify "DOB" field is appearing in the report table after clicking on add to report
 
     Examples: 
@@ -815,7 +818,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
 
-  Scenario Outline: Validate the On-boarding status field values on the NSOC  [Model 3] report and filters for user with <role> role for <facility> facility
+  Scenario Outline: Validate the patient risk field values on the NSOC  [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -858,7 +861,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Calculating Risk |              |              |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Calculating Risk | High         | Low          |
 
-Scenario Outline:  Validate that the no. of Episodes on the drill through page with no. of episodes count on the report page for user with <role> role for <facility> facility
+  Scenario Outline: Validate that the no. of Episodes on the drill through page with no. of episodes count on the report page for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -873,7 +876,45 @@ Scenario Outline:  Validate that the no. of Episodes on the drill through page w
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I verify the episodes count matches with dill through
-    
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+
+  Scenario Outline: Verify that the Model field in NSOC [Model 3] report is draggable for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Model" field filter under "Model" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Model" is added in layout section after clicking on add to report
+    Then I verify "Model" field is appearing in the report table after clicking on add to report
+
     Examples: 
       | email                                 | role     | facility    |
       | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
