@@ -2,7 +2,6 @@ package stepDefination.programManagement;
 
 import com.remedy.programManagement.EditManagingOrganization;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 
 public class EditManagingOrganizationStepDef extends DriverScript{
@@ -20,12 +19,11 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 	
 	@And("^I edit \"([^\"]*)\" field to ([^\"]*) for organization$")
 	  public void i_Edit_All_Fields_Of_Organization(String field1, String field2) throws Throwable {
-		editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);
-	    }
+			editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);
+	 }
 	 
 	@And("^I edit ([^\"]*) field for organization$")
 	  public void i_Selecct_State_FromDropDown_On_Create_Organization_Page(String text) throws Throwable {
 		 editManagingOrg.iEditStateFieldForOrganization(text);
 	 }
-	 
 }

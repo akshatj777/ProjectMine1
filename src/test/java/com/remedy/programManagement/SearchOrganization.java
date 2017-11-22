@@ -1,36 +1,87 @@
 package com.remedy.programManagement;
 
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
-
+import cucumber.api.DataTable;
 
 public class SearchOrganization extends BaseClass{
-	WebDriverWait wait = new WebDriverWait(driver, 20);
 
 	public SearchOrganization(WebDriver driver) {
 		super(driver);
 	}
 	
-	
-	
 	public void iSearchFieldOnOrganizationInSearchBox(String text) {
-		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);
-		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		if(text.contains("MONAME"))
+		{
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
+		else
+		{
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), text);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}	
 	}
 	
-	public void iSeeSearchCountOnOrganization(String text) {
-		String actual = driver.findElements(By.cssSelector(".fixed-data-table.noselect>div")).get(0).getText();
-		Assert.assertEquals(text, actual);
+	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(String searchParam) throws ClassNotFoundException, SQLException{
+		 
+		String value = searchParam;
+		  if (value.equals("MONAME")){
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.orgMOName);
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  value = CreateManagingOrganization.orgMOName;
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+		  }
+		  
+		  else if (value.equals("PID")){
+			  String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+			  value = fetchParticipantID(query);
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+		  }
+		  else
+		  {
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+		  }
+	     }
+		
+	
+	public void iVerifySearchBarOnOrganizationPage(String text) {
+		iWillWaitToSee(By.cssSelector(".text-input-field-organizationFilterTerm"));
+		isElementPresent(By.cssSelector(".text-input-field-organizationFilterTerm"));
 	}
 	
-	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
-		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+	public void iVerifytheNewMatchesMessage() {
+		getTextForElement(driver.findElement(By.cssSelector(".data-table-overlay-message")));
+	}
+	
+	public void iVerifytheCreateNewManagingOrganizationLink() {
+		getTextForElement(driver.findElement(By.cssSelector(".data-table-overlay-link>a")));
 	}
 
+	public void iVerifyFieldInSearchListOnOrganizationHomepage(String text) {
+		if(text.contains("MONAME"))
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.orgMOName+"']"));
+		}
+		else
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+text+"']"));
+		}	
+	}
 }
