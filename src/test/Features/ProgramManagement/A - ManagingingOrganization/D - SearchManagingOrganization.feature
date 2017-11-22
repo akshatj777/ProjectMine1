@@ -37,7 +37,7 @@ Feature: Search the Managing organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
     Then I click on "Submit" button on "create" organization page
-    Then I verify "Success! Management Organization Successfully Updated." after submitting the "create MO" organization page
+    Then I verify "Success! Management Organization Successfully Updated." after submitting the "edit MO" organization page
     When I search with <Edited_MO_Name> on organization in search box
     And I click <Edited_MO_Name> field in search list on organization page
     And I verify <Edited_MO_Name> name on the header of view profile
