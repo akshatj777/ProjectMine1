@@ -56,6 +56,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	

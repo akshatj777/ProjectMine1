@@ -57,7 +57,7 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".page-title>h1")), pageHeader);
+		verifyTextForElement(driver.findElement(By.cssSelector(".row.page-header>h1")), pageHeader);
 	}
 
 	public void iSeeCreateUserText(String createUser) {
