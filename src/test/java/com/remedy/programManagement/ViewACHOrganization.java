@@ -2,11 +2,13 @@ package com.remedy.programManagement;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import com.remedy.baseClass.BaseClass;
 
 public class ViewACHOrganization  extends BaseClass{
@@ -180,12 +182,13 @@ public class ViewACHOrganization  extends BaseClass{
 	
 	public void iGetCountOfAssociatedOrganization(String org){
 		orgCount = getTextForElement(driver.findElement(By.cssSelector(".fixed-data-table.noselect>div")));
-		orgCount.replace("Organizations", "").trim();
+		orgCount = orgCount.replaceAll("Organization|s", "").trim();
 	}
 	
 	public void iVerifyCountOfAssociatedOrgIncreasedBy1(String org){
 		String count= getTextForElement(driver.findElement(By.cssSelector(".fixed-data-table.noselect>div")));
-		count.replace("Organizations", "").trim();
+		count = count.replace("Organization|Organizations", "").trim();
+		orgCount = Integer.toString(Integer.parseInt(orgCount)+1);
 		Assert.assertEquals(orgCount,count);
 		
 	}
