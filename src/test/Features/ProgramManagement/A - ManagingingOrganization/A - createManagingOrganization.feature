@@ -32,7 +32,7 @@ Feature: Create Managing organization functionality tests
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I verify "+" button under "Manaing" organization page
+    Then I verify "+" button under "Managing" organization page
     Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
@@ -53,7 +53,7 @@ Feature: Create Managing organization functionality tests
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I verify "+" button under "Manaing" organization page
+    Then I verify "+" button under "Managing" organization page
     Then I click on "+" button on "Managing" organization page
     And I verify "Create Management Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page

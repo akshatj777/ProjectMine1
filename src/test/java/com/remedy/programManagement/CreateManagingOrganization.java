@@ -104,8 +104,8 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
 				
-		if(getTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a"))).contains("Success"))
-			{
+		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
+		{
 				if(org.contains("MO"))
 				{
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
