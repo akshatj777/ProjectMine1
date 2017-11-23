@@ -24,18 +24,18 @@ Feature: Search the Managing organization
   Scenario Outline: Search for a managing organization after editing the Managing organization name
     When I click on Organization link on Program Management page
     Then I search with "<MO_Name>" on organization in search box
-    And I verify <MO_Name> field in search list on organization page
+    And I verify "<MO_Name>" field in search list on organization page
     And I click "<MO_Name>" field in search list on organization page
     And I click on "Edit" button on particular organization
-    And I edit "Managing Organization Name" field to <Edited_MO_Name> for organization
-    And I edit "Address 1" field to <Address1> for organization
-    And I edit "Contact Person" field to <Contact_Person> for organization
-    And I edit "Address 2" field to <Address2> for organization
-    And I edit "Contact Email" field to <Contact_Email> for organization
-    And I edit "City" field to <City> for organization
-    And I edit "Contact Phone" field to <Contact_Phone> for organization
+    And I edit "Managing Organization Name" field to "<Edited_MO_Name>" for organization
+    And I edit "Address 1" field to "<Address1>" for organization
+    And I edit "Contact Person" field to "<Contact_Person>" for organization
+    And I edit "Address 2" field to "<Address2>" for organization
+    And I edit "Contact Email" field to "<Contact_Email>" for organization
+    And I edit "City" field to "<City>" for organization
+    And I edit "Contact Phone" field to "<Contact_Phone>" for organization
     And I edit <State> field for organization
-    And I edit "Postal Code" field to <Postal_Code> for organization
+    And I edit "Postal Code" field to "<Postal_Code>" for organization
     Then I click on "Submit" button on "create" organization page
     Then I verify "Success! Management Organization Successfully Updated." after submitting the "edit MO" organization page
     When I search with "<Edited_MO_Name>" on organization in search box
