@@ -108,7 +108,7 @@ Feature: Readmission Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
       
-  Scenario Outline: <role> role user with <facility> facility should see only 3 value under model filter in readmissions model3 report
+  Scenario Outline: Verify that the Model field in Readmissions [Model 3] report is draggable and should not see model2 and filter the values for model3 for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -124,51 +124,23 @@ Feature: Readmission Model3 report verification
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
-    When I click to "Model" field filter under "Model" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Model" in the header text of filter page
-    And I should see "3" in the filter value list
-    And I should not see "2" in the filter value list
-    And I click on cancel button from filter
-    And I wait until refresh button is disappeared
-
-    Examples: 
-      | email                                 | role     | facility    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
-  Scenario Outline: Verify that the Model field in Readmissions [Model 3] report is draggable for user with <role> role for <facility> facility
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Readmissions" under reports tile text
-    When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
     When I click on field-layout-icon button
+    #Drag and Drop Verify
     When I click to "Model" field filter under "Model" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Model" is added in layout section after clicking on add to report
     Then I verify "Model" field is appearing in the report table after clicking on add to report
+    #Fitering Part for Model filter to see only model2 and not model3
+    When I click to "Model" field filter under "Model" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Model" in the header text of filter page
+    And I should see "3" in the filter value list
+    And I should not see "2" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "3" result in "Episode Initiator" field column for "Episode Initiator" filter field
 
     Examples: 
       | email                                 | role     | facility    |
@@ -218,7 +190,7 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I switch to default window from iframe
-    Then I verify "Readmissions EC [Model 3]" in the reports header page
+    Then I verify "Readmissions [Model 3]" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Payer" filter is appearing under global filters
@@ -260,7 +232,7 @@ Feature: Readmission Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
       
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate participant field value for readmissions Model3 report
+  Scenario Outline: Validate the On-boarding status field values on the Readmissions [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -275,76 +247,30 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Participant" field filter under "Episode Initiator" filter field
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Participant" in the header text of filter page
-    And I should see "<participant1>" in the filter value list
-    And I should see "<participant2>" in the filter value list
-    And I click on "<participant1>" in the filter value list
+    And I should see "Onboarding Status" in the header text of filter page
+    And I should see "<onboardingstatus1>" in the filter value list
+    And I should see "<onboardingstatus2>" in the filter value list
+    And I should see "<onboardingstatus3>" in the filter value list
+    And I click on "<onboardingstatus1>" in the filter value list
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "<participant1>" result in "Participant" field column for "Episode Initiator" filter field
+    And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
 
     Examples: 
-      | email                                 | role     | facility    | participant1                           | participant2                           |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Saber Health                           |                                        |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Visiting Nurse Service of NY Home Care |                                        |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Saber Health                           |                                        |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Visiting Nurse Service of NY Home Care |                                        |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Saber Health                           |                                        |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Visiting Nurse Service of NY Home Care |                                        |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Saber Health                           |                                        |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Visiting Nurse Service of NY Home Care |                                        |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Saber Health                           |                                        |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Visiting Nurse Service of NY Home Care |                                        |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Saber Health                           |                                        |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of NY Home Care |                                        |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                           | Visiting Nurse Service of NY Home Care |
-      
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value for Readmissions Model3 report
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Readmissions" under reports tile text
-    When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click to "BPID" field filter under "Episode Initiator" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "BPID" in the header text of filter page
-    And I should see "<BPID1>" in the filter value list
-    And I should see "<BPID2>" in the filter value list
-    And I should see "<BPID3>" in the filter value list
-    And I should see "<BPID4>" in the filter value list
-    And I should see "<BPID5>" in the filter value list
-    And I should see "<BPID6>" in the filter value list
-    And I should see "<BPID7>" in the filter value list
-    And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
-
-    Examples: 
-      | email                                 | role     | facility    | BPID1    | BPID2    | BPID3    | BPID4    | BPID5    | BPID6    | BPID7    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 3056-y63 | 3056-y67 | 3056-y68 | 3056-y85 | 3056-y95 | 3056-y98 | 3056-z13 |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 3056-003 |          |          |          |          |          |          |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 3056-003 |          |          |          |          |          |          |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 3056-003 |          |          |          |          |          |          |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 3056-003 |          |          |          |          |          |          |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 3056-003 |          |          |          |          |          |          |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          | 
+      | email                                 | role     | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Unknown           |                   |                   |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Unknown           |                   |                   |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Unknown           |                   |                   |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Unknown           |                   |                   |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Unknown           |                   |                   |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
