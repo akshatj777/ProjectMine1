@@ -168,9 +168,8 @@ public class CreateACHOrganization extends BaseClass{
 	}
 	
     public void iVerifyLocationCountOnViewOrganizationPage(int count) {
-    	count = count+1;
-    	List<WebElement> element = driver.findElements(By.xpath("//div[@class='fixedDataTableCellGroupLayout_cellGroupWrapper' and (contains(@style,'height: 30px'))]"));
-    	int actual = element.size();
+    	List<WebElement> element = driver.findElements(By.xpath("//div[@class='fixedDataTableCellGroupLayout_cellGroupWrapper' and (contains(@style,'width: 947px'))]"));
+    	int actual = (element.size())-1;
     	Assert.assertEquals(count, actual);
     }
     

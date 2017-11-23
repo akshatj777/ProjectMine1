@@ -121,11 +121,11 @@ public class ViewACHOrganization  extends BaseClass{
 	
 	public void iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(String text, String org) throws ClassNotFoundException, SQLException{
 		String result = null;	
-		if(text.contains("Yes"))
+		if(text.contains("YES"))
 			{
 				if(text.contains("Managing Organization"))
 				{
-					result = getTextForElement(driver.findElement(By.cssSelector(".id.market-name")));
+					result = getTextForElement(driver.findElement(By.xpath("//span[contains(text(),'Managing Organization:')]")));
 					result = result.substring(result.indexOf(":")+1, result.indexOf("|")).trim();
 					Assert.assertEquals(result,CreateManagingOrganization.moOrg.get("MONAME"));
 				}
@@ -187,7 +187,7 @@ public class ViewACHOrganization  extends BaseClass{
 	
 	public void iVerifyCountOfAssociatedOrgIncreasedBy1(String org){
 		String count= getTextForElement(driver.findElement(By.cssSelector(".fixed-data-table.noselect>div")));
-		count = count.replace("Organization|Organizations", "").trim();
+		count = count.replaceAll("Organization|s", "").trim();
 		orgCount = Integer.toString(Integer.parseInt(orgCount)+1);
 		Assert.assertEquals(orgCount,count);
 		

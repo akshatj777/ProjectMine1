@@ -1,4 +1,4 @@
-Feature: View the Hospital Organization Finctionality tests.
+Feature: View the Hospital Organization Functionality tests.
 
   Background: 
     Given I am on the login page
@@ -9,7 +9,7 @@ Feature: View the Hospital Organization Finctionality tests.
     Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
 
-  Scenario Outline: Verfication of details on view profile of Hospital Organization without MO, Verify the Cross Button and Edit Button and also chek the Location details and count
+  Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
     When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
     And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
@@ -52,21 +52,22 @@ Feature: View the Hospital Organization Finctionality tests.
     And I select state <Loc_State> for Location "2" on "Edit" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "Edit" organization page
     Then I click on "Submit" button on "Edit" organization page
-    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+    Then I verify "<Message>" after submitting the "Edit ACH - <Has_MO>" organization page
     When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
     And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
     And I verify "2" location count on view "Hospital" organization page
 
     Examples: 
-      | Description                                                                | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                              |
-      | Verfication of details on view profile of Hospital Organization without MO | NO     | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
-      | Verfication of details on view profile of Hospital Organization with MO    | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
+      | Description                                                                                     | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                              |
+      | Verification of details of Hospital Organization, Add new loaction and verify count- without MO | NO     | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
+      | Verification of details of Hospital Organization, Add new loaction and verify count - with MO   | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
 
   Scenario Outline: <Description>
-    When I search with "<MO_Name> - <Has_MO>" on organization in search box
-    And I click "<MO_Name> - <Has_MO>" field in search list on organization page
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
     And I verify "ACH" organization tab present under "Managing" Organization
+    Then I verify the Search bar on "Hospital" organization page
     And I get the count of "ACH" organizations
     Then I click on "+" button on "Managing" organization page
     And I verify "Create Hospital Organization" header text on create organization page
@@ -94,8 +95,8 @@ Feature: View the Hospital Organization Finctionality tests.
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
     When I click on "Managing" organization tab on organization dashboard
-    When I search with "<MO_Name> - <Has_MO>" on organization in search box
-    And I click "<MO_Name> - <Has_MO>" field in search list on organization page
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
     And I verify "ACH" organization tab present under "Managing" Organization
     And I verify count of "ACH" organizations is increased by 1
     And I search with "<Hosp_Name> - <Has_MO>" on organization in search box
