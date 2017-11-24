@@ -153,14 +153,14 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Then I should see "Network Tier" appearing under "level" field
 
     Examples: 
-      | email                         |
+      | email                          |
       #| Medicare Payer Users         |
-      | shutestaug231132a@yopmail.com |
+      | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users           |
-      | emblemachrpfin@yopmail.com    |
+      | emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users         |
-      | multipayerachrpfin@yopmail.com|
-      
+      | multipayerachrpfin@yopmail.com |
+
   Scenario Outline: User should be able to remove the default filters for performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
@@ -211,7 +211,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture filters in performance claims report under physician
+  Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture filters in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -386,7 +386,7 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                         | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 | anchor admission quarter1 |
+      | email                         | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 | anchor admission quarter2 |
       | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
       | shutestaug221130a@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q3                    | 2016Q2                    |
       | shutestaug231132a@yopmail.com | 2070-021 | 2070-022 |       470 | 2016Q3                    | 2016Q2                    |
@@ -829,3 +829,79 @@ Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with mod
     Examples: 
       | fracture1 |
       |       -99 |
+
+  Scenario Outline: User should be able to click on episode list column and verify the drill through
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Performance (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Participant" is appearing under Episodes table
+    Then I should verify "BPID" is appearing under Episodes table
+    Then I should verify "Episode Initiator" is appearing under Episodes table
+    Then I should verify "CCN" is appearing under Episodes table
+    Then I should verify "Anchor Facility" is appearing under Episodes table
+    Then I should verify "Bundle" is appearing under Episodes table
+    Then I should verify "DRG Code" is appearing under Episodes table
+    Then I should verify "Fracture/Non-Fracture" is appearing under Episodes table
+    Then I should verify "Beneficiary HIC" is appearing under Episodes table
+    Then I should verify "Beneficiary First Name" is appearing under Episodes table
+    Then I should verify "Beneficiary Last Name" is appearing under Episodes table
+    Then I should verify "Anchor Admission Quarter" is appearing under Episodes table
+    Then I should verify "Anchor Begin Date (Key)" is appearing under Episodes table
+    Then I should verify "Anchor End Date" is appearing under Episodes table
+    Then I should verify "Episode End Date" is appearing under Episodes table
+    Then I should verify "Attending Physician NPI" is appearing under Episodes table
+    Then I should verify "Attending Physician Name" is appearing under Episodes table
+    Then I should verify "Operating Physician NPI" is appearing under Episodes table
+    Then I should verify "Operating Physician Name" is appearing under Episodes table
+    Then I should verify "Attributed Physician NPI" is appearing under Episodes table
+    Then I should verify "Attributed Physician" is appearing under Episodes table
+    Then I should verify "Post Acute CCN" is appearing under Episodes table
+    Then I should verify "Post Acute Facility" is appearing under Episodes table
+    Then I should verify "Post Acute Category" is appearing under Episodes table
+    Then I should verify "Readmission CCN 1" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 1" is appearing under Episodes table
+    Then I should verify "Readmission DRG 1" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 1" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 1" is appearing under Episodes table
+    Then I should verify "Readmission PDGNS_CD 1" is appearing under Episodes table
+    Then I should verify "Readmission CCN 2" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 2" is appearing under Episodes table
+    Then I should verify "Readmission DRG 2" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 2" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 2" is appearing under Episodes table
+    Then I should verify "Readmission PDGNS_CD 2" is appearing under Episodes table
+    Then I should verify "Readmission CCN 3" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 3" is appearing under Episodes table
+    Then I should verify "Readmission DRG 3" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 3" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 3" is appearing under Episodes table
+    Then I should verify "Readmission PDGNS_CD 3" is appearing under Episodes table
+    Then I should verify "Readmission CCN 4" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 4" is appearing under Episodes table
+    Then I should verify "Readmission DRG 4" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 4" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 4" is appearing under Episodes table
+    Then I should verify "Readmission PDGNS_CD 4" is appearing under Episodes table
+    Then I should verify "Readmission CCN 5" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 5" is appearing under Episodes table
+    Then I should verify "Readmission DRG 5" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 5" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 5" is appearing under Episodes table
+    Then I should verify "Readmission PDGNS_CD 5" is appearing under Episodes table
+    Then I should verify "Readmission Count" is appearing under Episodes table
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
