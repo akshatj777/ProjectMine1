@@ -634,3 +634,115 @@ Feature: Readmission Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Medicare |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Medicare |
+
+  Scenario Outline: Validate DOB field for Readmissions Model 3 report user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "DOB" field filter under "Patient" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "DOB" is added in layout section after clicking on add to report
+    Then I verify "DOB" field is appearing in the report table after clicking on add to report
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+
+  Scenario Outline: Validate the Patient Risk field values on the Readmissions M3 report and filters for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "<patientrisk1>" in the filter value list
+    And I should see "<patientrisk2>" in the filter value list
+    And I should see "<patientrisk3>" in the filter value list
+    And I click on "<patientrisk1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "<patientrisk1>" result in "Patient Risk" field column for "Patient" filter field
+
+    Examples: 
+      | email                                 | role     | facility    | patientrisk1     | patientrisk2 | patientrisk3 |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Calculating Risk | High         | Low          |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Calculating Risk |              |              |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Calculating Risk | Low          | High         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Calculating Risk |              |              |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Calculating Risk | Low          | High         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Calculating Risk |              |              |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Calculating Risk | Low          | High         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Calculating Risk |              |              |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Calculating Risk | Low          | High         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Calculating Risk |              |              |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Calculating Risk | Low          | High         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Calculating Risk |              |              |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Calculating Risk | High         | Low          |
+
+  Scenario Outline: Validate that the no. of Episodes on the drill through page with no. of episodes count on readmissions model3 report page for user with <role> role for <facility> facility
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I verify the episodes count matches with dill through
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |

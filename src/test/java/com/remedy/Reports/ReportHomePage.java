@@ -1231,7 +1231,8 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
     	switchToNewWindow();
     	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
-    	String number=Integer.toString(getElementCount(".x-grid3-row-table>tbody>tr"));
+    	String number=getTextForElement(driver.findElement(By.cssSelector(".x-paging-info")));
+    	number=number.substring(number.indexOf("of")+2).trim();
     	Assert.assertEquals(number, count);
     }
 }
