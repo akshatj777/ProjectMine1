@@ -1,4 +1,4 @@
-Feature: View the Hospital Organization Functionality tests.
+Feature: Hospital Organization View profile Functionality tests.
 
   Background: 
     Given I am on the login page
@@ -59,9 +59,9 @@ Feature: View the Hospital Organization Functionality tests.
     And I verify "2" location count on view "Hospital" organization page
 
     Examples: 
-      | Description                                                                                     | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                              |
-      | Verification of details of Hospital Organization, Add new loaction and verify count- without MO | NO     | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
-      | Verification of details of Hospital Organization, Add new loaction and verify count - with MO   | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
+      | Description                                                                                       | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                              |
+      | Verification of Hospital details and count of locations displayed under Hospital org - without MO | NO     | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
+      | Verification of Hospital details and count of locations displayed under Hospital org - with MO    | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I search with "<MO_Name>" on organization in search box
@@ -107,5 +107,5 @@ Feature: View the Hospital Organization Functionality tests.
     And I verify "<Postal_Code>" details of "ACH" associated on Managing Organization page
 
     Examples: 
-      | Description                                                                                   | Has_MO | MO_Name | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | StateVerification | Organization Type | Message                                              |
-      | Verify count increment by 1  and details of Hospital org, when Hospital org is linked with MO | YES    | MONAME  | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN | NPI | CA                | ACH               | Success! Hospital Organization Successfully Created. |
+      | Description                                                                   | Has_MO | MO_Name | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | StateVerification | Organization Type | Message                                              |
+      | Verification of Hospital details and count on Hospital tab under Managing org | YES    | MONAME  | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN | NPI | CA                | ACH               | Success! Hospital Organization Successfully Created. |
