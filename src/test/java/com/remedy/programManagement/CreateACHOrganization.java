@@ -49,13 +49,13 @@ public class CreateACHOrganization extends BaseClass{
 			}
 		else if(id.contains("DUPLICATE")){
 			if(id.contains("CCN")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("CCN"));
 			}
 			else if(id.contains("EIN")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("EIN"));
 			}
 			else if(id.contains("NPI")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("NPI"));
 			}
 		}
 		else if(id.equalsIgnoreCase("lessThan6")){
