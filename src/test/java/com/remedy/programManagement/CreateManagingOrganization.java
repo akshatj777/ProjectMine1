@@ -125,7 +125,6 @@ public class CreateManagingOrganization extends BaseClass {
 							CreateACHOrganization.tempAchOrg.clear();
 						}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-					System.out.println("Creating WITHMO - "+CreateACHOrganization.achOrg.get("ACHNAME"));
 				}
 				else if(org.contains("ACH - NO"))
 				{
@@ -138,7 +137,6 @@ public class CreateManagingOrganization extends BaseClass {
 						CreateACHOrganization.tempAchOrg.clear();
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-					System.out.println("Creating NOMO - "+CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
 				}
 			}
 	    else 

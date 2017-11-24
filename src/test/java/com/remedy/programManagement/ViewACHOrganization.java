@@ -2,8 +2,6 @@ package com.remedy.programManagement;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.regex.Pattern;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
