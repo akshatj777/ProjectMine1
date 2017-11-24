@@ -13,4 +13,32 @@ public class EditHospitalOrganizationStepDef extends DriverScript {
 	  public void i_Verify_ManagingOrg_FieldOn_Organization_Page(String org) throws Throwable {
 		editHospOrg.iVerifyManagingOrgFieldOnOrganizationPage(org);
 	    }
+	
+	@And("^I edit \"([^\"]*)\" field to ([^\"]*) for Location \"([^\"]*)\" for organization$")
+	  public void i_Edit_Location_Fields_for_Selected_Organization(String field1, String field2,int num) throws Throwable {
+		editHospOrg.iEditLocationFieldsSelectedOrganization(field1,field2,num);
+	    }
+	
+	@And("^I edit State dropdown field to ([^\"]*) for Location \"([^\"]*)\" for organization$")
+	  public void i_Edit_LocationState_DropdownField_For_Location(String text, int num) throws Throwable {
+		editHospOrg.iEditLocationStateForLocationsofSelectedOrganization(text, num);
+	    }
+	
+	@And("^I edit Location Type dropdown field to ([^\"]*) for Location \"([^\"]*)\" for organization$")
+	  public void i_Edit_LocationType_DropdownField_For_Location(String text, int num) throws Throwable {
+		editHospOrg.iEditLocationTypeForLocation(text, num);
+	    }
+	
+	@And("^I edit Region dropdown field to ([^\"]*) for Location \"([^\"]*)\" for organization$")
+	  public void i_Edit_Region_DropdownField_For_Location(String text, int num) throws Throwable {
+		editHospOrg.iEditRegionForLocation(text, num);
+	    }
+	
+	@And("^I edit Market dropdown field to ([^\"]*) for Location \"([^\"]*)\" for organization$")
+	  public void i_Edit_Market_DropdownField_For_Location(String text, int num) throws Throwable {
+		editHospOrg.iEditMarketForLocation(text, num);
+	    }
+	
+	
+	
 }
