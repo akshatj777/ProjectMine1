@@ -1,6 +1,6 @@
 Feature: Landing page verification
 
-Scenario Outline: Verify availability of components on Landing page
+  Scenario Outline: Verify availability of components on Landing page
     Given I am on the login page
     When I enter email field <Email> for login
     And I enter password field Testing22 for Login
@@ -17,10 +17,11 @@ Scenario Outline: Verify availability of components on Landing page
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
+
     Examples: 
       | Email             |
       | chloe@yopmail.com |
-  
+
   Scenario: Create USER
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
@@ -78,8 +79,8 @@ Scenario Outline: Verify availability of components on Landing page
     And I enter new password "Testing@1234" to set new password
     And I enter confirm new password "Testing@1234" to set new password
     And I click on submit button to set new password
-        
-  #permission
+
+  #PTA user provision
   Scenario Outline: PTA user should only be able to provision user for these roles
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
@@ -92,9 +93,9 @@ Scenario Outline: Verify availability of components on Landing page
 
     Examples: 
       | Role                                                                                                                                  |
-      | Executive, Manager, Case Manager, Physicians, Prospective Partner Executive, Partner Program Administrator, Transitional Case Manager |
+      | Executive, Manager, Case Manager, Physicians, Transitional Case Manager |
 
-     #search cases
+  #search cases
   Scenario Outline: Verify ability to search user by First name/Last name/Email
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
@@ -109,12 +110,10 @@ Scenario Outline: Verify availability of components on Landing page
     And I should see "LastName" for "Last Name" in search result
     Then I enter search box in landing page with "test.automatemail"
     And I should see "test.automatemail" for "Email" in search result
-    
-    
-    #Lock unlock cases
-  
-     Scenario: Verify ability to lock a user from landing page
-     Given I am on the login page
+
+  #Lock unlock cases
+  Scenario: Verify ability to lock a user from landing page
+    Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing22 for Login
     Then I click Access button
@@ -131,7 +130,7 @@ Scenario Outline: Verify availability of components on Landing page
     And I enter password field Testing@1234 for Login
     Then I click Access button
     Then I should not be able to login
-    
+
   Scenario: Verify functionality of Cancel button on unlocking alert message
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
