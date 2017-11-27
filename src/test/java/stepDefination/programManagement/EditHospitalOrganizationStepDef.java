@@ -39,6 +39,9 @@ public class EditHospitalOrganizationStepDef extends DriverScript {
 		editHospOrg.iEditMarketForLocation(text, num);
 	    }
 	
-	
+	@And("^I verify \"([^\"]*)\" identifier is not editable$")
+	  public void i_Verify_Identifier_Is_Not_Editable(String id) throws Throwable {
+		editHospOrg.iVerifyIdentifierIsNotEditable(id);
+		}
 	
 }

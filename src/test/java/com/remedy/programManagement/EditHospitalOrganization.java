@@ -3,7 +3,6 @@ package com.remedy.programManagement;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.remedy.baseClass.BaseClass;
 
 public class EditHospitalOrganization extends BaseClass{
@@ -34,9 +33,9 @@ public class EditHospitalOrganization extends BaseClass{
 		}
 		else
 		{
-				num = num-1;
-				driver.findElements(By.xpath("//input[@name='locations["+num+"].address."+field1+"']")).get(num).clear();
-				iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address."+field1+"']")), field2);
+			num = num-1;
+			driver.findElements(By.xpath("//input[@name='locations["+num+"].address."+field1+"']")).get(num).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address."+field1+"']")), field2);
 		}
 	}
 	
@@ -68,6 +67,8 @@ public class EditHospitalOrganization extends BaseClass{
 	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 	}
 	
-		
+	public void iVerifyIdentifierIsNotEditable(String id){
+		Assert.assertEquals(true,driver.findElement(By.cssSelector(".text-input-field-"+id)).getAttribute("disabled"));
+	}
 
 }

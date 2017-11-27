@@ -10,36 +10,40 @@ Feature: Edit the Hospital organization
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
-  When I click on "Hospital" organization tab on organization dashboard
-  Then I search with "<Hosp_Name> - <Has_MO>" on organization in search box
-  And I verify "<Hosp_Name> - <Has_MO>" field in search list on organization page
-  And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
-  And I click on "Edit" button on particular organization
-  And I verify "Edit Hospital Organization" header text on edit organization page
-  And I verify Managing Organization field on "Edit ACH - <Has_MO>" organization page
-  And I verify "*Hospital Organization Name" field on edit organization page
-  And I verify "*Address 1" field on edit organization page
-  And I verify "Short Name" field on edit organization page
-  And I verify "Address 2" field on edit organization page
-  And I verify "*City" field on edit organization page
-  And I verify "*State" dropdown field on edit organization page
-  And I verify "*Postal Code" field on edit organization page
-  And I verify "*Location Name" field on edit organization page
-  And I verify "*Address 1" field on edit organization page
-  And I verify "Location Type" dropdown field on edit organization page
-  And I verify "Address 2" field on edit organization page
-  And I verify "Region" dropdown field on edit organization page
-  And I verify "*City" field on edit organization page
-  And I verify "Market" dropdown field on edit organization page
-  And I verify "*State" dropdown field on edit organization page
-  And I verify "*Postal Code" field on edit organization page
-  Then I verify "+" button under "Edit Hospital" organization page
-  And I verify "Submit" button on edit organization page
-  And I verify "Cancel" button on edit organization page
-  
-  Examples:
-  | Description                                                                       | Has_MO | Hosp_Name |
-  | Verification of availability of all the fields on Edit Hospital Organization page | NO    | ACHNAME   |
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I verify "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I click on "Edit" button on particular organization
+    And I verify "Edit Hospital Organization" header text on edit organization page
+    And I verify Managing Organization field on "Edit ACH - <Has_MO>" organization page
+    And I verify "*Hospital Organization Name" field on edit organization page
+    And I verify "*Address 1" field on edit organization page
+    And I verify "Short Name" field on edit organization page
+    And I verify "Address 2" field on edit organization page
+    And I verify "*City" field on edit organization page
+    And I verify "*State" dropdown field on edit organization page
+    And I verify "*Postal Code" field on edit organization page
+    And I verify "ccn" identifier is not editable
+    And I verify "ein" identifier is not editable
+    And I verify "npi" identifier is not editable
+    And I verify "*Location Name" field on edit organization page
+    And I verify "*Address 1" field on edit organization page
+    And I verify "Location Type" dropdown field on edit organization page
+    And I verify "Address 2" field on edit organization page
+    And I verify "Region" dropdown field on edit organization page
+    And I verify "*City" field on edit organization page
+    And I verify "Market" dropdown field on edit organization page
+    And I verify "*State" dropdown field on edit organization page
+    And I verify "*Postal Code" field on edit organization page
+    Then I verify "+" button under "Edit Hospital" organization page
+    And I verify "Submit" button on edit organization page
+    And I verify "Cancel" button on edit organization page
+
+    Examples: 
+      | Description                                                                       | Has_MO | Hosp_Name |
+      | Verification of availability of all the fields on Edit Hospital Organization page | NO     | ACHNAME   |
+
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
     Then I search with "<Hosp_Name> - <Has_MO>" on organization in search box
@@ -60,17 +64,17 @@ Feature: Edit the Hospital organization
     And I verify "<ValidationMessage>" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                     | Has_MO | Hosp_Name | Edited_Hospital_Name | Address1 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State  | Loc_Postal_Code | ValidationMessage                    |
+      | Description                                     | Has_MO | Hosp_Name | Edited_Hospital_Name | Address1 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State  | Loc_Postal_Code | ValidationMessage                 |
       | Check validation for blank ACH name             | NO     | ACHNAME   |                      | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | Please enter an Organization Name |
       | Check validation for blank Address1             | NO     | ACHNAME   | ACHNAME              |          | City | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | Please enter an Address           |
       | Check validation for blank City                 | NO     | ACHNAME   | ACHNAME              | Address1 |      | California |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | Please enter a City               |
       | Check validation for blank State                | NO     | ACHNAME   | ACHNAME              | Address1 | City |            |       10000 | LocName  | LAddress1    | LCity    | California |           10001 | Please select a State             |
       | Check validation for blank Postal code          | NO     | ACHNAME   | ACHNAME              | Address1 | City | California |             | LocName  | LAddress1    | LCity    | California |           10001 | Please enter a Zip Code           |
-      | Check validation for blank Location name        | NO     | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 |          | LAddress1    | LCity    | California |           10001 | Please enter a Location Name      |
-      | Check validation for blank Location Address1    | NO     | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  |              | LCity    | California |           10001 | Please enter an Address           |
-      | Check validation for blank Location City        | NO     | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  | LAddress1    |          | California |           10001 | Please enter a City               |
-      | Check validation for blank Location State       | NO     | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    |            |           10001 | Please select a State             |
-      | Check validation for blank Location Postal code | NO     | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |                 | Please enter a Zip Code           |
+      | Check validation for blank Location name        | YES    | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 |          | LAddress1    | LCity    | California |           10001 | Please enter a Location Name      |
+      | Check validation for blank Location Address1    | YES    | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  |              | LCity    | California |           10001 | Please enter an Address           |
+      | Check validation for blank Location City        | YES    | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  | LAddress1    |          | California |           10001 | Please enter a City               |
+      | Check validation for blank Location State       | YES    | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    |            |           10001 | Please select a State             |
+      | Check validation for blank Location Postal code | YES    | ACHNAME   | ACHNAME              | Address1 | City | California |       10000 | LocName  | LAddress1    | LCity    | California |                 | Please enter a Zip Code           |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
