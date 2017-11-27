@@ -40,7 +40,7 @@ Feature: Search the Managing organization
     Then I verify "Success! Management Organization Successfully Updated." after submitting the "edit MO" organization page
     When I search with "<Edited_MO_Name>" on organization in search box
     And I click "<Edited_MO_Name>" field in search list on organization page
-    And I verify <Edited_MO_Name> name on the header of view profile
+    And I verify "<Edited_MO_Name>" name on the header of view profile
 
     Examples: 
       | Description                                                                     | MO_Name | Edited_MO_Name | Contact_Person    | Contact_Email        | Contact_Phone | Address1       | Address2        | City       | State    | Postal_Code |

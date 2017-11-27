@@ -47,6 +47,7 @@ public class CreateManagingOrganization extends BaseClass {
 		scrollIntoViewByJS(element);
 		delay();
 		clickElement(element);
+		delay();
 	}
 
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
@@ -117,16 +118,24 @@ public class CreateManagingOrganization extends BaseClass {
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-					CreateACHOrganization.achOrg.clear();
-					CreateACHOrganization.achOrg.putAll(CreateACHOrganization.tempAchOrg);
+					
+					if(!CreateACHOrganization.tempAchOrg.isEmpty())
+						{
+							CreateACHOrganization.achOrg.putAll(CreateACHOrganization.tempAchOrg);
+							CreateACHOrganization.tempAchOrg.clear();
+						}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
 				else if(org.contains("ACH - NO"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-					CreateACHOrganization.achOrg_noMO.clear();
-					CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
+					
+					if(!CreateACHOrganization.tempAchOrg.isEmpty())
+					{
+						CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
+						CreateACHOrganization.tempAchOrg.clear();
+					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
 			}

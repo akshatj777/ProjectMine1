@@ -19,23 +19,51 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		if(text.contains("MONAME")){
 			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
 		}
+		else if(text.contains("ACHNAME")){
+			if (text.contains("YES")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+			else if (text.contains("NO")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+		}
 		else {
 			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 		}
 	}
 	
-	public void iVerifyParticipantIdOnVewProfileOfOrganization() throws ClassNotFoundException, SQLException
+	public void iVerifyParticipantIdOnVewProfileOfOrganization(String org) throws ClassNotFoundException, SQLException
 	{
-		String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
-	    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
-	    String pID = fetchParticipantID(query);
-		Assert.assertEquals("Participant Id: "+pID+"|", text);
+		if (org.contains("YES")){
+			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
+		    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
+		    String pID = fetchParticipantID(query);
+			Assert.assertEquals("Participant Id: "+pID+"|", text);
+		}
+		else if (org.contains("NO")){
+			
+		}
+		else {
+			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
+		    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
+		    String pID = fetchParticipantID(query);
+			Assert.assertEquals("Participant Id: "+pID+"|", text);
+		}
+		
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
 		if(!text.isEmpty()) {
-		String result = driver.findElement(By.cssSelector(".organization-"+sel+"")).getText();
-		Assert.assertEquals(result.replace(",", "").trim(), text);
+		String result = driver.findElement(By.cssSelector(".organization-"+sel)).getText();
+		if(result.contains(","))
+		{
+			result = result.replace(",", "").trim();
+		}
+		if(result.contains("Organization Type:"))
+		{
+			result = result.substring(result.indexOf(":")+1, result.indexOf("|")).trim();
+		}
+		Assert.assertEquals(result.trim(), text.trim());
 		}
 	}
 	
@@ -81,6 +109,5 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifyTheEditButtonontheViewPage(String button) {
 		iVerifyTextFromListOfElement(By.cssSelector(".col-md-offset-11"), button);
 	}
-	
 }
 

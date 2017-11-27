@@ -130,7 +130,7 @@ Feature: Edit the Managing organization
     And I edit "Contact Email" field to <Contact_Email> for organization
     And I click on "Cancel" button on "Edit" organization page
     Then User navigated to view page
-    And I verify <Contact_Email> name on the header of view profile
+    And I verify "<Contact_Email>" name on the header of view profile
 
     Examples: 
       | Description                                 | MO_Name | Contact_Email            |

@@ -16,8 +16,8 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     And I verify "Managing" as default organizations tab selected on homepage
     When I search with "<MO_Name>" on organization in search box
     And I click "<MO_Name>" field in search list on organization page
-    And I verify <MO_Name> name on the header of view profile
-    And I verify Participant Id on view profile of Managing Organization
+    And I verify "<MO_Name>" name on the header of view profile
+    And I verify Participant Id on view profile of "Managing" Organization
     And I verify <Address1> in "address1" on view profile of "Managing" Organization
     And I verify <Address2> in "address2" on view profile of "Managing" Organization
     And I verify <City> in "city" on view profile of "Managing" Organization
