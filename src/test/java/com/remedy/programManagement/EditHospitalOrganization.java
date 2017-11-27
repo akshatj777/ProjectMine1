@@ -18,6 +18,12 @@ public class EditHospitalOrganization extends BaseClass{
 			actual = actual.substring((actual.indexOf(":"))+1).trim();
 			Assert.assertEquals(CreateManagingOrganization.moOrg.get("MONAME"),actual);
 		}
+		else
+		{
+			String actual = getTextForElement(driver.findElement(By.cssSelector(".display-managing-org")));
+			actual = actual.substring((actual.indexOf(":"))+1).trim();
+			Assert.assertEquals("No Managing Organization Selected",actual);
+		}
 	}
 	
 	public void iEditLocationFieldsSelectedOrganization(String field1, String field2,int num){
@@ -42,7 +48,7 @@ public class EditHospitalOrganization extends BaseClass{
 	
 	public void iEditLocationTypeForLocation(String text, int num) {
 		num = num-1;
-		driver.findElements(By.xpath("//div[input[@name='locations[0].locationTypeSelector']]//span[text()='×']")).get(0).click();
+		driver.findElements(By.xpath("//div[input[@name='locations["+num+"].locationTypeSelector']]//span[text()='×']")).get(0).click();
 		driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	delay();
     	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text); 

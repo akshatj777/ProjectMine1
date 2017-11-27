@@ -55,7 +55,7 @@ public class CreateManagingOrganization extends BaseClass {
 		isElementPresent(By.xpath("//button[text()='"+text+"']"));
 	}
 	
-	public void userNavigatedToViewPage() {
+	public void userNavigatedToViewPage(String org) {
 		driver.findElement(By.cssSelector(".navLink.noselect")).getText();
 	}
 
@@ -130,7 +130,7 @@ public class CreateManagingOrganization extends BaseClass {
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
 			}
-	    else 
+	    	else 
 	    	{
 	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
 	    		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);

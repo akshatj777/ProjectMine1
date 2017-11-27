@@ -33,9 +33,9 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	    }
 
-	 @Then("^User navigated to view page$")
-	  public void user_navigated_to_view_page() throws Throwable {
-		 createMO.userNavigatedToViewPage();
+	 @Then("^User navigated to \"([^\"]*)\" view page$")
+	  public void user_navigated_to_view_page(String org) throws Throwable {
+		 createMO.userNavigatedToViewPage(org);
 	 }
 
 	 @And("^I verify \"([^\"]*)\" button on ([^\"]*) organization page$")
