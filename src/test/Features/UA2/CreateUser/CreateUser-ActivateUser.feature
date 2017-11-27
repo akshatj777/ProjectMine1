@@ -37,17 +37,17 @@ Feature: UA2 Front End Automation
     And I select a <Health System>
     Then I click on Select All Locations button
     Then I click on Submit button for "Super User"
-    And I wait for 15000 milli seconds
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
     Then I open new tab and close the last tab
     And I switch to new window
     Given I am on mail login page
-    #Then I enter username "test.automatemail" to login mail account
+    Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
     Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
     Then I verify Account Verification in Inbox in my account
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content

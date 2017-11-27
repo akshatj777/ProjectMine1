@@ -516,6 +516,8 @@ public class CreateUserPage extends BaseClass{
 			usersEmailPerRole.put(user, emailList);
 			usersApplicationsPerRole.put(user, applicationsList);
 		}
+		System.out.println(usersEmailPerRole);
+		System.out.println(usersApplicationsPerRole);
 	}
    
    public void verifyAppUnchecked(String fieldName) throws Throwable {
@@ -730,7 +732,7 @@ public class CreateUserPage extends BaseClass{
    public void iVerifyValueIsNotPresentInProductDropDownMenu(String products) {
 	   StringTokenizer st = new StringTokenizer(products,",");
 	   String token = null;
-	   List<WebElement> listItems = driver.findElements(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[@class='btn btn-flyout-nav']"));
+	   List<WebElement> listItems = driver.findElements(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[contains(@class,'btn btn-flyout-nav')]"));
 	   while (st.hasMoreTokens())
 	   {
 		   String newToken = st.nextToken();
