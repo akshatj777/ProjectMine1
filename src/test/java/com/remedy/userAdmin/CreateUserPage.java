@@ -268,15 +268,18 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iSelectTileForTheRole(String appList){
+    	
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
             while (st.hasMoreTokens()) {  
+            	iWillWaitToSee(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
             	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
             }
     	}
     	else
     	{
+    		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
     		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
     	}
     	 

@@ -73,7 +73,10 @@ ua2LandingPage.verifyUserInformation();
 	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
 		ua2LandingPage.iLockUser(text);
 	}
-
+	@Then("^I click on sort by lock icon$")
+	public void i_click_on_sortBy_lock_icon() throws Throwable {
+		ua2LandingPage.iClickOnSortByLockIcon();
+	}
 	@Then("^I click on Unlock button on the table in useradmin Landing page$")
 	public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
 		ua2LandingPage.iClickOnUnlock();
