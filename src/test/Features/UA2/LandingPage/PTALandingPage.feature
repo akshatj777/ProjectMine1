@@ -95,6 +95,15 @@ Feature: Landing page verification
       | Role                                                                                                                                  |
       | Executive, Manager, Case Manager, Physicians, Transitional Case Manager |
 
+  
+  Scenario: Verify user information in landing page
+    Given I am on the login page
+    When I log in as super user
+    #Then I should see Tile text User Admin
+    #And I click on the "User Admin" tile
+    Then I should see header text "Management"
+    Then I verify user information
+    
   #search cases
   Scenario Outline: Verify ability to search user by First name/Last name/Email
     Given I am on the login page
