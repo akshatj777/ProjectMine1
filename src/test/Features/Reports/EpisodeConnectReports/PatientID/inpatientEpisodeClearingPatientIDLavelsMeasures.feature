@@ -350,3 +350,27 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Examples: 
       | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 | onboardingstatus5 |
       | null              |                 3 |                 2 |                 0 |                 1 |
+      
+  Scenario Outline: User should be able to see patient risk and onboarding status under Episodes List in Inpatient Episode Clearing Report after clicking on any episode number link
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Patient Risk" is appearing under Episodes table
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+
+    Examples: 
+      | email                          |
+      | shutestaug231132a@yopmail.com  |

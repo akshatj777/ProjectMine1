@@ -51,16 +51,14 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I should verify "Record Creator" is appearing under Episodes table
     Then I should verify "Physician Name" is appearing under Episodes table
     Then I should verify "Days Left in Bundle" is appearing under Episodes table
-    Then I should verify "Patient Risk" is appearing under Episodes table
-    Then I should verify "Onboarding Status" is appearing under Episodes table
-
+    
     Examples: 
       | email                          |
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
-
+      
   Scenario Outline: User should see patient risk and onboarding status fields in the selected columns popup as checked in the inpatient episode clearing report
     Given I am on the login page
     When I enter email field <email> for login
