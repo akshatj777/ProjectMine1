@@ -129,7 +129,7 @@ Feature: Edit the Managing organization
     And I click on "Edit" button on particular organization
     And I edit "Contact Email" field to "<Contact_Email>" for organization
     And I click on "Cancel" button on "Edit" organization page
-    Then User navigated to view page
+    Then User navigated to "Hospital" view page
     And I verify "<Contact_Email>" name on the header of view profile
 
     Examples: 
