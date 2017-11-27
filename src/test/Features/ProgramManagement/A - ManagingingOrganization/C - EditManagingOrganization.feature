@@ -10,9 +10,9 @@ Feature: Edit the Managing organization
 
   Scenario Outline: <Description>
   When I click on Organization link on Program Management page
-  Then I search with <MO_Name> on organization in search box
+  Then I search with "<MO_Name>" on organization in search box
   And I verify <MO_Name> field in search list on organization page
-  And I click <MO_Name> field in search list on organization page
+  And I click "<MO_Name>" field in search list on organization page
   And I click on "Edit" button on particular organization
   And I verify "Edit Management Organization" header text on edit organization page
   And I verify "*Managing Organization Name" field on edit organization page
@@ -22,7 +22,7 @@ Feature: Edit the Managing organization
   And I verify "*Address 1" field on edit organization page
   And I verify "Address 2" field on edit organization page
   And I verify "*City" field on edit organization page
-  And I verify "*State" drop down field on edit organization page
+  And I verify "*State" dropdown field on edit organization page
   And I verify "*Postal Code" field on edit organization page
   And I verify "Submit" button on edit organization page
   And I verify "Cancel" button on edit organization page
@@ -33,16 +33,16 @@ Feature: Edit the Managing organization
   
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
+    Then I search with "<MO_Name>" on organization in search box
     And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
+    And I click "<MO_Name>" field in search list on organization page
     And I click on "Edit" button on particular organization
     And I edit "Managing Organization Name" field to <Edited_MO_Name> for organization
     And I edit "Address 1" field to <Address1> for organization
     And I edit "City" field to <City> for organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
-    Then I click on "Submit" button on create organization page
+    Then I click on "Submit" button on "Edit" organization page
     And I verify "<ValidationMessage>" mandatory field validation message on edit organization page
 
     Examples: 
@@ -55,9 +55,9 @@ Feature: Edit the Managing organization
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
+    Then I search with "<MO_Name>" on organization in search box
     And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
+    And I click "<MO_Name>" field in search list on organization page
     And I click on "Edit" button on particular organization
     And I edit "Managing Organization Name" field to <Edited_MO_Name> for organization
     And I edit "Address 1" field to <Address1> for organization
@@ -69,7 +69,7 @@ Feature: Edit the Managing organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
     And I switch the focus to "submit" button
-    And I verify "<ValidationMessage>" mandatory field validation message on edit organization page
+    And I verify "<ValidationMessage>" field validation message on edit organization page
 
     Examples: 
       | Description                                                                        | MO_Name | Edited_MO_Name                                                               | Address1                                       | Contact_Person                                 | Address2                                       | Contact_Email                                  | City                                           | Contact_Phone | State | Postal_Code | ValidationMessage                                              |
@@ -87,9 +87,9 @@ Feature: Edit the Managing organization
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
+    Then I search with "<MO_Name>" on organization in search box
     And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
+    And I click "<MO_Name>" field in search list on organization page
     And I click on "Edit" button on particular organization
     And I edit "Managing Organization Name" field to <Edited_MO_Name> for organization
     And I edit "Address 1" field to <Address1> for organization
@@ -100,8 +100,8 @@ Feature: Edit the Managing organization
     And I edit "Contact Phone" field to <Contact_Phone> for organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to <Postal_Code> for organization
-    Then I click on "Submit" button on create organization page
-    Then I verify <Message> after submitting the edit organization page
+    Then I click on "Submit" button on "Edit" organization page
+    Then I verify "<Message>" after submitting the "edit MO" organization page
 
     Examples: 
       | Description                                                                                  | MO_Name | Edited_MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                                |
@@ -123,12 +123,12 @@ Feature: Edit the Managing organization
 
   Scenario Outline: Verification of Cancel Button Functionality on edit a Managing Organization page
     When I click on Organization link on Program Management page
-    Then I search with <MO_Name> on organization in search box
+    Then I search with "<MO_Name>" on organization in search box
     And I verify <MO_Name> field in search list on organization page
-    And I click <MO_Name> field in search list on organization page
+    And I click "<MO_Name>" field in search list on organization page
     And I click on "Edit" button on particular organization
     And I edit "Contact Email" field to <Contact_Email> for organization
-    And I click on cancel button on create organization page
+    And I click on "Cancel" button on "Edit" organization page
     Then User navigated to view page
     And I verify <Contact_Email> name on the header of view profile
 

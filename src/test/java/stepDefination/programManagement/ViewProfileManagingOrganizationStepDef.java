@@ -34,9 +34,9 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(org);
 		}
 	
-	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization in Managing Organization$")
-	  public void i_Verify_Header_Label_Under_Organization_In_ManagingOrganization(String header,String org) throws Throwable {
-		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
+	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization$")
+	  public void i_Verify_Header_Label_Under_Organization(String header,String org) throws Throwable {
+		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganization(header,org);
 		}
 	
 	@And("^I verify the count \"([^\"]*)\" for the associated organization$")

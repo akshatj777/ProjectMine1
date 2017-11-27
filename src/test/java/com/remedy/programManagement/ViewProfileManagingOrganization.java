@@ -17,7 +17,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	
 	public void iVerifyNameOnHeaderOnViewProfile(String text) {
 		if(text.contains("MONAME")){
-			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.orgMOName+"']"));
+			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
 		}
 		else {
 			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
@@ -27,7 +27,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 	public void iVerifyParticipantIdOnVewProfileOfOrganization() throws ClassNotFoundException, SQLException
 	{
 		String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
-	    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.orgMOName+"'";
+	    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
 	    String pID = fetchParticipantID(query);
 		Assert.assertEquals("Participant Id: "+pID+"|", text);
 	}
@@ -47,7 +47,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='navLink noselect activeNavLink']")).getText().contains(org));
 	}
 	
-	public void iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(String header,String org) {
+	public void iVerifyHeaderLabelUnderSelectedOrganization(String header,String org) {
 		iWillWaitToSee(By.cssSelector(".data-table-header-cell>a"));
 		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), header);
 	}
