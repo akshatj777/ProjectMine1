@@ -1235,4 +1235,16 @@ public class ReportHomePage extends BaseClass {
     	number=number.substring(number.indexOf("of")+2).trim();
     	Assert.assertEquals(number, count);
     }
+    
+    public void iVerifyAnchorDischargeMonthFormat() throws ParseException{
+    	String Anchormonth=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='[Anchor Post Acute Discharge Date].[Anchor Post Acute Discharge Month]']/div)[1]")));
+    	validateYearMonthFormat(Anchormonth);
+    }
+    
+    public void validateYearMonthFormat(String dateToValdate) throws ParseException {
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
+	    formatter.setLenient(false);
+	    Date parsedDate = null;
+	    parsedDate = formatter.parse(dateToValdate);
+    }
 }

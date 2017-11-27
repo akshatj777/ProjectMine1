@@ -1544,4 +1544,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_the_episodes_count_matches_with_drill_through() throws Throwable{
     	reportHomePage.iVerifyTheEpisodeCountWithDrillThrough();
     }
+    
+    @Then("^I verify anchor post acute discharge month is in YYYY-MM format$")
+    public void i_verify_anchor_post_acute_dischare_month_is_in_YYYY_MM_format() throws Throwable{
+    	reportHomePage.iVerifyAnchorDischargeMonthFormat();
+    }
 }

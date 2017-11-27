@@ -552,8 +552,14 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
     When I click on show all filters icon button
     Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    When I click to "Anchor Post Acute Discharge Month" field filter under "Anchor Post Acute Discharge Date" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Anchor Post Acute Discharge Month" is added in layout section after clicking on add to report
+    Then I verify "Anchor Post Acute Discharge Month" field is appearing in the report table after clicking on add to report
     When I click to "Anchor Post Acute Discharge Month" field filter under "Anchor Post Acute Discharge Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Month" in the header text of filter page
@@ -569,6 +575,7 @@ Feature: Readmission Model3 report verification
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<postacutedischargemonth1>" result in "Anchor Post Acute Discharge Month" field column for "Anchor Post Acute Discharge Date" filter field
+    Then I verify anchor post acute discharge month is in YYYY-MM format
 
     Examples: 
       | email                                 | role     | facility    | postacutedischargemonth1 | postacutedischargemonth2 | postacutedischargemonth3 | postacutedischargemonth4 | postacutedischargemonth5 | postacutedischargemonth6 |
@@ -656,6 +663,7 @@ Feature: Readmission Model3 report verification
     And I wait until refresh button is disappeared
     And I should see "DOB" is added in layout section after clicking on add to report
     Then I verify "DOB" field is appearing in the report table after clicking on add to report
+    Then I verify the DOB column format is in YYYY-MM-DD for "Patient Detail"
 
     Examples: 
       | email                                 | role     | facility    |
