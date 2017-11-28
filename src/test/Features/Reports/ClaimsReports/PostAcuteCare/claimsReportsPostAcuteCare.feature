@@ -154,6 +154,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -162,6 +163,12 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
+    When I click to "DRG" field filter under "DRG" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "DRG" column is added to report after selecing add to report option
+    And I verify "<DRG>" is appearing in the drg column rows
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Admission Quarter" in the header text of filter page
@@ -187,17 +194,17 @@ Feature: Verification of Post Acute Care Claims Report
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                              | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 | anchor admission quarter2 | anchor admission quarter3 |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
-      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    |
+      | email                              | BPID1    | BPID2    | DRG Code1 | anchor admission quarter1 | anchor admission quarter2 | anchor admission quarter3 | DRG                                                                |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   | 
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 |       469 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
+      | shutestaug231132a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | shutestaug221130a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | reptestachmodel2opsfin@yopmail.com | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | shutestaug15240p@yopmail.com       | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
+      | shutestaug221145a@yopmail.com      | 2070-021 | 2070-022 |       470 | 2016Q4                    | 2017Q1                    | 2017Q2                    | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
 
   Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg 469,470 is able to see fracture/non fracture values when anchor admission quarter > = 2016Q4 in post acute care claims report under post acute care
     Given I am on the login page
@@ -225,6 +232,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -236,6 +244,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Admission Quarter" in the header text of filter page
@@ -294,6 +303,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -302,6 +312,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Admission Quarter" in the header text of filter page
@@ -362,6 +373,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -373,6 +385,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Admission Quarter" in the header text of filter page
@@ -422,6 +435,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Admission Quarter" in the header text of filter page
@@ -448,6 +462,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
@@ -488,6 +503,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
@@ -499,6 +515,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Admission Quarter" in the header text of filter page
@@ -557,6 +574,7 @@ Feature: Verification of Post Acute Care Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
@@ -585,48 +603,6 @@ Feature: Verification of Post Acute Care Claims Report
       | shutestaug15240p@yopmail.com       |       469 |       470 |
       | shutestaug221145a@yopmail.com      |       469 |       470 |
 
-  Scenario Outline: User should see corresponding DRG when selected <DRG Code1> drg code in the report in post acute care report under post acute care
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Post Acute Care" under reports tile text
-    When I click on the Reports Tile with text "Post Acute Care"
-    Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Post Acute Care" is appearing inside the iframe
-    When I click on field-panel-icon button
-    And I wait until refresh button is disappeared
-    When I click to "DRG Code" field filter under "DRG" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "DRG Code" in the header text of filter page
-    And I should see "<DRG Code1>" in the filter value list
-    And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    When I click to "DRG" field filter under "DRG" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
-    And I verify "<DRG>" is appearing in the drg column rows
-
-    Examples: 
-      | email                              | DRG Code1 | DRG                                                                |
-      | shutestaug231132a@yopmail.com      |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
-      | shutestaug221130a@yopmail.com      |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
-      | reptestachmodel2opsfin@yopmail.com |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
-      | shutestaug15240p@yopmail.com       |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
-      | shutestaug221145a@yopmail.com      |       469 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC   |
-      | shutestaug231132a@yopmail.com      |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
-      | shutestaug221130a@yopmail.com      |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
-      | reptestachmodel2opsfin@yopmail.com |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
-      | shutestaug15240p@yopmail.com       |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
-      | shutestaug221145a@yopmail.com      |       470 | MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC |
-
   Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in post acute care claims report under post acute care
     Given I am on the login page
     When I enter email field <email> for login
@@ -652,111 +628,6 @@ Feature: Verification of Post Acute Care Claims Report
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-
-  Scenario Outline: fracture/non-fracture mapping in warehouse .dimDRG table should be 0,1,-99 in post acute care claims report under post acute care
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Post Acute Care" under reports tile text
-    When I click on the Reports Tile with text "Post Acute Care"
-    Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Post Acute Care" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Fracture/Non-Fracture" in the header text of filter page
-    And I should see "Fracture" in the filter value list
-    And I should see "Non-Fracture" in the filter value list
-    And I should see "Not Applicable" in the filter value list
-    Then User executes query
-      """
-      select distinct drgSubCode from warehouse.dimDRG;
-      """
-    Then User verifies the data from database for "drgSubCode"
-      | NotApplicable | "<notapplicable>" |
-      | Fracture      | "<fracture>"      |
-      | NonFracture   | "<nonfracture>"   |
-
-    Examples: 
-      | email                         | notapplicable | fracture | nonfracture |
-      | shutestaug231132a@yopmail.com |           -99 |        0 |           1 |
-
-  Scenario Outline: Fracture values should display 0 and 1 only when executed the below query for post acute care report under post acute care
-    Then User executes query
-      """
-      select distinct (fracture) 
-      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
-      and anchor_beg_dt >= '2016-10-01' and bpid like '2070%';
-      """
-    Then User verifies the data from database for "fracture"
-      | Fracture1 | "<fracture1>" |
-      | Fracture2 | "<fracture2>" |
-
-    Examples: 
-      | fracture1 | fracture2 |
-      |         0 |         1 |
-
-  Scenario Outline: Fracture values should display -99 when executed the below query for post acute care report under post acute care
-    Then User executes query
-      """
-      select distinct (fracture)
-      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
-      and anchor_beg_dt < '2016-10-01' and bpid like '2070%';
-      """
-    Then User verifies the data from database for "fracture"
-      | Fracture1 | "<fracture1>" |
-
-    Examples: 
-      | fracture1 |
-      |       -99 |
-
-  Scenario Outline: Fracture values should display -99 when executed the below query for post acute care report under post acute care
-    Then User executes query
-      """
-      select distinct (fracture)
-      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
-      and anchor_beg_dt >= '2016-10-01' and bpid not like '2070%';
-      """
-    Then User verifies the data from database for "fracture"
-      | Fracture1 | "<fracture1>" |
-
-    Examples: 
-      | fracture1 |
-      |       -99 |
-
-  Scenario Outline: Fracture values should display -99 when executed the below query for post acute care report under post acute care
-    Then User executes query
-      """
-      select distinct (fracture)
-      from reporting.episodeSummary where anchor_ms_drg in (469, 470) 
-      and anchor_beg_dt < '2016-10-01' and bpid not like '2070%';
-      """
-    Then User verifies the data from database for "fracture"
-      | Fracture1 | "<fracture1>" |
-
-    Examples: 
-      | fracture1 |
-      |       -99 |
-
-  Scenario Outline: Fracture values should display -99 when executed the below query for post acute care report under post acute care
-    Then User executes query
-      """
-      select distinct fracture 
-      from reporting.episodeSummary where anchor_ms_drg not in (469, 470) 
-      and anchor_beg_dt >= '2016-10-01' and bpid like '2070%';
-      """
-    Then User verifies the data from database for "fracture"
-      | Fracture1 | "<fracture1>" |
-
-    Examples: 
-      | fracture1 |
-      |       -99 |
 
   Scenario Outline: User should be click on one of the link under episodes and verify episode list columns
     Given I am on the login page

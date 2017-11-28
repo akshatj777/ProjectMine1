@@ -1054,9 +1054,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdFieldAdd_text']");
     }
     
-    @Then("^I verify the DOB column format is in YYYY-MM-DD for \"([^\"]*)\"$")
-    public void i_Verify_the_DOB_Column_Format_is_in_yyyy_mm_dd(String text) throws Throwable{
-    	reportHomePage.iVerifyDOBColumnValueFormat(text);
+    @Then("^I verify the DOB column format is in ([^\"]*) for \"([^\"]*)\"$")
+    public void i_Verify_the_DOB_Column_Format_is_in_yyyy_mm_dd(String format,String text) throws Throwable{
+    	reportHomePage.iVerifyDOBColumnValueFormat(format,text);
     }
     
     @Then("^I enter \"([^\"]*)\" in the search field textbox for filters$")

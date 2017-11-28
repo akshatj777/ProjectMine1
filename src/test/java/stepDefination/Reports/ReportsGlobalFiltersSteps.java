@@ -231,16 +231,4 @@ public class ReportsGlobalFiltersSteps extends DriverScript {
 	public void i_should_not_see_appearing_in_the_global_filters(String text) throws Throwable{
 		globalfilters.iShouldNotSeeHideSummaryAppearingInGlobalFilters(text);
 	}
-	
-	@Then("^User executes query$")
-	public void i_make_connection_with_database_for_reports(String query) throws Throwable{
-		globalfilters.executeQuery(query);
-	}
-	
-	@Then("^User verifies the data from database for \"([^\"]*)\"$")
-	public void user_verifies_the_ccn_from_database(String columnname,DataTable dataTable) throws Throwable{
-		Map<String, String> data;
-		data=dataTable.asMap(String.class, String.class);
-		globalfilters.iVerifyCCNInDatabase(data,columnname);	
-	}
 }

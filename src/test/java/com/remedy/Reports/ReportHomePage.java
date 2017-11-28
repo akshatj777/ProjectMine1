@@ -826,18 +826,11 @@ public class ReportHomePage extends BaseClass {
     	isElementVisible(driver.findElement(By.xpath("//table[@id='readmitionsClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
     }
     
-    public void iVerifyDOBColumnValueFormat(String text) throws ParseException{
+    public void iVerifyDOBColumnValueFormat(String format,String text) throws ParseException{
         String DOB=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='["+text+"].[DOB]']/div)[1]")));
-    	validateDateFormat(DOB);
+        validateDateFormat(format,DOB);
     }
-    
-    public void validateDateFormat(String dateToValdate) throws ParseException {
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	    formatter.setLenient(false);
-	    Date parsedDate = null;
-	    parsedDate = formatter.parse(dateToValdate);
-    }
-    
+        
     public void iEnterInTheSearchFieldForFilters(String dob){
     	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
     }    
