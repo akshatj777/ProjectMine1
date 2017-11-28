@@ -4,10 +4,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import com.remedy.baseClass.BaseClass;
+import com.sun.mail.imap.Utility.Condition;
 
 import cucumber.api.java.en.Then;
 import edu.emory.mathcs.backport.java.util.Arrays;
@@ -18,6 +20,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by salam on 7/30/15.
@@ -28,6 +32,11 @@ public class CreateUserPage extends BaseClass{
 	public final static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	public final static Date timestamp = new Date();
 	public final static String time = df.format(timestamp);
+	String userRole = null;
+	String userApplications = null;
+	HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
+	HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
+	WebDriverWait wait = new WebDriverWait(driver, 60); 
 
     public CreateUserPage(WebDriver driver){
         super(driver);
@@ -61,7 +70,7 @@ public class CreateUserPage extends BaseClass{
     	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     	delay();
     	element.click();
-    	
+    	userRole = desc;
     }
     
     public void selectPayerFromData(String desc){
@@ -268,17 +277,21 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iSelectTileForTheRole(String appList){
+    	
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
             while (st.hasMoreTokens()) {  
+            	iWillWaitToSee(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
             	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
             }
     	}
     	else
     	{
+    		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
     		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
     	}
+    	userApplications = appList;
     	 
     }
 
@@ -482,7 +495,34 @@ public class CreateUserPage extends BaseClass{
 
    public void clickSubmitButton() throws Throwable {
 	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+	   iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
    }
+   
+	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
+		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
+		HashMap<String,String> emailList = new HashMap<String,String>();
+		HashMap<String,String> applicationsList = new HashMap<String,String>();
+		emailList.put(userRole, MailCreateUser.email);
+		applicationsList.put(userRole, userApplications);
+		if(user.contains("Super User"))
+		{
+			usersEmailPerRole.put(user, emailList);
+			usersApplicationsPerRole.put(user, applicationsList);
+		}
+		else if(user.contains("RTA"))
+		{
+			usersEmailPerRole.put(user, emailList);
+			usersApplicationsPerRole.put(user, applicationsList);
+		}
+		else if(user.contains("PTA"))
+		{
+			usersEmailPerRole.put(user, emailList);
+			usersApplicationsPerRole.put(user, applicationsList);
+		}
+		System.out.println(usersEmailPerRole);
+		System.out.println(usersApplicationsPerRole);
+	}
    
    public void verifyAppUnchecked(String fieldName) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(fieldName,",");
@@ -591,14 +631,60 @@ public class CreateUserPage extends BaseClass{
    
    public void verifyProductTiles(String products) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(products,",");
+	   String token = null;
        while (st.hasMoreTokens()) {
-    	   try{
-    		   driver.findElement(By.xpath("//p[text()='"+st.nextToken().trim()+"']")).isDisplayed();   
-    	   }
-    	   catch(Exception e)
+    	   String newToken = st.nextToken();
+    	   if(newToken.contains("Lessons"))
     	   {
-    		   
+    		   token = "RemedyU";
     	   }
+    	   else if(newToken.contains("TCI"))
+    	   {
+    		   token = "Institute";
+    	   }
+    	   else if(newToken.contains("Physician Connect"))
+    	   {
+    		   token = "Gainsharing Physician Survey";
+    	   }
+    	   else if(newToken.contains("Administration"))
+    	   {
+    		   token = "User Admin";
+    	   }
+    	   else
+    	   {
+    		   token = newToken;   
+    	   }
+    	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+token.trim()+"']")));
+       } 
+   }
+   
+   public void verifyProductTilesNotPresent(String products) throws Throwable {
+	   StringTokenizer st = new StringTokenizer(products,",");
+	   String token = null;
+       while (st.hasMoreTokens()) 
+       {
+    	   String newToken = st.nextToken();
+    	   if(newToken.contains("Lessons"))
+    	   {
+    		   token = "RemedyU";
+    	   }
+    	   else if(newToken.contains("TCI"))
+    	   {
+    		   token = "Institute";
+    	   }
+    	   else if(newToken.contains("Physician Connect"))
+    	   {
+    		   token = "Gainsharing Physician Survey";
+    	   }
+    	   else if(newToken.contains("Administration"))
+    	   {
+    		   token = "User Admin";
+    	   }
+    	   else
+    	   {
+    		   token = newToken;   
+    	   }
+    		Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//p[text()='"+token.trim()+"']")));
        } 
    }
    
@@ -615,5 +701,69 @@ public class CreateUserPage extends BaseClass{
 	   boolean val = isElementPresentOnPage(By.xpath("//label[text()='All Location']"));
 	   Assert.assertFalse(val);
    }
+   
+   public void iVerifyValueInProductDropDownMenu(String products) {
+		iWillWaitToSee(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[@class='btn btn-flyout-nav']"));
+		StringTokenizer st = new StringTokenizer(products,",");
+		String token = null;
+		while (st.hasMoreTokens()) 
+	       {
+			String newToken = st.nextToken();
+			if(newToken.contains("Lessons"))
+	    	   {
+	    		   token = "RemedyU";
+	    	   }
+	    	   else if(newToken.contains("TCI"))
+	    	   {
+	    		   token = "Institute";
+	    	   }
+	    	   else if(newToken.contains("Physician Connect"))
+	    	   {
+	    		   token = "Gainsharing Physician Survey";
+	    	   }
+	    	   else if(newToken.contains("Administration"))
+	    	   {
+	    		   token = "User Admin";
+	    	   }
+	    	   else
+	    	   {
+	    		   token = newToken;   
+	    	   }
+			iVerifyTextFromListOfElement(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[@class='btn btn-flyout-nav']"), token.trim());
+	       } 
+	}
+   
+   public void iVerifyValueIsNotPresentInProductDropDownMenu(String products) {
+	   StringTokenizer st = new StringTokenizer(products,",");
+	   String token = null;
+	   List<WebElement> listItems = driver.findElements(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[contains(@class,'btn btn-flyout-nav')]"));
+	   while (st.hasMoreTokens())
+	   {
+		   String newToken = st.nextToken();
+		   if(newToken.contains("Lessons"))
+    	   {
+    		   token = "RemedyU";
+    	   }
+    	   else if(newToken.contains("TCI"))
+    	   {
+    		   token = "Institute";
+    	   }
+    	   else if(newToken.contains("Physician Connect"))
+    	   {
+    		   token = "Gainsharing Physician Survey";
+    	   }
+    	   else if(newToken.contains("Administration"))
+    	   {
+    		   token = "User Admin";
+    	   }
+    	   else
+    	   {
+    		   token = newToken;   
+    	   }
+		   for (WebElement item : listItems) {
+	            Assert.assertFalse(item.getText().trim().equalsIgnoreCase(token.trim()));
+	        } 
+	   }
+	}
 
 }

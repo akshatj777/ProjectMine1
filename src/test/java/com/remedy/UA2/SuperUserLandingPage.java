@@ -74,18 +74,19 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void SearchUserWithText(String text) {
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
+		if(text.equalsIgnoreCase(mail))
+		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
 		}
 
 	public void iVerifySearchResult(String result, String searchBy) {
-		iWillWaitToSee(By.cssSelector("th#lastName"));
+		iWillWaitToSee(By.cssSelector("td.four.wide"));
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
-			iVerifyTextFromListOfElement(By.cssSelector("td.four.wide"),result);
+			verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), result);
 		}
 		else if (searchBy.equalsIgnoreCase("email")) {
-			iVerifyTextFromListOfElement(By.cssSelector("td.five.wide"),email);
+			verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);
+				}
 		}
-	}
 
 	public void iClickOnTopUserDropDown() {
 		iWillWaitToSee(By.cssSelector("i.dropdown.icon"));
@@ -97,19 +98,24 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void iLockUser(String text) {
 		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
-		if(text.equalsIgnoreCase("mail")){
+		if(text.equalsIgnoreCase(mail)){
 			System.out.println("Email---------"+email);
-			 clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
-			 }
+			 //clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+			clickElement(driver.findElement(By.xpath("//td[text()='"+email+"']")));	 
+		}
 		 }
 	
 	public void iVerifyLockedUser() {
-		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
-			verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(0), "class", "lock-icon");
+		iWillWaitToSee(By.cssSelector("span.lock-icon"));
+			verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("span.lock-icon")).get(0), "class", "lock-icon");
 	}
-
+public void iClickOnSortByLockIcon() {
+	//iWillWaitToSee(By.cssSelector("th#auth0State"));
+	delay();
+	clickElement(driver.findElement(By.cssSelector("th#auth0State")));
+}
 	public void iClickOnUnlock() {
-		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
+		iWillWaitToSee(By.cssSelector(".lock.large.icon"));
 		clickElement(driver.findElements(By.cssSelector(".lock.large.icon")).get(1));
 		}
 
