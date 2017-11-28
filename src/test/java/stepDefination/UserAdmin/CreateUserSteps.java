@@ -384,6 +384,11 @@ public class CreateUserSteps extends DriverScript{
 	public void clickSubmitButton() throws Throwable {
 		createUser.clickSubmitButton();
 	}
+	
+	@Then("^I click on Submit button for \"([^\"]*)\"$")
+	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
+		createUser.clickSubmitButtonForDifferentUsers(user);
+	}
 
 	@Then("^I verify applications \"([^\"]*)\" are unchecked$")
 	public void verifyAppUnchecked(String appName) throws Throwable {
@@ -480,9 +485,14 @@ public class CreateUserSteps extends DriverScript{
 		createUser.clickLogOutButton(arg1);
 	}
 
-	@Then("^Then I verify \"([^\"]*)\" product$")
+	@Then("^I verify \"([^\"]*)\" product$")
 	public void verifyProductTiles(String products) throws Throwable {
 		createUser.verifyProductTiles(products);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" product is not visible$")
+	public void verifyProductTilesNotPresent(String products) throws Throwable {
+		createUser.verifyProductTilesNotPresent(products);
 	}
 
 	@Then("^I click on Add Another Organization button$")
@@ -499,6 +509,16 @@ public class CreateUserSteps extends DriverScript{
 	public void shouldNotSeeFieldWithLabel(String text) throws Throwable {
 		createUser.shouldNotSeeFieldWithLabel(text);
 	}
+	
+	@Then("^I verify \"([^\"]*)\" in product menu dropdown$")
+	 public void i_Verify_Value_In_ProductDropDown_Menu(String applications){
+		createUser.iVerifyValueInProductDropDownMenu(applications);
+	 }
+	
+	@Then("^I verify \"([^\"]*)\" is not present in product menu dropdown$")
+	 public void i_Verify_Value_Is_Not_Present_In_ProductDropDown_Menu(String text){
+		createUser.iVerifyValueIsNotPresentInProductDropDownMenu(text);
+	 }
 
 
 }

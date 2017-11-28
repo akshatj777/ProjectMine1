@@ -39,7 +39,7 @@ public class LandingPage extends BaseClass{
 
     public void iClickOnTheTopUserAccountIcon (){
     	delay();
-    	clickElement(driver.findElement(By.xpath("//i[@class='dropdown icon']")));
+    	clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']/i[@class='dropdown icon']")));
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){

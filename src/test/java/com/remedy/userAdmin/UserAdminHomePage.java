@@ -60,9 +60,10 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
-	wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".remedy-connect-title")));
-		verifyTextForElement(driver.findElement(By.cssSelector(".remedy-connect-title")), pageHeader);
-	
+
+		iWillWaitToSee(By.cssSelector(".row.page-header>h1"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".row.page-header>h1")), pageHeader);
+
 	}
 
 	public void iSeeCreateUserText(String createUser) {
