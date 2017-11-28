@@ -28,13 +28,18 @@ public class SearchOrganizationDef extends DriverScript{
 		 searchorganization.iSearchWithSearchListFieldOnOrganizationInSearchBox(searchParam);
 	    }
 	
-	@Then("^I verify the No Matches message$")
-	  public void i_Verify_the_No_Mateches_Message() throws Throwable {
-		 searchorganization.iVerifytheNewMatchesMessage();
+	@Then("^I verify the \"([^\"]*)\" message for invalid search in Organization$")
+	  public void i_Verify_the_No_Mateches_Message(String text) throws Throwable {
+		 searchorganization.iVerifytheNewMatchesMessage(text);
 	    }
 	
-	@And("^I verify the Create New Managing Organization link$")
-	  public void i_Verify_the_Create_New_Managing_Organization() throws Throwable {
-		 searchorganization.iVerifytheCreateNewManagingOrganizationLink();
+	@And("^I verify the \"([^\"]*)\" link under No matches$")
+	  public void i_Verify_the_Create_New_Managing_Organization(String link) throws Throwable {
+		 searchorganization.iVerifytheCreateNewOrganizationLinkUnderNoMatches(link);
+	    }
+	
+	@And("^I serach with \"([^\"]*)\" old name in organization search box$")
+	  public void i_Search_With_OldName_Of_Organization_In_Search(String org) throws Throwable {
+		 searchorganization.iSearchWithOldNameInOrganizationSerachBox(org);
 	    }
 }

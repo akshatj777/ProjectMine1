@@ -14,7 +14,7 @@ import com.remedy.baseClass.BaseClass;
 public class CreateManagingOrganization extends BaseClass {
 	public static HashMap<String, String> tempMoOrg = new HashMap<String, String>();
 	public static HashMap<String, String> moOrg = new HashMap<String, String>();
-    
+	public static String moName;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}

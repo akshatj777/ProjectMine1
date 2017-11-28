@@ -1,4 +1,4 @@
-Feature: Edit the Hospital organization
+Feature: Edit Hospital organization functionality tests
 
   Background: 
     Given I am on the login page

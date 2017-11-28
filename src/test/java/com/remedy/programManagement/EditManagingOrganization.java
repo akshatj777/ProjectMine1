@@ -43,16 +43,19 @@ public class EditManagingOrganization extends BaseClass {
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {
 		if(field2.contains("MONAME")){
+			CreateManagingOrganization.moName = CreateManagingOrganization.moOrg.get("MONAME");
 			CreateManagingOrganization.tempMoOrg.put("MONAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
 			}
 		else if(field2.contains("ACHNAME - YES")){
+			CreateACHOrganization.oldACH_WithMO = CreateACHOrganization.achOrg.get("ACHNAME");
 			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
 		}
 		else if(field2.contains("ACHNAME - NO")){
+			CreateACHOrganization.oldACH_WithoutMO = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
 			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));

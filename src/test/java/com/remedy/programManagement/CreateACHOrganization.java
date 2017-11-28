@@ -14,6 +14,8 @@ public class CreateACHOrganization extends BaseClass{
 	public static HashMap<String, String> tempAchOrg = new HashMap<String, String>();
 	public static HashMap<String, String> achOrg = new HashMap<String, String>();
 	public static HashMap<String, String> achOrg_noMO = new HashMap<String, String>();
+	public static String oldACH_WithoutMO;
+	public static String oldACH_WithMO;
 
 	public CreateACHOrganization(WebDriver driver) {
 		super(driver);
