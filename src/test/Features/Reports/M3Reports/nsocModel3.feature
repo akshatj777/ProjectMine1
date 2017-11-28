@@ -16,9 +16,6 @@ Feature: M3 EC Next site of care summary report verification.
     And I should not see Reports Tile text as "Physician"
     And I should not see Reports Tile text as "Post Acute Care"
     When I click on the Reports Tile with text "Patient ID"
-    Then I should see following Reports text for Patient ID reports
-      | Episode DRG Issues [Model 3]         |
-      | InPatient Episode Clearing [Model 3] |
     Then I should not see "Episode DRG Issues" report after clicking on patient id
     Then I should not see "InPatient Episode Clearing" report after clicking on patient id
     When I click on the Reports Tile with text "Next Site of Care"
@@ -27,10 +24,13 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should not see "CARL" report after clicking on next site of care
     Then I should not see "Next Site of Care Summary" report after clicking on next site of care
     When I click on the Reports Tile with text "Readmissions"
-    Then I should see following Reports text for Readmissions reports
-      | Readmissions [Model 3] |
     Then I should not see "Readmissions" report after clicking on readmissions
     Then I should not see "Readmissions (Claims)" report after clicking on readmissions
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
 
     Examples: 
       | email                                 | role     | facility    |
@@ -82,7 +82,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement under nsoc model3 report
+  Scenario Outline: <role> role user with <facility> facility should see default measures,columns and dimensions as per the requirement
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -98,6 +98,12 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
+    Then I should see "Anchor Post Acute Admission Month" under "columns" field
+    Then I should see "Participant" under "dimensions" field
+    Then I should see "Episode Initiator" under "dimensions" field
+    #As per the comments in REP-3942 ticket added episode initiator field for internal users will add anchor post acute provider field while automating external users
+    Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
+    Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
 
     Examples: 
       | email                                 | role     | facility    |
@@ -317,7 +323,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<participant1>" in the filter value list
     And I should see "<participant2>" in the filter value list
     And I click on "<participant1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant1>" result in "Participant" field column for "Episode Initiator" filter field
@@ -364,7 +370,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<BPID6>" in the filter value list
     And I should see "<BPID7>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -405,17 +411,10 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "Dashboard - Anchor CCN" in the header text of filter page
     And I should see "<CCN>" in the value list after selecting filter
     And I click on "<CCN1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<CCN1>" result in "CCN" field column for "Anchor Facility" filter field
-    Then User executes query
-      """
-      select ccn from atlas.pentahoUserRoles 
-      where username in ('<email>')
-      limit 100;
-      """
-    And verify the data which is fetched from database for <CCN> from "ccn" column
 
     Examples: 
       | email                                 | role     | facility    | CCN                                              | CCN1   |
@@ -453,16 +452,10 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiators>" in the value list after selecting filter
     And I click on "<episodeInitiator>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator>" result in "Episode Initiator" field column for "Episode Initiator" filter field
-    Then User executes query
-      """
-      SELECT GROUP_CONCAT(episodeInitiatorNameInitCap) as episodeinitiator
-      FROM warehouse.dimEpisodeInitiator where bpid in ('<BPID>');
-      """
-    And verify the data which is fetched from database for <episodeInitiators> from "episodeinitiator" column
 
     Examples: 
       | email                                 | role     | facility    | episodeInitiators                                                                                                                        | BPID                                                                       | episodeInitiator                             |
@@ -553,21 +546,23 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    When I click to "Bundle Code" field filter under "Bundle" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Bundle Code" in the header text of filter page
-    And I should see "<BundleCode>" in the filter value list
-    And I click on "<BundleCode>" in the filter value list
-    And I click on add selected in the filter modal
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
+    #Drag and Drop
     And I should see "<BundleCode>" result in "Bundle Code" field column for "Bundle" filter field
     When I click to "Bundle Code" field filter under "Bundle" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Bundle Code" is added in layout section after clicking on add to report
     Then I verify "Bundle Code" column is added to report after selecing add to report option
-
+    #Filtering
+    When I click to "Bundle Code" field filter under "Bundle" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Bundle Code" in the header text of filter page
+    And I should see "<BundleCode>" in the filter value list
+    And I click on "<BundleCode>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    
     Examples: 
       | email                                 | role     | facility    | BundleCode |
       | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | CELLULITIS |
@@ -600,6 +595,13 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    #Drag and Drop
+    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Dashboard - Anchor CCN" is added in layout section after clicking on add to report
+    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
+    #Filtering
     When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Dashboard - Anchor CCN" in the header text of filter page
@@ -611,15 +613,10 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<ccn6>" in the filter value list
     And I should see "<ccn7>" in the filter value list
     And I click on "<ccn1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
-    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I should see "Dashboard - Anchor CCN" is added in layout section after clicking on add to report
-    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
 
     Examples: 
       | email                                 | role     | facility    | ccn1   | ccn2   | ccn3   | ccn4   | ccn5   | ccn6   | ccn7   |
@@ -653,6 +650,13 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    #Drag and Drop
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "BPID" is added in layout section after clicking on add to report
+    Then I verify "BPID" column is added to report after selecing add to report option
+    #Filtering
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "BPID" in the header text of filter page
@@ -664,15 +668,10 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<bpid6>" in the filter value list
     And I should see "<bpid7>" in the filter value list
     And I click on "<bpid1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<bpid1>" result in "BPID" field column for "Episode Initiator" filter field
-    When I click to "BPID" field filter under "Episode Initiator" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I should see "BPID" is added in layout section after clicking on add to report
-    Then I verify "BPID" column is added to report after selecing add to report option
 
     Examples: 
       | email                                 | role     | facility    | bpid1    | bpid2    | bpid3    | bpid4    | bpid5    | bpid6    | bpid7    |
@@ -706,17 +705,19 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    #Drag and Drop
     When I click to "Payer" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Payer" is added in layout section after clicking on add to report
     Then I verify "Payer" field is appearing in the report table after clicking on add to report
+    #Filtering
     When I click to "Payer" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
     And I click on "<payer1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<payer1>" result in "Payer" field column for "Episode Initiator" filter field
@@ -797,7 +798,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<onboardingstatus2>" in the filter value list
     And I should see "<onboardingstatus3>" in the filter value list
     And I click on "<onboardingstatus1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
@@ -840,7 +841,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<patientrisk2>" in the filter value list
     And I should see "<patientrisk3>" in the filter value list
     And I click on "<patientrisk1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<patientrisk1>" result in "Patient Risk" field column for "Patient" filter field
