@@ -1,17 +1,11 @@
 package com.remedy.Reports;
 
-import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
-import junit.framework.Assert;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.remedy.baseClass.BaseClass;
 
 public class ReportsGlobalFilters extends BaseClass{
-	HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
-	public ReportsGlobalFilters(WebDriver driver) {
+	public ReportsGlobalFilters(WebDriver driver){
 		super(driver);
 	}
 
@@ -162,7 +156,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(String text){
-		if (text != null) {
+		if (!text.isEmpty()) {
 			verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']",text);
 		}
 	}

@@ -1,21 +1,14 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-import cucumber.api.DataTable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Created by salam on 5/6/16.
@@ -84,7 +77,6 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
     	delay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
-		//moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
@@ -154,9 +146,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportsTextForReportsTextName(String reportsTextName, String reportTile){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
         selectElementByTextDescByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", reportTile);
         longDelay();
     }
@@ -226,9 +217,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForReadmissionsReports(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[label[text()='Readmissions']]/following-sibling::div/a"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
         selectElementByTextDescByXpath("//div[label[text()='Readmissions']]/following-sibling::div/a", text);
     }
 
@@ -245,9 +235,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
     }
 
@@ -386,16 +375,14 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iAgainClickOnSNFLengthOfStay() throws Throwable {
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button")));
     }
     
     public void iAgainClickOnReadmissions() throws Throwable {
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button")));
     }
     
@@ -479,9 +466,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnHomeHealthZoom(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button")));
     }
     
@@ -552,8 +538,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void IVerifyURLAfterClickingAdjustedHistoricButton(){
-    	String ReportURL = driver.getCurrentUrl();
-    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
+    	Assert.assertEquals(getTheCurrentUrl(), "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
     }
     
     public void iSelectFilterInFilterOptions(String text){
@@ -582,9 +567,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnEndMonthDate(String enddate){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[text()='"+enddate+"']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
     }
     
@@ -644,9 +628,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']")));
     }
     
@@ -655,9 +638,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldVerifyInEpisodesTable(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	verifyTextForElement(driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']")),text);
     }
     

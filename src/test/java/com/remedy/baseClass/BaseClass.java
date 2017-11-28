@@ -486,5 +486,9 @@ public class BaseClass {
 	public void scrollIntoViewByJS(WebElement element){
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
+	
+	public String getTheCurrentUrl(){
+		return driver.getCurrentUrl();
+	}
 }
 

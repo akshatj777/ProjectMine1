@@ -5,7 +5,6 @@ import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
 import java.util.List;
 
 /**
@@ -73,14 +72,8 @@ public class ReportHomePageSteps extends DriverScript {
     @And("I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
     	reportHomePage.iMoveToElementAndPerformRightClick(filterField, filterTitle);
-    	//reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
-    
-    /*@And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
-    public void iClickOnParticipantFilterUnderEpisodeInitiatorFilterField(String text) throws Throwable {
-        reportHomePage.iMoveToElementAndPerformRightClick(".//div[@id='fieldlist'] //div[text()='"+text+"']");
-    }*/
-    
+      
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
     public void iChooseOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdField"+optionText+"_text']");
@@ -171,7 +164,6 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see following Reports text for Dashboards reports$")
     public void i_should_see_following_Reports_text_for_Dashboards_reports(List<String> reportLinks) throws Throwable {
         for (int i=0; i<reportLinks.size(); i++) {
-            //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Dashboards", reportLinks.get(i));
         }
     }
@@ -179,7 +171,6 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see following Reports text for Patient ID reports$")
     public void i_should_see_following_Reports_text_for_Patient_ID_reports(List<String> reportLinks) throws Throwable {
         for (int i=0; i<reportLinks.size(); i++) {
-            //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Patient ID", reportLinks.get(i));
         }
     }
@@ -302,7 +293,6 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
     }
 
-    //TODO
     @Then("^I enter \"([^\"]*)\" as the value on the textbox in the filter modal$")
     public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(String value) throws Throwable {
     	reportHomePage.iEnterAsTheValueOnTheTextboxInTheFilterModal(value);
@@ -318,7 +308,6 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
 
-    
     @Then("^I click on \"([^\"]*)\" report text for Readmissions Reports$")
     public void i_click_on_report_text_for_Readmissions_Reports(String text) throws Throwable {
     	reportHomePage.iClickOnReportTextForReadmissionsReports(text);
