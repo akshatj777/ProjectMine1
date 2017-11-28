@@ -17,8 +17,9 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 	}
 
 	public void clickCreateUserButton() {
-		delay();
-		clickElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
+		//delay();
+		iWillWaitToSee(By.cssSelector("button.ui.green.right.floated.button.add-user-button"));
+		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
 	}
 
 	public void clickImportUsers() {

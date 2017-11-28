@@ -74,7 +74,8 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void SearchUserWithText(String text) {
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
+		if(text.equalsIgnoreCase(mail))
+		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
 		}
 
 	public void iVerifySearchResult(String result, String searchBy) {
@@ -97,10 +98,11 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void iLockUser(String text) {
 		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
-		if(text.equalsIgnoreCase("mail")){
+		if(text.equalsIgnoreCase(mail)){
 			System.out.println("Email---------"+email);
-			 clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
-			 }
+			 //clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+			clickElement(driver.findElement(By.xpath("//td[text()='"+email+"']")));	 
+		}
 		 }
 	
 	public void iVerifyLockedUser() {

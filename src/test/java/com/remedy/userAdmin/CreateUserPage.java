@@ -485,6 +485,7 @@ public class CreateUserPage extends BaseClass{
 
    public void clickSubmitButton() throws Throwable {
 	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+	   iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
    }
    
    public void verifyAppUnchecked(String fieldName) throws Throwable {

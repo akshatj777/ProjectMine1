@@ -39,10 +39,10 @@ Feature: Landing page verification
     Then I pick a Organizational Executive
     Then I click on Next button
     #Then I verify Learning Pathway search box is not available
-    Then I select "Internal Support, Episodes, Episodes 2.0, Reports, Lessons" product
-    Then I click on Select button
-    Then I enter "Care Coordinators External" in Learning Pathway search box
-    Then I select "Care Coordinators External" from the results
+    Then I select "Reports" product
+    #Then I click on Select button
+    #Then I enter "Care Coordinators External" in Learning Pathway search box
+    #Then I select "Care Coordinators External" from the results
     Then I click on Next button
     Then I click on Select button
     And I search for health system with Stamford Hospital
@@ -50,8 +50,8 @@ Feature: Landing page verification
     And I select a Stamford Hospital
     Then I click on Select All Locations button
     Then I click on Submit button
-    And I wait for 60000 milli seconds
-    And I click on the top user account link
+    #And I wait for 70000 milli seconds
+    And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
     Then I open new tab and close the last tab
@@ -114,7 +114,7 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
-    Then I enter email field "test.automatemail" for login
+    Then I enter email field test.automatemail for login
     And I enter password field Testing@1234 for Login
     Then I click Access button
     Then I should not be able to login
