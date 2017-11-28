@@ -414,7 +414,7 @@ Feature: Global Filters Verification for Multiple Scenarios
     And I should see "Participant" in the header text of filter page
     And I should see "<participant>" in the filter value list
     And I click on "<participant>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
