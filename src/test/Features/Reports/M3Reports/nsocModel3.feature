@@ -253,7 +253,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<participant1>" in the filter value list
     And I should see "<participant2>" in the filter value list
     And I click on "<participant1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant1>" result in "Participant" field column for "Episode Initiator" filter field
@@ -300,7 +300,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<BPID6>" in the filter value list
     And I should see "<BPID7>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -341,17 +341,10 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "Dashboard - Anchor CCN" in the header text of filter page
     And I should see "<CCN>" in the value list after selecting filter
     And I click on "<CCN1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<CCN1>" result in "CCN" field column for "Anchor Facility" filter field
-    Then User executes query
-      """
-      select ccn from atlas.pentahoUserRoles 
-      where username in ('<email>')
-      limit 100;
-      """
-    And verify the data which is fetched from database for <CCN> from "ccn" column
 
     Examples: 
       | email                                 | role     | facility    | CCN                                              | CCN1   |
@@ -389,16 +382,10 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiators>" in the value list after selecting filter
     And I click on "<episodeInitiator>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator>" result in "Episode Initiator" field column for "Episode Initiator" filter field
-    Then User executes query
-      """
-      SELECT GROUP_CONCAT(episodeInitiatorNameInitCap) as episodeinitiator
-      FROM warehouse.dimEpisodeInitiator where bpid in ('<BPID>');
-      """
-    And verify the data which is fetched from database for <episodeInitiators> from "episodeinitiator" column
 
     Examples: 
       | email                                 | role     | facility    | episodeInitiators                                                                                                                        | BPID                                                                       | episodeInitiator                             |
