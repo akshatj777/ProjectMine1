@@ -16,9 +16,6 @@ Feature: M3 EC Next site of care summary report verification.
     And I should not see Reports Tile text as "Physician"
     And I should not see Reports Tile text as "Post Acute Care"
     When I click on the Reports Tile with text "Patient ID"
-    Then I should see following Reports text for Patient ID reports
-      | Episode DRG Issues [Model 3]         |
-      | InPatient Episode Clearing [Model 3] |
     Then I should not see "Episode DRG Issues" report after clicking on patient id
     Then I should not see "InPatient Episode Clearing" report after clicking on patient id
     When I click on the Reports Tile with text "Next Site of Care"
@@ -27,10 +24,13 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should not see "CARL" report after clicking on next site of care
     Then I should not see "Next Site of Care Summary" report after clicking on next site of care
     When I click on the Reports Tile with text "Readmissions"
-    Then I should see following Reports text for Readmissions reports
-      | Readmissions [Model 3] |
     Then I should not see "Readmissions" report after clicking on readmissions
     Then I should not see "Readmissions (Claims)" report after clicking on readmissions
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
 
     Examples: 
       | email                                 | role     | facility    |
@@ -82,7 +82,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement
+  Scenario Outline: <role> role user with <facility> facility should see default measures,columns and dimensions as per the requirement
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -98,6 +98,12 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
+    Then I should see "Anchor Post Acute Admission Month" under "columns" field
+    Then I should see "Participant" under "dimensions" field
+    Then I should see "Episode Initiator" under "dimensions" field
+    #As per the comments in REP-3942 ticket added episode initiator field for internal users will add anchor post acute provider field while automating external users
+    Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
+    Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
 
     Examples: 
       | email                                 | role     | facility    |
@@ -138,76 +144,6 @@ Feature: M3 EC Next site of care summary report verification.
     And I should not see "2" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-
-    Examples: 
-      | email                                 | role     | facility    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-
-  Scenario Outline: <role> role user with <facility> facility should see default columns as per the requirement
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Next Site of Care" under reports tile text
-    When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-layout-icon button
-    Then I should see "Anchor Post Acute Admission Month" under "clomuns" field
-
-    Examples: 
-      | email                                 | role     | facility    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-
-  Scenario Outline: <role> role user with <facility> facility should see default dimensions as per the requirement
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Next Site of Care" under reports tile text
-    When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-layout-icon button
-    Then I should see "Participant" under "dimensions" field
-    Then I should see "Episode Initiator" under "dimensions" field
-    #As per the comments in REP-3942 ticket added episode initiator field for internal users will add anchor post acute provider field while automating external users
-    Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
-    Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
 
     Examples: 
       | email                                 | role     | facility    |
