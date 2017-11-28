@@ -8,14 +8,9 @@ import cucumber.api.java.en.Then;
 public class CreateManagingOrganizationStepDef extends DriverScript{
 	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
 	
-	@And("^I verify \"([^\"]*)\" button under organization tab$")
-	  public void i_Verify_Button_Under_Organization_Tab(String button) throws Throwable {
+	@And("^I verify \"([^\"]*)\" button under \"([^\"]*)\" organization page$")
+	  public void i_Verify_Button_Under_Organization_Page(String button, String org) throws Throwable {
 		 createMO.iVerifyButtonUnderOrganizationTab(button);
-	    }
-	
-	 @And("^I click on create new Organization button on Program Management homepage$")
-	  public void i_Click_On_Create_NewOrganizationButton_On_ProgramManagement_Homepage() throws Throwable {
-		 createMO.iClickOnCreateNewOrgButtonOnProgramManagementHomepage();
 	    }
 	 
 	 @And("^I verify \"([^\"]*)\" header text on ([^\"]*) organization page$")
@@ -28,21 +23,16 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iVerifyLabelFieldsOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify \"([^\"]*)\" drop down field on ([^\"]*) organization page$")
-	  public void i_Verify_Label_DropDown_Field_On_Create_Organization_Page(String text, String action) throws Throwable {
-		 createMO.iVerifyLabelDropDownFieldOnCreateOrganizationPage(text);
+	 @And("^I verify \"([^\"]*)\" radio button on ([^\"]*) organization page$")
+	  public void i_Verify_RadioButton_Label_On_Create_Organization_Page(String text, String action) throws Throwable {
+		 createMO.iVerifyRadioButtonLabelOnCreateOrganizationPage(text);
 	    }
-	 
-	 @And("^I click on \"([^\"]*)\" button on create organization page$")
-	  public void i_Click_On_Button_On_Create_Organization_Page(String text) throws Throwable {
+
+	 @And("^I click on \"([^\"]*)\" button on \"([^\"]*)\" organization page$")
+	  public void i_Click_On_Button_On_Create_Organization_Page(String text, String page) throws Throwable {
 		 createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	    }
 
-	 @And("^I click on cancel button on create organization page$")
-	  public void i_Click_On_Cancel_Button_On_Create_Organization_Page() throws Throwable {
-		 createMO.iClickOnCancelButtonOnCreateOrganizationPage();
-	    }
-	 
 	 @Then("^User navigated to view page$")
 	  public void user_navigated_to_view_page() throws Throwable {
 		 createMO.userNavigatedToViewPage();
@@ -58,9 +48,9 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
 	 
-	 @And("^I verify ([^\"]*) after submitting the ([^\"]*) organization page$")
-	  public void i_Verify_ValidationMessage_after_submitting_Create_Organization_Page(String text, String action) throws Throwable {
-		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
+	 @And("^I verify \"([^\"]*)\" field validation message on ([^\"]*) organization page$")
+	  public void i_Verify_ValidationMessage_Under_Fields_On_Create_Organization_Page(String text, String action) throws Throwable {
+		 createMO.iVerifyManadtoryFieldValidationOnCreateOrganizationPage(text);
 	    }
 		
 	 @And("^I enter ([^\"]*) in \"([^\"]*)\" on create organization page$")
@@ -73,9 +63,9 @@ public class CreateManagingOrganizationStepDef extends DriverScript{
 		 createMO.iSelectStateFromDropDownOnCreateOrganizationPage(text);
 	 }
 	 
-	 @And("^I verify \"([^\"]*)\" after submitting the create ogranization page$")
-	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text) throws Throwable {
-		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text);
+	 @And("^I verify \"([^\"]*)\" after submitting the \"([^\"]*)\" organization page$")
+	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text, String org) throws Throwable {
+		 createMO.iVerifyMessageAfterSubmittingCreateOrganizationPage(text, org);
 	 }
 	 
 	 @And("^I switch the focus to \"([^\"]*)\" button$")

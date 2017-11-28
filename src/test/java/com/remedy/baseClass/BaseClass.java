@@ -416,23 +416,21 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
-			  if (item.getText().trim().contentEquals(text)) {
+			  if (item.getText().trim().equals(text)) {
 				  value=item.getText().trim();  
 			  } 
 		}
-		Assert.assertEquals(text,value);
+		Assert.assertEquals(text.trim(),value.trim());
 	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
 	    List <WebElement> element = driver.findElements(locator);
 	    for(WebElement ele: element) {
-	    	if (ele.getText().contains(text)) {
+	    	if (ele.getText().trim().equals(text)) {
 	    		ele.click();
 	    	}
 	    }
 	}  
-
-
 	
 	public boolean isElementPresent(By by) {
 	    try {
@@ -452,6 +450,11 @@ public class BaseClass {
 	public String createRandomName(String name){
 		return name+RandomStringUtils.randomAlphabetic(8);
 	}
+	
+	public String createRandomNumber(int num){
+		return RandomStringUtils.randomNumeric(num);
+	}
+	
 	
 	public String fetchParticipantID(String query) throws ClassNotFoundException, SQLException  {
 		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
@@ -479,7 +482,9 @@ public class BaseClass {
     	SimpleDateFormat formatter = new SimpleDateFormat(format);
 	    formatter.setLenient(false);
 	    formatter.parse(dateToValdate);
-    }
-	
+    }	
+	public void scrollIntoViewByJS(WebElement element){
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
 }
 

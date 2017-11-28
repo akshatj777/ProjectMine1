@@ -8,7 +8,7 @@ import cucumber.api.java.en.Then;
 public class SearchOrganizationDef extends DriverScript{
 	SearchOrganization searchorganization = new SearchOrganization(driver);
 
-	@And("^I search with ([^\"]*) on organization in search box$")
+	@And("^I search with \"([^\"]*)\" on organization in search box$")
 	  public void i_Search_Field_On_Organization_In_SearchBox(String text) throws Throwable {
 		 searchorganization.iSearchFieldOnOrganizationInSearchBox(text);
 	    }
