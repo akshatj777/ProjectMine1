@@ -210,9 +210,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -221,9 +221,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -232,7 +232,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -270,9 +270,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -281,9 +281,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -292,7 +292,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -329,7 +329,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -338,7 +338,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -376,9 +376,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -387,9 +387,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -398,7 +398,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -435,7 +435,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -444,9 +444,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -455,7 +455,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -492,7 +492,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -501,7 +501,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -510,9 +510,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -550,9 +550,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -562,9 +562,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "Non-Fracture" in the filter value list
     And I should see "Not Applicable" in the filter value list
     And I click on "Fracture" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "Non-Fracture" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -600,7 +600,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG" field filter under "DRG" filter field
@@ -634,7 +634,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG" field filter under "DRG" filter field
