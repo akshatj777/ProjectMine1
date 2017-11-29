@@ -8,7 +8,7 @@ Feature: Landing page verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     #Then I should see Program Administration logo on Top
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     And I verify UI of landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
@@ -29,7 +29,7 @@ Feature: Landing page verification
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
     And I fill in First Name with "FirstName"
@@ -49,7 +49,7 @@ Feature: Landing page verification
     And I wait for 3000 milli seconds
     And I select a Stamford Hospital
     Then I click on Select All Locations button
-    Then I click on Submit button
+    Then I click on Submit button for "Super User"
     #And I wait for 70000 milli seconds
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
@@ -85,7 +85,7 @@ Feature: Landing page verification
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     Then I verify user information
 
   #search cases
@@ -94,7 +94,7 @@ Feature: Landing page verification
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     Then I enter search box in landing page with "FirstName"
     And I should see "FirstName LastName" for "First Name" in search result
     Then I enter search box in landing page with "LastName"
@@ -107,7 +107,7 @@ Feature: Landing page verification
     When I log in as super user
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     Then I enter search box in landing page with "test.automatemail"
     Then I lock user with email "test.automatemail"
     And I verify that user is locked
@@ -124,8 +124,10 @@ Feature: Landing page verification
     When I log in as super user
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
-    Then I click on sort by lock icon
+    Then I should see header text "Users"
+    #Then I click on sort by lock icon
+    Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Cancel" button from the alert to cancel unlock
@@ -136,8 +138,10 @@ Feature: Landing page verification
     When I log in as super user
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
-    Then I click on sort by lock icon
+    Then I should see header text "Users"
+    #Then I click on sort by lock icon
+    Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Unlock" button from the alert to unlock user
