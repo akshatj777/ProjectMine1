@@ -92,7 +92,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFilterValueListModalText(String text){
-        delay();
+    	iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
         verifyTextForElementfromList("#FT_valueList div", text);
     }
     
