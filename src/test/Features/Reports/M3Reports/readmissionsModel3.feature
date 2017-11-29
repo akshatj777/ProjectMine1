@@ -1,5 +1,52 @@
 Feature: Readmission Model3 report verification
 
+  Scenario Outline: <role> role user with <facility> facility should see only model3 reports not other reports.
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    Then I should see Reports Tile text as Patient ID
+    Then I should see Reports Tile text as Next Site of Care
+    Then I should see Reports Tile text as Readmissions
+    And I should not see Reports Tile text as "Dashboards"
+    And I should not see Reports Tile text as "Overall Program"
+    And I should not see Reports Tile text as "Physician"
+    And I should not see Reports Tile text as "Post Acute Care"
+    When I click on the Reports Tile with text "Patient ID"
+    Then I should not see "Episode DRG Issues" report after clicking on patient id
+    Then I should not see "InPatient Episode Clearing" report after clicking on patient id
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I should not see "CARL" report after clicking on next site of care
+    Then I should not see "Next Site of Care Summary" report after clicking on next site of care
+    When I click on the Reports Tile with text "Readmissions"
+    Then I should see following Reports text for Readmissions reports
+      | Readmissions [Model 3] |
+    Then I should not see "Readmissions" report after clicking on readmissions
+    Then I should not see "Readmissions (Claims)" report after clicking on readmissions
+    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+
   Scenario Outline: <role> role user with <facility> facility should have the default filters appearing under readmissions model3 report
     Given I am on the login page
     When I enter email field <email> for login
@@ -33,7 +80,7 @@ Feature: Readmission Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
      
-  Scenario Outline: <role> role user with <facility> facility should see default measures as per the requirement under readmissions model3 report
+  Scenario Outline: <role> role user with <facility> facility should see default measures and dimensions as per the requirement under readmissions model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -56,38 +103,6 @@ Feature: Readmission Model3 report verification
     Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 60 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 90 days" under "measures" field
-
-    Examples: 
-      | email                                 | role     | facility    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
-  Scenario Outline: <role> role user with <facility> facility should see default dimensions as per the requirement under readmissions model3 report
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Readmissions" under reports tile text
-    When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-layout-icon button
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
     Then I should see "Anchor Post Acute Admission Month" under "dimensions" field
@@ -131,16 +146,16 @@ Feature: Readmission Model3 report verification
     And I wait until refresh button is disappeared
     And I should see "Model" is added in layout section after clicking on add to report
     Then I verify "Model" field is appearing in the report table after clicking on add to report
-    #Fitering Part for Model filter to see only model2 and not model3
+    #Fitering Part for Model filter to see only model3 and not model2
     When I click to "Model" field filter under "Model" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Model" in the header text of filter page
     And I should see "3" in the filter value list
     And I should not see "2" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "3" result in "Episode Initiator" field column for "Episode Initiator" filter field
+    And I should see "3" result in "Model" field column for "Model" filter field
 
     Examples: 
       | email                                 | role     | facility    |
@@ -254,7 +269,7 @@ Feature: Readmission Model3 report verification
     And I should see "<onboardingstatus2>" in the filter value list
     And I should see "<onboardingstatus3>" in the filter value list
     And I click on "<onboardingstatus1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
