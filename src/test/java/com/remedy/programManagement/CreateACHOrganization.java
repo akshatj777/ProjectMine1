@@ -37,38 +37,64 @@ public class CreateACHOrganization extends BaseClass{
 	}
 	
 	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) throws InterruptedException {
-		if(id.equalsIgnoreCase("CCN")){
-			tempAchOrg.put("CCN", createRandomNumber(10));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+		if (id.contains("ACH")){
+			if(id.contains("CCN")){
+				tempAchOrg.put("CCN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+			}
+			else if(id.contains("EIN")){
+				tempAchOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
+			}
+			else if(id.contains("NPI")){
+				tempAchOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
+			}
+			else if(id.contains("DUPLICATE_CCN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("CCN"));
+			}
+			else if(id.contains("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("EIN"));
+			}
+			else if(id.contains("DUPLICATE_NPI")){
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("NPI"));
+			}
+			else if(id.contains("lessThan6")){
+				String value = createRandomNumber(5);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else {
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
+				delay();
+			}
 		}
-		else if(id.equalsIgnoreCase("EIN")){
-			tempAchOrg.put("EIN", createRandomNumber(10));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
-		}
-		else if(id.equalsIgnoreCase("NPI")){
-			tempAchOrg.put("NPI", createRandomNumber(10));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
-		}
-		else if(id.equalsIgnoreCase("DUPLICATE_CCN")){
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("CCN"));
-		}
-		else if(id.equalsIgnoreCase("DUPLICATE_EIN")){
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("EIN"));
-		}
-		else if(id.equalsIgnoreCase("DUPLICATE_NPI")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("NPI"));
-		}
-		else if(id.equalsIgnoreCase("lessThan6")){
-			String value = createRandomNumber(5);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
-		}
-		else if(id.equalsIgnoreCase("greaterThan10")){
-			String value = createRandomNumber(11);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
-		}
-		else {
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
-			delay();
+		if (id.contains("PGP")){
+			if(id.contains("EIN")){
+				CreatePGPOrganization.tempPGPOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("EIN"));
+			}
+			else if(id.contains("NPI")){
+				tempAchOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("NPI"));
+			}
+			else if(id.contains("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("EIN"));
+			}
+			else if(id.contains("DUPLICATE_NPI")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("NPI"));
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else {
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
+				delay();
+			}
 		}
 	}
 	

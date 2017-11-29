@@ -1,4 +1,4 @@
-Feature: Create PGP organization functionality tests
+Feature: Create PGP organization functionality tests.
 
   Background: 
     Given I am on the login page
@@ -10,7 +10,7 @@ Feature: Create PGP organization functionality tests
     When I click on Organization link on Program Management page
     When I click on "PGP" organization tab on organization dashboard
 
-  Scenario: Verification of availability of all the fields on Create Hospital Organization page
+  Scenario: Verification of availability of all the fields on Create PGP Organization page
     Then I verify the Search bar on "PGP" organization page
     Then I verify "+" button under "PGP" organization page
     And I verify "TIN/EIN" header label under "PGP" organization
@@ -55,9 +55,9 @@ Feature: Create PGP organization functionality tests
       | Check validation for blank EIN Identifier        | NO     | MONAME       | PGPNAME  |     | NPI | The EIN field is required                     |
 
   Scenario Outline: <Description>
-    Then I click on "+" button on "Hospital" organization page
-    And I verify "Create Hospital Organization" header text on create organization page
-    Then I enter <PGP_Name> in "Hospital Organization Name" on create organization page
+    Then I click on "+" button on "PGP" organization page
+    And I verify "Create PGP Organization" header text on create organization page
+    Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page
     And I enter <Address2> in "Address 2" on create organization page
@@ -92,14 +92,14 @@ Feature: Create PGP organization functionality tests
     And I enter <Short_Name> in "Short Name" on create organization page
     And I enter <Address2> in "Address 2" on create organization page
     And I enter <City> in "City" on create organization page
-    And I select region <Region> in "create PGP" organization page
-    And I select market <Market> in "create PGP" organization page
+    And I select region "<Region>" in "create PGP" organization page
+    And I select market "<Market>" in "create PGP" organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "<EIN> - PGP" in "EIN" on create organization page
+    And I provide unique "<NPI> - PGP" in "NPI" on create organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+    Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
 
     Examples: 
       | Description                                                                                                                                  | Has_MO | Managing_Org | PGP_Name      | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                                                                                 |
@@ -138,7 +138,7 @@ Feature: Create PGP organization functionality tests
     And I verify "<Message1>" field validation message on create organization page
 
     Examples: 
-      | Description                                                              | EIN           | NPI           | Message                            | Message1                           |
-      | Verify Validation Message of Hospital Organization with same EIN and NPI |    1234567890 |    1234567890 | The EIN and npi must be different. | The NPI and ein must be different. |
-      | Verify Validation of Hospital Organization with duplicate EIN            | DUPLICATE_EIN |               | EIN Id already taken               |                                    |
-      | Verify Validation of Hospital Organization with duplicate NPI            |               | DUPLICATE_NPI | NPI Id already taken               |                                    |
+      | Description                                                         | EIN           | NPI           | Message                            | Message1                           |
+      | Verify Validation Message of PGP Organization with same EIN and NPI |    1234567890 |    1234567890 | The EIN and npi must be different. | The NPI and ein must be different. |
+      | Verify Validation PGP Organization with duplicate EIN               | DUPLICATE_EIN |               | EIN Id already taken               |                                    |
+      | Verify Validation of PGP Organization with duplicate NPI            |               | DUPLICATE_NPI | NPI Id already taken               |                                    |
