@@ -105,9 +105,9 @@ public class CreateManagingOrganization extends BaseClass {
 
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
 		if(!text.equals("")){
-		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
-		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption")));
-        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+			iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
+			waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption")));
+			clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
 	}
 	

@@ -32,7 +32,7 @@ Feature: Search the Hospital organizations functionality tests
     And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit ACH - <Has_MO>" organization page
-    Then I search "<SearchParam> - <HasMO>" and verify with search list options on organization search box
+    Then I search "<Hosp_Name> - <HasMO>" and verify with search list options on organization search box
     Then I serach with "<Hosp_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New Hospital Organization" link under No matches
@@ -42,11 +42,11 @@ Feature: Search the Hospital organizations functionality tests
       | Search Hospital Organization after editing the Hospital name - With MO    | YES    | ACHNAME   | ACHNAME              | Success! Hospital Organization Successfully Updated. |
       | Search Hospital Organization after editing the Hospital name - Without MO | NO     | ACHNAME   | ACHNAME              | Success! Hospital Organization Successfully Updated. |
 
-  Scenario Outline: Verification of error message if an organization is not found in search box
+  Scenario Outline: <Description>
     Then I search with "<Hosp_Name>" on organization in search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New Hospital Organization" link under No matches
 
     Examples: 
-      | Description                                                                 | Hosp_Name      |
-      | Verification of error message if an organization is not found in search box | NoMatchACHName |
+      | Description                                                                   | Hosp_Name      |
+      | Verification of error message if Hospital organization is not found in search | NoMatchACHName |
