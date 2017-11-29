@@ -1,14 +1,11 @@
 package stepDefination.programManagement;
 
-import java.util.HashMap;
-
 import com.remedy.programManagement.ViewACHOrganization;
 import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class ViewACHOrganizationStepDef extends DriverScript {
-	public static HashMap<String, String> tempAchOrg = new HashMap<String, String>();
 	
 	ViewACHOrganization viewACH= new ViewACHOrganization(driver);
 	
@@ -91,5 +88,4 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 	  public void i_Verify_Count_Tab_Organizations_Increased1(String org) throws Throwable {
 		viewACH.iVerifyCountOfAssociatedOrgIncreasedBy1(org);
 		}
-	
 }
