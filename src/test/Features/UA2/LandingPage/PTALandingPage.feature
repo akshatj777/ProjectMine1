@@ -156,7 +156,9 @@ Feature: Landing page verification
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I click on sort by lock icon
+    #Then I click on sort by lock icon
+    Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Cancel" button from the alert to cancel unlock
@@ -170,7 +172,9 @@ Feature: Landing page verification
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I click on sort by lock icon
+    #Then I click on sort by lock icon
+    Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Unlock" button from the alert to unlock user
