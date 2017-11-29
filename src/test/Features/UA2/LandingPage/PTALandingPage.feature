@@ -8,7 +8,7 @@ Feature: Landing page verification
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see Program Administration logo on Top
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     And I verify UI of landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
@@ -35,15 +35,19 @@ Feature: Landing page verification
     And I fill in First Name with "<FirstName>"
     Then I fill in Last Name with <LastName>
     And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
     Then I pick a Organizational <Role>
     Then I click on Next button
     Then I select "<Applications>" product
     Then I click on Select button
     Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select All Locations button
- Then I click on Submit button for "Super User"
+    Then I click on Select button
+    #And I search for health system with <Health System>
+    #And I wait for 3000 milli seconds
+    #And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations
+    Then I click on Submit button for "PTA"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -71,30 +75,32 @@ Feature: Landing page verification
     Then I click on "Change my password" link in mail content
     And I switch to new window
     And I enter new password "Testing@1234" to set new password
+    And I enter confirm new password "Testing@1234" to set new password
+    And I click on submit button to set new password
 
     Examples: 
-      | FirstName | LastName | Email                       | Phone | Role                      | Applications | Health System     |
-      | Name1 | LastName | test.automatemail@gmail.com |       | Executive                 | Reports      | Stamford Hospital |
-      #| Name2 | LastName | test.automatemail@gmail.com |       | Manager                   | Reports      | Stamford Hospital |
-      #| Name3 | LastName | test.automatemail@gmail.com |       | Case Manager              | Reports      | Stamford Hospital |
-     # | Name4 | LastName | test.automatemail@gmail.com |       | Physicians                | Reports      | Stamford Hospital |
-     # | Name5 | LastName | test.automatemail@gmail.com |       | Transitional Case Manager | Reports      | Stamford Hospital |
+      | FirstName | LastName | Email                       | Phone | Role                      | Applications | Health System     | Programs    | Locations |
+      | Name1     | LastName | test.automatemail@gmail.com |       | Executive                 | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name2     | LastName | test.automatemail@gmail.com |       | Manager                   | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name3     | LastName | test.automatemail@gmail.com |       | Case Manager              | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name4     | LastName | test.automatemail@gmail.com |       | Physicians                | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name5     | LastName | test.automatemail@gmail.com |       | Transitional Case Manager | Reports      | Stamford Hospital | BPCI-Model2 | All       |
 
   #PTA user provision
-   Scenario Outline: PTA user should see all users he has created and be able to provision user as per desired role
+  Scenario Outline: PTA user should see all users he has created and be able to provision user as per desired role
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     Then I should see users with <Role>
     Then I enter search box in landing page with <Name> and verify result
 
     Examples: 
-      | Role                                                                    |Name|
-      | Executive, Manager, Case Manager, Physicians, Transitional Case Manager |Name1, Name2, Name3, Name4, Name5|
+      | Role                                                                    | Name                              |
+      | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | Name1, Name2, Name3, Name4, Name5 |
 
   Scenario: Verify user information in landing page
     Given I am on the login page
@@ -103,7 +109,7 @@ Feature: Landing page verification
     Then I click Access button
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     Then I verify user information
 
   #search cases
@@ -112,9 +118,9 @@ Feature: Landing page verification
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "Management"
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I enter search box in landing page with "FirstName"
     And I should see "FirstName LastName" for "First Name" in search result
     Then I enter search box in landing page with "LastName"
@@ -128,9 +134,9 @@ Feature: Landing page verification
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I enter search box in landing page with "test.automatemail"
     Then I lock user with email "test.automatemail"
     And I verify that user is locked
@@ -147,9 +153,9 @@ Feature: Landing page verification
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I click on sort by lock icon
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
@@ -161,9 +167,9 @@ Feature: Landing page verification
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I click on sort by lock icon
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"

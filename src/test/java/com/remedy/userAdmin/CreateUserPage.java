@@ -98,6 +98,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterFirstName(String text){
+    	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
     }
 
@@ -225,7 +226,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iverifyCreateUserPageHeader(String header) {
-    	//iWillWaitToSee(By.cssSelector(".user-form-general>h3"));
+    	iWillWaitToSee(By.xpath("//h2/span"));
         verifyTextForElement(driver.findElement(By.xpath("//h2/span")), header);
     }
 

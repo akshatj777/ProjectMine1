@@ -29,7 +29,7 @@ Feature: Landing page verification
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
     And I fill in First Name with "FirstName"
