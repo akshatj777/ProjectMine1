@@ -645,7 +645,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
+    And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Fracture/Non-Fracture" in the header text of filter page
