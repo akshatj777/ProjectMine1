@@ -27,7 +27,16 @@ public class ViewProfileManagingOrganization extends BaseClass{
 				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
 			}
 		}
-		else {
+		else if(text.contains("PGPNAME")){
+			if (text.contains("YES")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+			else if (text.contains("NO")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+		}
+		else
+		{
 			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 		}
 	}
@@ -43,13 +52,13 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		else if (org.contains("NO")){
 			
 		}
-		else {
+		else
+		{
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
 		    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
 		    String pID = fetchParticipantID(query);
 			Assert.assertEquals("Participant Id: "+pID+"|", text);
-		}
-		
+		}	
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
