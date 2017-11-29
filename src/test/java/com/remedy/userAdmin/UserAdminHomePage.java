@@ -17,8 +17,9 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 	}
 
 	public void clickCreateUserButton() {
-		delay();
-		clickElement(driver.findElement(By.xpath("//button[@class='ui green right floated button add-user-button']")));
+		//delay();
+		iWillWaitToSee(By.cssSelector("button.ui.green.right.floated.button.add-user-button"));
+		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
 	}
 
 	public void clickImportUsers() {
@@ -59,8 +60,10 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
-	wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".remedy-connect-title")));
-		verifyTextForElement(driver.findElement(By.cssSelector(".remedy-connect-title")), pageHeader);
+
+		iWillWaitToSee(By.cssSelector(".row.page-header>h1"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".row.page-header>h1")), pageHeader);
+
 	}
 
 	public void iSeeCreateUserText(String createUser) {

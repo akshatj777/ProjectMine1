@@ -1,26 +1,30 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
+import java.awt.RenderingHints.Key;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 public class MailCreateUser extends BaseClass{
 	
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	String time = df.format(timestamp);
-	String mail = "test.automatemail";
-	final String email = mail+"+"+time+"@gmail.com";
+	static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
+	static Date timestamp = new Date();
+	static String time = df.format(timestamp);
+	static String mail = "test.automatemail";
+	final static String email = mail+"+"+time+"@gmail.com";
 
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
@@ -56,6 +60,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	
@@ -91,7 +96,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
-		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Verify your account')]"))));
+		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]"))));
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
@@ -119,7 +124,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
-		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (1)')]"));
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
@@ -150,8 +155,8 @@ public class MailCreateUser extends BaseClass{
 		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing@1234");
 	}
 	
-	public void iOpenNewTabAndCloseLastTab() throws AWTException {
-		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.SHIFT,"n"); 
-		driver.findElement(By.cssSelector("body")).sendKeys(selectLinkOpeninNewTab);
+	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {
+		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.SHIFT,"n");
+	    driver.findElement(By.cssSelector("body")).sendKeys(selectLinkOpeninNewTab);
 	}
 }

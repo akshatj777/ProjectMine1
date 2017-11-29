@@ -3,12 +3,12 @@ Feature: Landing page verification
   Scenario Outline: Verify availability of components on Landing page
     Given I am on the login page
     When I enter email field <Email> for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
     #Then I should see Program Administration logo on Top
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     And I verify UI of landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
@@ -19,40 +19,37 @@ Feature: Landing page verification
     And I should see Log in widget
 
     Examples: 
-      | Email             |
-      | chloe@yopmail.com |
+      | Email                  |
+      | PTAUSER@mailinator.com |
 
-  Scenario: Create USER
+  Scenario Outline: Create USER
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "FirstName"
-    Then I fill in Last Name with LastName
-    And I enter Email "test.automatemail" to Create user
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
     When I click the Organizational Role Field
-    Then I pick a Organizational Executive
+    Then I pick a Organizational <Role>
     Then I click on Next button
-    Then I verify Learning Pathway search box is not available
-    Then I select "Internal Support, Episodes, Episodes 2.0, Reports, Lessons" product
+    Then I select "<Applications>" product
     Then I click on Select button
-    Then I enter "Care Coordinators External" in Learning Pathway search box
-    Then I select "Care Coordinators External" from the results
     Then I click on Next button
     Then I click on Select button
-    And I search for health system with Stamford Hospital
-    And I wait for 3000 milli seconds
-    And I select a Stamford Hospital
-    Then I click on Select All Locations button
-    Then I click on Submit button
-    And I wait for 60000 milli seconds
+    #And I search for health system with <Health System>
+    #And I wait for 3000 milli seconds
+    #And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations
+    Then I click on Submit button for "PTA"
     And I click on the top user account link
-    Then I select "Log Out" option from the dropdown list
+    Then I click on "Log Out" button
     And I should see Log in widget
     Then I open new tab and close the last tab
     And I switch to new window
@@ -61,6 +58,7 @@ Feature: Landing page verification
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
     Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
     Then I verify Account Verification in Inbox in my account
     Then I click on Account Verification mail in Inbox
     Then I verify "Confirm my account!" link in mail content
@@ -80,43 +78,53 @@ Feature: Landing page verification
     And I enter confirm new password "Testing@1234" to set new password
     And I click on submit button to set new password
 
+    Examples: 
+      | FirstName | LastName | Email                       | Phone | Role                      | Applications | Health System     | Programs    | Locations |
+      | Name1     | LastName | test.automatemail@gmail.com |       | Executive                 | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name2     | LastName | test.automatemail@gmail.com |       | Manager                   | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name3     | LastName | test.automatemail@gmail.com |       | Case Manager              | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name4     | LastName | test.automatemail@gmail.com |       | Physicians                | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Name5     | LastName | test.automatemail@gmail.com |       | Transitional Case Manager | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+
   #PTA user provision
-  Scenario Outline: PTA user should only be able to provision user for these roles
+  Scenario Outline: PTA user should see all users he has created and be able to provision user as per desired role
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I should see users with <Role>
+    Then I enter search box in landing page with <Name> and verify result
+
+    Examples: 
+      | Role                                                                    | Name                              |
+      | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | Name1, Name2, Name3, Name4, Name5 |
+
+  Scenario: Verify user information in landing page
+    Given I am on the login page
+    Then I enter email field chloe@yopmail.com for login
+    And I enter password field Testing1 for Login
     Then I click Access button
     #Then I should see Tile text User Admin
     #And I click on the "User Admin" tile
-    #Then I should see header text "Management"
-    Then I should see users with <Role>
-
-    Examples: 
-      | Role                                                                                                                                  |
-      | Executive, Manager, Case Manager, Physicians, Transitional Case Manager |
-
-  
-  Scenario: Verify user information in landing page
-    Given I am on the login page
-    When I log in as super user
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see header text "Users"
     Then I verify user information
-    
+
   #search cases
   Scenario Outline: Verify ability to search user by First name/Last name/Email
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "Management"
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I enter search box in landing page with "FirstName"
-    And I should see "FirstName" for "First Name" in search result
+    And I should see "FirstName LastName" for "First Name" in search result
     Then I enter search box in landing page with "LastName"
-    And I should see "LastName" for "Last Name" in search result
+    And I should see "FirstName LastName" for "Last Name" in search result
     Then I enter search box in landing page with "test.automatemail"
     And I should see "test.automatemail" for "Email" in search result
 
@@ -124,11 +132,11 @@ Feature: Landing page verification
   Scenario: Verify ability to lock a user from landing page
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I enter search box in landing page with "test.automatemail"
     Then I lock user with email "test.automatemail"
     And I verify that user is locked
@@ -143,12 +151,14 @@ Feature: Landing page verification
   Scenario: Verify functionality of Cancel button on unlocking alert message
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    #Then I click on sort by lock icon
     Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Cancel" button from the alert to cancel unlock
@@ -157,12 +167,14 @@ Feature: Landing page verification
   Scenario: Verify ability to unlock a locked user from landing page
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
-    And I enter password field Testing22 for Login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Adming
-    #And I click on the "User Admin" tile
-    Then I should see header text "Management"
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    #Then I click on sort by lock icon
     Then I enter search box in landing page with "test.automatemail"
+    And I should see "test.automatemail" for "Email" in search result
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Unlock" button from the alert to unlock user
