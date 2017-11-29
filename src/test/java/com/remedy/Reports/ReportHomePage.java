@@ -60,7 +60,6 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickReportFieldPanelIconButton(){
-
         clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
     }
     

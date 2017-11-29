@@ -156,7 +156,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(String text){
-		if (!text.isEmpty()) {
+		if (!text.isEmpty()){
 			verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']",text);
 		}
 	}
