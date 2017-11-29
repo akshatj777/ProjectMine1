@@ -1,4 +1,4 @@
-Feature: Inpatient Episode Clearing Model3 report verification
+Feature: Episode DRG Issues Model3 report verification
 
   Scenario Outline: <role> role user with <facility> facility should see only model3 reports not other reports.
     Given I am on the login page
@@ -17,6 +17,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I should not see Reports Tile text as "Post Acute Care"
     When I click on the Reports Tile with text "Patient ID"
     Then I should see following Reports text for Patient ID reports
+      | Episode DRG Issues [Model 3]         |
       | InPatient Episode Clearing [Model 3] |
     Then I should not see "Episode DRG Issues" report after clicking on patient id
     Then I should not see "InPatient Episode Clearing" report after clicking on patient id
@@ -27,10 +28,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     Then I should not see "Readmissions" report after clicking on readmissions
     Then I should not see "Readmissions (Claims)" report after clicking on readmissions
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
 
     Examples: 
@@ -48,8 +49,8 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-
-  Scenario Outline: <role> role user with <facility> facility should have the default filters appearing under inpatient episode clearing model3 report
+      
+  Scenario Outline: <role> role user with <facility> facility should have the default filters appearing under episode drg issues model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -58,10 +59,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify anchor post acute admission year "Anchor Post Acute Admission Year includes previous Anchor Post Acute Admission Year and current Anchor Post Acute Admission Year" is preselected under nsoc model3 report
@@ -82,7 +83,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
       
-  Scenario Outline: <role> role user with <facility> facility should see default measures and dimensions as per the requirement under inpatient episode clearing model3 report
+  Scenario Outline: <role> role user with <facility> facility should see default measures and dimensions as per the requirement under episode drg issues model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -91,17 +92,19 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
+    Then I should see "Avg. Days to First Working DRG" under "measures" field
+    Then I should see "Avg. Days to First Predicted DRG" under "measures" field
+    Then I should see "Avg. Days to First Final DRG" under "measures" field
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
-    Then I should see "Bundle" under "dimensions" field
-    Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
+    Then I should see "Issue" under "dimensions" field
     Then I should see "Anchor Post Acute Admission Month" under "dimensions" field
 
     Examples: 
@@ -119,8 +122,8 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-
-  Scenario Outline: Verify that the Model field in Inpatient Episode Clearing [Model 3] report is draggable and should not see model2 and filter the values for model3 for user with <role> role for <facility> facility
+      
+  Scenario Outline: Verify that the Model field in Episode DRG Issues [Model 3] report is draggable and should not see model2 and filter the values for model3 for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -129,10 +132,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
@@ -169,8 +172,8 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
-  Scenario Outline: User with <model> and having <facility> facility should not see Inpatient Episode Clearing Model3 report under nsoc
+
+  Scenario Outline: User with <model> and having <facility> facility should not see Episode DRG Issues Model3 report under nsoc
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -179,7 +182,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Readmissions" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    And I should not see Report with text as "InPatient Episode Clearing [Model 3]"
+    And I should not see Report with text as "Episode DRG Issues [Model 3]"
 
     Examples: 
       | email                         | faclity | model  |
@@ -187,7 +190,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | shutestaug231132a@yopmail.com | ACH     | Model2 |
       | shutestaug15252p@yopmail.com  | PGP     | Model2 |
       
-  Scenario Outline: Validate that the changes made to the Global Filters are reflected and applied to the Inpatient Episode Clearing [Model 3] report for user with <role> role for <facility> facility
+  Scenario Outline: Validate that the changes made to the Global Filters are reflected and applied to the Episode DRG Issues [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -196,13 +199,13 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I switch to default window from iframe
-    Then I verify "InPatient Episode Clearing [Model 3]" in the reports header page
+    Then I verify "Episode DRG Issues [Model 3]" in the reports header page
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Payer" filter is appearing under global filters
@@ -220,7 +223,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -244,7 +247,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
       
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate participant field value for inpatient episode clearing Model3 report
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate participant field value for episode drg issues Model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -253,10 +256,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Participant" field filter under "Episode Initiator" filter field
@@ -286,7 +289,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of NY Home Care |                                        |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                           | Visiting Nurse Service of NY Home Care |
       
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value for Inpatient Episode Clearing Model3 report
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value for episode drg issues Model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -295,10 +298,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -341,7 +344,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |
       
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate anchor post acute provider ccn field value for Inpatient Episode Clearing Model3 report
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate anchor post acute provider ccn field value for Episode DRG Issues Model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -350,10 +353,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -396,7 +399,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |                      337008 |                             |                             |                             |                             |                             |                             |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |                      337008 |                      345557 |                      366253 |                      495401 |                      495411 |                             |                             |
       
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate episode initiator field value for inpatient episode clearing Model3 report in frontend and database
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate episode initiator field value for Episode DRG Issues Model3 report in frontend and database
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -405,10 +408,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
@@ -437,7 +440,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service Of New York Home Care                                                                                             | Visiting Nurse Service Of New York Home Care |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Visiting Nurse Service Of New York Home Care,Amberwood Manor,Azalea Health,Liberty Ridge Health,Tyler's Retreat At Iron Bridge           | Amberwood Manor                              |
       
-  Scenario Outline: Validate bundle list values field for Inpatient Episode Clearing [Model 3] report and filters for user with <role> role for <facility> facility
+  Scenario Outline: Validate bundle list values field for Episode DRG Issues [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -446,10 +449,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Bundle" field filter under "Bundle" filter field
@@ -506,7 +509,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Congestive heart failure         |                                  |                          |                        |                          |            |                                             |                                          |                                             |                                           |                               |                                               |                                           |                                     |                                               |                       |                                   |                                     |                                             |                              |                             |                    |                                             |                               |                         |                    |                    |                               |                         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Back & neck except spinal fusion | COPD, bronchitis, asthma         | Cellulitis               | Cervical spinal fusion | Congestive heart failure | Diabetes   | Double joint replacement, lower extremities | Fractures of the femur and hip or pelvis | Gastrointestinal hemorrhage                 | Hip & femur procedures except major joint | Lower Major joint replacement | Lower extrem, humerus except hip, foot, femur | Medical non-infectious orthopedic         | Nutritional and metabolic disorders | Other knee procedures                         | Other respiratory     | Revision of the hip or knee       | Sepsis                              | Simple pneumonia and respiratory infections | Spinal fusion (non-cervical) | Stroke                      | Syncope & collapse | Transient ischemia                          | Upper Major joint replacement | Urinary tract infection |                    |                    |                               |                         |
       
-  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Inpatient Episode Clearing Model 3 report for user with <role> role for <facility> facility
+  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -515,10 +518,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -562,7 +565,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
      
-  Scenario Outline: Validate Payer is draggable and apply filter in Inpatient Episode Clearing Model 3 report for user with <role> role for <facility> facility
+  Scenario Outline: Validate Payer is draggable and apply filter in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -571,10 +574,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -611,7 +614,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Medicare |
       
-  Scenario Outline: Validate the On-boarding status field values on the Inpatient Episode Clearing [Model 3] report and filters for user with <role> role for <facility> facility
+  Scenario Outline: Validate the On-boarding status field values on the Episode DRG Issues [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -620,10 +623,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
@@ -653,8 +656,8 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
-     
-  Scenario Outline: Validate the Patient Risk field values on the Inpatient episode clearing M3 report and filters for user with <role> role for <facility> facility
+      
+  Scenario Outline: Validate the Patient Risk field values on the Episode DRG Issues M3 report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -663,10 +666,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose "Filter" option from select options of filter field
@@ -695,8 +698,8 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Calculating Risk | Low          | High         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Calculating Risk |              |              |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Calculating Risk | High         | Low          |
-      
-  Scenario Outline: Validate that the no. of Episodes on the drill through page with no. of episodes count on inpatient episode clearing model3 report page for user with <role> role for <facility> facility
+
+  Scenario Outline: Validate that the no. of Episodes on the drill through page with no. of episodes count on Episode DRG Issues model3 report page for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -705,10 +708,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I verify the episodes count matches with dill through
 
@@ -727,8 +730,8 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
- 
-  Scenario Outline: Validate DOB field for Inpatient Episode Clearing [Model 3] report for user with <role> role for <facility> facility
+      
+  Scenario Outline: Validate DOB field for Episode DRG Issues [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -737,10 +740,10 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -766,7 +769,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
       
-  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Inpatient Episode Clearing Model 3 report for user with <role> role for <facility> facility
+  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
