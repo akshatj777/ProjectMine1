@@ -50,7 +50,6 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iSwitchToReportsPageFrameWithXpath(String frameXpath){
-        longDelay();
         swithToFrame(frameXpath);
         delay();
     }
@@ -1133,8 +1132,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyCheckboxIsCheckedForDrillThrough(String text,String type){
-    	if ( driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")).isSelected())
-    	{
+    	if ( driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")).isSelected()){
     		clickElement(driver.findElement(By.id("dlgBtnSave")));
     	}
     }
