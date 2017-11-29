@@ -1,5 +1,6 @@
 package stepDefination.UserAdmin;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 
 import com.remedy.resources.Constants;
@@ -42,9 +43,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectOrganizationalRole(role);
 	}
 
-	@And("^I enter NPI field with ([^\"]*)$")
-	public void IEnterNPIFieldWith_(String npi) throws Throwable {
-		createUser.iEnterNPI(npi);
+	@And("^I enter NPI field with \"([^\"]*)\" for role \"([^\"]*)\"$")
+	public void IEnterNPIFieldWith_(String npi, String role) throws Throwable {
+		createUser.iEnterNPI(npi,role);
 	}
 
 	@And("^I fill in First Name with \"([^\"]*)\"$")
@@ -247,10 +248,10 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iTurnOffShareFile();
 	}
 
-	@And("^I fill in NPI Field with \"([^\"]*)\"$")
-	public void iFillInNPIFieldWith(String text) throws Throwable {
-		createUser.iEnterNPI(text);
-	}
+//	@And("^I fill in NPI Field with \"([^\"]*)\"$")
+//	public void iFillInNPIFieldWith(String text) throws Throwable {
+//		createUser.iEnterNPI(text);
+//	}
 
 	@Then("^I verify NPI Required Message \"([^\"]*)\"$")
 	public void iVerifyNPIRequiredMessage(String text) throws Throwable {
@@ -364,9 +365,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.switchFocus();
 	}
 
-	@Then("^I verify the \"([^\"]*)\" validation message \"([^\"]*)\"$")
-	public void verifyValidationMessage(String fieldName, String validationMessage) throws Throwable {
-		createUser.ValidateMessage(fieldName, validationMessage);
+	@Then("^I verify the validation message \"([^\"]*)\" on Create User Page$")
+	public void verifyValidationMessage(String validationMessage) throws Throwable {
+		createUser.ValidateMessage(validationMessage);
 	}
 
 	@Then("^I click on Next button$")

@@ -125,7 +125,7 @@ public class MailCreateUserSteps extends DriverScript {
 			mailcreateuser.iEnterNewPasswordForLoginToRemedy();
 	}     
 	
-    @Then("^I open new tab and close the last tab$") 
+    @Then("^I clear the browser history$") 
 	public void i_Open_NewTab_And_Close_The_Last_Tab() throws Throwable {
 		mailcreateuser.iOpenNewTabAndCloseLastTab();
 }

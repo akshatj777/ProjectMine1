@@ -14,6 +14,7 @@ import com.sun.mail.imap.Utility.Condition;
 import cucumber.api.java.en.Then;
 import edu.emory.mathcs.backport.java.util.Arrays;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -34,8 +35,8 @@ public class CreateUserPage extends BaseClass{
 	public final static String time = df.format(timestamp);
 	String userRole = null;
 	String userApplications = null;
-	HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
-	HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
+	public static HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
+	public static HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
 	WebDriverWait wait = new WebDriverWait(driver, 60); 
 
     public CreateUserPage(WebDriver driver){
@@ -88,13 +89,18 @@ public class CreateUserPage extends BaseClass{
     	isElementVisible(driver.findElement(By.xpath("//label[text()='RP Payer Test A']")));
     }
 
-    public void iEnterNPI(String text){
-    	 if ("".equals(text)){
-    		 return;
-    	}
-    	else{
-        iFillInText(driver.findElement(By.xpath("//div/div/input[@placeholder='NPI']")), text);
-    	}
+    public void iEnterNPI(String npi, String role){
+    	if(role.equals("Physicians"))
+		{
+			if(npi.equals("NPI"))
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")),RandomStringUtils.randomNumeric(10));
+			}
+			else if(!npi.isEmpty())
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")), npi);
+			}
+		}
     }
 
     public void iEnterFirstName(String text){
@@ -470,16 +476,9 @@ public class CreateUserPage extends BaseClass{
 	   driver.findElement(By.xpath("//button[text()='Cancel']")).sendKeys(Keys.TAB);
    }
    
-   public void ValidateMessage(String fieldName, String validationMessage)
+   public void ValidateMessage(String validationMessage)
    {
-	   if(fieldName.equalsIgnoreCase("Phone"))
-	   {
-		   Assert.assertEquals(validationMessage, driver.findElement(By.xpath("//label[@class='error']")).getText().trim());
-	   }
-	   else
-	   {
-		   iVerifyTextFromListOfElement(By.xpath("//label[@class='required error']"), validationMessage);
-	   }
+	     iVerifyTextFromListOfElement(By.xpath("//label[@class='required error']"), validationMessage);
    }
    
    public void clickNextButton() throws Throwable {
@@ -499,22 +498,22 @@ public class CreateUserPage extends BaseClass{
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 		HashMap<String,String> emailList = new HashMap<String,String>();
 		HashMap<String,String> applicationsList = new HashMap<String,String>();
-		emailList.put(userRole, MailCreateUser.email);
-		applicationsList.put(userRole, userApplications);
-		if(user.contains("Super User"))
+		emailList.put(userRole.trim(), MailCreateUser.email.trim());
+		applicationsList.put(userRole.trim(), userApplications);
+		if(user.contains("Super Admin"))
 		{
-			usersEmailPerRole.put(user, emailList);
-			usersApplicationsPerRole.put(user, applicationsList);
+			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
+			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 		}
-		else if(user.contains("RTA"))
+		else if(user.contains("Remedy Technical Administrator"))
 		{
-			usersEmailPerRole.put(user, emailList);
-			usersApplicationsPerRole.put(user, applicationsList);
+			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
+			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 		}
-		else if(user.contains("PTA"))
+		else if(user.contains("Partner Technical Administrator"))
 		{
-			usersEmailPerRole.put(user, emailList);
-			usersApplicationsPerRole.put(user, applicationsList);
+			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
+			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 		}
 		System.out.println(usersEmailPerRole);
 		System.out.println(usersApplicationsPerRole);
@@ -725,7 +724,7 @@ public class CreateUserPage extends BaseClass{
 	    	   {
 	    		   token = newToken;   
 	    	   }
-			iVerifyTextFromListOfElement(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[@class='btn btn-flyout-nav']"), token.trim());
+			iVerifyTextFromListOfElement(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[contains(@class,'btn btn-flyout-nav')]"), token.trim());
 	       } 
 	}
    

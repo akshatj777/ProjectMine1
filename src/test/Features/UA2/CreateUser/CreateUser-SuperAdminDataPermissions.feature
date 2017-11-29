@@ -117,37 +117,7 @@ Feature: CreateUser-SuperAdminDataPermissions
       | Role1               | Role2   | Applications |
       | Downstream Provider | Manager | Episodes 2.0 |
 
-  Scenario Outline: <Scenario Description>
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "User Management"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    Then I pick a Organizational <Role>
-    Then I click on Next button
-    Then I select "<Applications>" product
-    Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select button
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
-    Then I click on Submit button
-
-    Examples: 
-      | Scenario Description                                                     | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
-      | Create user with only one program all locations - Super Admin User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
-      | Create user with only one program one location - Super Admin User        | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
-      | Create user with only one program multiple locations - Super Admin User  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
-      | Create user with multiple programs all locations - Super Admin User      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
-      | Create user with multiple programs one location - Super Admin User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
-      | Create user with multiple programs multiple locations - Super Admin User | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
-
+  
   Scenario Outline: <Scenario Description>
     Given I am on the login page
     When I log in as super user

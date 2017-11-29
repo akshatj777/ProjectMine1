@@ -72,7 +72,19 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iEnteruserEmail(String userName) {
-		iFillInText(driver.findElement(By.name("email")), userName);
+		if(userName.equals("Remedy Technical Administrator"))
+		{
+			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Remedy Technical Administrator").get(userName));
+		}
+		else if(userName.equals("Partner Technical Administrator"))
+		{
+			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Partner Technical Administrator").get(userName));
+		}
+		else
+		{
+			iFillInText(driver.findElement(By.name("email")), userName);
+		}
+		
 	}
 
 	public void iEnterPassword(String passWord) {
