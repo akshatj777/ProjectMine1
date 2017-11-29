@@ -187,47 +187,4 @@ public class ReportsGlobalFilters extends BaseClass{
 	public void iShouldNotSeeHideSummaryAppearingInGlobalFilters(String text){
 		verifyTextNotPresentForElementFromList(".toggle-page-summary.ng-binding",text);
 	}
-	
-	public void executeQuery(String query) throws ClassNotFoundException, SQLException  {
-		  Class.forName("com.mysql.jdbc.Driver");
-		  String connectionString = "jdbc:mysql://rds-qa.remedypartners.com:3306";
-		  Connection con=DriverManager.getConnection(connectionString,"pgoel","1Welcome2"); 
-		  Statement stmt=con.createStatement();  
-		  ResultSet rs=stmt.executeQuery(query);
-		  ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-		while (rs.next()) {
-			HashMap<String, String> column = new HashMap<String, String>();
-			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-				column.put(rsmd.getColumnName(i), rs.getString(i));
-			}
-			String a = Integer.toString(rs.getRow());
-			row.put(a, column);
-		}
-		con.close();
-	}
-	
-	@SuppressWarnings("deprecation")
-	public void verify(String text,String column)
-	{
-		String a = row.get("1").get(column);
-		Assert.assertEquals(text.trim(), a.trim());
-	}
-	
-	@SuppressWarnings("deprecation")
-	public void iVerifyCCNInDatabase(Map data, String columnname) {
-		Object[] keySet = data.keySet().toArray();
-		for (int i = 0; i < data.size(); i++) {
-			String b = Integer.toString(i + 1);
-			String dbValue = row.get(b).get(columnname);
-			String a = (String) keySet[i];
-			String ccnUIValue = data.get(a).toString();
-			ccnUIValue = ccnUIValue.substring(ccnUIValue.indexOf('"') + 1,ccnUIValue.lastIndexOf('"'));
-			if (dbValue == null) {
-				String abc = String.valueOf(dbValue);
-				Assert.assertEquals(abc, ccnUIValue);
-			} else {
-				Assert.assertEquals(dbValue, ccnUIValue);
-			}
-		}
-	}
 }

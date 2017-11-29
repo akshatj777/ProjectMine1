@@ -27,7 +27,7 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     When I click on select from list option on the filter page
     And I should see "<admission month1>" in the filter value list
     And I click on "<admission month1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<admission month1>" result in "Anchor Admission Month" field column for "Anchor Begin Date" filter field
@@ -36,7 +36,7 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     And I should see "Anchor Facility" in the header text of filter page
     And I should see "<anchorFacility1>" in the filter value list
     And I click on "<anchorFacility1>" in the filter value list for anchor facility
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field

@@ -121,7 +121,7 @@ public class ReportHomePageSteps extends DriverScript {
          reportHomePage.iSelectFilterTextFormFilterValueList(filterText);
     }
 
-    @And("^I click on add selected in the filter modal$")
+    @And("^I click on add selected in the filter model$")
     public void i_click_on_add_selected_in_the_filter_modal() throws Throwable {
         reportHomePage.iClickAddSelectedArrowFromFilterModal();
     }
