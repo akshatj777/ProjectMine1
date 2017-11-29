@@ -311,7 +311,7 @@ Feature: Readmission Model3 report verification
     And I should see "<participant1>" in the filter value list
     And I should see "<participant2>" in the filter value list
     And I click on "<participant1>" in the filter value list
-    And And I click on add selected in the filter model
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant1>" result in "Participant" field column for "Episode Initiator" filter field
@@ -366,7 +366,7 @@ Feature: Readmission Model3 report verification
     And I should see "<BPID6>" in the filter value list
     And I should see "<BPID7>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And And I click on add selected in the filter model
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -421,7 +421,7 @@ Feature: Readmission Model3 report verification
     And I should see "<anchorpostacuteproviderccn6>" in the filter value list
     And I should see "<anchorpostacuteproviderccn7>" in the filter value list
     And I click on "<anchorpostacuteproviderccn1>" in the filter value list
-    And And I click on add selected in the filter model
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<anchorpostacuteproviderccn1>" result in "Anchor Post Acute Provider CCN" field column for "Anchor Post Acute Provider" filter field
@@ -462,7 +462,7 @@ Feature: Readmission Model3 report verification
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiators>" in the value list after selecting filter
     And I click on "<episodeInitiator>" in the filter value list
-    And And I click on add selected in the filter model
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator>" result in "Episode Initiator" field column for "Episode Initiator" filter field
