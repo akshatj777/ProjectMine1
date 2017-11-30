@@ -24,7 +24,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -474,11 +477,18 @@ public class BaseClass {
 	    String pID = row.get("1").get("participant_id");
 	    con.close();
 	    return pID;
-	}
-	
+}
+    public void validateDateFormat(String format,String dateToValdate) throws ParseException {
+    	SimpleDateFormat formatter = new SimpleDateFormat(format);
+	    formatter.setLenient(false);
+	    formatter.parse(dateToValdate);
+    }	
 	public void scrollIntoViewByJS(WebElement element){
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 	
+	public String getTheCurrentUrl(){
+		return driver.getCurrentUrl();
+	}
 }
 

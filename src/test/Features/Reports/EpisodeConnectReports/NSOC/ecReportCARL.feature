@@ -217,7 +217,306 @@ Feature: Verification of CARL EC Report
     And I click on clear search field element
     Then I enter "Uncategorized % Followed" in the search field textbox for filters
     And I should not see "Uncategorized % Followed" in the searched results under the measures
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in CARL report under next site of care summary
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Fracture/Non-Fracture" in the search field textbox for filters
+    And I should not see "Fracture/Non-Fracture" in the searched results under the measures
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+
+  Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in carl report under next site of care summary
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Patient Risk" in the search field textbox for filters
+    Then I verify "Patient Risk" is appearing in the level fields after searching
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    Then I enter "Onboarding Status" in the search field textbox for filters
+    Then I verify "Onboarding Status" is appearing in the level fields after searching
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+      
+  Scenario Outline: User should be able to verify YYYY-MM-DD format for DOB field column for carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "DOB" field filter under "Patient" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify the DOB column format is in yyyy-MM-dd for "Patient"
+    When I switch to default window from iframe
+    When I click on reports tab appearing on reports page
+    And I wait to see "Patient ID" under reports tile text
+    Then I verify current page "Reports" title
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+Scenario Outline: Verify last working bundle filter doesnot show duplicates in carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Last Working Bundle" field filter under "Last Working DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Last Working Bundle" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "Amputation" in the filter value list
+    And I should see "Back & neck except spinal fusion" in the filter value list
+    And I should see "Cardiac valve" in the filter value list
+    And I should see "Cervical spinal fusion" in the filter value list
+    And I should see "Congestive heart failure" in the filter value list
+    And I should see "Coronary artery bypass graft" in the filter value list
+    And I should see "Double joint replacement, lower extremities" in the filter value list
+    And I should see "Fractures of the femur and hip or pelvis" in the filter value list
+    And I should see "Hip & femur procedures except major joint" in the filter value list
+    And I should see "Lower Major joint replacement" in the filter value list
+    And I should see "Medical non-infectious orthopedic" in the filter value list
+    And I should see "Other vascular surgery" in the filter value list
+    And I should see "Percutaneous coronary intervention" in the filter value list
+    And I should see "Revision of the hip or knee" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify last final bundle filter doesnot show duplicates in carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Last Final Bundle" field filter under "Last Final DRG" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Last Final Bundle" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "Acute myocardial infarction" in the filter value list
+    And I should see "Amputation" in the filter value list
+    And I should see "Cardiac valve" in the filter value list
+    And I should see "Cervical spinal fusion" in the filter value list
+    And I should see "Congestive heart failure" in the filter value list
+    And I should see "Coronary artery bypass graft" in the filter value list
+    And I should see "Fractures of the femur and hip or pelvis" in the filter value list
+    And I should see "Hip & femur procedures except major joint" in the filter value list
+    And I should see "Lower Major joint replacement" in the filter value list
+    And I should see "Medical non-infectious orthopedic" in the filter value list
+    And I should see "Other vascular surgery" in the filter value list
+    And I should see "Percutaneous coronary intervention" in the filter value list
+    And I should see "Revision of the hip or knee" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify patient risk filter doesnot show duplicates in carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "Calculating Risk" in the filter value list
+    And I should see "High" in the filter value list
+    And I should see "Low" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+      
+Scenario Outline: Verify risk score filter doesnot show duplicates in carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Risk Score" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Risk Score" in the header text of filter page
+    And I should see "0" in the filter value list
+    And I should see "1" in the filter value list
+    And I should see "2" in the filter value list
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+      
+  Scenario Outline: Verify onboarding status values in database for carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Onboarding Status" in the header text of filter page
+    And I should see "Needs Onboarding" in the filter value list
+    And I should see "Not Onboarded" in the filter value list
+    And I should see "Onboarded" in the filter value list
+    And I should see "Unknown" in the filter value list
+
+    Examples: 
+      | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      | rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
+
+  Scenario Outline: Verify patient risk values in database for carl report under nsoc
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "Calculating Risk" in the filter value list
+    And I should see "High" in the filter value list
+    And I should see "Low" in the filter value list
+
+    Examples: 
+      | email                           | patientrisk1     | patientrisk2 | patientrisk3 |
+      | rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
+
+  Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through in carl report under next site of care
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
+    Then I switch to new window
+    When I switch to reports embedded iframe
+    Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
+    And I click on "Onboarding Status" checkbox under "Onboarding Status" in the popup of select drill through columns
+    And I click on "Patient Risk" checkbox under "Patient" in the popup of select drill through columns
+    And I click on ok button after selecting drill through column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
+    
+    Examples: 
+      | email                          |
+      | shutestaug231132a@yopmail.com  |
