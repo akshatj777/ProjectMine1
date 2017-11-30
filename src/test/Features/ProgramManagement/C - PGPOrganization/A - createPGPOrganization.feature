@@ -50,7 +50,7 @@ Feature: Create PGP organization functionality tests.
     Examples: 
       | Description                                      | Has_MO | Managing_Org | PGP_Name | EIN | NPI | ValidationMsg                                 |
       | Check validation for blank Managing Organization | YES    | Blank        | PGPNAME  | EIN | NPI | A Management Organization has to be selected. |
-      | Check validation for blank ACH name              | NO     | MONAME       |          | EIN | NPI | Please enter an Organization Name             |
+      | Check validation for blank PGP name              | NO     | MONAME       |          | EIN | NPI | Please enter an Organization Name             |
       | Check validation for blank Identifiers           | NO     | MONAME       | PGPNAME  |     |     | The EIN field is required                     |
       | Check validation for blank EIN Identifier        | NO     | MONAME       | PGPNAME  |     | NPI | The EIN field is required                     |
 
@@ -125,8 +125,8 @@ Feature: Create PGP organization functionality tests.
       | Create PGP Organization with Mandatory fields + City + Region + Market - With MO                                                             | YES    | MONAME       | PGPNAME       |          |            |          | City | Midwest | Chicago |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
       | Create Duplicate PGP Organization with Mandatory fields - Without MO                                                                         | NO     | MONAME       | DUPLICATE_PGP |          |            |          |      |         |         |            |             | EIN |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
       | Create Duplicate PGP Organization with Mandatory fields - With MO                                                                            | YES    | MONAME       | DUPLICATE_PGP |          |            |          |      |         |         |            |             | EIN |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create PGP Organization with all the available fields - Without MO                                                                           | YES    | MONAME       | ACHNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | ACHNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with all the available fields - Without MO                                                                           | YES    | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
 
   Scenario Outline: Identifiers - <Description>
     Then I click on "+" button on "PGP" organization page
