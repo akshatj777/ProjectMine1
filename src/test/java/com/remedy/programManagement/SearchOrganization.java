@@ -81,16 +81,28 @@ public class SearchOrganization extends BaseClass{
 			  value = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
 			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
-		  else if (value.equals("CCN - YES")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("CCN"));
+		  else if (value.equals("PGPNAME - YES")){
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreateACHOrganization.achOrg.get("CCN");
+			  value = CreatePGPOrganization.pgpOrg.get("PGPNAME");
 			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
-		  else if (value.equals("CCN - NO")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("CCN"));
+		  else if (value.equals("PGPNAME - NO")){
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreateACHOrganization.achOrg_noMO.get("CCN");
+			  value = CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME");
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+		  }
+		  else if (value.equals("EIN - YES")){
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg.get("EIN"));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  value = CreatePGPOrganization.pgpOrg.get("EIN");
+			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+		  }
+		  else if (value.equals("EIN - NO")){
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("EIN"));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  value = CreatePGPOrganization.pgpOrg_noMO.get("EIN");
 			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
 		  else
