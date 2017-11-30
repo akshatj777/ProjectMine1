@@ -590,7 +590,7 @@ Feature: Readmission Model3 report verification
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<postacutedischargemonth1>" result in "Anchor Post Acute Discharge Month" field column for "Anchor Post Acute Discharge Date" filter field
-    Then I verify anchor post acute discharge month is in YYYY-MM format
+    Then I verify anchor post acute discharge month is in yyyy-MM format
 
     Examples: 
       | email                                 | role     | facility    | postacutedischargemonth1 | postacutedischargemonth2 | postacutedischargemonth3 | postacutedischargemonth4 | postacutedischargemonth5 | postacutedischargemonth6 |

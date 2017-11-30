@@ -509,62 +509,6 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Congestive heart failure         |                                  |                          |                        |                          |            |                                             |                                          |                                             |                                           |                               |                                               |                                           |                                     |                                               |                       |                                   |                                     |                                             |                              |                             |                    |                                             |                               |                         |                    |                    |                               |                         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Back & neck except spinal fusion | COPD, bronchitis, asthma         | Cellulitis               | Cervical spinal fusion | Congestive heart failure | Diabetes   | Double joint replacement, lower extremities | Fractures of the femur and hip or pelvis | Gastrointestinal hemorrhage                 | Hip & femur procedures except major joint | Lower Major joint replacement | Lower extrem, humerus except hip, foot, femur | Medical non-infectious orthopedic         | Nutritional and metabolic disorders | Other knee procedures                         | Other respiratory     | Revision of the hip or knee       | Sepsis                              | Simple pneumonia and respiratory infections | Spinal fusion (non-cervical) | Stroke                      | Syncope & collapse | Transient ischemia                          | Upper Major joint replacement | Urinary tract infection |                    |                    |                               |                         |
       
-  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Patient ID" under reports tile text
-    When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    When I click on show all filters icon button
-    Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
-    When I click to "Anchor Post Acute Discharge Month" field filter under "Anchor Post Acute Discharge Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I should see "Anchor Post Acute Discharge Month" is added in layout section after clicking on add to report
-    Then I verify "Anchor Post Acute Discharge Month" field is appearing in the report table after clicking on add to report
-    When I click to "Anchor Post Acute Discharge Month" field filter under "Anchor Post Acute Discharge Date" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Post Acute Discharge Month" in the header text of filter page
-    When I click on select from list option on the filter page
-    And I should see "<postacutedischargemonth1>" in the filter value list
-    And I should see "<postacutedischargemonth2>" in the filter value list
-    And I should see "<postacutedischargemonth3>" in the filter value list
-    And I should see "<postacutedischargemonth4>" in the filter value list
-    And I should see "<postacutedischargemonth5>" in the filter value list
-    And I should see "<postacutedischargemonth6>" in the filter value list
-    And I click on "<postacutedischargemonth1>" in the filter value list
-    And I click on add selected in the filter model
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "<postacutedischargemonth1>" result in "Anchor Post Acute Discharge Month" field column for "Anchor Post Acute Discharge Date" filter field
-    Then I verify anchor post acute discharge month is in YYYY-MM format
-
-    Examples: 
-      | email                                 | role     | facility    | postacutedischargemonth1 | postacutedischargemonth2 | postacutedischargemonth3 | postacutedischargemonth4 | postacutedischargemonth5 | postacutedischargemonth6 |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
-     
   Scenario Outline: Validate Payer is draggable and apply filter in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -809,7 +753,7 @@ Feature: Episode DRG Issues Model3 report verification
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<postacutedischargemonth1>" result in "Anchor Post Acute Discharge Month" field column for "Anchor Post Acute Discharge Date" filter field
-    Then I verify anchor post acute discharge month is in YYYY-MM format
+    Then I verify anchor post acute discharge month is in yyyy-MM format
 
     Examples: 
       | email                                 | role     | facility    | postacutedischargemonth1 | postacutedischargemonth2 | postacutedischargemonth3 | postacutedischargemonth4 | postacutedischargemonth5 | postacutedischargemonth6 |
