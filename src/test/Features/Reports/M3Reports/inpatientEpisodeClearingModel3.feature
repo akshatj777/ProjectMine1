@@ -668,6 +668,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
