@@ -63,8 +63,8 @@ Feature: UA2 Front End Automation
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
     And I switch to new window
-    And I enter new password "Testing@1234" to set new password
-    And I enter confirm new password "Testing@1234" to set new password
+    And I enter new password "Testing1" to set new password
+    And I enter confirm new password "Testing1" to set new password
     And I click on submit button to set new password
     Then I enter newuser email for login to Remedy
     Then I enter newuser password for login to Remedy
@@ -74,21 +74,31 @@ Feature: UA2 Front End Automation
     Then I click on Hamburger menu on top right of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
-
-    #    And I click on Episode1 tile under specific user login page <Episode1> and verify the userrole <userroletext>
-    #    And I click on Institute tile under specific user login page <Institute>
-    #    And I click on Reports tile under specific user login page <Reports>
-    #    And I click on Episodes two tile under specific user login page <Episode2> with payer <payer1>
-    #    And I click on RemedyU tile under specific user login page <Lessons>
-    #    And I click on Physican connect tile under specific user login page <Physican connect>
-    #    And I click on Internal Support option from dropdown under specific user login page <Internal Support>
-    #    Then I select Support option from the dropdown under specific user login page <Support>
-    #    Then I select Reset Password option from the dropdown
-    #    And I should see text popup for reset password "Password Reset"
-    #    And I click Okay button for reset password popup
-    #    And I click on the top user account link
-    #    Then I select Log Out option from the dropdown
-    #    And I should see Log in widget
+    And I click on Episode1 tile for "<user>-<Role>" and verify user "<Roletext>"
+    And I click on Institute tile for "<user>-<Role>" user
+    And I click on Reports tile for "<user>-<Role>" user
+    And I click on Episodes two tile for "<user>-<Role>" user
+    And I click on RemedyU tile for "<user>-<Role>" user
+  	And I redirect to Remedy connect page
+    And I click on the top user account link
+    And I verify "Support" in dropdown on profile icon
+    And I verify "Internal Support" in dropdown on profile icon
+    And I verify "Reset Password" in dropdown on profile icon
+    And I verify "Log Out" in dropdown on profile icon
+    And I click on "Internal Support" in dropdown on profile icon
+    And I switch to new window
+    And I verify page header "Login" for "Internal Support" on Remedy Connect
+    And I switch back to old window
+    And I click on "Support" in dropdown on profile icon
+    And I switch to new window
+    And I verify page header "Login" for "Support" on Remedy Connect
+    And I switch back to old window
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "Password Reset"
+    And I click Okay button for reset password popup
+    And I click on the top user account link
+    Then I select Log Out option from the dropdown
+    And I should see Log in widget
     Examples: 
       | Description                                                                           | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | NPI | LearningPathwaySearchParameter | Health System     |
       | Login with Super Admin User and create user with Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |

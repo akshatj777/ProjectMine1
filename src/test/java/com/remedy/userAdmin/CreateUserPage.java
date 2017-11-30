@@ -2,18 +2,10 @@ package com.remedy.userAdmin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
-
-import com.remedy.baseClass.BaseClass;
-import com.sun.mail.imap.Utility.Condition;
-
-import cucumber.api.java.en.Then;
-import edu.emory.mathcs.backport.java.util.Arrays;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -23,6 +15,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.remedy.baseClass.BaseClass;
 
 /**
  * Created by salam on 7/30/15.
@@ -306,17 +300,12 @@ public class CreateUserPage extends BaseClass{
 	   isElementVisible(driver.findElement(By.cssSelector(".page-title.row")));
    }
    
-   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String text, String payer){
-	   if((text.isEmpty()!=true) && ((payer.equals("Medicare")))){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-		   delay();
-		   isElementVisible(driver.findElement(By.xpath("//button[@href='#/patient/add']")));
-		   driver.navigate().back();
-	   }else if((text.isEmpty()!=true) && ((payer.equals("Emblem Health")))){
-		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-		   delay();
-		   Assert.assertFalse(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
+   public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String role){
+	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(value.contains("Executive")|value.contains("Physician")){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Episodes 2.0']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
 		   driver.navigate().back();
 	   }
    }
@@ -329,11 +318,12 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//div/label[@for='lessons']")));
    }
    
-   public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String text, String userrole){
-	   if(text.isEmpty()!=true){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-		   iWillWaitToSee(By.xpath("//p[text()='"+text+"']"));
-		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+   public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role, String userrole){
+	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(value.contains("Executive")|value.contains("Physician")){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Episodes']")));
+		   iWillWaitToSee(By.xpath("//p[text()='Episode1']"));
+		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
 		   switchToNewWindow();
 		   delay();
 		   isElementPresentOnPage(By.cssSelector(".username"));
@@ -348,10 +338,11 @@ public class CreateUserPage extends BaseClass{
 	   }
    }
 
-   public void iClickOnInstituteTileUnderSpecificUserLoginPage(String text){
-	   if(text.isEmpty()!=true){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+   public void iClickOnInstituteTileUnderSpecificUserLoginPage(String role){
+	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(value.contains("Executive")|value.contains("Physician")){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='Institute']")));
 		   switchToNewWindow();
 		   delay();
 		   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
@@ -359,21 +350,21 @@ public class CreateUserPage extends BaseClass{
 	   }
    }
    
-   public void iClickOnReportsTileUnderSpecificUserLoginPage(String text){
-	   if(text.isEmpty()!=true){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
-		   iWillWaitToSee(By.xpath("//div/div/div/div/label"));
-		   clickAllElementofAlistbyXpath("//div/div/div/div/label");
-		   delay();
+   public void iClickOnReportsTileUnderSpecificUserLoginPage(String role){
+	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(value.contains("Executive")|value.contains("Physician")){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Reports']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='Reports']")));
+		   iWillWaitToSee(By.cssSelector(".dropdown-tile-label.ng-binding"));
 		   driver.navigate().back(); 
 	   }
     }
    
-   public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text){
-	   if(text.isEmpty()!=true){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+text+"']")));
-		   clickElement(driver.findElement(By.xpath("//p[text()='"+text+"']")));
+   public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String role){
+	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(value.contains("Executive")|value.contains("Physician")){
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='RemedyU']")));
+		   clickElement(driver.findElement(By.xpath("//p[text()='RemedyU']")));
 		   delay();
 		   switchToNewWindow();
 		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
@@ -760,5 +751,40 @@ public class CreateUserPage extends BaseClass{
 	        } 
 	   }
 	}
-
+   
+   //Code
+   public void iRedirectToRemedyConnectPage() {
+		driver.get("https://cdn-qa.remedypartners.com/");
+		delay();
+	}
+   
+   public void iVerifyDropDownValueFromProfileIcon(String text) {
+		iWillWaitToSee(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"));
+		if (text.isEmpty() != true) {
+			iVerifyTextFromListOfElement(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
+		}
+	}
+   
+   public void iClickOnFiledInDropdownOnProfileIcon(String text) {
+		
+		if(driver.findElement(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']")).isDisplayed())
+		{
+			if (text.isEmpty() != true) {
+				clickSingleElementFromList(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
+			}
+		}
+		else {
+			clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+			delay();
+			if (text.isEmpty() != true) {
+				clickSingleElementFromList(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
+				}
+		}
+	}
+   
+   public void iVerifyPageHeaderForPageOnRemedyConnect(String title) {
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1"))));
+		getTextForElement(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1")));
+	}
+   
 }

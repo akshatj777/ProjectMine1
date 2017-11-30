@@ -268,9 +268,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyTheHeaderAfterClickingTheEpisodesTile();
 	}
 
-	@And("^I click on Episodes two tile under specific user login page ([^\"]*) with payer ([^\"]*)$")
-	public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String tile, String payer) throws Throwable {
-		createUser.iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(tile, payer);
+	@And("^I click on Episodes two tile for \"([^\"]*)\" user$")
+	public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(role);
 	}
 
 	@And("^I Verify the header after clicking the episodes 2 tile$")
@@ -283,24 +283,24 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iTurnOffTheLessonsTileApplication();
 	}
 
-	@And("^I click on Episode1 tile under specific user login page ([^\"]*) and verify the userrole ([^\"]*)$")
-	public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String tile, String userroletext) throws Throwable {
-		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(tile, userroletext);
+	@And("^I click on Episode1 tile for \"([^\"]*)\" and verify user \"([^\"]*)\"$")
+	public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role, String roletext) throws Throwable {
+		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role, roletext);
 	}
 
-	@And("^I click on Institute tile under specific user login page ([^\"]*)$")
-	public void iClickOnInstituteTileUnderSpecificUserLoginPage(String tile) throws Throwable {
-		createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(tile);
+	@And("^I click on Institute tile for \"([^\"]*)\" user$")
+	public void iClickOnInstituteTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(role);
 	}
 
-	@And("^I click on Reports tile under specific user login page ([^\"]*)$")
-	public void iClickOnReportsTileUnderSpecificUserLoginPage(String tile) throws Throwable {
-		createUser.iClickOnReportsTileUnderSpecificUserLoginPage(tile);
+	@And("^I click on Reports tile for \"([^\"]*)\" user$")
+	public void iClickOnReportsTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnReportsTileUnderSpecificUserLoginPage(role);
 	}
 
-	@And("^I click on RemedyU tile under specific user login page ([^\"]*)$")
-	public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String text) throws Throwable {
-		createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(text);
+	@And("^I click on RemedyU tile for \"([^\"]*)\" user$")
+	public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(role);
 	}
 
 	@And("^I click on Physican connect tile under specific user login page ([^\"]*)$")
@@ -518,6 +518,28 @@ public class CreateUserSteps extends DriverScript {
 	@Then("^I verify \"([^\"]*)\" is not present in product menu dropdown$")
 	 public void i_Verify_Value_Is_Not_Present_In_ProductDropDown_Menu(String text){
 		createUser.iVerifyValueIsNotPresentInProductDropDownMenu(text);
+	 }
+	
+	//Added Steps
+	
+	 @Then("^I redirect to Remedy connect page$")
+	 public void i_Redirect_To_RemedyConnect_Page() throws Throwable {
+		 createUser.iRedirectToRemedyConnectPage();
+	 }
+    
+	 @Then("^I verify \"([^\"]*)\" in dropdown on profile icon$")
+	 public void i_Verify_Value_In_DropDown_On_ProfileIcon(String text){
+		 createUser.iVerifyDropDownValueFromProfileIcon(text);
+	 }
+	 
+	 @Then("^I click on \"([^\"]*)\" in dropdown on profile icon$")
+	 public void i_Click_On_Field_InDropdown_On_Profile_Icon(String text){
+		 createUser.iClickOnFiledInDropdownOnProfileIcon(text);
+	 }
+	 
+	 @Then("^I verify page header \"([^\"]*)\" for \"([^\"]*)\" on Remedy Connect$")
+	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page){
+		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text);
 	 }
 
 }
