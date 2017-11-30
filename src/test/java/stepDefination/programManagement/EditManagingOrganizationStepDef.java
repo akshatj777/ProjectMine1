@@ -7,7 +7,7 @@ import cucumber.api.java.en.And;
 public class EditManagingOrganizationStepDef extends DriverScript{
 	EditManagingOrganization editManagingOrg = new EditManagingOrganization(driver);
 	
-	@And("^I click ([^\"]*) field in search list on organization page$")
+	@And("^I click \"([^\"]*)\" field in search list on organization page$")
 	  public void i_Click_Field_In_SearchList_On_Organization_Page(String field) throws Throwable {
 		editManagingOrg.iClickFieldInSearchListOnOrganizationPage(field);
 	    }

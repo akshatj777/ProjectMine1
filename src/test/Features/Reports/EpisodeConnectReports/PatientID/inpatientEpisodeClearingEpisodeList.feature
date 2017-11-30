@@ -51,16 +51,14 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I should verify "Record Creator" is appearing under Episodes table
     Then I should verify "Physician Name" is appearing under Episodes table
     Then I should verify "Days Left in Bundle" is appearing under Episodes table
-    Then I should verify "Patient Risk" is appearing under Episodes table
-    Then I should verify "Onboarding Status" is appearing under Episodes table
-
+    
     Examples: 
       | email                          |
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
-
+      
   Scenario Outline: User should see patient risk and onboarding status fields in the selected columns popup as checked in the inpatient episode clearing report
     Given I am on the login page
     When I enter email field <email> for login
@@ -143,7 +141,7 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I click to "DOB" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify the DOB column format is in YYYY-MM-DD for "Patient"
+    Then I verify the DOB column format is in yyyy-MM-dd for "Patient"
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
     And I wait to see "Patient ID" under reports tile text

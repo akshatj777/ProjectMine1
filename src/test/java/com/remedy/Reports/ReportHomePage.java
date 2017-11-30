@@ -2,24 +2,14 @@ package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
 
-import cucumber.api.DataTable;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
@@ -62,7 +52,6 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iSwitchToReportsPageFrameWithXpath(String frameXpath){
-        longDelay();
         swithToFrame(frameXpath);
         delay();
     }
@@ -73,7 +62,6 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickReportFieldPanelIconButton(){
-
         clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
     }
     
@@ -89,7 +77,6 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
     	delay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
-		//moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
@@ -105,12 +92,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFilterValueListModalText(String text){
-		if ("".equals(text)) {
-			return;
-		} else {
-			verifyTextForElementfromList("#FT_valueList div", text);
-		}
-	}
+    	iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+        verifyTextForElementfromList("#FT_valueList div", text);
+    }
     
     public void iSeeFilterValueListText(String text){
         delay();
@@ -162,9 +146,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportsTextForReportsTextName(String reportsTextName, String reportTile){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
         selectElementByTextDescByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", reportTile);
         longDelay();
     }
@@ -234,9 +217,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForReadmissionsReports(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[label[text()='Readmissions']]/following-sibling::div/a"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
         selectElementByTextDescByXpath("//div[label[text()='Readmissions']]/following-sibling::div/a", text);
     }
 
@@ -253,9 +235,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
     }
 
@@ -394,16 +375,14 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iAgainClickOnSNFLengthOfStay() throws Throwable {
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button")));
     }
     
     public void iAgainClickOnReadmissions() throws Throwable {
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button")));
     }
     
@@ -487,9 +466,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnHomeHealthZoom(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button")));
     }
     
@@ -560,8 +538,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void IVerifyURLAfterClickingAdjustedHistoricButton(){
-    	String ReportURL = driver.getCurrentUrl();
-    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
+    	Assert.assertEquals(getTheCurrentUrl(), "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
     }
     
     public void iSelectFilterInFilterOptions(String text){
@@ -590,9 +567,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnEndMonthDate(String enddate){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[text()='"+enddate+"']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
     }
     
@@ -652,9 +628,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']")));
     }
     
@@ -663,9 +638,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldVerifyInEpisodesTable(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	verifyTextForElement(driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']")),text);
     }
     
@@ -834,18 +808,11 @@ public class ReportHomePage extends BaseClass {
     	isElementVisible(driver.findElement(By.xpath("//table[@id='readmitionsClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
     }
     
-    public void iVerifyDOBColumnValueFormat(String text) throws ParseException{
+    public void iVerifyDOBColumnValueFormat(String format,String text) throws ParseException{
         String DOB=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='["+text+"].[DOB]']/div)[1]")));
-    	validateDateFormat(DOB);
+        validateDateFormat(format,DOB);
     }
-    
-    public void validateDateFormat(String dateToValdate) throws ParseException {
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	    formatter.setLenient(false);
-	    Date parsedDate = null;
-	    parsedDate = formatter.parse(dateToValdate);
-    }
-    
+        
     public void iEnterInTheSearchFieldForFilters(String dob){
     	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
     }    
@@ -1166,8 +1133,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyCheckboxIsCheckedForDrillThrough(String text,String type){
-    	if ( driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")).isSelected())
-    	{
+    	if ( driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")).isSelected()){
     		clickElement(driver.findElement(By.id("dlgBtnSave")));
     	}
     }
@@ -1236,15 +1202,8 @@ public class ReportHomePage extends BaseClass {
     	Assert.assertEquals(number, count);
     }
     
-    public void iVerifyAnchorDischargeMonthFormat() throws ParseException{
+    public void iVerifyAnchorDischargeMonthFormat(String format) throws ParseException{
     	String Anchormonth=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='[Anchor Post Acute Discharge Date].[Anchor Post Acute Discharge Month]']/div)[1]")));
-    	validateYearMonthFormat(Anchormonth);
-    }
-    
-    public void validateYearMonthFormat(String dateToValdate) throws ParseException {
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
-	    formatter.setLenient(false);
-	    Date parsedDate = null;
-	    parsedDate = formatter.parse(dateToValdate);
+    	validateDateFormat(format,Anchormonth);
     }
 }

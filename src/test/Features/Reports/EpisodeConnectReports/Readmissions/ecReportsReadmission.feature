@@ -208,150 +208,124 @@ Feature: Verification of Readmissions EC report
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-  #Scenario Outline: Verify patient risk filter doesnot show duplicates
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #When I click on field-panel-icon button
-    #When I click to "Patient Risk" field filter under "Patient" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Patient Risk" in the header text of filter page
-    #And I should see "Not Available" in the filter value list
-    #And I should see "High" in the filter value list
-    #And I should see "Low" in the filter value list
-#
-    #Examples: 
-      #| email                         |
-      #| shutestaug231132a@yopmail.com |
-#
-  #Scenario Outline: Verify risk score filter doesnot show duplicates
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #When I click on field-panel-icon button
-    #When I click to "Risk Score" field filter under "Patient" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Risk Score" in the header text of filter page
-    #And I should see "Not Available" in the filter value list
-    #And I should see "1" in the filter value list
-    #And I should see "2" in the filter value list
-#
-    #Examples: 
-      #| email                         |
-      #| shutestaug231132a@yopmail.com |
-#
-  #Scenario Outline: User should not see fracture/non-fracture filters in the availble fields in readmission report under readmission
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #When I click on field-panel-icon button
-    #And I wait until refresh button is disappeared
-    #Then I enter "Fracture/Non-Fracture" in the search field textbox for filters
-    #And I should not see "Fracture/Non-Fracture" in the searched results under the measures
-#
-    #Examples: 
-      #| email                              |
-      #| shutestaug231132a@yopmail.com      |
-      #| shutestaug221130a@yopmail.com      |
-      #| reptestachmodel2opsfin@yopmail.com |
-      #| shutestaug15240p@yopmail.com       |
-      #| shutestaug221145a@yopmail.com      |
-#
-  #Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in readmission report under readmission
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #When I click on field-panel-icon button
-    #And I wait until refresh button is disappeared
-    #Then I enter "Patient Risk" in the search field textbox for filters
-    #Then I verify "Patient Risk" is appearing in the level fields after searching
-    #And I click on clear search field element
-    #And I wait until refresh button is disappeared
-    #Then I enter "Onboarding Status" in the search field textbox for filters
-    #Then I verify "Onboarding Status" is appearing in the level fields after searching
-#
-    #Examples: 
-      #| email                              |
-      #| shutestaug231132a@yopmail.com      |
-      #| shutestaug221130a@yopmail.com      |
-      #| reptestachmodel2opsfin@yopmail.com |
-      #| shutestaug15240p@yopmail.com       |
-      #| shutestaug221145a@yopmail.com      |
+  Scenario Outline: Verify risk score filter doesnot show duplicates
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Risk Score" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Risk Score" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I should see "1" in the filter value list
+    And I should see "2" in the filter value list
 
-  #Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in readmissions under readmissions
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #Then I click on a number under episodes column
-    #Then I switch to new window
-    #And I wait for the elements to load in new window after clicking one of the episode
-    #Then I click on "Select Columns" appearing in the new window after clicking on drill through
-    #Then I switch to new window
-    #When I switch to reports embedded iframe
-    #Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    #And I click on "Anchor Facility Type" checkbox under "Anchor Facility" in the popup of select drill through columns
-    #And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
-    #And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
-    #And I click on ok button after selecting drill through column
-    #Then I switch to new window
-    #And I wait for the elements to load in new window after clicking one of the episode
-    #Then I should verify "Anchor Facility Type" is appearing under Episodes table
-    #Then I should verify "1st Post Acute Facility" is appearing under Episodes table
-    #Then I should verify "1st Post Acute CCN" is appearing under Episodes table
-#
-    #Examples: 
-      #| email                         |
-      #| shutestaug231132a@yopmail.com |
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in readmission report under readmission
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Fracture/Non-Fracture" in the search field textbox for filters
+    And I should not see "Fracture/Non-Fracture" in the searched results under the measures
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+
+  Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in readmission report under readmission
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Patient Risk" in the search field textbox for filters
+    Then I verify "Patient Risk" is appearing in the level fields after searching
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    Then I enter "Onboarding Status" in the search field textbox for filters
+    Then I verify "Onboarding Status" is appearing in the level fields after searching
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+
+  Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in readmissions under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
+    Then I switch to new window
+    When I switch to reports embedded iframe
+    Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
+    And I click on "Anchor Facility Type" checkbox under "Anchor Facility" in the popup of select drill through columns
+    And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
+    And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
+    And I click on ok button after selecting drill through column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Anchor Facility Type" is appearing under Episodes table
+    Then I should verify "1st Post Acute Facility" is appearing under Episodes table
+    Then I should verify "1st Post Acute CCN" is appearing under Episodes table
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
 
   Scenario Outline: User should be able to verify YYYY-MM-DD format for DOB field column for readmissions under readmissions
     Given I am on the login page
@@ -371,7 +345,7 @@ Feature: Verification of Readmissions EC report
     When I click to "DOB" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify the DOB column format is in YYYY-MM-DD for "Patient"
+    Then I verify the DOB column format is in yyyy-MM-dd for "Patient"
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
     And I wait to see "Patient ID" under reports tile text
@@ -381,130 +355,88 @@ Feature: Verification of Readmissions EC report
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-  #Scenario Outline: Verify onboarding status values in database for readmissions report under readmissions
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #When I click on field-panel-icon button
-    #When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Onboarding Status" in the header text of filter page
-    #And I should see "Needs Onboarding" in the filter value list
-    #And I should see "Not Onboarded" in the filter value list
-    #And I should see "Onboarded" in the filter value list
-    #And I should see "Unknown" in the filter value list
-    #Then User executes query
-      #"""
-      #select 
-      #distinct (Lo.lookupValue)
-      #from
-      #warehouse.factPatientEpisode PE
-      #INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
-      #INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
-      #INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
-      #INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
-      #LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
-      #INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
-      #INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
-      #INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
-      #INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
-      #where  PE.bundleRisk = 1 and
-      #PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus';
-      #"""
-    #Then User verifies the data from database for "lookupValue"
-      #| OnBoardingStatus1 | "<onboardingstatus1>" |
-      #| OnBoardingStatus2 | "<onboardingstatus2>" |
-      #| OnBoardingStatus3 | "<onboardingstatus3>" |
-      #| OnBoardingStatus4 | "<onboardingstatus4>" |
-#
-    #Examples: 
-      #| email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
-      #| rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
-#
-  #Scenario Outline: Verify patient risk values in database for readmissions report under readmissions
-    #Given I am on the login page
-    #When I enter email field <email> for login
-    #And I enter password field Testing1 for Login
-    #Then I click Access button
-    #And I wait to see "Reports" tile
-    #When I click on the "Reports" tile
-    #And I wait to see "Readmissions" under reports tile text
-    #When I click on the Reports Tile with text "Readmissions"
-    #Then I click on "Readmissions" report text for Readmissions Reports
-    #And I wait for the reports embedded iframe to load
-    #When I switch to reports embedded iframe
-    #And I will wait to see "Readmissions EC" is appearing inside the iframe
-    #And I wait until refresh button is disappeared
-    #When I click on field-panel-icon button
-    #When I click to "Patient Risk" field filter under "Patient" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Patient Risk" in the header text of filter page
-    #And I should see "Calculating Risk" in the filter value list
-    #And I should see "High" in the filter value list
-    #And I should see "Low" in the filter value list
-    #Then User executes query
-      #"""
-      #select 
-      #distinct (Lr.lookupValue)
-      #from
-      #warehouse.factPatientEpisode PE
-      #INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
-      #INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
-      #INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
-      #INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
-      #LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
-      #INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
-      #INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
-      #INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
-      #INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
-      #where  PE.bundleRisk = 1 and
-      #PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus';
-      #"""
-    #Then User verifies the data from database for "lookupValue"
-      #| PatientRisk1 | "<patientrisk1>" |
-      #| PatientRisk2 | "<patientrisk2>" |
-      #| PatientRisk3 | "<patientrisk3>" |
-#
-    #Examples: 
-      #| email                           | patientrisk1     | patientrisk2 | patientrisk3 |
-      #| rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
-#
-  #Scenario Outline: Verify the potential values in onboarding status are 0,1,2,3 in readmissions report under readmissions
-    #Then User executes query
-      #"""
-      #select distinct onboardingStatus FROM warehouse.dimPatient;
-      #"""
-    #Then User verifies the data from database for "onboardingStatus"
-      #| OnBoardingStatus1 | "<onboardingstatus1>" |
-      #| OnBoardingStatus2 | "<onboardingstatus2>" |
-      #| OnBoardingStatus3 | "<onboardingstatus3>" |
-#
-    #Examples: 
-      #| onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
-      #|                 0 |                 3 |                 2 |                 1 |
-#
-  #Scenario Outline: Verify the potential values in onboarding status contains null in readmissions report under readmissions
-    #Then User executes query
-      #"""
-      #SELECT  distinct onboardingStatus FROM ec.patient;
-      #"""
-    #Then User verifies the data from database for "onboardingStatus"
-      #| OnBoardingStatus1 | "<onboardingstatus1>" |
-      #| OnBoardingStatus2 | "<onboardingstatus2>" |
-      #| OnBoardingStatus3 | "<onboardingstatus3>" |
-      #| OnBoardingStatus4 | "<onboardingstatus4>" |
-      #| OnBoardingStatus5 | "<onboardingstatus5>" |
-#
-    #Examples: 
-      #| onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 | onboardingstatus5 |
-      #| null              |                 3 |                 2 |                 0 |                 1 |
+  Scenario Outline: Verify onboarding status values in database for readmissions report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Onboarding Status" in the header text of filter page
+    And I should see "Needs Onboarding" in the filter value list
+    And I should see "Not Onboarded" in the filter value list
+    And I should see "Onboarded" in the filter value list
+    And I should see "Unknown" in the filter value list
+
+    Examples: 
+      | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      | rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
+
+  Scenario Outline: Verify patient risk values in database for readmissions report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "Calculating Risk" in the filter value list
+    And I should see "High" in the filter value list
+    And I should see "Low" in the filter value list
+    
+    Examples: 
+      | email                           | patientrisk1     | patientrisk2 | patientrisk3 |
+      | rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
+     
+  Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through in readmission report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
+    Then I switch to new window
+    When I switch to reports embedded iframe
+    Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
+    And I click on "Onboarding Status" checkbox under "Onboarding Status" in the popup of select drill through columns
+    And I click on "Patient Risk" checkbox under "Patient" in the popup of select drill through columns
+    And I click on ok button after selecting drill through column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |

@@ -9,14 +9,14 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 	
 	ViewProfileManagingOrganization viewProfileMO = new ViewProfileManagingOrganization(driver);
 
-	@And("^I verify ([^\"]*) name on the header of view profile$")
+	@And("^I verify \"([^\"]*)\" name on the header of view profile$")
 	  public void i_Verify_Name_On_Header_On_View_Profile(String text) throws Throwable {
 		viewProfileMO.iVerifyNameOnHeaderOnViewProfile(text);
 	    }
 	
-	@And("^I verify Participant Id on view profile of Managing Organization$")
-	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization() throws Throwable {
-		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization();
+	@And("^I verify Participant Id on view profile of \"([^\"]*)\" Organization$")
+	  public void i_Verify_ParticipantId_On_View_Profile_Of_Organization(String org) throws Throwable {
+		viewProfileMO.iVerifyParticipantIdOnVewProfileOfOrganization(org);
 	    }
 	
 	@And("^I verify ([^\"]*) in \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
@@ -34,9 +34,9 @@ public class ViewProfileManagingOrganizationStepDef extends DriverScript {
 		viewProfileMO.iVerifyOrganizationByDefaultSelectedUnderManagingOrganization(org);
 		}
 	
-	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization in Managing Organization$")
-	  public void i_Verify_Header_Label_Under_Organization_In_ManagingOrganization(String header,String org) throws Throwable {
-		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganizationInManagingOrganization(header,org);
+	@And("^I verify \"([^\"]*)\" header label under \"([^\"]*)\" organization$")
+	  public void i_Verify_Header_Label_Under_Organization(String header,String org) throws Throwable {
+		viewProfileMO.iVerifyHeaderLabelUnderSelectedOrganization(header,org);
 		}
 	
 	@And("^I verify the count \"([^\"]*)\" for the associated organization$")

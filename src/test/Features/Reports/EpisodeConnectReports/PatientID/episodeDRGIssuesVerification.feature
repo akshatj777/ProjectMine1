@@ -122,9 +122,9 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users           |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Multiple Payer Users           |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
@@ -154,12 +154,12 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
 
     Examples: 
       | email                          |
-      #| Medicare Payer Users           |
+      #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
-      #| Multiple Payer Users           |
+      #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: User should not see fracture/non-fracture filters in the availble fields in episode drg issues report under patient id
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in episode drg issues report under patient id
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -239,29 +239,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I should see "Not Onboarded" in the filter value list
     And I should see "Onboarded" in the filter value list
     And I should see "Unknown" in the filter value list
-    Then User executes query
-      """
-      select 
-      distinct (Lo.lookupValue)
-      from
-      warehouse.factPatientEpisode PE
-      INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
-      INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
-      INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
-      INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
-      LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
-      INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
-      INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
-      INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
-      INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
-      where  PE.bundleRisk = 1 and
-      PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus';
-      """
-    Then User verifies the data from database for "lookupValue"
-      | OnBoardingStatus1 | "<onboardingstatus1>" |
-      | OnBoardingStatus2 | "<onboardingstatus2>" |
-      | OnBoardingStatus3 | "<onboardingstatus3>" |
-      | OnBoardingStatus4 | "<onboardingstatus4>" |
 
     Examples: 
       | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
@@ -288,59 +265,40 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I should see "Calculating Risk" in the filter value list
     And I should see "High" in the filter value list
     And I should see "Low" in the filter value list
-    Then User executes query
-      """
-      select 
-      distinct (Lr.lookupValue)
-      from
-      warehouse.factPatientEpisode PE
-      INNER JOIN warehouse.dimEpisodeInitiator E ON(E.episodeInitiatorSK=PE.episodeInitiatorKey)
-      INNER JOIN warehouse.dimFacility F ON(F.facilitySK=PE.anchorAdmitFacilityKey)
-      INNER JOIN warehouse.dimNSOCMapping N ON(N.NSOCMappingSK=PE.anchorDischCareSettingKey)
-      INNER JOIN warehouse.dimDate D ON(D.dateSK=PE.anchorAdmitDateKey)
-      LEFT JOIN warehouse.dimDate Dd ON(Dd.dateSK=PE.anchorDischargeDateKey)
-      INNER JOIN warehouse.dimPatient P ON(P.patientSk=PE.patientKey)
-      INNER JOIN warehouse.dimLookup Lr ON(Lr.lookupName=P.totalRiskScore)
-      INNER JOIN warehouse.dimLookup Lo ON(Lo.lookupName=P.onboardingStatus)
-      INNER JOIN warehouse.dimDRG Dr ON(Dr.drgSK=PE.currDrgKey)
-      where  PE.bundleRisk = 1 and
-      PE.episodeCountReport = 1 and Lr.lookupCategory = 'patientRisk' and Lo.lookupCategory = 'onboardingStatus';
-      """
-    Then User verifies the data from database for "lookupValue"
-      | PatientRisk1 | "<patientrisk1>" |
-      | PatientRisk2 | "<patientrisk2>" |
-      | PatientRisk3 | "<patientrisk3>" |
 
     Examples: 
       | email                           | patientrisk1     | patientrisk2 | patientrisk3 |
       | rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
 
-  Scenario Outline: Verify the potential values in onboarding status are 0,1,2,3 in episode drg issues report under patient id
-    Then User executes query
-      """
-      select distinct onboardingStatus FROM warehouse.dimPatient;
-      """
-    Then User verifies the data from database for "onboardingStatus"
-      | OnBoardingStatus1 | "<onboardingstatus1>" |
-      | OnBoardingStatus2 | "<onboardingstatus2>" |
-      | OnBoardingStatus3 | "<onboardingstatus3>" |
+  Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through in carl report under next site of care
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
+    Then I switch to new window
+    When I switch to reports embedded iframe
+    Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
+    And I click on "Onboarding Status" checkbox under "Onboarding Status" in the popup of select drill through columns
+    And I click on "Patient Risk" checkbox under "Patient" in the popup of select drill through columns
+    And I click on ok button after selecting drill through column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
 
     Examples: 
-      | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
-      |                 0 |                 3 |                 2 |                 1 |
-
-  Scenario Outline: Verify the potential values in onboarding status contains null in episode drg issues report under patient id
-    Then User executes query
-      """
-      SELECT  distinct onboardingStatus FROM ec.patient;
-      """
-    Then User verifies the data from database for "onboardingStatus"
-      | OnBoardingStatus1 | "<onboardingstatus1>" |
-      | OnBoardingStatus2 | "<onboardingstatus2>" |
-      | OnBoardingStatus3 | "<onboardingstatus3>" |
-      | OnBoardingStatus4 | "<onboardingstatus4>" |
-      | OnBoardingStatus5 | "<onboardingstatus5>" |
-
-    Examples: 
-      | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 | onboardingstatus5 |
-      | null              |                 3 |                 2 |                 0 |                 1 |
+      | email                         |
+      | shutestaug231132a@yopmail.com |
