@@ -49,13 +49,13 @@ public class EditManagingOrganization extends BaseClass {
 			}
 		else if(field2.contains("ACHNAME - YES")){
 			CreateACHOrganization.oldACH_WithMO = CreateACHOrganization.achOrg.get("ACHNAME");
-			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
+			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName("ACHNAME"));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
 		}
 		else if(field2.contains("ACHNAME - NO")){
 			CreateACHOrganization.oldACH_WithoutMO = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
-			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
+			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName("ACHNAME"));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
 		}

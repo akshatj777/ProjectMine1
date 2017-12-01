@@ -41,8 +41,14 @@ public class EditHospitalOrganization extends BaseClass{
 	
 	public void iEditLocationStateForLocationsofSelectedOrganization(String text, int num){
 		num = num-1;
-    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")), text);
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
+		iWillWaitToSee(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span"));
+		clickElement(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
+		if(!text.equals("")){
+		
+    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']")), text);
     	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+		}
 	}
 	
 	public void iEditLocationTypeForLocation(String text, int num) {
@@ -61,14 +67,14 @@ public class EditHospitalOrganization extends BaseClass{
 	}
 	
     public void iEditMarketForLocation(String text, int num) {
-	    num = num-1;
+    	num = num-1;
 	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
 	    delay();
 	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-	}
+    }
 	
 	public void iVerifyIdentifierIsNotEditable(String id){
-		Assert.assertEquals(true,driver.findElement(By.cssSelector(".text-input-field-"+id)).getAttribute("disabled"));
+		Assert.assertEquals("true",driver.findElement(By.cssSelector(".text-input-field-"+id)).getAttribute("disabled"));
 	}
 
 }
