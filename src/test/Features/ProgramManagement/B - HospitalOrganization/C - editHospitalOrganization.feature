@@ -50,7 +50,7 @@ Feature: Edit the Hospital organization
     And I verify "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I click on "Edit" button on particular organization
-    And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name> - <Has_MO>" for organization
+    And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name>" for organization
     And I edit "Address 1" field to "<Address1>" for organization
     And I edit "City" field to "<City>" for organization
     And I edit <State> field for organization
@@ -167,10 +167,10 @@ Feature: Edit the Hospital organization
     And I edit <State> field for organization
     And I edit "Postal Code" field to "<Org_Postal_Code>" for organization
     And I edit "Location Name" field to <Loc_Name> for Location "1" for organization
-    And I edit "Location Address1" field to <Loc_Address1> for Location "1" for organization
-    And I edit "Location City" field to <Loc_City> for Location "1" for organization
+    And I edit "address1" field to <Loc_Address1> for Location "1" for organization
+    And I edit "city" field to <Loc_City> for Location "1" for organization
     And I edit State dropdown field to <Loc_State> for Location "1" for organization
-    And I edit "Location Postal_code" field to <Loc_Postal_Code> for Location "1" for organization
+    And I edit "postalCode" field to <Loc_Postal_Code> for Location "1" for organization
     Then I click on "Submit" button on "Edit" organization page
     And I verify "Please enter an Organization Name" mandatory field validation message on edit organization page
     And I verify "Please enter an Address" mandatory field validation message on edit organization page
