@@ -19,7 +19,7 @@ Feature: Search the Hospital organizations functionality tests
       | Search Hospital Organization with CCN  - With MO                 | YES    | CCN         |
       | Search Hospital Organization with CCN  - Without MO              | NO     | CCN         |
       | Search Hospital Organization with Hospital Org Name - With MO    | YES    | ACHNAME     |
-      | Search Hospital Organization with Hospital Org Name - Without MO | No     | ACHNAME     |
+      | Search Hospital Organization with Hospital Org Name - Without MO | NO     | ACHNAME     |
       | Search Hospital Organization with City                           |        | City        |
       | Search Hospital Organization with State                          |        | CA          |
       | Search Hospital Organization with Postal Code                    |        |       10000 |
