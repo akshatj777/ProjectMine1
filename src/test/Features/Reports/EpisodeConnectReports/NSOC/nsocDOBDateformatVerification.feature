@@ -18,7 +18,7 @@ Feature: Verification of DOB Date format for EC Reports
     When I click to "DOB" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify the DOB column format is in YYYY-MM-DD for "Patient"
+    Then I verify the DOB column format is in yyyy-MM-dd for "Patient"
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
     And I wait to see "Next Site of Care" under reports tile text

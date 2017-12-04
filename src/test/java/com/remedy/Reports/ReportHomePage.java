@@ -1,23 +1,14 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-
-import cucumber.api.DataTable;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Created by salam on 5/6/16.
@@ -27,7 +18,6 @@ public class ReportHomePage extends BaseClass {
 	WebDriverWait wait = new WebDriverWait(driver, 60);
 
     public ReportHomePage(WebDriver driver){
-
         super(driver);
     }
 
@@ -42,13 +32,11 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTileWithText(String tile){
-        //  clickElement(driver.findElement(By.cssSelector(tile)));
         selectElementByDesc(".dropdown-tile-label.ng-binding", tile);
         delay();
     }
 
     public void iVerifyReportsTextForReportsTextName(String reportsTextName, String text){
-        //delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
@@ -58,12 +46,10 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyReportsPageHeaderText(String tile){
-        //longDelay();
         verifyTextForElement(driver.findElement(By.xpath("//h5[@class='ng-binding' and text()='Report']")), tile);
     }
 
     public void iSwitchToReportsPageFrameWithXpath(String frameXpath){
-        longDelay();
         swithToFrame(frameXpath);
         delay();
     }
@@ -74,12 +60,10 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickReportFieldPanelIconButton(){
-
         clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
     }
     
     public void iClickReportFieldLayoutIconButton(){
-
         clickElement(driver.findElement(By.xpath(".//div[@class='field-layout-icon']")));
     }
 
@@ -91,16 +75,13 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
     	delay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
-		//moveToTheElementAndRightClick(driver.findElement(By.xpath(moveToElementLocator)));
     }
 
     public void iChooseOptionsFromFilterWithXpath(String toLocator){
-        //longDelay();
         clickElement(driver.findElement(By.xpath(toLocator)));
     }
 
     public void iVerifyFilterModalHeaderText(String text){
-        //delay();
         verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), text);
     }
     
@@ -109,7 +90,7 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFilterValueListModalText(String text){
-        delay();
+    	iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
         verifyTextForElementfromList("#FT_valueList div", text);
     }
     
@@ -127,37 +108,30 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickAddSelectedArrowFromFilterModal() {
-
         clickElement(driver.findElement(By.id("FT_select_add")));
     }
     
     public void iClickSelectedFromFilterModal(String text) {
-
         clickElement(driver.findElement(By.xpath("//img[@title='"+text+"']")));
     }
 
     public void iClickOkButtonFromFilterModal() {
-
         clickElement(driver.findElement(By.id("dlgBtnSave")));
     }
     
     public void iClickButtonFromFilterModalToSelectField(String text) {
-
         clickElement(driver.findElement(By.xpath(".//table[@class='button-panel'] //button[text()='"+text+"']")));
     }
 
     public void iClickCancelButtonFromFilterModal() {
-
         clickElement(driver.findElement(By.id("dlgBtnCancel")));
     }
 
     public void iClickOnCloseReportsCrossLink() {
-        //delay();
         clickElement(driver.findElement(By.xpath("//a[@href='#/reports']")));
     }
     
     public void iClickOnReportsTabOnReportsPage() {
-        //delay();
         clickElement(driver.findElement(By.xpath("//div[@href='#/']")));
     }
 
@@ -166,11 +140,12 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iVerifyFollowingReportsTextsForReportsTile(String reportsTextName, String text){
-        //delay();
         verifyTextForElementFromListByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", text);
     }
 
     public void iClickOnReportsTextForReportsTextName(String reportsTextName, String reportTile){
+    	WebElement element = driver.findElement(By.xpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a"));
+    	scrollIntoViewByJS(element);
         selectElementByTextDescByXpath("//div[label[text()='"+reportsTextName+"']]/following-sibling::div/a", reportTile);
         longDelay();
     }
@@ -230,7 +205,6 @@ public class ReportHomePage extends BaseClass {
     	iFillInText(driver.findElement(By.cssSelector("input#FT_condOp1")), value);
     }
 
-    //TODO - make function as parameter
     public void iClickOnRangeFilterDropdownAndSelectedLessThanRangeInTheFilterModal(){
     	clickElement(driver.findElement(By.cssSelector("#FT_condOp")));
     	selectDropdownVisibleElement("#FT_condOp", "Less Than");
@@ -241,6 +215,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForReadmissionsReports(String text){
+    	WebElement element = driver.findElement(By.xpath("//div[label[text()='Readmissions']]/following-sibling::div/a"));
+    	scrollIntoViewByJS(element);
         selectElementByTextDescByXpath("//div[label[text()='Readmissions']]/following-sibling::div/a", text);
     }
 
@@ -257,6 +233,8 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iClickOnReportTextForPostAcuteCareReportsTile(String text){
+    	WebElement element = driver.findElement(By.xpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a"));
+    	scrollIntoViewByJS(element);
     	selectElementByTextDescByXpath("//div[label[text()='Post Acute Care']]/following-sibling::div/a", text);
     }
 
@@ -395,16 +373,14 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iAgainClickOnSNFLengthOfStay() throws Throwable {
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='SNFTitleButtonObj']/button")));
     }
     
     public void iAgainClickOnReadmissions() throws Throwable {
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button"));  
-    	js.executeScript("arguments[0].scrollIntoView(true);", element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='readmissionsTitleButtonObj']/button")));
     }
     
@@ -488,9 +464,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnHomeHealthZoom(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//*[@id='HHAChartButtonObj']/button")));
     }
     
@@ -507,7 +482,6 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnExportSymbol(String export){
-    	//iWillWaitToSee(By.xpath("//*[@id='"+export+"ExportObj']/div"));
      	clickElement(driver.findElement(By.xpath("//*[@id='"+export+"ExportObj']/div")));
     	longDelay();
     }
@@ -562,14 +536,12 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void IVerifyURLAfterClickingAdjustedHistoricButton(){
-    	String ReportURL = driver.getCurrentUrl();
-    	Assert.assertEquals(ReportURL, "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
+    	Assert.assertEquals(getTheCurrentUrl(), "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
     }
     
     public void iSelectFilterInFilterOptions(String text){
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
-    	//clickElement(driver.findElement(By.cssSelector(".filter-btn-apply.dirty")));
     }
     
     public void iClickOnDateRangeFilter(){
@@ -593,9 +565,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnEndMonthDate(String enddate){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath("//div[text()='"+enddate+"']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//div[text()='"+enddate+"']")));
     }
     
@@ -651,14 +622,13 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFirstNumberUnderEpisodesColumn(){
-    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
     }
     
     public void iClickOnEpisodeNumberUnderEpisodesColumnofSpendingClaimsReport(){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
-    	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
-    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,45)']")));
+    	WebElement element = driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']"));
+    	scrollIntoViewByJS(element);
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,164)']")));
     }
     
     public void iClickOnEpisodesColumnNumberForEpisodewithDRGIssues(){
@@ -666,9 +636,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldVerifyInEpisodesTable(String text){
-    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	WebElement element = driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']"));
-    	js.executeScript("arguments[0].scrollIntoView(true);",element);
+    	scrollIntoViewByJS(element);
     	verifyTextForElement(driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']")),text);
     }
     
@@ -837,18 +806,11 @@ public class ReportHomePage extends BaseClass {
     	isElementVisible(driver.findElement(By.xpath("//table[@id='readmitionsClaimsECTableObjTable']//tbody/tr/td/font[@color='"+color+"']")));
     }
     
-    public void iVerifyDOBColumnValueFormat(String text) throws ParseException{
+    public void iVerifyDOBColumnValueFormat(String format,String text) throws ParseException{
         String DOB=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='["+text+"].[DOB]']/div)[1]")));
-    	validateDateFormat(DOB);
+        validateDateFormat(format,DOB);
     }
-    
-    public void validateDateFormat(String dateToValdate) throws ParseException {
-    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	    formatter.setLenient(false);
-	    Date parsedDate = null;
-	    parsedDate = formatter.parse(dateToValdate);
-    }
-    
+        
     public void iEnterInTheSearchFieldForFilters(String dob){
     	iFillInText(driver.findElement(By.cssSelector("#searchField")), dob);
     }    
@@ -940,8 +902,8 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath("//td[text()='"+text+"']")),text);
     }
     
-    public void iClickOnCheckBoxInEpisodeDrillThroughPopUp(String text){
-    	clickElement(driver.findElement(By.xpath("//div[@formula='[Anchor Facility].["+text+"]']/input")));
+    public void iClickOnCheckBoxInEpisodeDrillThroughPopUp(String text,String type){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")));
     }
     
     public void iEnterValueInTextBoxUnderSelectDrillThroughColumns(String text){
@@ -1146,5 +1108,69 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyHeaderNameCenterAlligned(String text){
     	VerifyElementCssProperty(By.xpath("//th[text()='"+text+"']"),"text-align");
+    }
+    
+    public void iShouldNotSeeElementInTheFilterValueList(String text){
+    	verifyTextNotPresentForElementFromList("#FT_valueList div",text);
+    }
+    
+    public void iShouldSeeColumnAfterClickingAddToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//td[@title='"+text+"']")));
+    }
+    
+    public void iVerifyRowsNameUnderDRG(String text){
+    	verifyTextForElementFromListByXpath("//td[@class='inner'][@formula='[DRG].[DRG]']",text);
+    }
+    
+    public void iClickOnEpisodeNumberUnderEpisodesColumnofNextSiteOfCareSummaryReport(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,3)']")));
+    }
+    
+    public void iClickOnEpisodeNumberUnderEpisodesColumnofInitialSNFLengthOfStaySummaryReport(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,2)']")));
+    }
+    
+    public void iVerifyCheckboxIsCheckedForDrillThrough(String text,String type){
+    	if ( driver.findElement(By.xpath("//div[@formula='["+type+"].["+text+"]']/input")).isSelected()){
+    		clickElement(driver.findElement(By.id("dlgBtnSave")));
+    	}
+    }
+    
+    public void iSeeAnchorPostAcuteAdmissionYearFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Year]']/span")),text);
+    }
+    
+    public void iSeeIsAnchorAdmissionFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[isAnchorAdmission].[isAnchorAdmission]']/span")),text);
+    }
+    
+    public void iVerifyReportTextNotPresent(String text){
+        delay();
+        verifyTextNotPresentForElementFromList("a.ng-binding.ng-scope", text);
+    }
+    
+    public void iClickOnNumberOfEpisodesColumnUnderNsocModel3Report(){
+    	clickElement(driver.findElement(By.cssSelector("a[href*='javascript:drill(0,0)']")));
+    }
+    
+    public void iVerifyReportNameIsStillAppearingAfterWaitingForSomeTime(String text){
+    	isElementVisible(driver.findElement(By.xpath("//*[@id='RPT001ReportName'][text()='"+text+"']")));
+    }
+    
+    public void iVerifyColumnAfterClikingOnAddToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']")));
+    }
+    
+    public void iVerifyPayerFilterTextInPreselectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']/span")),text);
+    }
+    
+    public void iShouldNotSeePayerPreselectedTextInFilterList(String text){
+    	verifyTextNotPresentForElementFromList("#RPT001filters>div>div>span", text);
+    }
+    
+    public void iRemovePayerFieldFilterFromDefaultFilters(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']//i[@title='Remove filter']")));
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
     }
 }

@@ -158,3 +158,147 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
+
+  Scenario Outline: User should not see fracture/non-fracture filters in the available fields in episode drg issues report under patient id
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Fracture/Non-Fracture" in the search field textbox for filters
+    And I should not see "Fracture/Non-Fracture" in the searched results under the measures
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+
+  Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in episode drg issues report under patient id
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    Then I enter "Patient Risk" in the search field textbox for filters
+    Then I verify "Patient Risk" is appearing in the level fields after searching
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    Then I enter "Onboarding Status" in the search field textbox for filters
+    Then I verify "Onboarding Status" is appearing in the level fields after searching
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
+
+  Scenario Outline: Verify onboarding status values in database for episode drg issues report under paatient id
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Onboarding Status" in the header text of filter page
+    And I should see "Needs Onboarding" in the filter value list
+    And I should see "Not Onboarded" in the filter value list
+    And I should see "Onboarded" in the filter value list
+    And I should see "Unknown" in the filter value list
+
+    Examples: 
+      | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      | rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
+
+  Scenario Outline: Verify patient risk values in database for episode drg issues report under paatient id
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Patient Risk" in the header text of filter page
+    And I should see "Calculating Risk" in the filter value list
+    And I should see "High" in the filter value list
+    And I should see "Low" in the filter value list
+
+    Examples: 
+      | email                           | patientrisk1     | patientrisk2 | patientrisk3 |
+      | rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
+
+  Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through in carl report under next site of care
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
+    Then I switch to new window
+    When I switch to reports embedded iframe
+    Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
+    And I click on "Onboarding Status" checkbox under "Onboarding Status" in the popup of select drill through columns
+    And I click on "Patient Risk" checkbox under "Patient" in the popup of select drill through columns
+    And I click on ok button after selecting drill through column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Onboarding Status" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
