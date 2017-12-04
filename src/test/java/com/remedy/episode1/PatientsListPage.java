@@ -34,8 +34,8 @@ public class PatientsListPage extends BaseClass {
     }
 
     public void iClickOnAddPatientButtonPresentOnTheEcPatientsPage(int text){
-        clickElement(driver.findElement(By.cssSelector("a#patient-add-button")));
-
+    	iWillWaitToSee(By.cssSelector("a#patient-add-button"));
+    	clickElement(driver.findElement(By.cssSelector("a#patient-add-button")));
     }
 
     public void iClickOnPinToDashboardInToPinTheFilterToDashboard(String text){

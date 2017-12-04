@@ -176,8 +176,9 @@ public class SummarySectionSteps extends DriverScript {
 	
 	@Then("^I fill in \"([^\"]*)\" with logic \"([^\"]*)\" with \"([^\"]*)\" days$")
 	public void I_fill_date_in_with_logic_with_n_days(String logic,String operator,int days) throws Throwable{
-	    patientclinical.Ifilldateinwithlogicwithndays(logic,days);
+	    patientclinical.Ifilldateinwithlogicwithndays1(logic,days);
 	}
+	
 	
 	@Then("^I will wait to see \"([^\"]*)\" followed by \"([^\"]*)\" tag$")
 	public void Iwillwaittoseetext(String text,String tag) throws Throwable {

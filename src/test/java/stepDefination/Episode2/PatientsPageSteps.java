@@ -770,6 +770,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_the_next_button_present_on_the_Add_Patient_page() throws Throwable {
         patientsPage.iClickOnTheNextButtonPresentOnTheAddPatientPage();
     }
+    
+    @Then("^I click on the next button present on the Primary Care Physician Information page$")
+    public void i_click_on_the_next_button_present_on_the_Primary_Care_Physician_Information_page() throws Throwable {
+        patientsPage.iClickOnTheNextButtonPresentOnTheAddPatientPage();
+    }
 
     @When("^I click on Calender button present on the Add Patient page$")
     public void i_click_on_Calender_button_present_on_the_Add_Patient_page() throws Throwable {

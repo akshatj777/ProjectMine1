@@ -703,6 +703,24 @@ public class PatientClinicalDocuments extends BaseClass {
 		list_AllDateToBook.get(Integer.parseInt(date_dd_MM_yyyy[0]) - 1).click();
 				} 
 	}
+	
+	public void Ifilldateinwithlogicwithndays1(String logic,int days) throws InterruptedException{
+		String date=currentdate(days,"MM/dd/yyyy");
+		String date1=date+" "+"15:40";
+		String date2=date+" "+"00:00";
+		String date3=date+" "+"11:55";
+		if(logic.equals("Admit")){
+		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date1);
+		}else if(logic.equals("Discharge")){
+	    setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date1);
+		}else if(logic.equals("Discharge at midnight")){
+		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date2);
+		}else if(logic.equals("Discharge before midinight")){
+		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")),"value",date3);
+		}
+	}
+	
+
 	    public static String getcurrentdate(int days) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate localDate = LocalDate.now();

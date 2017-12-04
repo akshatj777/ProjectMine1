@@ -74,6 +74,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iEnteruserEmail(String userName) {
+		iWillWaitToSee(By.name("email"));
 		iFillInText(driver.findElement(By.name("email")), userName);
 	}
 

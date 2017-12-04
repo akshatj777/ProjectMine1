@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.resources.DriverScript;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class DischargeCarlFormSteps extends DriverScript {
 	DischargeCarlForm dischargecarlform = new DischargeCarlForm(driver);
@@ -329,6 +332,21 @@ public class DischargeCarlFormSteps extends DriverScript {
     	dischargecarlform.IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage();
     }
     
+    @When ("^I enter \"([^\"]*)\" in the filter$")
+	public void i_Enter_SSN_Value(String text){
+    	dischargecarlform.iEnterSSNValue();
+	}
+    
+    @And("^I am on \"([^\"]*)\" filtered by SSN$")
+    public void url_Filtered_by_SSN(String URL){
+    	dischargecarlform.urlFilteredbySSN(URL);
+    }
+    
+    @And ("^I will wait to see patient's name on patient summary page$")
+    public void i_Will_Wait_To_See_name()
+    {
+    	dischargecarlform.iWillWaitToSeename();
+    }
     @Then ("^I create a post request$")
     public void I_create_a_post_request() throws Throwable {
     	dischargecarlform.makePostJsonRequest();

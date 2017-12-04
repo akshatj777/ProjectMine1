@@ -955,9 +955,10 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
-        longDelay();
-		iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
-		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+		 delay();
+	     iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
+		 clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+		 longDelay();
 	}
 
 	public void iShouldSeeFacilityAppearingUnderTransitionsPage() {

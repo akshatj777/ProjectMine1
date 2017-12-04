@@ -442,8 +442,7 @@ public class DischargeCarlForm extends BaseClass {
 
 	public void iEnterDetailsInTextboxFieldPresentOnAddPatientModal(String detailFileds) {
 	String start; 
-	if(detailFileds.equals("firstName"))
-    {
+	if(detailFileds.equals("firstName")){
 	start="Patient";
     String end=generateRandomString();
     firstname=start+end;
@@ -521,4 +520,22 @@ public class DischargeCarlForm extends BaseClass {
     longDelay();
 	WebDriverWait wait=new WebDriverWait(driver,5);
 	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.content-well > footer > div.top-row > div:nth-child(2) > button")));
+	}
+
+	public void iEnterSSNValue() {
+		iFillInText(driver.findElement(By.xpath("//*[@id='form_ssn_ssn']")),final_ssn);
+	}
+
+	public void urlFilteredbySSN(String URL) {
+		driver.get(URL+"#/filterId=custom&ssn="+final_ssn+"&");
+	}
+
+	public void iWillWaitToSeename() {
+		String first_name=capitalise(DischargeCarlForm.firstname);
+		String last_name=capitalise(DischargeCarlForm.lastname);
+		String new_name=first_name+" "+last_name;
+		verifyTextForElement(driver.findElement(By.cssSelector("span.ec2-embed-patient-name")),new_name);
+	}
+	public static String capitalise(final String name) {
+	    return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
 	}}

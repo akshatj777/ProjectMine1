@@ -43,6 +43,7 @@ public class CommonSteps extends DriverScript {
         driver.navigate().to(Config.getProperty("BaseUrl"));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        baseClass.iWillWaitToSee(By.name("email"));
     }
 
     @Then("^I go to mail verification page$")
