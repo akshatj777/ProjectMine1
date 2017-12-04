@@ -3,6 +3,8 @@ package com.remedy.programManagement;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import com.remedy.baseClass.BaseClass;
 
 public class EditHospitalOrganization extends BaseClass{
@@ -55,7 +57,9 @@ public class EditHospitalOrganization extends BaseClass{
 		driver.findElement(By.xpath("//div[input[@name='locations["+num+"].locationTypeSelector']]//span[@class='Select-clear']")).click();
 		driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	delay();
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text); 
+        WebElement element = driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']"));
+        scrollIntoViewByJS(element);
+        element.click();
 	}
 	
 	public void iEditRegionForLocation(String text, int num) {
