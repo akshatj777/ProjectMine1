@@ -204,7 +204,7 @@ Feature: Verification of physician report under dashboard
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     Then I verify current page "Reports" title
-    And I should not see Reports Tile text as <Menu 1>
+    And I should not see Reports Tile text as "<Menu 1>"
 
     Examples: 
       | email                         | Menu 1     |

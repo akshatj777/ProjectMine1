@@ -83,7 +83,7 @@ public class SearchOrganization extends BaseClass{
 		  }
 		  else
 		  {
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value.replace("-", "").trim());
 			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
 		  }
@@ -141,19 +141,16 @@ public class SearchOrganization extends BaseClass{
 	
 	public void iSearchWithSearchListFieldOnLocationInOrganizationProfilePage(String searchParam, String org) throws ClassNotFoundException, SQLException{ 
 		String value = searchParam;
-		if(value.equals("ACHNAME - YES")){
+		if(org.equals("ACHNAME - YES")){
 		iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-		isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-	}
-		else if(value.equals("ACHNAME - NO")){
+		isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]"));
+		}
+		else if(org.equals("ACHNAME - NO")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
+			isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"'])"));
 		}
-		else
-		{
-			
-		}
+	
 	}
 }
