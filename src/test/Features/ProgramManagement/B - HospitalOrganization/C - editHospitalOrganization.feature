@@ -161,7 +161,7 @@ Feature: Edit the Hospital organization
     And I verify "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I click on "Edit" button on particular organization
-    And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name> - <Has_MO>" for organization
+    And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name>" for organization
     And I edit "Address 1" field to "<Org_Address1>" for organization
     And I edit "City" field to "<City>" for organization
     And I edit <State> field for organization
