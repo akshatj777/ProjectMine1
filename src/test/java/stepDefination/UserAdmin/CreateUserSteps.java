@@ -1,15 +1,11 @@
 package stepDefination.UserAdmin;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
-
-import com.remedy.resources.Constants;
+import com.remedy.resources.DriverScript;
 import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.userAdmin.LoginPage;
 import com.remedy.userAdmin.UserAdminHomePage;
-import com.remedy.resources.DriverScript;
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -303,9 +299,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(role);
 	}
 
-	@And("^I click on Physican connect tile under specific user login page ([^\"]*)$")
-	public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String text) throws Throwable {
-		createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(text);
+	@And("^I click on Physican connect tile for \"([^\"]*)\" user$")
+	public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(role);
 	}
 
 	@And("^I click on Internal Support option from dropdown under specific user login page ([^\"]*)$")

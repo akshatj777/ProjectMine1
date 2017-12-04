@@ -115,9 +115,9 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iClickOnSendEmailButton();
 	}
 	
-    @Then("^I enter newuser email for login to Remedy$") 
-		public void i_Enter_NewUser_EMail_For_Login_To_Remedy() throws Throwable {
-			mailcreateuser.iEnterNewUserEmailForLoginToRemedy();
+    @Then("^I enter newuser email for \"([^\"]*)\" login to Remedy$") 
+		public void i_Enter_NewUser_EMail_For_Login_To_Remedy(String email) throws Throwable {
+			mailcreateuser.iEnterNewUserEmailForLoginToRemedy(email);
 	}   
 	
     @Then("^I enter newuser password for login to Remedy$") 

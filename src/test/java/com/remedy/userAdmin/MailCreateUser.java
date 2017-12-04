@@ -1,8 +1,6 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
-import java.awt.RenderingHints.Key;
-import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,14 +9,9 @@ import java.util.Date;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.resources.DriverScript;
 
 public class MailCreateUser extends BaseClass{
 	
@@ -149,9 +142,10 @@ public class MailCreateUser extends BaseClass{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 	
-	public void iEnterNewUserEmailForLoginToRemedy() {
+	public void iEnterNewUserEmailForLoginToRemedy(String role) {
+		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
-		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), email);
+		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
