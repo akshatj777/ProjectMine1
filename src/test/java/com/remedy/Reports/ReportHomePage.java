@@ -74,8 +74,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iMoveToElementAndPerformRightClick(String filterField, String filterTitle){
+    	WebElement element = driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']"));
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
-    	delay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
     }
 
@@ -1205,5 +1206,12 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyAnchorDischargeMonthFormat(String format) throws ParseException{
     	String Anchormonth=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='[Anchor Post Acute Discharge Date].[Anchor Post Acute Discharge Month]']/div)[1]")));
     	validateDateFormat(format,Anchormonth);
+    }
+    
+    public void iClickOnFieldUnderAvailableFieldsInReports(String text,String filter){
+    	WebElement element = driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']")));
+    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']/div")));
     }
 }

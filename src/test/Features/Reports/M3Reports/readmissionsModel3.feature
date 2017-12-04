@@ -268,6 +268,7 @@ Feature: Readmission Model3 report verification
     And I should see "<onboardingstatus1>" in the filter value list
     And I should see "<onboardingstatus2>" in the filter value list
     And I should see "<onboardingstatus3>" in the filter value list
+    And I should see "<onboardingstatus4>" in the filter value list
     And I click on "<onboardingstatus1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
@@ -275,20 +276,20 @@ Feature: Readmission Model3 report verification
     And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
 
     Examples: 
-      | email                                 | role     | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Unknown           |                   |                   |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Unknown           |                   |                   |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Unknown           |                   |                   |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Unknown           |                   |                   |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Unknown           |                   |                   |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
+      | email                                 | role     | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      | M3RPFINOnboardingStatus@yopmail.com   | RPFIN    | SNF         | Needs Onboarding  | Onboarded         | Unknown           | Not Onboarded     |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Unknown           |                   |                   |                   |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Unknown           |                   |                   |                   |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Unknown           |                   |                   |                   |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Unknown           |                   |                   |                   |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Unknown           |                   |                   |                   |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |                   |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |                   |
 
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate participant field value for readmissions Model3 report
     Given I am on the login page
@@ -770,3 +771,84 @@ Feature: Readmission Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+      
+  Scenario Outline: <role> role user with <facility> facility should see all columns as per the requirement should be there in drill through under readmissions model3 report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I should verify "Participant" is appearing under Episodes table
+    Then I should verify "BPID" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Provider" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Provider CCN" is appearing under Episodes table
+    Then I should verify "Medicare ID" is appearing under Episodes table
+    Then I should verify "Patient" is appearing under Episodes table
+    Then I should verify "DOB" is appearing under Episodes table
+    Then I should verify "DOD" is appearing under Episodes table
+    Then I should verify "Eligibility" is appearing under Episodes table
+    Then I should verify "Episode Status" is appearing under Episodes table
+    Then I should verify "Bundle" is appearing under Episodes table
+    Then I should verify "Bundle DRG Code" is appearing under Episodes table
+    Then I should verify "Bundle DRG Status" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes table
+    Then I should verify "Readmission CCN 1" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 1" is appearing under Episodes table
+    Then I should verify "Readmission DRG 1" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 1" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 1" is appearing under Episodes table
+    Then I should verify "Readmission CCN 2" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 2" is appearing under Episodes table
+    Then I should verify "Readmission DRG 2" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 2" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 2" is appearing under Episodes table
+    Then I should verify "Readmission CCN 3" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 3" is appearing under Episodes table
+    Then I should verify "Readmission DRG 3" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 3" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 3" is appearing under Episodes table
+    Then I should verify "Readmission CCN 4" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 4" is appearing under Episodes table
+    Then I should verify "Readmission DRG 4" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 4" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 4" is appearing under Episodes table
+    Then I should verify "Readmission CCN 5" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 5" is appearing under Episodes table
+    Then I should verify "Readmission DRG 5" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 5" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 5" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes table
+    Then I should verify "Readmit - 7 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 15 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 30 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 60 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 90 Days" is appearing under Episodes table
+    Then I should verify "Total Readmits" is appearing under Episodes table
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+

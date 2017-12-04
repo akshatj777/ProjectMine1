@@ -49,7 +49,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
+
   Scenario Outline: <role> role user with <facility> facility should have the default filters appearing under episode drg issues model3 report
     Given I am on the login page
     When I enter email field <email> for login
@@ -82,7 +82,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
+
   Scenario Outline: <role> role user with <facility> facility should see default measures and dimensions as per the requirement under episode drg issues model3 report
     Given I am on the login page
     When I enter email field <email> for login
@@ -122,7 +122,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
+
   Scenario Outline: Verify that the Model field in Episode DRG Issues [Model 3] report is draggable and should not see model2 and filter the values for model3 for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -189,7 +189,7 @@ Feature: Episode DRG Issues Model3 report verification
       | shutestauf171115a@yopmail.com | PGP     | Model3 |
       | shutestaug231132a@yopmail.com | ACH     | Model2 |
       | shutestaug15252p@yopmail.com  | PGP     | Model2 |
-      
+
   Scenario Outline: Validate that the changes made to the Global Filters are reflected and applied to the Episode DRG Issues [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -246,7 +246,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of New York Home Care | Visiting Nurse Service of New York Home Care | Vns Of Ny Home Care Chha (manhattan) |         789001 | 3056-003 | 337008 | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                                 | Amberwood Manor                              | Amberwood Manor                      |         442527 | 3056-y63 | 366253 | Medicare |
-      
+
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate participant field value for episode drg issues Model3 report
     Given I am on the login page
     When I enter email field <email> for login
@@ -288,7 +288,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Saber Health                           |                                        |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of NY Home Care |                                        |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                           | Visiting Nurse Service of NY Home Care |
-      
+
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value for episode drg issues Model3 report
     Given I am on the login page
     When I enter email field <email> for login
@@ -343,7 +343,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |          |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |
-      
+
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate anchor post acute provider ccn field value for Episode DRG Issues Model3 report
     Given I am on the login page
     When I enter email field <email> for login
@@ -398,7 +398,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |                      345557 |                      366253 |                      495401 |                      495411 |                             |                             |                             |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |                      337008 |                             |                             |                             |                             |                             |                             |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |                      337008 |                      345557 |                      366253 |                      495401 |                      495411 |                             |                             |
-      
+
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate episode initiator field value for Episode DRG Issues Model3 report in frontend and database
     Given I am on the login page
     When I enter email field <email> for login
@@ -439,7 +439,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Amberwood Manor,Azalea Health,Liberty Ridge Health,Tyler's Retreat At Iron Bridge                                                        | Amberwood Manor                              |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service Of New York Home Care                                                                                             | Visiting Nurse Service Of New York Home Care |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Visiting Nurse Service Of New York Home Care,Amberwood Manor,Azalea Health,Liberty Ridge Health,Tyler's Retreat At Iron Bridge           | Amberwood Manor                              |
-      
+
   Scenario Outline: Validate bundle list values field for Episode DRG Issues [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -508,7 +508,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Back & neck except spinal fusion | COPD, bronchitis, asthma         | Cellulitis               | Cervical spinal fusion | Congestive heart failure | Diabetes   | Double joint replacement, lower extremities | Fractures of the femur and hip or pelvis | Gastrointestinal hemorrhage                 | Hip & femur procedures except major joint | Lower Major joint replacement | Lower extrem, humerus except hip, foot, femur | Medical non-infectious orthopedic         | Nutritional and metabolic disorders | Other knee procedures                         | Other respiratory     | Revision of the hip or knee       | Sepsis                              | Simple pneumonia and respiratory infections | Spinal fusion (non-cervical) | Stroke                      | Syncope & collapse | Transient ischemia                          | Upper Major joint replacement | Urinary tract infection |                    |                    |                               |                         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Congestive heart failure         |                                  |                          |                        |                          |            |                                             |                                          |                                             |                                           |                               |                                               |                                           |                                     |                                               |                       |                                   |                                     |                                             |                              |                             |                    |                                             |                               |                         |                    |                    |                               |                         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Back & neck except spinal fusion | COPD, bronchitis, asthma         | Cellulitis               | Cervical spinal fusion | Congestive heart failure | Diabetes   | Double joint replacement, lower extremities | Fractures of the femur and hip or pelvis | Gastrointestinal hemorrhage                 | Hip & femur procedures except major joint | Lower Major joint replacement | Lower extrem, humerus except hip, foot, femur | Medical non-infectious orthopedic         | Nutritional and metabolic disorders | Other knee procedures                         | Other respiratory     | Revision of the hip or knee       | Sepsis                              | Simple pneumonia and respiratory infections | Spinal fusion (non-cervical) | Stroke                      | Syncope & collapse | Transient ischemia                          | Upper Major joint replacement | Urinary tract infection |                    |                    |                               |                         |
-      
+
   Scenario Outline: Validate Payer is draggable and apply filter in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -557,7 +557,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Medicare |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Medicare |
-      
+
   Scenario Outline: Validate the On-boarding status field values on the Episode DRG Issues [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -579,6 +579,7 @@ Feature: Episode DRG Issues Model3 report verification
     And I should see "<onboardingstatus1>" in the filter value list
     And I should see "<onboardingstatus2>" in the filter value list
     And I should see "<onboardingstatus3>" in the filter value list
+    And I should see "<onboardingstatus4>" in the filter value list
     And I click on "<onboardingstatus1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
@@ -586,21 +587,21 @@ Feature: Episode DRG Issues Model3 report verification
     And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
 
     Examples: 
-      | email                                 | role     | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Unknown           |                   |                   |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Unknown           |                   |                   |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Unknown           |                   |                   |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Unknown           |                   |                   |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Unknown           |                   |                   |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
-      
+      | email                                 | role     | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
+      | M3RPFINOnboardingStatus@yopmail.com   | RPFIN    | SNF         | Needs Onboarding  | Onboarded         | Unknown           | Not Onboarded     |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | Unknown           |                   |                   |                   |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | Unknown           |                   |                   |                   |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | Unknown           |                   |                   |                   |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | Unknown           |                   |                   |                   |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | Unknown           |                   |                   |                   |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Unknown           |                   |                   |                   |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |                   |
+
   Scenario Outline: Validate the Patient Risk field values on the Episode DRG Issues M3 report and filters for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -675,7 +676,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
+
   Scenario Outline: Validate DOB field for Episode DRG Issues [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -713,7 +714,7 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-      
+
   Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Episode DRG Issues Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
@@ -723,10 +724,10 @@ Feature: Episode DRG Issues Model3 report verification
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "InPatient Episode Clearing [Model 3]" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -770,3 +771,63 @@ Feature: Episode DRG Issues Model3 report verification
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 2016-01                  | 2016-02                  | 2016-03                  |                          |                          |                          |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 2017-05                  | 2017-06                  | 2017-07                  | 2017-08                  | 2017-09                  | 2017-10                  |
+
+  Scenario Outline: <role> role user with <facility> facility should see all columns as per the requirement should be there in drill through under episode drg issues model3 report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues [Model 3]" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    Then I click on a number under episodes column
+    Then I should verify "Participant" is appearing under Episodes table
+    Then I should verify "BPID" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Provider" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Provider CCN" is appearing under Episodes table
+    Then I should verify "Medicare ID" is appearing under Episodes table
+    Then I should verify "Patient" is appearing under Episodes table
+    Then I should verify "DOB" is appearing under Episodes table
+    Then I should verify "Eligibility" is appearing under Episodes table
+    Then I should verify "Episode Status" is appearing under Episodes table
+    Then I should verify "Bundle" is appearing under Episodes table
+    Then I should verify "Bundle DRG Code" is appearing under Episodes table
+    Then I should verify "Bundle DRG Status" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes table
+    Then I should verify "Issue" is appearing under Episodes table
+    Then I should verify "First Working DRG" is appearing under Episodes table
+    Then I should verify "First Working Bundle" is appearing under Episodes table
+    Then I should verify "First Predicted DRG" is appearing under Episodes table
+    Then I should verify "First Predicted Bundle" is appearing under Episodes table
+    Then I should verify "First Final DRG" is appearing under Episodes table
+    Then I should verify "First Final Bundle" is appearing under Episodes table
+    Then I should verify "Final DRG Status" is appearing under Episodes table
+    Then I should verify "Working DRG Status" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes table
+    Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes table
+    Then I should verify "Days to First Final DRG" is appearing under Episodes table
+    Then I should verify "Days to First Predicted DRG" is appearing under Episodes table
+    Then I should verify "Days to First Working DRG" is appearing under Episodes table
+
+    Examples: 
+      | email                                 | role     | facility    |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |

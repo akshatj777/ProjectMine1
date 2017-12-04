@@ -82,7 +82,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see default measures,columns and dimensions as per the requirement
+  Scenario Outline: <role> role user with <facility> facility should see default measures,columns and dimensions as per the requirement under nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -121,7 +121,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: <role> role user with <facility> facility should see only 3 value under model filter in nsoc model3 report
+  Scenario Outline: <role> role user with <facility> facility verify drag and drop for model filter and should see only Model 3 value under model filter in nsoc model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -136,7 +136,14 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop through add to report
+    When I click to "Model" field filter under "Model" filter field
+    And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
+    And I should see "Model" is added in layout section after clicking on add to report
+    Then I verify "Model" field is appearing in the report table after clicking on add to report
+    #Filter verification
     When I click to "Model" field filter under "Model" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Model" in the header text of filter page
@@ -247,6 +254,8 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Filter field verificaation
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Participant" in the header text of filter page
@@ -274,7 +283,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | Visiting Nurse Service of NY Home Care |                                        |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | Saber Health                           | Visiting Nurse Service of NY Home Care |
 
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value for NSOC Model3 report
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate bpid field value with drag and drop and filter verification for NSOC Model3 report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -289,6 +298,14 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop through add to report
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "BPID" is added in layout section after clicking on add to report
+    Then I verify "BPID" field is appearing in the report table after clicking on add to report
+    #Filtering part verification
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "BPID" in the header text of filter page
@@ -321,7 +338,7 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 3056-003 |          |          |          |          |          |          |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 3056-003 | 3056-y63 | 3056-y67 | 3056-y95 | 3056-z13 |          |          |
 
-  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate ccn field value for NSOC Model3 report in frontend and database
+  Scenario Outline: User with <role> role and having <facillity> facility should be able to validate dashboard-anchor ccn field value with drag and drop and filter verification for NSOC Model3 report in frontend and database
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -336,31 +353,39 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
+    When I click on field-layout-icon button
+    #Drag and Drop through add to report
+    When I click to "Dashboard - Anchor CCN" field filter which is listed under "Dashboard" filter field under available fields
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Dashboard - Anchor CCN" is added in layout section after clicking on add to report
+    Then I verify "Dashboard - Anchor CCN" field is appearing in the report table after clicking on add to report
+    #Filtering field verification
+    When I click to "Dashboard - Anchor CCN" field filter which is listed under "Dashboard" filter field under available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Dashboard - Anchor CCN" in the header text of filter page
-    And I should see "<CCN>" in the value list after selecting filter
-    And I click on "<CCN1>" in the filter value list
+    And I should see "<Dashboard Anchor ccn>" in the value list after selecting filter
+    And I click on "<Dashboard Anchor CCN1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "<CCN1>" result in "CCN" field column for "Anchor Facility" filter field
+    And I should see "<Dashboard Anchor CCN1>" result in "CCN" field column for "Anchor Facility" filter field
 
     Examples: 
-      | email                                 | role     | facility    | CCN                                              | CCN1   |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 366253,495401,345557,495411,495407,366403,366395 | 366253 |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |                                           337008 | 337008 |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |                      345557,366253,495401,495411 | 366253 |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |                                           337008 | 337008 |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |                      345557,366253,495401,495411 | 366253 |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |                                           337008 | 337008 |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |                      345557,366253,495401,495411 | 366253 |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |                                           337008 | 337008 |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |                      345557,366253,495401,495411 | 366253 |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |                                           337008 | 337008 |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |                      345557,366253,495401,495411 | 366253 |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |                                           337008 | 337008 |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |               337008,345557,366253,495401,495411 | 366253 |
+      | email                                 | role     | facility    | Dashboard Anchor ccn                             | Dashboard Anchor CCN1 |
+      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 366253,495401,345557,495411,495407,366403,366395 |                366253 |
+      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |                                           337008 |                337008 |
+      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |                      345557,366253,495401,495411 |                366253 |
+      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |                                           337008 |                337008 |
+      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |                      345557,366253,495401,495411 |                366253 |
+      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |                                           337008 |                337008 |
+      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |                      345557,366253,495401,495411 |                366253 |
+      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |                                           337008 |                337008 |
+      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |                      345557,366253,495401,495411 |                366253 |
+      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |                                           337008 |                337008 |
+      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |                      345557,366253,495401,495411 |                366253 |
+      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |                                           337008 |                337008 |
+      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |               337008,345557,366253,495401,495411 |                366253 |
 
   Scenario Outline: User with <role> role and having <facillity> facility should be able to validate episode initiator field value for NSOC Model3 report in frontend and database
     Given I am on the login page
@@ -492,7 +517,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    
+
     Examples: 
       | email                                 | role     | facility    | BundleCode |
       | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | CELLULITIS |
@@ -508,61 +533,6 @@ Feature: M3 EC Next site of care summary report verification.
       | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | CELLULITIS |
       | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | CHF        |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | CELLULITIS |
-
-  Scenario Outline: Validate CCN is draggable in NSOC [Model 3] report for user with <role> role for <facility> facility
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Next Site of Care" under reports tile text
-    When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #Drag and Drop
-    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I should see "Dashboard - Anchor CCN" is added in layout section after clicking on add to report
-    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
-    #Filtering
-    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Dashboard - Anchor CCN" in the header text of filter page
-    And I should see "<ccn1>" in the filter value list
-    And I should see "<ccn2>" in the filter value list
-    And I should see "<ccn3>" in the filter value list
-    And I should see "<ccn4>" in the filter value list
-    And I should see "<ccn5>" in the filter value list
-    And I should see "<ccn6>" in the filter value list
-    And I should see "<ccn7>" in the filter value list
-    And I click on "<ccn1>" in the filter value list
-    And I click on add selected in the filter model
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
-
-    Examples: 
-      | email                                 | role     | facility    | ccn1   | ccn2   | ccn3   | ccn4   | ccn5   | ccn6   | ccn7   |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         | 366253 | 495401 | 345557 | 495411 | 495407 | 366403 | 366395 |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         | 337008 |        |        |        |        |        |        |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         | 337008 |        |        |        |        |        |        |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         | 337008 |        |        |        |        |        |        |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         | 337008 |        |        |        |        |        |        |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         | 337008 |        |        |        |        |        |        |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         | 345557 | 366253 | 495401 | 495411 |        |        |        |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         | 337008 |        |        |        |        |        |        |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA | 337008 | 345557 | 366253 | 495401 | 495411 |        |        |
 
   Scenario Outline: :Validate BPID is draggable in NSOC [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
@@ -807,44 +777,6 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I verify the episodes count matches with dill through
-
-    Examples: 
-      | email                                 | role     | facility    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
-      | RPNOFINM3SNFSaberHealth@yopmail.com   | RPNOFIN  | SNF         |
-      | RPNOFINM3HHAVisitingQA@yopmail.com    | RPNOFIN  | HHA         |
-      | OPSNOFINM3SNFSabHe@yopmail.com        | OPSNOFIN | SNF         |
-      | OPSNOFINM3HHAVisitingQA@yopmail.com   | OPSNOFIN | HHA         |
-      | OPSSPENDM3SNFSaberHealth@yopmail.com  | OPSSPEND | SNF         |
-      | OPSPENDM3HHAVisitingQA@yopmail.com    | OPSPEND  | HHA         |
-      | ECREPORTSM3SNFSaberHealth@yopmail.com | ECREPORT | SNF         |
-      | ECREPORTSM3HHAVisitingQA@yopmail.com  | ECREPORT | HHA         |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
-
-  Scenario Outline: Verify that the Model field in NSOC [Model 3] report is draggable for user with <role> role for <facility> facility
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Next Site of Care" under reports tile text
-    When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary [Model 3]" report text for NSoC Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    When I click to "Model" field filter under "Model" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I should see "Model" is added in layout section after clicking on add to report
-    Then I verify "Model" field is appearing in the report table after clicking on add to report
 
     Examples: 
       | email                                 | role     | facility    |
