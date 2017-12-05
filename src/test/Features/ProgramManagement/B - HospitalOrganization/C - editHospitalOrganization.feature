@@ -131,7 +131,7 @@ Feature: Edit the Hospital organization
     And I edit "address2" field to <Loc_Address1> for Location "1" for organization
     And I edit Region dropdown field to <Loc_Region> for Location "1" for organization
     And I edit "city" field to <Loc_City> for Location "1" for organization
-    And I edit Market dropdown field to <Loc_Market> for Location "1" for organization
+    And I edit Market dropdown field to <Loc_Market> for Region "<Loc_Region>" for Location "1" for organization
     And I edit State dropdown field to <Loc_State> for Location "1" for organization
     And I edit "postalCode" field to <Loc_Postal_Code> for Location "1" for organization
     Then I click on "Submit" button on "Edit" organization page
@@ -200,7 +200,7 @@ Feature: Edit the Hospital organization
     And I edit "address2" field to <Loc_Address2> for Location "1" for organization
     And I edit Region dropdown field to <Loc_Region> for Location "1" for organization
     And I edit "city" field to <Loc_City> for Location "1" for organization
-    And I edit Market dropdown field to <Loc_Market> for Location "1" for organization
+    And I edit Market dropdown field to <Loc_Market> for Region "<Loc_Region>" for Location "1" for organization
     And I edit State dropdown field to <Loc_State> for Location "1" for organization
     And I edit "postalCode" field to <Loc_Postal_Code> for Location "1" for organization
     Then I click on "+" button on "Edit Hospital" organization page
@@ -211,7 +211,7 @@ Feature: Edit the Hospital organization
     And I enter address2 <Loc_Address2> for Location "2" on "Edit" organization page
     And I select region <Loc_Region> for Location "2" on "Edit" organization page
     And I enter city <Loc_City> for Location "2" on "Edit" organization page
-    And I select market <Loc_Market> for Location "2" on "Edit" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "Edit" organization page
     And I select state <Loc_State> for Location "2" on "Edit" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "Edit" organization page
     Then I click on "Submit" button on "Edit" organization page
