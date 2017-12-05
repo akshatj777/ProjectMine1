@@ -94,7 +94,9 @@ public class ReportHomePage extends BaseClass {
 
     public void iVerifyFilterValueListModalText(String text){
     	iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+    	if (!text.isEmpty()){
         verifyTextForElementfromList("#FT_valueList div", text);
+    	}
     }
     
     public void iSeeFilterValueListText(String text){

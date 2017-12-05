@@ -1534,7 +1534,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyAnchorDischargeMonthFormat(format);
     }
     
-    @When("^I click to \"([^\"]*)\" field filter which is listed under \"([^\"]*)\" filter field under available fields$")
+    @When("^I click on \"([^\"]*)\" field which is listed under \"([^\"]*)\" filter from available fields$")
     public void i_click_to_value_in_the_available_fields(String text,String filter) throws Throwable{
     	reportHomePage.iClickOnFieldUnderAvailableFieldsInReports(text,filter);
     }

@@ -125,13 +125,13 @@ Feature: Readmission Model3 report verification
     And I wait until refresh button is disappeared
     When I click on field-layout-icon button
     #Drag and Drop Verify
-    When I click to "Model" field filter which is listed under "Model" filter field under available fields
+    When I click on "Model" field which is listed under "Model" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Model" is added in layout section after clicking on add to report
     Then I verify "Model" field is appearing in the report table after clicking on add to report
     #Fitering Part for Model filter to see only model3 and not model2
-    When I click to "Model" field filter which is listed under "Model" filter field under available fields
+    When I click on "Model" field which is listed under "Model" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Model" in the header text of filter page
     And I should see "3" in the filter value list
@@ -230,7 +230,7 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Onboarding Status" field filter which is listed under "Patient Details" filter field under available fields
+    When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
     And I should see "<onboardingstatus1>" in the filter value list
@@ -266,7 +266,7 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Participant" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Participant" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Participant" in the header text of filter page
     And I should see "<participant1>" in the filter value list
@@ -302,13 +302,13 @@ Feature: Readmission Model3 report verification
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop(Add to Report)
-    When I click to "BPID" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "BPID" field which is listed under "Episode Initiator" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "BPID" is added in layout section after clicking on add to report
     Then I verify "BPID" field is appearing in the report table after clicking on add to report
     #Filtering
-    When I click to "BPID" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "BPID" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
@@ -349,13 +349,13 @@ Feature: Readmission Model3 report verification
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop(Add to Report)
-    When I click to "Anchor Post Acute Provider CCN" field filter which is listed under "Anchor Post Acute Provider" filter field under available fields
+    When I click on "Anchor Post Acute Provider CCN" field which is listed under "Anchor Post Acute Provider" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Anchor Post Acute Provider CCN" is added in layout section after clicking on add to report
     Then I verify "Anchor Post Acute Provider CCN" field is appearing in the report table after clicking on add to report
     #Filtering
-    When I click to "Anchor Post Acute Provider CCN" field filter which is listed under "Anchor Post Acute Provider" filter field under available fields
+    When I click on "Anchor Post Acute Provider CCN" field which is listed under "Anchor Post Acute Provider" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Provider CCN" in the header text of filter page
     And I should see "<anchorpostacuteproviderccn1>" in the filter value list
@@ -394,7 +394,7 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Episode Initiator" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Episode Initiator" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiators>" in the value list after selecting filter
@@ -427,7 +427,7 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Bundle" field filter which is listed under "Bundle" filter field under available fields
+    When I click on "Bundle" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Bundle" in the header text of filter page
     And I should see "<bundle1>" in the filter value list
@@ -491,12 +491,12 @@ Feature: Readmission Model3 report verification
     When I click on field-layout-icon button
     When I click on show all filters icon button
     Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
-    When I click to "Anchor Post Acute Discharge Month" field filter which is listed under "Anchor Post Acute Discharge Date" filter field under available fields
+    When I click on "Anchor Post Acute Discharge Month" field which is listed under "Anchor Post Acute Discharge Date" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Anchor Post Acute Discharge Month" is added in layout section after clicking on add to report
     Then I verify "Anchor Post Acute Discharge Month" field is appearing in the report table after clicking on add to report
-    When I click to "Anchor Post Acute Discharge Month" field filter which is listed under "Anchor Post Acute Discharge Date" filter field under available fields
+    When I click on "Anchor Post Acute Discharge Month" field which is listed under "Anchor Post Acute Discharge Date" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Month" in the header text of filter page
     When I click on select from list option on the filter page
@@ -538,13 +538,13 @@ Feature: Readmission Model3 report verification
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop(Add to report)
-    When I click to "Payer" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Payer" field which is listed under "Episode Initiator" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Payer" is added in layout section after clicking on add to report
     Then I verify "Payer" field is appearing in the report table after clicking on add to report
     #Filtering
-    When I click to "Payer" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Payer" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
@@ -578,7 +578,7 @@ Feature: Readmission Model3 report verification
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    When I click to "DOB" field filter which is listed under "Patient Details" filter field under available fields
+    When I click on "DOB" field which is listed under "Patient Details" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "DOB" is added in layout section after clicking on add to report
@@ -608,7 +608,7 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Patient Risk" field filter which is listed under "Patient Details" filter field under available fields
+    When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
     And I should see "<patientrisk1>" in the filter value list

@@ -122,13 +122,13 @@ Feature: M3 EC Next site of care summary report verification.
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop through add to report
-    When I click to "Model" field filter which is listed under "Model" filter field under available fields
+    When I click on "Model" field which is listed under "Model" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Model" is added in layout section after clicking on add to report
     Then I verify "Model" field is appearing in the report table after clicking on add to report
     #Filter verification
-    When I click to "Model" field filter which is listed under "Model" filter field under available fields
+    When I click on "Model" field which is listed under "Model" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Model" in the header text of filter page
     And I should see "3" in the filter value list
@@ -224,7 +224,7 @@ Feature: M3 EC Next site of care summary report verification.
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Filter field verificaation
-    When I click to "Participant" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Participant" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Participant" in the header text of filter page
     And I should see "<participant1>" in the filter value list
@@ -260,13 +260,13 @@ Feature: M3 EC Next site of care summary report verification.
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop through add to report
-    When I click to "BPID" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "BPID" field which is listed under "Episode Initiator" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "BPID" is added in layout section after clicking on add to report
     Then I verify "BPID" field is appearing in the report table after clicking on add to report
     #Filtering part verification
-    When I click to "BPID" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "BPID" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
@@ -307,13 +307,13 @@ Feature: M3 EC Next site of care summary report verification.
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop through add to report
-    When I click to "Dashboard - Anchor CCN" field filter which is listed under "Dashboard" filter field under available fields
+    When I click on "Dashboard - Anchor CCN" field which is listed under "Dashboard" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Dashboard - Anchor CCN" is added in layout section after clicking on add to report
     Then I verify "Dashboard - Anchor CCN" field is appearing in the report table after clicking on add to report
     #Filtering field verification
-    When I click to "Dashboard - Anchor CCN" field filter which is listed under "Dashboard" filter field under available fields
+    When I click on "Dashboard - Anchor CCN" field which is listed under "Dashboard" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Dashboard - Anchor CCN" in the header text of filter page
     And I should see "<Dashboard Anchor ccn>" in the value list after selecting filter
@@ -346,7 +346,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Episode Initiato" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Episode Initiator" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiators>" in the value list after selecting filter
@@ -430,13 +430,13 @@ Feature: M3 EC Next site of care summary report verification.
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop
-    When I click to "Bundle Code" field filter which is listed under "Bundle" filter field under available fields
+    When I click on "Bundle Code" field which is listed under "Bundle" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Bundle Code" is added in layout section after clicking on add to report
     Then I verify "Bundle Code" column is added to report after selecing add to report option
     #Filtering
-    When I click to "Bundle Code" field filter which is listed under "Bundle" filter field under available fields
+    When I click on "Bundle Code" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Bundle Code" in the header text of filter page
     And I should see "<BundleCode>" in the filter value list
@@ -471,13 +471,13 @@ Feature: M3 EC Next site of care summary report verification.
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Drag and Drop
-    When I click to "Payer" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Payer" field which is listed under "Episode Initiator" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Payer" is added in layout section after clicking on add to report
     Then I verify "Payer" field is appearing in the report table after clicking on add to report
     #Filtering
-    When I click to "Payer" field filter which is listed under "Episode Initiator" filter field under available fields
+    When I click on "Payer" field which is listed under "Episode Initiator" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
@@ -511,7 +511,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    When I click to "DOB" field filter which is listed under "Patient Details" filter field under available fields
+    When I click on "DOB" field which is listed under "Patient Details" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "DOB" is added in layout section after clicking on add to report
@@ -540,7 +540,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Onboarding Status" field filter which is listed under "Patient Details" filter field under available fields
+    When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
     And I should see "<onboardingstatus1>" in the filter value list
@@ -576,7 +576,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Patient Risk" field filter which is listed under "Patient Details" filter field under available fields
+    When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
     And I should see "<patientrisk1>" in the filter value list
@@ -635,7 +635,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
-    When I click to "Bundle" field filter which is listed under "Bundle" filter field under available fields
+    When I click on "Bundle" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Bundle" in the header text of filter page
     And I should see "<bundle1>" in the filter value list
