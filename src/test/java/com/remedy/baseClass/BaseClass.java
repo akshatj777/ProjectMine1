@@ -507,5 +507,10 @@ public class BaseClass {
 		js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", 
                 element, attName, attValue);
     }
+	
+	public void clickAction(WebElement element){
+		Actions action=new Actions(driver);
+		action.moveToElement(element).click().build().perform();;
+   }
 }
 

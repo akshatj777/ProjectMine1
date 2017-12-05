@@ -31,6 +31,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 public class DischargeCarlForm extends BaseClass {
 
@@ -42,7 +43,7 @@ public class DischargeCarlForm extends BaseClass {
 	private static String firstname  = null;
 	private static String lastname  = null;
 	private static String final_ssn  = null;
-	
+	String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
 	
 	
 	public DischargeCarlForm(WebDriver driver) {
@@ -507,6 +508,7 @@ public class DischargeCarlForm extends BaseClass {
 	String ssn_start="7842";
 	int ssn_end=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
 	final_ssn=ssn_start+Integer.toString(ssn_end);
+	System.out.println("$$$Final ssn is"+final_ssn);
 	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
 	}
 
@@ -527,10 +529,16 @@ public class DischargeCarlForm extends BaseClass {
 	}
 
 	public void urlFilteredbySSN(String URL) {
-		driver.get(URL+"#/filterId=custom&ssn="+final_ssn+"&");
+		String new_Url=URL.replaceAll("%%SSN",final_ssn);
+		driver.get(BaseURL+new_Url);
+		System.out.println("$$$URL is"+BaseURL+new_Url);
+		delay();
+		driver.navigate().refresh();
 	}
 
 	public void iWillWaitToSeename() {
+		longDelay();
+		iWillWaitToSee(By.cssSelector("span.ec2-embed-patient-name"));
 		String first_name=capitalise(DischargeCarlForm.firstname);
 		String last_name=capitalise(DischargeCarlForm.lastname);
 		String new_name=first_name+" "+last_name;

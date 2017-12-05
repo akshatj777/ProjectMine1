@@ -239,6 +239,8 @@ public class ReadmissionWorklist extends BaseClass {
 			}
 
 	public void Iselectdropdownvalueonaddanewtransition(String admissiontype,String variable, String value,String css) {
+		delay();
+		iWillWaitToSee(By.cssSelector(css));
 		selectDropdownVisibleElement(css,value);
 	  }
 

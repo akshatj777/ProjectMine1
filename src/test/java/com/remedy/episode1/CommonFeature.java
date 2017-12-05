@@ -5,15 +5,18 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 import com.remedy.userAdmin.LandingPage;
 
 public class CommonFeature extends BaseClass {
 	 LandingPage landingPage = new LandingPage(driver);
-	 BaseClass baseClass = new BaseClass(driver);
 	 DischargeCarlForm dischargecarl=new DischargeCarlForm(driver);
+	 String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
 	 
 	public CommonFeature(WebDriver driver) {
 		super(driver);
@@ -62,8 +65,8 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void i_Wait_To_See(String text,String tag) {
-		iWillWaitToSee(By.xpath("//"+tag+"(contains(text(),'"+text+"')"));
-		isElementVisible(driver.findElement(By.xpath("//"+tag+"(contains(text(),'"+text+"')")));
+		iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
+		isElementVisible(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
 	}
 
 	public void iPress(String text) {
@@ -72,16 +75,17 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void iAmOn(String uRL) {
-		driver.get(uRL);
-	}
+		driver.navigate().to(BaseURL+uRL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
 	
    public void iSearchFilter(String filter) {
 		iFillInText(driver.findElement(By.xpath("//input[contains(@placeholder,'Find column')]")),filter);
 	}
 
-  public void inavigatetothepatientssummarypage() {
-	 String href=driver.findElement(By.xpath("//a[@symfony-routing='_patient_overview_tab']")).getAttribute("href");
-	 driver.navigate().to("https://qa.remedypartners.com"+href);
+  public void inavigatetothepatientssummarypage(String URL) {
+	  URL=driver.findElement(By.xpath("//a[contains(@onclick,'Expand Icon')]")).getAttribute("href");
+	  driver.navigate().to(URL);
 	}
 
 public void patientshouldhaveopenedepisode() {
@@ -90,14 +94,29 @@ public void patientshouldhaveopenedepisode() {
 }
 
 public void iclickOnEpisodeMarker() {
-	iWillWaitToSee(By.cssSelector("#select2-drop-mask"));
-	clickElement(driver.findElement(By.cssSelector("#select2-drop-mask")));
+	iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']"));
+	clickElement(driver.findElement(By.xpath("//*[@id='s2id_episodeSelectionBox']")));
 	
 }
 
 public void iWillWaitToSeeState(String state) {
 	iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']/a/span"));
-	isElementVisible(driver.findElement(By.xpath("//*[@id='s2id_episodeSelectionBox']/a/span[contains(text(),'"+state+"')]")));
+	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+state+"')]")));
+}
+
+public void iExpandtothepatientsummarypage() {
+	iWillWaitToSee(By.xpath("//a[contains(@onclick,'Expand Icon')]"));
+	clickElement(driver.findElement(By.xpath("//a[contains(@onclick,'Expand Icon')]")));
+}
+
+public void Ireloadthepage() {
+	driver.navigate().refresh();
+	delay();
+}
+
+public void iWillNotSee(String text, String element) {
+	WebDriverWait wait=waitTo();
+	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(element)));
 }
 
 }

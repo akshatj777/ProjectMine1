@@ -88,9 +88,9 @@ public class CommonFeatureSteps extends DriverScript {
 	   common.iSearchFilter(Filter);
    }
    
-   @And ("^I navigate to the filtered patient's summary page$")
-   public void i_navigate_to_the_patients_summary_page(){
-	   common.inavigatetothepatientssummarypage(); 
+   @And ("^I navigate to the filtered patient summary page \"([^\"]*)\"$")
+   public void i_navigate_to_the_patients_summary_page(String Url){
+	   common.inavigatetothepatientssummarypage(Url); 
    }
    
    @Then ("^Patient should have opened episode$")
@@ -106,6 +106,21 @@ public class CommonFeatureSteps extends DriverScript {
    @Then ("^I will wait to see \"([^\"]*)\" state$")
    public void i_Will_Wait_To_See_State(String state){
 	   common.iWillWaitToSeeState(state);
+   }
+   
+   @Then ("^I Expand to the patient summary page$")
+   public void i_Expand_to_the_patient_summary_page(){
+	   common.iExpandtothepatientsummarypage();
+   }
+   
+   @When ("^I reload the page$")
+   public void I_reload_the_page(){
+	   common.Ireloadthepage();
+   }
+   
+   @Then ("^I will not see \"([^\"]*)\" xpath element \"([^\"]*)\"$")
+   public void i_Will_Not_See(String text,String element){
+	   common.iWillNotSee(text,element);   
    }
 }
 

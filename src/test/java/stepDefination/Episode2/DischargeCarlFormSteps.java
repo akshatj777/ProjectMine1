@@ -12,6 +12,7 @@ import cucumber.api.java.en.When;
 public class DischargeCarlFormSteps extends DriverScript {
 	DischargeCarlForm dischargecarlform = new DischargeCarlForm(driver);
 	
+	
 	@Then("^I verify \"([^\"]*)\" appears on Discharge section of carl form$")
 	public void I_Verify_Subtitle_Field_Appears_under_on_Discharge_section(String text) throws Throwable {
 	    dischargecarlform.IVerifySubtitleUnderDischargeSectionOnDishargeTabOfTheCarlForm(text);
@@ -337,7 +338,7 @@ public class DischargeCarlFormSteps extends DriverScript {
     	dischargecarlform.iEnterSSNValue();
 	}
     
-    @And("^I am on \"([^\"]*)\" filtered by SSN$")
+    @And("^I am on cutom tab page \"([^\"]*)\" filtered by SSN$")
     public void url_Filtered_by_SSN(String URL){
     	dischargecarlform.urlFilteredbySSN(URL);
     }
