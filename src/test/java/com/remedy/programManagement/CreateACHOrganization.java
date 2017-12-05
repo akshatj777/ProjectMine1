@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class CreateACHOrganization extends BaseClass{
@@ -134,11 +135,13 @@ public class CreateACHOrganization extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.city']")), text);
     }
     
-    public void iEnterMarketForLocationOnACHOrg(String text, int num) {
-    	if(!text.isEmpty()){
-    		num = num-1;
-    	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-    	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    public void iEnterMarketForLocationOnACHOrg(String market, String region, int num) {
+    	if(!region.isEmpty()){
+    		if(!market.isEmpty()){
+        		num = num-1;
+        	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(market);
+        	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+market+"']")));
+        	}	
     	}
     }
     

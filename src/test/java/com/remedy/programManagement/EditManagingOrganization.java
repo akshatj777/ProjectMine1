@@ -47,17 +47,23 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
 			}
-		else if(field2.contains("ACHNAME - YES")){
-			CreateACHOrganization.oldACH_WithMO = CreateACHOrganization.achOrg.get("ACHNAME");
-			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName("ACHNAME"));
+		else if(field2.equalsIgnoreCase("ACHNAME - YES")){
+			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
 		}
-		else if(field2.contains("ACHNAME - NO")){
-			CreateACHOrganization.oldACH_WithoutMO = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
-			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName("ACHNAME"));
+		else if(field2.equalsIgnoreCase("ACHNAME - NO")){
+			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_ACH - YES")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_ACH - NO")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
 		}
 		else {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
