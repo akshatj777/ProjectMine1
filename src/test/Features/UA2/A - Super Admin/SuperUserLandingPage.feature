@@ -1,6 +1,6 @@
 Feature: Landing page verification
 
-  Scenario Outline: Verify availability of components on Landing page
+  Scenario: Verify availability of components on Landing page
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -16,11 +16,7 @@ Feature: Landing page verification
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
-    Examples: 
-      | Email                                  |
-      | lbarinstein+qaadmin@remedypartners.com |
-
-  Scenario Outline: 
+  Scenario Outline: logging in as super user and create user
     Given I am on the login page
     When I enter email field <UserName> for login
     And I enter password field <Password> for Login
