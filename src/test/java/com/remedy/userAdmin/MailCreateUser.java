@@ -1,30 +1,25 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
-import java.awt.RenderingHints.Key;
-import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.remedy.baseClass.BaseClass;
-import com.remedy.resources.DriverScript;
 
 public class MailCreateUser extends BaseClass{
 	
 	static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	static Date timestamp = new Date();
-	static String time = df.format(timestamp);
+	static Date timestamp = null;
+	static String time = null;
 	static String mail = "test.automatemail";
-	final static String email = mail+"+"+time+"@gmail.com";
+	static String email = null;
 
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
@@ -86,6 +81,7 @@ public class MailCreateUser extends BaseClass{
 	public void iEnterEmailToCreateUser(String emailName) {
 		if(emailName.equalsIgnoreCase("test.automatemail"))
 			{
+			email = emailName+"+"+RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
 				driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
 			}
 		else
@@ -146,17 +142,20 @@ public class MailCreateUser extends BaseClass{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 	
-	public void iEnterNewUserEmailForLoginToRemedy() {
+	public void iEnterNewUserEmailForLoginToRemedy(String role) {
+		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
-		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), email);
+		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
 		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing@1234");
 	}
 	
-	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {
-		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.SHIFT,"n");
-	    driver.findElement(By.cssSelector("body")).sendKeys(selectLinkOpeninNewTab);
+	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
+	    driver.get("chrome://settings/clearBrowserData");
+	    Thread.sleep(10000);
+	    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
+	    Thread.sleep(10000);
 	}
 }
