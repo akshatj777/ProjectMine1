@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class CreateACHOrganization extends BaseClass{
@@ -37,25 +38,25 @@ public class CreateACHOrganization extends BaseClass{
 	
 	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) throws InterruptedException {
 		if (id.contains("ACH")){
-			if(id.contains("CCN")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
 				tempAchOrg.put("CCN", createRandomNumber(10));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
 			}
-			else if(id.contains("EIN")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
 				tempAchOrg.put("EIN", createRandomNumber(10));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
 			}
-			else if(id.contains("NPI")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
 				tempAchOrg.put("NPI", createRandomNumber(10));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
 			}
-			else if(id.contains("DUPLICATE_CCN")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_CCN")){
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("CCN"));
 			}
-			else if(id.contains("DUPLICATE_EIN")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("EIN"));
 			}
-			else if(id.contains("DUPLICATE_NPI")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
 					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("NPI"));
 			}
 			else if(id.contains("lessThan6")){
@@ -67,23 +68,23 @@ public class CreateACHOrganization extends BaseClass{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
 			}
 			else {
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
 				delay();
 			}
 		}
 		if (id.contains("PGP")){
-			if(id.contains("EIN")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
 				CreatePGPOrganization.tempPGPOrg.put("EIN", createRandomNumber(10));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("EIN"));
 			}
-			else if(id.contains("NPI")){
-				tempAchOrg.put("NPI", createRandomNumber(10));
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
+				CreatePGPOrganization.tempPGPOrg.put("NPI", createRandomNumber(10));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("NPI"));
 			}
-			else if(id.contains("DUPLICATE_EIN")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("EIN"));
 			}
-			else if(id.contains("DUPLICATE_NPI")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("NPI"));
 			}
 			else if(id.contains("greaterThan10")){
@@ -91,7 +92,7 @@ public class CreateACHOrganization extends BaseClass{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
 			}
 			else {
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
 				delay();
 			}
 		}
@@ -134,11 +135,13 @@ public class CreateACHOrganization extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.city']")), text);
     }
     
-    public void iEnterMarketForLocationOnACHOrg(String text, int num) {
-    	if(!text.isEmpty()){
-    		num = num-1;
-    	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-    	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    public void iEnterMarketForLocationOnACHOrg(String market, String region, int num) {
+    	if(!region.isEmpty()){
+    		if(!market.isEmpty()){
+        		num = num-1;
+        	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(market);
+        	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+market+"']")));
+        	}	
     	}
     }
     

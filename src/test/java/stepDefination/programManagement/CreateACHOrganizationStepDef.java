@@ -51,9 +51,9 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 		 createACH.iEnterCityForLocationOnACHOrg(text,num);
 	    }
 	 
-	 @And("^I select market ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
-	  public void i_Enter_Market_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
-		 createACH.iEnterMarketForLocationOnACHOrg(text,num);
+	 @And("^I select market ([^\"]*) for region \"([^\"]*)\" for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Market_For_Locations_On_OrganizationPage(String market, String region, int num, String field) throws Throwable {
+		 createACH.iEnterMarketForLocationOnACHOrg(market,region,num);
 	    }
 	 
 	 @And("^I select state ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")

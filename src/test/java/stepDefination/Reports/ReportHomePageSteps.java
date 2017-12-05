@@ -2,13 +2,9 @@ package stepDefination.Reports;
 
 import com.remedy.Reports.ReportHomePage;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
-import org.openqa.selenium.By;
-
 import java.util.List;
 
 /**
@@ -23,7 +19,7 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iVerifyReportsTextforTiles(text);
     }
     
-    @And("^I should not see Reports Tile text as ([^\"]*)$")
+    @And("^I should not see Reports Tile text as \"([^\"]*)\"$")
     public void iShouldNotSeeReportsTileTextAs(String element) throws Throwable {
         reportHomePage.iVerifyReportsTextNotPresent(element);
     }
@@ -76,14 +72,8 @@ public class ReportHomePageSteps extends DriverScript {
     @And("I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field$")
     public void iClickToFieldFilterUnderFilterField(String filterField, String filterTitle) throws Throwable {
     	reportHomePage.iMoveToElementAndPerformRightClick(filterField, filterTitle);
-    	//reportHomePage.iMoveToElementAndPerformRightClick(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']");
     }
-    
-    /*@And("^I click on \"([^\"]*)\" field filter under Episode Initiator filter field$")
-    public void iClickOnParticipantFilterUnderEpisodeInitiatorFilterField(String text) throws Throwable {
-        reportHomePage.iMoveToElementAndPerformRightClick(".//div[@id='fieldlist'] //div[text()='"+text+"']");
-    }*/
-    
+      
     @And("^I choose \"([^\"]*)\" option from select options of filter field$")
     public void iChooseOptionFromSelectOptionsFilterField(String optionText) throws Throwable {
         reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdField"+optionText+"_text']");
@@ -162,7 +152,6 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see following Reports text for Overall Program reports$")
     public void i_should_see_following_Reports_text_for_Overall_Program_reports(List<String> reportLinks) throws Throwable {
          for (int i=0; i<reportLinks.size(); i++) {
-            //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Overall Program", reportLinks.get(i));
         }
     }
@@ -175,7 +164,6 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see following Reports text for Dashboards reports$")
     public void i_should_see_following_Reports_text_for_Dashboards_reports(List<String> reportLinks) throws Throwable {
         for (int i=0; i<reportLinks.size(); i++) {
-            //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Dashboards", reportLinks.get(i));
         }
     }
@@ -183,7 +171,6 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I should see following Reports text for Patient ID reports$")
     public void i_should_see_following_Reports_text_for_Patient_ID_reports(List<String> reportLinks) throws Throwable {
         for (int i=0; i<reportLinks.size(); i++) {
-            //System.out.println(reportLinks.get(i));
             reportHomePage.iVerifyFollowingReportsTextsForReportsTile("Patient ID", reportLinks.get(i));
         }
     }
@@ -306,7 +293,6 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iChooseOptionsFromFilterOperationsDashboardReport(filterType,filterOptions);
     }
 
-    //TODO
     @Then("^I enter \"([^\"]*)\" as the value on the textbox in the filter modal$")
     public void i_enter_as_the_value_on_the_tetbox_in_the_filter_modal(String value) throws Throwable {
     	reportHomePage.iEnterAsTheValueOnTheTextboxInTheFilterModal(value);
@@ -322,7 +308,6 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnForTheInTheFilterValueList(month, year);
     }
 
-    
     @Then("^I click on \"([^\"]*)\" report text for Readmissions Reports$")
     public void i_click_on_report_text_for_Readmissions_Reports(String text) throws Throwable {
     	reportHomePage.iClickOnReportTextForReadmissionsReports(text);
@@ -867,12 +852,7 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_select_the_radio_button_of_select_from_list() throws Throwable{
     	reportHomePage.iSelectRadioButtonOfSelectFromList();
     }
-
-    @Then("^I should delete the \"([^\"]*)\" preselected filter$")
-    public void i_should_delete_the_preselected_filter(String text) throws Throwable{
-
-    } 
-    
+   
     @When("^I click on \"([^\"]*)\" under anchor admission month filter$")
     public void i_click_on_under_anchor_admission_month_filter(String month) throws Throwable{
     	reportHomePage.iClickOnAnchorAdmissionMonth(month);
@@ -1058,9 +1038,9 @@ public class ReportHomePageSteps extends DriverScript {
         reportHomePage.iChooseOptionsFromFilterWithXpath("//td[@id='cmdFieldAdd_text']");
     }
     
-    @Then("^I verify the DOB column format is in YYYY-MM-DD for \"([^\"]*)\"$")
-    public void i_Verify_the_DOB_Column_Format_is_in_yyyy_mm_dd(String text) throws Throwable{
-    	reportHomePage.iVerifyDOBColumnValueFormat(text);
+    @Then("^I verify the DOB column format is in ([^\"]*) for \"([^\"]*)\"$")
+    public void i_Verify_the_DOB_Column_Format_is_in_yyyy_mm_dd(String format,String text) throws Throwable{
+    	reportHomePage.iVerifyDOBColumnValueFormat(format,text);
     }
     
     @Then("^I enter \"([^\"]*)\" in the search field textbox for filters$")
@@ -1176,9 +1156,9 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyTitleOnPopupAfterClickingSelectColumns(text);
     }
     
-    @And("^I click on \"([^\"]*)\" checkbox in the popup of select drill through columns$")
-    public void i_click_checkbox_of_selectdrill_through_columns_popup(String text) throws Throwable{
-    	reportHomePage.iClickOnCheckBoxInEpisodeDrillThroughPopUp(text);
+    @And("^I click on \"([^\"]*)\" checkbox under \"([^\"]*)\" in the popup of select drill through columns$")
+    public void i_click_checkbox_of_selectdrill_through_columns_popup(String text,String type) throws Throwable{
+    	reportHomePage.iClickOnCheckBoxInEpisodeDrillThroughPopUp(text,type);
     }
     
     @And("^I click on ok button after selecting drill through column$")
@@ -1426,6 +1406,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("^I verify \"([^\"]*)\" is appearing in the available fields under next site of care summary report$")
+    @Then("^I verify \"([^\"]*)\" is appearing in the level fields after searching$")
     public void i_verify_is_appearing_in_the_available_fields_under_next_site_of_care_summary_report(String text) throws Throwable{
     	reportHomePage.iVerifyInAvailableFieldsAfterSearchingUnderNextSiteOfCareSummary(text);
     }
@@ -1441,6 +1422,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("I should not see \"([^\"]*)\" in the searched results under the measures")
+    @Then("I should not see \"([^\"]*)\" in the searched results under the levels")
     public void i_should_not_see_in_the_searched_results_under_the_measures(String text) throws Throwable{
     	reportHomePage.iShouldNotSeeUnderSearchedMeasuresResults(text);
     }
@@ -1448,5 +1430,80 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I verify \"([^\"]*)\" header name is center alligned on physician dashboard report$")
     public void i_verify_header_name_is_center_alligned_on_physician_dashbaord_report(String text) throws Throwable{
     	reportHomePage.iVerifyHeaderNameCenterAlligned(text);
+    }
+    
+    @And("^I should not see \"([^\"]*)\" in the filter value list$")
+    public void i_should_not_see_in_the_filter_value_list(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeeElementInTheFilterValueList(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" column is added to report after selecing add to report option$")
+    public void i_velrify_column_is_added_to_report_after_selecting_add_to_report_option(String text) throws Throwable{
+    	reportHomePage.iShouldSeeColumnAfterClickingAddToReport(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the drg column rows$")
+    public void i_verify_text_is_appearing_in_the_drg_column_rows(String text) throws Throwable{
+    	reportHomePage.iVerifyRowsNameUnderDRG(text);
+    }
+    
+    @Then("^I click on a number under episodes column of next site of care summary report$")
+    public void i_click_on_a_number_under_episodes_column_of_next_site_of_care_summary_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodeNumberUnderEpisodesColumnofNextSiteOfCareSummaryReport();
+    }
+    
+    @Then("^I click on a number under episodes column of initial snf length of stay summary report$")
+    public void i_click_on_a_number_under_episodes_column_of_initial_snf_length_of_stay_summary_report() throws Throwable{
+    	reportHomePage.iClickOnEpisodeNumberUnderEpisodesColumnofInitialSNFLengthOfStaySummaryReport();
+    }
+    
+    @Then("^I verify whether \"([^\"]*)\" checkbox under \"([^\"]*)\" is checked$")
+    public void i_verify_whether_checkbox_under_is_checked(String text,String type) throws Throwable{
+    	reportHomePage.iVerifyCheckboxIsCheckedForDrillThrough(text, type);
+    }
+    
+    @Then("^I verify anchor post acute admission year \"([^\"]*)\" is preselected under nsoc model3 report$")
+    public void i_verify_anchor_post_acute_admission_year_is_preselected_under_nsoc_model3_report(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorPostAcuteAdmissionYearFilterPreselected(text);
+    }
+    
+    @Then("^I verify isAnchorAdmission filter having \"([^\"]*)\" under preselected nsoc model3 filter$")
+    public void i_verify_isanchoradmission_filter_having_under_preselected_nsoc_model3_filter(String text) throws Throwable{
+    	reportHomePage.iSeeIsAnchorAdmissionFilterPreselected(text);
+    }
+    
+    @And("^I should not see Report with text as \"([^\"]*)\"$")
+    public void iShouldNotSeeReportWithTextAs(String element) throws Throwable {
+        reportHomePage.iVerifyReportsTextNotPresent(element);
+    }
+    
+    @Then("^I click on a number under episodes column of nsoc model3 report$")
+    public void i_click_on_a_number_under_episodes_column_of_nsoc_model3_report() throws Throwable{
+    	reportHomePage.iClickOnNumberOfEpisodesColumnUnderNsocModel3Report();
+    }
+    
+    @And("^I verify \"([^\"]*)\" is still appearing on the reports page$")
+    public void i_verify_is_still_appearing_on_the_reports_page(String text) throws Throwable{
+    	reportHomePage.iVerifyReportNameIsStillAppearingAfterWaitingForSomeTime(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" field is appearing in the report table after clicking on add to report$")
+    public void i_verify_field_is_appearing_in_the_report_table_after_clicking_on_add_to_report(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAfterClikingOnAddToReport(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing in the preselected filter for payer$")
+    public void i_verify_is_appearing_in_the_preselected_filter_for_payer(String text) throws Throwable{
+    	reportHomePage.iVerifyPayerFilterTextInPreselectedFilters(text);
+    }
+    
+    @And("^I should not see \"([^\"]*)\" in the preselected filter for payer$")
+    public void i_should_not_see_in_the_preslected_filter_for_payer(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeePayerPreselectedTextInFilterList(text);
+    }
+    
+    @Then("^I remove \"([^\"]*)\" field filter under filter field from default filters$")
+    public void i_remove_payer_field_filter_under_filter_field_from_default_filters(String text) throws Throwable{
+    	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
     }
 }

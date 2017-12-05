@@ -14,7 +14,7 @@ Feature: Create PGP organization functionality tests.
     Then I verify the Search bar on "PGP" organization page
     Then I verify "+" button under "PGP" organization page
     And I verify "TIN/EIN" header label under "PGP" organization
-    And I verify "PGP Organization Name " header label under "PGP" organization
+    And I verify "PGP Organization Name" header label under "PGP" organization
     And I verify "City" header label under "PGP" organization
     And I verify "State" header label under "PGP" organization
     And I verify "Postal Code" header label under "PGP" organization
@@ -24,13 +24,13 @@ Feature: Create PGP organization functionality tests.
     And I verify "Has a Management Organization" radio button on create organization page
     And I verify "No Management Organization" radio button on create organization page
     And I verify "Short Name" field on create organization page
-    And I verify "*Address 1" field on create organization page
+    And I verify "Address 1" field on create organization page
     And I verify "Address 2" field on create organization page
-    And I verify "*City" field on create organization page
+    And I verify "City" field on create organization page
     And I verify "Region" dropdown field on create organization page
     And I verify "Market" dropdown field on create organization page
-    And I verify "*State" dropdown field on create organization page
-    And I verify "*Postal Code" field on create organization page
+    And I verify "State" dropdown field on create organization page
+    And I verify "Postal Code" field on create organization page
     And I verify "*EIN" field on create organization page
     And I verify "NPI" field on create organization page
     And I verify "Submit" button on create organization page
@@ -42,17 +42,17 @@ Feature: Create PGP organization functionality tests.
     And I select "<Has_MO>" radio button for managing organization
     Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
     Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
     Then I click on "Submit" button on "create" organization page
     And I verify "<ValidationMsg>" mandatory field validation message on create organization page
 
     Examples: 
       | Description                                      | Has_MO | Managing_Org | PGP_Name | EIN | NPI | ValidationMsg                                 |
-      | Check validation for blank Managing Organization | YES    | Blank        | PGPNAME  | EIN | NPI | A Management Organization has to be selected. |
-      | Check validation for blank ACH name              | NO     | MONAME       |          | EIN | NPI | Please enter an Organization Name             |
-      | Check validation for blank Identifiers           | NO     | MONAME       | PGPNAME  |     |     | The EIN field is required                     |
-      | Check validation for blank EIN Identifier        | NO     | MONAME       | PGPNAME  |     | NPI | The EIN field is required                     |
+      | Check validation for blank Managing Organization | YES    |              | PGPNAME  | EIN | NPI | A Management Organization has to be selected. |
+      | Check validation for blank PGP name              | NO     |              |          | EIN | NPI | Please enter an Organization Name             |
+      | Check validation for blank Identifiers           | NO     |              | PGPNAME  |     |     | The EIN field is required                     |
+      | Check validation for blank EIN Identifier        | NO     |              | PGPNAME  |     | NPI | The EIN field is required                     |
 
   Scenario Outline: <Description>
     Then I click on "+" button on "PGP" organization page
@@ -63,8 +63,8 @@ Feature: Create PGP organization functionality tests.
     And I enter <Address2> in "Address 2" on create organization page
     And I enter <City> in "City" on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
     And I switch the focus to "submit" button
     And I verify "<ValidationMessage>" field validation message on create organization page
 
@@ -96,43 +96,29 @@ Feature: Create PGP organization functionality tests.
     And I select market "<Market>" in "create PGP" organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<EIN> - PGP" in "EIN" on create organization page
-    And I provide unique "<NPI> - PGP" in "NPI" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
 
     Examples: 
       | Description                                                                                                                                  | Has_MO | Managing_Org | PGP_Name      | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                                                                                 |
-      | Create PGP Organization with Mandatory fields - Without MO                                                                                   | NO     | MONAME       | PGPNAME       |          |            |          |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 - Without MO                                                                        | NO     | MONAME       | PGPNAME       | Address1 |            |          |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address2 - Without MO                                                                        | NO     | MONAME       | PGPNAME       |          |            | Address2 |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Short Name - Without MO                                                                      | NO     | MONAME       | PGPNAME       |          | Short_Name |          |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + City - Without MO                                                                            | NO     | MONAME       | PGPNAME       |          |            |          | City |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + State - With MO                                                                              | YES    | MONAME       | PGPNAME       |          |            |          |      |         |         | California |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + postal code - With MO                                                                        | YES    | MONAME       | PGPNAME       |          |            |          |      |         |         |            |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with Mandatory fields - Without MO                                                                                   | NO     |              | PGPNAME       |          |            |          |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with Mandatory fields - With MO                                                                                      | YES    | MONAME       | PGPNAME       |          |            |          |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
       | Create PGP Organization with Mandatory fields + NPI - With MO                                                                                | YES    | MONAME       | PGPNAME       |          |            |          |      |         |         |            |             | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Region + Market - With MO                                                                    | YES    | MONAME       | PGPNAME       |          |            |          |      | Midwest | Chicago |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + Region + Market + postal Code - Without MO | NO     | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + Region + Market - With MO                  | YES    | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State- Without MO                                  | NO     | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City - With MO                                            | YES    | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 + Short Name + Address2 - Without MO                                                | NO     | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address1 + Short Name - With MO                                                              | YES    | MONAME       | PGPNAME       | Address1 | Short_Name |          |      |         |         |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Short Name + Address2 + City + State + postal Code - With MO                                 | YES    | MONAME       | PGPNAME       |          | Short_Name | Address2 | City |         |         | California |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + Address2 + City + State + postal Code - With MO                                              | YES    | MONAME       | PGPNAME       |          |            | Address2 | City |         |         | California |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields+ City + State + postal Code - With MO                                                          | YES    | MONAME       | PGPNAME       |          |            |          | City |         |         | California |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields+ State + postal Code + NPI - With MO                                                           | YES    | MONAME       | PGPNAME       |          |            |          | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with Mandatory fields + City + Region + Market - With MO                                                             | YES    | MONAME       | PGPNAME       |          |            |          | City | Midwest | Chicago |            |             | EIN |     | Success! PGP Organization Successfully Created.                                                         |
-      | Create Duplicate PGP Organization with Mandatory fields - Without MO                                                                         | NO     | MONAME       | DUPLICATE_PGP |          |            |          |      |         |         |            |             | EIN |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create Duplicate PGP Organization with Mandatory fields - With MO                                                                            | YES    | MONAME       | DUPLICATE_PGP |          |            |          |      |         |         |            |             | EIN |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Create PGP Organization with all the available fields - Without MO                                                                           | YES    | MONAME       | ACHNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
-      | Create PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | ACHNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + Region + Market + postal Code - Without MO | NO     |              | PGPNAME       | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with Mandatory fields + Address1 + Short Name + City + State + postal Code - With MO                                 | YES    | MONAME       | PGPNAME       | Address1 | Short_Name |          | City |         |         | California |       10000 | EIN |     | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with Mandatory fields + Address1 + Address2 + City + State + postal Code + Region + Market- Without MO               | NO     |              | PGPNAME       | Address1 |            | Address2 | City |         |         | California | EIN         |     |     | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with Mandatory fields having duplicate organization name - Without MO                                                | NO     |              | DUPLICATE_PGP |          |            |          |      |         |         |            |             | EIN |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create PGP Organization with Mandatory fields having duplicate organization name - With MO                                                   | YES    | MONAME       | DUPLICATE_PGP |          |            |          |      |         |         |            |             | EIN |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create PGP Organization with all the available fields - Without MO                                                                           | NO     |              | PGPNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
+      | Create PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City |         |         | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
 
   Scenario Outline: Identifiers - <Description>
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
     And I switch the focus to "submit" button
     And I verify "<Message>" field validation message on create organization page
     And I verify "<Message1>" field validation message on create organization page

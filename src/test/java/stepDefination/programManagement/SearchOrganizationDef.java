@@ -38,8 +38,14 @@ public class SearchOrganizationDef extends DriverScript{
 		 searchorganization.iVerifytheCreateNewOrganizationLinkUnderNoMatches(link);
 	    }
 	
-	@And("^I serach with \"([^\"]*)\" old name in organization search box$")
+	@And("^I search with \"([^\"]*)\" old name in organization search box$")
 	  public void i_Search_With_OldName_Of_Organization_In_Search(String org) throws Throwable {
 		 searchorganization.iSearchWithOldNameInOrganizationSerachBox(org);
 	    }
+	
+	@And("^I search \"([^\"]*)\" and verify with search list options on Location in \"([^\"]*)\" profile page$")
+	  public void i_Search_With_Search_List_Field_On_Location_In_Profile_page(String searchParam, String org) throws Throwable {
+		 searchorganization.iSearchWithSearchListFieldOnLocationInOrganizationProfilePage(searchParam, org);
+	    }
+	
 }
