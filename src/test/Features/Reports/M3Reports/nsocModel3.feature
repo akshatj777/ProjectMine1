@@ -93,7 +93,6 @@ Feature: M3 EC Next site of care summary report verification.
     Then I should see "Anchor Post Acute Admission Month" under "columns" field
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
-    #As per the comments in REP-3942 ticket added episode initiator field for internal users will add anchor post acute provider field while automating external users
     Then I should see "Anchor Post Acute Discharge Care Setting" under "dimensions" field
     Then I should see "Anchor Post Acute Discharge Care Type" under "dimensions" field
 
