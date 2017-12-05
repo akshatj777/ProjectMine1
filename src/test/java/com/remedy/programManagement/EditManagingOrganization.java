@@ -59,11 +59,11 @@ public class EditManagingOrganization extends BaseClass {
 		}
 		else if(field2.equalsIgnoreCase("DUPLICATE_ACH - YES")){
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
 		}
 		else if(field2.equalsIgnoreCase("DUPLICATE_ACH - NO")){
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
 		}
 		else {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
