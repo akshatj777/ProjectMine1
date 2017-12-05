@@ -2,7 +2,7 @@ Feature: Landing page verification
 
   Scenario Outline: Verify availability of components on Landing page
     Given I am on the login page
-    When I enter email field <Email> for login
+    When I enter email field Partner Technical Administrator for login
     And I enter password field Testing1 for Login
     Then I click Access button
     #Then I should see Tile text User Admin
@@ -18,13 +18,10 @@ Feature: Landing page verification
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
-    Examples: 
-      | Email                  |
-      | PTAUSER@mailinator.com |
 
-  Scenario Outline: Create USER
+  Scenario Outline: create user
     Given I am on the login page
-    Then I enter email field chloe@yopmail.com for login
+    When I enter email field <UserName> for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Admin
@@ -37,22 +34,23 @@ Feature: Landing page verification
     And I enter Email "<Email>" to Create user
     When I click the Organizational Role Field
     Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I select "<Applications>" product
-    Then I click on Select button
+    #Then I click on Select button
+    #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+    #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Select button
-    #And I search for health system with <Health System>
-    #And I wait for 3000 milli seconds
-    #And I select a <Health System>
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
-    Then I click on Submit button for "PTA"
+    And I search for health system with <Health System>
+    And I wait for 3000 milli seconds
+    And I select a <Health System>
+    Then I click on Select All Locations button
+    Then I click on Submit button for "<User>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Then I open new tab and close the last tab
-    And I switch to new window
+    And I clear the browser history
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
@@ -74,17 +72,17 @@ Feature: Landing page verification
     Then I verify "Change my password" link in mail content
     Then I click on "Change my password" link in mail content
     And I switch to new window
-    And I enter new password "Testing@1234" to set new password
-    And I enter confirm new password "Testing@1234" to set new password
+    And I enter new password "Testing1" to set new password
+    And I enter confirm new password "Testing1" to set new password
     And I click on submit button to set new password
 
     Examples: 
-      | FirstName | LastName | Email                       | Phone | Role                      | Applications | Health System     | Programs    | Locations |
-      | Name1     | LastName | test.automatemail@gmail.com |       | Executive                 | Reports      | Stamford Hospital | BPCI-Model2 | All       |
-      | Name2     | LastName | test.automatemail@gmail.com |       | Manager                   | Reports      | Stamford Hospital | BPCI-Model2 | All       |
-      | Name3     | LastName | test.automatemail@gmail.com |       | Case Manager              | Reports      | Stamford Hospital | BPCI-Model2 | All       |
-      | Name4     | LastName | test.automatemail@gmail.com |       | Physicians                | Reports      | Stamford Hospital | BPCI-Model2 | All       |
-      | Name5     | LastName | test.automatemail@gmail.com |       | Transitional Case Manager | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | User                            | UserName                        | FirstName | LastName | Email                       | Phone | Role                      | Applications | Health System     | Programs    | Locations |
+      | Partner Technical Administrator | Partner Technical Administrator | Name1     | LastName | test.automatemail@gmail.com |       | Executive                 | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Partner Technical Administrator | Partner Technical Administrator | Name2     | LastName | test.automatemail@gmail.com |       | Manager                   | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Partner Technical Administrator | Partner Technical Administrator | Name3     | LastName | test.automatemail@gmail.com |       | Case Manager              | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Partner Technical Administrator | Partner Technical Administrator | Name4     | LastName | test.automatemail@gmail.com |       | Physicians                | Reports      | Stamford Hospital | BPCI-Model2 | All       |
+      | Partner Technical Administrator | Partner Technical Administrator | Name5     | LastName | test.automatemail@gmail.com |       | Transitional Case Manager | Reports      | Stamford Hospital | BPCI-Model2 | All       |
 
   #PTA user provision
   Scenario Outline: PTA user should see all users he has created and be able to provision user as per desired role
