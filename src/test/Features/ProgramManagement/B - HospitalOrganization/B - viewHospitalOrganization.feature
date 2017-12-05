@@ -48,7 +48,7 @@ Feature: Hospital Organization View profile Functionality tests.
     And I enter address2 <Loc_Address2> for Location "2" on "Edit" organization page
     And I select region <Loc_Region> for Location "2" on "Edit" organization page
     And I enter city <Loc_City> for Location "2" on "Edit" organization page
-    And I select market <Loc_Market> for Location "2" on "Edit" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "Edit" organization page
     And I select state <Loc_State> for Location "2" on "Edit" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "Edit" organization page
     Then I click on "Submit" button on "Edit" organization page
@@ -89,7 +89,7 @@ Feature: Hospital Organization View profile Functionality tests.
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
