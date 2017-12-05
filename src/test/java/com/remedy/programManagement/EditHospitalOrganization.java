@@ -3,6 +3,8 @@ package com.remedy.programManagement;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import com.remedy.baseClass.BaseClass;
 
 public class EditHospitalOrganization extends BaseClass{
@@ -45,18 +47,19 @@ public class EditHospitalOrganization extends BaseClass{
 		iWillWaitToSee(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span"));
 		clickElement(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
 		if(!text.equals("")){
-		
-    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']")), text);
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")), text);
+    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
 		}
 	}
 	
 	public void iEditLocationTypeForLocation(String text, int num) {
 		num = num-1;
-		driver.findElements(By.xpath("//div[input[@name='locations["+num+"].locationTypeSelector']]//span[text()='×']")).get(0).click();
+		driver.findElement(By.xpath("//div[input[@name='locations["+num+"].locationTypeSelector']]//span[@class='Select-clear']")).click();
 		driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	delay();
-    	clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text); 
+        WebElement element = driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']"));
+        scrollIntoViewByJS(element);
+        element.click();
 	}
 	
 	public void iEditRegionForLocation(String text, int num) {
