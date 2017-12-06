@@ -654,6 +654,7 @@ public class CreateUserPage extends BaseClass{
     	   }
     	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+token.trim()+"']")));
        } 
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
    }
    
    public void verifyProductTilesNotPresent(String products) throws Throwable {

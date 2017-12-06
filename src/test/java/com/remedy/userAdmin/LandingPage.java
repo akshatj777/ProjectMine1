@@ -39,7 +39,12 @@ public class LandingPage extends BaseClass{
 
     public void iClickOnTheTopUserAccountIcon (){
     	delay();
-    	clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']/i[@class='dropdown icon']")));
+    	if (driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).isDisplayed()){
+    		clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
+    	}
+    	else{
+        	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")));
+    	}
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
