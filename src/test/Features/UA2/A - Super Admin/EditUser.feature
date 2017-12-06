@@ -1,6 +1,6 @@
 Feature: Edit page for superuser verification
 
- Scenario Outline: <Description>
+  Scenario Outline: <Description>
     Given I am on the login page
     When I enter email field <UserName> for login
     And I enter password field <Password> for Login
@@ -58,12 +58,12 @@ Feature: Edit page for superuser verification
     And I click on submit button to set new password
 
     Examples: 
-      | Description                                                                           | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | NPI | LearningPathwaySearchParameter | Health System     |
-      | Login with Super Admin User and create user with Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
- 
+      | Description                                                     | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role      | Applications                             | ApplicationsNotVisible            | NPI | LearningPathwaySearchParameter | Health System     |
+      | Login with Super Admin User and create user with Executive role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect |     | Learning Pathway 2             | Stamford Hospital |
+
   Scenario: Verify components of edit user page for superuser
     Given I am on the login page
-		When I log in as super user
+    When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -76,8 +76,7 @@ Feature: Edit page for superuser verification
     Then I verify the availability of fields "Email"
     Then I verify the availability of fields "Phone"
     Then I verify the availability of fields "Role"
-    
-     
+
   Scenario Outline: Verifying the ability to edit a field in general information tab
     Given I am on the login page
     When I log in as super user
@@ -88,25 +87,47 @@ Feature: Edit page for superuser verification
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
-    And I cleared the textbox field under edit user First name
+    And I cleared the textbox under edit user "First Name"
     And I fill in First Name with "<FirstName>"
-    And I cleared the textbox field under edit user Last name
+    And I cleared the textbox under edit user "Last Name"
     Then I fill in Last Name with <LastName>
     And I cleared the textbox field under edit user phone tab
     And I fill in Phone with <Phone>
     When I click the Organizational Role Field
     Then I pick a Organizational <Role>
     Then I click on Next button
-   	Then I click on Next button
-   	Then I click on Submit button for "<User>"
-		And I verify <First Name> in user page
-		And I verify <Last Name> in user page
-		And I verify <Phone> in user page
-		And I verify <Role> in user page
-
-Examples:
-
-
+    Then I click on Next button
+    Then I click on Submit button for "<User>"
+    And I verify First Name <First Name> in user page
+    And I verify Last Name <Last Name> in user page
+    And I verify Phone <Phone> in user page
+    And I verify Role <Role> in user page
+		And I click on the top user account link
+    Then I click on "Log Out" button
+    And I should see Log in widget
+    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
+    Examples: 
+      | FirstName       | LastName       | Phone      | Role                            | User        |
+      | FirstNameEdited | LastNameEdited | 9876541321 | Manager                         | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Case Manager                    | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Physicians                      | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Remedy Technical Administrator  | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Remedy TCS                      | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Remedy LPN                      | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Remedy RN                       | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Remedy Field RN                 | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Remedy PM                       | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Remedy Sales Team               | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Remedy Executive                | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Prospective Partner Executive   | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Remedy Other                    | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Partner Program Administrator   | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Remedy Program Administrator    | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Partner Technical Administrator | Super Admin |
+     # | FirstNameEdited | LastNameEdited | 9876541321 | Transitional Case Manager       | Super Admin |
+    #  | FirstNameEdited | LastNameEdited | 9876541321 | Downstream Provider             | Super Admin |
 
   Scenario: Verifying that email is not editable in general information tab
     Given I am on the login page
@@ -121,64 +142,6 @@ Examples:
     And I click on Edit button
     And I verify that I am redirected to the edit page
     And I should not be able to edit "Email"
-
-  Scenario: Create USER
-    Given I am on the login page
-    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "FirstName"
-    Then I fill in Last Name with LastName
-    And I enter Email "test.automatemail" to Create user
-    When I click the Organizational Role Field
-    Then I pick a Organizational Executive
-    Then I click on Next button
-    #Then I verify Learning Pathway search box is not available
-    Then I select "Reports" product
-    #Then I click on Select button
-    #Then I enter "Care Coordinators External" in Learning Pathway search box
-    #Then I select "Care Coordinators External" from the results
-    Then I click on Next button
-    Then I click on Select button
-    And I search for health system with Stamford Hospital
-    And I wait for 3000 milli seconds
-    And I select a Stamford Hospital
-    Then I click on Select All Locations button
-    Then I click on Submit button for "Super User"
-    #And I wait for 70000 milli seconds
-    And I click on the top user link
-    Then I select "Log Out" option from the dropdown list
-    And I should see Log in widget
-    Then I open new tab and close the last tab
-    And I switch to new window
-    Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
-    Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    Then I click on Inbox in mail
-    Then I verify Account Verification in Inbox in my account
-    Then I click on Account Verification mail in Inbox
-    Then I verify "Confirm my account!" link in mail content
-    Then I click on "Confirm my account!" link in mail content
-    And I switch to new window
-    Then I enter email to generate password link
-    And I click on send mail button
-    Then I switch back to old window
-    Then I click on Inbox in mail
-    Then I verify the unread mail in inbox in my account
-    Then I verify Change Password mail in Inbox in my account
-    Then I click on Change Password mail in Inbox
-    Then I verify "Change my password" link in mail content
-    Then I click on "Change my password" link in mail content
-    And I switch to new window
-    And I enter new password "Testing@1234" to set new password
-    And I enter confirm new password "Testing@1234" to set new password
-    And I click on submit button to set new password
 
   Scenario Outline: Verifying ability of user to enable any application
     Given I am on the login page

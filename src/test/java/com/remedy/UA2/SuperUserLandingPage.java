@@ -76,7 +76,7 @@ public class SuperUserLandingPage extends BaseClass {
 		
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
 		if(text.equalsIgnoreCase(mail))
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
+		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), mail);
 		}
 
 	public void iVerifySearchResult(String result, String searchBy) {
