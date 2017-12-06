@@ -739,3 +739,25 @@ Feature: Verification Claims Report For Performance (Claims)
       | emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
+
+  Scenario Outline: Tier One - If the SNF or HHA is a Tier 1 facility for the Provider at the Anchor Hospital during the Anchor Discharge Quarter
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    
+    Examples: 
+      | email                              |
+      | RPFINClaimsSNFHHATier1@yopmail.com |
+      | OPSFINTier1@yopmail.com            |
