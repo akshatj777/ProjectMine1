@@ -54,7 +54,7 @@ Feature: Edit PGP organization functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I click on "Edit" button on particular organization
     And I verify "Edit PGP Organization" header text on edit organization page
-    And I edit "PGP Organization Name" field to "<Edited_PGP_Name>" for organization
+    And I edit "PGP Organization Name" field to "<Edited_PGP_Name> - <Has_MO>" for organization
     And I edit "Address 1" field to "<Address1>" for organization
     And I edit "Short Name" field to "<Short_Name>" for organization
     And I edit "Address 2" field to "<Address2>" for organization
@@ -80,7 +80,7 @@ Feature: Edit PGP organization functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I click on "Edit" button on particular organization
     And I verify "Edit PGP Organization" header text on edit organization page
-    And I edit "PGP Organization Name" field to "<Edited_PGP_Name>" for organization
+    And I edit "PGP Organization Name" field to "<Edited_PGP_Name> - <Has_MO>" for organization
     And I edit "Address 1" field to "<Address1>" for organization
     And I edit "Short Name" field to "<Short_Name>" for organization
     And I edit "Address 2" field to "<Address2>" for organization
@@ -99,7 +99,7 @@ Feature: Edit PGP organization functionality tests
       | Edit PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + Region + Market + postal Code - Without MO | NO     |              | PGPNAME         | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | Success! PGP Organization Successfully Updated.                                                         |
       | Edit PGP Organization with Mandatory fields + Address1 + Short Name + City + State + Region + Market + postal Code - With MO               | YES    | MONAME       | PGPNAME         | Address1 | Short_Name |          | City | Midwest | Chicago | California |       10000 | Success! PGP Organization Successfully Updated.                                                         |
       | Edit PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + postal Code- Without MO                    | NO     |              | PGPNAME         | Address1 | Short_Name | Address2 | City |         |         | California |       10001 | Success! PGP Organization Successfully Updated.                                                         |
-      | Edit Duplicate PGP Organization with all the available fields - Without MO                                                                 | NO     |              | DUPLICATE_PGP   |          |            |          |      |         |         |            |             | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Edit Duplicate PGP Organization with all the available fields - With MO                                                                    | YES    | MONAME       | DUPLICATE_PGP   |          |            |          |      |         |         |            |             | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Edit Duplicate PGP Organization with Mandatory fields - Without MO                                                                         | NO     |              | DUPLICATE_PGP   |          |            |          |      |         |         |            |             | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Edit Duplicate PGP Organization with Mandatory fields - With MO                                                                            | YES    | MONAME       | DUPLICATE_PGP   |          |            |          |      |         |         |            |             | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
       | Edit PGP Organization with all the available fields - Without MO                                                                           | NO     |              | PGPNAME         | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | Success! PGP Organization Successfully Updated.                                                         |
       | Edit PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | PGPNAME         | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | Success! PGP Organization Successfully Updated.                                                         |
