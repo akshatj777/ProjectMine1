@@ -63,7 +63,8 @@ public class CreateManagingOrganization extends BaseClass {
 
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
-		iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
+			delay();
+			iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
 		}
 	}
 	

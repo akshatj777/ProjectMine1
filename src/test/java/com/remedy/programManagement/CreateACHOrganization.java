@@ -123,7 +123,8 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterRegionForLocationOnACHOrg(String text, int num) {
-    	if(!text.isEmpty()){
+    	if(!text.isEmpty())
+    	{
     		num = num-1;
     	    driver.findElements(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
@@ -136,8 +137,10 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterMarketForLocationOnACHOrg(String market, String region, int num) {
-    	if(!region.isEmpty()){
-    		if(!market.isEmpty()){
+    	if(!region.isEmpty())
+    	{
+    		if(!market.isEmpty())
+    		{
         		num = num-1;
         	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(market);
         	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+market+"']")));
@@ -159,25 +162,30 @@ public class CreateACHOrganization extends BaseClass{
     }
 
 	public void iSelectRadioButtonForManagingOrganization(String text) { 
-		if(text.equalsIgnoreCase("YES")) {
+		if(text.equalsIgnoreCase("YES"))
+		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='true']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='true']")));
 		}
-		else if (text.equalsIgnoreCase("NO")){
+		else if (text.equalsIgnoreCase("NO"))
+		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='false']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='false']")));
 		}
 	}
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String managingOrg, String text) {
-		if(text.equalsIgnoreCase("YES")){
-			if(managingOrg.equalsIgnoreCase("BLANK")){
+		if(text.equalsIgnoreCase("YES"))
+		{
+			if(managingOrg.equalsIgnoreCase("BLANK"))
+			{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), "");	
 			}
 			else if (managingOrg.contains("Invalid")){
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);	
 			}
-			else {
+			else 
+			{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
 				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 			}

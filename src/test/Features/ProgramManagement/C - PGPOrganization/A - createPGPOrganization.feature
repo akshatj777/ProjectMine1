@@ -49,7 +49,7 @@ Feature: Create PGP organization functionality tests.
 
     Examples: 
       | Description                                      | Has_MO | Managing_Org | PGP_Name | EIN | NPI | ValidationMsg                                 |
-      | Check validation for blank Managing Organization | YES    |              | PGPNAME  | EIN | NPI | A Management Organization has to be selected. |
+      | Check validation for blank Managing Organization | YES    | BLANK        | PGPNAME  | EIN | NPI | A Management Organization has to be selected. |
       | Check validation for blank PGP name              | NO     |              |          | EIN | NPI | Please enter an Organization Name             |
       | Check validation for blank Identifiers           | NO     |              | PGPNAME  |     |     | The EIN field is required                     |
       | Check validation for blank EIN Identifier        | NO     |              | PGPNAME  |     | NPI | The EIN field is required                     |
