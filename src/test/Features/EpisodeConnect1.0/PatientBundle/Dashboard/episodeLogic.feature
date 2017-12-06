@@ -30,11 +30,10 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "3" days
+    Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -90,3 +89,123 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "EXPIRED AS INPATIENT" state
     And I will wait to see "Unknown" in "span" tag
+
+  Scenario: Episode NOT ELIGIBLE and Back to Active - set patient eligibility to not eligible then back to eligible
+    When I click on "Eligibility" dropdown button
+    When I click on eligibility set "not_eligible" option
+    And I will wait to see "Your changes have been successfully saved" in "p" tag
+    And I should see tag "Not Eligible"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "NOT ELIGIBLE" state
+    And I will wait to see "Unknown" in "span" tag
+    When I click on "Eligibility" dropdown button
+    When I click on eligibility set "eligible" option
+    And I will wait to see "Your changes have been successfully saved" in "p" tag
+    And I should see tag "Eligible"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    And I will wait to see "Needs Onboarding" in "span" tag
+
+  Scenario: Episode COMPLETED - discharge date before 90 days
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "120" days
+    Then I fill in "Discharge" with logic "minus" with "95" days
+    Then I click on update transition to add a new episode
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "COMPLETED" state
+    And I will wait to see "Unknown" in "span" tag
+
+  Scenario: Episode COMPLETED EXPIRED - Update the discharge date and set patient as exp
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "90" days
+    Then I fill in "Discharge" with logic "minus" with "30" days
+    Then I click on update transition to add a new episode
+    When I reload the page
+    When I click on "Eligibility" dropdown button
+    When I click on eligibility set "Expired" option
+    When I fill in eligibility "Date of Death" with "0" days
+    When I click "Confirm" xpath element "//*[@id='submitExpired']"
+    And I will wait to see "Your changes have been successfully saved" in "p" tag
+    And I should see tag "Expired"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "COMPLETED EXPIRED" state
+
+  Scenario: Episode COMPLETED-365 - Anchor admit date before 365 days
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "90" days
+    Then I click on update transition to add a new episode
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "COMPLETED 365" state
+
+  Scenario: EXPIRED AS INPATIENT-Removing dod should rerun episode logic and also reinstate previous eligibility status.
+    When I click on "Eligibility" dropdown button
+    When I click on eligibility set "Expired" option
+    When I fill in eligibility "Date of Death" with "0" days
+    When I click "Confirm" xpath element "//*[@id='submitExpired']"
+    And I will wait to see "Your changes have been successfully saved" in "p" tag
+    And I should see tag "Expired"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "EXPIRED AS INPATIENT" state
+    And I will wait to see "Unknown" in "span" tag
+    And I should see tag "Expired"
+    Then I navigate to the "/secure/person/mongoID/patient-details"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "General" in "h3" tag
+    And I will clear the Date of death field on patient details page
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    And I will wait to see "Needs Onboarding" in "span" tag
+    And I should not see tag "Expired" in "h3" tag
+
+  Scenario: COMPLETED EXPIRED -Removing dod should rerun episode logic and also reinstate previous eligibility status.
+    Bug    And I should see tag "Error"
+    When I click first timing transition edit link "1"
+    And I will wait to see "Admission Date" in "label" tag
+    Then I fill in "Admit" with logic "minus" with "90" days
+    Then I fill in "Discharge" with logic "minus" with "30" days
+    Then I click on update transition to add a new episode
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I scroll the page to bottom by "-50"
+    When I click on "Eligibility" dropdown button
+    When I click on eligibility set "Expired" option
+    When I fill in eligibility "Date of Death" with "0" days
+    When I click "Confirm" xpath element "//*[@id='submitExpired']"
+    And I will wait to see "Your changes have been successfully saved" in "p" tag
+    And I should see tag "Expired"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "COMPLETED EXPIRED" state
+    And I should see tag "Expired"
+    Then I navigate to the "/secure/person/mongoID/patient-details"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "General" in "h3" tag
+    And I will clear the Date of death field on patient details page
+    When I edit medicare ID with "123456799A"
+    And I will wait to see "123456799A" in "div" tag
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    And I will wait to see "Unknown" in "span" tag
+    And I should not see "Expired" in "h3" tag

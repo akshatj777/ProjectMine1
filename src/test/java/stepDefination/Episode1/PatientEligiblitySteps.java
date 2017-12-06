@@ -31,4 +31,9 @@ public class PatientEligiblitySteps extends DriverScript {
 		eligible.Ishouldseetag(tag);
 	}
 	
+	@And ("^I should not see tag \"([^\"]*)\"$") 
+	public void I_should_not_see_tag(String tag){
+		eligible.Ishouldnotseetag(tag);
+	}
+	
 }

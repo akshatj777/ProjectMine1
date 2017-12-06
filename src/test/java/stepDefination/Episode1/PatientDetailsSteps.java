@@ -8,6 +8,7 @@ import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class PatientDetailsSteps extends DriverScript {
 	PatientDetails details = new PatientDetails(driver);
@@ -133,5 +134,18 @@ public class PatientDetailsSteps extends DriverScript {
 	@And("^I verify Add new button is not visible after adding 10 numbers$")
 	public void i_verify_Add_new_button_is_not_visible_after_adding_10_numbers(){
 		details.isElementPresentOnPage(By.cssSelector("#BP_patientType_phones .add_to_collection"));
+	}
+	
+	@When ("^I edit date of death with \"([^\"]*)\"$")
+	public void edit_Date_Of_Death(int days){
+		details.editDateOfDeath(days);
+	}
+	@And ("^I will clear the Date of death field on patient details page$")
+	public void clear_the_Date_of_death(){
+		details.cleartheDateofdeath();
+	}
+	@When("I edit medicare ID with \"([^\"]*)\"$")
+	public void edit_Medicare_Id(String Id){
+		details.edit_Medicare_Id(Id);
 	}
 }

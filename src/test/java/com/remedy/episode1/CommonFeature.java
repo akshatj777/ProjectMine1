@@ -17,7 +17,7 @@ public class CommonFeature extends BaseClass {
 	 LandingPage landingPage = new LandingPage(driver);
 	 DischargeCarlForm dischargecarl=new DischargeCarlForm(driver);
 	 String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
-	 
+	 public static String href_URL;
 	public CommonFeature(WebDriver driver) {
 		super(driver);
 		}
@@ -29,6 +29,7 @@ public class CommonFeature extends BaseClass {
 	    }
 
 	public void iClickXpathElement(String locator) {
+		delay();
 		iWillWaitToSee(By.xpath(""+locator+""));  
 		WebElement element=driver.findElement(By.xpath(locator));
 	    clickElement(element);
@@ -106,6 +107,7 @@ public void iWillWaitToSeeState(String state) {
 
 public void iExpandtothepatientsummarypage() {
 	iWillWaitToSee(By.xpath("//a[contains(@onclick,'Expand Icon')]"));
+	href_URL=driver.findElement(By.xpath("//a[contains(@onclick,'Expand Icon')]")).getAttribute("href");
 	clickElement(driver.findElement(By.xpath("//a[contains(@onclick,'Expand Icon')]")));
 }
 
@@ -119,6 +121,22 @@ public void iWillNotSee(String text, String element) {
 	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(element)));
 }
 
+public void inavigateto(String uRL) {
+	String mongoId=textBetweenWords(href_URL,"person/","/overview");
+	String replacedString = uRL.replace("mongoID", mongoId);
+	driver.navigate().to(BaseURL+replacedString);
+	}
+public String textBetweenWords(String sentence, String firstWord, String secondWord)
+{
+    return sentence.substring(sentence.indexOf(firstWord) + firstWord.length(), 
+        sentence.indexOf(secondWord));
+}
+
+public void iShouldnotsee(String text,String tag) {
+	WebDriverWait wait=waitTo();
+	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
+	
+}
 }
 
 	

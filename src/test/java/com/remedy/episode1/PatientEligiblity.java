@@ -1,5 +1,6 @@
 package com.remedy.episode1;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +13,7 @@ public class PatientEligiblity extends BaseClass{
 		}
 
 	public void IclickonEligibilitydropdown(String value) {
+	delay();	
 	iWillWaitToSee(By.cssSelector("#eligibility_button"));  
 	clickAction(driver.findElement(By.cssSelector("#eligibility_button")));
 	clickElement(driver.findElement(By.cssSelector("#eligibility_button")));
@@ -25,7 +27,7 @@ public class PatientEligiblity extends BaseClass{
 		}
 
 	public void selectDateofDeath(int days) {
-		String date=currentdate(days,"dd/MM/yyyy");
+		String date=currentdate(days,"MM/dd/yyyy");
 		iWillWaitToSee(By.cssSelector("#bp_eligibilitybundle_setexpired_memberDod"));
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_eligibilitybundle_setexpired_memberDod")),"value",date);
 		}
@@ -33,6 +35,12 @@ public class PatientEligiblity extends BaseClass{
 	public void Ishouldseetag(String tag) {
 		iWillWaitToSee(By.xpath("//*[@id='eligibility_button']"));
 		verifyTextForElement(driver.findElement(By.xpath("//*[@id='eligibility_button']")),tag);
+	}
+
+	public void Ishouldnotseetag(String tag) {
+		iWillWaitToSee(By.xpath("//*[@id='eligibility_button']"));
+		Assert.assertNotEquals(driver.findElement(By.xpath("//*[@id='eligibility_button']")).getText(),tag);;
+		
 	}
 	
 }

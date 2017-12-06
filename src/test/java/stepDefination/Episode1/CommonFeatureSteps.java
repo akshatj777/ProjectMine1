@@ -108,6 +108,11 @@ public class CommonFeatureSteps extends DriverScript {
 	   common.iWillWaitToSeeState(state);
    }
    
+   @Then ("^I should not see \"([^\"]*)\" in \"([^\"]*)\" tag$")
+   public void i_Should_not_see(String text,String tag){
+	   common.iShouldnotsee(text,tag);
+   }
+   
    @Then ("^I Expand to the patient summary page$")
    public void i_Expand_to_the_patient_summary_page(){
 	   common.iExpandtothepatientsummarypage();
@@ -121,6 +126,11 @@ public class CommonFeatureSteps extends DriverScript {
    @Then ("^I will not see \"([^\"]*)\" xpath element \"([^\"]*)\"$")
    public void i_Will_Not_See(String text,String element){
 	   common.iWillNotSee(text,element);   
+   }
+   
+   @Then ("^I navigate to the \"([^\"]*)\"$")
+   public void i_navigate_to(String URL){
+	   common.inavigateto(URL);
    }
 }
 

@@ -709,6 +709,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		String date1=date+" "+"15:40";
 		String date2=date+" "+"00:00";
 		String date3=date+" "+"11:55";
+		delay();
 		if(logic.equals("Admit")){
 		setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date1);
 		}else if(logic.equals("Discharge")){
