@@ -94,7 +94,7 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), field2);
 			}
-	}	
+	}		
 	
 	public void iEditStateFieldForOrganization(String text) {
 		clickElement(driver.findElement(By.xpath("//span[@class='Select-clear']")));
