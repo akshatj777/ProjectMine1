@@ -11,7 +11,7 @@ Feature: Search the Managing organization functionality test
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
     Then I verify the Search bar on "Managing" organization page
-    Then I search "<SearchParam>" and verify with search list options on organization search box
+    Then I search "<SearchParam>" and verify with search list options on "Managing" organization search box
 
     Examples: 
       | Description                                             | SearchParam |
@@ -30,8 +30,8 @@ Feature: Search the Managing organization functionality test
     And I edit "Managing Organization Name" field to "<Edited_MO_Name>" for organization
     Then I click on "Submit" button on "edit" organization page
     Then I verify "Success! Management Organization Successfully Updated." after submitting the "edit MO" organization page
-    Then I search "<Edited_MO_Name>" and verify with search list options on organization search box
-    Then I serach with "<MO_Name>" old name in organization search box
+    Then I search "<Edited_MO_Name>" and verify with search list options on "Hospital" organization search box
+    Then I search with "<MO_Name>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New Managing Organization" link under No matches
 

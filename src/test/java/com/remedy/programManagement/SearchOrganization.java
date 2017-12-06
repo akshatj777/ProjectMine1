@@ -52,66 +52,62 @@ public class SearchOrganization extends BaseClass{
 		}	
 	}
 	
-	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(String searchParam) throws ClassNotFoundException, SQLException{
-		 
+	public void iSearchWithSearchListFieldOnOrganizationInSearchBox(String searchParam, String org) throws ClassNotFoundException, SQLException{
 		String value = searchParam;
-		  if (value.equals("MONAME")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.moOrg.get("MONAME"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreateManagingOrganization.moOrg.get("MONAME");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  
-		  else if (value.equals("PID")){
-			  String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
-			  value = fetchParticipantID(query);
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else if (value.equals("ACHNAME - YES")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreateACHOrganization.achOrg.get("ACHNAME");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else if (value.equals("ACHNAME - NO")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else if (value.equals("PGPNAME - YES")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreatePGPOrganization.pgpOrg.get("PGPNAME");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else if (value.equals("PGPNAME - NO")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else if (value.equals("EIN - YES")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg.get("EIN"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreatePGPOrganization.pgpOrg.get("EIN");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else if (value.equals("EIN - NO")){
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("EIN"));
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  value = CreatePGPOrganization.pgpOrg_noMO.get("EIN");
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
-		  else
-		  {
-			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
-			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			  isElementPresentOnPage(By.xpath("//div[text()='"+value+"']"));
-		  }
+		if (org.equalsIgnoreCase("Managing")){
+			if (value.equals("MONAME")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.moOrg.get("MONAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateManagingOrganization.moOrg.get("MONAME");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("PID")){
+				  String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
+				  value = fetchParticipantID(query);
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value.replace("-", "").trim());
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
+			  }
+		}
+		  else if (org.equalsIgnoreCase("Hospital")){
+			  if (value.equals("ACHNAME - YES")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateACHOrganization.achOrg.get("ACHNAME");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("ACHNAME - NO")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("CCN - YES")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("CCN"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateACHOrganization.achOrg.get("CCN");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("CCN - NO")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("CCN"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateACHOrganization.achOrg_noMO.get("CCN");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value.replace("-", "").trim());
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
+			  }
 	     }
+	}
 		
 	
 	public void iVerifySearchBarOnOrganizationPage(String text) {
@@ -120,6 +116,7 @@ public class SearchOrganization extends BaseClass{
 	}
 	
 	public void iVerifytheNewMatchesMessage(String text) {
+		iWillWaitToSee(By.cssSelector(".data-table-overlay-message"));
 		Assert.assertEquals(text, driver.findElement(By.cssSelector(".data-table-overlay-message")).getText().trim());
 	}
 	
@@ -154,11 +151,31 @@ public class SearchOrganization extends BaseClass{
 		if (org.equals("MONAME")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.moName);
 		}
-		else if(org.equals("ACHNAME - Yes")){
+		else if(org.equals("ACHNAME - YES")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.oldACH_WithMO);
 		}
 		else if (org.equals("ACHNAME - NO")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.oldACH_WithoutMO);
+		}
+	}
+	
+	public void iSearchWithSearchListFieldOnLocationInOrganizationProfilePage(String searchParam, String org) throws ClassNotFoundException, SQLException{ 
+		String value = searchParam;
+		if(org.equals("ACHNAME - YES")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]")));
+		}
+		else if(org.equals("ACHNAME - NO")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]")));
+		}
+		else
+		{
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]")));
 		}
 	}
 }

@@ -48,7 +48,7 @@ Feature: Hospital Organization View profile Functionality tests.
     And I enter address2 <Loc_Address2> for Location "2" on "Edit" organization page
     And I select region <Loc_Region> for Location "2" on "Edit" organization page
     And I enter city <Loc_City> for Location "2" on "Edit" organization page
-    And I select market <Loc_Market> for Location "2" on "Edit" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "Edit" organization page
     And I select state <Loc_State> for Location "2" on "Edit" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "Edit" organization page
     Then I click on "Submit" button on "Edit" organization page
@@ -80,16 +80,16 @@ Feature: Hospital Organization View profile Functionality tests.
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page

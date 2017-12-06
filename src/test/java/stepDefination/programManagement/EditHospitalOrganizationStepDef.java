@@ -33,9 +33,9 @@ public class EditHospitalOrganizationStepDef extends DriverScript {
 		editHospOrg.iEditRegionForLocation(text, num);
 	    }
 	
-	@And("^I edit Market dropdown field to ([^\"]*) for Location \"([^\"]*)\" for organization$")
-	  public void i_Edit_Market_DropdownField_For_Location(String text, int num) throws Throwable {
-		editHospOrg.iEditMarketForLocation(text, num);
+	@And("^I edit Market dropdown field to ([^\"]*) for Region \"([^\"]*)\" for Location \"([^\"]*)\" for organization$")
+	  public void i_Edit_Market_DropdownField_For_Location(String market, String region, int num) throws Throwable {
+		editHospOrg.iEditMarketForLocation(market, region, num);
 	    }
 	
 	@And("^I verify \"([^\"]*)\" identifier is not editable$")
