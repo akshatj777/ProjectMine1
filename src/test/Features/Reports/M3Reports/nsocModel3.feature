@@ -158,6 +158,8 @@ Feature: M3 EC Next site of care summary report verification.
     And I will wait to see "Next Site of Care Summary [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Anchor Post Acute Provider" is appearing under Episodes table
@@ -545,7 +547,6 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<onboardingstatus1>" in the filter value list
     And I should see "<onboardingstatus2>" in the filter value list
     And I should see "<onboardingstatus3>" in the filter value list
-    And I should see "<onboardingstatus4>" in the filter value list
     And I click on "<onboardingstatus1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
@@ -553,12 +554,12 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
 
     Examples: 
-      | email                               | role   | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
-      | M3RPFINOnboardingStatus@yopmail.com | RPFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           | Not Onboarded     |
-      | RPFINM3HHAVisitingQA@yopmail.com    | RPFIN  | HHA         | Unknown           |                   |                   |                   |
-      | OPSFINM3SNFSaberHealth@yopmail.com  | OPSFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |                   |
-      | OPSFINM3HHAVisiting@yopmail.com     | OPSFIN | HHA         | Unknown           |                   |                   |                   |
-      | RPFINM3HHASNFVisitQA@yopmail.com    | RPFIN  | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |                   |
+      | email                               | role   | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
+      | RPFINM3SNFSaberHealth@yopmail.com   | RPFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | RPFINM3HHAVisitingQA@yopmail.com    | RPFIN  | HHA         | Unknown           |                   |                   |
+      | OPSFINM3SNFSaberHealth@yopmail.com  | OPSFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSFINM3HHAVisiting@yopmail.com     | OPSFIN | HHA         | Unknown           |                   |                   |
+      | RPFINM3HHASNFVisitQA@yopmail.com    | RPFIN  | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
 
   Scenario Outline: Validate the patient risk field values on the NSOC  [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page

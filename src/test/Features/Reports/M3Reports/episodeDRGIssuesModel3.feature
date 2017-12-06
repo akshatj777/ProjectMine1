@@ -156,7 +156,7 @@ Feature: Episode DRG Issues Model3 report verification
     Then I click Access button
     And I wait to see "Reports" tile
     When I click on the "Reports" tile
-    And I wait to see "Readmissions" under reports tile text
+    And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
     And I should not see Report with text as "Episode DRG Issues [Model 3]"
 
@@ -667,6 +667,8 @@ Feature: Episode DRG Issues Model3 report verification
     And I will wait to see "Episode DRG Issues [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Participant" is appearing under Episodes table
     Then I should verify "BPID" is appearing under Episodes table
     Then I should verify "Anchor Post Acute Provider" is appearing under Episodes table
