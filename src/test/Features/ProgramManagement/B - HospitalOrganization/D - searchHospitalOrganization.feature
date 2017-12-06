@@ -12,7 +12,7 @@ Feature: Search the Hospital organizations functionality tests
 
   Scenario Outline: <Description>
     Then I verify the Search bar on "Hospital" organization page
-    Then I search "<SearchParam> - <Has_MO>" and verify with search list options on organization search box
+    Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "Hospital" organization search box
 
     Examples: 
       | Description                                                      | Has_MO | SearchParam |
@@ -32,7 +32,7 @@ Feature: Search the Hospital organizations functionality tests
     And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name> - <Has_MO>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit ACH - <Has_MO>" organization page
-    Then I search "<Hosp_Name> - <Has_MO>" and verify with search list options on organization search box
+    Then I search "<Hosp_Name> - <Has_MO>" and verify with search list options on "Hospital" organization search box
     Then I search with "<Hosp_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New Hospital Organization" link under No matches

@@ -23,9 +23,9 @@ public class SearchOrganizationDef extends DriverScript{
 		 searchorganization.iVerifyFieldInSearchListOnOrganizationHomepage(text);
 	    }
 	
-	@And("^I search \"([^\"]*)\" and verify with search list options on organization search box$")
-	  public void i_Search_With_Search_List_Field_On_Organization_In_SearchBox(String searchParam) throws Throwable {
-		 searchorganization.iSearchWithSearchListFieldOnOrganizationInSearchBox(searchParam);
+	@And("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" organization search box$")
+	  public void i_Search_With_Search_List_Field_On_Organization_In_SearchBox(String searchParam, String org) throws Throwable {
+		 searchorganization.iSearchWithSearchListFieldOnOrganizationInSearchBox(searchParam, org);
 	    }
 	
 	@Then("^I verify the \"([^\"]*)\" message for invalid search in Organization$")
