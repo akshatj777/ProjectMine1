@@ -19,7 +19,7 @@ Feature: Landing page verification
     And I should see Log in widget
 
 
-  Scenario Outline: create user
+  Scenario Outline: Login with PTA user and create user
     Given I am on the login page
     When I enter email field <UserName> for login
     And I enter password field Testing1 for Login
@@ -127,7 +127,7 @@ Feature: Landing page verification
     And I should see "test.automatemail" for "Email" in search result
 
   #Lock unlock cases
-  Scenario: Verify ability to lock a user from landing page
+  Scenario Outline: Verify ability to lock a user from landing page
     Given I am on the login page
     Then I enter email field chloe@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -141,10 +141,13 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
-    Then I enter email field "test.automatemail" for login
-    And I enter password field Testing@1234 for Login
-    Then I click Access button
+   	Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
     Then I should not be able to login
+    Examples:
+    |User|Role|
+    |Partner Technical Administrator|Executive|
 
   Scenario: Verify functionality of Cancel button on unlocking alert message
     Given I am on the login page
