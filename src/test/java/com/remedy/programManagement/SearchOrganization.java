@@ -84,6 +84,14 @@ public class SearchOrganization extends BaseClass{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
 			isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
 		}
+		else if(text.contains("ACHNAME - YES")){
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("ACHNAME")+"']"));
+		}
+		else if(text.contains("ACHNAME - NO")){
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg_noMO.get("ACHNAME")+"']"));
+		}
 		else
 		{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
