@@ -10,7 +10,7 @@ Feature: CTool Report Links Verification
     When I click on the "Reports" tile
     Then I wait for 2000 milli seconds
     Then I verify current page "Reports" title
-    And I should not see Reports Tile text as <Menu 1>
+    And I should not see Reports Tile text as "<Menu 1>"
 
     Examples: 
       | email                         | Menu 1     |

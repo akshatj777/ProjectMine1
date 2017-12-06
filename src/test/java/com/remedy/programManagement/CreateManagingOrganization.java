@@ -2,6 +2,7 @@ package com.remedy.programManagement;
 
 import java.io.IOException;
 import java.util.HashMap;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -62,7 +63,8 @@ public class CreateManagingOrganization extends BaseClass {
 
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
 		if(!text.equals("")) {
-		iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
+			delay();
+			iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
 		}
 	}
 	

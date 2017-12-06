@@ -61,9 +61,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
@@ -96,9 +96,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <Address2> in "Address 2" on create organization page
     And I enter <City> in "City" on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
@@ -140,9 +140,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -150,7 +150,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -161,7 +161,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -187,9 +187,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -197,7 +197,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -208,7 +208,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -231,9 +231,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name1> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -241,7 +241,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -252,7 +252,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -263,7 +263,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "3" on "create" organization page
     And I select region <Loc_Region> for Location "3" on "create" organization page
     And I enter city <Loc_City> for Location "3" on "create" organization page
-    And I select market <Loc_Market> for Location "3" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "3" on "create" organization page
     And I select state <Loc_State> for Location "3" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "3" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -274,7 +274,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "4" on "create" organization page
     And I select region <Loc_Region> for Location "4" on "create" organization page
     And I enter city <Loc_City> for Location "4" on "create" organization page
-    And I select market <Loc_Market> for Location "4" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "4" on "create" organization page
     And I select state <Loc_State> for Location "4" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "4" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -285,7 +285,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "5" on "create" organization page
     And I select region <Loc_Region> for Location "5" on "create" organization page
     And I enter city <Loc_City> for Location "5" on "create" organization page
-    And I select market <Loc_Market> for Location "5" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "5" on "create" organization page
     And I select state <Loc_State> for Location "5" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "5" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -296,7 +296,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "6" on "create" organization page
     And I select region <Loc_Region> for Location "6" on "create" organization page
     And I enter city <Loc_City> for Location "6" on "create" organization page
-    And I select market <Loc_Market> for Location "6" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "6" on "create" organization page
     And I select state <Loc_State> for Location "6" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "6" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -307,7 +307,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "7" on "create" organization page
     And I select region <Loc_Region> for Location "7" on "create" organization page
     And I enter city <Loc_City> for Location "7" on "create" organization page
-    And I select market <Loc_Market> for Location "7" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "7" on "create" organization page
     And I select state <Loc_State> for Location "7" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "7" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -318,7 +318,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "8" on "create" organization page
     And I select region <Loc_Region> for Location "8" on "create" organization page
     And I enter city <Loc_City> for Location "8" on "create" organization page
-    And I select market <Loc_Market> for Location "8" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "8" on "create" organization page
     And I select state <Loc_State> for Location "8" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "8" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -329,7 +329,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "9" on "create" organization page
     And I select region <Loc_Region> for Location "9" on "create" organization page
     And I enter city <Loc_City> for Location "9" on "create" organization page
-    And I select market <Loc_Market> for Location "9" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "9" on "create" organization page
     And I select state <Loc_State> for Location "9" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "9" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -340,7 +340,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "10" on "create" organization page
     And I select region <Loc_Region> for Location "10" on "create" organization page
     And I enter city <Loc_City> for Location "10" on "create" organization page
-    And I select market <Loc_Market> for Location "10" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "10" on "create" organization page
     And I select state <Loc_State> for Location "10" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "10" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -363,16 +363,16 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -399,9 +399,9 @@ Feature: Create Hospital organization functionality tests
   Scenario Outline: Identifiers - <Description>
     Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I switch the focus to "submit" button
     And I verify "<Message>" field validation message on create organization page
     And I verify "<Message1>" field validation message on create organization page

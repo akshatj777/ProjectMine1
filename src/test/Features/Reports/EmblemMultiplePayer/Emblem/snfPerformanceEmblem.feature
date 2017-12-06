@@ -18,6 +18,10 @@ Feature: Verification of filters under SNF Performance Claims report under Post 
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Payer" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Payer" field is appearing in the report table after clicking on add to report
+    When I click to "Payer" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
