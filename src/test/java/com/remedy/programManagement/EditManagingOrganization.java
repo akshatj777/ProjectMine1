@@ -4,7 +4,6 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.remedy.baseClass.BaseClass;
 
 public class EditManagingOrganization extends BaseClass {
@@ -43,6 +42,7 @@ public class EditManagingOrganization extends BaseClass {
 	
 	public void iEditAllFieldsOFOrganization(String field1, String field2) {
 		if(field2.contains("MONAME")){
+			CreateManagingOrganization.moName = CreateManagingOrganization.moOrg.get("MONAME");
 			CreateManagingOrganization.tempMoOrg.put("MONAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));

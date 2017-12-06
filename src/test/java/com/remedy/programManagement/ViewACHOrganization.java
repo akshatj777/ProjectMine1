@@ -42,30 +42,35 @@ public class ViewACHOrganization  extends BaseClass{
 		if (org.contains("Hospital")){
 			if (text.contains("YES")){	
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-				Assert.assertEquals("EIN/TIN: "+CreateACHOrganization.achOrg.get("EIN"),actual.replace("|", ""));
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreateACHOrganization.achOrg.get("EIN"),actual);
 			}
 			else if (text.contains("NO")){
-			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-			Assert.assertEquals("EIN/TIN: "+CreateACHOrganization.achOrg_noMO.get("EIN"),actual.replace("|", ""));
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreateACHOrganization.achOrg_noMO.get("EIN"),actual);
 			}
 		}
 		else {
 			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
-			Assert.assertEquals("EIN/TIN: "+text,actual.replace("|", ""));
+			actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+			Assert.assertEquals(text,actual);
 		}
 	}
 	
 	public void iVerifyRegionNameInVeiwProfileOfSelectedOrganization(String region) {
 		if(isElementPresentOnPage(By.cssSelector(".region-name"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".region-name"))); 
-		    Assert.assertEquals("Region: "+region,text.replace("|", ""));
+			String actual = getTextForElement(driver.findElement(By.cssSelector(".region-name"))); 
+			actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+		    Assert.assertEquals(region,actual);
 			}
 	}
 	
 	public void iVerifyMarketNameInVeiwProfileOfSelectedOrganization(String market) {
 		if(isElementPresentOnPage(By.cssSelector(".region-market-view>.id.market-name"))) {	
-			String text = getTextForElement(driver.findElement(By.cssSelector(".region-market-view>.id.market-name"))); 
-		    Assert.assertEquals("Market: "+market,text.trim());
+			String actual = getTextForElement(driver.findElement(By.cssSelector(".region-market-view>.id.market-name"))); 
+			actual = actual.substring((actual.indexOf(":"))+1).trim();
+		    Assert.assertEquals(market,actual);
 			}
 	}
 	
@@ -73,16 +78,19 @@ public class ViewACHOrganization  extends BaseClass{
 		if(org.contains("Hospital")){
 			if(text.contains("YES")){
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
-				Assert.assertEquals("NPI: "+CreateACHOrganization.achOrg.get("NPI"),actual.replace("|",""));
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreateACHOrganization.achOrg.get("NPI"),actual);
 			   }
 			else if(text.contains("NO")){
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
-				Assert.assertEquals("NPI: "+CreateACHOrganization.achOrg_noMO.get("NPI"),actual.replace("|", ""));	
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreateACHOrganization.achOrg_noMO.get("NPI"),actual);	
 				}
 			}
 			else {
-				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
-				Assert.assertEquals("NPI: "+text,actual.replace("|", ""));	
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi")));
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(text,actual);	
 				
 			}
 	}

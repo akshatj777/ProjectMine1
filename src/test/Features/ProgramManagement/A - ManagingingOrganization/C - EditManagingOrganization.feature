@@ -1,4 +1,4 @@
-Feature: Edit the Managing organization
+Feature: Edit the Managing organization functionality test
 
   Background: 
     Given I am on the login page
