@@ -90,6 +90,14 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
 		}
+		else if(text.contains("PGPNAME")) {
+			CreatePGPOrganization.tempPGPOrg.put("PGPNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("PGPNAME"));
+		}
+		else if(text.contains("DUPLICATE_PGP"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
+		}
 		else 	
 		{
 	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
@@ -136,6 +144,30 @@ public class CreateManagingOrganization extends BaseClass {
 					{
 						CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
 						CreateACHOrganization.tempAchOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("PGP - YES"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreatePGPOrganization.tempPGPOrg.isEmpty())
+						{
+						CreatePGPOrganization.pgpOrg.putAll(CreatePGPOrganization.tempPGPOrg);
+						CreatePGPOrganization.tempPGPOrg.clear();
+						}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("PGP - NO"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreatePGPOrganization.tempPGPOrg.isEmpty())
+					{
+						CreatePGPOrganization.pgpOrg_noMO.putAll(CreatePGPOrganization.tempPGPOrg);
+						CreatePGPOrganization.tempPGPOrg.clear();
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
