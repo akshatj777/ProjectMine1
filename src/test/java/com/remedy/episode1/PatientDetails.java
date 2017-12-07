@@ -143,23 +143,23 @@ public class PatientDetails extends BaseClass {
 	}
 
 	public void editDateOfDeath(int days) {
-		iWillWaitToSee(By.xpath("//*[@id='BP_patientType_dob']"));
+		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[dod]']"));
 		if (days!=0){
 		clickElement(driver.findElement(By.xpath("//*[@id='BP_patientType_dob']")));
 		currentdate(days,"MM/dd/yyyy");}
 	}
 
 	public void cleartheDateofdeath() {
-		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[dob]']"));
-		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[dob]']")));
+		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[dod]']"));
+		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[dod]']")));
 		driver.findElement(By.cssSelector("div.editable-input>div.input-group>input")).clear();
 		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
 		}
 
 	public void edit_Medicare_Id(String id) {
-		iWillWaitToSee(By.xpath("//*[@id='BP_patientType_medicareId']"));
-		clickElement(driver.findElement(By.xpath("//*[@id='BP_patientType_medicareId']")));
-		iFillInText(driver.findElement(By.xpath("//*[@id='BP_patientType_medicareId']")),id);
+		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[medicareId]']"));
+		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[medicareId]']")));
+		iFillInText(driver.findElement(By.cssSelector("div.editable-input>input")),id);
 		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
 		}
 		

@@ -92,7 +92,7 @@ Feature: Managing Various Episode States
 
   Scenario: Episode NOT ELIGIBLE and Back to Active - set patient eligibility to not eligible then back to eligible
     When I click on "Eligibility" dropdown button
-    When I click on eligibility set "not_eligible" option
+    When I click on eligibility set "Not Eligible" option
     And I will wait to see "Your changes have been successfully saved" in "p" tag
     And I should see tag "Not Eligible"
     When I reload the page
@@ -114,7 +114,7 @@ Feature: Managing Various Episode States
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "120" days
-    Then I fill in "Discharge" with logic "minus" with "95" days
+    Then I fill in "Discharge" with logic "minus" with "110" days
     Then I click on update transition to add a new episode
     When I reload the page
     And I will wait to see patient's name on patient summary page
@@ -172,10 +172,10 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     And I will wait to see "Needs Onboarding" in "span" tag
-    And I should not see tag "Expired" in "h3" tag
+    And I should not see "Expired" in "h3" tag
 
   Scenario: COMPLETED EXPIRED -Removing dod should rerun episode logic and also reinstate previous eligibility status.
-    Bug    And I should see tag "Error"
+    And I should see tag "Error"
     When I click first timing transition edit link "1"
     And I will wait to see "Admission Date" in "label" tag
     Then I fill in "Admit" with logic "minus" with "90" days
@@ -203,9 +203,110 @@ Feature: Managing Various Episode States
     And I will clear the Date of death field on patient details page
     When I edit medicare ID with "123456799A"
     And I will wait to see "123456799A" in "div" tag
-    When I reload the page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     And I will wait to see "Unknown" in "span" tag
     And I should not see "Expired" in "h3" tag
+
+  Scenario: EPISODE_EXCLUDED Cancelled episode terminated as excluded
+    And I will wait to see patient's name on patient summary page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "0" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "239" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "//span[contains(text(),'EXCLUDED BY 239')]" state
+    And I will wait to see "Needs Onboarding" in "span" tag
+
+  Scenario: Potential M3 ActiveBPCI DRG M3 in the HHH's PGP
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    And I am on "/secure/pn/patientslist"
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    When I click on Admitting Facility present on the Add Patient page
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Primary Care Physician Information page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Emanuel County Hospital Authority" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "POTENTIAL MODEL3" state
+    And I will wait to see "Needs Onboarding" in "span" tag
+
+  Scenario: POTENTIAL EPISODE CANCELED
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    Then I click Access button
+    Then I should see Tile text Episodes
+    And I click on the "Episodes" tile
+    And I switch to new window
+    And I am on "/secure/pn/patientslist"
+    When I click on Add Patient button present on the ec1 patients page
+    Then I verify "Add Patient" text is present on the add patient page
+    Then I enter random Patient First Name in the first name text box field present on the Add Patient page
+    Then I enter random Patient Last Name in the last name text box field present on the Add Patient page
+    And I enter date of birth "01/05/1995" present on the Add Patient Page
+    And I selected "Male" from the gender drop down list present on the Add Patient page
+    And I enter random social security number in the SSN text box field present on the Add Patient page
+    When I click on Admitting Facility present on the Add Patient page
+    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I enter "WA784654785" in the Medicare ID present on the Add Patient page
+    Then I click on the next button present on the Add Patient page
+    Then I click on the next button present on the Primary Care Physician Information page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "40" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Emanuel County Hospital Authority" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "POTENTIAL EPISODE CANCELED" state
+    And I will wait to see "Unknown" in "span" tag

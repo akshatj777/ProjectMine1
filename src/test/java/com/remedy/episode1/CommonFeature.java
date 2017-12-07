@@ -66,6 +66,7 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void i_Wait_To_See(String text,String tag) {
+		delay();
 		iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
 		isElementVisible(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
 	}
@@ -96,11 +97,12 @@ public void patientshouldhaveopenedepisode() {
 
 public void iclickOnEpisodeMarker() {
 	iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']"));
-	clickElement(driver.findElement(By.xpath("//*[@id='s2id_episodeSelectionBox']")));
+    clickElement(driver.findElement(By.xpath("//*[@id='s2id_episodeSelectionBox']")));
 	
 }
 
 public void iWillWaitToSeeState(String state) {
+	delay();
 	iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']/a/span"));
 	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+state+"')]")));
 }

@@ -24,6 +24,8 @@ public class PatientEligiblity extends BaseClass{
 			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_value.set_eligibility_eligible")));}
 		else if(value.equals("Expired")){
 			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_expired")));}
+		else if(value.equals("Not Eligible")){
+			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_not_eligible")));}
 		}
 
 	public void selectDateofDeath(int days) {
