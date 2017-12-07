@@ -740,7 +740,7 @@ Feature: Verification Claims Report For Performance (Claims)
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: Tier One - If the SNF or HHA is a Tier 1 facility for the Provider at the Anchor Hospital during the Anchor Discharge Quarter
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -756,8 +756,66 @@ Feature: Verification Claims Report For Performance (Claims)
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
+    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
+    Then I remove "Attributed Physician" field filter under "Physician" filter field from default filters
+    And I wait until refresh button is disappeared
+    And I verify there are no default filters appearing after removing all the default filters
+    When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute Type" in the header text of filter page
+    And I should see "<postacutetype1>" in the filter value list
+    And I should see "<postacutetype2>" in the filter value list
+    And I click on "<postacutetype1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on "<postacutetype2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Post Acute Type includes HHA and SNF" is appearing under selected post acute type filter
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier" column is added to report after selecing add to report option
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I should see "<networktier1>" in the filter value list
+    And I should see "<networktier2>" in the filter value list
+    And I should see "<networktier3>" in the filter value list
+    #Out Of Network
+    And I click on "<networktier1>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Out of Network" is appearing under selected network tier filter
+    And I verify "Out of Network" is visible under "Network Tier" column in the report
+    Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
+    #Tier 1
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I click on "<networktier2>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Tier 1" is appearing under selected network tier filter
+    And I verify "<networktier2>" is visible under "Network Tier" column in the report
+    Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
+    #Tier 2
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I click on "<networktier3>" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Tier 2" is appearing under selected network tier filter
+    And I verify "<networktier3>" is visible under "Network Tier" column in the report
     
     Examples: 
-      | email                              |
-      | RPFINClaimsSNFHHATier1@yopmail.com |
-      | OPSFINTier1@yopmail.com            |
+      | email                              | postacutetype1 | postacutetype2 | networktier1   | networktier2 | networktier3 |
+      | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
+      #| OPSFINTier1@yopmail.com            |

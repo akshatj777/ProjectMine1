@@ -1173,4 +1173,20 @@ public class ReportHomePage extends BaseClass {
     	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']//i[@title='Remove filter']")));
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
     }
+    
+    public void iVerifyNoDeafultFiltersAfterRemovingFilters(){
+    	isElementNotPresentOnPage(".filters.dojoDndItem>div");
+    }
+    
+    public void iVerifyPostAcuteTypeFilterTextInSelectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Post Acute Category.Post Acute Type].[Post Acute Type]']/span")),text);
+    }
+    
+    public void iVerifyNetworkTierTextInSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier].[Network Tier]/span")),text);
+    }
+    
+    public void iVerifyDataInTheColumnsInsideReports(String data,String column){
+    	verifyTextForElementFromListByXpath(("//td[@member='["+column+"].["+data+"]']"),column);
+    }
 }

@@ -1506,4 +1506,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_remove_payer_field_filter_under_filter_field_from_default_filters(String text) throws Throwable{
     	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
     }
+    
+    @And("^I verify there are no default filters appearing after removing all the default filters$")
+    public void i_verify_there_are_no_default_filters_appearing_after_removing_all_the_default_filters() throws Throwable{
+    	reportHomePage.iVerifyNoDeafultFiltersAfterRemovingFilters();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected post acute type filter$")
+    public void i_verify_is_appearing_under_selected_post_acute_type_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyPostAcuteTypeFilterTextInSelectedFilters(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected network tier filter$")
+    public void i_verify_is_appearing_under_selected_network_tier_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyNetworkTierTextInSelectedFilter(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is visible under \"([^\"]*)\" column in the report$")
+    public void i_verify_is_visible_under_column_in_the_report(String data,String column) throws Throwable{
+    	reportHomePage.iVerifyDataInTheColumnsInsideReports(data, column);
+    }
 }
