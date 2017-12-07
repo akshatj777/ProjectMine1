@@ -4,6 +4,7 @@ import com.remedy.baseClass.BaseClass;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -63,11 +64,12 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iVerifyResetPasswordText(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//h1[text()='Password Reset']")), text);
+		iVerifyTextFromListOfElement(By.cssSelector(".sso-reset-password-text-container>p"), text);
 	}
 
 	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
-		clickElement(driver.findElement(By.xpath("//button[text()='Okay']")));
+		WebElement element = driver.findElement(By.cssSelector(".btn.btn-primary.hide-sso-messages"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 		delay();
 	}
 
