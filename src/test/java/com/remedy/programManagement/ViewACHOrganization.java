@@ -51,6 +51,18 @@ public class ViewACHOrganization  extends BaseClass{
 				Assert.assertEquals(CreateACHOrganization.achOrg_noMO.get("EIN"),actual);
 			}
 		}
+		else if (org.contains("PGP")){
+			if (text.contains("YES")){	
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreatePGPOrganization.pgpOrg.get("EIN"),actual);
+			}
+			else if (text.contains("NO")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreatePGPOrganization.pgpOrg_noMO.get("EIN"),actual);
+			}
+		}
 		else {
 			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ein"))); 
 			actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
@@ -85,6 +97,18 @@ public class ViewACHOrganization  extends BaseClass{
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
 				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
 				Assert.assertEquals(CreateACHOrganization.achOrg_noMO.get("NPI"),actual);	
+				}
+			}
+		else if(org.contains("PGP")){
+			if(text.contains("YES")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreatePGPOrganization.pgpOrg.get("NPI"),actual);
+			   }
+			else if(text.contains("NO")){
+				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi"))); 
+				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
+				Assert.assertEquals(CreatePGPOrganization.pgpOrg_noMO.get("NPI"),actual);	
 				}
 			}
 			else {
@@ -144,12 +168,11 @@ public class ViewACHOrganization  extends BaseClass{
 					Assert.assertEquals(result,queryResult);
 				}
 			}
-		else
-		{
-			result = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view"))).trim();
-			Assert.assertEquals(result,"This Organization does not have a Managing Organization");
-
-		}
+			else
+			{
+				result = getTextForElement(driver.findElement(By.cssSelector(".managing-org-view"))).trim();
+				Assert.assertEquals(result,"This Organization does not have a Managing Organization");
+			}
 			
 	}
 	
@@ -196,6 +219,5 @@ public class ViewACHOrganization  extends BaseClass{
 		count = count.replaceAll("Organization|s", "").trim();
 		orgCount = Integer.toString(Integer.parseInt(orgCount)+1);
 		Assert.assertEquals(orgCount,count);
-		
 	}
 }

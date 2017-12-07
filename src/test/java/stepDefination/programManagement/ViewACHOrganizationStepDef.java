@@ -58,6 +58,7 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 	  public void user_should_get_redirected_to_the_managing_organization_tab_page(String text) throws Throwable {
 		viewACH.userShouldGetRedirectedToTheOrganizationTabPage(text);
 		}
+	
 	@And("^I verify \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
 	  public void I_Verify_ManagingOrganization_on_view_profile_of_organization(String text, String org) throws Throwable {
 		viewACH.iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(text,org);

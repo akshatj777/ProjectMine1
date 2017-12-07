@@ -61,9 +61,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
@@ -96,9 +96,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <Address2> in "Address 2" on create organization page
     And I enter <City> in "City" on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
@@ -140,9 +140,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -187,9 +187,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -231,9 +231,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name1> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -363,9 +363,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
@@ -399,9 +399,9 @@ Feature: Create Hospital organization functionality tests
   Scenario Outline: Identifiers - <Description>
     Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I switch the focus to "submit" button
     And I verify "<Message>" field validation message on create organization page
     And I verify "<Message1>" field validation message on create organization page
