@@ -126,4 +126,9 @@ ua2LandingPage.verifyUserInformation();
 	   ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
 	
+	@Then("^I enter search box in landing page with \"([^\"]*)\" for \"([^\"]*)\"$")
+	public void i_enter_search_box_in_landing_page_with_for(String id, String role) throws Throwable {
+	    ua2LandingPage.SearchUserWithEmail(role, id);
+	}
+	
 }

@@ -10,18 +10,19 @@ import org.openqa.selenium.WebDriver;
 
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.userAdmin.CreateUserPage;
+import com.remedy.userAdmin.MailCreateUser;
 
 public class SuperUserLandingPage extends BaseClass {
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	String time = df.format(timestamp);
-	String mail = "test.automatemail";
-	final String email = mail+"+"+time+"@gmail.com";
-
+	
+	static String mail = "test.automatemail";
+	static String email = null;
+	
 	public SuperUserLandingPage(WebDriver driver) {
 
 		super(driver);
 	}
+
 
 	public void iVerifyUsersLink(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector("a[href^='https://user-admin']")),text);
@@ -29,13 +30,16 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifyLandingPageUI() {
+		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
 		isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
 		isElementVisible(driver.findElement(By.cssSelector("th#auth0State")));
 		isElementVisible(driver.findElement(By.cssSelector("th#lastName")));
 		isElementVisible(driver.findElement(By.cssSelector("th#logicalRoleId")));
 		isElementVisible(driver.findElement(By.cssSelector("th#email")));
 		isElementVisible(driver.findElement(By.cssSelector("th#insertedDate")));
-		isElementVisible(driver.findElement(By.cssSelector("div.chevron-group")));
+		iWillWaitToSee(By.cssSelector("div.paginator-text"));
+		isElementVisible(driver.findElement(By.cssSelector("div.paginator-text")));
+		//isElementVisible(driver.findElement(By.cssSelector("div.chevron-group")));
 	}
 
 	public void verifyUserInformation() {
@@ -72,18 +76,30 @@ public class SuperUserLandingPage extends BaseClass {
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
 
+	public void SearchUserWithEmail(String role, String id) {
+		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
+		if(id.equalsIgnoreCase(mail)){
+			//email=CreateUserPage.usersEmailPerRole;
+			
+			//System.out.println("Email----------"+email);
+			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);	
+		}
+		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), id);	
+			}
+		
 	public void SearchUserWithText(String text) {
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		if(text.equalsIgnoreCase(mail))
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
-		}
+		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);	
+		delay();
+	}
 
 	public void iVerifySearchResult(String result, String searchBy) {
 		iWillWaitToSee(By.cssSelector("td.four.wide"));
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
 			verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), result);
 		}
-		else if (searchBy.equalsIgnoreCase("email")) {
+		else if (searchBy.equalsIgnoreCase("Email")) {
+		System.out.println("Email value-------"+email);
 			verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);
 				}
 		}

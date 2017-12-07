@@ -20,6 +20,7 @@ public class MailCreateUser extends BaseClass{
 	static String time = null;
 	static String mail = "test.automatemail";
 	static String email = null;
+	
 
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
@@ -158,4 +159,5 @@ public class MailCreateUser extends BaseClass{
 	    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
 	    Thread.sleep(10000);
 	}
+	
 }
