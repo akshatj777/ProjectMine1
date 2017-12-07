@@ -97,6 +97,7 @@ Feature: UA2 Front End Automation
     Then I click on Hamburger menu on top right of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    Then I click on Hamburger menu on top right of homepage
     And I click on Episode1 tile for "<User>-<Role>" and verify user "<Roletext>"
     And I click on Institute tile for "<User>-<Role>" user
     And I click on Reports tile for "<User>-<Role>" user
@@ -119,26 +120,26 @@ Feature: UA2 Front End Automation
     And I should see Log in widget
 
     Examples: 
-      | Description                                                                           | User        | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | Roletext       |
-      | Login with Executive and verify Product Tiles and their redirections                  | Super Admin | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  | ROLE_PRM       |
-      | Login with Super Admin User and create user with Manager role                         | Super Admin | Manager                         | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  | ROLE_PRM       |
-      | Login with Super Admin User and create user with Case Manager role                    | Super Admin | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  | ROLE_TCS       |
-      | Login with Super Admin User and create user with Physicians role                      | Super Admin | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_CLINICIAN |
-      | Login with Super Admin User and create user with Remedy TCS role                      | Super Admin | Remedy TCS                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_TCS       |
-      | Login with Super Admin User and create user with Remedy LPN role                      | Super Admin | Remedy LPN                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_LPN       |
-      | Login with Super Admin User and create user with Remedy RN role                       | Super Admin | Remedy RN                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_RN        |
-      | Login with Super Admin User and create user with Remedy Field RN role                 | Super Admin | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_FRN       |
-      | Login with Super Admin User and create user with Remedy PM role                       | Super Admin | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        |
-      | Login with Super Admin User and create user with Remedy Sales Team role               | Super Admin | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |                |
-      | Login with Super Admin User and create user with Remedy Executive role                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        |
-      | Login with Super Admin User and create user with Prospective Partner Executive role   | Super Admin | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |                |
-      | Login with Super Admin User and create user with Remedy Other role                    | Super Admin | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         | ROLE_PRM       |
-      | Login with Super Admin User and create user with Partner Program Administrator role   | Super Admin | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_PRM       |
-      | Login with Super Admin User and create user with Remedy Program Administrator role    | Super Admin | Remedy Program Administrator    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, TCI                 | Administration                                                     | ROLE_PRM       |
-      | Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    | ROLE_PM        |
-      | Login with Super Admin User and create user with Remedy Technical Administrator role  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    | ROLE_ADMIN     |
-      | Login with Super Admin User and create user with Transitional Case Manager role       | Super Admin | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    | ROLE_TCS       |
-      | Login with Super Admin User and create user with Downstream Provider role             | Super Admin | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      | ROLE_SNF       |
+      | Description                                                                                | User        | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | Roletext       |
+      | Login with Executive and verify Product Tiles and their redirections                       | Super Admin | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  | ROLE_PRM       |
+      | Login with Manager and verify Product Tiles and their redirections                         | Super Admin | Manager                         | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  | ROLE_PRM       |
+      | Login with Case Manager and verify Product Tiles and their redirections                    | Super Admin | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  | ROLE_TCS       |
+      | Login with Physicians and verify Product Tiles and their redirections                      | Super Admin | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_CLINICIAN |
+      | Login with Remedy TCS and verify Product Tiles and their redirections                      | Super Admin | Remedy TCS                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_TCS       |
+      | Login with Remedy LPN and verify Product Tiles and their redirections                      | Super Admin | Remedy LPN                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_LPN       |
+      | Login with Remedy RN and verify Product Tiles and their redirections                       | Super Admin | Remedy RN                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_RN        |
+      | Login with Remedy Field RN and verify Product Tiles and their redirections                 | Super Admin | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_FRN       |
+      | Login with Remedy PM and verify Product Tiles and their redirections                       | Super Admin | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        |
+      | Login with Remedy Sales Team and verify Product Tiles and their redirections               | Super Admin | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |                |
+      | Login with Remedy Executive and verify Product Tiles and their redirections                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        |
+      | Login with Prospective Partner Executive and verify Product Tiles and their redirections   | Super Admin | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |                |
+      | Login with Remedy Other and verify Product Tiles and their redirections                    | Super Admin | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         | ROLE_PRM       |
+      | Login with Partner Program Administrator and verify Product Tiles and their redirections   | Super Admin | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_PRM       |
+      | Login with Remedy Program Administrator and verify Product Tiles and their redirections    | Super Admin | Remedy Program Administrator    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, TCI                 | Administration                                                     | ROLE_PRM       |
+      | Login with Partner Technical Administrator and verify Product Tiles and their redirections | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    | ROLE_PM        |
+      | Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    | ROLE_ADMIN     |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections       | Super Admin | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    | ROLE_TCS       |
+      | Login with Downstream Provider and verify Product Tiles and their redirections             | Super Admin | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      | ROLE_SNF       |
 
   Scenario: Verify availability of fields on General Information tab while adding a user.
     			Also, Verify availability of values in Role dropdown for Super Admin.
@@ -178,8 +179,8 @@ Feature: UA2 Front End Automation
     Then I verify the availability of role "Remedy Program Administrator"
     Then I verify the availability of role "Partner Technical Administrator"
     Then I verify the availability of role "Transitional Case Manager"
+    Then I verify the availability of role "Downstream Provider"
 
-  #Then I verify the availability of role "Downstream Provider"
   Scenario Outline: <Description>
     Given I am on the login page
     When I enter email field lbarinstein+qaadmin@remedypartners.com for login
@@ -200,16 +201,16 @@ Feature: UA2 Front End Automation
     Then I verify the validation message "<ValidationMsg>" on Create User Page
 
     Examples: 
-      | Description                                           | FirstName  | LastName  | Email             | Phone      | Role      | NPI        | ValidationMsg          |
-      | Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive |            | First Name is required |
-      | Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive |            | Last Name is required  |
-      | Verify validation message for blank Email             | First Name | Last Name |                   | 9874563210 | Executive |            | Email is required      |
-      | Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |           |            | Role is required       |
-      | Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physician |            | NPI is required        |
-      | Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physician | NPI        | Email is required      |
-      | Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physician |     123564 | NPI is required        |
-      | Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physician | abcdefgihj | NPI is required        |
-      | Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physician | abcde12345 | NPI is required        |
+      | Description                                           | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
+      | Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required |
+      | Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required  |
+      | Verify validation message for blank Email             | First Name | Last Name |                   | 9874563210 | Executive  |            | Email is required      |
+      | Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required       |
+      | Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
+      | Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Email is required      |
+      | Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
+      | Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
+      | Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
 
   Scenario Outline: Verify list of applications are enabled/disabled for role <Role> and Super User
     Given I am on the login page

@@ -58,14 +58,14 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc){
-        //getTextForElementfromList(".ui.fluid.selection.dropdown");
-        //selectElementByDesc("div.menu.transition.visible>div", desc);
-    	delay();
-    	WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
-    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    	delay();
-    	element.click();
-    	userRole = desc;
+    	if(!desc.isEmpty()){
+    		delay();
+        	WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
+        	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        	delay();
+        	element.click();
+        	userRole = desc;
+    	}
     }
     
     public void selectPayerFromData(String desc){
@@ -90,7 +90,7 @@ public class CreateUserPage extends BaseClass{
 			{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")),RandomStringUtils.randomNumeric(10));
 			}
-			else if(!npi.isEmpty())
+			else
 			{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")), npi);
 			}
@@ -322,17 +322,15 @@ public class CreateUserPage extends BaseClass{
 	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   System.out.println("Episode1"+value);
 	   if(value.contains("Episodes")){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Episodes']")));
-		   iWillWaitToSee(By.xpath("//p[text()='Episode1']"));
-		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes']")));
+		   iWillWaitToSee(By.xpath("//p[text()='Episodes']"));
+		   clickElement(driver.findElement(By.xpath("//a[@class='spoe-button episodes']")));
 		   switchToNewWindow();
-		   delay();
-		   isElementPresentOnPage(By.cssSelector(".username"));
+		   iWillWaitToSee(By.cssSelector(".username"));
 		   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
 		   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
 		   delay();
-		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/a[1]")));
-		   clickElement(driver.findElement(By.xpath("//div[1]/div[2]/div[4]/ul/li[5]/a")));
+		   driver.findElements(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']")).get(0).click();
+		   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
 		   delay();
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
 		   switchBacktoOldWindow();
@@ -376,8 +374,7 @@ public class CreateUserPage extends BaseClass{
    public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String role){
 	   String value = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   System.out.println("Phy"+value);
-	   if(value.contains("Remedy Technical Administrator")||value.contains("Physician")||value.contains("Partner Program Administrator")||value.contains("Remedy Program Administrator")
-			   ||value.contains("Partner Technical Administrator")){
+	   if(value.contains("Physician Connect")){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Gainsharing Physician Survey']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='Gainsharing Physician Survey']")));
 		   delay();

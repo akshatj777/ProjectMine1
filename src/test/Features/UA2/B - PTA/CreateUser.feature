@@ -1,7 +1,7 @@
 Feature: UA2 Front End Automation
 
   Scenario Outline: <Description>
-  	Given I am on mail login page
+    Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
@@ -64,18 +64,16 @@ Feature: UA2 Front End Automation
     And I enter new password "Testing1" to set new password
     And I enter confirm new password "Testing1" to set new password
     And I click on submit button to set new password
-   
+
     Examples: 
-      | Description                                                                 | User                            | UserName                        | FirstName | LastName | Email             | Phone | Role                          | Applications                                                | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System     |
-      | Login with PTA user and create user with Executive role                     | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Executive                     | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Manager role                       | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Manager                       | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Case Manager role                  | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Case Manager                  | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Physicians role                    | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Physicians                    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        | NPI | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Prospective Partner Executive role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Prospective Partner Executive | Lessons                                                     |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Partner Program Administrator role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Partner Program Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Transitional Case Manager role     | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Transitional Case Manager     | Episodes, Reports, Lessons                                  |                        |     | Learning Pathway 2             | Stamford Hospital |
-    
-    Scenario Outline: <Description>
+      | Description                                                             | User                            | UserName                        | FirstName | LastName | Email             | Phone | Role                      | Applications                                                | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System     |
+      | Login with PTA user and create user with Executive role                 | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Executive                 | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Manager role                   | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Manager                   | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Case Manager role              | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Case Manager              | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Physicians role                | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Physicians                | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        | NPI | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Transitional Case Manager role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Transitional Case Manager | Episodes, Reports, Lessons                                  |                        |     | Learning Pathway 2             | Stamford Hospital |
+
+  Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
@@ -85,44 +83,39 @@ Feature: UA2 Front End Automation
     Then I click on Hamburger menu on top right of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    Then I click on Hamburger menu on top right of homepage
     And I click on Episode1 tile for "<User>-<Role>" and verify user "<Roletext>"
     And I click on Institute tile for "<User>-<Role>" user
     And I click on Reports tile for "<User>-<Role>" user
     And I click on Episodes two tile for "<User>-<Role>" user
     And I click on RemedyU tile for "<User>-<Role>" user
-  	And I redirect to Remedy connect page
+    And I redirect to Remedy connect page
     And I click on the top user account link
     And I verify "Support" in dropdown on profile icon
-#    And I verify "Internal Support" in dropdown on profile icon
     And I verify "Reset Password" in dropdown on profile icon
     And I verify "Log Out" in dropdown on profile icon
-#    And I click on "Internal Support" in dropdown on profile icon
-#    And I switch to new window
-#    And I verify page header "Login" for "Internal Support" on Remedy Connect
-#    And I switch back to old window
     And I click on "Support" in dropdown on profile icon
     And I switch to new window
     And I verify page header "Login" for "Support" on Remedy Connect
     And I switch back to old window
-    Then I select Reset Password option from the dropdown
-    And I should see text popup for reset password "Password Reset"
+    And I click on "Reset Password" in dropdown on profile icon
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password. Please check your e-mail."
     And I click Okay button for reset password popup
     And I click on the top user account link
     Then I select Log Out option from the dropdown
     And I should see Log in widget
-     
-        
+
     Examples: 
-      | Description                                                                 | User                            | UserName                        | FirstName | LastName | Email             | Phone | Role                          | Applications                                                | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System     |
-      | Login with PTA user and create user with Executive role                     | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Executive                     | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Manager role                       | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Manager                       | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Case Manager role                  | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Case Manager                  | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Physicians role                    | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Physicians                    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        | NPI | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Prospective Partner Executive role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Prospective Partner Executive | Lessons                                                     |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Partner Program Administrator role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Partner Program Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Transitional Case Manager role     | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Transitional Case Manager     | Episodes, Reports, Lessons                                  |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Description                                                                          | User                            | UserName                        | Role                      | Applications                                                | ApplicationsNotVisible                          | Roletext       |
+      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | Partner Technical Administrator | Executive                 | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_PRM       |
+      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | Partner Technical Administrator | Manager                   | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_PRM       |
+      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | Partner Technical Administrator | Case Manager              | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_TCS       |
+      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | Partner Technical Administrator | Physicians                | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                                  | ROLE_CLINICIAN |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | Partner Technical Administrator | Transitional Case Manager | Episodes, Reports, Lessons                                  | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       |
 
   Scenario: Verify availability of fields on General Information tab while adding a user
+    			Also, Verify availability of values in Role dropdown for PTA user.
+
     Given I am on the login page
     When I enter email field Partner Technical Administrator for login
     And I enter password field Testing1 for Login
@@ -137,16 +130,6 @@ Feature: UA2 Front End Automation
     Then I verify the availability of fields "Email"
     Then I verify the availability of fields "Phone"
     Then I verify the availability of fields "Role"
-
-  Scenario: Verify availability of values in Role dropdown for PTA User on General Information tab while adding a user
-    Given I am on the login page
-    When I enter email field Partner Technical Administrator for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
     Then I should see "Add New User" on the user creation page
     When I click the Organizational Role Field
     Then I verify the availability of role "Executive"
@@ -159,7 +142,7 @@ Feature: UA2 Front End Automation
 
   Scenario Outline: <Description>
     Given I am on the login page
-    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    When I enter email field Partner Technical Administrator for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Admin
@@ -171,41 +154,24 @@ Feature: UA2 Front End Automation
     Then I fill in Last Name with <LastName>
     And I enter Email "<Email>" to Create user
     When I click the Organizational Role Field
-    Then I enter NPI field with "<NPI>" for role "<Role>"
-    And I switch the focus to Next button
-    Then I verify the validation message "<ValidationMsg>" on Create User Page
-
-    Examples: 
-      | Description                                    | FirstName  | LastName  | Email             | Phone      | Role      | NPI | ValidationMsg          |
-      | Verify validation message for blank First name |            | Last Name | test.automatemail | 9874563210 | Executive |     | First Name is required |
-      | Verify validation message for blank Last name  | First Name |           | test.automatemail | 9874563210 | Executive |     | Last Name is required  |
-      | Verify validation message for blank Email      | First Name | Last Name |                   | 9874563210 | Executive |     | Email is required      |
-      | Verify validation message for blank Role       | First Name | Last Name | test.automatemail | 9874563210 |           |     | Role is required       |
-      | Verify validation message for blank NPI        | First Name | Last Name | test.automatemail | 9874563210 | Physician |     | NPI is required        |
-
-  Scenario Outline: <Description>
-    Given I am on the login page
-    When I enter email field Partner Technical Administrator for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I enter Email "<Email>" to Create user
-    When I click the Organizational Role Field
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
     And I switch the focus to Next button
     Then I verify the validation message "<ValidationMsg>" on Create User Page
 
     Examples: 
-      | Description                                           | Email             | Role       | NPI        | ValidationMsg     |
-      | Verify validation message for invalid Email           | abc               | Physicians | NPI        | Email is required |
-      | Verify validation message for NPI less than 10 digits | test.automatemail | Physicians |     123564 | NPI is required   |
-      | Verify validation message for NPI as alphabets        | test.automatemail | Physicians | abcdefgihj | NPI is required   |
-      | Verify validation message for NPI as alphanumeric     | test.automatemail |            | abcde12345 | NPI is required   |
+      Examples:
+
+      | Description                                           | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
+      | Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required |
+      | Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required  |
+      | Verify validation message for blank Email             | First Name | Last Name |                   | 9874563210 | Executive  |            | Email is required      |
+      | Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required       |
+      | Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
+      | Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Email is required      |
+      | Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
+      | Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
+      | Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
 
   Scenario Outline: Verify list of applications are enabled/disabled for role <Role> and PTA User
     Given I am on the login page
