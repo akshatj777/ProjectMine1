@@ -1,9 +1,12 @@
 package com.remedy.programManagement;
 
 import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class EditManagingOrganization extends BaseClass {
@@ -105,7 +108,7 @@ public class EditManagingOrganization extends BaseClass {
 	}		
 	
 	public void iEditStateFieldForOrganization(String text) {
-		clickElement(driver.findElement(By.xpath("//span[@class='Select-clear']")));
+		driver.findElement(By.xpath("//div[text()='State']/parent::div//span[@class='Select-clear']")).click();
 		if(!text.equals("")){
 		driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
