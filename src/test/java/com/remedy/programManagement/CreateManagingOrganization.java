@@ -152,7 +152,6 @@ public class CreateManagingOrganization extends BaseClass {
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-					
 					if(!CreatePGPOrganization.tempPGPOrg.isEmpty())
 						{
 						CreatePGPOrganization.pgpOrg.putAll(CreatePGPOrganization.tempPGPOrg);
@@ -164,7 +163,6 @@ public class CreateManagingOrganization extends BaseClass {
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-					
 					if(!CreatePGPOrganization.tempPGPOrg.isEmpty())
 					{
 						CreatePGPOrganization.pgpOrg_noMO.putAll(CreatePGPOrganization.tempPGPOrg);

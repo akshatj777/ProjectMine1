@@ -12,7 +12,7 @@ Feature: Search the PGP organizations functionality tests
 
   Scenario Outline: <Description>
     Then I verify the Search bar on "PGP" organization page
-    Then I search "<SearchParam> - <HasMO>" and verify with search list options on "PGP" organization search box
+    Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "PGP" organization search box
 
     Examples: 
       | Description                                            | Has_MO | SearchParam |
@@ -29,10 +29,10 @@ Feature: Search the PGP organizations functionality tests
     And I verify "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I click on "Edit" button on particular organization
-    And I edit "PGP Organization Name" field to "<Edited_PGP_Name>" for organization
+    And I edit "PGP Organization Name" field to "<Edited_PGP_Name> - <Has_MO>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit PGP - <Has_MO>" organization page
-    Then I search "<PGP_Name> - <HasMO>" and verify with search list options on "PGP" organization search box
+    Then I search "<PGP_Name> - <Has_MO>" and verify with search list options on "PGP" organization search box
     Then I search with "<PGP_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New PGP Organization" link under No matches
