@@ -93,7 +93,6 @@ public class EditHospitalOrganization extends BaseClass{
 				element.click();
 	        }
 		}
-		
 	}
 	
     public void iEditMarketForLocation(String market, String region, int num) {

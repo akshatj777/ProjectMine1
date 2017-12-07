@@ -1,9 +1,11 @@
 package com.remedy.programManagement;
 
 import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class EditManagingOrganization extends BaseClass {
@@ -38,7 +40,6 @@ public class EditManagingOrganization extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME")+"']")));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
-		
 		else
 		{
 			clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
@@ -98,14 +99,15 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePGPOrganization.pgpOrg.get("ACHNAME"));
 		}
-		else {
+		else 
+		{
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), field2);
-			}
+		}
 	}		
 	
 	public void iEditStateFieldForOrganization(String text) {
-		clickElement(driver.findElement(By.xpath("//span[@class='Select-clear']")));
+		driver.findElement(By.xpath("//div[text()='State']/parent::div//span[@class='Select-clear']")).click();
 		if(!text.equals("")){
 		driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();
 		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
