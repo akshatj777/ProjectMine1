@@ -95,11 +95,10 @@ Feature: Landing page verification
     And I should see "FirstName LastName" for "First Name" in search result
     Then I enter search box in landing page with "LastName"
     And I should see "FirstName LastName" for "Last Name" in search result
-    Then I enter search box in landing page with "test.automatemail" for "Super Admin"
+    Then I enter search box in landing page with "test.automatemail"
     And I should see "test.automatemail" for "Email" in search result
 
-  
-
+ 
 Scenario Outline: Verify ability to lock a user from landing page
     Given I am on the login page
     When I log in as super user

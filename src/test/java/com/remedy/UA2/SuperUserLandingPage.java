@@ -3,18 +3,17 @@ package com.remedy.UA2;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.MailCreateUser;
 
 public class SuperUserLandingPage extends BaseClass {
-	
 	static String mail = "test.automatemail";
 	static String email = null;
 	
@@ -23,7 +22,7 @@ public class SuperUserLandingPage extends BaseClass {
 		super(driver);
 	}
 
-
+	
 	public void iVerifyUsersLink(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector("a[href^='https://user-admin']")),text);
 			
@@ -76,19 +75,19 @@ public class SuperUserLandingPage extends BaseClass {
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
 
-	public void SearchUserWithEmail(String role, String id) {
-		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		if(id.equalsIgnoreCase(mail)){
-			//email=CreateUserPage.usersEmailPerRole;
-			
-			//System.out.println("Email----------"+email);
-			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);	
-		}
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), id);	
-			}
 		
 	public void SearchUserWithText(String text) {
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
+		if(text.equalsIgnoreCase(mail)){
+			String [] emailArray=CreateUserPage.usersEmailPerRole.toString().split("=");
+			int n=emailArray.length;
+			String temp= emailArray[n-1];
+			String []arr=temp.split("}}");
+			email=arr[0];
+			System.out.println("Email----------"+email);
+			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);	
+		}
+		else
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);	
 		delay();
 	}
@@ -112,13 +111,12 @@ public class SuperUserLandingPage extends BaseClass {
 		selectElementByDesc(".item", text);
 	}
 
-	public void iLockUser(String text) {
+	public void iLockUser() {
 		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
-		if(text.equalsIgnoreCase(mail)){
-			System.out.println("Email---------"+email);
-			 //clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
-			clickElement(driver.findElement(By.xpath("//td[text()='"+email+"']")));	 
-		}
+		
+			 clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+				 
+		
 		 }
 	
 	public void iVerifyLockedUser() {
@@ -131,8 +129,8 @@ public void iClickOnSortByLockIcon() {
 	clickElement(driver.findElement(By.cssSelector("th#auth0State")));
 }
 	public void iClickOnUnlock() {
-		iWillWaitToSee(By.cssSelector(".lock.large.icon"));
-		clickElement(driver.findElements(By.cssSelector(".lock.large.icon")).get(1));
+		iWillWaitToSee(By.cssSelector(".lock-icon"));
+		clickElement(driver.findElements(By.cssSelector(".lock-icon")).get(0));
 		}
 
 	public void iVerifyTextfromUnlockPopup(String text) {
@@ -147,7 +145,7 @@ public void iClickOnSortByLockIcon() {
 	
 	public void iVerifyUnlockedUser() {
 		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
-			verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(0), "class", "unlock-icon");
+			isElementVisible(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
 	}
 	
 	public void iClickOnCancelButtonFromPopup() {
