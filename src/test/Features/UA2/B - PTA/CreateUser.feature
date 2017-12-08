@@ -84,7 +84,12 @@ Feature: UA2 Front End Automation
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     Then I click on Hamburger menu on top right of homepage
-    And I click on Episode1 tile for "<User>-<Role>" and verify user "<Roletext>"
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    And I verify "Stamford Hospital" facility on patient card for "<User>-<Role>" user
+    And I click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
     And I click on Reports tile for "<User>-<Role>" user
     And I click on Episodes two tile for "<User>-<Role>" user
@@ -106,12 +111,12 @@ Feature: UA2 Front End Automation
     And I should see Log in widget
 
     Examples: 
-      | Description                                                                          | User                            | UserName                        | Role                      | Applications                                                | ApplicationsNotVisible                          | Roletext       |
-      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | Partner Technical Administrator | Executive                 | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_PRM       |
-      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | Partner Technical Administrator | Manager                   | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_PRM       |
-      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | Partner Technical Administrator | Case Manager              | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_TCS       |
-      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | Partner Technical Administrator | Physicians                | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                                  | ROLE_CLINICIAN |
-      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | Partner Technical Administrator | Transitional Case Manager | Episodes, Reports, Lessons                                  | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       |
+      | Description                                                                          | User                            | UserName                        | Role                      | Applications                                                | ApplicationsNotVisible                          | Roletext       | Health System     |
+      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | Partner Technical Administrator | Executive                 | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_PRM       | Stamford Hospital |
+      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | Partner Technical Administrator | Manager                   | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_PRM       | Stamford Hospital |
+      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | Partner Technical Administrator | Case Manager              | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect               | ROLE_TCS       | Stamford Hospital |
+      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | Partner Technical Administrator | Physicians                | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                                  | ROLE_CLINICIAN | Stamford Hospital |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | Partner Technical Administrator | Transitional Case Manager | Episodes, Reports, Lessons                                  | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Stamford Hospital |
 
   Scenario: Verify availability of fields on General Information tab while adding a user
     			Also, Verify availability of values in Role dropdown for PTA user.
