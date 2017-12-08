@@ -193,6 +193,7 @@ Feature: UA2 Front End Automation
     And I enter Email "test.automatemail" to Create user
     When I click the Organizational Role Field
     Then I pick a Organizational <Role>
+    Then I enter NPI field with "NPI" for role "<Role>"
     Then I click on Next button
     Then I verify applications "<Applications>" are unchecked
     Then I select "<Applications>" product
