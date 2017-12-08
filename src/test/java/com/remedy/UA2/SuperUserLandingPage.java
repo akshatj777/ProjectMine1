@@ -16,16 +16,15 @@ import com.remedy.userAdmin.MailCreateUser;
 public class SuperUserLandingPage extends BaseClass {
 	static String mail = "test.automatemail";
 	static String email = null;
-	
+
 	public SuperUserLandingPage(WebDriver driver) {
 
 		super(driver);
 	}
 
-	
 	public void iVerifyUsersLink(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector("a[href^='https://user-admin']")),text);
-			
+		verifyTextForElement(driver.findElement(By.cssSelector("a[href^='https://user-admin']")), text);
+
 	}
 
 	public void iVerifyLandingPageUI() {
@@ -38,7 +37,7 @@ public class SuperUserLandingPage extends BaseClass {
 		isElementVisible(driver.findElement(By.cssSelector("th#insertedDate")));
 		iWillWaitToSee(By.cssSelector("div.paginator-text"));
 		isElementVisible(driver.findElement(By.cssSelector("div.paginator-text")));
-		//isElementVisible(driver.findElement(By.cssSelector("div.chevron-group")));
+		
 	}
 
 	public void verifyUserInformation() {
@@ -75,20 +74,18 @@ public class SuperUserLandingPage extends BaseClass {
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
 
-		
 	public void SearchUserWithText(String text) {
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		if(text.equalsIgnoreCase(mail)){
-			String [] emailArray=CreateUserPage.usersEmailPerRole.toString().split("=");
-			int n=emailArray.length;
-			String temp= emailArray[n-1];
-			String []arr=temp.split("}}");
-			email=arr[0];
-			System.out.println("Email----------"+email);
-			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);	
-		}
-		else
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);	
+		if (text.equalsIgnoreCase(mail)) {
+			String[] emailArray = CreateUserPage.usersEmailPerRole.toString().split("=");
+			int n = emailArray.length;
+			String temp = emailArray[n - 1];
+			String[] arr = temp.split("}}");
+			email = arr[0];
+			System.out.println("Email----------" + email);
+			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
+		} else
+			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
 		delay();
 	}
 
@@ -96,42 +93,44 @@ public class SuperUserLandingPage extends BaseClass {
 		iWillWaitToSee(By.cssSelector("td.four.wide"));
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
 			verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), result);
-		}
-		else if (searchBy.equalsIgnoreCase("Email")) {
-		System.out.println("Email value-------"+email);
+		} else if (searchBy.equalsIgnoreCase("Email")) {
+			System.out.println("Email value-------" + email);
 			verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);
-				}
 		}
+	}
 
 	public void iClickOnTopUserDropDown() {
 		iWillWaitToSee(By.cssSelector("i.dropdown.icon"));
 		clickElement(driver.findElements(By.cssSelector("i.dropdown.icon")).get(1));
 	}
+
 	public void iSelectOptionFromDropdown(String text) {
 		selectElementByDesc(".item", text);
 	}
 
 	public void iLockUser() {
 		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
-		
-			 clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
-				 
-		
-		 }
-	
+
+		clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+
+	}
+
 	public void iVerifyLockedUser() {
 		iWillWaitToSee(By.cssSelector("span.lock-icon"));
-			verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("span.lock-icon")).get(0), "class", "lock-icon");
+		verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("span.lock-icon")).get(0), "class",
+				"lock-icon");
 	}
-public void iClickOnSortByLockIcon() {
-	//iWillWaitToSee(By.cssSelector("th#auth0State"));
-	delay();
-	clickElement(driver.findElement(By.cssSelector("th#auth0State")));
-}
+
+	public void iClickOnSortByLockIcon() {
+		// iWillWaitToSee(By.cssSelector("th#auth0State"));
+		delay();
+		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
+	}
+
 	public void iClickOnUnlock() {
 		iWillWaitToSee(By.cssSelector(".lock-icon"));
 		clickElement(driver.findElements(By.cssSelector(".lock-icon")).get(0));
-		}
+	}
 
 	public void iVerifyTextfromUnlockPopup(String text) {
 		verifyTextForElement(driver.findElement(By.xpath("//span/h3[1]")), text);
@@ -142,12 +141,12 @@ public void iClickOnSortByLockIcon() {
 		clickElement(driver.findElement(By.cssSelector("button.ui.green.inverted.button")));
 		delay();
 	}
-	
+
 	public void iVerifyUnlockedUser() {
 		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
-			isElementVisible(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+		isElementVisible(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
 	}
-	
+
 	public void iClickOnCancelButtonFromPopup() {
 		clickElement(driver.findElement(By.xpath("//div[@class='actions']/a")));
 		delay();
@@ -164,9 +163,8 @@ public void iClickOnSortByLockIcon() {
 	}
 
 	public void iverifyAddUserButton() {
-		isElementVisible(
-				driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
-						}
+		isElementVisible(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+	}
 
 	public void iVerifyAddUserPage() {
 		iWillWaitToSee(By.cssSelector("div.add-user-form-content"));
@@ -182,10 +180,11 @@ public void iClickOnSortByLockIcon() {
 		iWillWaitToSee(By.xpath("//*[contains(text(),'Log In')]"));
 		isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'Log In')]")));
 	}
-	public void iEnterNewUserName(String text){
-		if (text.equalsIgnoreCase(mail)){
-			iFillInText(driver.findElement(By.name("email")), email);	
-	}
-		
+
+	public void iEnterNewUserName(String text) {
+		if (text.equalsIgnoreCase(mail)) {
+			iFillInText(driver.findElement(By.name("email")), email);
+		}
+
 	}
 }

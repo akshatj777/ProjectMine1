@@ -3,7 +3,6 @@ package stepDefination.UA2;
 import com.remedy.UA2.SuperUserLandingPage;
 import com.remedy.resources.DriverScript;
 
-
 import cucumber.api.java.en.Then;
 
 public class SuperUserLandingPageSteps extends DriverScript {
@@ -13,41 +12,42 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	public void i_should_see_link(String text) throws Throwable {
 		ua2LandingPage.iVerifyUsersLink(text);
 	}
-	
+
 	@Then("^I click on \"([^\"]*)\" Button$")
 	public void i_click_on_Button(String arg1) throws Throwable {
-	    ua2LandingPage.iClickOnAddUserButton();
+		ua2LandingPage.iClickOnAddUserButton();
 	}
 
 	@Then("^I am navigated to user creation page$")
 	public void i_am_navigated_to_user_creation_page() throws Throwable {
-	    ua2LandingPage.iVerifyAddUserPage();
+		ua2LandingPage.iVerifyAddUserPage();
 	}
+
 	@Then("^I should see \"([^\"]*)\" Button in landing page$")
 	public void i_should_see_Button_in_landing_page(String arg1) throws Throwable {
-	    ua2LandingPage.iverifyAddUserButton();
+		ua2LandingPage.iverifyAddUserButton();
 	}
 
 	@Then("^I click on close icon from user creation page$")
 	public void i_click_on_close_icon_from_user_creation_page() throws Throwable {
-	 ua2LandingPage.iClickOnCloseIconFromAddUserPage();
+		ua2LandingPage.iClickOnCloseIconFromAddUserPage();
 	}
-	
-	
+
 	@Then("^I verify UI of landing page$")
 	public void i_verify_landing_page_UI() throws Throwable {
 		ua2LandingPage.iVerifyLandingPageUI();
 	}
+
 	@Then("^I enter email field \"([^\"]*)\" for login$")
 	public void i_enter_email_field_for_login(String arg1) throws Throwable {
-	  
+
 	}
 
-@Then("^I verify user information$")
-public void i_verify_user_information() throws Throwable {
-ua2LandingPage.verifyUserInformation();
-}
-	
+	@Then("^I verify user information$")
+	public void i_verify_user_information() throws Throwable {
+		ua2LandingPage.verifyUserInformation();
+	}
+
 	@Then("^I click on the top user link$")
 	public void i_click_on_the_top_user_link() throws Throwable {
 		ua2LandingPage.iClickOnTopUserDropDown();
@@ -57,8 +57,7 @@ ua2LandingPage.verifyUserInformation();
 	public void i_select_option_from_the_dropdown_list(String text) throws Throwable {
 		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
-	
-	
+
 	@Then("^I verify that user is locked$")
 	public void i_verify_that_user_is_locked() throws Throwable {
 		ua2LandingPage.iVerifyLockedUser();
@@ -73,10 +72,12 @@ ua2LandingPage.verifyUserInformation();
 	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
 		ua2LandingPage.iLockUser();
 	}
+
 	@Then("^I click on sort by lock icon$")
 	public void i_click_on_sortBy_lock_icon() throws Throwable {
 		ua2LandingPage.iClickOnSortByLockIcon();
 	}
+
 	@Then("^I click on Unlock button on the table in useradmin Landing page$")
 	public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
 		ua2LandingPage.iClickOnUnlock();
@@ -104,28 +105,27 @@ ua2LandingPage.verifyUserInformation();
 
 	@Then("^I click on \"([^\"]*)\" link$")
 	public void i_click_on_link(String arg1) throws Throwable {
-	ua2LandingPage.iClickOnUsersLink();
+		ua2LandingPage.iClickOnUsersLink();
 	}
 
 	@Then("^I am on landing page$")
 	public void i_am_on_refreshed_landing_page() throws Throwable {
-	   ua2LandingPage.iVerifyLandingPageUI();
+		ua2LandingPage.iVerifyLandingPageUI();
 	}
 
 	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
 	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
-	ua2LandingPage.SearchUserWithText(text);
+		ua2LandingPage.SearchUserWithText(text);
 	}
 
 	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in search result$")
 	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
-	    ua2LandingPage.iVerifySearchResult(result, searchBy);
+		ua2LandingPage.iVerifySearchResult(result, searchBy);
 	}
+
 	@Then("^I should not be able to login$")
 	public void iShouldNotBeAbleToLogin() throws Throwable {
-	   ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
+		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
-	
 
-	
 }
