@@ -96,19 +96,24 @@ public class CreateACHOrganization extends BaseClass{
 				delay();
 			}
 		}
-		if (id.contains("Payor")){
-			if(id.equals("EIN")){
+		if (id.contains("Payor"))
+		{
+			if((id.substring(id.indexOf("-")+1).trim()).equals("EIN"))
+			{
 				CreatePayorOrganization.tempPayorOrg.put("EIN", createRandomNumber(10));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("EIN"));
 			}
-			else if(id.equals("DUPLICATE_EIN")){
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN"))
+			{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("EIN"));
 			}
-			else if(id.contains("greaterThan10")){
+			else if(id.contains("greaterThan10"))
+			{
 				String value = createRandomNumber(11);
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
 			}
-			else {
+			else 
+			{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
 				delay();
 			}
