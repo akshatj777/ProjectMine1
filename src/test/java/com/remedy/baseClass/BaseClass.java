@@ -458,12 +458,12 @@ public class BaseClass {
 
 	public void isSelected(WebElement element){
 		boolean flag = element.isSelected();
-    	Assert.assertEquals("true", flag);
+    	Assert.assertEquals(true, flag);
 	}
 	
 	public void isNotSelected(WebElement element){
 		boolean flag = element.isSelected();
-    	Assert.assertEquals("false", flag);
+    	Assert.assertEquals(false, flag);
 	}
 
 	public String createRandomName(String name){

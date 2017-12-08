@@ -83,7 +83,7 @@ Feature: UA2 Front End Automation
     Then I click on Hamburger menu on top right of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
-    Then I click on Hamburger menu on top right of homepage
+    And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
     And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user

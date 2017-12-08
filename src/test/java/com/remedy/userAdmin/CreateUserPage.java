@@ -538,13 +538,16 @@ public class CreateUserPage extends BaseClass{
    public void verifyAppUnchecked(String fieldName) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(fieldName,",");
        while (st.hasMoreTokens()) {  
-    	   isNotSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+//    	   isNotSelected(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
+    	   Assert.assertTrue(isElementPresent(By.xpath("//label[text()='"+st.nextToken().trim()+"']/parent::div[@class='ui checkbox']")));
+
        } 
    }
    public void verifyAppChecked(String fieldName) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(fieldName,",");
        while (st.hasMoreTokens()) {  
-    	   isSelected(driver.findElement(By.xpath("//label[.='"+fieldName+"']")));
+//    	   isSelected(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']/../")));
+    	   Assert.assertTrue(isElementPresent(By.xpath("//label[text()='"+st.nextToken().trim()+"']/parent::div[@class='ui checked checkbox']")));
        }
    }
    
