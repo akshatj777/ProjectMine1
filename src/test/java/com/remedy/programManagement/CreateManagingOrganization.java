@@ -99,6 +99,14 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
 		}
+		else if(text.contains("PAYORNAME")) {
+			CreatePayorOrganization.tempPayorOrg.put("PAYORNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
+		}
+		else if(text.contains("DUPLICATE_PAYORNAME"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
+		}
 		else 	
 		{
 	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
@@ -169,6 +177,17 @@ public class CreateManagingOrganization extends BaseClass {
 						CreatePGPOrganization.tempPGPOrg.clear();
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+					}
+				else if(org.contains("Payor"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					if(!CreatePayorOrganization.tempPayorOrg.isEmpty())
+					{
+						CreatePayorOrganization.payorOrg.putAll(CreatePayorOrganization.tempPayorOrg);
+						CreatePayorOrganization.tempPayorOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
 			}
 	    	else 
@@ -177,6 +196,7 @@ public class CreateManagingOrganization extends BaseClass {
 	    		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	    	}
+				
 	}
 	
 	public void iSwitchFocusToButton(String text) {
