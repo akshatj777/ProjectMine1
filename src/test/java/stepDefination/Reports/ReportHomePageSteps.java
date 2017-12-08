@@ -1526,4 +1526,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_is_visible_under_column_in_the_report(String data,String column) throws Throwable{
     	reportHomePage.iVerifyDataInTheColumnsInsideReports(data, column);
     }
+    
+    @And("^I verify \"([^\"]*)\" field is appearing in the layout section after selecting add to report$")
+    public void i_verify_field_is_appearing_in_the_layout_section_after_selecting_add_to_report(String text) throws Throwable{
+    	reportHomePage.iVerifyFieldInTheLayoutSectionAfterAddToReport(text);
+    }
 }
