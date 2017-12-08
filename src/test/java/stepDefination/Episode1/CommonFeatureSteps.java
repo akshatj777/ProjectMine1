@@ -66,11 +66,14 @@ public class CommonFeatureSteps extends DriverScript {
     }
     
    @Then("^I will wait to see \"([^\"]*)\" in \"([^\"]*)\" tag$")
-    public void i_Wait_To_See(String text,String tag)
-    {
+    public void i_Wait_To_See(String text,String tag){
     	common.i_Wait_To_See(text,tag);
     }
     
+   @Then("^I will wait to see onboarding status \"([^\"]*)\"$")
+   public void i_Wait_To_See_onboarding_status(String text){
+   	common.iWaitToSeeonboarding(text);
+   }
     /**
      * @And I press "([^"]*)"
      */
@@ -132,5 +135,11 @@ public class CommonFeatureSteps extends DriverScript {
    public void i_navigate_to(String URL){
 	   common.inavigateto(URL);
    }
+   
+   @And ("^I will verify Episode Marker Admit Date \"([^\"]*)\" and Termination date and Episode Status \"([^\"]*)\" for logic \"([^\"]*)\"$")
+   public void i_Verify_Episode_Marker_Admit_Terminate_date(){
+	   common.iVerifyEpisodeMarkerAdmitTerminatedate();
+   }
+   
 }
 

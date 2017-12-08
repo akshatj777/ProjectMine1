@@ -41,7 +41,8 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will wait to see "Needs Onboarding" in "span" tag
+    Then I will wait to see onboarding status "Needs Onboarding"
+    
 
   Scenario: Episode CANCELED - delete anchor transition (Episode marker will be invisible)
     When I click anchor transition delete link "1"
@@ -61,7 +62,7 @@ Feature: Managing Various Episode States
     When I reload the page
     When I click on episode marker drop down
     Then I will wait to see "CANCELED" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"
 
   Scenario: Episode PENDING CANCELLATION - update anchor with non-final non-bpci drg
     When I click first timing transition edit link "1"
@@ -69,13 +70,13 @@ Feature: Managing Various Episode States
     Then I will wait to see and click on "Diagnosis and DRG" followed by "a" tag
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "2" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on update transition to add a new episode
-    When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "PENDING CANCELLATION" state
-    And I will wait to see "Needs Onboarding" in "span" tag
+    Then I will wait to see onboarding status "Needs Onboarding"
+   
 
   Scenario: Episode EXPIRED AS INPATIENT - Set patient as exp.
     When I click on "Eligibility" dropdown button
@@ -88,7 +89,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "EXPIRED AS INPATIENT" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"
 
   Scenario: Episode NOT ELIGIBLE and Back to Active - set patient eligibility to not eligible then back to eligible
     When I click on "Eligibility" dropdown button
@@ -99,16 +100,16 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "NOT ELIGIBLE" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"
     When I click on "Eligibility" dropdown button
-    When I click on eligibility set "eligible" option
+    When I click on eligibility set "Eligible" option
     And I will wait to see "Your changes have been successfully saved" in "p" tag
     And I should see tag "Eligible"
     When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will wait to see "Needs Onboarding" in "span" tag
+    Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Episode COMPLETED - discharge date before 90 days
     When I click first timing transition edit link "1"
@@ -120,7 +121,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"
 
   Scenario: Episode COMPLETED EXPIRED - Update the discharge date and set patient as exp
     When I click first timing transition edit link "1"
@@ -161,17 +162,18 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "EXPIRED AS INPATIENT" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"
     And I should see tag "Expired"
     Then I navigate to the "/secure/person/mongoID/patient-details"
     And I will wait to see patient's name on patient summary page
     And I will wait to see "General" in "h3" tag
     And I will clear the Date of death field on patient details page
     When I reload the page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will wait to see "Needs Onboarding" in "span" tag
+    Then I will wait to see onboarding status "Needs Onboarding"
     And I should not see "Expired" in "h3" tag
 
   Scenario: COMPLETED EXPIRED -Removing dod should rerun episode logic and also reinstate previous eligibility status.
@@ -207,7 +209,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"
     And I should not see "Expired" in "h3" tag
 
   Scenario: EPISODE_EXCLUDED Cancelled episode terminated as excluded
@@ -224,8 +226,8 @@ Feature: Managing Various Episode States
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will wait to see "//span[contains(text(),'EXCLUDED BY 239')]" state
-    And I will wait to see "Needs Onboarding" in "span" tag
+    Then I will wait to see "EXCLUDED BY 239" state
+    Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Potential M3 ActiveBPCI DRG M3 in the HHH's PGP
     Given I am on the login page
@@ -267,7 +269,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL3" state
-    And I will wait to see "Needs Onboarding" in "span" tag
+    Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: POTENTIAL EPISODE CANCELED
     Given I am on the login page
@@ -309,4 +311,4 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL EPISODE CANCELED" state
-    And I will wait to see "Unknown" in "span" tag
+    Then I will wait to see onboarding status "Unknown"

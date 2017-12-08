@@ -139,6 +139,16 @@ public void iShouldnotsee(String text,String tag) {
 	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
 	
 }
+
+public void iWaitToSeeonboarding(String text) {
+	iWillWaitToSee(By.xpath("//*[@id='current_onboarding_status']"));
+	verifyTextForElement(driver.findElement(By.xpath("//*[@id='current_onboarding_status']")),text);
+}
+
+public void iVerifyEpisodeMarkerAdmitTerminatedate() {
+	
+	
+}
 }
 
 	

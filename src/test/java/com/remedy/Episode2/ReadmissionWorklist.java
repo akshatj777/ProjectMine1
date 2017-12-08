@@ -225,6 +225,7 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void IenteroncreatetransitionpageontransitiontabonPatientSummary(String admitreason) {
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_admitReason"));
 		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitReason")), admitreason);
 
 	}
