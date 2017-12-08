@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -92,7 +92,9 @@ public class SuperUserLandingPage extends BaseClass {
 	public void iVerifySearchResult(String result, String searchBy) {
 		iWillWaitToSee(By.cssSelector("td.four.wide"));
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
-			verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), result);
+			if(driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result))
+				Assert.assertTrue(driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result));
+			//verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), result);
 		} else if (searchBy.equalsIgnoreCase("Email")) {
 			System.out.println("Email value-------" + email);
 			verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);

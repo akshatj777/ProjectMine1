@@ -35,31 +35,31 @@ Feature: Super Admin Landing page verification
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    Then I click on Inbox in mail
-    And I wait for 3000 milli seconds
-    Then I verify Account Verification in Inbox in my account
-    Then I click on Account Verification mail in Inbox
-    Then I verify "Confirm my account!" link in mail content
-    Then I click on "Confirm my account!" link in mail content
-    And I switch to new window
-    Then I enter email to generate password link
-    And I click on send mail button
-    Then I switch back to old window
-    Then I click on Inbox in mail
-    Then I verify the unread mail in inbox in my account
-    Then I verify Change Password mail in Inbox in my account
-    Then I click on Change Password mail in Inbox
-    Then I verify "Change my password" link in mail content
-    Then I click on "Change my password" link in mail content
-    And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
-    And I click on submit button to set new password
 
+    #Then I click on Mail icon in my account
+    #Then I click on Inbox in mail
+    #And I wait for 3000 milli seconds
+    #Then I verify Account Verification in Inbox in my account
+    #Then I click on Account Verification mail in Inbox
+    #Then I verify "Confirm my account!" link in mail content
+    #Then I click on "Confirm my account!" link in mail content
+    #And I switch to new window
+    #Then I enter email to generate password link
+    #And I click on send mail button
+    #Then I switch back to old window
+    #Then I click on Inbox in mail
+    #Then I verify the unread mail in inbox in my account
+    #Then I verify Change Password mail in Inbox in my account
+    #Then I click on Change Password mail in Inbox
+    #Then I verify "Change my password" link in mail content
+    #Then I click on "Change my password" link in mail content
+    #And I switch to new window
+    #And I enter new password "Testing1" to set new password
+    #And I enter confirm new password "Testing1" to set new password
+    #And I click on submit button to set new password
     Examples: 
-      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role      | Applications                             | ApplicationsNotVisible            | NPI | LearningPathwaySearchParameter | Health System     |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect |     | Learning Pathway 2             | Stamford Hospital |
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | LearningPathwaySearchParameter | Health System     |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Learning Pathway 2             | Stamford Hospital |
 
   Scenario: Verification of Super Admin Landing page UI
     Given I am on the login page
@@ -92,9 +92,9 @@ Feature: Super Admin Landing page verification
     And I click on the "User Admin" tile
     Then I should see header text "Users"
     Then I enter search box in landing page with "FirstName"
-    And I should see "FirstName LastName" for "First Name" in search result
+    And I should see "FirstName" for "First Name" in search result
     Then I enter search box in landing page with "LastName"
-    And I should see "FirstName LastName" for "Last Name" in search result
+    And I should see "LastName" for "Last Name" in search result
     Then I enter search box in landing page with "test.automatemail"
     And I should see "test.automatemail" for "Email" in search result
 
