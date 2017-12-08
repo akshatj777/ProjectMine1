@@ -101,7 +101,7 @@ Feature: UA2 Front End Automation
     And I click on Episode1 tile for "<User>-<Role>" user
     And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
-    And I verify "Stamford Hospital" facility on patient card for "<User>-<Role>" user
+    And I verify "<Health System>" facility on patient card for "<User>-<Role>" user
     And I click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
