@@ -298,9 +298,9 @@ Feature: UA2 Front End Automation
     Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
+    And I fill in First Name with "FirstName"
+    Then I fill in Last Name with LastName
+    And I enter Email "test.automatemail" to Create user
     When I click the Organizational Role Field
     Then I pick a Organizational <Role>
     Then I click on Next button

@@ -560,11 +560,11 @@ public class CreateUserPage extends BaseClass{
    } 
    
    public void verifyLearningPathwayNotAvailable() throws Throwable {
-	   Assert.assertTrue(isElementNotPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")));
+	   Assert.assertFalse(isElementPresentOnPage(By.xpath(".column.padding>.component-learning-pathway-dropdown")));
    }
    
    public void verifyLearningPathwayAvailable() throws Throwable {
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")));
+	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".column.padding>.component-learning-pathway-dropdown")));
    }
    
    public void clickLessonsSelectButton() throws Throwable {
@@ -572,7 +572,7 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
-       iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), searchParam);
+       iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
    }
 
    public void selectLearningPath(String searchParam) throws Throwable {
@@ -618,7 +618,7 @@ public class CreateUserPage extends BaseClass{
    
    public void verifyDefaultProgramOrganization(String programName) throws Throwable {
        clickElement(driver.findElement(By.xpath("//span[text()='"+programName+"']")));
-	   isSelected(driver.findElement(By.xpath("//label[text()='"+programName+"']")));
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[text()='"+programName+"']/parent::div[@class='ui checked checkbox']")));
    }
    
    public void verifyUnavailabilityOrganizationDropDown() throws Throwable {
