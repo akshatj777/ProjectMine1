@@ -7,16 +7,22 @@ import com.remedy.resources.DriverScript;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import stepDefination.Hooks.InitialSetup;
 
+import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -107,5 +113,34 @@ public class CommonSteps extends DriverScript {
     public void visit(String page)
     {
         driver.navigate().to(page);
+    }
+    
+    @Then("^I drag and drop \"([^\"]*)\" from available fields to rows under layout$")
+    public void iDragAndDropFieldsToLayout(String text) throws AWTException, InterruptedException{
+    	Thread.sleep(3000);
+    	WebElement From = driver.findElement(By.xpath("//div[contains(text(),'BPID')]"));
+    	WebElement To = driver.findElement(By.xpath("//div[@class='propPanel_gemBar string propPanelItem']"));
+    	Actions builder = new Actions(driver);
+    	/*Action dragAndDrop = builder.clickAndHold(From)
+    	.moveToElement(To)
+    	.release(To)
+    	.build();
+    	dragAndDrop.perform();*/
+    	
+    	System.out.println(From.getText());
+    	System.out.println(To.getText());
+    	System.out.println("starting dragdrop");
+    	if(From.isDisplayed() && To.isDisplayed())
+    	{
+    		System.out.println("Entered loop");
+        	//builder.dragAndDrop(From, To).build().perform();
+    		builder.keyDown(Keys.CONTROL)
+            .click(From)
+            .dragAndDrop(From, To)
+            .keyUp(Keys.CONTROL);
+
+            Action selected = builder.build();
+            selected.perform();
+    	}
     }
 }

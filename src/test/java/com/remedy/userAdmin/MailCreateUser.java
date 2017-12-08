@@ -14,7 +14,7 @@ import org.openqa.selenium.WebDriver;
 import com.remedy.baseClass.BaseClass;
 
 public class MailCreateUser extends BaseClass{
-	
+
 	static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
 	static Date timestamp = null;
 	static String time = null;

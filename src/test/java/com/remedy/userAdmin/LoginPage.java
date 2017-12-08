@@ -2,6 +2,8 @@ package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
 
+import stepDefination.Hooks.InitialSetup;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
