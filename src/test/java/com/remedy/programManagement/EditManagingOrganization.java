@@ -40,6 +40,11 @@ public class EditManagingOrganization extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME")+"']")));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
+		else if(field.contains("PAYORNAME"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 		else
 		{
 			clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
