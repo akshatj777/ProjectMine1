@@ -70,5 +70,9 @@ public class EditUser extends BaseClass {
 		verifyTextForElement(driver.findElements(By.cssSelector(".info-row>span")).get(3), field);
 	}
 	
-	
+	public void iVerifyThatEmailIsNonEditable(){
+		iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
+		//driver.findElement(By.xpath("//input[@placeholder='Email']"));
+		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//input[@placeholder='Email']")), "class", "ui disabled fluid input");
+	}
 }

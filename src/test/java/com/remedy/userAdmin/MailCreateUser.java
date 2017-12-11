@@ -20,6 +20,7 @@ public class MailCreateUser extends BaseClass{
 	static String time = null;
 	static String mail = "test.automatemail";
 	static String email = null;
+	
 
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
@@ -143,13 +144,14 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterNewUserEmailForLoginToRemedy(String role) {
-		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+		System.out.println("Enter Email for singh in "+emailVal);
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
-		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing@1234");
+		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
@@ -158,4 +160,5 @@ public class MailCreateUser extends BaseClass{
 	    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
 	    Thread.sleep(10000);
 	}
+	
 }

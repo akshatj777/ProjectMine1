@@ -17,7 +17,7 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 	}
 
 	public void clickCreateUserButton() {
-		//delay();
+		delay();
 		iWillWaitToSee(By.cssSelector("button.ui.green.right.floated.button.add-user-button"));
 		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
 	}

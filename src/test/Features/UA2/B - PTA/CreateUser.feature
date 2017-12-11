@@ -1,7 +1,7 @@
 Feature: UA2 Front End Automation
 
-  Background: Login with predefined user on Gmail account and delete the previous mail
-    Given I am on mail login page
+  Scenario Outline: <Description>
+  	Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
@@ -9,8 +9,6 @@ Feature: UA2 Front End Automation
     Then I click on select all checkbox in mail
     Then I click on delete icon in mail
     Then I signout form mail account
-
-  Scenario Outline: <Description>
     Given I am on the login page
     When I enter email field <UserName> for login
     And I enter password field Testing1 for Login
@@ -66,7 +64,20 @@ Feature: UA2 Front End Automation
     And I enter new password "Testing1" to set new password
     And I enter confirm new password "Testing1" to set new password
     And I click on submit button to set new password
-    Then I enter newuser email for login to Remedy
+   
+    Examples: 
+      | Description                                                                 | User                            | UserName                        | FirstName | LastName | Email             | Phone | Role                          | Applications                                                | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System     |
+      | Login with PTA user and create user with Executive role                     | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Executive                     | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Manager role                       | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Manager                       | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Case Manager role                  | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Case Manager                  | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Physicians role                    | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Physicians                    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        | NPI | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Prospective Partner Executive role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Prospective Partner Executive | Lessons                                                     |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Partner Program Administrator role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Partner Program Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with PTA user and create user with Transitional Case Manager role     | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Transitional Case Manager     | Episodes, Reports, Lessons                                  |                        |     | Learning Pathway 2             | Stamford Hospital |
+    
+    Scenario Outline: <Description>
+    Given I am on the login page
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
     Then I verify "<Applications>" product
@@ -74,21 +85,21 @@ Feature: UA2 Front End Automation
     Then I click on Hamburger menu on top right of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
-    And I click on Episode1 tile for "<user>-<Role>" and verify user "<Roletext>"
-    And I click on Institute tile for "<user>-<Role>" user
-    And I click on Reports tile for "<user>-<Role>" user
-    And I click on Episodes two tile for "<user>-<Role>" user
-    And I click on RemedyU tile for "<user>-<Role>" user
+    And I click on Episode1 tile for "<User>-<Role>" and verify user "<Roletext>"
+    And I click on Institute tile for "<User>-<Role>" user
+    And I click on Reports tile for "<User>-<Role>" user
+    And I click on Episodes two tile for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
   	And I redirect to Remedy connect page
     And I click on the top user account link
     And I verify "Support" in dropdown on profile icon
-    And I verify "Internal Support" in dropdown on profile icon
+#    And I verify "Internal Support" in dropdown on profile icon
     And I verify "Reset Password" in dropdown on profile icon
     And I verify "Log Out" in dropdown on profile icon
-    And I click on "Internal Support" in dropdown on profile icon
-    And I switch to new window
-    And I verify page header "Login" for "Internal Support" on Remedy Connect
-    And I switch back to old window
+#    And I click on "Internal Support" in dropdown on profile icon
+#    And I switch to new window
+#    And I verify page header "Login" for "Internal Support" on Remedy Connect
+#    And I switch back to old window
     And I click on "Support" in dropdown on profile icon
     And I switch to new window
     And I verify page header "Login" for "Support" on Remedy Connect

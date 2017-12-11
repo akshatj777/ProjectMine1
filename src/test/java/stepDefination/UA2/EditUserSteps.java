@@ -49,4 +49,10 @@ EditUser editUser= new EditUser(driver);
 	public void verifyEditedPhone(String text) {
 		editUser.iVerifyPhoneInUserPage(text);
 	}
+	@And("^I should not be able to edit Email$")
+	public void EmailNotEditable() {
+	editUser.iVerifyThatEmailIsNonEditable();
+	}
+	
+	
 }
