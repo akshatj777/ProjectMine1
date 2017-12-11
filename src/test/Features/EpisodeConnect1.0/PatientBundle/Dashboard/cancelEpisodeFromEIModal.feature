@@ -68,7 +68,7 @@ Feature: Canceling Episode from EI Assignment Window
     Then I will wait to see "ACTIVE" state
 
     Examples: 
-      | email                | logic | daysToAdmitWRTToday | admit reason | daysToAdmitWRTToday | episodeStatus |
-      | qa.admin@yopmail.com | minus |                   1 | firsttest    |                   1 | CANCELED      |
-      | qa.rn@yopmail.com    | minus |                   0 | firsttest    |                   0 | CANCELED      |
-      | qa.lpn@yopmail.com   | plus  |                  -2 | firsttest    |                   2 | CANCELED      |
+      | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus |
+      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |
+      #| qa.rn@yopmail.com    | minus |                   0 | firsttest    | CANCELED      |
+      #| qa.lpn@yopmail.com   | plus  |                  -2 | firsttest    | CANCELED      |

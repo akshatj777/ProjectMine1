@@ -31,5 +31,8 @@ public class EpisodeLogic extends BaseClass {
 		Thread.sleep(5000);
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div/ul/li[1]/a")));
 	}
-
-}
+	
+	public void iVerifyPotentialwithoutendDate(int days) {
+		String date=currentdate(days,"MM/dd/yyyy");
+		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'..')]")));
+	}}

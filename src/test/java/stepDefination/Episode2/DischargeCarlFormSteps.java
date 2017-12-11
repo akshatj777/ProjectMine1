@@ -344,8 +344,7 @@ public class DischargeCarlFormSteps extends DriverScript {
     }
     
     @And ("^I will wait to see patient's name on patient summary page$")
-    public void i_Will_Wait_To_See_name()
-    {
+    public void i_Will_Wait_To_See_name(){
     	dischargecarlform.iWillWaitToSeename();
     }
     @Then ("^I create a post request$")

@@ -199,4 +199,14 @@ public class PatientCarePlan extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("a#navbar-dropdown-menu-logout")));
 	}
 
+	public void iEditCRA() {
+		iWillWaitToSee(By.xpath("//*[@id='edit_BPRAFormCRA']"));
+		clickElement(driver.findElement(By.xpath("//*[@id='edit_BPRAFormCRA']")));
+	}
+
+	public void i_Verify_Risk_Assessment() {
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[1]/div/div/div[1]/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[1]/div/div/div[1]/div[1]")));
+	}
+
 }

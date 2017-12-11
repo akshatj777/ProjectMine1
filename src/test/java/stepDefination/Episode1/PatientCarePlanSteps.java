@@ -218,4 +218,15 @@ public class PatientCarePlanSteps extends DriverScript
 	{
 		patientcare.IclickonReturntoRemedyfromdropdownonQAPRMonnavigationbaronEC1();	
 	}
+	
+	@Then("^I edit the CRA$")
+	public void i_Edit_CRA(){
+		patientcare.iEditCRA();	
+	}
+	
+	@Then ("^I verify Clinical Risk Assessment in Assigned Form list$")
+	public void i_Verify_Risk_Assessment(){
+		patientcare.i_Verify_Risk_Assessment();
+	}
+	
 }

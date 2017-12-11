@@ -1,5 +1,7 @@
 package stepDefination.Episode1;
 
+import java.text.ParseException;
+
 import org.openqa.selenium.By;
 
 import com.remedy.episode1.CommonFeature;
@@ -136,9 +138,9 @@ public class CommonFeatureSteps extends DriverScript {
 	   common.inavigateto(URL);
    }
    
-   @And ("^I will verify Episode Marker Admit Date \"([^\"]*)\" and Termination date and Episode Status \"([^\"]*)\" for logic \"([^\"]*)\"$")
-   public void i_Verify_Episode_Marker_Admit_Terminate_date(){
-	   common.iVerifyEpisodeMarkerAdmitTerminatedate();
+   @And ("^I will verify Episode Marker Admit Date \"([^\"]*)\" and Termination date \"([^\"]*)\" and Episode Status \"([^\"]*)\"$")
+   public void i_Verify_Episode_Marker_Admit_Terminate_date(int days,int terminate_date,String status,String logic) throws ParseException{
+	   common.iVerifyEpisodeMarkerAdmitTerminatedate(days,terminate_date,status);
    }
    
 }

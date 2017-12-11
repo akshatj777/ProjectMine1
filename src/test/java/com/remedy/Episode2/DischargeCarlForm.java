@@ -538,11 +538,11 @@ public class DischargeCarlForm extends BaseClass {
 
 	public void iWillWaitToSeename() {
 		longDelay();
-		iWillWaitToSee(By.cssSelector("span.ec2-embed-patient-name"));
+		iWillWaitToSee(By.cssSelector("h3.page-title>span"));
 		String first_name=capitalise(DischargeCarlForm.firstname);
 		String last_name=capitalise(DischargeCarlForm.lastname);
 		String new_name=first_name+" "+last_name;
-		verifyTextForElement(driver.findElement(By.cssSelector("span.ec2-embed-patient-name")),new_name);
+		verifyTextForElement(driver.findElement(By.cssSelector("h3.page-title>span")),new_name);
 	}
 	public static String capitalise(final String name) {
 	    return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();

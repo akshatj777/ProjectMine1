@@ -1,5 +1,9 @@
 package com.remedy.episode1;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -145,9 +149,13 @@ public void iWaitToSeeonboarding(String text) {
 	verifyTextForElement(driver.findElement(By.xpath("//*[@id='current_onboarding_status']")),text);
 }
 
-public void iVerifyEpisodeMarkerAdmitTerminatedate() {
-	
-	
+public void iVerifyEpisodeMarkerAdmitTerminatedate(int days,int terminate,String status) throws ParseException {
+	String date=currentdate(days,"MM/dd/yyyy");
+    String terminate_date=currentdate(terminate,"MM/dd/yyyy");
+	String Newdate="-"+" "+terminate_date;
+	if(days>0){
+	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'"+Newdate+"') and contains(text(),'"+status+"')]")));
+	}
 }
 }
 

@@ -3,6 +3,7 @@ package stepDefination.Episode1;
 import com.remedy.episode1.EpisodeLogic;
 import com.remedy.resources.DriverScript;
 
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class EpisodeLogicSteps extends DriverScript{
@@ -19,5 +20,9 @@ public class EpisodeLogicSteps extends DriverScript{
 		logic.Iclickfirsttimingtransitioneditlink(tran);
 	}
 	
+	@Then ("^I verify potential m3 Episode Marker Admit Date \"([^\"]*)\" is created without end date$")
+	public void i_Verify_Potential_without_end_Date(int days){
+		logic.iVerifyPotentialwithoutendDate(days);
+	}
 	}
 
