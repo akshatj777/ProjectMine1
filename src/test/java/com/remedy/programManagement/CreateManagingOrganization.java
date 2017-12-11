@@ -75,35 +75,35 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
-		if(text.contains("MONAME")) {
+		if(text.equals("MONAME")) {
 			tempMoOrg.put("MONAME",createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempMoOrg.get("MONAME"));
 		}
-		else if(text.contains("DUPLICATE_MO"))
+		else if(text.equals("DUPLICATE_MO"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), moOrg.get("MONAME"));
 		}
-		else if(text.contains("ACHNAME")) {
+		else if(text.equals("ACHNAME")) {
 			CreateACHOrganization.tempAchOrg.put("ACHNAME", createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
 		}
-		else if(text.contains("DUPLICATE_ACH"))
+		else if(text.equals("DUPLICATE_ACH"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
 		}
-		else if(text.contains("PGPNAME")) {
+		else if(text.equals("PGPNAME")) {
 			CreatePGPOrganization.tempPGPOrg.put("PGPNAME", createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("PGPNAME"));
 		}
-		else if(text.contains("DUPLICATE_PGP"))
+		else if(text.equals("DUPLICATE_PGP"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
 		}
-		else if(text.contains("PAYORNAME")) {
+		else if(text.equals("PAYORNAME")) {
 			CreatePayorOrganization.tempPayorOrg.put("PAYORNAME", createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
 		}
-		else if(text.contains("DUPLICATE_PAYORNAME"))
+		else if(text.equals("DUPLICATE_PAYORNAME"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
 		}
