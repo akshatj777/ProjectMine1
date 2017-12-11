@@ -1187,7 +1187,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyDataInTheColumnsInsideReports(String data,String column){
-    	verifyTextForElementFromListByXpath(("//td[@member='["+column+"].["+data+"]']"),column);
+    	verifyTextForElementFromListByXpath(("//td[@member='["+column+"].["+data+"]']"),data);
     }
     
     public void iVerifyFieldInTheLayoutSectionAfterAddToReport(String text){

@@ -745,7 +745,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       | shutestaug231132a@yopmail.com |
 
       
-  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -803,7 +803,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes <networktier1>" is appearing under selected network tier filter
-    And I verify "Out of Network" is visible under "Network Tier" column in the report
+    And I verify "<networktier1>" is visible under "Network Tier" column in the report
     Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
     #Filtering(Tier 1)
     When I click to "Network Tier" field filter under "Network Tier" filter field
@@ -832,7 +832,7 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
       | OPSFINTier1_2@yopmail.com          | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
 
-  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields
+  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for financial performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
