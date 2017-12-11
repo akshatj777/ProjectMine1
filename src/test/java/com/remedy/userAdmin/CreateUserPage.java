@@ -302,12 +302,17 @@ public class CreateUserPage extends BaseClass{
    
    public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Episodes 2.0")){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Episodes 2.0']")));
-		   clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
-		   driver.navigate().back();
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes 2.0")){
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Episodes 2.0']")));
+			   clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
+			   driver.navigate().back();
+		   }  
 	   }
+	   
    }
   
    public void iVerifyTheHeaderAfterClickingTheEpisodes2Tile(){
@@ -320,46 +325,67 @@ public class CreateUserPage extends BaseClass{
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Episodes")){
-		   iWillWaitToSee(By.xpath("//p[text()='Episodes']"));
-		   clickElement(driver.findElement(By.xpath("//a[@class='spoe-button episodes']")));
-		   switchToNewWindow();
-		   iWillWaitToSee(By.cssSelector(".username"));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   iWillWaitToSee(By.xpath("//p[text()='Episodes']"));
+			   clickElement(driver.findElement(By.xpath("//a[@class='spoe-button episodes']")));
+			   switchToNewWindow();
+			   iWillWaitToSee(By.cssSelector(".username"));
+		   }   
 	   }
    }
    
    public void iClickOnPatientListOnSideMenuBarInEC1(String role) {
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Episodes")){
-		   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
-		   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
-		   waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
+			   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
+			   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+			   waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+		   }   
 	   }
    }
    
    public void iVerifyFacilityAppearingOnPatientCard(String facility, String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Episodes")){
-		   String value = driver.findElements(By.xpath("//div[@ng-repeat='element in patientsList']")).get(0).getText();
-		   value = value.substring(value.indexOf(")")+1).trim();
-		   Assert.assertEquals(facility, value);
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   String value = driver.findElements(By.xpath("//div[@ng-bind-html='element.facility']")).get(0).getText();
+			   value = value.substring(value.indexOf(")")+1).trim();
+			   Assert.assertEquals(facility, value);
+		   }   
 	   }
    }
    
    public void iClickOnAddNoteAndVerifyRole(String userrole, String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Episodes")){
-		   driver.findElements(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']")).get(0).click();
-		   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
-		   delay();
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   driver.findElements(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']")).get(0).click();
+			   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
+			   delay();
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+		   }   
 	   }   
    }
    
    public void iVerifyPatientCardOnActivePatientPage(String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Episodes")){
-		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@ng-repeat='element in patientsList']")));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@ng-repeat='element in patientsList']")));
+		   } 
 	   }   
    }
 
