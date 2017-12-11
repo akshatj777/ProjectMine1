@@ -1,23 +1,7 @@
-Feature: Landing page verification
+Feature: Super Admin Landing page verification
 
-  Scenario: Verify availability of components on Landing page
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    #Then I should see Program Administration logo on Top
-    Then I should see header text "Users"
-    And I verify UI of landing page
-    And I should see "Add User" Button in landing page
-    Then I click on "Add User" Button
-    Then I am navigated to user creation page
-    Then I click on close icon from user creation page
-    And I click on the top user link
-    Then I select "Log Out" option from the dropdown list
-    And I should see Log in widget
+Scenario Outline: logging in as super user and create a user
 
-
-  Scenario Outline: 
     Given I am on the login page
     When I enter email field <UserName> for login
     And I enter password field <Password> for Login
@@ -52,33 +36,47 @@ Feature: Landing page verification
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
-    Then I click on Mail icon in my account
-    Then I click on Inbox in mail
-    And I wait for 3000 milli seconds
-    Then I verify Account Verification in Inbox in my account
-    Then I click on Account Verification mail in Inbox
-    Then I verify "Confirm my account!" link in mail content
-    Then I click on "Confirm my account!" link in mail content
-    And I switch to new window
-    Then I enter email to generate password link
-    And I click on send mail button
-    Then I switch back to old window
-    Then I click on Inbox in mail
-    Then I verify the unread mail in inbox in my account
-    Then I verify Change Password mail in Inbox in my account
-    Then I click on Change Password mail in Inbox
-    Then I verify "Change my password" link in mail content
-    Then I click on "Change my password" link in mail content
-    And I switch to new window
-    And I enter new password "Testing1" to set new password
-    And I enter confirm new password "Testing1" to set new password
-    And I click on submit button to set new password
-
+    #Then I click on Mail icon in my account
+    #Then I click on Inbox in mail
+    #And I wait for 3000 milli seconds
+    #Then I verify Account Verification in Inbox in my account
+    #Then I click on Account Verification mail in Inbox
+    #Then I verify "Confirm my account!" link in mail content
+    #Then I click on "Confirm my account!" link in mail content
+    #And I switch to new window
+    #Then I enter email to generate password link
+    #And I click on send mail button
+    #Then I switch back to old window
+    #Then I click on Inbox in mail
+    #Then I verify the unread mail in inbox in my account
+    #Then I verify Change Password mail in Inbox in my account
+    #Then I click on Change Password mail in Inbox
+    #Then I verify "Change my password" link in mail content
+    #Then I click on "Change my password" link in mail content
+    #And I switch to new window
+    #And I enter new password "Testing1" to set new password
+    #And I enter confirm new password "Testing1" to set new password
+    #And I click on submit button to set new password
     Examples: 
-      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role      | Applications                             | ApplicationsNotVisible            | NPI | LearningPathwaySearchParameter | Health System     |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect |     | Learning Pathway 2             | Stamford Hospital |
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | LearningPathwaySearchParameter | Health System     |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Learning Pathway 2             | Stamford Hospital |
 
-  Scenario: Verify user information in landing page
+  Scenario: Verification of Super Admin Landing page UI
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    And I verify UI of landing page
+    And I should see "Add User" Button in landing page
+    Then I click on "Add User" Button
+    Then I am navigated to user creation page
+    Then I click on close icon from user creation page
+    And I click on the top user link
+    Then I select "Log Out" option from the dropdown list
+    And I should see Log in widget
+
+  Scenario: Verify user information in Super Admin landing page
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -87,20 +85,20 @@ Feature: Landing page verification
     Then I verify user information
 
   #search cases
-  Scenario: Verify ability to search user by First name/Last name/Email
+  Scenario: Verify ability of Super Admin user to search a user by First name/Last name/Email
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
     Then I enter search box in landing page with "FirstName"
-    And I should see "FirstName LastName" for "First Name" in search result
+    And I should see "FirstName" for "First Name" in search result
     Then I enter search box in landing page with "LastName"
-    And I should see "FirstName LastName" for "Last Name" in search result
+    And I should see "LastName" for "Last Name" in search result
     Then I enter search box in landing page with "test.automatemail"
     And I should see "test.automatemail" for "Email" in search result
 
-  Scenario: Verify ability to lock a user from landing page
+  Scenario Outline: Verify ability of Super Admin user to lock a user from landing page
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Adming
@@ -112,10 +110,14 @@ Feature: Landing page verification
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
-    Then I enter email field test.automatemail for login
-    And I enter password field Testing@1234 for Login
-    Then I click Access button
+    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
     Then I should not be able to login
+
+    Examples: 
+      | user        | Role      |
+      | Super Admin | Executive |
 
   Scenario: Verify functionality of Cancel button on unlocking alert message
     Given I am on the login page
@@ -131,7 +133,7 @@ Feature: Landing page verification
     Then I click on "Cancel" button from the alert to cancel unlock
     And I verify that user is locked
 
-  Scenario: Verify ability to unlock a locked user from landing page
+  Scenario: Verify ability of Super Admin user to unlock a locked user from landing page
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Adming

@@ -1,4 +1,4 @@
-Feature: Landing page verification
+Feature: PTA User Landing page verification
 
   Scenario Outline: logging in as PTA user and create users
     Given I am on the login page
@@ -59,7 +59,7 @@ Feature: Landing page verification
     #And I enter new password "Testing1" to set new password
     #And I enter confirm new password "Testing1" to set new password
     #And I click on submit button to set new password
-    Examples:
+    Examples: 
       | User                            | UserName          | FirstName  | LastName | Email             | Phone | Role                      | Applications | Health System     | Programs    | Locations | NPI |
       | Partner Technical Administrator | chloe@yopmail.com | FirstNameA | LastName | test.automatemail |       | Executive                 | Reports      | Stamford Hospital | BPCI-Model2 | All       |     |
       | Partner Technical Administrator | chloe@yopmail.com | FirstNameB | LastName | test.automatemail |       | Manager                   | Reports      | Stamford Hospital | BPCI-Model2 | All       |     |
@@ -106,7 +106,7 @@ Feature: Landing page verification
     Then I should see users with <Role>
     Then I enter search box in landing page with <Name> and verify result
 
-    Examples:
+    Examples: 
       | Role                                                                    | Name                                                       |
       | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | FirstNameA, FirstNameB, FirstNameC, FirstNameD, FirstNameE |
 
