@@ -107,11 +107,18 @@ public class EditManagingOrganization extends BaseClass {
 	}		
 	
 	public void iEditStateFieldForOrganization(String text) {
-		driver.findElement(By.xpath("//div[text()='State']/parent::div//span[@class='Select-clear']")).click();
-		if(!text.equals("")){
-		driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();
-		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
-        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+		if(!text.isEmpty()){
+			if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='address.stateSelection']")).size()>0){
+				driver.findElement(By.xpath("//div[input[@name='address.stateSelection']]//span[@class='Select-clear']")).click();
+			}
+			driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();
+			iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
+	        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+		}
+		else {
+			if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='address.stateSelection']")).size()>0){
+				driver.findElement(By.xpath("//div[input[@name='address.stateSelection']]//span[@class='Select-clear']")).click();
+			}
 		}
 	}
 	
