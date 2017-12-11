@@ -2,13 +2,12 @@ Feature: CreateUser-SuperAdminDataPermissions
 
   Scenario Outline: Verify Managing Organization drop down is not available for Downstream role
     Given I am on the login page
-    When I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    When I enter email field Downstream Provider for login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
-    And I wait for 10000 milli seconds
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "User Management"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
     And I fill in First Name with "FirstName"
@@ -27,13 +26,12 @@ Feature: CreateUser-SuperAdminDataPermissions
 
   Scenario Outline: Verify search location functionality for Downstream role
     Given I am on the login page
-    When I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    When I enter email field Downstream Provider for login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
-    And I wait for 10000 milli seconds
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "User Management"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
     And I fill in First Name with "FirstName"
@@ -55,13 +53,12 @@ Feature: CreateUser-SuperAdminDataPermissions
 
   Scenario Outline: Verify Managing Organization drop down is not available for Downstream role after switching from some other role
     Given I am on the login page
-    When I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    When I enter email field Downstream Provider for login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
-    And I wait for 10000 milli seconds
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "User Management"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
     And I fill in First Name with "FirstName"
@@ -87,12 +84,12 @@ Feature: CreateUser-SuperAdminDataPermissions
 
   Scenario Outline: Verify Managing Organization drop down is available for other roles after switching from Downstream role
     Given I am on the login page
-    When I enter email field rkapur+devFirst2@remedypartners.com for login
-    And I enter password field abcABC1! for Login
+    When I enter email field Downstream Provider for login
+    And I enter password field Testing1 for Login
     Then I click Access button
-    #Then I should see Tile text User Admin
-    #And I click on the "User Admin" tile
-    #Then I should see header text "User Management"
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "User Management"
     And I wait for 10000 milli seconds
     When I click on Add User button
     Then I should see "Add New User" on the user creation page

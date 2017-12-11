@@ -84,6 +84,10 @@ public class LoginPage extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Partner Technical Administrator").get(userName));
 		}
+		else if(userName.equals("Downstream Provider"))
+		{
+			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Downstream Provider").get(userName));
+		}
 		else
 		{
 			iFillInText(driver.findElement(By.name("email")), userName);

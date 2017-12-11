@@ -738,6 +738,11 @@ public class CreateUserPage extends BaseClass{
 	   delay();
    }
    
+   public void verifyTextPresentInLocationSearchLabel(String text) throws Throwable {
+	   String Actual = driver.findElements(By.cssSelector(".ui.checkbox>label")).get(1).getText();
+	   Assert.assertTrue(Actual.contains(text));
+   }
+   
    public void shouldNotSeeFieldWithLabel(String text) throws Throwable {
 	   boolean val = isElementPresentOnPage(By.xpath("//label[text()='All Location']"));
 	   Assert.assertFalse(val);

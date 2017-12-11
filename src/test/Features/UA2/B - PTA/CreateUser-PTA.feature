@@ -141,8 +141,6 @@ Feature: UA2 Front End Automation
     Then I verify the availability of role "Manager"
     Then I verify the availability of role "Case Manager"
     Then I verify the availability of role "Physicians"
-    Then I verify the availability of role "Prospective Partner Executive"
-    Then I verify the availability of role "Partner Program Administrator"
     Then I verify the availability of role "Transitional Case Manager"
 
   Scenario Outline: <Description>
@@ -165,8 +163,6 @@ Feature: UA2 Front End Automation
     Then I verify the validation message "<ValidationMsg>" on Create User Page
 
     Examples: 
-      Examples:
-
       | Description                                           | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
       | Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required |
       | Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required  |
@@ -202,102 +198,13 @@ Feature: UA2 Front End Automation
     Then I verify applications "<Applications>" are unchecked
 
     Examples: 
-      | Role                            | Applications                                                                |
-      | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                    |
-      | Manager                         | Episodes, Episodes 2.0, Reports, Lessons                                    |
-      | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons                                    |
-      | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                 |
-      | Prospective Partner Executive   | Lessons                                                                     |
-      | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration |
-      | Transitional Case Manager       | Episodes, Reports, Lessons                                                  |
+      | Role                      | Applications                                                |
+      | Executive                 | Episodes, Episodes 2.0, Reports, Lessons                    |
+      | Manager                   | Episodes, Episodes 2.0, Reports, Lessons                    |
+      | Case Manager              | Episodes, Episodes 2.0, Reports, Lessons                    |
+      | Physicians                | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |
+      | Transitional Case Manager | Episodes, Reports, Lessons                                  |
 
-  Scenario Outline: Verify validation message for invalid lesson name in search box
-    Given I am on the login page
-    When I enter email field Partner Technical Administrator for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "First Name"
-    Then I fill in Last Name with Last Name
-    And I enter Email "test.automatemail" to Create user
-    When I click the Organizational Role Field
-    Then I pick a Organizational Executive
-    Then I click on Next button
-    Then I verify Learning Pathway search box is not available
-    Then I select "<Applications>" product
-    Then I click on Select button
-    Then I verify Learning Pathway search box is available
-    Then I enter "<LearningPathwayName>" in Learning Pathway search box
-
-    Examples: 
-      | Role      | Applications                             | LearningPathwayName |
-      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Test                |
-
-  Scenario Outline: <Description>
-    Given I am on the login page
-    When I enter email field Partner Technical Administrator for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    Then I pick a Organizational <Role>
-    Then I click on Next button
-    Then I select "<Applications>" product
-    Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select button
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
-    Then I click on Submit button
-
-    Examples: 
-      | Description                                                      | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
-      | Create user with only one program all locations - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
-      | Create user with only one program one location  - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
-      | Create user with only one program multiple locations - PTA User  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
-      | Create user with multiple programs all locations - PTA User      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
-      | Create user with multiple programs one location - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
-      | Create user with multiple programs multiple locations - PTA User | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
-
-  Scenario Outline: Verify auto selected programs in Organizations
-    Given I am on the login page
-    When I enter email field Partner Technical Administrator for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    When I click the Organizational Role Field
-    Then I pick a Organizational <Role>
-    Then I click on Next button
-    Then I select "<Applications>" product
-    Then I click on Next button
-    Then I click on Select button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I verify default program "BPCI-Model2" associated with organization
-
-    Examples: 
-      | Role      | Applications                                                          | Health System     |
-      | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File | Stamford Hospital |
-
-  #Feature: CreateUser-Role&Application
   Scenario Outline: <Scenario Description>
     Given I am on the login page
     When I enter email field Partner Technical Administrator for login
@@ -336,6 +243,7 @@ Feature: UA2 Front End Automation
     And I fill in First Name with "FirstName"
     Then I fill in Last Name with LastName
     And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
     Then I pick a Organizational <Role>
     Then I click on Next button
     Then I verify Learning Pathway search box is not available
@@ -351,7 +259,125 @@ Feature: UA2 Front End Automation
     And I select a <Health System>
     Then I click on Select All Locations button
     Then I click on Submit button
+    Then I should see header text "Users"
 
     Examples: 
       | Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                                                          | LearningPathwayName        | LearningPathwayID | Health System     |
       | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
+
+  Scenario Outline: Verify validation message for invalid lesson name in search box
+    Given I am on the login page
+    When I enter email field Partner Technical Administrator for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    And I fill in First Name with "First Name"
+    Then I fill in Last Name with Last Name
+    And I enter Email "test.automatemail" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I click on Select button
+    Then I verify Learning Pathway search box is available
+    Then I enter "<LearningPathwayName>" in Learning Pathway search box
+
+    Examples: 
+      | Role      | Applications                             | LearningPathwayName |
+      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Test                |
+
+  Scenario Outline: Verify auto selected programs in Organizations
+    Given I am on the login page
+    When I enter email field Partner Technical Administrator for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I select "<Applications>" product
+    Then I click on Next button
+    Then I click on Select button
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I verify default program "BPCI-Model2" associated with organization
+
+    Examples: 
+      | Role      | Applications                                                          | Health System     |
+      | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File | Stamford Hospital |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field Partner Technical Administrator for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I select "<Applications>" product
+    Then I click on Next button
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I click on Select button
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations
+    Then I click on Submit button
+    Then I should see header text "Users"
+
+    Examples: 
+      | Description                                                      | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
+      | Create user with only one program all locations - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
+      | Create user with only one program one location  - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
+      | Create user with only one program multiple locations - PTA User  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
+      | Create user with multiple programs all locations - PTA User      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
+      | Create user with multiple programs one location - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
+      | Create user with multiple programs multiple locations - PTA User | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
+
+  Scenario Outline: <Scenario Description>
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "User Management"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I select "<Applications>" product
+    Then I click on Next button
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I click on Select button
+    Then I select "<Programs>" programs
+    Then I enter characters "<Loc>" in location serach
+    Then I should not see "All Location" field
+    Then I verify text present in location "Location" field label
+
+    Examples: 
+      | Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs    | Locations                         | Loc                               |
+      | Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2 | Bap                               | Bap                               |
+      | Search by location by full name while creation of user    | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2 | Baptist Medical Center - Vanguard | Baptist Medical Center - Vanguard |

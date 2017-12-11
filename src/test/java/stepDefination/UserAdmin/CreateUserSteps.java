@@ -521,6 +521,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.enterCharacterInLocationSearch(text);
 	}
 	
+	@Then("^I verify text present in location \"([^\"]*)\" field label$")
+	public void verifyTextPresentInLocationSearchLabel(String text) throws Throwable {
+		createUser.verifyTextPresentInLocationSearchLabel(text);
+	}
+	
 	@Then("^I should not see \"([^\"]*)\" field$")
 	public void shouldNotSeeFieldWithLabel(String text) throws Throwable {
 		createUser.shouldNotSeeFieldWithLabel(text);
