@@ -15,7 +15,4 @@ public class CreatePayorOrganization extends BaseClass{
 	public CreatePayorOrganization(WebDriver driver) {
 		super(driver);
 	}
-	
-	
-
 }
