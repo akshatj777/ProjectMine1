@@ -35,7 +35,6 @@ Feature: Super Admin Landing page verification
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
-
     #Then I click on Mail icon in my account
     #Then I click on Inbox in mail
     #And I wait for 3000 milli seconds
