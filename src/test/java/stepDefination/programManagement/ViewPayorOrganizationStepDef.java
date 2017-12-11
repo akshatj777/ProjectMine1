@@ -25,8 +25,8 @@ public class ViewPayorOrganizationStepDef extends DriverScript{
 		}
 	
 	@And("^I click on \"([^\"]*)\" tab on view profile of payor Organization$")
-	  public void user_should_get_redirected_to_the_managing_o_tab_pag(String button) throws Throwable {
-		viewPayor.iClickOnTabOnViewProfileOfPayorOrganization(button);
+	  public void i_Click_on_Contracts_Tab_on_View_profile_of_Payor_Organization(String tab) throws Throwable {
+		viewPayor.iClickOnTabOnViewProfileOfPayorOrganization(tab);
 		}
 	
 	

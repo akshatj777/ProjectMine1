@@ -21,11 +21,10 @@ public class ViewPayorOrganization extends BaseClass {
 	
 	public void iVerifybuttonOnViewProfileOfPayorOrganization(String text) {
 		iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
-		iVerifyTextFromListOfElement(By.xpath("//button[text()='"+text+"']"), text);	
+		iVerifyTextFromListOfElement(By.xpath("//button[text()='"+text+"']"), text);
 	}
 	
-	public void iClickOnTabOnViewProfileOfPayorOrganization(String button) {
-		clickElement(driver.findElement(By.cssSelector(".navLink.noselect")));
+	public void iClickOnTabOnViewProfileOfPayorOrganization(String tab) {
+		clickElement(driver.findElement(By.xpath("//a[text()='Contracts']")));
 	}
-
 }

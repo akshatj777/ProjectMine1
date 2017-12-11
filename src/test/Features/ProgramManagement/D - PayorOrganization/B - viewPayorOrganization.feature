@@ -19,7 +19,6 @@ Feature: View Payor Organization functionality tests
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify Participant Id on view profile of "Payor" Organization
     And I verify <Organization Type> in "type" on view profile of "Payor" Organization
     And I verify <Address1> in "address1" on view profile of "Payor" Organization
     And I verify <Address2> in "address2" on view profile of "Payor" Organization
@@ -32,8 +31,8 @@ Feature: View Payor Organization functionality tests
     And I Verify the "Edit" button on View page
     And I verify "Programs" as default tab selected on view profile of Payor Organization
     And I verify the "Create New Program" button on view profile of payor Organization
-    And I verify "contracts" tab present under Payor Organization
-    And I click on "contracts" tab on view profile of payor Organization
+    And I verify "Contracts" tab present under Payor Organization
+    And I click on "Contracts" tab on view profile of payor Organization
     And I verify the "Create New Contract" button on view profile of payor Organization
 
     Examples: 
