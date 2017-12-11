@@ -74,7 +74,7 @@ public class SearchOrganization extends BaseClass{
 				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
 			  }
-		}
+			}
 		  else if (org.equalsIgnoreCase("Hospital")){
 			  if (value.equals("ACHNAME - YES")){
 				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
