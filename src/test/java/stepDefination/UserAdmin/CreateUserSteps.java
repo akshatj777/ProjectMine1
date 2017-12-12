@@ -277,9 +277,29 @@ public class CreateUserSteps extends DriverScript{
 		createUser.iTurnOffTheLessonsTileApplication();
 	}
 
-	@And("^I click on Episode1 tile for \"([^\"]*)\" and verify user \"([^\"]*)\"$")
-	public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role, String roletext) throws Throwable {
-		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role, roletext);
+	@And("^I click on Episode1 tile for \"([^\"]*)\" user$")
+	public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I click on PatientList on SideMenu bar Episode1 for \"([^\"]*)\" user$")
+	public void iClickOnPatinetListOnSideMenuBarOnEpisode1(String role) throws Throwable {
+		createUser.iClickOnPatientListOnSideMenuBarInEC1(role);
+	}
+	
+	@And("^I verify Patient card appearing on Active Patients page for \"([^\"]*)\" user$")
+	public void iVerifyPatientCardAppearingOnActivePatientPage(String role) throws Throwable {
+		createUser.iVerifyPatientCardOnActivePatientPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" facility on patient card for \"([^\"]*)\" user$")
+	public void iVerifyFacilityOnPatientCardForUser(String facility, String role) throws Throwable {
+		createUser.iVerifyFacilityAppearingOnPatientCard(facility, role);
+	}
+	
+	@And("^I click on Add Note and verify user role \"([^\"]*)\" for \"([^\"]*)\" user$")
+	public void iClickOnAddNoteAndVerifyUserRoleForUser(String userrole, String role) throws Throwable {
+		createUser.iClickOnAddNoteAndVerifyRole(userrole, role);
 	}
 
 	@And("^I click on Institute tile for \"([^\"]*)\" user$")
@@ -502,6 +522,11 @@ public class CreateUserSteps extends DriverScript{
 	@Then("^I enter characters \"([^\"]*)\" in location serach$")
 	public void enterCharacterInLocationSearch(String text) throws Throwable {
 		createUser.enterCharacterInLocationSearch(text);
+	}
+	
+	@Then("^I verify text present in location \"([^\"]*)\" field label$")
+	public void verifyTextPresentInLocationSearchLabel(String text) throws Throwable {
+		createUser.verifyTextPresentInLocationSearchLabel(text);
 	}
 	
 	@Then("^I should not see \"([^\"]*)\" field$")

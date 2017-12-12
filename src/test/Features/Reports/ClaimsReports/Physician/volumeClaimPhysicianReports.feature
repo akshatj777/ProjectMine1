@@ -57,15 +57,6 @@ Feature: Volume claims Physician
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
-    #When I click to "Bundle" field filter under "Bundle" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Bundle" in the header text of filter page
-    #And I should see "Amputation" in the filter value list
-    #And I click on "Amputation" in the filter value list
-    #And I click on add selected in the filter modal
-    #And I click on ok button from filter
-    #And I wait until refresh button is disappeared
-    #And I should see "Amputation" result in "Bundle" field column for "Bundle" filter field
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "CCN" in the header text of filter page

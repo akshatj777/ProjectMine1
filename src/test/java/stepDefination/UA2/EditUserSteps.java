@@ -6,6 +6,7 @@ import com.remedy.resources.DriverScript;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class EditUserSteps extends DriverScript {
 EditUser editUser= new EditUser(driver);
@@ -33,26 +34,28 @@ EditUser editUser= new EditUser(driver);
 		editUser.iEnterPhone(number);
 	}
 	
-	@And("^I verify First Name \"([^\"]*)\" in user page$")
-	public void verifyEditedFirstName(String text) {
+	@Then("^I verify First Name ([^\"]*) in user page$")
+	public void i_verify_First_Name_First_Name_in_user_page(String text) throws Throwable {
 		editUser.iVerifyFirstNameInUserPage(text);
 	}
-	@And("^I verify Last Name \"([^\"]*)\" in user page$")
-	public void verifyEditedLastName(String text) {
+
+	@Then("^I verify Last Name ([^\"]*) in user page$")
+	public void i_verify_Last_Name_Last_Name_in_user_page(String text) throws Throwable {
 		editUser.iVerifyLastNameInUserPage(text);
 	}
-	@And("^I verify Role \"([^\"]*)\" in user page$")
-	public void verifyEditedRole(String text) {
-		editUser.iVerifyRoleInUserPage(text);
-	}
-	@And("^I verify Phone \"([^\"]*)\" in user page$")
-	public void verifyEditedPhone(String text) {
+
+	@Then("^I verify Phone ([^\"]*) in user page$")
+	public void i_verify_Phone_in_user_page(String text) throws Throwable {
 		editUser.iVerifyPhoneInUserPage(text);
 	}
-	@And("^I should not be able to edit Email$")
-	public void EmailNotEditable() {
-	editUser.iVerifyThatEmailIsNonEditable();
+
+	@Then("^I verify Role ([^\"]*) in user page$")
+	public void i_verify_Role_Manager_in_user_page(String text) throws Throwable {
+		editUser.iVerifyRoleInUserPage(text);
 	}
-	
+	@When ("^I click the Organizational Role Field to edit$")
+	public void iClickOnRoleFieldToEdit(){
+		editUser.iClickOnRoleFieldToEdit();
+	}
 	
 }

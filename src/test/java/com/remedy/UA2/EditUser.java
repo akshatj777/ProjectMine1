@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -46,6 +47,10 @@ public class EditUser extends BaseClass {
 			iWillWaitToSee(By.cssSelector("input[placeholder='Last Name']"));
 			driver.findElement(By.cssSelector("input[placeholder='Last Name']")).clear();
 			}
+		else if(name.equalsIgnoreCase("Phone")){
+			iWillWaitToSee(By.cssSelector("input[placeholder='Phone']"));
+			driver.findElement(By.cssSelector("input[placeholder='Phone']")).clear();
+			}
 	}
 	public void iEnterPhone(String number){
 		iWillWaitToSee(By.cssSelector("input[placeholder='Phone']"));
@@ -73,6 +78,11 @@ public class EditUser extends BaseClass {
 	public void iVerifyThatEmailIsNonEditable(){
 		iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 		//driver.findElement(By.xpath("//input[@placeholder='Email']"));
-		verifyElementAttributeContainsValue(driver.findElement(By.xpath("//input[@placeholder='Email']")), "class", "ui disabled fluid input");
+			Assert.assertFalse(driver.findElement(By.cssSelector("input[placeholder='Email']")).isEnabled());
+			
+	}
+	
+	public void iClickOnRoleFieldToEdit(){
+		clickElement(driver.findElement(By.cssSelector(".ui.fluid.selection.dropdown")));
 	}
 }
