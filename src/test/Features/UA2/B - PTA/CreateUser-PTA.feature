@@ -227,8 +227,8 @@ Feature: UA2 Front End Automation
     Then I verify Learning Pathway search box is available
 
     Examples: 
-      | Scenario Description                                           | FirstName | LastName | Email             | Role      | Applications                                                          |
-      | Verify availability and non availability of Lessons search box | FirstName | LastName | test.automatemail | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |
+      | Scenario Description                                           | FirstName | LastName | Email             | Role      | Applications                             |
+      | Verify availability and non availability of Lessons search box | FirstName | LastName | test.automatemail | Executive | Episodes, Episodes 2.0, Reports, Lessons |
 
   Scenario Outline: Select multiple learning pathways and create user
     Given I am on the login page
@@ -262,8 +262,8 @@ Feature: UA2 Front End Automation
     Then I should see header text "Users"
 
     Examples: 
-      | Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                                                          | LearningPathwayName        | LearningPathwayID | Health System     |
-      | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
+      | Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                             | LearningPathwayName        | LearningPathwayID | Health System     |
+      | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Episodes, Episodes 2.0, Reports, Lessons | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
 
   Scenario Outline: Verify validation message for invalid lesson name in search box
     Given I am on the login page
@@ -345,20 +345,20 @@ Feature: UA2 Front End Automation
     Then I should see header text "Users"
 
     Examples: 
-      | Description                                                      | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs                | Locations                                                                        |
-      | Create user with only one program all locations - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | All                                                                              |
-      | Create user with only one program one location  - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
-      | Create user with only one program multiple locations - PTA User  | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
-      | Create user with multiple programs all locations - PTA User      | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
-      | Create user with multiple programs one location - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
-      | Create user with multiple programs multiple locations - PTA User | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
+      | Description                                                      | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs                | Locations                                                                        |
+      | Create user with only one program all locations - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | All                                                                              |
+      | Create user with only one program one location  - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
+      | Create user with only one program multiple locations - PTA User  | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
+      | Create user with multiple programs all locations - PTA User      | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
+      | Create user with multiple programs one location - PTA User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
+      | Create user with multiple programs multiple locations - PTA User | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
 
   Scenario Outline: <Scenario Description>
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
-    Then I should see header text "User Management"
+    Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
     And I fill in First Name with "<FirstName>"
@@ -378,6 +378,6 @@ Feature: UA2 Front End Automation
     Then I verify text present in location "Location" field label
 
     Examples: 
-      | Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                                                          | NPI | Health System    | Programs    | Locations                         | Loc                               |
-      | Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2 | Bap                               | Bap                               |
-      | Search by location by full name while creation of user    | FirstName | LastName | test.automatemail |       | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File |     | Sound Physicians | BPCI-Model2 | Baptist Medical Center - Vanguard | Baptist Medical Center - Vanguard |
+      | Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs    | Locations                         | Loc                               |
+      | Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Bap                               | Bap                               |
+      | Search by location by full name while creation of user    | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Baptist Medical Center - Vanguard | Baptist Medical Center - Vanguard |
