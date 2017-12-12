@@ -243,6 +243,14 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop(Add to Report)
+    When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Onboarding Status" is added in layout section after clicking on add to report
+    Then I verify "Onboarding Status" field is appearing in the report table after clicking on add to report
+    #Filtering
     When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
@@ -486,7 +494,7 @@ Feature: Readmission Model3 report verification
       | OPSFINM3HHAVisiting@yopmail.com    | OPSFIN | HHA         | Congestive heart failure         |                                  |                          |                        |                          |            |                                             |                                          |                                             |                                           |                               |                                               |                                           |                                     |                                               |                       |                                   |                                     |                                             |                              |                             |                    |                                             |                               |                         |                    |                    |                               |                         |
       | RPFINM3HHASNFVisitQA@yopmail.com   | RPFIN  | SNF and HHA | Back & neck except spinal fusion | COPD, bronchitis, asthma         | Cellulitis               | Cervical spinal fusion | Congestive heart failure | Diabetes   | Double joint replacement, lower extremities | Fractures of the femur and hip or pelvis | Gastrointestinal hemorrhage                 | Hip & femur procedures except major joint | Lower Major joint replacement | Lower extrem, humerus except hip, foot, femur | Medical non-infectious orthopedic         | Nutritional and metabolic disorders | Other knee procedures                         | Other respiratory     | Revision of the hip or knee       | Sepsis                              | Simple pneumonia and respiratory infections | Spinal fusion (non-cervical) | Stroke                      | Syncope & collapse | Transient ischemia                          | Upper Major joint replacement | Urinary tract infection |                    |                    |                               |                         |
 
-  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Readmissions Model 3 report for user with <role> role for <facility> facility
+  Scenario Outline: Validate Anchor Post Acute Discharge Month drag and drop and filtering in Readmissions Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -504,11 +512,13 @@ Feature: Readmission Model3 report verification
     When I click on field-layout-icon button
     When I click on show all filters icon button
     Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    #Drag and Drop
     When I click on "Anchor Post Acute Discharge Month" field which is listed under "Anchor Post Acute Discharge Date" filter from available fields
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Anchor Post Acute Discharge Month" is added in layout section after clicking on add to report
     Then I verify "Anchor Post Acute Discharge Month" field is appearing in the report table after clicking on add to report
+    #Filtering
     When I click on "Anchor Post Acute Discharge Month" field which is listed under "Anchor Post Acute Discharge Date" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Month" in the header text of filter page
@@ -575,7 +585,7 @@ Feature: Readmission Model3 report verification
       | OPSFINM3HHAVisiting@yopmail.com    | OPSFIN | HHA         | Medicare |
       | RPFINM3HHASNFVisitQA@yopmail.com   | RPFIN  | SNF and HHA | Medicare |
 
-  Scenario Outline: Validate DOB field for Readmissions Model 3 report user with <role> role for <facility> facility
+  Scenario Outline: Validate DOB field is draggable for Readmissions Model 3 report user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -620,6 +630,14 @@ Feature: Readmission Model3 report verification
     And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop(Add to Report)
+    When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Patient Risk" is added in layout section after clicking on add to report
+    Then I verify "Patient Risk" field is appearing in the report table after clicking on add to report
+    #Filtering
     When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page

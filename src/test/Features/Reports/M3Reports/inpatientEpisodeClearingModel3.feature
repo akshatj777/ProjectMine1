@@ -490,6 +490,14 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop(Add to Report)
+    When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Onboarding Status" is added in layout section after clicking on add to report
+    Then I verify "Onboarding Status" field is appearing in the report table after clicking on add to report
+    #Filtering	
     When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
@@ -526,6 +534,14 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop(Add to Report)
+    When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I should see "Patient Risk" is added in layout section after clicking on add to report
+    Then I verify "Patient Risk" field is appearing in the report table after clicking on add to report
+    #Filtering
     When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
@@ -570,7 +586,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: Validate DOB field for Inpatient Episode Clearing [Model 3] report for user with <role> role for <facility> facility
+  Scenario Outline: Validate DOB field drag and drop for Inpatient Episode Clearing [Model 3] report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -600,7 +616,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
       | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
 
-  Scenario Outline: Validate Anchor Post Acute Discharge Month filter are reflected in Inpatient Episode Clearing Model 3 report for user with <role> role for <facility> facility
+  Scenario Outline: Validate Anchor Post Acute Discharge Month field drag and drop and filtering in Inpatient Episode Clearing Model 3 report for user with <role> role for <facility> facility
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
