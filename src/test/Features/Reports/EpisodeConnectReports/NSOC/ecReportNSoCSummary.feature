@@ -281,3 +281,47 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+  Scenario Outline: User should be able to see eligibilty field in available fields and check the filter values and apply filter in next site of care summary report under NSOC
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Eligibility" field is appearing in the layout section after selecting add to report
+    Then I verify "Eligibility" column is added to report after selecing add to report option
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Eligibility" in the header text of filter page
+    And I should see "ELIGIBLE" in the filter value list
+    And I should see "ERROR" in the filter value list
+    And I should see "EXPIRED" in the filter value list
+    And I should see "NOT_ELIGIBLE" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Eligibility" is appearing under Episodes table
+    
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
