@@ -110,7 +110,7 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
 			}
-		else if(field2.equalsIgnoreCase("DUPLICATE_PAYORNAME")){
+		else if(field2.equalsIgnoreCase("Duplicate_Payor")){
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
 		}
@@ -126,8 +126,8 @@ public class EditManagingOrganization extends BaseClass {
 			if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='address.stateSelection']")).size()>0){
 				driver.findElement(By.xpath("//div[input[@name='address.stateSelection']]//span[@class='Select-clear']")).click();
 			}
-			driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']")).click();
-			iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
+			//driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']//span")).click();
+			driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(0).sendKeys(text);
 	        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}
 		else {
