@@ -98,6 +98,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterFirstName(String text){
+    	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
     }
 
@@ -618,6 +619,7 @@ public class CreateUserPage extends BaseClass{
 	   {
 		   StringTokenizer st = new StringTokenizer(programList,",");
 	       while (st.hasMoreTokens()) {  
+	    	   iWillWaitToSee(By.xpath("//label[text()='"+st.nextToken().trim()+"']"));
 	           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
 	       }   
 	   }
@@ -633,7 +635,7 @@ public class CreateUserPage extends BaseClass{
 	   {
 		   StringTokenizer st = new StringTokenizer(locationList,",");
 	       while (st.hasMoreTokens()) {  
-	           clickElement(driver.findElement(By.xpath("//label[text()='"+st.nextToken().trim()+"']")));
+	           clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+st.nextToken().trim()+"')]")));
 	       } 
 	   }
 	   else
