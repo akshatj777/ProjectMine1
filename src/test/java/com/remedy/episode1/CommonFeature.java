@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.Episode2.DischargeCarlForm;
@@ -156,6 +157,25 @@ public void iVerifyEpisodeMarkerAdmitTerminatedate(int days,int terminate,String
 	if(days>0){
 	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'"+Newdate+"') and contains(text(),'"+status+"')]")));
 	}
+}
+
+public void i_Select_value(String variable, String value, String xpath) {
+   iWillWaitToSee(By.xpath(xpath));
+   Select select=new Select(driver.findElement(By.xpath(xpath)));
+   select.selectByVisibleText(value);
+   
+	
+}
+
+public void i_press(String text) {
+	iWillWaitToSee(By.linkText(text));
+	clickElement(driver.findElement(By.linkText(text)));
+	
+}
+
+public void iFillinText(String variable, String xpath, String value) {
+	iWillWaitToSee(By.xpath(xpath));
+	iFillInText(driver.findElement(By.xpath(xpath)),value);
 }
 }
 

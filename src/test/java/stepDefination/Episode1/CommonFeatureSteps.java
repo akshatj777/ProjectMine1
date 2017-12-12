@@ -143,5 +143,19 @@ public class CommonFeatureSteps extends DriverScript {
 	   common.iVerifyEpisodeMarkerAdmitTerminatedate(days,terminate_date,status);
    }
    
+   @And ("^I select \"([^\"]*)\" from \"([^\"]*)\" by xpath \"([^\"]*)\"$")
+   public void i_Select_value(String variable,String value,String xpath) throws ParseException{
+	   common.i_Select_value(variable,value,xpath);
+   }
+   
+   @And ("^I press \"([^\"]*)\"$")
+   public void i_press(String text){
+	   common.i_press(text);
+   }
+   
+   @When ("^I fill in 'Note' xpath \"([^\"]*)\" with \"([^\"]*)\"$")
+   public void i_Fill_in_Text(String variable,String xpath,String value){
+	   common.iFillinText(variable,xpath,value);
+   }
 }
 

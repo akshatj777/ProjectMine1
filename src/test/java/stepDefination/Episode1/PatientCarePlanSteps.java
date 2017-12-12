@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 
 import com.remedy.episode1.PatientCarePlan;
 import com.remedy.resources.DriverScript;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -229,4 +231,48 @@ public class PatientCarePlanSteps extends DriverScript
 		patientcare.i_Verify_Risk_Assessment();
 	}
 	
+	@And ("^I should see Assign Care Plan Button disabled$")
+	public void assign_Care_Plan_Button_disabled(){
+		patientcare.assignCarePlanButtondisabled();
+	}
+	
+	@Then ("^I will \"([^\"]*)\" the \"([^\"]*)\" Care Plan radio button at index \"([^\"]*)\"$")
+	public void I_will_check_Care_in_the_radio_button(String action,String buttonname,String position) throws Throwable {
+		patientcare.IwillcheckCareintheradiobutton(buttonname);
+		
+	}
+	 @When ("^I fill in Care Plan Search with \"([^\"]*)\"$")
+	 public void i_fill_in_Care_Plan_Search(String text){
+		 patientcare.ifillinCarePlanSearch(text);
+	 }
+	 
+	 @Then ("^I will not see Care Plan \"([^\"]*)\"$")
+	 public void i_will_not_see_Care_Plan(int index){
+		 patientcare.iwillnotseeCarePlan(index);
+	 }
+	 
+	 @And ("^I should see text of \"([^\"]*)\" in assigned form counter$")
+	 public void i_see_Text_in_assigned_form_counter(String count){
+		 patientcare.iseeTextinassignedformcounter(count);
+	 }
+	 
+	 @And ("^I will wait to see Assigned Forms List$")
+	 public void i_Will_Wait_To_See_Assigned_Form_List(){
+		 patientcare.iWillWaitToSeeAssignedFormList();
+	 }
+	 
+	 @Then ("^I fill in Due Date with logic \"([^\"]*)\" with \"([^\"]*)\" days$")
+	 public void i_Fill_in_Due_Date(String logic,int days){
+		 patientcare.iFillinDueDate(days);
+	 }
+	 
+	 @And ("^I should see text of \"([^\"]*)\" in active form counter$")
+	 public void i_see_Text_in_active_form_counter(String count){
+		 patientcare.iseeTextinactiveformcounter(count);
+	 } 
+	 
+	 @And ("^I set patient onboarding status to \"([^\"]*)\"$")
+	 public void I_set_patient_onboarding_status_to(String index){
+		 patientcare.Isetpatientonboardingstatusto(index);
+	 }
 }

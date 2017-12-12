@@ -1,8 +1,8 @@
-Feature: Canceling Episode from EI Assignment Window
+Feature: CRA Auto-assignment
 
-  Scenario Outline: To verify Episode termination date when episode is manually cancelled
+Background: Episode Active - create anchor transition
     Given I am on the login page
-    When I enter email field <email> for login
+    When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -29,8 +29,7 @@ Feature: Canceling Episode from EI Assignment Window
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "<logic>" with "<daysToAdmitWRTToday>" days
-    Then I enter <admit reason> on create transition page on transition tab on Patient Summary
+    Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -42,20 +41,23 @@ Feature: Canceling Episode from EI Assignment Window
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    And I click Episode initiator Edit
-    And I will wait to see "Edit Episode Initiator" in "td" tag
-    When I click "Cancel Episode" xpath element "//*[@id='episode_initiator_cancelEpisode']"
+
+Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
+    When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
+    When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
+    Then I verify Clinical Risk Assessment in Assigned Form list 
+    And I should see text of "2" in assigned form counter
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
-    And I should not see "Expired" in "h3" tag
-    When I click on episode marker drop down
-    Then I will wait to see "CANCELED" state
-    Then I will wait to see onboarding status "Unknown"
-    Then I verify "UNGROUPABLE" in "DRG" table in row "2" and column "2"
-    And I will verify Episode Marker Admit Date "<daysToAdmitWRTToday>" and Termination date and Episode Status "<episodeStatus>" for logic "<logic>"
+    When I click anchor transition delete link "1"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    Then I will not see "Episode Marker" xpath element "//*[@id='s2id_episodeSelectionBox']"
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "<daysToAdmitWRTToday>" days
+    Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -66,9 +68,10 @@ Feature: Canceling Episode from EI Assignment Window
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-
-    Examples: 
-      | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus |
-      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |
-      | qa.rn@yopmail.com    | minus |                   0 | firsttest    | CANCELED      |
-      | qa.lpn@yopmail.com   | plus  |                  -2 | firsttest    | CANCELED      |
+    Then I will wait to see onboarding status "Needs Onboarding"
+    When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
+    When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
+    Then I verify Clinical Risk Assessment in Assigned Form list 
+    And I should see text of "2" in assigned form counter
+    
+    

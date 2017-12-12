@@ -1,8 +1,8 @@
-Feature: Canceling Episode from EI Assignment Window
+Feature: Assign Care Plan
 
-  Scenario Outline: To verify Episode termination date when episode is manually cancelled
+  Background: Patient not in episode "Assign Care Plan" button disabled
     Given I am on the login page
-    When I enter email field <email> for login
+    When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -27,10 +27,17 @@ Feature: Canceling Episode from EI Assignment Window
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
+    Then I navigate to the "/secure/person/mongoID/careflow"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "No care plans assigned." in "span" tag
+    And I should see Assign Care Plan Button disabled
+
+  Scenario: Assign and Review carePlan by Bundle after search
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "<logic>" with "<daysToAdmitWRTToday>" days
-    Then I enter <admit reason> on create transition page on transition tab on Patient Summary
+    Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -42,20 +49,29 @@ Feature: Canceling Episode from EI Assignment Window
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    And I click Episode initiator Edit
-    And I will wait to see "Edit Episode Initiator" in "td" tag
-    When I click "Cancel Episode" xpath element "//*[@id='episode_initiator_cancelEpisode']"
+    Then I navigate to the "/secure/person/mongoID/careflow"
+    And I will wait to see "No care plans assigned." in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see "Assign Care Plan" in "h4" tag
+    And I will wait to see "by Bundle" in "a" tag
+    And I will wait to see "by Issue" in "a" tag
+    Then I fill in Care Plan Search with "Acute Myocardial Infarction"
+    And I will wait to see "Acute Myocardial Infarction" in "h4" tag
+    Then I will not see Care Plan "2"
+    Then I will "check in" the "Acute Myocardial Infarction" Care Plan radio button at index "1"
+    And I press "Save changes"
+    And I will wait to see "Acute Myocardial Infarction" in "h4" tag
     And I will wait to see patient's name on patient summary page
-    And I should not see "Expired" in "h3" tag
-    When I click on episode marker drop down
-    Then I will wait to see "CANCELED" state
-    Then I will wait to see onboarding status "Unknown"
-    Then I verify "UNGROUPABLE" in "DRG" table in row "2" and column "2"
-    And I will verify Episode Marker Admit Date "<daysToAdmitWRTToday>" and Termination date and Episode Status "<episodeStatus>" for logic "<logic>"
+    Then I navigate to the "/secure/person/mongoID/careflow"
+    And I will wait to see "Review Care Plan" in "a" tag
+    And I press "Review Care Plan"
+    
+    Scenario: Assign and Review carePlan by Issue after search
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "<daysToAdmitWRTToday>" days
+    Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -66,9 +82,24 @@ Feature: Canceling Episode from EI Assignment Window
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-
-    Examples: 
-      | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus |
-      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |
-      | qa.rn@yopmail.com    | minus |                   0 | firsttest    | CANCELED      |
-      | qa.lpn@yopmail.com   | plus  |                  -2 | firsttest    | CANCELED      |
+    Then I will wait to see onboarding status "Needs Onboarding"
+    Then I navigate to the "/secure/person/mongoID/careflow"
+    And I will wait to see "No care plans assigned." in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see "Assign Care Plan" in "h4" tag
+    And I will wait to see "by Bundle" in "a" tag
+    And I will wait to see "by Issue" in "a" tag
+    And I press "by Issue"
+    Then I fill in Care Plan Search with "Hypertension (HTN)"
+    And I will wait to see "Hypertension (HTN)" in "h4" tag
+    Then I will not see Care Plan "2"
+    Then I will "check in" the "Hypertension (HTN)" Care Plan radio button at index "1"
+    And I press "Save changes"
+    And I will wait to see "Hypertension (HTN)" in "h4" tag
+    And I will wait to see patient's name on patient summary page
+    Then I navigate to the "/secure/person/mongoID/careflow"
+    And I will wait to see "Review Care Plan" in "a" tag
+    And I press "Review Care Plan"
+    
+    
+    

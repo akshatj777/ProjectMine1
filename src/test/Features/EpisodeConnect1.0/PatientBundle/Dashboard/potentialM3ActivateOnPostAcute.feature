@@ -81,5 +81,19 @@ Scenario: POT3 will get activated on post acute admission, which its admit date 
     And I will wait to see patient's name on patient summary page
     Then I will wait to see onboarding status "Onboarded"
     When I click Start CARL tool link "1"
+    When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    When I click Start CARL tool link "2"
+    When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
+    When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
+    When I click "Add New+" xpath element "//*[@id='addNewForm']"
+    Then I select "After Hour Call" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
+    When I click "Assign" xpath element "//*[@id='submitButton']"
+    When I click anchor transition delete link "1"
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    
     
     

@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.remedy.baseClass.BaseClass;
 
 public class PatientCarePlan extends BaseClass {
@@ -86,7 +89,9 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iShouldSeePresentOnTheNewAppointmentPage(String text) throws Throwable {
+		iWillWaitToSee(By.cssSelector(".modal-title"));
 		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
+		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
 	}
 
 	public void iAssignUnderContact(String number) throws Throwable {
@@ -117,7 +122,9 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable {
+		iWillWaitToSee(By.cssSelector(".modal-title"));
 		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
+		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
 	}
 
 	public void iClickOnTopicDropdownUnderNewNote() throws Throwable {
@@ -209,4 +216,55 @@ public class PatientCarePlan extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[1]/div/div/div[1]/div[1]")));
 	}
 
+	public void assignCarePlanButtondisabled() {
+		isElementVisible(driver.findElement(By.xpath("//a[@ng-click='assignCarePlan()' and contains(@class,'btn-disabled')]")));
+	}
+
+	public void IwillcheckCareintheradiobutton(String text) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span/input"));
+		clickAction(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span/input")));
+		clickElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span/input")));
+	}
+
+	public void ifillinCarePlanSearch(String text) {
+		iWillWaitToSee(By.xpath("//input[@placeholder='Care Plan search']"));
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Care Plan search']")),text);
+	}
+
+	public void iwillnotseeCarePlan(int index) {
+		WebDriverWait wait=waitTo();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div["+index+"]/div/div/div[1]/h4")));
+		
+	}
+
+	public void iseeTextinassignedformcounter(String count) {
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span"));
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span")),count);
+		
+	}
+
+	public void iWillWaitToSeeAssignedFormList() {
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span")));
+		
+	}
+
+	public void iFillinDueDate(int days) {
+		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']"));
+		String date=currentdate(days,"MM/dd/yyyy");
+		setAttributevalue(driver.findElement(By.cssSelector("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",date);
+	}
+
+	public void iseeTextinactiveformcounter(String count) {
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[3]/div/div[1]/div[1]/span"));
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[3]/div/div[1]/div[1]/span")),count);
+		
+	}
+
+	public void Isetpatientonboardingstatusto(String index) {
+		iWillWaitToSee(By.xpath("//a[@data-onboarding-status="+index+"]"));
+		clickElement(driver.findElement(By.xpath("//a[@data-onboarding-status="+index+"]")));
+	}
+   
 }
