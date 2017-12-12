@@ -1531,4 +1531,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_field_is_appearing_in_the_layout_section_after_selecting_add_to_report(String text) throws Throwable{
     	reportHomePage.iVerifyFieldInTheLayoutSectionAfterAddToReport(text);
     }
+    
+    @Then("^I click on avatar symbol to see the menu$")
+    public void i_click_on_avatar_symbol_to_see_the_menu() throws Throwable{
+    	reportHomePage.iClickOnAvatarSymbolToClickOnMenu();
+    }
+    
+    @And("^I should not see \"([^\"]*)\" is present in the list after clicking on avatar$")
+    public void i_should_not_see_is_present_in_the_list_after_clicking_on_avatar(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeeTextInListAfterClickingOnAvatar(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" tab after clicking on avatar symbol to redirect to reporting help center page$")
+    public void i_click_on_tab_after_clicking_on_avatar_symbol_to_redirect_to_reporting_help_center_page(String text) throws Throwable{
+    	reportHomePage.iClickOnTabUnderAvatar(text);
+    }
 }

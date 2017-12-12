@@ -1193,4 +1193,16 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyFieldInTheLayoutSectionAfterAddToReport(String text){
     	isElementVisible(driver.findElement(By.xpath("//div[@class='gem dojoDndItem']/div[text()='"+text+"']")));
     }
+    
+    public void iClickOnAvatarSymbolToClickOnMenu(){
+    	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-profile")));
+    }
+    
+    public void iShouldNotSeeTextInListAfterClickingOnAvatar(String text){
+    	verifyTextNotPresentForElementFromList("a.btn.btn-flyout-nav[type='submit']",text);
+    }
+    
+    public void iClickOnTabUnderAvatar(String text){
+    	clickElement(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")));
+    }
 }
