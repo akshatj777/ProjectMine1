@@ -2,13 +2,10 @@ package com.remedy.Reports;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import com.remedy.baseClass.BaseClass; 
+import com.remedy.baseClass.BaseClass;
 
 public class ReportsGlobalFilters extends BaseClass{
-
-	public ReportsGlobalFilters(WebDriver driver) {
-		
+	public ReportsGlobalFilters(WebDriver driver){
 		super(driver);
 	}
 
@@ -61,7 +58,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iClickOnReportTileOnTopOfReportPage(String report,String tile){
-		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]")));
+		clickElement(driver.findElement(By.xpath("//li[button[text()='"+tile+"']]//ul/li/a[span[text()='"+report+"']]")));
 	}
 	
 	public void iMovetoElementToClickOnReportTileOnTopOfReportPage(String moveToElementLocator){
@@ -69,7 +66,7 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iSeeReportTileOnTopOfReportPage(String report,String tile){
-		isElementVisible(driver.findElement(By.xpath("//li[button[text()='"+tile+"']] //button[span[text()='"+report+"']]")));
+		isElementVisible(driver.findElement(By.xpath("//li[button[text()='"+tile+"']]//ul/li/a[span[text()='"+report+"']]")));
 	}
 	
 	public void iVerifyParticipantIDAppearingInSelectedFilter(String participantid){
@@ -114,7 +111,6 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iClickOnTileOnTheTopNavigationOfReportsPage(String tile){
 		clickElement(driver.findElement(By.xpath("//button[text()='"+tile+"']")));
-		//driver.navigate().refresh();
 	}
 	
 	public void iVerifyEpisodeInitiatorUnderFilterOptions(String text){
@@ -160,9 +156,8 @@ public class ReportsGlobalFilters extends BaseClass{
 	}
 	
 	public void iSeePayerNameAppearingUnderFilterNameOfGlobalFilters(String text){
-		if(text!=null)
-		{
-		verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']", text);
+		if (!text.isEmpty()){
+			verifyTextForElementFromListByXpath("//div[h5[span[text()='Payer']]]/div//span[@class='ng-binding']",text);
 		}
 	}
 	
@@ -176,5 +171,9 @@ public class ReportsGlobalFilters extends BaseClass{
 	
 	public void iVerifyApplyFilterButtonUnderGlobalFilters(){
 		isElementVisible(driver.findElement(By.cssSelector(".btn.btn-primary")));
+	}
+	
+	public void iShouldNotSeeHideSummaryAppearingInGlobalFilters(String text){
+		verifyTextNotPresentForElementFromList(".toggle-page-summary.ng-binding",text);
 	}
 }

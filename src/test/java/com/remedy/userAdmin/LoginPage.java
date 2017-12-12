@@ -2,7 +2,11 @@ package com.remedy.userAdmin;
 
 import com.remedy.baseClass.BaseClass;
 
+
 import java.util.concurrent.TimeUnit;
+
+import stepDefination.Hooks.InitialSetup;
+
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -84,6 +88,10 @@ public class LoginPage extends BaseClass {
 		else if(userName.equals("Partner Technical Administrator"))
 		{
 			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Partner Technical Administrator").get(userName));
+		}
+		else if(userName.equals("Downstream Provider"))
+		{
+			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Downstream Provider").get(userName));
 		}
 		else
 		{

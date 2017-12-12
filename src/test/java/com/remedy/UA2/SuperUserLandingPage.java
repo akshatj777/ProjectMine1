@@ -27,17 +27,25 @@ public class SuperUserLandingPage extends BaseClass {
 
 	}
 
-	public void iVerifyLandingPageUI() {
+	public void iVerifyLandingPageUI(String text) {
 		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
+	
+		if(text.contains("User table"))
 		isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
+		if(text.contains("Lock"))
 		isElementVisible(driver.findElement(By.cssSelector("th#auth0State")));
+		if(text.contains("Name"))
 		isElementVisible(driver.findElement(By.cssSelector("th#lastName")));
+		if(text.contains("Role"))
 		isElementVisible(driver.findElement(By.cssSelector("th#logicalRoleId")));
+		if(text.contains("Email"))
 		isElementVisible(driver.findElement(By.cssSelector("th#email")));
+		if(text.contains("Date"))
 		isElementVisible(driver.findElement(By.cssSelector("th#insertedDate")));
+		if(text.contains("Pagination")){
 		iWillWaitToSee(By.cssSelector("div.paginator-text"));
 		isElementVisible(driver.findElement(By.cssSelector("div.paginator-text")));
-		
+		}
 	}
 
 	public void verifyUserInformation() {

@@ -3,7 +3,9 @@ package com.remedy.resources;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import stepDefination.Hooks.InitialSetup;
 
 
 /**
@@ -43,8 +47,9 @@ public class DriverScript {
 			Config = new Properties();
 
 			try {
-				fis = new FileInputStream(System.getProperty("user.dir")
-						+ "//src//test//java//com//remedy//resources//config.properties");
+				String fisFilePath = System.getProperty("user.dir")
+						+ "//src//test//java//com//remedy//resources//config.properties";
+				fis = new FileInputStream(fisFilePath);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -71,8 +76,8 @@ public class DriverScript {
 
 		browser = Config.getProperty("Browser");
 		os = Config.getProperty("OS");
-		System.out.println("initialize Browser: " + browser);
-		System.out.println("initialize OS: " + os);
+		//System.out.println("initialize Browser: " + browser);
+		//System.out.println("initialize OS: " + os);
 
 		switch (browser) {
 		case "chrome":
@@ -94,8 +99,8 @@ public class DriverScript {
 			}
 			
 			ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
-            options.addArguments("--disable-extensions");
+            options.addArguments("--start-maximized");  
+			options.addArguments("--disable-extensions");
             driver = new ChromeDriver(options);
 
 			break;			
@@ -138,9 +143,26 @@ public class DriverScript {
 			driver = new PhantomJSDriver(dCaps);
 			
 			break;			
-		default:			
+
+		default:
+			String geckoDrvrPath;
+			geckoDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
+			os: switch (os) {
+			case "linux32":
+			case "linux64":
+			case "mac":    
+			System.setProperty("webdriver.gecko.driver",
+			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver");
+			break os;
+			case "win":    
+			System.setProperty("webdriver.gecko.driver",
+			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver.exe");
+			break os;
+			default:
+			throw new IllegalStateException("Invalid OS paramter, expected values 'linux32||linux64||mac||win'");    
+			   }
 			driver = new FirefoxDriver();
-		}
+			}
 		
 	}
 

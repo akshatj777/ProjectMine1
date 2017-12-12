@@ -1,5 +1,6 @@
 package com.remedy.baseClass;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -8,9 +9,29 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.remedy.programManagement.CreateManagingOrganization;
+import com.remedy.resources.DriverScript;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -25,10 +46,18 @@ public class BaseClass {
 	protected static long Wait_Time = 1000L;
 	protected static long delay_Time = 2000L;
 	protected static long LongDelay_Time = 5000L;
-	//WebDriverWait wait = new WebDriverWait(driver, 30);
-
+	public static Properties Cache=new Properties();
+	public static Properties properties=new Properties();
+	static InputStream inPropFile = null;
+	FileInputStream fisCache;
+	OutputStream outPropFile;
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
+	}
+	public WebDriverWait waitTo()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		return wait;
 	}
 
 	public void delay() {
@@ -140,7 +169,6 @@ public class BaseClass {
 	}
 
 	public void selectElementByIndex(String element, int idx) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		listItems.get(idx).click();
 	}
@@ -161,13 +189,6 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(By.cssSelector(element));
 		for (WebElement item : listItems) {
 			item.getText().equalsIgnoreCase(itemtext);
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -212,7 +233,7 @@ public class BaseClass {
 
 	public String getTextForElement(WebElement ele) {
 		if (isElementVisible(ele)) {
-			System.out.println(ele.getText());
+			ele.getText();
 		}
 		return ele.getText();
     }
@@ -221,7 +242,6 @@ public class BaseClass {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         int countelement = listItems.size();
         delay();
-        System.out.println(countelement);
         Assert.assertEquals(countelement, count);
     }
 
@@ -250,9 +270,7 @@ public class BaseClass {
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
         List<WebElement> listItems = driver.findElements(By.cssSelector(element));
         for (WebElement item : listItems) {
-            //item.getText().equalsIgnoreCase(itemtext);
             Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
-            //Assert.assertNotEquals();
         }
     }
         
@@ -290,7 +308,6 @@ public class BaseClass {
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getText().equalsIgnoreCase(itemtext);
 			/*
 			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
@@ -305,7 +322,6 @@ public class BaseClass {
 	public void selectElementByTextDescByXpath(String element, String desc) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			if (item.getText().equalsIgnoreCase(desc)) {
 				item.click();
 				delay();
@@ -317,15 +333,7 @@ public class BaseClass {
 	public void verifyAttributeForElementFromListByXpath(String element, String attribute, String itemtext) {
 		List<WebElement> listItems = driver.findElements(By.xpath(element));
 		for (WebElement item : listItems) {
-			// System.out.println(item.getText());
 			item.getAttribute(attribute).equalsIgnoreCase(itemtext);
-			/*
-			 * if (item.getText().equalsIgnoreCase(itemtext)) { try {
-			 * Assert.assertTrue(item.getText().equalsIgnoreCase(itemtext)); }
-			 * catch (Exception e) {
-			 * 
-			 * } }
-			 */
 		}
 	}
 
@@ -334,7 +342,6 @@ public class BaseClass {
 	}
 
 	public void moveToTheElementAndClick(WebElement moveToElement, WebElement clickToElement) {
-		// actionEvent.moveToElement(toElement).click().build().perform();
 		actionEvent.moveToElement(moveToElement).perform();
 		clickToElement.click();
 	}
@@ -344,7 +351,6 @@ public class BaseClass {
 	}
 
 	public void clickAllElementofAlistbyXpath(String xpathElement) {
-		// WebElement drpDwn = getVisibleDropDownParentElement(parent);
 		List<WebElement> listItems = driver.findElements(By.xpath(xpathElement));
 		for (WebElement item : listItems) {
 			item.click();
@@ -366,12 +372,14 @@ public class BaseClass {
 		return value;
 	}
 
-	public void isElementNotPresentOnPage(String ele) {
+	public boolean isElementNotPresentOnPage(String ele) {
+		boolean value = false;
 		try {
 			driver.findElement(By.cssSelector(ele));
 		} catch (Exception e) {
-			return;
+			value = true;
 		}
+		return value;
 	}
 	
 	public boolean isElementNotPresentOnPage(By locator) {
@@ -406,8 +414,7 @@ public class BaseClass {
 
 	public void iWillWaitToSee(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 60);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			waitTo().until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -417,38 +424,89 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
-			System.out.println(item.getText());
-			  if (item.getText().trim().contentEquals(text)) {
+			  if (item.getText().trim().equals(text)) {
 				  value=item.getText().trim();  
 			  } 
 		}
-		Assert.assertEquals(text,value);
+		Assert.assertEquals(text.trim(),value.trim());
 	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
 	    List <WebElement> element = driver.findElements(locator);
 	    for(WebElement ele: element) {
-	    	if (ele.getText().contentEquals(text)) {
+	    	if (ele.getText().trim().equals(text)) {
 	    		ele.click();
 	    	}
 	    }
-	}
+	}  
 	
+	public boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } catch (org.openqa.selenium.NoSuchElementException e) {
+	      return false;
+	    }
+	}
+
 	public void VerifyElementCssProperty(By by,String property){
 		WebElement ele = driver.findElement(by);
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
 
-	
+
 	public void isSelected(WebElement element){
 		boolean flag = element.isSelected();
-    	Assert.assertEquals("true", flag);
+    	Assert.assertEquals(true, flag);
 	}
 	
 	public void isNotSelected(WebElement element){
 		boolean flag = element.isSelected();
-    	Assert.assertEquals("false", flag);
+    	Assert.assertEquals(false, flag);
+	}
+
+	public String createRandomName(String name){
+		return name+RandomStringUtils.randomAlphabetic(8);
+	}
+	
+	public String createRandomNumber(int num){
+		return RandomStringUtils.randomNumeric(num);
+	}
+	
+	public String fetchParticipantID(String query) throws ClassNotFoundException, SQLException  {
+		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();
+	    Class.forName("com.mysql.jdbc.Driver");
+	    String connectionString = "jdbc:mysql://"+DriverScript.Config.getProperty("MySQLServerName")+":3306"; 
+	    Connection con=DriverManager.getConnection(connectionString,DriverScript.Config.getProperty("MySQLDBUserName"),DriverScript.Config.getProperty("MySQLPassword")); 
+	    Statement stmt=con.createStatement();  
+	    ResultSet rs=stmt.executeQuery(query);
+	    ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	    while(rs.next())
+	    {
+	     HashMap<String, String> column = new HashMap<String, String>();
+	        for(int i=1;i<=rsmd.getColumnCount();i++)
+	        {
+	        column.put(rsmd.getColumnName(i),rs.getString(i));
+	        }
+	        String a = Integer.toString(rs.getRow());
+	        row.put(a, column);
+	        }
+	    String pID = row.get("1").get("participant_id");
+	    con.close();
+	    return pID;
+}
+    public void validateDateFormat(String format,String dateToValdate) throws ParseException {
+    	SimpleDateFormat formatter = new SimpleDateFormat(format);
+	    formatter.setLenient(false);
+	    formatter.parse(dateToValdate);
+    }	
+	public void scrollIntoViewByJS(WebElement element){
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+	
+	public String getTheCurrentUrl(){
+		return driver.getCurrentUrl();
 	}
 }
 

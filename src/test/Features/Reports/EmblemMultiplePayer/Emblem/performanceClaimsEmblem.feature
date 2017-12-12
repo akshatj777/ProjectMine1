@@ -25,6 +25,10 @@ Feature: Verification of filters under Performance Claims report under Overall p
     And I click on add selected in the filter modal
     And I click on ok button from filter
     And I wait until refresh button is disappeared
+    When I click to "Payer" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Payer" field is appearing in the report table after clicking on add to report
     And I should see "<payer1>" result in "Payer" field column for "Episode Initiator" filter field
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field

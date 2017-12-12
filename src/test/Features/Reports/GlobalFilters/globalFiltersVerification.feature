@@ -142,7 +142,7 @@ Feature: Global Filters Verification
     Then I click on "InPatient Episode Clearing" report under "Patient ID" reports tile on the top of reports page
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Inpatient Episode Clearing" is appearing inside the iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I switch to default window from iframe
     Then I verify "InPatient Episode Clearing" in the reports header page
@@ -159,7 +159,7 @@ Feature: Global Filters Verification
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Inpatient Episode Clearing" is appearing inside the iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -425,7 +425,6 @@ Feature: Global Filters Verification
     When I switch to reports embedded iframe
     And I will wait to see "Readmissions Claims" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    When I switch to default window from iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
