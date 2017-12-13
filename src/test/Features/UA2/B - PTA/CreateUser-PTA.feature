@@ -87,12 +87,12 @@ Feature: UA2 Front End Automation
     And I click on Episode1 tile for "<User>-<Role>" user
     And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
-    And I verify "<Health System>" facility on patient card for "<User>-<Role>" user
-    And I click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
-    And I switch back to old window
-    And I click on Institute tile for "<User>-<Role>" user
-    And I click on Reports tile for "<User>-<Role>" user
-    And I click on Episodes two tile for "<User>-<Role>" user
+    #And I verify "<Health System>" facility on patient card for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    #And I switch back to old window
+    #And I click on Institute tile for "<User>-<Role>" user
+    #And I click on Reports tile for "<User>-<Role>" user
+    #And I click on Episodes two tile for "<User>-<Role>" user
     And I click on RemedyU tile for "<User>-<Role>" user
     And I redirect to Remedy connect page
     And I click on the top user account link
@@ -340,7 +340,7 @@ Feature: UA2 Front End Automation
     And I select a <Health System>
     Then I click on Select button
     Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
+    Then I search and select "<Locations>" locations
     Then I click on Submit button
     Then I should see header text "Users"
 

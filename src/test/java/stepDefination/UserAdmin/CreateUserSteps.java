@@ -234,7 +234,8 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iclickAllAppsfortheRole();
 	}
 
-	@Then("^I select \"([^\"]*)\" product$")
+	@Then("^I unselect \"([^\"]*)\" product$")
+	@And("^I select \"([^\"]*)\" product$")
 	public void iSelectTileForTheRole(String appList) throws Throwable {
 		createUser.iSelectTileForTheRole(appList);
 	}
@@ -264,9 +265,19 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyTheHeaderAfterClickingTheEpisodesTile();
 	}
 
-	@And("^I click on Episodes two tile for \"([^\"]*)\" user$")
+	@And("^I click on Episodes 2 tile for \"([^\"]*)\" user$")
 	public void iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(String role) throws Throwable {
 		createUser.iClickOnEpisodesTwoTileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to Episodes 2 homepage$")
+	public void iVerifyUserNavigatedToEpisodes2(String role) throws Throwable {
+		createUser.iVerifyNavigationOnEpisodes2HomePage(role);
+	}
+	
+	@And("^I verify patient card appearing on Episode 2 for \"([^\"]*)\" user$")
+	public void iVerifyPatientCardOnEpisodes2(String role) throws Throwable {
+		createUser.iVerifyPatientCardOnEpisodes2HomePage(role);
 	}
 
 	@And("^I Verify the header after clicking the episodes 2 tile$")
@@ -284,6 +295,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
 	}
 	
+	@And("^I click on username icon on right top corner and open user profile on EC1$")
+	public void iClickOnUserNameIconOnEC1AndOpenUserProfile() throws Throwable {
+		createUser.iClickOnUserNameIconOnEC1AndOpenUserProfile();
+	}
+	
 	@And("^I click on PatientList on SideMenu bar Episode1 for \"([^\"]*)\" user$")
 	public void iClickOnPatinetListOnSideMenuBarOnEpisode1(String role) throws Throwable {
 		createUser.iClickOnPatientListOnSideMenuBarInEC1(role);
@@ -294,12 +310,17 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyPatientCardOnActivePatientPage(role);
 	}
 	
-	@And("^I verify \"([^\"]*)\" facility on patient card for \"([^\"]*)\" user$")
-	public void iVerifyFacilityOnPatientCardForUser(String facility, String role) throws Throwable {
-		createUser.iVerifyFacilityAppearingOnPatientCard(facility, role);
+	@And("^I verify \"([^\"]*)\" facility on user profile for \"([^\"]*)\" user$")
+	public void iVerifyFacilityOnUserProfileForUser(String facility, String role) throws Throwable {
+		createUser.iVerifyFacilityAppearingOnUserProfile(facility, role);
 	}
 	
-	@And("^I click on Add Note and verify user role \"([^\"]*)\" for \"([^\"]*)\" user$")
+	@And("^I verify \"([^\"]*)\" payer on user profile for \"([^\"]*)\" user$")
+	public void iVerifyPayersOnUserProfileForUser(String payer, String role) throws Throwable {
+		createUser.iVerifyPayerAppearingOnUserProfile(payer, role);
+	}
+	
+	@And("^I click on gear menu and then click on Add Note and verify user role \"([^\"]*)\" for \"([^\"]*)\" user$")
 	public void iClickOnAddNoteAndVerifyUserRoleForUser(String userrole, String role) throws Throwable {
 		createUser.iClickOnAddNoteAndVerifyRole(userrole, role);
 	}
@@ -308,15 +329,30 @@ public class CreateUserSteps extends DriverScript {
 	public void iClickOnInstituteTileUnderSpecificUserLoginPage(String role) throws Throwable {
 		createUser.iClickOnInstituteTileUnderSpecificUserLoginPage(role);
 	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to Institute homepage$")
+	public void iVerifuUserNavigatedToInstitute(String role) throws Throwable {
+		createUser.iVerifyNavigationOnInstituteHomePage(role);
+	}
 
 	@And("^I click on Reports tile for \"([^\"]*)\" user$")
 	public void iClickOnReportsTileUnderSpecificUserLoginPage(String role) throws Throwable {
 		createUser.iClickOnReportsTileUnderSpecificUserLoginPage(role);
 	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to Reports homepage$")
+	public void iVerifuUserNavigatedToReports(String role) throws Throwable {
+		createUser.iVerifyNavigationOnReportsHomePage(role);
+	}
 
 	@And("^I click on RemedyU tile for \"([^\"]*)\" user$")
 	public void iClickOnRemedyUTileUnderSpecificUserLoginPage(String role) throws Throwable {
 		createUser.iClickOnRemedyUTileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to RemedyU homepage$")
+	public void iVerifuUserNavigatedToRemedyU(String role) throws Throwable {
+		createUser.iVerifyNavigationOnRemedyUHomePage(role);
 	}
 
 	@And("^I click on Physican connect tile for \"([^\"]*)\" user$")
@@ -461,7 +497,7 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectPrograms(programList);
 	}
 
-	@Then("^I select \"([^\"]*)\" locations$")
+	@Then("^I search and select \"([^\"]*)\" locations$")
 	public void selectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
 	}
