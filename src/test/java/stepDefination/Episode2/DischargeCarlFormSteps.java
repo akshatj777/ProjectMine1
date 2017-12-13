@@ -1,5 +1,6 @@
 package stepDefination.Episode2;
 
+import java.text.ParseException;
 import java.util.List;
 
 import com.remedy.Episode2.DischargeCarlForm;
@@ -360,5 +361,15 @@ public class DischargeCarlFormSteps extends DriverScript {
     @Then ("^I verify user should be able to submit the CARL form upon clicking the Submit link on the CARL Review form$")
     public void I_verify_user_should_be_able_to_submit_the_CARL_form_upon_clicking_the_Submit_link_on_the_CARL_Review_form() throws Throwable{
     	dischargecarlform.IverifyusershouldbeabletosubmittheCARLformuponclickingtheSubmitlinkontheCARLReviewform();
+    }
+    
+    @And ("^I verify patient DOB Age Gender on patient summary page$")
+    public void verify_patient_DOB_age_gender() throws Exception{
+    	dischargecarlform.verifypatientDOBagegender();
+    }
+    
+    @And ("^I verify SSN on patient summary page in EC1$")
+    public void verify_SSN(){
+    	dischargecarlform.verify_SSN();
     }
 }

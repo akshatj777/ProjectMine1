@@ -162,6 +162,21 @@ public class PatientDetails extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector("div.editable-input>input")),id);
 		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
 		}
+
+	public void editPrimaryCarePhysician(String name) {
+		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[pcp][pcpName]']"));
+		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[pcp][pcpName]']")));
+		iFillInText(driver.findElement(By.cssSelector("div.editable-input>input")),name);
+		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
+		
+	}
+
+	public void editPrimaryCarePhysician_phone(String phone) {
+		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[pcp][pcpPhone]']"));
+		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[pcp][pcpPhone]']")));
+		iFillInText(driver.findElement(By.cssSelector("div.editable-input>input")),phone);
+		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
+	}
 		
 		
 	}

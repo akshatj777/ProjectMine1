@@ -148,4 +148,14 @@ public class PatientDetailsSteps extends DriverScript {
 	public void edit_Medicare_Id(String Id){
 		details.edit_Medicare_Id(Id);
 	}
+	
+	@When("I edit Primary Care Physician Name with \"([^\"]*)\"$")
+	public void edit_Primary_Care_Physician(String name){
+		details.editPrimaryCarePhysician(name);
+	}
+	
+	@When("I edit Primary Care Physician Phone with \"([^\"]*)\"$")
+	public void edit_Primary_Care_Physician_phone(String phone){
+		details.editPrimaryCarePhysician_phone(phone);
+	}
 }

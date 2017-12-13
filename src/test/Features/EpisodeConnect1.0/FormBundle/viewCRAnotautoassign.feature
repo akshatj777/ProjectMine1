@@ -34,7 +34,7 @@ Feature: CRA Not Auto-assignment
     Then I select "BPRAFormCRA" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     Then I fill in Due Date with logic "minus" with "1" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
-    Then I verify Clinical Risk Assessment in Assigned Form list 
+    Then I verify Clinical Risk Assessment in Assigned Form list
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -53,8 +53,8 @@ Feature: CRA Not Auto-assignment
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
     And I should see text of "2" in assigned form counter
-    
-    Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
+
+  Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -97,7 +97,7 @@ Feature: CRA Not Auto-assignment
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I should see text of "2" in assigned form counter
-    Then I verify Clinical Risk Assessment in Assigned Form list 
+    Then I verify Clinical Risk Assessment in Assigned Form list
     Then I edit the CRA
     When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
@@ -124,11 +124,10 @@ Feature: CRA Not Auto-assignment
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I should see text of "2" in assigned form counter
-    
-    Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
+
+  Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -171,7 +170,7 @@ Feature: CRA Not Auto-assignment
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I should see text of "2" in assigned form counter
-    Then I verify Clinical Risk Assessment in Assigned Form list 
+    Then I verify Clinical Risk Assessment in Assigned Form list
     Then I edit the CRA
     When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
@@ -187,8 +186,7 @@ Feature: CRA Not Auto-assignment
     When I click "Onboarding status" xpath element "//*[@id='current_onboarding_status_container']"
     And I set patient onboarding status to "3"
     Then I will wait to see onboarding status "Onboarded"
-    
-     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
@@ -202,6 +200,5 @@ Feature: CRA Not Auto-assignment
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
-     And I should see text of "1" in active form counter
+    And I should see text of "1" in active form counter

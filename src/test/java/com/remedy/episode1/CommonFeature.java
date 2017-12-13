@@ -159,7 +159,7 @@ public void iVerifyEpisodeMarkerAdmitTerminatedate(int days,int terminate,String
 	}
 }
 
-public void i_Select_value(String variable, String value, String xpath) {
+public void i_Select_value(String value, String variable, String xpath) {
    iWillWaitToSee(By.xpath(xpath));
    Select select=new Select(driver.findElement(By.xpath(xpath)));
    select.selectByVisibleText(value);
@@ -177,6 +177,24 @@ public void iFillinText(String variable, String xpath, String value) {
 	iWillWaitToSee(By.xpath(xpath));
 	iFillInText(driver.findElement(By.xpath(xpath)),value);
 }
+
+public void iClickonthefilter(String filter) {
+	iWillWaitToSee(By.xpath("//label[contains(@data-filter-text,'"+filter+"')]"));
+	clickElement(driver.findElement(By.xpath("//label[contains(@data-filter-text,'"+filter+"')]")));
+}
+
+public void wait_To_See_xpath_element(String text, String xpath) {
+	iWillWaitToSee(By.xpath(xpath));
+	isElementVisible(driver.findElement(By.xpath(xpath)));
+}
+
+public void iSelectpatientlistfilter(String variable,String xpath,int days) {
+	iWillWaitToSee(By.xpath(xpath));
+	String date=currentdate(days,"MM/dd/yyyy");
+	setAttributevalue(driver.findElement(By.xpath(xpath)),"value",date);
+}
+
+
 }
 
 	

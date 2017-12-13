@@ -273,4 +273,17 @@ public class Ec1DashboardPage extends BaseClass{
     public void iClickOnDismissAllButtonPresentOnTheNotificationDropdownMenu(){
     	clickElement(driver.findElement(By.cssSelector("button.btn-dismiss-all")));
     }
+
+
+
+	public void iwillwaittoseetitle() {
+		iWillWaitToSee(By.cssSelector("div.element-title"));
+	}
+
+
+
+	public void ifillinfacilityname(String name) {
+		iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-anchor_dicharge_facility']/div/div/div/div/div/div/input")),name);
+		
+	}
 }

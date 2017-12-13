@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -538,6 +539,7 @@ public class DischargeCarlForm extends BaseClass {
 
 	public void iWillWaitToSeename() {
 		longDelay();
+		iWillWaitToSee(By.cssSelector("a.btn.btn-primary.dropdown-toggle"));
 		iWillWaitToSee(By.cssSelector("h3.page-title>span"));
 		String first_name=capitalise(DischargeCarlForm.firstname);
 		String last_name=capitalise(DischargeCarlForm.lastname);
@@ -546,4 +548,34 @@ public class DischargeCarlForm extends BaseClass {
 	}
 	public static String capitalise(final String name) {
 	    return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-	}}
+	}
+
+	public void verifypatientDOBagegender() throws Exception {
+		String text=getTextForElement(driver.findElement(By.cssSelector("li.ec2-embed-patient-info")));
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Calendar dob = Calendar.getInstance();
+	    dob.setTime(sdf.parse("01/05/1995"));
+	    String age=Integer.toString(getAge(dob));
+	    String str=age+" "+"(01/05/1995 )"+" "+"Male";
+	    Assert.assertEquals(text, str);
+	}
+
+	public static int getAge(Calendar dob) throws Exception {
+        Calendar today = Calendar.getInstance();
+        int curYear = today.get(Calendar.YEAR);
+        int dobYear = dob.get(Calendar.YEAR);
+        int age = curYear - dobYear;
+        return age;
+
+	}
+
+	public void verify_SSN() {
+		String ssn_final=final_ssn;
+		String new_word = " "+ "SSN"+" xxx-xx-"+ssn_final.substring(ssn_final.length() - 3);
+		verifyTextForElement(driver.findElement(By.cssSelector("ec2-embed-patient-ssn")),new_word);
+	}
+
+	
+}
+	
+	

@@ -253,7 +253,7 @@ public class PatientCarePlan extends BaseClass {
 	public void iFillinDueDate(int days) {
 		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']"));
 		String date=currentdate(days,"MM/dd/yyyy");
-		setAttributevalue(driver.findElement(By.cssSelector("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",date);
+		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",date);
 	}
 
 	public void iseeTextinactiveformcounter(String count) {
@@ -265,6 +265,16 @@ public class PatientCarePlan extends BaseClass {
 	public void Isetpatientonboardingstatusto(String index) {
 		iWillWaitToSee(By.xpath("//a[@data-onboarding-status="+index+"]"));
 		clickElement(driver.findElement(By.xpath("//a[@data-onboarding-status="+index+"]")));
+	}
+
+	public void iEntervalueinnecessaryservices(String value) {
+		setAttributevalue(driver.findElement(By.xpath("//*[@id='s2id_bp_first_call_form_type_necessary_equipment']/ul")),"innerText",value);
+	}
+
+	public void iseeTextinarchivedformcounter(String count) {
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span"));
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span")),count);
+		
 	}
    
 }

@@ -319,7 +319,14 @@ public class EC1DashboardSteps extends DriverScript {
     	ec1Dashboard.iClickOnDismissAllButtonPresentOnTheNotificationDropdownMenu();
     }
 
-
-
+   @Then("I will see patient name title on the patient card")
+   public void i_will_wait_to_see_title(){
+	   ec1Dashboard.iwillwaittoseetitle();
+   }
+   
+   @When ("^I fill in Facility name with value \"([^\"]*)\"$")
+   public void i_fill_in_facility_name(String name){
+	   ec1Dashboard.ifillinfacilityname(name);
+   }
 
 }

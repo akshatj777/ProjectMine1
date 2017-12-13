@@ -271,8 +271,18 @@ public class PatientCarePlanSteps extends DriverScript
 		 patientcare.iseeTextinactiveformcounter(count);
 	 } 
 	 
+	 @And ("^I should see text of \"([^\"]*)\" in archived form counter$")
+	 public void i_see_Text_in_archived_form_counter(String count){
+		 patientcare.iseeTextinarchivedformcounter(count);
+	 } 
+	 
 	 @And ("^I set patient onboarding status to \"([^\"]*)\"$")
 	 public void I_set_patient_onboarding_status_to(String index){
 		 patientcare.Isetpatientonboardingstatusto(index);
+	 }
+	 
+	 @Then ("^I enter the \"([^\"]*)\" in necessary services and equipment$")
+	 public void i_Enter_value_in_necessary_services(String value){
+		 patientcare.iEntervalueinnecessaryservices(value);
 	 }
 }

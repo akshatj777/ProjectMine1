@@ -137,4 +137,7 @@ public class PatientsListPage extends BaseClass {
     public void iClickOnTheClearFilterButtonPresentOnThePatientPage(){
     	clickElement(driver.findElement(By.cssSelector("a#filter-clear-button")));
     }
+
+
+	
 }

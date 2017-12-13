@@ -166,4 +166,5 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iClickOnTheClearFilterButtonPresentOnThePatientPage();
     }
 
+   
 }
