@@ -171,8 +171,6 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterStateForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-//    	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
     	driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	if(!text.isEmpty()){
     	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
