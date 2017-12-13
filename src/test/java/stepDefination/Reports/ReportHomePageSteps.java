@@ -1546,4 +1546,57 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_tab_after_clicking_on_avatar_symbol_to_redirect_to_reporting_help_center_page(String text) throws Throwable{
     	reportHomePage.iClickOnTabUnderAvatar(text);
     }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the list after clicking on avatar$")
+    public void i_verify_is_appearing_in_the_list_after_clicking_on_avatar(String text) throws Throwable{
+    	reportHomePage.iVerifyTextInTheAvatarList(text);
+    }
+    
+    @Then("^I wait to see \"([^\"]*)\" in the new tab after clicking on help center$")
+    public void i_wait_to_see_in_the_new_tab_after_clicking_on_help_center(String text) throws Throwable{
+    	reportHomePage.iWillWaitToSeeAfterClickingHelpCenter(text);
+    }
+    
+    @And("^I should not see login widget after switching to a new tab$")
+    public void i_should_not_see_login_widget_after_switching_to_a_new_tab() throws Throwable{
+    	reportHomePage.iShouldNotSeeLoginWidget();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" tab is appearing in the reporting help center page$")
+    public void i_verify_tab_is_appearing_in_the_reporting_help_center_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTabIsAppearingInTheReportingHomePage(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" tab on the reporting help center page$")
+    public void i_click_on_tab_on_the_reporting_help_center_page(String text) throws Throwable{
+    	reportHomePage.iClickOnTabOnReportingHelpCenter(text);
+    }
+    
+    @Then("^I should see following text under using reports section in reporting help center page$")
+    public void i_should_see_following_text_under_using_reports_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+        for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Using Reports", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I should see following text under reports by category section in reporting help center page$")
+    public void i_should_see_following_text_under_reports_by_category_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+    	for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Reports by Category", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I should see following text under reports by title section in reporting help center page$")
+    public void i_should_see_following_text_under_reports_by_title_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+    	for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Reports by Title", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I should see following text under report insights section in reporting help center page$")
+    public void i_should_see_following_text_under_reports_insights_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+    	for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Report Insights", textlinks.get(i));
+        }
+    }
 }

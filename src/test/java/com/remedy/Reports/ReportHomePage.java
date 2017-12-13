@@ -1205,4 +1205,28 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnTabUnderAvatar(String text){
     	clickElement(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")));
     }
+    
+    public void iVerifyTextInTheAvatarList(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")),text);
+    }
+    
+    public void iWillWaitToSeeAfterClickingHelpCenter(String text){
+    	iWillWaitToSee(By.xpath("//h1[text()='"+text+"']"));
+    }
+    
+    public void iShouldNotSeeLoginWidget(){
+    	isElementNotPresentOnPage(".auth0-lock-widget-container");
+    }
+    
+    public void iVerifyTabIsAppearingInTheReportingHomePage(String text){
+    	verifyTextForElementfromList(".navigation.clearfix>li>a",text);
+    }
+    
+    public void iClickOnTabOnReportingHelpCenter(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@class='navigation-wrapper nocontent'] //li/a[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTextUnderFieldsInReportingHelpCenter(String reportsTab,String text){
+        verifyTextForElementFromListByXpath("//div[@id='contentBody'] //li[a[text()='"+reportsTab+"']]/ul/li/a", text);
+    }
 }
