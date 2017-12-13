@@ -19,7 +19,7 @@ Feature: Search the PGP organizations functionality tests
       | Search PGP Organization with EIN  - With MO            | YES    | EIN         |
       | Search PGP Organization with EIN  - Without MO         | NO     | EIN         |
       | Search PGP Organization with PGP Org Name - With MO    | YES    | PGPNAME     |
-      | Search PGP Organization with PGP Org Name - Without MO | No     | PGPNAME     |
+      | Search PGP Organization with PGP Org Name - Without MO | NO     | PGPNAME     |
       | Search PGP Organization with City                      |        | City        |
       | Search PGP Organization with State                     |        | CA          |
       | Search PGP Organization with Postal Code               |        |       10000 |

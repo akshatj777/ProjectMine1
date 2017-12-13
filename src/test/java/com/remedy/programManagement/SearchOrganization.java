@@ -199,6 +199,12 @@ public class SearchOrganization extends BaseClass{
 		else if (org.equals("ACHNAME - NO")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.oldACH_WithoutMO);
 		}
+		else if(org.equals("PGPNAME - YES")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.oldPGP_WithMO);
+		}
+		else if (org.equals("PGPNAME - NO")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.oldPGP_WithoutMO);
+		}
 	}
 	
 	public void iSearchWithSearchListFieldOnLocationInOrganizationProfilePage(String searchParam, String org) throws ClassNotFoundException, SQLException{ 
