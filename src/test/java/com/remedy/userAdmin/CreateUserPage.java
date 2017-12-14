@@ -348,11 +348,12 @@ public class CreateUserPage extends BaseClass{
    
    public void iClickOnUserNameIconOnEC1AndOpenUserProfile(){
 	   iWillWaitToSee(By.cssSelector(".username"));
-//	   clickElement(driver.findElement(By.cssSelector(".username")));
 	   WebElement HoverElement = driver.findElement(By.cssSelector(".username"));
-	   ((JavascriptExecutor) driver).executeScript("arguments[0].onmouseover()",
-				HoverElement);
-//	   driver.findElement(By.cssSelector(".username")).findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")).click();
+	   String javaScript = "var evObj = document.createEvent('MouseEvents');" +
+               "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
+               "arguments[0].dispatchEvent(evObj);";
+
+	   ((JavascriptExecutor)driver).executeScript(javaScript, HoverElement);
 	   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
    }
    
@@ -521,7 +522,6 @@ public class CreateUserPage extends BaseClass{
 		   delay();
 		   iWillWaitToSee(By.cssSelector("#cv-content"));
 		   isElementVisible(driver.findElement(By.cssSelector("#cv-content")));
-		   //isElementVisible(driver.findElement(By.cssSelector("#customer-signup-link")));
 		   switchBacktoOldWindow(); 
    	}  
    }
@@ -631,7 +631,6 @@ public class CreateUserPage extends BaseClass{
    public void verifyAppUnchecked(String fieldName) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(fieldName,",");
        while (st.hasMoreTokens()) {  
-//    	   isNotSelected(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
     	   Assert.assertTrue(isElementPresent(By.xpath("//label[text()='"+st.nextToken().trim()+"']/parent::div[@class='ui checkbox']")));
 
        } 
@@ -639,7 +638,6 @@ public class CreateUserPage extends BaseClass{
    public void verifyAppChecked(String fieldName) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(fieldName,",");
        while (st.hasMoreTokens()) {  
-//    	   isSelected(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']/../")));
     	   Assert.assertTrue(isElementPresent(By.xpath("//label[text()='"+st.nextToken().trim()+"']/parent::div[@class='ui checked checkbox']")));
        }
    }

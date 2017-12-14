@@ -5,7 +5,6 @@ import com.remedy.userAdmin.CreateUserPage;
 import com.remedy.userAdmin.LandingPage;
 import com.remedy.userAdmin.LoginPage;
 import com.remedy.userAdmin.UserAdminHomePage;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
