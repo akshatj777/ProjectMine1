@@ -1,7 +1,6 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
