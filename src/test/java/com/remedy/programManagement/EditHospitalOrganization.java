@@ -120,5 +120,4 @@ public class EditHospitalOrganization extends BaseClass{
 	public void iVerifyIdentifierIsNotEditable(String id){
 		Assert.assertEquals("true",driver.findElement(By.cssSelector(".text-input-field-"+id)).getAttribute("disabled"));
 	}
-
 }

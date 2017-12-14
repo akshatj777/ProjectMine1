@@ -62,20 +62,23 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 
 	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
-		if(!text.equals("")) {
+		if(!text.equals(""))
+		{
 			delay();
 			iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
 		}
 	}
 	
 	public void iVerifyCreateOrganizationwithDuplicatenameerrormsg(String text) {
-		if(!text.equals("")) {
-		Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger")));
+		if(!text.equals(""))
+		{
+			Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger")));
 		}
 	}
 	
 	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
-		if(text.equals("MONAME")) {
+		if(text.equals("MONAME")) 
+		{
 			tempMoOrg.put("MONAME",createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempMoOrg.get("MONAME"));
 		}
@@ -99,7 +102,8 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
 		}
-		else if(text.equals("PAYORNAME")) {
+		else if(text.equals("PAYORNAME")) 
+		{
 			CreatePayorOrganization.tempPayorOrg.put("PAYORNAME", createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
 		}
@@ -125,14 +129,14 @@ public class CreateManagingOrganization extends BaseClass {
 				
 		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
 		{
-				if(org.contains("MO"))
+				if(org.equals("MO"))
 				{
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 					moOrg.clear();
 					moOrg.putAll(tempMoOrg);
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.contains("ACH - YES"))
+				else if(org.equals("ACH - YES"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -144,7 +148,7 @@ public class CreateManagingOrganization extends BaseClass {
 						}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.contains("ACH - NO"))
+				else if(org.equals("ACH - NO"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -156,7 +160,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.contains("PGP - YES"))
+				else if(org.equals("PGP - YES"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -167,7 +171,7 @@ public class CreateManagingOrganization extends BaseClass {
 						}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.contains("PGP - NO"))
+				else if(org.equals("PGP - NO"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -178,7 +182,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 					}
-				else if(org.contains("Payor"))
+				else if(org.equals("Payor"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);

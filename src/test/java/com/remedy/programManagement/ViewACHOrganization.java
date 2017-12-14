@@ -115,7 +115,6 @@ public class ViewACHOrganization  extends BaseClass{
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id.id-npi")));
 				actual = actual.substring((actual.indexOf(":"))+1,(actual.indexOf("|"))).trim();
 				Assert.assertEquals(text,actual);	
-				
 			}
 	}
 	
@@ -134,19 +133,16 @@ public class ViewACHOrganization  extends BaseClass{
 	public void userShouldGetRedirectedToTheOrganizationTabPage(String text){
 		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
 		iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect"), text);
-
 	}
 	
 	public void iVerifyMONameInVeiwProfileOfSelectedOrganization(String name, String org){
 		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
 		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), name);
-
 	}
 
 	public void iVerifyParticipantIDInVeiwProfileOfSelectedOrganization(String name, String org){
 		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
 		iVerifyTextFromListOfElement(By.cssSelector("..navLink.noselect"), name);
-
 	}
 	
 	public void iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(String text, String org) throws ClassNotFoundException, SQLException{
@@ -204,7 +200,8 @@ public class ViewACHOrganization  extends BaseClass{
 		else if(name.contains("CCN")){
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("CCN")+"']")));
 		}
-		else{
+		else
+		{
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+name+"']")));
 		}
 	}

@@ -19,9 +19,6 @@ public class EditPGPOrganization extends BaseClass {
 	}
 
 	public void iEditMarketForSelectedOrganization(String market, String region){
-//		driver.findElement(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).sendKeys(text);
-//	    delay();
-//	    clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		
 		if(!region.isEmpty()){
     		if(!market.isEmpty())
@@ -42,5 +39,4 @@ public class EditPGPOrganization extends BaseClass {
         	}
     	}
 	}
-	
 }
