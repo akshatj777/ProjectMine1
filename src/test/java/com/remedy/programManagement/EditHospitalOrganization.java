@@ -42,21 +42,21 @@ public class EditHospitalOrganization extends BaseClass{
 	}
 	
 	public void iEditLocationStateForLocationsofSelectedOrganization(String text, int num){
-		num = num-1;
-		if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='locations["+num+"].address.stateSelection']")).size()>0){
+		int loc_num = num-1;
+		if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='locations["+loc_num+"].address.stateSelection']")).size()>0){
+			scrollIntoViewByJS(driver.findElement(By.xpath("//div//input[@name='locations["+loc_num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
+			iWillWaitToSee(By.xpath("//div//input[@name='locations["+loc_num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span"));
+			clickElement(driver.findElement(By.xpath("//div//input[@name='locations["+loc_num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
+			
 			if(!text.isEmpty()){
-				scrollIntoViewByJS(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
-				iWillWaitToSee(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span"));
-				clickElement(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
-				
-		    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")), text);
+				driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
 		    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
 			}
-			else{
-				scrollIntoViewByJS(driver.findElement(By.xpath("//div[input[@name='locations["+num+"].address.stateSelection']]//span[@class='Select-clear']")));
-				driver.findElement(By.xpath("//div[input[@name='locations["+num+"].address.stateSelection']]//span[@class='Select-clear']")).click();
-				
 			}
+		else if(!text.isEmpty()){
+//			iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")), text);
+	    	driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
+			clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
 		}
 	}
 	
