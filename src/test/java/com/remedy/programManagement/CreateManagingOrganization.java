@@ -129,14 +129,14 @@ public class CreateManagingOrganization extends BaseClass {
 				
 		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
 		{
-				if(org.equals("MO"))
+				if(org.contains("MO"))
 				{
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 					moOrg.clear();
 					moOrg.putAll(tempMoOrg);
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.equals("ACH - YES"))
+				else if(org.contains("ACH - YES"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -148,7 +148,7 @@ public class CreateManagingOrganization extends BaseClass {
 						}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.equals("ACH - NO"))
+				else if(org.contains("ACH - NO"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -160,7 +160,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.equals("PGP - YES"))
+				else if(org.contains("PGP - YES"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -171,7 +171,7 @@ public class CreateManagingOrganization extends BaseClass {
 						}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-				else if(org.equals("PGP - NO"))
+				else if(org.contains("PGP - NO"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
@@ -182,7 +182,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 					}
-				else if(org.equals("Payor"))
+				else if(org.contains("Payor"))
 				{
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
