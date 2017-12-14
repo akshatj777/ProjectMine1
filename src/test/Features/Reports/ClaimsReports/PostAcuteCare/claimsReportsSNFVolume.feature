@@ -494,9 +494,6 @@ Feature: Verification of SNF Volume Claims Report
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
     And I click on add selected in the filter model
-    And I should see "<anchor admission quarter3>" in the filter value list
-    And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field

@@ -46,5 +46,5 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                              | admission month1 | anchorFacility1        |
-      | reportsautomation18aug@yopmail.com | 2017-02          | Mt. Carmel - St. Ann's |
+      | email                | admission month1 | anchorFacility1        |
+      | exe20jun@Yopmail.com | 2017-02          | Mt. Carmel - St. Ann's |

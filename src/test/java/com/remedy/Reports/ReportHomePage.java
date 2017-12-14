@@ -1163,6 +1163,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyColumnAfterClikingOnAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']")));
     }
     
