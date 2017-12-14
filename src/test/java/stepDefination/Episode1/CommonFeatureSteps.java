@@ -1,6 +1,7 @@
 package stepDefination.Episode1;
 
 import java.text.ParseException;
+import java.util.List;
 
 import com.remedy.episode1.CommonFeature;
 import com.remedy.resources.DriverScript;
@@ -130,5 +131,25 @@ public class CommonFeatureSteps extends DriverScript {
 	@When ("^I select \"([^\"]*)\" patient list filter xpath \"([^\"]*)\" with  \"([^\"]*)\"$")
 	public void i_Select_patient_list_filter(String variable,String xpath,int days){
 		common.iSelectpatientlistfilter(variable,xpath,days);
+	}
+	
+	@When ("^I click Schedule Appointment$")
+	public void i_Click_Appointment(){
+		common.i_Click_Appointment();
+	}
+	
+	@Then ("^I click \"([^\"]*)\" text in tag \"([^\"]*)\"$")
+	public void click_text(String text,String tag){
+		common.clicktext(text,tag);
+	}
+	
+	@Then ("^I will verify text \"([^\"]*)\" in xpath element \"([^\"]*)\"$")
+    public void i_will_verify_text_in_element(String text,String xpath){
+		common.iwillverifytextinelement(text,xpath);
+	}
+	
+	@Then ("^I will verify the list of options in dropdown list \"([^\"]*)\" element xpath \"([^\"]*)\"$")
+	public void i_will_verify_list_of_options_in_dropdown(String element,String xpath,List<String> dropdownvalues){
+		common.iwillverifylistofoptionsindropdown(element,xpath,dropdownvalues);
 	}
 }

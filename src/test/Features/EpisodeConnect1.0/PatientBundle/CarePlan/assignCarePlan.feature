@@ -51,13 +51,13 @@ Feature: Assign Care Plan
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/careflow"
     And I will wait to see "No care plans assigned." in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    Then I click on Assign Care Plan
     And I will wait to see "Assign Care Plan" in "h4" tag
     And I will wait to see "by Bundle" in "a" tag
     And I will wait to see "by Issue" in "a" tag
     Then I fill in Care Plan Search with "Acute Myocardial Infarction"
     And I will wait to see "Acute Myocardial Infarction" in "h4" tag
-    Then I will not see Care Plan "2"
+    Then I will not see Care Plan "3"
     Then I will "check in" the "Acute Myocardial Infarction" Care Plan radio button at index "1"
     And I press "Save changes"
     And I will wait to see "Acute Myocardial Infarction" in "h4" tag
@@ -65,8 +65,8 @@ Feature: Assign Care Plan
     Then I navigate to the "/secure/person/mongoID/careflow"
     And I will wait to see "Review Care Plan" in "a" tag
     And I press "Review Care Plan"
-    
-    Scenario: Assign and Review carePlan by Issue after search
+
+  Scenario: Assign and Review carePlan by Issue after search
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
@@ -85,7 +85,7 @@ Feature: Assign Care Plan
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/careflow"
     And I will wait to see "No care plans assigned." in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    Then I click on Assign Care Plan
     And I will wait to see "Assign Care Plan" in "h4" tag
     And I will wait to see "by Bundle" in "a" tag
     And I will wait to see "by Issue" in "a" tag
@@ -100,6 +100,3 @@ Feature: Assign Care Plan
     Then I navigate to the "/secure/person/mongoID/careflow"
     And I will wait to see "Review Care Plan" in "a" tag
     And I press "Review Care Plan"
-    
-    
-    

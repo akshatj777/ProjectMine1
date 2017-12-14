@@ -23,7 +23,6 @@ Feature: New Note
     Then I click on the next button present on the Primary Care Physician Information page
     Then I click on the Cancel Button on the New Transition on Add Patient page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-    And I will wait to see patient's name on patient summary page
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
@@ -34,12 +33,12 @@ Feature: New Note
     Then I click on new note button
     Then I should see "New Note" present on the new note page
     Then I select "Baseline" from "Topic" by xpath "//*[@id='bp_personbundle_bpnotetype_topic']"
-    When I fill in 'Body' xpath "//*[@id='bp_personbundle_bpnotetype_body']" with "body text in this input"
+    When I fill in "Body" xpath "//*[@id='bp_personbundle_bpnotetype_body']" with "body text in this input"
     Then I click on create note button
     And I will wait to see "Note created." in "p" tag
     And I will wait to see "body text in this input" in "pre" tag
 
     Examples: 
       | email              |
-      | qa.lpn@yopmail.com |
-      | qa.prm@yopmail.com |
+      | qa.admin@yopmail.com |
+      #| qa.prm@yopmail.com |

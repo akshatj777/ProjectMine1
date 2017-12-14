@@ -33,11 +33,11 @@ Feature: New Appointment
     Then I should see new apointment button
     Then I click on new appointment button
     Then I should see "New Appointment" present on the new appointment page
-    When I fill in 'Note' xpath "//*[@id='bp_personbundle_bpappointmenttype_note']" with "Note of appointment"
-    When I fill in 'Contact' xpath "//*[@id='bp_personbundle_bpappointmenttype_contact']" with "Contact1"
-    When I fill in 'Facility' xpath "//*[@id='bp_personbundle_bpappointmenttype_facility']" with "Facility 123"
-    When I fill in 'Phone' xpath "//*[@id='bp_personbundle_bpappointmenttype_contact_phone']" with "718-534-1234"
-    And I press "Schedule Appointment"
+    When I fill in "Note" xpath "//*[@id='bp_personbundle_bpappointmenttype_note']" with "Note of appointment"
+    When I fill in "Contact" xpath "//*[@id='bp_personbundle_bpappointmenttype_contact']" with "Contact1"
+    When I fill in "Facility" xpath "//*[@id='bp_personbundle_bpappointmenttype_facility']" with "Facility 123"
+    When I fill in "Phone" xpath "//*[@id='bp_personbundle_bpappointmenttype_contact_phone']" with "718-534-1234"
+    When I click Schedule Appointment
     And I will wait to see "New Appointment created." in "p" tag
     Then I should see new apointment button
     And I will wait to see "Office Visit" in "h4" tag
@@ -45,5 +45,5 @@ Feature: New Appointment
 
     Examples: 
       | email              |
-      | qa.lpn@yopmail.com |
-      | qa.prm@yopmail.com |
+      | qa.admin@yopmail.com |
+     # | qa.prm@yopmail.com |

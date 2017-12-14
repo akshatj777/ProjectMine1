@@ -285,4 +285,19 @@ public class PatientCarePlanSteps extends DriverScript
 	 public void i_Enter_value_in_necessary_services(String value){
 		 patientcare.iEntervalueinnecessaryservices(value);
 	 }
+	 
+	 @Then ("^I will wait to see CARL Tool$")
+	 public void i_will_wait_to_see_CARL_tool(){
+		 patientcare.iwillwaittoseeCARLtool();
+	 }
+	 
+	 @Then ("^I will wait to see the proposal \"([^\"]*)\"$")
+	 public void i_will_wait_to_see_proposal(String proposal){
+		 patientcare.iwillwaittoseeproposal(proposal);
+	 }
+	 
+	 @Then ("^I will wait to see CARL Tool \"([^\"]*)\" on active state$")
+	 public void i_will_wait_to_see_CARL_Tool_on_active_state(int index){
+		 patientcare.iwillwaittoseeCARLToolonactivestate(index);
+	 }
 }

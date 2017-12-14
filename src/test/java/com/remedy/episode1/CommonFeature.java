@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -192,6 +193,29 @@ public void iSelectpatientlistfilter(String variable,String xpath,int days) {
 	iWillWaitToSee(By.xpath(xpath));
 	String date=currentdate(days,"MM/dd/yyyy");
 	setAttributevalue(driver.findElement(By.xpath(xpath)),"value",date);
+}
+
+public void i_Click_Appointment() {
+	clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+}
+
+public void clicktext(String text, String tag) {
+	delay();
+	iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
+	clickElement(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
+	
+}
+
+public void iwillverifytextinelement(String text, String xpath) {
+	iWillWaitToSee(By.xpath(xpath));
+	verifyTextForElement(driver.findElement(By.xpath(xpath)),text);
+}
+
+public void iwillverifylistofoptionsindropdown(String element, String xpath, List<String> dropdownvalues) {
+	iWillWaitToSee(By.xpath(xpath));
+	for(int i=0;i<dropdownvalues.size();i++){
+	verifyTextForElementFromListByXpath(element,dropdownvalues.get(i));
+	}
 }
 
 

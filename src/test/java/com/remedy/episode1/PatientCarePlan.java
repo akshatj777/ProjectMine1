@@ -1,5 +1,6 @@
 package com.remedy.episode1;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
+
+
+
+
 
 public class PatientCarePlan extends BaseClass {
 	public PatientCarePlan(WebDriver driver) {
@@ -222,9 +227,9 @@ public class PatientCarePlan extends BaseClass {
 
 	public void IwillcheckCareintheradiobutton(String text) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span/input"));
-		clickAction(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span/input")));
-		clickElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span/input")));
+		iWillWaitToSee(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span"));
+		clickAction(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
+		clickElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
 	}
 
 	public void ifillinCarePlanSearch(String text) {
@@ -275,6 +280,22 @@ public class PatientCarePlan extends BaseClass {
 		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span"));
 		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span")),count);
 		
+	}
+
+	public void iwillwaittoseeCARLtool() {
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[2]/div/div/div[1]/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[2]/div/div/div[1]/div[1]")));
+	}
+
+	public void iwillwaittoseeproposal(String proposal) {
+		iWillWaitToSee(By.xpath("//*[@id='bp_nsoc_form_type_recommendation']"));
+		String value=driver.findElement(By.xpath("//*[@id='bp_nsoc_form_type_recommendation']")).getAttribute("value");
+		Assert.assertEquals(value, proposal);
+	}
+
+	public void iwillwaittoseeCARLToolonactivestate(int index) {
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]")));
 	}
    
 }

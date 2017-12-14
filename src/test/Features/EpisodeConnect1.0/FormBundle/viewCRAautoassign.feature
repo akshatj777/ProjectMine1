@@ -1,6 +1,6 @@
 Feature: CRA Auto-assignment
 
-Background: Episode Active - create anchor transition
+  Background: Episode Active - create anchor transition
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -42,10 +42,10 @@ Background: Episode Active - create anchor transition
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
 
-Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
+  Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
     When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
     When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
-    Then I verify Clinical Risk Assessment in Assigned Form list 
+    Then I verify Clinical Risk Assessment in Assigned Form list
     And I should see text of "2" in assigned form counter
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -71,7 +71,5 @@ Scenario: Verify CRA Forms not assigned automatically upon admission/transition 
     Then I will wait to see onboarding status "Needs Onboarding"
     When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
     When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
-    Then I verify Clinical Risk Assessment in Assigned Form list 
+    Then I verify Clinical Risk Assessment in Assigned Form list
     And I should see text of "2" in assigned form counter
-    
-    

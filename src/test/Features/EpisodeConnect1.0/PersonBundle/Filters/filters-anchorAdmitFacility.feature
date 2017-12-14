@@ -1,6 +1,6 @@
 Feature: Filters - Anchor Admit Date
 
-Scenario: Filtering results by using single widget
+  Scenario: Filtering results by using single widget
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -33,6 +33,7 @@ Scenario: Filtering results by using single widget
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -42,13 +43,10 @@ Scenario: Filtering results by using single widget
     Then I will wait to see "ACTIVE" state
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     When I click "Add Filter" xpath element "//*[@id='filters-selector']"
-    And I search "Anchor admit date" from the list of Filter
-    Then I click on the "Anchor admit date" filter
-    Then I will wait to see the "Anchor admit Date Filter" element xpath "//*[@id='filter-selector-admitted_anchor']"
-    And I press "Single"
-    When I click "Anchor Admit dropdown" element "#filter-selector-admitted_anchor > div.btn-group>div.date-filter-widget"
-    When I select "Anchor Admit date" patient list filter xpath "//*[@id='form_admitted_anchor_admitted_anchor_from']" with  "-120" 
-    Then I will wait to see the "Patient name" element xpath "//*[@id='filter-selector-admitted_anchor']"
+    And I search "anchor facility" from the list of Filter
+    Then I click on the "Anchor facility" filter
+    Then I will wait to see the "Anchor Facility" element xpath "//*[@id='filter-selector-anchor_facility']"
+    When I click "Anchor facility" element "#filter-selector-anchor_facility > div.dynamic-select-filter-widget > div"
+    When I fill in Facility name with value "stamford hospital"
+    When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_anchor_dicharge_facility_0']"
     Then I will see patient name title on the patient card
-    
-    

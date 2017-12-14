@@ -274,16 +274,18 @@ public class Ec1DashboardPage extends BaseClass{
     	clickElement(driver.findElement(By.cssSelector("button.btn-dismiss-all")));
     }
 
-
-
-	public void iwillwaittoseetitle() {
+    public void iwillwaittoseetitle() {
 		iWillWaitToSee(By.cssSelector("div.element-title"));
 	}
 
-
-
-	public void ifillinfacilityname(String name) {
+    public void ifillinfacilityname(String name) {
 		iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-anchor_dicharge_facility']/div/div/div/div/div/div/input")),name);
+		
+	}
+
+    public void ifillinDRG(String value) {
+    	iWillWaitToSee(By.xpath("//*[@id='filter-selector-episode_drg']/div/div/div/div/div/div/input"));
+    	iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-episode_drg']/div/div/div/div/div/div/input")),value);
 		
 	}
 }

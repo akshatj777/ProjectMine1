@@ -33,14 +33,8 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/careflow/Forms#/careFlowForms"
     And I will wait to see patient's name on patient summary page
     And I will wait to see Assigned Forms List
@@ -49,7 +43,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     Then I fill in Due Date with logic "minus" with "-1" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     Then I verify Clinical Risk Assessment in Assigned Form list
-    And I should see text of "2" in assigned form counter
+    And I should see text of "1" in assigned form counter
 
     Examples: 
       | formType        |
@@ -91,14 +85,8 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/careflow/Forms#/careFlowForms"
     And I will wait to see patient's name on patient summary page
     And I will wait to see Assigned Forms List
@@ -107,7 +95,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     Then I fill in Due Date with logic "minus" with "0" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     Then I verify Clinical Risk Assessment in Assigned Form list
-    And I should see text of "3" in assigned form counter
+    And I should see text of "1" in assigned form counter
     When I click "Edit First Call" xpath element "//*[@id='edit_BPFirstCallForm']"
     And I will wait to see "First Call Form (Read/Write)" in "h4" tag
     Then I select "Patient/Caregiver did answer phone" from "Status of attempted call" by xpath "//*[@id='bp_first_call_form_type_unanswered_reason']"
@@ -445,7 +433,6 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     When I click "Assign" xpath element "//*[@id='submitButton']"
     And I will wait to see "Form assigned" in "p" tag
     Then I verify Clinical Risk Assessment in Assigned Form list
-    
     And I should see text of "2" in assigned form counter
     And I should see text of "2" in active form counter
     And I should see text of "2" in archived form counter
