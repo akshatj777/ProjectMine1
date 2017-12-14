@@ -7,17 +7,21 @@ Feature: Super Admin Landing page verification
     And I click on the "User Admin" tile
     Then I should see header text "Users"
     And I verify "User table" on landing page
-    And I verify "Lock status" on landing page
-    And I verify "User Name" on landing page
-    And I verify "User Role" on landing page
-    And I verify "User Email" on landing page
-    And I verify "Creation Date" on landing page
-    And I verify "Pagination" on landing page
+    And I verify "Lock status Coulmn" on landing page
+    And I verify "User Name Column" on landing page
+    And I verify "User Role Column" on landing page
+    And I verify "User Email Column" on landing page
+    And I verify "Creation Date Column" on landing page
+    And I verify "previous and next icons functions" on landing page
+    And I verify "Pagination functionality" on landing page
+    And I verify "Pagination retention" on landing page
+    And I verify "Users Count" on landing page
+    And I verify "Users rows allignment" on landing page
+    And I verify "Long email, first name and last name" on landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
     Then I am navigated to user creation page
     Then I click on close icon from user creation page
-    
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
