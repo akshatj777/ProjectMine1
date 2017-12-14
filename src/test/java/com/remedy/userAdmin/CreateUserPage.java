@@ -348,7 +348,11 @@ public class CreateUserPage extends BaseClass{
    
    public void iClickOnUserNameIconOnEC1AndOpenUserProfile(){
 	   iWillWaitToSee(By.cssSelector(".username"));
-	   clickElement(driver.findElement(By.cssSelector(".username")));
+//	   clickElement(driver.findElement(By.cssSelector(".username")));
+	   WebElement HoverElement = driver.findElement(By.cssSelector(".username"));
+	   ((JavascriptExecutor) driver).executeScript("arguments[0].onmouseover()",
+				HoverElement);
+//	   driver.findElement(By.cssSelector(".username")).findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")).click();
 	   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
    }
    
@@ -445,8 +449,6 @@ public class CreateUserPage extends BaseClass{
 	   if(application.contains("Reports")){
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Reports']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='Reports']")));
-		   iWillWaitToSee(By.cssSelector(".dropdown-tile-label.ng-binding"));
-		   driver.navigate().back(); 
 	   }
     }
    
@@ -464,23 +466,20 @@ public class CreateUserPage extends BaseClass{
 		   clickElement(driver.findElement(By.xpath("//p[text()='RemedyU']")));
 		   delay();
 		   switchToNewWindow();
-		   isElementVisible(driver.findElement(By.cssSelector(".modal-body")));
-		   delay();
-		   switchBacktoOldWindow();
    	}
    }
    
    public void iVerifyNavigationOnRemedyUHomePage(String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   if(application.contains("Lessons")){
-		   switchToNewWindow();
 		   String user = role.substring(role.indexOf("-")+1);
 		   if(user.equalsIgnoreCase("Remedy Technical Administrator")||user.equalsIgnoreCase("Partner Program Administrator")||user.equalsIgnoreCase("Remedy Program Administrator")
 				   ||user.equalsIgnoreCase("Partner Technical Administrator")){
 			   Assert.assertTrue(driver.findElement(By.cssSelector("#open_export")).isDisplayed());
 		   }
 		   else{
-			   Assert.assertTrue(driver.findElement(By.cssSelector("#tip-learner-welcome>h3")).isDisplayed());
+			   iWillWaitToSee(By.cssSelector(".close"));
+			   Assert.assertTrue(driver.findElement(By.cssSelector(".close")).isDisplayed());
 			   driver.findElement(By.cssSelector(".btn.btn-primary")).click();
 			   Assert.assertTrue(driver.findElement(By.cssSelector(".nav.litmos-sub-nav")).isDisplayed());
 			   
@@ -927,6 +926,12 @@ public class CreateUserPage extends BaseClass{
    public void iVerifyPageHeaderForPageOnRemedyConnect(String title) {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1"))));
 		getTextForElement(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1")));
+	}
+   
+   public void iVerifyNoResultsFoundUnderLearningPathWaySearch() {
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".message.empty>div"))));
+		String actual = getTextForElement(driver.findElement(By.cssSelector(".message.empty>div")));
+		Assert.assertEquals("No results found.",actual.trim());
 	}
    
 }

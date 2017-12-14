@@ -598,5 +598,10 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page){
 		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text);
 	 }
+	 
+	 @And("^I verify No results found under Learning Pathway search box$")
+	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search(){
+		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
+	 }
 
 }

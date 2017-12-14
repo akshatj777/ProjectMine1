@@ -359,10 +359,11 @@ Feature: UA2 Front End Automation
     Then I click on Select button
     Then I verify Learning Pathway search box is available
     Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    And I verify No results found under Learning Pathway search box
 
     Examples: 
       | Role      | Applications                             | LearningPathwayName |
-      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Test                |
+      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Test123             |
 
   Scenario Outline: Verify auto selected programs in Organizations
     Given I am on the login page
