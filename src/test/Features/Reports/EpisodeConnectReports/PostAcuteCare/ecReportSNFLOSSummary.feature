@@ -289,3 +289,48 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+Scenario Outline: User should be able to see 1st post acute ccn and network tier(anchor discharge) and filter the values for network tier(anchor discharge)
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Post Acute Care" under reports tile text
+    When I click on the Reports Tile with text "Post Acute Care"
+    Then I click on "Initial SNF Length of Stay Summary" report text for Post Acute Care Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "SNF LOS Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
+    Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
+    Then I enter "1st Post Acute CCN" in the search field textbox for filters
+    And I verify "1st Post Acute CCN" is appearing in the available fields under next site of care summary report
+    #Drag and Drop
+    When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "1st Post Acute CCN" column is added to report after selecing add to report option
+    #Filtering
+    When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "1st Post Acute CCN" in the header text of filter page
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
+    And I click on add selected in the filter modal
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
