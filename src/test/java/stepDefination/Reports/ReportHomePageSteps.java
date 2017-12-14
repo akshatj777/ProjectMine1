@@ -1599,4 +1599,19 @@ public class ReportHomePageSteps extends DriverScript {
             reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Report Insights", textlinks.get(i));
         }
     }
+    
+    @Then("^I verify \"([^\"]*)\" text is appearing in the glossary page$")
+    public void i_verify_text_is_appearing_in_the_glossary_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTextOnTheGlossaryPage(text);
+    }
+    
+    @And("^I should be able to see terms and conditions list mentioned in the glossary page$")
+    public void i_should_be_able_to_see_terms_and_conditions_list_mentioned_in_the_glossary_page() throws Throwable {
+    	reportHomePage.iShouldSeeTermsAndConditionsListOnGlossaryPage();
+    }
+    
+    @Then("^I should see \"([^\"]*)\" text is appearing on the help center page$")
+    public void i_should_see_text_is_appearing_on_the_help_center_page(String text) throws Throwable {
+    	reportHomePage.iVerifyTitleOnTheReportingHelpCenterPage(text);
+    }
 }

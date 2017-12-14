@@ -61,11 +61,6 @@ Feature: Reporting Help Center
       | Readmissions (Claims) Report              |
       | SNF Performance (Claims) Report           |
       | Spending (Claims) Report                  |
-    And I click on "Report Insights" tab on the reporting help center page
-    Then I should see following text under report insights section in reporting help center page
-      | Retrospective Analysis     |
-      | Real-Time Analysis         |
-      | Data Completion and Claims |
 
     Examples: 
       | email                              |
@@ -102,6 +97,24 @@ Feature: Reporting Help Center
     Then I wait until loading icon disappears in program overview report
     And I will wait to see "Overall Program" under program overview report in iframe
     When I switch to default window from iframe
+    Then I click on avatar symbol to see the menu
+    And I verify "Help Center" is appearing in the list after clicking on avatar
+    Then I click on "Help Center" tab after clicking on avatar symbol to redirect to reporting help center page
+    And I switch to new window
+    Then I wait to see "Reports Help Center" in the new tab after clicking on help center
+    And I should not see login widget after switching to a new tab
+    Then I verify "Using Reports" tab is appearing in the reporting help center page
+    Then I verify "Reports by Category" tab is appearing in the reporting help center page
+    Then I verify "Reports by Title" tab is appearing in the reporting help center page
+    Then I verify "Report Insights" tab is appearing in the reporting help center page
+    Then I verify "FAQs" tab is appearing in the reporting help center page
+    Then I verify "Glossary" tab is appearing in the reporting help center page
+    And I switch back to old window
+    #Dashboards(Physician)
+    When I click on "Dashboards" tile on the top navigation of reports page
+    Then I click on "Physician" report under "Dashboards" reports tile on the top of reports page
+    And I wait for the reports embedded iframe to load
+    Then I verify "Physician" in the reports header page
     Then I click on avatar symbol to see the menu
     And I verify "Help Center" is appearing in the list after clicking on avatar
     Then I click on "Help Center" tab after clicking on avatar symbol to redirect to reporting help center page
@@ -498,3 +511,49 @@ Feature: Reporting Help Center
       | email                              |
       | RPFINM3SNFSaberHealth@yopmail.com  |
       | OPSFINM3SNFSaberHealth@yopmail.com |
+
+  Scenario Outline: User should click on glossary and verify terms and conditions are appearing on the glossary page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    Then I click on avatar symbol to see the menu
+    And I verify "Help Center" is appearing in the list after clicking on avatar
+    Then I click on "Help Center" tab after clicking on avatar symbol to redirect to reporting help center page
+    And I switch to new window
+    Then I wait to see "Reports Help Center" in the new tab after clicking on help center
+    And I should not see login widget after switching to a new tab
+    And I click on "Glossary" tab on the reporting help center page
+    Then I verify "The following terms and concepts are used across Remedy Connect Reports." text is appearing in the glossary page
+    And I should be able to see terms and conditions list mentioned in the glossary page
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: User should see auth0 login widget if trying to access the url directly and login with valid credentials to see reporting help center page
+    Given I am on the login page
+    And I go to "https://hlpctr-qa.remedypartners.com/help/Content/REPORTS_Category/Dashboards/Program%20Overview%20Dashboard.htm" page
+    And I should see Log in widget
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I should see "Program Overview Dashboard" text is appearing on the help center page
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario: User should redirect to auth0 when tried login with invalid credentials with reporting help center url link
+    Given I am on the login page
+    And I go to "https://hlpctr-qa.remedypartners.com/help/Content/REPORTS_Category/Dashboards/Program%20Overview%20Dashboard.htm" page
+    And I should see Log in widget
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I should see Log in widget

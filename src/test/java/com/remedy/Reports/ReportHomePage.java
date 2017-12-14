@@ -1229,4 +1229,16 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyTextUnderFieldsInReportingHelpCenter(String reportsTab,String text){
         verifyTextForElementFromListByXpath("//div[@id='contentBody'] //li[a[text()='"+reportsTab+"']]/ul/li/a", text);
     }
+    
+    public void iVerifyTextOnTheGlossaryPage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>p:nth-of-type(1)")),text);
+    }
+    
+    public void iShouldSeeTermsAndConditionsListOnGlossaryPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    }
+    
+    public void iVerifyTitleOnTheReportingHelpCenterPage(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector(".row.collapse>h1")),text);
+    }
 }
