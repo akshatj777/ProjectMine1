@@ -110,18 +110,20 @@ Feature: UA2 Front End Automation
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I click on Reports tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Reports homepage
-    And I wait to see "Dashboards" under reports tile text
-    When I click on the Reports Tile with text "Dashboards"
-    When I click on "Program Overview" reports text for "Dashboards" report tile
-    Then I click on Show Summary button to unhide the available global filters
-    Then I see <Health System> appearing under payer filter of global filters
-    Then I see <Health System> appearing under participant filter of global filters
+    #And I wait to see "Dashboards" under reports tile text
+    #When I click on the Reports Tile with text "Dashboards"
+    #When I click on "Program Overview" reports text for "Dashboards" report tile
+    #Then I click on Show Summary button to unhide the available global filters
+    #Then I see <Health System> appearing under payer filter of global filters
+    #Then I see <Health System> appearing under participant filter of global filters
     And I redirect to Remedy connect page
     And I click on Episodes 2 tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
     And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
     And I click on RemedyU tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    And I verify learning pathway "Learning Pathway 2" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
     And I click on the top user account link
     And I verify "Support" in dropdown on profile icon
@@ -148,14 +150,14 @@ Feature: UA2 Front End Automation
       | Login with Remedy LPN and verify Product Tiles and their redirections                      | Super Admin | Remedy LPN                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_LPN       | Stamford Hospital |
       | Login with Remedy RN and verify Product Tiles and their redirections                       | Super Admin | Remedy RN                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_RN        | Stamford Hospital |
       | Login with Remedy Field RN and verify Product Tiles and their redirections                 | Super Admin | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_FRN       | Stamford Hospital |
-      | Login with Remedy PM and verify Product Tiles and their redirections                       | Super Admin | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        | Stamford Hospital |
+      | Login with Remedy PM and verify Product Tiles and their redirections                       | Super Admin | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PRM        | Stamford Hospital |
       | Login with Remedy Sales Team and verify Product Tiles and their redirections               | Super Admin | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |                | Stamford Hospital |
       | Login with Remedy Executive and verify Product Tiles and their redirections                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PRM       | Stamford Hospital |
       | Login with Prospective Partner Executive and verify Product Tiles and their redirections   | Super Admin | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |                | Stamford Hospital |
       | Login with Remedy Other and verify Product Tiles and their redirections                    | Super Admin | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         | ROLE_PRM       | Stamford Hospital |
       | Login with Partner Program Administrator and verify Product Tiles and their redirections   | Super Admin | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_PRM       | Stamford Hospital |
       | Login with Remedy Program Administrator and verify Product Tiles and their redirections    | Super Admin | Remedy Program Administrator    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, TCI                 | Administration                                                     | ROLE_PRM       | Stamford Hospital |
-      | Login with Partner Technical Administrator and verify Product Tiles and their redirections | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    | ROLE_PM        | Stamford Hospital |
+      | Login with Partner Technical Administrator and verify Product Tiles and their redirections | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    | ROLE_PRM        | Stamford Hospital |
       | Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    | ROLE_ADMIN     | Stamford Hospital |
       | Login with Transitional Case Manager and verify Product Tiles and their redirections       | Super Admin | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    | ROLE_TCS       | Stamford Hospital |
 
@@ -212,6 +214,7 @@ Feature: UA2 Front End Automation
     And I fill in First Name with "<FirstName>"
     Then I fill in Last Name with <LastName>
     And I enter Email "<Email>" to Create user
+    And I enter Phone field with <Phone>
     When I click the Organizational Role Field
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
@@ -226,7 +229,7 @@ Feature: UA2 Front End Automation
       | Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required       |
       | Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
       | Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Email is required      |
-      | Verify validation message for invalid Phone           | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Email is required      |
+      | Verify validation message for invalid Phone           | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Phone is required      |
       | Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
       | Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
       | Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
@@ -326,6 +329,7 @@ Feature: UA2 Front End Automation
     Then I enter "<LearningPathwayID>" in Learning Pathway search box
     Then I select "<LearningPathwayID>" from the results
     Then I click on Next button
+    Then I click on Select button
     And I search for health system with <Health System>
     And I select a <Health System>
     Then I click on Select All Locations button
@@ -443,6 +447,7 @@ Feature: UA2 Front End Automation
     Then I click on Next button
     Then I select "<Applications>" product
     Then I click on Next button
+    Then I click on Select button
     And I search for health system with <Health System>
     And I select a <Health System>
     Then I click on Select button

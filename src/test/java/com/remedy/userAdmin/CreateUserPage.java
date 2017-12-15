@@ -483,7 +483,7 @@ public class CreateUserPage extends BaseClass{
 		   String user = role.substring(role.indexOf("-")+1);
 		   if(user.equalsIgnoreCase("Remedy Technical Administrator")||user.equalsIgnoreCase("Partner Program Administrator")||user.equalsIgnoreCase("Remedy Program Administrator")
 				   ||user.equalsIgnoreCase("Partner Technical Administrator")){
-			   Assert.assertTrue(driver.findElement(By.cssSelector("#open_export")).isDisplayed());
+			   Assert.assertTrue(driver.findElement(By.cssSelector(".col-sm-6.col-md-3")).isDisplayed());
 		   }
 		   else{
 			   iWillWaitToSee(By.cssSelector(".close"));
@@ -491,6 +491,32 @@ public class CreateUserPage extends BaseClass{
 			   driver.findElement(By.cssSelector(".btn.btn-primary")).click();
 			   Assert.assertTrue(driver.findElement(By.cssSelector(".nav.litmos-sub-nav")).isDisplayed());
 			   
+		   }
+	   }
+   }
+   
+   
+   public void iVerifyDetailsForUserOnRemedyUDashBoard(String details, String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(application.contains("Lessons")){
+		   String user = role.substring(role.indexOf("-")+1);
+		   if(!user.equalsIgnoreCase("Remedy Technical Administrator")||!user.equalsIgnoreCase("Partner Program Administrator")||!user.equalsIgnoreCase("Remedy Program Administrator")
+				   ||!user.equalsIgnoreCase("Partner Technical Administrator")){
+			   String actual = driver.findElement(By.cssSelector(".litmos-small-header.mt-0")).getText();
+			   actual = actual.substring(actual.indexOf(",")+1).trim();
+			   Assert.assertEquals(details, actual);
+		   }
+	   }
+   }
+   
+   public void iVerifyPathWayForUserOnRemedyUDashBoard(String pathway, String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   if(application.contains("Lessons")){
+		   String user = role.substring(role.indexOf("-")+1);
+		   if(!user.equalsIgnoreCase("Remedy Technical Administrator")||!user.equalsIgnoreCase("Partner Program Administrator")||!user.equalsIgnoreCase("Remedy Program Administrator")
+				   ||!user.equalsIgnoreCase("Partner Technical Administrator")){
+			   String actual = driver.findElement(By.cssSelector(".mb-0.litmos-small-header.hidden-xs")).getText();
+			   Assert.assertEquals(pathway, actual);
 		   }
 		   switchBacktoOldWindow(); 
 	   }

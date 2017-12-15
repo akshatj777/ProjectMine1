@@ -353,6 +353,16 @@ public class CreateUserSteps extends DriverScript {
 	public void iVerifuUserNavigatedToRemedyU(String role) throws Throwable {
 		createUser.iVerifyNavigationOnRemedyUHomePage(role);
 	}
+	
+	@And("^I verify details \"([^\"]*)\" for \"([^\"]*)\" user on RemedyU dashboard$")
+	 public void i_Verify_Details_For_User_On_RemedyU_Dashboard(String details, String user){
+		 createUser.iVerifyDetailsForUserOnRemedyUDashBoard(details, user);
+	 }
+	
+	@And("^I verify learning pathway \"([^\"]*)\" appearing for \"([^\"]*)\" user on RemedyU dashboard$")
+	 public void i_Verify_LearningPathWay_Appearing_For_User_On_RemedyU_Dashboard(String pathway, String user){
+		 createUser.iVerifyPathWayForUserOnRemedyUDashBoard(pathway, user);
+	 }
 
 	@And("^I click on Physican connect tile for \"([^\"]*)\" user$")
 	public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String role) throws Throwable {
@@ -602,5 +612,9 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search(){
 		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
 	 }
+	 
+	 
+	 
+	 
 
 }
