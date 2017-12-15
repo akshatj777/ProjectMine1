@@ -36,6 +36,7 @@ public class EditUser extends BaseClass {
 	public void iClickOnEditButton() {
 		iWillWaitToSee(By.cssSelector(".edit-controls"));
 		clickElement(driver.findElement(By.cssSelector(".edit-controls")));
+		iWillWaitToSee(By.cssSelector(".ui.primary.button"));
 	}
 	
 	public void iClearTextBox(String name) {
@@ -60,19 +61,27 @@ public class EditUser extends BaseClass {
 	public void iVerifyFirstNameInUserPage(String field){
 		
 			iWillWaitToSee(By.cssSelector("span.user-name-text"));
-			verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0), field);
+			Assert.assertTrue(driver.findElements(By.cssSelector("span.user-name-text>span")).get(1).getText().contains(field));
+			//verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(1), field);
 	}
 	public void iVerifyLastNameInUserPage(String field){
 			iWillWaitToSee(By.cssSelector("span.user-name-text"));
-			verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(1), field);
+			Assert.assertTrue(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0).getText().contains(field));
+			//verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0), field);
 		}
 	public void iVerifyRoleInUserPage(String field){
 		iWillWaitToSee(By.cssSelector(".info-row>span"));
-		verifyTextForElement(driver.findElements(By.cssSelector(".info-row>span")).get(0), field);
+		String text= driver.findElements(By.cssSelector(".info-row>span")).get(0).getText();
+		String [] role= text.split(" ");
+		System.out.println("***** "+role[1]);
+		Assert.assertEquals(role[1],field);
+		
 	}
 	public void iVerifyPhoneInUserPage(String field){
+		String num=field.substring(6);
 		iWillWaitToSee(By.cssSelector(".info-row>span"));
-		verifyTextForElement(driver.findElements(By.cssSelector(".info-row>span")).get(3), field);
+		Assert.assertTrue(driver.findElements(By.cssSelector(".info-row>span")).get(3).getText().contains(num));
+		//verifyTextForElement(driver.findElements(By.cssSelector(".info-row>span")).get(3), field);
 	}
 	
 	public void iVerifyThatEmailIsNonEditable(){

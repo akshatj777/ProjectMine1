@@ -543,11 +543,15 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void clickSubmitButton() throws Throwable {
+	  
+		iWillWaitToSee(By.xpath("//button[.='Submit']"));
 	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
-	   iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
+	 
+	  iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation"));
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
+		
 		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 		HashMap<String,String> emailList = new HashMap<String,String>();
