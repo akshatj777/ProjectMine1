@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Assign Care Plan
 
   Background: Patient not in episode "Assign Care Plan" button disabled

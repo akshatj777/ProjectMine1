@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: POT3 will get activated on post acute admission
 
 Background: Potential M3 Active

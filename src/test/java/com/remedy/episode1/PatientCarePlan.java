@@ -283,8 +283,8 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iwillwaittoseeCARLtool() {
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[2]/div/div/div[1]/div[1]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[2]/div/div/div[1]/div[1]")));
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div[1]")));
 	}
 
 	public void iwillwaittoseeproposal(String proposal) {

@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.remedy.baseClass.BaseClass;
 import com.steadystate.css.parser.ParseException;
@@ -43,10 +44,14 @@ public class TransitionModal extends BaseClass {
 	}
 
 	public void iclickStartCARLtoollink(int tran) throws InterruptedException {
+		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"));
-		clickAction(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
+		Actions actions=new Actions(driver);
+		actions.moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
+		delay();
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
 		Thread.sleep(5000);
+		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a"));
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a")));
 		}
 	 

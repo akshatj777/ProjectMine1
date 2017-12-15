@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Canceling Episode from EI Assignment Window
 
   Scenario Outline: To verify Episode termination date when episode is manually cancelled
@@ -51,7 +52,7 @@ Feature: Canceling Episode from EI Assignment Window
     Then I will wait to see "CANCELED" state
     Then I will wait to see onboarding status "Unknown"
     Then I verify "UNGROUPABLE" in "DRG" table in row "2" and column "2"
-    And I will verify Episode Marker Admit Date "<daysToAdmitWRTToday>" and Termination date and Episode Status "<episodeStatus>"
+    And I will verify Episode Marker Admit Date "4" and Termination date "1" and Episode Status "ACTIVE"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag

@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: CRA Not Auto-assignment
 
   Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet

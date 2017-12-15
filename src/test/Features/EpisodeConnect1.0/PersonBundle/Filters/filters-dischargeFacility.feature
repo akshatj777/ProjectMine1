@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Filters - Anchor Facility
 
   Scenario: Filtering results on patient list by anchor facility.

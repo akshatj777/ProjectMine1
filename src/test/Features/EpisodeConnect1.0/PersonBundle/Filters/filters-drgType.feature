@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Filters - DRG Type
 
   Scenario: Filtering results on patient list by DRG Type

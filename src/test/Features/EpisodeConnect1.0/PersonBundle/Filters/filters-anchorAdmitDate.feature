@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Filters - Anchor Admit Date
 
 Scenario: Filtering results by using single widget

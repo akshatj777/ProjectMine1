@@ -218,6 +218,11 @@ public void iwillverifylistofoptionsindropdown(String element, String xpath, Lis
 	}
 }
 
+public void clear_Value(String text, String xpath) {
+	iWillWaitToSee(By.xpath(xpath));
+	driver.findElement(By.xpath(xpath)).clear();
+}
+
 
 }
 

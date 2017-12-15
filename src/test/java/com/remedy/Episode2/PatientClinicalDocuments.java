@@ -705,6 +705,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 	
 	public void Ifilldateinwithlogicwithndays1(String logic,int days) throws InterruptedException{
+		delay();
 		String date=currentdate(days,"MM/dd/yyyy");
 		String date1=date+" "+"15:40";
 		String date2=date+" "+"00:00";

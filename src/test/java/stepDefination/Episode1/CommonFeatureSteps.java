@@ -152,4 +152,9 @@ public class CommonFeatureSteps extends DriverScript {
 	public void i_will_verify_list_of_options_in_dropdown(String element,String xpath,List<String> dropdownvalues){
 		common.iwillverifylistofoptionsindropdown(element,xpath,dropdownvalues);
 	}
+	
+	@Then ("^I clear the \"([^\"]*)\" xpath \"([^\"]*)\"$")
+	public void clear_Value(String text,String xpath){
+		common.clear_Value(text,xpath);
+	}
 }

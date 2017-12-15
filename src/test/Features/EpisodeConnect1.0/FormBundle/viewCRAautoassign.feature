@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: CRA Auto-assignment
 
   Background: Episode Active - create anchor transition

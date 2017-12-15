@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: New Appointment
 
   Scenario Outline: Adding new appointment from Care Plan

@@ -1,4 +1,4 @@
-@sanity @PatientBundle @PatientDashboard
+@EC1Smoke
 Feature: Managing Various Episode States
 
   Background: Episode Active - create anchor transition
@@ -42,7 +42,6 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    
 
   Scenario: Episode CANCELED - delete anchor transition (Episode marker will be invisible)
     When I click anchor transition delete link "1"
@@ -76,7 +75,6 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "PENDING CANCELLATION" state
     Then I will wait to see onboarding status "Needs Onboarding"
-   
 
   Scenario: Episode EXPIRED AS INPATIENT - Set patient as exp.
     When I click on "Eligibility" dropdown button
@@ -117,7 +115,6 @@ Feature: Managing Various Episode States
     Then I fill in "Admit" with logic "minus" with "120" days
     Then I fill in "Discharge" with logic "minus" with "110" days
     Then I click on update transition to add a new episode
-    When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED" state
@@ -129,14 +126,15 @@ Feature: Managing Various Episode States
     Then I fill in "Admit" with logic "minus" with "90" days
     Then I fill in "Discharge" with logic "minus" with "30" days
     Then I click on update transition to add a new episode
-    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Expired" option
     When I fill in eligibility "Date of Death" with "0" days
     When I click "Confirm" xpath element "//*[@id='submitExpired']"
     And I will wait to see "Your changes have been successfully saved" in "p" tag
     And I should see tag "Expired"
-    When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED EXPIRED" state
@@ -146,7 +144,6 @@ Feature: Managing Various Episode States
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "90" days
     Then I click on update transition to add a new episode
-    When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED 365" state
@@ -158,7 +155,6 @@ Feature: Managing Various Episode States
     When I click "Confirm" xpath element "//*[@id='submitExpired']"
     And I will wait to see "Your changes have been successfully saved" in "p" tag
     And I should see tag "Expired"
-    When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "EXPIRED AS INPATIENT" state
@@ -169,6 +165,7 @@ Feature: Managing Various Episode States
     And I will wait to see "General" in "h3" tag
     And I will clear the Date of death field on patient details page
     When I reload the page
+    And I will wait to see patient's name on patient summary page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down

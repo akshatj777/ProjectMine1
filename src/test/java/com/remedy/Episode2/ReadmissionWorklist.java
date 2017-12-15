@@ -246,9 +246,12 @@ public class ReadmissionWorklist extends BaseClass {
 	  }
 
 	public void Iselectthefacilityonaddanewtransition(String admissiontype,String facilityvalue,String locator) {
+		delay();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions actions = new Actions(driver);
-		actions.moveToElement(driver.findElement(By.cssSelector(locator))).click().perform();
+		actions.moveToElement(driver.findElement(By.cssSelector(locator))).perform();
+		clickElement(driver.findElement(By.cssSelector(locator)));
+		//js.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(locator)));
 		iWillWaitToSee(By.cssSelector("#select2-drop > div > input.select2-input"));
 		WebElement element2 = driver.findElement(By.cssSelector("#select2-drop > div > input.select2-input"));
 		js.executeScript("arguments[0].click();", element2);

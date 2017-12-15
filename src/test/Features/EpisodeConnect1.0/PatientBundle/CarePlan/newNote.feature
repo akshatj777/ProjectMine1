@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: New Note
 
   Scenario Outline: Adding new note from Care Plan

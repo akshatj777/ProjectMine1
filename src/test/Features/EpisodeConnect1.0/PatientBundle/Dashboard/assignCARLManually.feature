@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Assign CARL Tool Manually
 
   Background: Manually Assign CARL Tool on Patient Overview - Transitions
@@ -46,11 +47,10 @@ Feature: Assign CARL Tool Manually
     And I will wait to see "Form Type" in "label" tag
     And I will wait to see "Due Date" in "label" tag
     And I will wait to see "Admission Id" in "label" tag
-    When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
-    And I will wait to see "Form Assigned" in "p" tag
+    When I click "Submit" xpath element "//*[@id='submitButton']"
+   # And I will wait to see "Form assigned" in "p" tag
     And I will wait to see patient's name on patient summary page
     Then I will wait to see CARL Tool
-    And I will wait to see "Form Assigned" in "p" tag
     And I will wait to see "Created on:" in "h7" tag
     And I will wait to see "Due Date:" in "h7" tag
     And I will wait to see "Admission PAN:" in "h7" tag
@@ -61,7 +61,7 @@ Feature: Assign CARL Tool Manually
     And I will wait to see patient's name on patient summary page
     When I click "Edit CARL" xpath element "//*[@id='edit_BPNSoCForm']"
     And I will wait to see "CARL Tool" in "h4" tag
-    And I will wait to see "Care At the Right Location Calculator" in "h4" tag
+    And I will wait to see "Care At the Right Location Calculator" in "h1" tag
     And I will wait to see "Independence" in "a" tag
     Then I select "Caregiver needed" from "Ambulatory Status in Independence" by xpath "//*[@id='bp_nsoc_form_type_ambulatoryStatus']"
     Then I select "Assistance needed for one or more ADLs" from "Activities of Daily Living in Independence" by xpath "//*[@id='bp_nsoc_form_type_activitiesOfDailyLiving']"
@@ -86,8 +86,8 @@ Feature: Assign CARL Tool Manually
     Then I select "Not needed" from "Oxygen Or Other Respiratory Support" by xpath "//*[@id='bp_nsoc_form_type_oxygenOrOtherRespiratorySupport']"
     When I click "Save and Close" xpath element "//*[@id='form_save_and_close']"
     Then I click "Proposal" text in tag "a"
-    And I will wait to see "Proposal" in "label" tag 
-    Then I will wait to see the proposal "Home With Limited Services (HOM)*" 
+    And I will wait to see "Proposal" in "label" tag
+    Then I will wait to see the proposal "Home With Limited Services (HOM)*"
     Then I will verify text "Proper Use of the CARL Tool. The CARL Tool provides decision support, which is intended to give qualified healthcare providers guidance when formulating a recommendation for the next site of care for a patient. It should not be used without, or as a substitute for, the judgement of a qualified healthcare provider who has the ability to assess the individual circumstances of each patient's case." in xpath element "//div[@id='disclaimer'][2]"
     Then I will verify text "Patient may benefit from community or home-based services, including Part B PT, personal care attendant, outpatient specialty care or other services." in xpath element "//div[@id='disclaimer'][1]"
     Then I select "Agrees" from "Agrees with Proposal" by xpath "//*[@id='bp_nsoc_form_type_ostomy']"
@@ -96,7 +96,6 @@ Feature: Assign CARL Tool Manually
     When I click "Submit" xpath element "//*[@id='submitButton']"
     Then I will wait to see CARL Tool "1" on active state
     And I should see text of "1" in active form counter
-    And I will wait to see "Home With Limited Services (HOM)*" in "b" tag 
-    And I will wait to see "testHospitalStaff" in "b" tag 
-    And I will wait to see "Agrees" in "span" tag 
-    
+    And I will wait to see "Home With Limited Services (HOM)*" in "b" tag
+    And I will wait to see "testHospitalStaff" in "b" tag
+    And I will wait to see "Agrees" in "span" tag

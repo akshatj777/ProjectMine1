@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Patient List - Tabs - Patient List Card View
 
   Scenario: Verify on each tab and saved filter, that correct data should be presented on card view -
