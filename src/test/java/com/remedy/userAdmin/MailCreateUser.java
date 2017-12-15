@@ -1,34 +1,31 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
 import com.remedy.baseClass.BaseClass;
 
 public class MailCreateUser extends BaseClass{
-	
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	String time = df.format(timestamp);
-	String mail = "test.automatemail";
-	final String email = mail+"+"+time+"@gmail.com";
-	
+
+	static DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
+	static Date timestamp = null;
+	static String time = null;
+	static String mail = "test.automatemail";
+	static String email = null;
+
 	public MailCreateUser(WebDriver driver) {
 		super(driver);
 	}
 	
 	public void iAmOnMailLoginPage() throws InterruptedException {
         driver.navigate().to("https://accounts.google.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
@@ -57,6 +54,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
+		delay();
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	
@@ -79,12 +77,21 @@ public class MailCreateUser extends BaseClass{
 		iWillWaitToSee(By.id("headingText"));
 	}
 	
-	public void iEnterEmailToCreateUser() {
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+	public void iEnterEmailToCreateUser(String emailName) {
+		if(emailName.equalsIgnoreCase("test.automatemail"))
+			{
+			email = emailName+"+"+RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
+				driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
+			}
+		else
+			{
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
+			}
+		
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
-		Assert.assertTrue(isElementPresentOnPage((By.xpath("//b[contains(text(),'Remedy Partners - Verify your account')]"))));
+		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]"))));
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
@@ -112,7 +119,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
-		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (1)')]"));
+		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
@@ -134,17 +141,21 @@ public class MailCreateUser extends BaseClass{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 	
-	public void iEnterNewUserEmailForLoginToRemedy() {
+	public void iEnterNewUserEmailForLoginToRemedy(String role) {
+		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+		System.out.println("Enter Email for singh in "+emailVal);
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
-		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), email);
+		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
 		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
 	}
 	
-	public void iOpenNewTabAndCloseLastTab() throws AWTException {
-		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.SHIFT,"n"); 
-		driver.findElement(By.cssSelector("body")).sendKeys(selectLinkOpeninNewTab);
+	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
+	    driver.get("chrome://settings/clearBrowserData");
+	    Thread.sleep(10000);
+	    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
+	    Thread.sleep(10000);
 	}
 }

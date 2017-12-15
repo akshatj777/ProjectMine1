@@ -382,6 +382,15 @@ public class BaseClass {
 		}
 		return value;
 	}
+	
+	public boolean isElementNotPresentOnPage(By locator) {
+		try {
+			driver.findElement(locator);
+	        return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	public void verifyarraylist(List<String> requiredcombolisttext, List<String> actualcombolisttext) {
 		Assert.assertEquals(requiredcombolisttext, actualcombolisttext);
