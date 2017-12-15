@@ -38,12 +38,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	   ua2LandingPage.iVerifyLandingPageUI(text);
 	}
 
-	@Then("^I enter email field \"([^\"]*)\" for login$")
-	public void i_enter_email_field_for_login(String arg1) throws Throwable {
 
-	}
 
-	@Then("^I verify \"([^\"]*)\" value for all users on landing page$")
+	@Then("^I verify \"([^\"]*)\" value for users on landing page$")
 	public void i_verify_for_all_users_on_landing_page(String arg1) throws Throwable {
 	  ua2LandingPage.verifyUserInformation(arg1);
 	}

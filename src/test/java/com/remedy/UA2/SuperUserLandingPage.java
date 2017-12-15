@@ -87,10 +87,10 @@ public class SuperUserLandingPage extends BaseClass {
 					verifyElementCount(".five.wide", 30);
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					System.out.println("count of 30");
+					//System.out.println("count of 30");
 				} else {
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
-					System.out.println("size--" + size);
+					//System.out.println("size--" + size);
 					verifyElementCount(".five.wide", size);
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
@@ -105,11 +105,11 @@ public class SuperUserLandingPage extends BaseClass {
 					verifyElementCount("tr.component-user-table-row", 30);
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					System.out.println("count of 30");
+					//System.out.println("count of 30");
 				} else {
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
 					verifyElementCount("tr.component-user-table-row", size);
-					System.out.println("size--" + size);
+					//System.out.println("size--" + size);
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
 					break;
@@ -123,19 +123,19 @@ public class SuperUserLandingPage extends BaseClass {
 					for (int i = 0; i < 90; i++) {
 						String name = driver.findElements(By.cssSelector("td.four.wide")).get(i).getText();
 						String[] splited = name.split(" ");
-						System.out.println(splited[0] + "&&&&&" + splited[1]);
+						//System.out.println(splited[0] + "&&&&&" + splited[1]);
 						Assert.assertEquals(splited.length, 2);
-						System.out.println("Name validated" + i);
+						//System.out.println("Name validated" + i);
 						i = i + 2;
 					}
 					for (int j = 0; j < 30; j++) {
 						String mail = driver.findElements(By.cssSelector("td.five.wide")).get(j).getText();
 						Assert.assertTrue(mail.contains(".com"));
-						System.out.println("email validated" + j);
+						//System.out.println("email validated" + j);
 					}
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					System.out.println("count of 30");
+					//System.out.println("count of 30");
 				} else {
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
 					for (int i = 0; i < size * 3; i++) {
@@ -143,22 +143,25 @@ public class SuperUserLandingPage extends BaseClass {
 						String[] splited = name.split(" ");
 						int n = splited.length;
 						Assert.assertEquals(splited.length, 2);
-						System.out.println("Name validated" + i);
+						//System.out.println("Name validated" + i);
 						i = i + 2;
 					}
 					for (int j = 0; j < size; j++) {
 						String mail = driver.findElements(By.cssSelector("td.five.wide")).get(j).getText();
 						Assert.assertTrue(mail.contains(".com"));
-						System.out.println("email validated" + j);
+						//System.out.println("email validated" + j);
 
 					}
-					System.out.println("size--" + size);
+					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
+					iWillWaitToSee(By.cssSelector("div.chevron-group"));
 					break;
 				}
 
 			} while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 
 		}
+		
+		
 	}
 
 	public void verifyUserInformation(String text) {

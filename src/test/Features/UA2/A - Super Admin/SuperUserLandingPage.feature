@@ -1,6 +1,6 @@
 Feature: Super Admin Landing page verification
 
-  Scenario: Verification of Super Admin Landing page UI
+  Scenario: Verification of Super Admin Landing page UI and user information
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -18,6 +18,7 @@ Feature: Super Admin Landing page verification
     And I verify "Users Count" on landing page
     And I verify "Users rows allignment" on landing page
     And I verify "Long email, first name and last name" on landing page
+    And I verify "Name, Role, Email, Creation Date, Account Status" value for users on landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
     Then I am navigated to user creation page
@@ -25,14 +26,6 @@ Feature: Super Admin Landing page verification
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
-
-  Scenario: Verify user information in Super Admin landing page
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    Then I verify "Name, Role, Email, Creation Date, Account Status" value for all users on landing page
 
   #search cases
   Scenario Outline: Verify ability of Super Admin user to search a user
