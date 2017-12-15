@@ -21,6 +21,7 @@ Feature: View SNF organization functionality tests
     And I verify "<SNF_Name> - <Has_MO>" name on the header of view profile
     And I verify <Organization Type> in "type" on view profile of "SNF" Organization
     And I verify <Address1> in "address1" on view profile of "SNF" Organization
+    And I verify <Address2> in "address2" on view profile of "SNF" Organization
     And I verify <City> in "city" on view profile of "SNF" Organization
     And I verify <StateVerification> in "state" on view profile of "SNF" Organization
     And I verify <Postal_Code> in "zip" on view profile of "SNF" Organization
@@ -61,6 +62,7 @@ Feature: View SNF organization functionality tests
     Examples: 
       | Description                                                                          | Has_MO | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type        | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                         |
       | Verification of SNF details and count of locations displayed under SNF org - with MO | YES    | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | Success! SNF Organization Successfully Updated. |
+      | Verification of SNF details and count of locations displayed under SNF org - without MO | NO    | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | Success! SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I search with "<MO_Name>" on organization in search box

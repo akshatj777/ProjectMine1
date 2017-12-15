@@ -21,6 +21,7 @@ Feature: Hospital Organization View profile Functionality tests.
     And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
     And I verify <Organization Type> in "type" on view profile of "Hospital" Organization
     And I verify <Address1> in "address1" on view profile of "Hospital" Organization
+    And I verify <Address2> in "address2" on view profile of "Hospital" Organization
     And I verify <City> in "city" on view profile of "Hospital" Organization
     And I verify <StateVerification> in "state" on view profile of "Hospital" Organization
     And I verify <Postal_Code> in "zip" on view profile of "Hospital" Organization
