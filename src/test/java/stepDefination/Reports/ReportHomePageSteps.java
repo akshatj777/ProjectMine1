@@ -114,7 +114,7 @@ public class ReportHomePageSteps extends DriverScript {
          reportHomePage.iSelectFilterTextFormFilterValueList(filterText);
     }
 
-    @And("^I click on add selected in the filter modal$")
+    @And("^I click on add selected in the filter model$")
     public void i_click_on_add_selected_in_the_filter_modal() throws Throwable {
         reportHomePage.iClickAddSelectedArrowFromFilterModal();
     }
@@ -859,6 +859,8 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("^I should not see \"([^\"]*)\" report after clicking on next site of care$")
+    @And("^I should not see \"([^\"]*)\" report after clicking on patient id$")
+    @When("^I should not see \"([^\"]*)\" report after clicking on readmissions$")
     public void i_should_not_see_report_after_clicking_on_next_site_of_care(String report) throws Throwable{
     	reportHomePage.iShouldNotSeeReportName(report);
     }
@@ -1530,5 +1532,35 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I verify \"([^\"]*)\" field is appearing in the layout section after selecting add to report$")
     public void i_verify_field_is_appearing_in_the_layout_section_after_selecting_add_to_report(String text) throws Throwable{
     	reportHomePage.iVerifyFieldInTheLayoutSectionAfterAddToReport(text);
+    }
+    
+    @And("^I should see \"([^\"]*)\" in the value list after selecting filter$")
+    public void i_should_see_in_the_value_list_after_selecting_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyInFilterValueListAfterSelectingFilterOption(text);
+    }
+    
+    @And("^I should see \"([^\"]*)\" is added in layout section after clicking on add to report$")
+    public void i_should_see_is_added_in_layout_section_after_clicking_on_add_to_report(String text) throws Throwable{
+    	reportHomePage.iVerifyFieldUnderLayoutAfterAddingToReport(text);
+    }
+    
+    @Then("^I click on a number under episodes column to verify drill through$")
+    public void i_click_on_a_number_under_episodes_column_to_verify_drill_through() throws Throwable{
+    	reportHomePage.iClickOnNumberUnderEpisodesColumnToVerifyDrillThrough();
+    }
+    
+    @Then("^I verify the episodes count matches with dill through$")
+    public void i_verify_the_episodes_count_matches_with_drill_through() throws Throwable{
+    	reportHomePage.iVerifyTheEpisodeCountWithDrillThrough();
+    }
+    
+    @Then("^I verify anchor post acute discharge month is in ([^\"]*) format$")
+    public void i_verify_anchor_post_acute_dischare_month_is_in_YYYY_MM_format(String format) throws Throwable{
+    	reportHomePage.iVerifyAnchorDischargeMonthFormat(format);
+    }
+    
+    @When("^I click on \"([^\"]*)\" field which is listed under \"([^\"]*)\" filter from available fields$")
+    public void i_click_to_value_in_the_available_fields(String text,String filter) throws Throwable{
+    	reportHomePage.iClickOnFieldUnderAvailableFieldsInReports(text,filter);
     }
 }
