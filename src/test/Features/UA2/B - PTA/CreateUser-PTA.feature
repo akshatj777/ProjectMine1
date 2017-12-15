@@ -85,7 +85,7 @@ Feature: UA2 Front End Automation
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    And I click on username icon on right top corner and open user profile on EC1
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
     And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
     And I verify "Medicare" payer on user profile for "<User>-<Role>" user

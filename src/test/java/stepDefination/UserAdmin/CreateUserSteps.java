@@ -294,9 +294,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
 	}
 	
-	@And("^I click on username icon on right top corner and open user profile on EC1$")
-	public void iClickOnUserNameIconOnEC1AndOpenUserProfile() throws Throwable {
-		createUser.iClickOnUserNameIconOnEC1AndOpenUserProfile();
+	@And("^I click on username icon on right top corner \"([^\"]*)\" and open user profile on EC1$")
+	public void iClickOnUserNameIconOnEC1AndOpenUserProfile(String role) throws Throwable {
+		createUser.iClickOnUserNameIconOnEC1AndOpenUserProfile(role);
 	}
 	
 	@And("^I click on PatientList on SideMenu bar Episode1 for \"([^\"]*)\" user$")

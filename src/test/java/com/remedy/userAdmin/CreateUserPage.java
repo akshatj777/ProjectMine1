@@ -346,7 +346,12 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//div/label[@for='lessons']")));
    }
    
-   public void iClickOnUserNameIconOnEC1AndOpenUserProfile(){
+   public void iClickOnUserNameIconOnEC1AndOpenUserProfile(String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
 	   iWillWaitToSee(By.cssSelector(".username"));
 	   WebElement HoverElement = driver.findElement(By.cssSelector(".username"));
 	   String javaScript = "var evObj = document.createEvent('MouseEvents');" +
@@ -355,6 +360,8 @@ public class CreateUserPage extends BaseClass{
 
 	   ((JavascriptExecutor)driver).executeScript(javaScript, HoverElement);
 	   clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+		   }
+	   }   
    }
    
    public void iClickOnEpisode1TileUnderSpecificUserLoginPage(String role){

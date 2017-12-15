@@ -85,8 +85,8 @@ Feature: UA2 Front End Automation
       | Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
       | Login with Super Admin User and create user with Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
       | Login with Super Admin User and create user with Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with Super Admin User and create user with Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      |     | Learning Pathway 2             | Stamford Hospital |
 
+  #| Login with Super Admin User and create user with Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      |     | Learning Pathway 2             | Stamford Hospital |
   Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
@@ -99,7 +99,7 @@ Feature: UA2 Front End Automation
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
-    And I click on username icon on right top corner and open user profile on EC1
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
     And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
     And I verify "Medicare" payer on user profile for "<User>-<Role>" user
@@ -151,7 +151,7 @@ Feature: UA2 Front End Automation
       | Login with Remedy Field RN and verify Product Tiles and their redirections                 | Super Admin | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_FRN       | Stamford Hospital |
       | Login with Remedy PM and verify Product Tiles and their redirections                       | Super Admin | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        | Stamford Hospital |
       | Login with Remedy Sales Team and verify Product Tiles and their redirections               | Super Admin | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |                | Stamford Hospital |
-      | Login with Remedy Executive and verify Product Tiles and their redirections                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        | Stamford Hospital |
+      | Login with Remedy Executive and verify Product Tiles and their redirections                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PRM       | Stamford Hospital |
       | Login with Prospective Partner Executive and verify Product Tiles and their redirections   | Super Admin | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |                | Stamford Hospital |
       | Login with Remedy Other and verify Product Tiles and their redirections                    | Super Admin | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         | ROLE_PRM       | Stamford Hospital |
       | Login with Partner Program Administrator and verify Product Tiles and their redirections   | Super Admin | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_PRM       | Stamford Hospital |
@@ -159,8 +159,8 @@ Feature: UA2 Front End Automation
       | Login with Partner Technical Administrator and verify Product Tiles and their redirections | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    | ROLE_PM        | Stamford Hospital |
       | Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    | ROLE_ADMIN     | Stamford Hospital |
       | Login with Transitional Case Manager and verify Product Tiles and their redirections       | Super Admin | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    | ROLE_TCS       | Stamford Hospital |
-      | Login with Downstream Provider and verify Product Tiles and their redirections             | Super Admin | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      | ROLE_SNF       | Stamford Hospital |
 
+  #| Login with Downstream Provider and verify Product Tiles and their redirections             | Super Admin | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      | ROLE_SNF       | Stamford Hospital |
   Scenario: Verify availability of fields on General Information tab while adding a user.
     	Also, Verify availability of values in Role dropdown for Super Admin.
 
@@ -199,8 +199,8 @@ Feature: UA2 Front End Automation
     Then I verify the availability of role "Remedy Program Administrator"
     Then I verify the availability of role "Partner Technical Administrator"
     Then I verify the availability of role "Transitional Case Manager"
-    Then I verify the availability of role "Downstream Provider"
 
+  #Then I verify the availability of role "Downstream Provider"
   Scenario Outline: <Description>
     Given I am on the login page
     When I enter email field lbarinstein+qaadmin@remedypartners.com for login
@@ -276,8 +276,8 @@ Feature: UA2 Front End Automation
       | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |
       | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |
       | Transitional Case Manager       | Episodes, Reports, Lessons                                                       |
-      | Downstream Provider             | Episodes 2.0                                                                     |
 
+  #| Downstream Provider             | Episodes 2.0                                                                     |
   Scenario Outline: <Scenario Description>
     Given I am on the login page
     When I enter email field lbarinstein+qaadmin@remedypartners.com for login
