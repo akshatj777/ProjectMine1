@@ -1,40 +1,37 @@
 package com.remedy.programManagement;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.util.HashMap;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
 public class CreateManagingOrganization extends BaseClass {
-
-	WebDriverWait wait = new WebDriverWait(driver, 20);
-	DateFormat datef = new SimpleDateFormat("ddMMyy");
-	Date ts = new Date();
-	String timef = datef.format(ts);
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	final String time = df.format(timestamp);
-	static String orgName;
-	
+	public static HashMap<String, String> tempMoOrg = new HashMap<String, String>();
+	public static HashMap<String, String> moOrg = new HashMap<String, String>();
+	public static String moName;
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
 	
-	public void iClickOnCreateNewOrgButtonOnProgramManagementHomepage() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+	public void iVerifyButtonUnderOrganizationTab(String text) {
+		iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
+	}
+	
+	public void iClickOnCreateNewOrgButton() {
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		clickElement(driver.findElement(By.cssSelector("button[name='createNewOrg']")));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 	
 	public void iVerifyHeaderTextOnCreateOrganizationPage(String text) {
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		iVerifyTextFromListOfElement(By.cssSelector(".row.headline"), text);
 	}
 	
@@ -42,53 +39,150 @@ public class CreateManagingOrganization extends BaseClass {
 		iVerifyTextFromListOfElement(By.cssSelector(".input-field-caption"), text);
 	}
 	
-	public void iVerifyLabelDropDownFieldOnCreateOrganizationPage(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".select-field-caption.required")), text);
+	public void iVerifyRadioButtonLabelOnCreateOrganizationPage(String text) {
+		iVerifyTextFromListOfElement(By.cssSelector(".radio-button-text"), text);
 	}
 	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
 		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-		element.click();
+		scrollIntoViewByJS(element);
 		delay();
-	}
-	
-	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
-		boolean bol = isElementPresentOnPage(By.xpath("//span[text()='"+text+"']"));
-		Assert.assertTrue(bol);
-		System.out.println(text);
-	}
-	
-	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) {
-		if(field.contains("Organization Name")) {
-		orgName= text+time+"ORGName";
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text+time);
-		}
-		else {
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
-		}
-			
-	}	
-	
-	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String field) {
-		String num = (int)(Math.random()*10000)+timef;
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), num);
-	}
-	
-	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
-		iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
+		clickElement(element);
 		delay();
-        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
-	}
-	
-	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg) {
-		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
-		System.out.println(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")).getText());
-		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
-	}
-	
-	public void iSearchManagingOrganizationInSearchBox(String mOrg) {
-		iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), mOrg+time);
 	}
 
+	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
+		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		scrollIntoViewByJS(element);
+		isElementPresent(By.xpath("//button[text()='"+text+"']"));
+	}
+	
+	public void userNavigatedToViewPage(String org) {
+		driver.findElement(By.cssSelector(".navLink.noselect")).getText();
+	}
+
+	public void iVerifyManadtoryFieldValidationOnCreateOrganizationPage(String text) {
+		if(!text.equals("")) {
+			delay();
+			iVerifyTextFromListOfElement(By.cssSelector(".error-message>span"), text);
+		}
+	}
+	
+	public void iVerifyCreateOrganizationwithDuplicatenameerrormsg(String text) {
+		if(!text.equals("")) {
+		Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".alert.alert-dismissible.alert-danger")));
+		}
+	}
+	
+	public void iEnterDetailsInFieldsOnCreateOrganizationPage(String text, String field) throws IOException {
+		if(text.contains("MONAME")) {
+			tempMoOrg.put("MONAME",createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempMoOrg.get("MONAME"));
+		}
+		else if(text.contains("DUPLICATE_MO"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), moOrg.get("MONAME"));
+		}
+		else if(text.contains("ACHNAME")) {
+			CreateACHOrganization.tempAchOrg.put("ACHNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
+		}
+		else if(text.contains("DUPLICATE_ACH"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.achOrg.get("ACHNAME"));
+		}
+		else if(text.contains("PGPNAME")) {
+			CreatePGPOrganization.tempPGPOrg.put("PGPNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("PGPNAME"));
+		}
+		else if(text.contains("DUPLICATE_PGP"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
+		}
+		else 	
+		{
+	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
+		}		
+	}
+
+	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
+		if(!text.equals("")){
+			iFillInText(driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")), text);
+			waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption")));
+			clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
+		}
+	}
+	
+	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
+				
+		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
+		{
+				if(org.contains("MO"))
+				{
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					moOrg.clear();
+					moOrg.putAll(tempMoOrg);
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("ACH - YES"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreateACHOrganization.tempAchOrg.isEmpty())
+						{
+							CreateACHOrganization.achOrg.putAll(CreateACHOrganization.tempAchOrg);
+							CreateACHOrganization.tempAchOrg.clear();
+						}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("ACH - NO"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreateACHOrganization.tempAchOrg.isEmpty())
+					{
+						CreateACHOrganization.achOrg_noMO.putAll(CreateACHOrganization.tempAchOrg);
+						CreateACHOrganization.tempAchOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("PGP - YES"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreatePGPOrganization.tempPGPOrg.isEmpty())
+						{
+						CreatePGPOrganization.pgpOrg.putAll(CreatePGPOrganization.tempPGPOrg);
+						CreatePGPOrganization.tempPGPOrg.clear();
+						}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("PGP - NO"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreatePGPOrganization.tempPGPOrg.isEmpty())
+					{
+						CreatePGPOrganization.pgpOrg_noMO.putAll(CreatePGPOrganization.tempPGPOrg);
+						CreatePGPOrganization.tempPGPOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+			}
+	    	else 
+	    	{
+	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+	    		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+	    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+	    	}
+	}
+	
+	public void iSwitchFocusToButton(String text) {
+		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
+		delay();
+	}
 }

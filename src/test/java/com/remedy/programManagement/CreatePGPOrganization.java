@@ -1,30 +1,34 @@
 package com.remedy.programManagement;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
-public class CreatePGPOrganization extends BaseClass {
-
+public class CreatePGPOrganization extends BaseClass{
+	public static HashMap<String, String> tempPGPOrg = new HashMap<String, String>();
+	public static HashMap<String, String> pgpOrg = new HashMap<String, String>();
+	public static HashMap<String, String> pgpOrg_noMO = new HashMap<String, String>();
+	public static String oldPGP_WithoutMO;
+	public static String oldPGP_WithMO;
+	
 	public CreatePGPOrganization(WebDriver driver) {
 		super(driver);
 	}
+
+	public void iSelectRegionOnOrganizationPage(String text, String field){
+		if(!text.isEmpty()){
+    	    driver.findElement(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")).sendKeys(text);
+    	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    	}
+	}
 	
-	WebDriverWait wait = new WebDriverWait(driver, 20);
-	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
-	Date timestamp = new Date();
-	final String time = df.format(timestamp);
-	static String orgName;
-	
-    public void iEnterORGNameOnCreatePGPOrganizationPage(String text, String field) {
-    	orgName= text+time+"ORGName";
-    	System.out.println(orgName);
-    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), orgName);
-    }
+	public void iSelectMarketOnOrganizationPage(String text, String field){
+		if(!text.isEmpty()){
+    	    driver.findElement(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).sendKeys(text);;
+    	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    	}
+	}
 }

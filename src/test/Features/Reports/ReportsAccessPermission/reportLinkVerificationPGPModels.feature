@@ -21,7 +21,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Patient ID" under reports tile text
     And I wait to see "Patient ID" under reports tile text
@@ -243,7 +243,6 @@ Feature: User only see reports per report tiles based on their role (external an
     And I navigate back
     Then I verify current page "Reports" title
     And I wait to see "Readmissions" under reports tile text
-    When I click on "Readmissions" reports text for "Readmissions" report tile
     When I click on the Reports Tile with text "<Menu 6>"
     When I click on "Readmissions (Claims)" reports text for "Readmissions" report tile
     And I wait for the reports embedded iframe to load
@@ -277,7 +276,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
@@ -424,7 +423,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Overall Program" under reports tile text
     And I should see Reports Tile text as <Menu 2>
@@ -581,7 +580,7 @@ Feature: User only see reports per report tiles based on their role (external an
     And I will wait to see "Overall Program" under program overview report in iframe
     Then I should see "Overall Program" appearing under program overview reports
     And I navigate back
-    And I wait to see "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
     And I wait to see "Patient ID" under reports tile text
     And I should see Reports Tile text as <Menu 2>

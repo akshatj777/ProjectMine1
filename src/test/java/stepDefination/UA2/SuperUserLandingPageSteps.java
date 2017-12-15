@@ -33,19 +33,16 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnCloseIconFromAddUserPage();
 	}
 
-	@Then("^I verify UI of landing page$")
-	public void i_verify_landing_page_UI() throws Throwable {
-		ua2LandingPage.iVerifyLandingPageUI();
+	@Then("^I verify \"([^\"]*)\" on landing page$")
+	public void i_verify_on_landing_page(String text) throws Throwable {
+	   ua2LandingPage.iVerifyLandingPageUI(text);
 	}
 
-	@Then("^I enter email field \"([^\"]*)\" for login$")
-	public void i_enter_email_field_for_login(String arg1) throws Throwable {
 
-	}
 
-	@Then("^I verify user information$")
-	public void i_verify_user_information() throws Throwable {
-		ua2LandingPage.verifyUserInformation();
+	@Then("^I verify \"([^\"]*)\" value for users on landing page$")
+	public void i_verify_for_all_users_on_landing_page(String arg1) throws Throwable {
+	  ua2LandingPage.verifyUserInformation(arg1);
 	}
 
 	@Then("^I click on the top user link$")
@@ -108,10 +105,6 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnUsersLink();
 	}
 
-	@Then("^I am on landing page$")
-	public void i_am_on_refreshed_landing_page() throws Throwable {
-		ua2LandingPage.iVerifyLandingPageUI();
-	}
 
 	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
 	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
