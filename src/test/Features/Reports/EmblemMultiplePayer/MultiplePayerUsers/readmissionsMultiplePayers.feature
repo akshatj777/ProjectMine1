@@ -59,7 +59,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     #And I should see "<payer1>" in the filter value list
     And I should see "<payer2>" in the filter value list
     And I click on "<payer2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<payer2>" result in "Payer" field column for "Episode Initiator" filter field
@@ -68,7 +68,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "Participant" in the header text of filter page
     And I should see "<participant>" in the filter value list
     And I click on "<participant>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
@@ -78,7 +78,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "<anchorFacility1>" in the filter value list
     And I should see "<anchorFacility2>" in the filter value list
     And I click on "<anchorFacility1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
@@ -87,7 +87,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiator1>" in the filter value list
     And I click on "<episodeInitiator1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
@@ -96,7 +96,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "CCN" in the header text of filter page
     And I should see "<ccn3>" in the filter value list
     And I click on "<ccn3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<ccn3>" result in "CCN" field column for "Anchor Facility" filter field
@@ -105,7 +105,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID3>" in the filter value list
     And I click on "<BPID3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID3>" result in "BPID" field column for "Episode Initiator" filter field
@@ -114,7 +114,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "Participant ID" in the header text of filter page
     And I should see "<participant id2>" in the filter value list
     And I click on "<participant id2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant id2>" result in "Participant ID" field column for "Episode Initiator" filter field
@@ -154,7 +154,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
     And I click on "<payer1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<payer1>" result in "Payer" field column for "Episode Initiator" filter field
@@ -167,7 +167,7 @@ Feature: Verification of filters under Readmissions report under Readmissions fo
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
     And I click on "<payer1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<payer1>" result in "Payer" field column for "Episode Initiator" filter field
