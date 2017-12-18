@@ -720,9 +720,9 @@ Feature: Verification of SNF Volume Claims Report
     And I should see "<postacutetype1>" in the filter value list
     And I should see "<postacutetype2>" in the filter value list
     And I click on "<postacutetype1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<postacutetype2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Post Acute Type includes HHA and SNF" is appearing under selected post acute type filter
@@ -745,7 +745,7 @@ Feature: Verification of SNF Volume Claims Report
     And I should see "<networktier3>" in the filter value list
     #Filtering(Out Of Network)
     And I click on "<networktier1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes <networktier1>" is appearing under selected network tier filter
@@ -756,7 +756,7 @@ Feature: Verification of SNF Volume Claims Report
     And I choose "Filter" option from select options of filter field
     And I should see "Network Tier" in the header text of filter page
     And I click on "<networktier2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes Tier 1" is appearing under selected network tier filter
@@ -767,7 +767,7 @@ Feature: Verification of SNF Volume Claims Report
     And I choose "Filter" option from select options of filter field
     And I should see "Network Tier" in the header text of filter page
     And I click on "<networktier3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes Tier 2" is appearing under selected network tier filter
