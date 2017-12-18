@@ -52,3 +52,41 @@ Feature: Episode Connect export patient list
       | email                | password  |
       | qa.admin@yopmail.com | Episode1! |
   
+  Scenario Outline: Validate pop up cannot export list under export patient list
+
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field <password> for Login
+    Then I click Access button
+    And I wait for 2000 milli seconds
+    Then I should see Tile text Episodes
+
+    And I click on the "Episodes" tile
+    And I switch to new window
+    Then I should see Episode header text "Dashboard"
+    When I click on "Patients" in the left navigator present on the episode dashboard page
+	
+	Then I click on "Patient List" present in the Patients dropdown menu
+    Then I should see patient list count info present on the patient list page
+    Then I verify export button is present on the patient list page
+    Then I click on the export button present on the patient list page
+    Then I verify "Cannot Export List" on export list
+    
+    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
+    And I search "SSN" from the list of Filter
+    Then I click on the "SSN" filter
+    Then I click on "Any" button for "SSN" filter
+    Then I search "123456987" in "SSN" filter
+    
+    Then I should see patient list count info present on the patient list page
+    Then I verify export button is present on the patient list page
+    Then I click on the export button present on the patient list page
+    Then I verify "Cannot Export List" on export list
+    
+#	And I click on the select all option present on the export list page
+#	And I click on the download file button present on the export list page
+	
+    Examples:
+
+      | email                | password  |
+      | qa.admin@yopmail.com | Episode1! |

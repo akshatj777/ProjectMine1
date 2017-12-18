@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -90,6 +91,7 @@ public class CommonFeature extends BaseClass {
    public void iSearchFilter(String filter) {
 		iFillInText(driver.findElement(By.xpath("//input[contains(@placeholder,'Find column')]")),filter);
 	}
+   
 
   public void inavigatetothepatientssummarypage(String URL) {
 	  URL=driver.findElement(By.xpath("//a[contains(@onclick,'Expand Icon')]")).getAttribute("href");

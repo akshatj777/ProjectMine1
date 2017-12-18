@@ -1,8 +1,12 @@
 package com.remedy.episode1;
 
-import com.remedy.baseClass.BaseClass;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.server.handler.ClickElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import com.remedy.baseClass.BaseClass;
 
 /**
  * Created by salam on 5/10/16.
@@ -55,7 +59,9 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnLoadFilterInToLoadThePatientListPresentOnThePatientsDropdown(String text){
-    	clickElement(driver.findElement(By.cssSelector("a[data-name='Inpatient Episodes']~ul>li:nth-child(1)>a")));
+    	//clickElement(driver.findElement(By.cssSelector("a[data-name='Inpatient Episodes']~ul>li:nth-child(1)>a")));
+    	iWillWaitToSee(By.xpath("//a[@name='"+text+"' and text()='Load filter']"));
+    	clickElement(driver.findElement(By.xpath("//a[@name='"+text+"' and text()='Load filter']")));
     }
     
     public void iShouldSeePresentOnThePatientListFilterPagePresentOnThePatientListPage(String text){
@@ -63,6 +69,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iShouldSeePatientListCountInfoPresentOnThePatientListPage(){
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
     	isElementVisible(driver.findElement(By.cssSelector("div.count_info")));	
     }
     
@@ -72,10 +79,21 @@ public class PatientsListPage extends BaseClass {
     
     public void iClickOnTheExportButtonPresentOnThePatientListPage(){
     	clickElement(driver.findElement(By.cssSelector("button.export-csv")));
+    	iWillWaitToSee(By.cssSelector(".modal-title"));
     }
     
     public void iClickOnTheSelectAllOptionPresentOnTheExportListPage(){
     	clickElement(driver.findElement(By.cssSelector("#modal-select-all")));
+    }
+    
+    public void iClickOnTheDownloadFileButtonPresentOnTheExportListPage(){
+    	clickElement(driver.findElement(By.cssSelector("#modal-download-file")));
+    }
+    
+    public void iVerifyHeaderOnEportListPage(String text){
+    	String actual = getTextForElement(driver.findElement(By.cssSelector("h2")));
+    	Assert.assertEquals(text, actual.trim());
+    	
     }
     
     public void iClickOnTheCancelButtonPresentOnTheExportListPage(){
@@ -136,6 +154,18 @@ public class PatientsListPage extends BaseClass {
     
     public void iClickOnTheClearFilterButtonPresentOnThePatientPage(){
     	clickElement(driver.findElement(By.cssSelector("a#filter-clear-button")));
+    }
+    
+    public void iClickOnButtonForFilters(String button, String filter){
+    	clickElement(driver.findElement(By.xpath("//div[label[contains(text(),'"+filter+"')]]//span[text()='"+button+"']")));
+    }
+    
+    public void iSearchTextInFilter(String text, String filter){
+    	iWillWaitToSee(By.xpath("//input[@placeholder='"+filter+"']"));
+    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+filter+"']")), text);
+    	driver.findElement(By.xpath("//label[contains(text(),'SSN')]")).sendKeys(Keys.TAB);;
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+
     }
 
 

@@ -90,6 +90,16 @@ public class PatientListPageSteps extends DriverScript {
     public void i_click_on_the_select_all_option_present_on_the_export_list_page() throws Throwable {
     	patientsList.iClickOnTheSelectAllOptionPresentOnTheExportListPage();
     }
+    
+    @Then("^I click on the download file button present on the export list page$")
+    public void i_click_on_the_download_file_button_present_on_the_export_list_page() throws Throwable {
+    	patientsList.iClickOnTheDownloadFileButtonPresentOnTheExportListPage();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" on export list$")
+    public void i_verify_header_on_the_export_list_page(String text) throws Throwable {
+    	patientsList.iVerifyHeaderOnEportListPage(text);
+    }
 
     @Then("^I click on the cancel button present on the export list page$")
     public void i_click_on_the_cancel_button_present_on_the_export_list_page() throws Throwable {
@@ -164,6 +174,16 @@ public class PatientListPageSteps extends DriverScript {
     @Then("^I click on the clear filter button present on the patient page$")
     public void i_click_on_the_clear_filter_button_present_on_the_patient_page() throws Throwable {
     	patientsList.iClickOnTheClearFilterButtonPresentOnThePatientPage();
+    }
+    
+    @Then("^I click on \"([^\"]*)\" button for \"([^\"]*)\" filter$")
+    public void i_click_on_button_for_Filter(String button, String filter) throws Throwable {
+    	patientsList.iClickOnButtonForFilters(button,filter);
+    }
+    
+    @Then("^I search \"([^\"]*)\" in \"([^\"]*)\" filter$")
+    public void i_search_text_in_filter(String text, String filter) throws Throwable {
+    	patientsList.iSearchTextInFilter(text,filter);
     }
 
    

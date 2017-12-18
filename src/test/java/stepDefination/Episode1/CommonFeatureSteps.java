@@ -52,7 +52,7 @@ public class CommonFeatureSteps extends DriverScript {
 	public void i_Search_Filter(String Filter) {
 		common.iSearchFilter(Filter);
 	}
-
+	
 	@And("^I navigate to the filtered patient summary page \"([^\"]*)\"$")
 	public void i_navigate_to_the_patients_summary_page(String Url) {
 		common.inavigatetothepatientssummarypage(Url);
