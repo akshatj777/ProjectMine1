@@ -61,9 +61,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
@@ -96,9 +96,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <Address2> in "Address 2" on create organization page
     And I enter <City> in "City" on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
@@ -108,25 +108,25 @@ Feature: Create Hospital organization functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                      | Hosp_Name                                                                    | Address1                                       | Short_Name                                     | Address2                                       | City                                           | Postal_Code | Loc_Name                                       | Loc_Address1                                   | Loc_Address2                                   | Loc_City                                       | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
-      | Check Character Limit for ACH name field                         | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               |               |               | The Organization Name may not be greater than 75 characters.   |
-      | Check Character Limit for Address1 field                         |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               |               |               | The first address line may not be greater than 45 characters.  |
-      | Check Character Limit for Short Name field                       |                                                                              |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               |               |               | The shortName may not be greater than 45 characters.           |
-      | Check Character Limit for Address2 field                         |                                                                              |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |             |                                                |                                                |                                                |                                                |                 |               |               |               | The second address line may not be greater than 45 characters. |
-      | Check Character Limit for City field                             |                                                                              |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |             |                                                |                                                |                                                |                                                |                 |               |               |               | The City may not be greater than 45 characters.                |
-      | Check Character Limit for Postal code field                      |                                                                              |                                                |                                                |                                                |                                                | 10000-00000 |                                                |                                                |                                                |                                                |                 |               |               |               | Please enter a valid Zip Code                                  |
-      | Check Character Limit for Location name field                    |                                                                              |                                                |                                                |                                                |                                                |             | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |                 |               |               |               | The locationName may not be greater than 45 characters.        |
-      | Check Character Limit for Location Address1 field                |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                                                |             |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                                                |                 |               |               |               | The first address line may not be greater than 45 characters.  |
-      | Check Character Limit for Location Address2 field                |                                                                              |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |             |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                |                 |               |               |               | The second address line may not be greater than 45 characters. |
-      | Check Character Limit for Location City field                    |                                                                              |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |             |                                                |                                                |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                 |               |               |               | The City may not be greater than 45 characters.                |
-      | Check Character Limit for Location Postal code field             |                                                                              |                                                |                                                |                                                |                                                | 10000-00000 |                                                |                                                |                                                |                                                | 10000-00000     |               |               |               | Please enter a valid Zip Code                                  |
-      | Check Character Limit for CCN field - Less than 6 characters     |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 | lessThan6     |               |               | The CCN must be at least 6 characters.                         |
-      | Check Character Limit for CCN field - Greater than 10 characters |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 | greaterThan10 |               |               | The CCN may not be greater than 10 characters.                 |
-      | Check Character Limit for EIN field                              |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               | greaterThan10 |               | The EIN may not be greater than 10 characters.                 |
-      | Check Character Limit for NPI field                              |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               |               | greaterThan10 | The NPI may not be greater than 10 characters.                 |
-      | Check Allowed Characters for CCN field                           |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 | @$%^&6!*&57   |               |               | The CCN field must be alphanumeric.                            |
-      | Check Allowed Characters for EIN field                           |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               | $@^&*%67$^&   |               | The EIN field must be alphanumeric.                            |
-      | Check Allowed Characters for NPI field                           |                                                                              |                                                |                                                |                                                |                                                |             |                                                |                                                |                                                |                                                |                 |               |               | *@$%^93%#^&4  | The NPI field must be alphanumeric.                            |
+      | Description                                                      | Hosp_Name                                                                    | Address1                                                  | Short_Name                                     | Address2                                                  | City                                           | Postal_Code | Loc_Name                                                                     | Loc_Address1                                              | Loc_Address2                                              | Loc_City                                                  | Loc_Postal_Code | CCN           | EIN           | NPI           | ValidationMessage                                              |
+      | Check Character Limit for ACH name field                         | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The Organization Name may not be greater than 75 characters.   |
+      | Check Character Limit for Address1 field                         |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
+      | Check Character Limit for Short Name field                       |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The shortName may not be greater than 45 characters.           |
+      | Check Character Limit for Address2 field                         |                                                                              |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The second address line may not be greater than 55 characters. |
+      | Check Character Limit for City field                             |                                                                              |                                                           |                                                |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | The City may not be greater than 45 characters.                |
+      | Check Character Limit for Postal code field                      |                                                                              |                                                           |                                                |                                                           |                                                | 10000-00000 |                                                                              |                                                           |                                                           |                                                           |                 |               |               |               | Please enter a valid Zip Code                                  |
+      | Check Character Limit for Location name field                    |                                                                              |                                                           |                                                |                                                           |                                                |             | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                           |                                                           |                 |               |               |               | The Location Name may not be greater than 75 characters.       |
+      | Check Character Limit for Location Address1 field                |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst            |                                                |                                                           |                                                |             |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                           |                                                           |                 |               |               |               | The first address line may not be greater than 55 characters.  |
+      | Check Character Limit for Location Address2 field                |                                                                              |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst            |                                                |             |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstjklmnopqrst |                                                           |                 |               |               |               | The second address line may not be greater than 55 characters. |
+      | Check Character Limit for Location City field                    |                                                                              |                                                           |                                                |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |             |                                                                              |                                                           |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                 |               |               |               | The City may not be greater than 45 characters.                |
+      | Check Character Limit for Location Postal code field             |                                                                              |                                                           |                                                |                                                           |                                                | 10000-00000 |                                                                              |                                                           |                                                           |                                                           | 10000-00000     |               |               |               | Please enter a valid Zip Code                                  |
+      | Check Character Limit for CCN field - Less than 6 characters     |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 | lessThan6     |               |               | The CCN must be at least 6 characters.                         |
+      | Check Character Limit for CCN field - Greater than 10 characters |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 | greaterThan10 |               |               | The CCN may not be greater than 10 characters.                 |
+      | Check Character Limit for EIN field                              |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               | greaterThan10 |               | The EIN may not be greater than 10 characters.                 |
+      | Check Character Limit for NPI field                              |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               | greaterThan10 | The NPI may not be greater than 10 characters.                 |
+      | Check Allowed Characters for CCN field                           |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 | @$%^&6!*&57   |               |               | The CCN field must be alphanumeric.                            |
+      | Check Allowed Characters for EIN field                           |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               | $@^&*%67$^&   |               | The EIN field must be alphanumeric.                            |
+      | Check Allowed Characters for NPI field                           |                                                                              |                                                           |                                                |                                                           |                                                |             |                                                                              |                                                           |                                                           |                                                           |                 |               |               | *@$%^93%#^&4  | The NPI field must be alphanumeric.                            |
 
   Scenario Outline: <Description>
     Then I click on "+" button on "Hospital" organization page
@@ -140,9 +140,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -150,7 +150,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -161,7 +161,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -187,9 +187,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -197,7 +197,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -208,7 +208,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -231,9 +231,9 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I verify "Location 1" on "Create Hospital" organization page
     And I enter location name <Loc_Name1> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
@@ -241,7 +241,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -252,7 +252,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
     And I select region <Loc_Region> for Location "2" on "create" organization page
     And I enter city <Loc_City> for Location "2" on "create" organization page
-    And I select market <Loc_Market> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -263,7 +263,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "3" on "create" organization page
     And I select region <Loc_Region> for Location "3" on "create" organization page
     And I enter city <Loc_City> for Location "3" on "create" organization page
-    And I select market <Loc_Market> for Location "3" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "3" on "create" organization page
     And I select state <Loc_State> for Location "3" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "3" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -274,7 +274,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "4" on "create" organization page
     And I select region <Loc_Region> for Location "4" on "create" organization page
     And I enter city <Loc_City> for Location "4" on "create" organization page
-    And I select market <Loc_Market> for Location "4" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "4" on "create" organization page
     And I select state <Loc_State> for Location "4" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "4" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -285,7 +285,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "5" on "create" organization page
     And I select region <Loc_Region> for Location "5" on "create" organization page
     And I enter city <Loc_City> for Location "5" on "create" organization page
-    And I select market <Loc_Market> for Location "5" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "5" on "create" organization page
     And I select state <Loc_State> for Location "5" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "5" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -296,7 +296,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "6" on "create" organization page
     And I select region <Loc_Region> for Location "6" on "create" organization page
     And I enter city <Loc_City> for Location "6" on "create" organization page
-    And I select market <Loc_Market> for Location "6" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "6" on "create" organization page
     And I select state <Loc_State> for Location "6" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "6" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -307,7 +307,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "7" on "create" organization page
     And I select region <Loc_Region> for Location "7" on "create" organization page
     And I enter city <Loc_City> for Location "7" on "create" organization page
-    And I select market <Loc_Market> for Location "7" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "7" on "create" organization page
     And I select state <Loc_State> for Location "7" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "7" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -318,7 +318,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "8" on "create" organization page
     And I select region <Loc_Region> for Location "8" on "create" organization page
     And I enter city <Loc_City> for Location "8" on "create" organization page
-    And I select market <Loc_Market> for Location "8" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "8" on "create" organization page
     And I select state <Loc_State> for Location "8" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "8" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -329,7 +329,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "9" on "create" organization page
     And I select region <Loc_Region> for Location "9" on "create" organization page
     And I enter city <Loc_City> for Location "9" on "create" organization page
-    And I select market <Loc_Market> for Location "9" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "9" on "create" organization page
     And I select state <Loc_State> for Location "9" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "9" on "create" organization page
     Then I click on "+" button on "Hospital" organization page
@@ -340,7 +340,7 @@ Feature: Create Hospital organization functionality tests
     And I enter address2 <Loc_Address2> for Location "10" on "create" organization page
     And I select region <Loc_Region> for Location "10" on "create" organization page
     And I enter city <Loc_City> for Location "10" on "create" organization page
-    And I select market <Loc_Market> for Location "10" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "10" on "create" organization page
     And I select state <Loc_State> for Location "10" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "10" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -363,16 +363,16 @@ Feature: Create Hospital organization functionality tests
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
     And I select region <Loc_Region> for Location "1" on "create" organization page
     And I enter city <Loc_City> for Location "1" on "create" organization page
-    And I select market <Loc_Market> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
     And I select state <Loc_State> for Location "1" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "Submit" button on "create" organization page
@@ -389,7 +389,7 @@ Feature: Create Hospital organization functionality tests
       | Create Hospital Organization with Mandatory fields + ShortName + Location Type - With MO                                | YES    | MONAME       | ACHNAME       | Address1 | Short_Name |          | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient |            |            |              | Loc_City | California |           10000 | CCN | EIN |     | Success! Hospital Organization Successfully Created.                                                    |
       | Create Hospital Organization with Mandatory fields + ShortName + Address2 + Location Type - With MO                     | YES    | MONAME       | ACHNAME       | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient |            |            | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN |     | Success! Hospital Organization Successfully Created.                                                    |
       | Create Hospital Organization with Mandatory fields + ShortName + Address2 + Location Region + Location Market - With MO | YES    | MONAME       | ACHNAME       | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 |           | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN |     | Success! Hospital Organization Successfully Created.                                                    |
-      | Create Hospital Organization with Mandatory fields + Address2 + Location Type + Location Address2 - Without MO          | NO     | MONAME       | ACHNAME       | Address1 |            | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient |            |            | Loc_Address2  | Loc_City | California |           10000 | CCN | EIN |     | Success! Hospital Organization Successfully Created.                                                    |
+      | Create Hospital Organization with Mandatory fields + Address2 + Location Type + Location Address2 - Without MO          | NO     | MONAME       | ACHNAME       | Address1 |            | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient |            |            | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN |     | Success! Hospital Organization Successfully Created.                                                    |
       | Create Hospital Organization with Mandatory fields - With MO                                                            | YES    | MONAME       | ACHNAME       | Address1 |            |          | City | California |       10000 | Loc_Name | Loc_Address1 |           |            |            |              | Loc_City | California |           10000 | CCN |     |     | Success! Hospital Organization Successfully Created.                                                    |
       | Create Duplicate Hospital Organization with Mandatory fields - Without MO                                               | NO     | MONAME       | DUPLICATE_ACH | Address1 |            |          | City | California |       10000 | Loc_Name | Loc_Address1 |           |            |            |              | Loc_City | California |           10000 | CCN |     |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
       | Create Duplicate Hospital Organization with Mandatory fields - With MO                                                  | YES    | MONAME       | DUPLICATE_ACH | Address1 |            |          | City | California |       10000 | Loc_Name | Loc_Address1 |           |            |            |              | Loc_City | California |           10000 | CCN |     |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
@@ -399,9 +399,9 @@ Feature: Create Hospital organization functionality tests
   Scenario Outline: Identifiers - <Description>
     Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I switch the focus to "submit" button
     And I verify "<Message>" field validation message on create organization page
     And I verify "<Message1>" field validation message on create organization page

@@ -27,29 +27,45 @@ public class ViewProfileManagingOrganization extends BaseClass{
 				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
 			}
 		}
-		else {
+		else if(text.contains("PGPNAME")){
+			if (text.contains("YES")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+			else if (text.contains("NO")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+		}
+		else if(text.contains("PAYORNAME")){
+			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"']"));
+		}
+		else if(text.contains("SNFNAME")){
+			if (text.contains("YES")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+			else if (text.contains("NO")){
+				isElementPresentOnPage(By.xpath("//a[@href='mailto:"+CreateManagingOrganization.moOrg.get("MONAME")+"']"));
+			}
+		}
+		else
+		{
 			isElementPresentOnPage(By.xpath("//a[@href='mailto:"+text+"']"));
 		}
 	}
 	
 	public void iVerifyParticipantIdOnVewProfileOfOrganization(String org) throws ClassNotFoundException, SQLException
 	{
-		if (org.contains("YES")){
+		if (org.contains("Managing")){
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
 		    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
 		    String pID = fetchParticipantID(query);
 			Assert.assertEquals("Participant Id: "+pID+"|", text);
 		}
-		else if (org.contains("NO")){
-			
-		}
-		else {
+		else if (org.contains("Payor")){
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
-		    String query = "SELECT participant_id from program_management.organization where name = '"+CreateManagingOrganization.moOrg.get("MONAME")+"'";
+		    String query = "SELECT participant_id from program_management.organization where name = '"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"'";
 		    String pID = fetchParticipantID(query);
 			Assert.assertEquals("Participant Id: "+pID+"|", text);
 		}
-		
 	}
 	
 	public void iVerifyDetailsInFieldOnViewProfileOfOrganization(String text, String sel) {
@@ -110,4 +126,3 @@ public class ViewProfileManagingOrganization extends BaseClass{
 		iVerifyTextFromListOfElement(By.cssSelector(".col-md-offset-11"), button);
 	}
 }
-
