@@ -808,7 +808,7 @@ Feature: Verification Claims Report For Performance (Claims)
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier includes Tier 1" is appearing under selected network tier filter
+    Then I verify "Network Tier includes <networktier2>" is appearing under selected network tier filter
     And I verify "<networktier2>" is visible under "Network Tier" column in the report
     Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
     #Filtering(Tier 2)
@@ -819,7 +819,7 @@ Feature: Verification Claims Report For Performance (Claims)
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier includes Tier 2" is appearing under selected network tier filter
+    Then I verify "Network Tier includes <networktier3>" is appearing under selected network tier filter
     And I verify "<networktier3>" is visible under "Network Tier" column in the report
 
     Examples: 

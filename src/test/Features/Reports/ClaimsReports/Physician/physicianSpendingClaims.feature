@@ -683,7 +683,6 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
 
     Examples: 
       | email                         |
-<<<<<<< HEAD
       | shutestaug231132a@yopmail.com |
 
   Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for volume claims report under physician
@@ -804,6 +803,3 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     Examples: 
       | email                              |
       | RPFINClaimsSNFHHATier1@yopmail.com |
-=======
-      | shutestaug231132a@yopmail.com |
->>>>>>> 55c0a19ee9b9c22eb162c579eba049f9890e564e

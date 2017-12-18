@@ -96,6 +96,64 @@ public class CreateACHOrganization extends BaseClass{
 				delay();
 			}
 		}
+		if (id.contains("Payor"))
+		{
+			if((id.substring(id.indexOf("-")+1).trim()).equals("EIN"))
+			{
+				CreatePayorOrganization.tempPayorOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN"))
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("EIN"));
+			}
+			else if(id.contains("greaterThan10"))
+			{
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else 
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
+		}
+		if (id.contains("SNF")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
+				CreateSNFOrganization.tempSNFOrg.put("CCN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
+				CreateSNFOrganization.tempSNFOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
+				CreateSNFOrganization.tempSNFOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("NPI"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_CCN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("NPI"));
+			}
+			else if(id.contains("lessThan6")){
+				String value = createRandomNumber(5);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else 
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
+		}
 	}
 	
 	public void iEnterLocationNameForLocationOnACHOrg(String text, int num) {
@@ -123,7 +181,8 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterRegionForLocationOnACHOrg(String text, int num) {
-    	if(!text.isEmpty()){
+    	if(!text.isEmpty())
+    	{
     		num = num-1;
     	    driver.findElements(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
@@ -136,8 +195,10 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterMarketForLocationOnACHOrg(String market, String region, int num) {
-    	if(!region.isEmpty()){
-    		if(!market.isEmpty()){
+    	if(!region.isEmpty())
+    	{
+    		if(!market.isEmpty())
+    		{
         		num = num-1;
         	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(market);
         	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+market+"']")));
@@ -146,8 +207,7 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterStateForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
+    	driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	if(!text.isEmpty()){
     	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
     	}
@@ -159,25 +219,30 @@ public class CreateACHOrganization extends BaseClass{
     }
 
 	public void iSelectRadioButtonForManagingOrganization(String text) { 
-		if(text.equalsIgnoreCase("YES")) {
+		if(text.equalsIgnoreCase("YES"))
+		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='true']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='true']")));
 		}
-		else if (text.equalsIgnoreCase("NO")){
+		else if (text.equalsIgnoreCase("NO"))
+		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='false']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='false']")));
 		}
 	}
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String managingOrg, String text) {
-		if(text.equalsIgnoreCase("YES")){
-			if(managingOrg.equalsIgnoreCase("BLANK")){
+		if(text.equalsIgnoreCase("YES"))
+		{
+			if(managingOrg.equalsIgnoreCase("BLANK"))
+			{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), "");	
 			}
 			else if (managingOrg.contains("Invalid")){
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);	
 			}
-			else {
+			else 
+			{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
 				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 			}
