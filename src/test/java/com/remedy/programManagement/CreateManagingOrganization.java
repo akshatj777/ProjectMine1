@@ -16,6 +16,7 @@ public class CreateManagingOrganization extends BaseClass {
 	public static HashMap<String, String> tempMoOrg = new HashMap<String, String>();
 	public static HashMap<String, String> moOrg = new HashMap<String, String>();
 	public static String moName;
+	
 	public CreateManagingOrganization(WebDriver driver) {
 		super(driver);
 	}
@@ -111,6 +112,14 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
 		}
+		else if(text.equals("SNFNAME")) {
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
+		else if(text.equals("DUPLICATE_ACH"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+		}
 		else 	
 		{
 	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
@@ -193,14 +202,37 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
+				else if(org.contains("SNF - YES"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreateSNFOrganization.tempSNFOrg.isEmpty())
+						{
+							CreateSNFOrganization.SNFOrg.putAll(CreateSNFOrganization.tempSNFOrg);
+							CreateSNFOrganization.tempSNFOrg.clear();
+						}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("SNF - NO"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreateSNFOrganization.tempSNFOrg.isEmpty())
+					{
+						CreateSNFOrganization.SNFOrg_noMO.putAll(CreateSNFOrganization.tempSNFOrg);
+						CreateSNFOrganization.tempSNFOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
 			}
 	    	else 
 	    	{
 	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
 	    		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 	    		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-	    	}
-				
+	    	}	
 	}
 	
 	public void iSwitchFocusToButton(String text) {
