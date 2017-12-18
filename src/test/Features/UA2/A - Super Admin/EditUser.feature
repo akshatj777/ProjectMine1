@@ -36,9 +36,9 @@ Feature: Edit page for superuser verification
     Then I pick a Organizational <Role>
     Then I click on Next button
     Then I select "<Applications>" product
-    Then I click on Select button
-    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    Then I select "<LearningPathwaySearchParameter>" from the results
+    #Then I click on Select button
+    #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+    #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Submit button
     And I wait for 3000 milli seconds
@@ -52,7 +52,7 @@ Feature: Edit page for superuser verification
 
     Examples: 
       | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone      | Role    | NPI | Applications |
-      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Manager |     | Episodes, Lessons     |
+      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Manager |     | Episodes     |
 
   #| Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Case Manager                    |     |Episodes|
   #| Login with Super Admin User and Edit user to Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Physicians                      | NPI |Episodes|
@@ -82,10 +82,11 @@ Feature: Edit page for superuser verification
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
-    And I wait for 3000 milli seconds
-    Then I click on Next button
-    Then I select "<ApplicationsNotVisible>" product
+    Then I select "Applications" tab
+    Then I deselect "<ApplicationsNotVisible>" product
+    And I verify that "<ApplicationsNotVisible>" are "deselected"
     Then I select "<Applications>" product
+    And I verify that "<Applications>" are "selected"
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
@@ -124,8 +125,8 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | User        | Role      | Applications                               | ApplicationsNotVisible                   | LearningPathwaySearchParameter | Health System     |
-      | Super Admin | Executive | Administration, Physician Connect, Lessons | Episodes | Learning Pathway 2             | Stamford Hospital |
+      | User        | Role      | Applications               | ApplicationsNotVisible                   | LearningPathwaySearchParameter | Health System     |
+      | Super Admin | Executive | Episodes, Reports, Lessons | Reports, Episodes, Episodes 2.0, Lessons | Learning Pathway 2            | Stamford Hospital |
 
   #| Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect, Lessons        | Learning Pathway 2             | Stamford Hospital |
   #| Administration, Physician Connect , Lessons       | Episodes, Episodes 2.0, Reports, Lessons | Learning Pathway 2             | Stamford Hospital |

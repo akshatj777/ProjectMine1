@@ -3,10 +3,12 @@ package com.remedy.UA2;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -93,5 +95,31 @@ public class EditUser extends BaseClass {
 	
 	public void iClickOnRoleFieldToEdit(){
 		clickElement(driver.findElement(By.cssSelector(".ui.fluid.selection.dropdown")));
+	}
+	
+	public void iClickOnApplicationTab(String text){
+		iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+	}
+	
+	public void iVerifyThatApplicationsAreEditable(String app, String text){
+		delay();
+		WebElement e=driver.findElement(By.xpath("//button[.='Next >']"));
+		if(text.equalsIgnoreCase("deselected"))
+    	{
+			System.out.println("deselected: "+e.isEnabled());
+			Assert.assertFalse(e.isEnabled());
+    	}
+		else if(text.equalsIgnoreCase("selected"))
+    	{
+			String[] application=app.split(",\\s+");
+	   		
+	   		for (int i=0;i<application.length;i++){
+	   		System.out.println("selecting list "+application[i]);
+			iWillWaitToSee(By.cssSelector("div.ui.checked.checkbox"));
+			verifyTextForElementfromList("div.ui.checked.checkbox",application[i]);
+	   		}
+			
+    	}
 	}
 }

@@ -2,6 +2,7 @@ package stepDefination.UA2;
 
 import com.remedy.UA2.EditUser;
 import com.remedy.resources.DriverScript;
+import com.remedy.userAdmin.CreateUserPage;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -10,6 +11,7 @@ import cucumber.api.java.en.When;
 
 public class EditUserSteps extends DriverScript {
 EditUser editUser= new EditUser(driver);
+CreateUserPage createUserPage=new CreateUserPage(driver);
 	@Then("^I select user with email \"([^\"]*)\"$")
 	public void i_select_user(String email) throws Throwable {
 	 editUser.iClickOnUser(email);
@@ -58,4 +60,20 @@ EditUser editUser= new EditUser(driver);
 		editUser.iClickOnRoleFieldToEdit();
 	}
 	
+	
+	@Then("^I select \"([^\"]*)\" tab$")
+	public void iSelectApplicationTab(String tab) throws Throwable {
+		editUser.iClickOnApplicationTab(tab);
+	}
+		
+	
+	@Then("^I deselect \"([^\"]*)\" product$")
+	public void ideSelectTileForTheRole(String appList) throws Throwable {
+		createUserPage.iDeselectTileForTheRole(appList);
+	}
+
+	@Then("^I verify that \"([^\"]*)\" are \"([^\"]*)\"$")
+	public void i_verify_that_Episodes_Reports_Lessons_are(String apps, String select) throws Throwable {
+	    editUser.iVerifyThatApplicationsAreEditable(apps, select);
+	}
 }

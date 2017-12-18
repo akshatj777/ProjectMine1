@@ -280,21 +280,43 @@ public class CreateUserPage extends BaseClass{
     public void iSelectTileForTheRole(String appList){
     	
     	if(appList.contains(","))
-    	{
-    		StringTokenizer st = new StringTokenizer(appList,",");
-            while (st.hasMoreTokens()) {  
-            	iWillWaitToSee(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
-            	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
-            }
-    	}
-    	else
-    	{
-    		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
-    		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
-    	}
-    	userApplications = appList;
-    	 
-    }
+       	{
+       		String[] apps=appList.split(",\\s+");
+       		
+       		for (int i=0;i<apps.length;i++){
+       			System.out.println("selecting list "+apps[i]);
+       			iWillWaitToSee(By.xpath("//label[.='"+apps[i]+"']"));
+         	  clickElement(driver.findElement(By.xpath("//label[.='"+apps[i]+"']")));
+       		}
+       		        
+       	}
+       	else
+       	{
+       		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
+       		System.out.println("deselecting "+appList);
+       		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
+       	}
+       	userApplications = appList;
+       	 
+       }
+     	
+    	
+//    	if(appList.contains(","))
+//    	{
+//    		StringTokenizer st = new StringTokenizer(appList,",");
+//            while (st.hasMoreTokens()) {  
+//            	iWillWaitToSee(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
+//            	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
+//            }
+//    	}
+//    	else
+//    	{
+//    		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
+//    		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
+//    	}
+//    	userApplications = appList;
+//    	 
+//    }
 
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
@@ -551,7 +573,7 @@ public class CreateUserPage extends BaseClass{
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
-		
+		iWillWaitToSee(By.xpath("//button[.='Submit']"));
 		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 		HashMap<String,String> emailList = new HashMap<String,String>();
@@ -618,6 +640,7 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void selectLearningPath(String searchParam) throws Throwable {
+	   iWillWaitToSee(By.xpath("//label[contains(text(),'"+searchParam+"')]"));
        clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
    }
    
@@ -863,4 +886,26 @@ public class CreateUserPage extends BaseClass{
 		getTextForElement(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1")));
 	}
    
+   public void iDeselectTileForTheRole(String appList){
+	   
+   	if(appList.contains(","))
+   	{
+   		String[] apps=appList.split(",\\s+");
+   		
+   		for (int i=0;i<apps.length;i++){
+   			iWillWaitToSee(By.xpath("//label[.='"+apps[i]+"']"));
+   	   		System.out.println("deselecting "+apps[i]);
+   	   		clickElement(driver.findElement(By.xpath("//label[.='"+apps[i]+"']")));
+   		}
+   		        
+   	}
+   	else
+   	{
+   		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
+   		System.out.println("deselecting "+appList);
+   		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
+   	}
+   	userApplications = appList;
+   	 
+   }
 }

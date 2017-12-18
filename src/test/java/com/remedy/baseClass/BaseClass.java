@@ -433,6 +433,7 @@ public class BaseClass {
 	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
+		
 	    List <WebElement> element = driver.findElements(locator);
 	    for(WebElement ele: element) {
 	    	if (ele.getText().trim().equals(text)) {
