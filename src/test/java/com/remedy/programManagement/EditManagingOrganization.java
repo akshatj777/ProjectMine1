@@ -124,6 +124,26 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
 		}
+		else if(field2.equalsIgnoreCase("SNFNAME - YES")){
+			CreateSNFOrganization.oldSNF_WithMO = CreateSNFOrganization.SNFOrg.get("SNFNAME");
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("SNFNAME - NO")){
+			CreateSNFOrganization.oldSNF_WithoutMO = CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME");
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - YES")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - NO")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+		}
 		else 
 		{
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();

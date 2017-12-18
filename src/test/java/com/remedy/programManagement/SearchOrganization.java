@@ -218,6 +218,14 @@ public class SearchOrganization extends BaseClass{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
 			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"']"));
 		}
+		else if(text.contains("SNFNAME - YES")){
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateSNFOrganization.SNFOrg.get("SNFNAME")+"']"));
+		}
+		else if(text.contains("SNFNAME - NO")){
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME")+"']"));
+		}
 		else
 		{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
@@ -228,34 +236,42 @@ public class SearchOrganization extends BaseClass{
 	public void iSearchWithOldNameInOrganizationSerachBox(String org){
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")).clear();
-		if (org.equals("MONAME")){
+		if (org.equals("MONAME"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateManagingOrganization.moName);
 		}
-		else if(org.equals("ACHNAME - YES")){
+		else if(org.equals("ACHNAME - YES"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.oldACH_WithMO);
 		}
-		else if (org.equals("ACHNAME - NO")){
+		else if (org.equals("ACHNAME - NO"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.oldACH_WithoutMO);
 		}
-		else if(org.equals("PGPNAME - YES")){
+		else if(org.equals("PGPNAME - YES"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.oldPGP_WithMO);
 		}
-		else if (org.equals("PGPNAME - NO")){
+		else if (org.equals("PGPNAME - NO"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.oldPGP_WithoutMO);
 		}
-		else if (org.equals("PAYORNAME")){
+		else if (org.equals("PAYORNAME"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePayorOrganization.oldPayorOrg);
 		}
 	}
 	
 	public void iSearchWithSearchListFieldOnLocationInOrganizationProfilePage(String searchParam, String org) throws ClassNotFoundException, SQLException{ 
 		String value = searchParam;
-		if(org.equals("ACHNAME - YES")){
+		if(org.equals("ACHNAME - YES"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]")));
 		}
-		else if(org.equals("ACHNAME - NO")){
+		else if(org.equals("ACHNAME - NO"))
+		{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]")));
