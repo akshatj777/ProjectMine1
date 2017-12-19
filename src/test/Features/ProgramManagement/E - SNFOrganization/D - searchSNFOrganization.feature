@@ -32,7 +32,7 @@ Feature: Search SNF organization functionality tests
     And I edit "SNF Organization Name" field to "<Edited_SNF_Name> - <Has_MO>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit SNF - <Has_MO>" organization page
-    Then I search "<SNF_Name> - <Has_MO>" and verify with search list options on "SNF" organization search box
+    Then I search "<Edited_SNF_Name> - <Has_MO>" and verify with search list options on "SNF" organization search box
     Then I search with "<SNF_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New SNF Organization" link under No matches
@@ -43,7 +43,6 @@ Feature: Search SNF organization functionality tests
       | Search SNF Organization after editing the SNF name - Without MO | NO     | SNFNAME  | SNFNAME         | Success! SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
-    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
     Then I search "<SearchParam>" and verify with search list options on Location in "<SNF_Name> - <Has_MO>" profile page
@@ -54,10 +53,9 @@ Feature: Search SNF organization functionality tests
       | Searching Location Address on SNF Profile Page | YES    | SNFNAME  | Loc_Address1    |
       | Searching Location Type on SNF Profile Page    | NO     | SNFNAME  | Skilled Nursing |
       | Searching Location Region on SNF Profile Page  | NO     | SNFNAME  | Midwest         |
-      | Searching Location Matket on SNF Profile Page  | NO     | SNFNAME  | Chicago         |
+      | Searching Location Market on SNF Profile Page  | NO     | SNFNAME  | Chicago         |
 
   Scenario Outline: <Description>
-    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
     Then I search with "<Loc_Name>" on Location search box in "SNF" View Profile page
@@ -65,7 +63,7 @@ Feature: Search SNF organization functionality tests
 
     Examples: 
       | Description                                                                    | Has_MO | SNF_Name | Loc_Name        |
-      | Search SNF Organization with Location Name in SNF view profile page  - With MO | YES    | SNFNAME  | SNFLocationName |
+      | Search SNF Organization with Location Name in SNF view profile page  - With MO | YES    | SNFNAME  | NoMatchLocNAME |
 
   Scenario Outline: <Description>
     Then I search with "<SNF_Name>" on organization in search box

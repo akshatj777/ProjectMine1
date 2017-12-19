@@ -335,4 +335,9 @@ public class SearchOrganization extends BaseClass{
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+value+"')]")));
 		}
 	}
+	
+	public void iSearchFieldOnLocationParametersonViewProfilePage(String text, String org) {
+		iWillWaitToSee(By.cssSelector(".text-input-field-locationFilterTerm"));
+		iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), text);
+	}
 }
