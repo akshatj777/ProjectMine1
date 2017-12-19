@@ -1563,4 +1563,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_to_value_in_the_available_fields(String text,String filter) throws Throwable{
     	reportHomePage.iClickOnFieldUnderAvailableFieldsInReports(text,filter);
     }
+    
+    @Then("^I verify there are no duplicate values in the eligibility filter field list$")
+    public void i_verify_there_are_no_duplicate_values_in_the_eligility_filter_field_list() throws Throwable{
+    	reportHomePage.iVerifyNoDuplicateValuesInEligilityFilterFieldList();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected anchor discharge care setting filter$")
+    public void i_verify_is_appearing_under_selected_anchor_discharge_care_setting_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected network tier anchor discharge filter$")
+    public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(text);
+    }
 }
