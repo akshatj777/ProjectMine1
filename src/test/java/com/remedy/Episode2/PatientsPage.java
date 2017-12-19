@@ -563,7 +563,6 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyTextIsPresentOnTheAddPatientPage(String text) {
-		longDelay();
 		iWillWaitToSee(By.xpath("//*[text()='" + text + "']"));
 		isElementVisible(driver.findElement(By.xpath("//*[text()='" + text + "']")));
 	}

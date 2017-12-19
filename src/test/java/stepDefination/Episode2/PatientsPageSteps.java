@@ -731,7 +731,7 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("firstName", firstname);
     }
 
-    @Then("^I enter  \"([^\"]*)\" in the last name text box present on the Add Patient page$")
+    @Then("^I enter \"([^\"]*)\" in the last name text box present on the Add Patient page$")
     public void i_enter_in_the_last_name_text_box_present_on_the_Add_Patient_page(String lastname) throws Throwable {
         patientsPage.iEnterDetailsInTextFieldPresentOnAddPatientModal("lastName", lastname);
     }

@@ -160,6 +160,11 @@ public class PatientListPageSteps extends DriverScript {
     public void i_enter_in_the_patient_search_box_present_on_the_patient_page(String patientName) throws Throwable {
     	patientsList.iEnterThePatientSearchBoxPresentOnThePatientPage(patientName);
     }
+    
+    @Then("^I enter patient's firstname in the patient search box present on the patient page$")
+    public void i_enter_patient_firstname_in_the_patient_search_box_present_on_the_patient_page() throws Throwable {
+    	patientsList.iEnterPatientFirstNameSearchBoxPresentOnThePatientPage();
+    }
 
     @Then("^I should see ([^\"]*) patient on the patient list present on the patient page$")
     public void i_should_see_patient_on_the_patient_list_present_on_the_patient_page(String patientName) throws Throwable {
@@ -185,6 +190,57 @@ public class PatientListPageSteps extends DriverScript {
     public void i_search_text_in_filter(String text, String filter) throws Throwable {
     	patientsList.iSearchTextInFilter(text,filter);
     }
+    
+    @Then("^I click on \"([^\"]*)\" from patients list patient gear menu$")
+    public void i_click_on_option_from_patients_list_patient_gear_menu(String option) throws Throwable {
+    	patientsList.iClickOnOptionFromPatientslistPatientGearMenu(option);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" header on popup$")
+    public void i_verify_header_on_popup(String text) throws Throwable {
+    	patientsList.iVerifyHeaderTextOnPopUp(text);
+    }
+    
+    @Then("^I fill in task Due Date with today date$")
+    public void i_fill_in_task_dueDate_with_today_date() throws Throwable {
+    	patientsList.iFillInTextDueDateWithTodayDate();
+    }
+    
+    @Then("^I click on first patient gear menu$")
+    public void i_click_on_first_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnFirstPatientGearMenu();
+    }
+    
+    @Then("^I fill in Task description with \"([^\"]*)\" for patient list$")
+    public void i_fill_in_task_description_for_patient_list(String text) throws Throwable {
+    	patientsList.iFillInTaskDescriptionForPatientList(text);
+    }
+    
+    @Then("^I select the checkbox on popup for care team$")
+    public void i_select_checkbox_on_popup_for_careteam() throws Throwable {
+    	patientsList.iSelectCheckboxOnPopUpForCareTeam();
+    }
+    
+    @Then("^I click on \"([^\"]*)\" button$")
+    public void i_click_on_button_with_text(String text) throws Throwable {
+    	patientsList.iClickOnButtonWithText(text);
+    }
+    
+    @Then("^I will wait to see \"([^\"]*)\"$")
+    public void i_will_wait_to_see_text(String text) throws Throwable {
+    	patientsList.iWillWaitToSeeText(text);
+    }
+    
+    @Then("^I fill \"([^\"]*)\" in \"([^\"]*)\" on Appointment form$")
+    public void i_fill_text_on_appointment_form(String text, String field) throws Throwable {
+    	patientsList.iFillTextOnAppointmentForm(text,field);
+    }
+    
+    @Then("^I select \"([^\"]*)\" Appointment tye$")
+    public void i_select_appointment_type(String text) throws Throwable {
+    	patientsList.iSelectAppointmentType(text);
+    }
+
 
    
 }

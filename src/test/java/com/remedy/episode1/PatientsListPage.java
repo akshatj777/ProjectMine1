@@ -6,6 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.server.handler.ClickElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 
 /**
@@ -143,6 +145,10 @@ public class PatientsListPage extends BaseClass {
     public void iEnterThePatientSearchBoxPresentOnThePatientPage(String patientName){
     	iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), patientName);
     }
+    
+    public void iEnterPatientFirstNameSearchBoxPresentOnThePatientPage(){
+    	iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), DischargeCarlForm.firstname);
+    }
 
     public void iShouldSeePatientOnThePatientListPresentOnThePatientPage(String patientName){
     	isElementVisible(driver.findElement(By.cssSelector("span.ng-scope>div:nth-child(1) div.element-title.ng-binding")));
@@ -165,9 +171,62 @@ public class PatientsListPage extends BaseClass {
     	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+filter+"']")), text);
     	driver.findElement(By.xpath("//label[contains(text(),'SSN')]")).sendKeys(Keys.TAB);;
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+    }
+    
+    public void iClickOnOptionFromPatientslistPatientGearMenu(String option){
+    	clickSingleElementFromList(By.xpath("//div[@class='col-md-2 center open']//li"), option);
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+    }
+    
+    public void iClickOnFirstPatientGearMenu(){
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+    	iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
+    	driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(0).click();
+    }
+    
+    public void iVerifyHeaderTextOnPopUp(String text){
+    	iWillWaitToSee(By.cssSelector(".modal-title"));
+    	String actual = getTextForElement(driver.findElement(By.cssSelector(".modal-title")));
+    	Assert.assertEquals(text, actual);
+    }
+    
+    public void iFillInTextDueDateWithTodayDate() throws InterruptedException{
+    	iWillWaitToSee(By.cssSelector(".btn.default.date-set>i"));
+    	Thread.sleep(10000);
+    	clickElement(driver.findElement(By.cssSelector(".btn.default.date-set>i")));
+    	clickElement(driver.findElement(By.cssSelector(".day.active")));
+    	clickElement(driver.findElement(By.cssSelector(".hour.active")));
+    	clickElement(driver.findElement(By.cssSelector(".minute.active")));
+    	iWillWaitToSee(By.xpath("//span[contains(@class,'alert alert-info')]"));
+    }
+    
+    public void iFillInTaskDescriptionForPatientList(String text){
+    	iFillInText(driver.findElement(By.cssSelector("#ec_taskbundle_ectasktype_patientlist_text")), text);
+    }
+    
+    public void iSelectCheckboxOnPopUpForCareTeam(){
+    	driver.findElements(By.xpath("//div[@class='panel-body']")).get(0).click();
+    }
+    
+    public void iWillWaitToSeeText(String text){
+    	iWillWaitToSee(By.xpath("//*[text()='"+text+"']"));
+    }
+    
+    public void iClickOnButtonWithText(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
 
     }
-
+    
+    public void iFillTextOnAppointmentForm(String text,String field){
+    	iFillInText(driver.findElement(By.xpath("//div[label[text()='"+field+"']]/div/input")), text);
+    }
+    
+    public void iSelectAppointmentType(String text){
+    	driver.findElement(By.cssSelector("#bp_personbundle_bpappointmenttype_appointment_type"));
+    	driver.findElement(By.xpath("//option[@value='"+text+"']"));
+    }
 
 	
 }
