@@ -573,6 +573,7 @@ public class CreateUserPage extends BaseClass{
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
+		delay();
 		iWillWaitToSee(By.xpath("//button[.='Submit']"));
 		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
