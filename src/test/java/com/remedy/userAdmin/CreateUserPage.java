@@ -18,6 +18,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
 /**
  * Created by salam on 7/30/15.
  */
@@ -378,6 +381,17 @@ public class CreateUserPage extends BaseClass{
 	   }
    }
    
+   public void verifyDashboardOnEC1(String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   isElementPresentOnPage(By.xpath("//h3/span[contains(text(),'Dashboard')]"));
+		   }   
+	   }
+   }
+   
    public void iClickOnPatientListOnSideMenuBarInEC1(String role) {
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   StringTokenizer st = new StringTokenizer(application, ",");
@@ -411,6 +425,17 @@ public class CreateUserPage extends BaseClass{
 	   {
 		   if(st.nextToken().trim().equals("Episodes")){
 			   iVerifyTextFromListOfElement(By.xpath("//div[label[text()='Payers']]//li"), payer);
+		   }   
+	   }
+   }
+   
+   public void verifyEmblemNotAppearingOnUserProfile(String payer, String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   isElementNotPresentOnPage(By.xpath("//div[label[text()='Payers']]//li[text()='"+payer+"']"));
 		   }   
 	   }
    }
@@ -965,4 +990,101 @@ public class CreateUserPage extends BaseClass{
 		Assert.assertEquals("No results found.",actual.trim());
 	}
    
+	 public void iclickontheReportsTilewithtextforuser(String text, String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   iWillWaitToSee(By.xpath("//label[@class='dropdown-tile-label ng-binding'][text()='"+text+"']"));
+				   selectElementByDesc(".dropdown-tile-label.ng-binding", text);
+				   delay();
+			   }
+		   }
+	 }
+
+	 public void iclickonreporttextforOverallProgramReportsforuser(String text, String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+		 
+				   	selectElementByTextDescByXpath("//div[label[text()='Overall Program']]/following-sibling::div/a", text);
+			        longDelay();
+			        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+			        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
+			        delay();
+			        iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='Performance']"));
+			    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+			    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+			   }
+		   }
+	 }
+
+	 public void iclickonfieldpaneliconbuttonforuser(String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   clickElement(driver.findElement(By.xpath(".//div[@class='field-panel-icon']")));
+			   }
+		   }
+	 }
+	 
+	 public void iclicktofieldfilterunderfilterfieldforuser(String filterField, String filterTitle, String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
+				   delay();
+				   clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
+			   }
+		   }
+	 }
+
+	 public void ichooseoptionfromselectoptionsoffilterfieldforuser(String toLocator, String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   clickElement(driver.findElement(By.xpath(toLocator)));
+			   }
+		   }
+	 }
+
+	 public void ishouldseeinthefiltervaluelistforuser(String text, String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), "Filter on BPID");
+				   iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+				   verifyTextForElementfromList("#FT_valueList div", text);
+			   }
+		   }
+	 }
+
+	 public void iclickoncancelbuttonfromfilterforuser(String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   clickElement(driver.findElement(By.id("dlgBtnCancel")));
+			   }
+		   }
+	 }
 }

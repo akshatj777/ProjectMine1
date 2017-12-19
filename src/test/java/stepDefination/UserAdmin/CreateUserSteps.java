@@ -294,6 +294,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
 	}
 	
+	@And("^I verify \"([^\"]*)\" after redirection to EC1 for \"([^\"]*)\" user$")
+	public void veifyDashboardOnEC1(String text, String role) throws Throwable {
+		createUser.verifyDashboardOnEC1(role);
+	}
+	
 	@And("^I click on username icon on right top corner \"([^\"]*)\" and open user profile on EC1$")
 	public void iClickOnUserNameIconOnEC1AndOpenUserProfile(String role) throws Throwable {
 		createUser.iClickOnUserNameIconOnEC1AndOpenUserProfile(role);
@@ -317,6 +322,11 @@ public class CreateUserSteps extends DriverScript {
 	@And("^I verify \"([^\"]*)\" payer on user profile for \"([^\"]*)\" user$")
 	public void iVerifyPayersOnUserProfileForUser(String payer, String role) throws Throwable {
 		createUser.iVerifyPayerAppearingOnUserProfile(payer, role);
+	}
+	
+	@And("^I should not see \"([^\"]*)\" payer on user profile for \"([^\"]*)\" user$")
+	public void verifyEmblemNotAppearingOnUserProfileForUser(String payer, String role) throws Throwable {
+		createUser.verifyEmblemNotAppearingOnUserProfile(payer, role);
 	}
 	
 	@And("^I click on gear menu and then click on Add Note and verify user role \"([^\"]*)\" for \"([^\"]*)\" user$")
@@ -546,12 +556,12 @@ public class CreateUserSteps extends DriverScript {
 		createUser.clickLogOutButton(arg1);
 	}
 
-	@Then("^I verify \"([^\"]*)\" product$")
+	@Then("^I verify \"([^\"]*)\" product on SPOE page$")
 	public void verifyProductTiles(String products) throws Throwable {
 		createUser.verifyProductTiles(products);
 	}
 	
-	@Then("^I verify \"([^\"]*)\" product is not visible$")
+	@Then("^I verify \"([^\"]*)\" product is not visible on SPOE page$")
 	public void verifyProductTilesNotPresent(String products) throws Throwable {
 		createUser.verifyProductTilesNotPresent(products);
 	}
@@ -613,7 +623,40 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
 	 }
 	 
-	 
+	 @Then("^I click on the Reports Tile with text \"([^\"]*)\" for \"([^\"]*)\" user$")
+	 public void i_click_on_the_Reports_Tile_with_text_for_user(String text, String role) throws Throwable {
+	     createUser.iclickontheReportsTilewithtextforuser(text,role);
+	 }
+
+	 @Then("^I click on \"([^\"]*)\" report text for Overall Program Reports for \"([^\"]*)\" user$")
+	 public void i_click_on_report_text_for_Overall_Program_Reports_for_user(String text, String role) throws Throwable {
+		 createUser.iclickonreporttextforOverallProgramReportsforuser(text,role);
+	 }
+
+	 @When("^I click on field-panel-icon button for \"([^\"]*)\" user$")
+	 public void i_click_on_field_panel_icon_button_for_user(String role) throws Throwable {
+		 createUser.iclickonfieldpaneliconbuttonforuser(role);
+	 }
+
+	 @When("^I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field for \"([^\"]*)\" user$")
+	 public void i_click_to_field_filter_under_filter_field_for_user(String filterField, String filterTitle, String role) throws Throwable {
+		 createUser.iclicktofieldfilterunderfilterfieldforuser(filterField,filterTitle,role);
+	 }
+
+	 @When("^I choose \"([^\"]*)\" option from select options of filter field for \"([^\"]*)\" user$")
+	 public void i_choose_option_from_select_options_of_filter_field_for_user(String text, String role) throws Throwable {
+		 createUser.ichooseoptionfromselectoptionsoffilterfieldforuser("//td[@id='cmdField"+text+"_text']",role);
+	 }
+
+	 @When("^I should see \"([^\"]*)\" in the filter value list for \"([^\"]*)\" user$")
+	 public void i_should_see_in_the_filter_value_list_for_user(String text, String role) throws Throwable {
+		 createUser.ishouldseeinthefiltervaluelistforuser(text,role);
+	 }
+
+	 @When("^I click on cancel button from filter for \"([^\"]*)\" user$")
+	 public void i_click_on_cancel_button_from_filter_for_user(String role) throws Throwable {
+		 createUser.iclickoncancelbuttonfromfilterforuser(role);
+	 }
 	 
 	 
 
