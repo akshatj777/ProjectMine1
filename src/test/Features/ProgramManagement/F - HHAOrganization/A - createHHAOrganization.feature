@@ -1,0 +1,159 @@
+Feature: Create HHA organization functionality tests
+
+  Background: 
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text Program Management
+    And I click on the "Program Management" tile
+    And I switch to new window
+    Then I verify "Welcome to Program Management" header on the page
+    When I click on Organization link on Program Management page
+    When I click on "HHA" organization tab on organization dashboard
+
+  Scenario: Verification of availability of all the fields on Create HHA Organization page
+    Then I verify the Search bar on "HHA" organization page
+    Then I verify "+" button under "HHA" organization page
+    And I verify "CCN" header label under "HHA" organization
+    And I verify "HHA Organization Name" header label under "HHA" organization
+    And I verify "City" header label under "HHA" organization
+    And I verify "State" header label under "HHA" organization
+    And I verify "Postal Code" header label under "HHA" organization
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I verify "Has a Managing Organization" radio button on create organization page
+    And I verify "No Managing Organization" radio button on create organization page
+    And I verify "*HHA Organization Name" field on create organization page
+    And I verify "Short Name" field on create organization page
+    And I verify "*Address 1" field on create organization page
+    And I verify "Address 2" field on create organization page
+    And I verify "*City" field on create organization page
+    And I verify "CCN" field on create organization page
+    And I verify "EIN" field on create organization page
+    And I verify "NPI" field on create organization page
+    And I verify "*State" dropdown field on create organization page
+    And I verify "*Postal Code" field on create organization page
+    And I verify "Submit" button on create organization page
+    And I verify "Cancel" button on create organization page
+
+  Scenario: Check validation for Invalid HHA Organization
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I select "YES" radio button for managing organization
+    Then I select "Invalid_Managing_Org" managing organization name in "YES" Has a Management Organization drop down
+    And I verify "No results found" in Has a Management Organization dropdown
+
+  Scenario Outline: <Description>
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                      | Has_MO | Managing_Org | HHA_Name | Address1 | City | State      | Postal_Code | CCN | EIN | NPI | ValidationMsg                                 |
+      | Check validation for blank Managing Organization | YES    | Blank        | HHANAME  | Address1 | City | California |       10000 | CCN | EIN | NPI | A Management Organization has to be selected. |
+      | Check validation for blank HHA name              | YES    | MONAME       |          | Address1 | City | California |       10000 | CCN | EIN | NPI | Please enter an Organization Name             |
+      | Check validation for blank Address1              | YES    | MONAME       | HHANAME  |          | City | California |       10000 | CCN | EIN | NPI | Please enter an Address                       |
+      | Check validation for blank City                  | YES    | MONAME       | HHANAME  | Address1 |      | California |       10000 | CCN | EIN | NPI | Please enter a City                           |
+      | Check validation for blank State                 | YES    | MONAME       | HHANAME  | Address1 | City |            |       10000 | CCN | EIN | NPI | Please select a State                         |
+      | Check validation for blank Postal code           | NO     |              | HHANAME  | Address1 | City | California |             | CCN | EIN | NPI | Please enter a Zip Code                       |
+      | Check validation for blank Identifiers           | NO     |              | HHANAME  | Address1 | City | California |       10000 |     |     |     | At least one identification is required       |
+
+  Scenario Outline: <Description>
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    And I switch the focus to "submit" button
+    And I verify "<ValidationMessage>" field validation message on create organization page
+
+    Examples: 
+      | Description                                                      | HHA_Name                                                                     | Address1                                                  | Short_Name                                     | Address2                                                  | City                                           | Postal_Code  | CCN           | EIN           | NPI           | ValidationMessage                                              |  |
+      | Check Character Limit for HHA name field                         | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwx |                                                           |                                                |                                                           |                                                |              |               |               |               | The Organization Name may not be greater than 75 characters.   |  |
+      | Check Character Limit for Address1 field                         |                                                                              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |                                                           |                                                |              |               |               |               | The first address line may not be greater than 55 characters.  |  |
+      | Check Character Limit for Short Name field                       |                                                                              |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |                                                           |                                                |              |               |               |               | The shortName may not be greater than 45 characters.           |  |
+      | Check Character Limit for Address2 field                         |                                                                              |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |              |               |               |               | The second address line may not be greater than 55 characters. |  |
+      | Check Character Limit for City field                             |                                                                              |                                                           |                                                |                                                           | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |              |               |               |               | The City may not be greater than 45 characters.                |  |
+      | Check Character Limit for Postal code field                      |                                                                              |                                                           |                                                |                                                           |                                                | 10000-00000  |               |               |               | Please enter a valid Zip Code                                  |  |
+      | Check Character Limit for CCN field - Less than 6 characters     |                                                                              |                                                           |                                                |                                                           |                                                |              | lessThan6     |               |               | The CCN must be at least 6 characters.                         |  |
+      | Check Character Limit for CCN field - Greater than 10 characters |                                                                              |                                                           |                                                |                                                           |                                                |              | greaterThan10 |               |               | The CCN may not be greater than 10 characters.                 |  |
+      | Check Character Limit for EIN field                              |                                                                              |                                                           |                                                |                                                           |                                                |              |               | greaterThan10 |               | The EIN may not be greater than 10 characters.                 |  |
+      | Check Character Limit for NPI field                              |                                                                              |                                                           |                                                |                                                           |                                                |              |               |               | greaterThan10 | The NPI may not be greater than 10 characters.                 |  |
+      | Check Allowed Characters for Postal code field                   |                                                                              |                                                           |                                                |                                                           |                                                | abcdefghijkl |               |               |               | Please enter a valid Zip Code                                  |  |
+      | Check Allowed Characters for CCN field                           |                                                                              |                                                           |                                                |                                                           |                                                |              | @$%^&6!*&57   |               |               | The CCN field must be alphanumeric.                            |  |
+      | Check Allowed Characters for EIN field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |               | $@^&*%67$^&   |               | The EIN field must be alphanumeric.                            |  |
+      | Check Allowed Characters for NPI field                           |                                                                              |                                                           |                                                |                                                           |                                                |              |               |               | *@$%^93%#^&4  | The NPI field must be alphanumeric.                            |  |
+
+  Scenario Outline: <Description>
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create HHA - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                                                                        | Has_MO | Managing_Org | HHA_Name                                                                 | Address1                                                | Short_Name                                    | Address2                                                | City                                          | State      | Postal_Code | Region  | Loc_Market | CCN | EIN | NPI | Message                                                                                                 |
+      | Check Character Limit edge condition for HHA name field - Without MO                                               | NO     |              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnotuvwxyzabcdefghijklmnopqrstuvwx | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Check Character Limit edge condition for Address1 field - Without MO                                               | NO     |              | HHANAME                                                                  | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrsjklmnopqrs | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Check Character Limit edge condition for Short Name field - Without MO                                             | NO     |              | HHANAME                                                                  | Address1                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs | Address2                                                | City                                          | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Check Character Limit edge condition for Address2 field - Without MO                                               | NO     |              | HHANAME                                                                  | Address1                                                | Short_Name                                    | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrsjklmnopqrs | City                                          | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Check Character Limit edge condition for City field - Without MO                                                   | NO     |              | HHANAME                                                                  | Address1                                                | Short_Name                                    | Address2                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Check Character Limit edge condition for Postal code field - Without MO                                            | NO     |              | HHANAME                                                                  | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California | 10000-0000  | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields - Without MO                                                         | NO     |              | HHANAME                                                                  | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |            | CCN |     |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields + ShortName - Without MO                                             | NO     |              | HHANAME                                                                  | Address1                                                | Short_Name                                    |                                                         | City                                          | California |       10000 |         |            | CCN |     |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields + Address2 - Without MO                                              | NO     |              | HHANAME                                                                  | Address1                                                |                                               | Address2                                                | City                                          | California |       10000 |         |            | CCN |     |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields + ShortName + NPI - With MO                                          | YES    | MONAME       | HHANAME                                                                  | Address1                                                | Short_Name                                    |                                                         | City                                          | California |       10000 |         |            | CCN |     | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields + ShortName + Address2 + EIN - With MO                               | YES    | MONAME       | HHANAME                                                                  | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 |         |            | CCN | EIN |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields + ShortName + Address2 + Location Region + Location Market - With MO | YES    | MONAME       | HHANAME                                                                  | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago    | CCN |     |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields + Address2 + Location Address2 - Without MO                          | NO     |              | HHANAME                                                                  | Address1                                                |                                               | Address2                                                | City                                          | California |       10000 |         |            | CCN |     |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with Mandatory fields - With MO                                                            | YES    | MONAME       | HHANAME                                                                  | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |            | CCN |     |     | Success! HHA Organization Successfully Created.                                                         |
+      | Create Duplicate HHA Organization with Mandatory fields - Without MO                                               | NO     |              | DUPLICATE_HHA                                                            | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |            | CCN |     |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create Duplicate HHA Organization with Mandatory fields - With MO                                                  | YES    | MONAME       | DUPLICATE_HHA                                                            | Address1                                                |                                               |                                                         | City                                          | California |       10000 |         |            | CCN |     |     | Oh no! There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Create HHA Organization with all the available fields - Without MO                                                 | NO     |              | HHANAME                                                                  | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+      | Create HHA Organization with all the available fields - With MO                                                    | YES    | MONAME       | HHANAME                                                                  | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |       10000 | Midwest | Chicago    | CCN | EIN | NPI | Success! HHA Organization Successfully Created.                                                         |
+
+  Scenario Outline: Identifiers - <Description>
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    And I switch the focus to "submit" button
+    And I verify "<Message>" field validation message on create organization page
+    And I verify "<Message1>" field validation message on create organization page
+
+    Examples: 
+      | Description                                                         | CCN           | EIN           | NPI           | Message                            | Message1                           |
+      | Verify Validation Message of HHA Organization with same CCN and EIN |    1234567890 |    1234567890 |               | The CCN and ein must be different. | The EIN and ccn must be different. |
+      | Verify Validation Message of HHA Organization with same CCN and NPI |    1234567890 |               |    1234567890 | The CCN and npi must be different. | The NPI and ccn must be different. |
+      | Verify Validation Message of HHA Organization with same EIN and NPI |               |    1234567890 |    1234567890 | The EIN and npi must be different. | The NPI and ein must be different. |
+      | Verify Validation of HHA Organization with duplicate CCN            | DUPLICATE_CCN |               |               | CCN Id already taken               |                                    |
+      | Verify Validation of HHA Organization with duplicate EIN            |               | DUPLICATE_EIN |               | EIN Id already taken               |                                    |
+      | Verify Validation of HHA Organization with duplicate NPI            |               |               | DUPLICATE_NPI | NPI Id already taken               |                                    |

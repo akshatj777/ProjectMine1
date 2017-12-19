@@ -121,6 +121,14 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
 		}
+		else if(text.equals("HHANAME")) {
+			CreateHHAOrganization.tempHHAOrg.put("HHANAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+		}
+		else if(text.equals("DUPLICATE_HHA"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+		}
 		else if(text.equals("equalsTo75Characters")) 
 		{
 			String value = text+RandomStringUtils.randomAlphabetic(55);
@@ -229,6 +237,30 @@ public class CreateManagingOrganization extends BaseClass {
 					{
 						CreateSNFOrganization.SNFOrg_noMO.putAll(CreateSNFOrganization.tempSNFOrg);
 						CreateSNFOrganization.tempSNFOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("HHA - YES"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreateHHAOrganization.tempHHAOrg.isEmpty())
+						{
+							CreateHHAOrganization.HHAOrg.putAll(CreateHHAOrganization.tempHHAOrg);
+							CreateHHAOrganization.tempHHAOrg.clear();
+						}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("HHA - NO"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
+					
+					if(!CreateHHAOrganization.tempHHAOrg.isEmpty())
+					{
+						CreateHHAOrganization.HHAOrg_noMO.putAll(CreateHHAOrganization.tempHHAOrg);
+						CreateHHAOrganization.tempHHAOrg.clear();
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
