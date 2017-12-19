@@ -195,8 +195,8 @@ Feature: Edit SNF organization functionality tests
     And I verify "Please enter a Zip Code" mandatory field validation message on edit organization page
 
     Examples: 
-      | Description                                           | SNF_Name | Edited_SNF_Name | Org_Address1 | City | State | Org_Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State | Loc_Postal_Code |
-      | Edit a SNF Organization With Mandatory Fields Missing | SNFNAME  |                 |              |      |       |                 |          |              |          |           |                 |
+      | Description                                           | Has_MO | SNF_Name | Edited_SNF_Name | Org_Address1 | City | State | Org_Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State | Loc_Postal_Code |
+      | Edit a SNF Organization With Mandatory Fields Missing | NO     | SNFNAME  |                 |              |      |       |                 |          |              |          |           |                 |
 
   Scenario Outline: <Description>
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
@@ -235,24 +235,23 @@ Feature: Edit SNF organization functionality tests
     And I edit Market dropdown field to <Loc_Market> for Region "<Loc_Region>" for Location "1" for organization
     And I edit State dropdown field to <Loc_State> for Location "1" for organization
     And I edit "postalCode" field to <Loc_Postal_Code> for Location "1" for organization
-    Then I click on "+" button on "Edit SNF" organization page
     Then I verify "Location 2" on "Edit" organization page
-    And I enter location name <Loc_Name> for Location "2" on "Edit" organization page
-    And I enter address1 <Loc_Address1> for Location "2" on "Edit" organization page
-    And I select location type <Loc_Type> for Location "2" on "Edit" organization page
-    And I enter address2 <Loc_Address2> for Location "2" on "Edit" organization page
-    And I select region <Loc_Region> for Location "2" on "Edit" organization page
-    And I enter city <Loc_City> for Location "2" on "Edit" organization page
-    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "Edit" organization page
-    And I select state <Loc_State> for Location "2" on "Edit" organization page
-    And I enter zip <Loc_Postal_Code> for Location "2" on "Edit" organization page
+    And I edit "Location Name" field to <Loc_Name> for Location "2" for organization
+    And I edit "address1" field to <Loc_Address1> for Location "2" for organization
+    And I edit Location Type dropdown field to <Loc_Type> for Location "2" for organization
+    And I edit "address2" field to <Loc_Address2> for Location "2" for organization
+    And I edit Region dropdown field to <Loc_Region> for Location "2" for organization
+    And I edit "city" field to <Loc_City> for Location "2" for organization
+    And I edit Market dropdown field to <Loc_Market> for Region "<Loc_Region>" for Location "2" for organization
+    And I edit State dropdown field to <Loc_State> for Location "2" for organization
+    And I edit "postalCode" field to <Loc_Postal_Code> for Location "2" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit SNF" organization page
     Then I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
-    And I verify "2" location count on view "SNF" organization page
+    And I verify "1" location count on view "SNF" organization page
 
     Examples: 
-      | Description                                             | Has_MO | SNF_Name | Edited_SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Message                                         |
-      | Edit a SNF Organization with duplicate Location details | NO     | SNFNAME  | SNFNAME         | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Success! SNF Organization Successfully Updated. |
+      | Description                                             | Has_MO | SNF_Name | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Message                                         |
+      | Edit a SNF Organization with duplicate Location details | NO     | SNFNAME  | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Success! SNF Organization Successfully Updated. |
