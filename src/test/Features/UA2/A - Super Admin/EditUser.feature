@@ -34,13 +34,14 @@ Feature: Edit page for superuser verification
     And I fill in Phone with <Phone>
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I select "<Applications>" product
     #Then I click on Select button
     #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     And I verify First Name <FirstName> in user page
     And I verify Last Name <LastName> in user page
@@ -51,9 +52,10 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone      | Role    | NPI | Applications |
-      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Manager |     | Episodes     |
+      | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role    | NPI | Applications |
+      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager |     | Episodes     |
 
+  #| Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Executive                       |     |Episodes|
   #| Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Case Manager                    |     |Episodes|
   #| Login with Super Admin User and Edit user to Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Physicians                      | NPI |Episodes|
   #| Login with Super Admin User and Edit user to Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy TCS                      |     |Episodes|
@@ -71,8 +73,7 @@ Feature: Edit page for superuser verification
   #| Login with Super Admin User and Edit user to Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Technical Administrator  |     |Episodes|
   #| Login with Super Admin User and Edit user to Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Transitional Case Manager       |     |Episodes|
   #| Login with Super Admin User and Edit user to Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Downstream Provider             |     |Episodes|
-  #| Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Executive                       |     |Episodes|
-  Scenario Outline: Verifying the ability of Super Admin user to enable/disable applications
+  Scenario Outline: Login with Super Admin user and enable user applications and verify Product Tiles and their redirections
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -82,9 +83,10 @@ Feature: Edit page for superuser verification
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
-    Then I select "Applications" tab
-    Then I deselect "<ApplicationsNotVisible>" product
-    And I verify that "<ApplicationsNotVisible>" are "deselected"
+    When I click the Organizational Role Field to edit
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I click on Next button
     Then I select "<Applications>" product
     And I verify that "<Applications>" are "selected"
     Then I click on Select button
@@ -125,9 +127,53 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | User        | Role      | Applications               | ApplicationsNotVisible                   | LearningPathwaySearchParameter | Health System     |
-      | Super Admin | Executive | Episodes, Reports, Lessons | Reports, Episodes, Episodes 2.0, Lessons | Learning Pathway 2            | Stamford Hospital |
+      | User        | Role      | Applications     | ApplicationsNotVisible | LearningPathwaySearchParameter | Health System     | NPI |
+      | Super Admin | Executive | Reports, Lessons | Episodes 2.0, Episodes | Learning Pathway 2             | Stamford Hospital |     |
 
+  #| Super Admin | manager                         | Episodes 2.0, Episodes, Lessons                          | Reports                | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Physicians                      | Physician Connect, Episodes 2.0, Episodes, Lessons       | Reports                | Learning Pathway 2             | Stamford Hospital | NPI |
+  #| Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons                               | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons                               | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Remedy Program Administrator    | Physician Connect, TCI, Episodes 2.0, Lessons            | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Partner Technical Administrator | Physician Connect, Administration, Episodes 2.0, Lessons | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Remedy Technical Administrator  | Physician Connect, Administration, Episodes 2.0, Lessons | Reports, Episodes, TCI | Learning Pathway 2             | Stamford Hospital |     |
+  Scenario Outline: Login with Super Admin user and disable user applications and verify Product Tiles and their redirections
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter search box in landing page with "test.automatemail"
+    Then I select user with email "test.automatemail"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Applications" tab
+    Then I deselect "<ApplicationsNotVisible>" product
+    And I verify that "<ApplicationsNotVisible>" are "deselected"
+    Then I click on Next button
+    Then I click on Submit button for "<User>"
+    And I click on the top user account link
+    Then I click on "Log Out" button
+    And I should see Log in widget
+    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
+    Then I verify "<Applications>" product
+    Then I verify "<ApplicationsNotVisible>" product is not visible
+    Then I click on Hamburger menu on top right of homepage
+    And I verify "<Applications>" in product menu dropdown
+    And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I click on the top user account link
+    Then I click on "Log Out" button
+    And I should see Log in widget
+    Examples: 
+      | User        | Role    | Applications               | ApplicationsNotVisible | LearningPathwaySearchParameter | Health System     | NPI |
+      | Super Admin | Manager | Episodes, Lessons | Episodes 2.0, Reports          | Learning Pathway 2             | Stamford Hospital |     |
+ #| Super Admin | Remedy Technical Administrator  | Physician Connect, Administration, Episodes 2.0, Lessons | Lessons, Administration | Learning Pathway 2             | Stamford Hospital |     |
+ 
+ 
+ 
+ 
   #| Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect, Lessons        | Learning Pathway 2             | Stamford Hospital |
   #| Administration, Physician Connect , Lessons       | Episodes, Episodes 2.0, Reports, Lessons | Learning Pathway 2             | Stamford Hospital |
   #| Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect , Lessons       | Learning Pathway 2             | Stamford Hospital |

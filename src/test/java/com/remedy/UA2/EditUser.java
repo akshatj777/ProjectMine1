@@ -1,8 +1,10 @@
 package com.remedy.UA2;
 
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.junit.Assert;
@@ -72,18 +74,18 @@ public class EditUser extends BaseClass {
 			//verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0), field);
 		}
 	public void iVerifyRoleInUserPage(String field){
+		String text="Role:"+" "+field;
 		iWillWaitToSee(By.cssSelector(".info-row>span"));
-		String text= driver.findElements(By.cssSelector(".info-row>span")).get(0).getText();
-		String [] role= text.split(" ");
-		System.out.println("***** "+role[1]);
-		Assert.assertEquals(role[1],field);
+		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Role')]")), text);
+
 		
 	}
-	public void iVerifyPhoneInUserPage(String field){
-		String num=field.substring(6);
+	public void iVerifyPhoneInUserPage(String num){
+		String text="Phone:"+" "+num;
 		iWillWaitToSee(By.cssSelector(".info-row>span"));
-		Assert.assertTrue(driver.findElements(By.cssSelector(".info-row>span")).get(3).getText().contains(num));
-		//verifyTextForElement(driver.findElements(By.cssSelector(".info-row>span")).get(3), field);
+		//System.out.println("text: "+text);
+		//System.out.println("phone:   "+driver.findElement(By.xpath("//*[contains(text(), 'Phone')]")).getText());
+		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Phone')]")), text);
 	}
 	
 	public void iVerifyThatEmailIsNonEditable(){
@@ -94,6 +96,7 @@ public class EditUser extends BaseClass {
 	}
 	
 	public void iClickOnRoleFieldToEdit(){
+		iWillWaitToSee(By.cssSelector(".ui.fluid.selection.dropdown"));
 		clickElement(driver.findElement(By.cssSelector(".ui.fluid.selection.dropdown")));
 	}
 	
@@ -104,11 +107,19 @@ public class EditUser extends BaseClass {
 	
 	public void iVerifyThatApplicationsAreEditable(String app, String text){
 		delay();
-		WebElement e=driver.findElement(By.xpath("//button[.='Next >']"));
+		//WebElement e=driver.findElement(By.xpath("//button[.='Next >']"));
 		if(text.equalsIgnoreCase("deselected"))
     	{
-			System.out.println("deselected: "+e.isEnabled());
-			Assert.assertFalse(e.isEnabled());
+			String[] application=app.split(",\\s+");
+			iWillWaitToSee(By.cssSelector("div.ui.checked.checkbox"));
+			List<WebElement> listAll=driver.findElements(By.cssSelector("div.ui.checkbox"));
+			List<WebElement> listChecked=driver.findElements(By.cssSelector("div.ui.checked.checkbox"));
+			for (int i=0;i<application.length;i++){
+	   		
+	   	
+	   		}
+//			System.out.println("deselected: "+e.isEnabled());
+//			Assert.assertFalse(e.isEnabled());
     	}
 		else if(text.equalsIgnoreCase("selected"))
     	{
