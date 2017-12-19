@@ -441,9 +441,19 @@ public class CreateUserSteps extends DriverScript {
 		createUser.ValidateMessage(validationMessage);
 	}
 
-	@Then("^I click on Next button$")
-	public void clickNextButton() throws Throwable {
-		createUser.clickNextButton();
+	@Then("^I click on \"([^\"]*)\" button$")
+	public void clickNextButton(String text) throws Throwable {
+		createUser.clickNextButton(text);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" tab on the left$")
+	public void clickTab(String text) throws Throwable {
+		createUser.clickTab(text);
+	}
+	
+	@Then("^I verify the header \"([^\"]*)\"$")
+	public void verifyHeader(String text) throws Throwable {
+		createUser.verifyHeader(text);
 	}
 
 	@Then("^I click on Select All Locations button$")
@@ -489,6 +499,11 @@ public class CreateUserSteps extends DriverScript {
 	@Then("^I click on Select button$")
 	public void clickLessonsSelectButton() throws Throwable {
 		createUser.clickLessonsSelectButton();
+	}
+	
+	@Then("^I click on Cancel button$")
+	public void clickCancelButton() throws Throwable {
+		createUser.clickCancelButton();
 	}
 
 	@Then("^I enter \"([^\"]*)\" in Learning Pathway search box$")

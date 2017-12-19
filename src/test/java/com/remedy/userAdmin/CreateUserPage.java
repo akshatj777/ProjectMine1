@@ -645,12 +645,27 @@ public class CreateUserPage extends BaseClass{
    
    public void ValidateMessage(String validationMessage)
    {
-	     iVerifyTextFromListOfElement(By.xpath("//label[@class='required error']"), validationMessage);
+	     iVerifyTextFromListOfElement(By.xpath("//label[contains(@class,'error')]"), validationMessage);
    }
    
-   public void clickNextButton() throws Throwable {
-   	clickElement(driver.findElement(By.xpath("//button[.='Next >']")));
+   public void clickNextButton(String text) throws Throwable {
+	   if(text.equals("Next"))
+	   {
+		   clickElement(driver.findElement(By.xpath("//button[.='Next >']")));  
+	   }
+	   else if(text.equals("Back"))
+	   {
+		   clickElement(driver.findElement(By.xpath("//button[text()='< Back']")));
+	   }
    }
+   
+   public void clickTab(String text) throws Throwable {
+	   	clickElement(driver.findElement(By.xpath("//button[.='Next >']")));
+	   }
+   
+   public void verifyHeader(String text) throws Throwable {
+	   	isElementPresentOnPage(By.xpath("//h3[text()='"+text+"']"));
+	   }
 
    public void clickSelectAllLocationsButton() throws Throwable {
 	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']")));   
@@ -718,6 +733,10 @@ public class CreateUserPage extends BaseClass{
    
    public void clickLessonsSelectButton() throws Throwable {
        clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
+   }
+   
+   public void clickCancelButton() throws Throwable {
+       clickElement(driver.findElement(By.xpath("//button[text()='Cancel']")));
    }
 
    public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
@@ -876,8 +895,9 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void verifyTextPresentInLocationSearchLabel(String text) throws Throwable {
-	   String Actual = driver.findElements(By.cssSelector(".ui.checkbox>label")).get(1).getText();
+	   String Actual = driver.findElements(By.xpath("//section[@class='component-remedy-facility-select']//div[@class='ui checkbox']")).get(1).getText();
 	   Assert.assertTrue(Actual.contains(text));
+	   
    }
    
    public void shouldNotSeeFieldWithLabel(String text) throws Throwable {
