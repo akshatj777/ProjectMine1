@@ -141,7 +141,7 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
 		}
-		else if(field2.equalsIgnoreCase("equalsTo75Characters")){
+		else if(field2.contains("equalsTo75Characters")){
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			String value = field2+RandomStringUtils.randomAlphabetic(55);
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), value);
