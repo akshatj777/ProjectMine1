@@ -648,19 +648,16 @@ public class CreateUserPage extends BaseClass{
 	     iVerifyTextFromListOfElement(By.xpath("//label[contains(@class,'error')]"), validationMessage);
    }
    
-   public void clickNextButton(String text) throws Throwable {
-	   if(text.equals("Next"))
-	   {
+   public void clickNextButton() throws Throwable {
 		   clickElement(driver.findElement(By.xpath("//button[.='Next >']")));  
-	   }
-	   else if(text.equals("Back"))
-	   {
-		   clickElement(driver.findElement(By.xpath("//button[text()='< Back']")));
-	   }
    }
    
+   public void clickBackButton() throws Throwable {
+	   clickElement(driver.findElement(By.xpath("//button[text()='< Back']")));  
+}
+   
    public void clickTab(String text) throws Throwable {
-	   	clickElement(driver.findElement(By.xpath("//button[.='Next >']")));
+	   	clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
 	   }
    
    public void verifyHeader(String text) throws Throwable {

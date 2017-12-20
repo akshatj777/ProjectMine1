@@ -441,9 +441,14 @@ public class CreateUserSteps extends DriverScript {
 		createUser.ValidateMessage(validationMessage);
 	}
 
-	@Then("^I click on \"([^\"]*)\" button$")
-	public void clickNextButton(String text) throws Throwable {
-		createUser.clickNextButton(text);
+	@Then("^I click on Next button$")
+	public void click_Next_Button() throws Throwable {
+		createUser.clickNextButton();
+	}
+	
+	@Then("^I click on Back button$")
+	public void click_Back_Button() throws Throwable {
+		createUser.clickBackButton();
 	}
 	
 	@Then("^I click on \"([^\"]*)\" tab on the left$")
@@ -567,7 +572,7 @@ public class CreateUserSteps extends DriverScript {
 	}
 
 	@Then("^I click on \"([^\"]*)\" button$")
-	public void clickLogOutButton(String arg1) throws Throwable {
+	public void click_LogOut_Button(String arg1) throws Throwable {
 		createUser.clickLogOutButton(arg1);
 	}
 
