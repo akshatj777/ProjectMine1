@@ -21,6 +21,7 @@ Feature: Hospital Organization View profile Functionality tests.
     And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
     And I verify <Organization Type> in "type" on view profile of "Hospital" Organization
     And I verify <Address1> in "address1" on view profile of "Hospital" Organization
+    And I verify <Address2> in "address2" on view profile of "Hospital" Organization
     And I verify <City> in "city" on view profile of "Hospital" Organization
     And I verify <StateVerification> in "state" on view profile of "Hospital" Organization
     And I verify <Postal_Code> in "zip" on view profile of "Hospital" Organization
@@ -59,9 +60,8 @@ Feature: Hospital Organization View profile Functionality tests.
     And I verify "2" location count on view "Hospital" organization page
 
     Examples: 
-      | Description                                                                                       | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                              |
-      | Verification of Hospital details and count of locations displayed under Hospital org - without MO | NO     | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
-      | Verification of Hospital details and count of locations displayed under Hospital org - with MO    | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Success! Hospital Organization Successfully Updated. |
+      | Description                                                                                    | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name  | Loc_Address1 | Loc_Type        | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                         |
+      | Verification of Hospital details and count of locations displayed under Hospital org - with MO | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name2 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | SNF               | Success! SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I search with "<MO_Name>" on organization in search box
@@ -80,9 +80,9 @@ Feature: Hospital Organization View profile Functionality tests.
     And I enter <City> in "City" on create organization page
     And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
-    And I provide unique "<CCN>" in "CCN" on create organization page
-    And I provide unique "<EIN>" in "EIN" on create organization page
-    And I provide unique "<NPI>" in "NPI" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
     And I enter location name <Loc_Name> for Location "1" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
     And I select location type <Loc_Type> for Location "1" on "create" organization page

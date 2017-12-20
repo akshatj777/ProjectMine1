@@ -131,7 +131,7 @@ Feature: Verification of Readmissions EC report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify last working bundle filter doesnot show duplicates
     Given I am on the login page
@@ -203,32 +203,6 @@ Feature: Verification of Readmissions EC report
     And I should see "Other vascular surgery" in the filter value list
     And I should see "Percutaneous coronary intervention" in the filter value list
     And I should see "Revision of the hip or knee" in the filter value list
-
-    Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
-
-  Scenario Outline: Verify patient risk filter doesnot show duplicates
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Readmissions" under reports tile text
-    When I click on the Reports Tile with text "Readmissions"
-    Then I click on "Readmissions" report text for Readmissions Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Readmissions EC" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click to "Patient Risk" field filter under "Patient" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Patient Risk" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I should see "High" in the filter value list
-    And I should see "Low" in the filter value list
 
     Examples: 
       | email                         |
@@ -491,20 +465,15 @@ Feature: Verification of Readmissions EC report
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
+    Then I verify there are no duplicate values in the eligibility filter field list
     And I should see "ELIGIBLE" in the filter value list
     And I should see "ERROR" in the filter value list
     And I should see "EXPIRED" in the filter value list
     And I should see "NOT_ELIGIBLE" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    Then I click on a number under episodes column
-    Then I switch to new window
-    And I wait for the elements to load in new window after clicking one of the episode
-    Then I should verify "Eligibility" is appearing under Episodes table
     
     Examples: 
       | email                              |

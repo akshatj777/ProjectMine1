@@ -1,14 +1,20 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import org.junit.Assert;
+import org.openqa.jetty.html.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.text.ParseException;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * Created by salam on 5/6/16.
@@ -72,8 +78,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iMoveToElementAndPerformRightClick(String filterField, String filterTitle){
+    	WebElement element = driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']"));
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
-    	delay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
     }
 
@@ -91,7 +98,9 @@ public class ReportHomePage extends BaseClass {
 
     public void iVerifyFilterValueListModalText(String text){
     	iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+    	if (!text.isEmpty()){
         verifyTextForElementfromList("#FT_valueList div", text);
+    	}
     }
     
     public void iSeeFilterValueListText(String text){
@@ -1158,6 +1167,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyColumnAfterClikingOnAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']")));
     }
     
@@ -1240,5 +1251,62 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyTitleOnTheReportingHelpCenterPage(String text){
     	verifyTextForElement(driver.findElement(By.cssSelector(".row.collapse>h1")),text);
+    }
+    
+    public void iVerifyInFilterValueListAfterSelectingFilterOption(String text){
+    	StringTokenizer st = new StringTokenizer(text,",");
+    	while(st.hasMoreTokens()){
+    		String verify=st.nextToken();
+			verifyTextForElementfromList("#FT_valueList div", verify);
+    	}		
+    }
+    
+    public void iVerifyFieldUnderLayoutAfterAddingToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath(".//*[@class='gem-label'][text()='"+text+"']")));
+    }
+    
+    public void iClickOnNumberUnderEpisodesColumnToVerifyDrillThrough(){
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    }
+    
+    public void iVerifyTheEpisodeCountWithDrillThrough(){
+    	String count=getTextForElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    	switchToNewWindow();
+    	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
+    	String number=getTextForElement(driver.findElement(By.cssSelector(".x-paging-info")));
+    	number=number.substring(number.indexOf("of")+2).trim();
+    	Assert.assertEquals(number, count);
+    }
+    
+    public void iVerifyAnchorDischargeMonthFormat(String format) throws ParseException{
+    	String Anchormonth=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='[Anchor Post Acute Discharge Date].[Anchor Post Acute Discharge Month]']/div)[1]")));
+    	validateDateFormat(format,Anchormonth);
+    }
+    
+    public void iClickOnFieldUnderAvailableFieldsInReports(String text,String filter){
+    	WebElement element = driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']")));
+    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']/div")));
+    }
+    
+    public void iVerifyNoDuplicateValuesInEligilityFilterFieldList(){
+    	int count=getElementCount("#FT_valueList div");
+    	Set list = new HashSet();
+    	for(int i=1;i<=count;i++)
+    	{
+    		String eligible=getTextForElement(driver.findElement(By.cssSelector("#FT_valueList>div:nth-of-type("+i+")")));
+   		    list.add(eligible);
+    	}
+    	Assert.assertEquals(count,list.size());
+    }
+    
+    public void iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]']/span")),text);
+    }
+    
+    public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
     }
 }

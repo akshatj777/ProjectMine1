@@ -194,9 +194,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -205,7 +205,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -220,13 +220,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -266,9 +266,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -278,9 +278,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -290,13 +290,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -334,9 +334,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -345,7 +345,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -355,10 +355,10 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -398,9 +398,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -410,9 +410,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -422,7 +422,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -459,7 +459,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -469,13 +469,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -484,9 +484,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -524,7 +524,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -534,9 +534,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -546,13 +546,13 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -590,9 +590,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -603,9 +603,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "Non-Fracture" in the filter value list
     And I should see "Not Applicable" in the filter value list
     And I click on "Fracture" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "Non-Fracture" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -646,7 +646,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-  
+
   Scenario Outline: User should be able to click on episode list column and verify the drill through for spending claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
@@ -714,9 +714,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<postacutetype1>" in the filter value list
     And I should see "<postacutetype2>" in the filter value list
     And I click on "<postacutetype1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<postacutetype2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Post Acute Type includes HHA and SNF" is appearing under selected post acute type filter
@@ -739,7 +739,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I should see "<networktier3>" in the filter value list
     #Filtering(Out Of Network)
     And I click on "<networktier1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes <networktier1>" is appearing under selected network tier filter
@@ -750,7 +750,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I choose "Filter" option from select options of filter field
     And I should see "Network Tier" in the header text of filter page
     And I click on "<networktier2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes Tier 1" is appearing under selected network tier filter
@@ -761,7 +761,7 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
     And I choose "Filter" option from select options of filter field
     And I should see "Network Tier" in the header text of filter page
     And I click on "<networktier3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     Then I verify "Network Tier includes Tier 2" is appearing under selected network tier filter

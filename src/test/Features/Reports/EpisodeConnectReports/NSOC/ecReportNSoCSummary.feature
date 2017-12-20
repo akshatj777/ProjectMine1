@@ -306,22 +306,196 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
+    Then I verify there are no duplicate values in the eligibility filter field list
     And I should see "ELIGIBLE" in the filter value list
     And I should see "ERROR" in the filter value list
     And I should see "EXPIRED" in the filter value list
     And I should see "NOT_ELIGIBLE" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    Then I click on a number under episodes column
-    Then I switch to new window
-    And I wait for the elements to load in new window after clicking one of the episode
-    Then I should verify "Eligibility" is appearing under Episodes table
     
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
+      
+  Scenario Outline: User should be able to see 1st post acute ccn and network tier(anchor discharge) and filter the values for network tier(anchor discharge)
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
+    Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
+    Then I enter "1st Post Acute CCN" in the search field textbox for filters
+    And I verify "1st Post Acute CCN" is appearing in the available fields under next site of care summary report
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    #Drag and Drop(1st Post Acute CCN)
+    When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "1st Post Acute CCN" column is added to report after selecing add to report option
+    #Filtering(1st Post Acute CCN)
+    When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "1st Post Acute CCN" in the header text of filter page
+    And I should see "<1stpostacuteccn filter>" in the filter value list
+    And I click on "<1stpostacuteccn filter>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    #Anchor Discharge Care Setting(SNF and HHA Filtering)
+    When I click to "Anchor Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Discharge Care Setting" in the header text of filter page
+    And I should see "HHA" in the filter value list
+    And I should see "SNF" in the filter value list
+    And I click on "HHA" in the filter value list
+    And I click on add selected in the filter model
+    And I click on "SNF" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Anchor Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
+    #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
+    When I click to "Anchor Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Discharge Care Setting" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Discharge Care Setting" column is added to report after selecing add to report option
+    #Network Tier(Anchor Discharge - Tier Unknown)
+    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Tier Unknown" in the filter value list
+    And I should not see "Tier 1" in the filter value list
+    And I should not see "Tier 2" in the filter value list
+    And I should not see "Out of Network" in the filter value list
+    And I click on "Tier Unknown" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier (Anchor Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
+
+    Examples: 
+      | email                              | 1stpostacuteccn filter |
+      | shutestaug231132a@yopmail.com      | Not Available          |
+      | reptestachmodel2opsfin@yopmail.com | Not Available          |
+      | shutestaug231132a@yopmail.com      | 0                      |
+      | reptestachmodel2opsfin@yopmail.com | 0                      |
+
+  Scenario Outline: User should be able to filter the values for Tier One,Tier Two and Out Of Network under network tier(anchor discharge) filter field
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
+    Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
+    #Drag and Drop(Network Tier - Anchor Discharge)
+    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Network Tier (Anchor Discharge)" field is appearing in the layout section after selecting add to report
+    Then I verify "Network Tier (Anchor Discharge)" column is added to report after selecing add to report option
+    #Filtering(Out Of Network)
+    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I click on "<networktier1>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier (Anchor Discharge) includes Out of Network" is appearing under selected network tier anchor discharge filter
+    And I verify "<networktier1>" is visible under "Network Tier (Anchor Discharge)" column in the report
+    Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
+    #Filtering(Tier 1)
+    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I click on "<networktier2>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier (Anchor Discharge) includes Tier 1" is appearing under selected network tier anchor discharge filter
+    And I verify "<networktier2>" is visible under "Network Tier (Anchor Discharge)" column in the report
+    Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
+    #Filtering(Tier 2)
+    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I click on "<networktier3>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier (Anchor Discharge) includes Tier 2" is appearing under selected network tier anchor discharge filter
+    And I verify "<networktier3>" is visible under "Network Tier (Anchor Discharge)" column in the report
+
+    Examples: 
+      | email                     | networktier1   | networktier2 | networktier3 |
+      | RPFIN2User2@yopmail.com   | Out of Network | Tier 1       | Tier 2       |
+      | OPSFINTier1_2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
+
+  Scenario Outline: Verify drag and drop functionality for ccn and network tier(post acute admission) to the report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #CCN Drag and Drop
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "CCN" column is added to report after selecing add to report option
+    #Drag and Drop(Network Tier Post Acute Admission)
+    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
+    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecing add to report option
+
+    Examples: 
+      | email                   |
+      | RPFIN2User2@yopmail.com |
+      | OPSFINTier1@yopmail.com |
