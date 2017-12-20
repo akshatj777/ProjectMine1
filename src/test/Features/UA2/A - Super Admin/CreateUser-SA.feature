@@ -40,35 +40,36 @@ Feature: UA2 Front End Automation
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    #And I clear the browser history
-    #Given I am on mail login page
-    #Then I enter username "test.automatemail" to login mail account
-    #Then I enter password "Intel@01" to login mail account
-    #Then I click on Mail icon in my account
-    #Then I click on Inbox in mail
-    #And I wait for 3000 milli seconds
-    #Then I verify Account Verification in Inbox in my account
-    #Then I click on Account Verification mail in Inbox
-    #Then I verify "Confirm my account!" link in mail content
-    #Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
-    #Then I enter email to generate password link
-    #And I click on send mail button
-    #Then I switch back to old window
-    #Then I click on Inbox in mail
-    #Then I verify the unread mail in inbox in my account
-    #Then I verify Change Password mail in Inbox in my account
-    #Then I click on Change Password mail in Inbox
-    #Then I verify "Change my password" link in mail content
-    #Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    #And I enter new password "Testing1" to set new password
-    #And I enter confirm new password "Testing1" to set new password
-    #And I click on submit button to set new password
+    And I clear the browser history
+    Given I am on mail login page
+    Then I enter username "test.automatemail" to login mail account
+    Then I enter password "Intel@01" to login mail account
+    Then I click on Mail icon in my account
+    Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
+    Then I verify Account Verification in Inbox in my account
+    Then I click on Account Verification mail in Inbox
+    Then I verify "Confirm my account!" link in mail content
+    Then I click on "Confirm my account!" link in mail content
+    And I switch to new window
+    Then I enter email to generate password link
+    And I click on send mail button
+    Then I switch back to old window
+    Then I click on Inbox in mail
+    Then I verify the unread mail in inbox in my account
+    Then I verify Change Password mail in Inbox in my account
+    Then I click on Change Password mail in Inbox
+    Then I verify "Change my password" link in mail content
+   Then I click on "Change my password" link in mail content
+    And I switch to new window
+    And I enter new password "Testing1" to set new password
+    And I enter confirm new password "Testing1" to set new password
+    And I click on submit button to set new password
 
     Examples: 
       | Description                                                                           | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | NPI | LearningPathwaySearchParameter | Health System     |
-      | Login with Super Admin User and create user with Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       |  Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+
+      | Login with Super Admin User and create user with Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
       #| Login with Super Admin User and create user with Manager role                         | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
       #| Login with Super Admin User and create user with Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
       #| Login with Super Admin User and create user with Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | NPI | Learning Pathway 2             | Stamford Hospital |
@@ -86,8 +87,8 @@ Feature: UA2 Front End Automation
       #| Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
       #| Login with Super Admin User and create user with Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
       #| Login with Super Admin User and create user with Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      |     | Learning Pathway 2             | Stamford Hospital |
 #
+  #| Login with Super Admin User and create user with Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      |     | Learning Pathway 2             | Stamford Hospital |
   #Scenario Outline: <Description>
     #Given I am on the login page
     #Then I enter newuser email for "<User>-<Role>" login to Remedy
@@ -100,15 +101,30 @@ Feature: UA2 Front End Automation
     #And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     #And I redirect to Remedy connect page
     #And I click on Episode1 tile for "<User>-<Role>" user
+    #And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    #And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
+    #And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    #And I verify "Medicare" payer on user profile for "<User>-<Role>" user
     #And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     #And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
-    #And I verify "<Health System>" facility on patient card for "<User>-<Role>" user
-    #And I click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     #And I switch back to old window
     #And I click on Institute tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Institute homepage
     #And I click on Reports tile for "<User>-<Role>" user
-    #And I click on Episodes two tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Reports homepage
+    #And I wait to see "Dashboards" under reports tile text
+    #When I click on the Reports Tile with text "Dashboards"
+    #When I click on "Program Overview" reports text for "Dashboards" report tile
+    #Then I click on Show Summary button to unhide the available global filters
+    #Then I see <Health System> appearing under payer filter of global filters
+    #Then I see <Health System> appearing under participant filter of global filters
+    #And I redirect to Remedy connect page
+    #And I click on Episodes 2 tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    #And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
     #And I click on RemedyU tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to RemedyU homepage
     #And I redirect to Remedy connect page
     #And I click on the top user account link
     #And I verify "Support" in dropdown on profile icon
@@ -137,7 +153,7 @@ Feature: UA2 Front End Automation
       #| Login with Remedy Field RN and verify Product Tiles and their redirections                 | Super Admin | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_FRN       | Stamford Hospital |
       #| Login with Remedy PM and verify Product Tiles and their redirections                       | Super Admin | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        | Stamford Hospital |
       #| Login with Remedy Sales Team and verify Product Tiles and their redirections               | Super Admin | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |                | Stamford Hospital |
-      #| Login with Remedy Executive and verify Product Tiles and their redirections                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PM        | Stamford Hospital |
+      #| Login with Remedy Executive and verify Product Tiles and their redirections                | Super Admin | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  | ROLE_PRM       | Stamford Hospital |
       #| Login with Prospective Partner Executive and verify Product Tiles and their redirections   | Super Admin | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |                | Stamford Hospital |
       #| Login with Remedy Other and verify Product Tiles and their redirections                    | Super Admin | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         | ROLE_PRM       | Stamford Hospital |
       #| Login with Partner Program Administrator and verify Product Tiles and their redirections   | Super Admin | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | ROLE_PRM       | Stamford Hospital |
@@ -145,10 +161,10 @@ Feature: UA2 Front End Automation
       #| Login with Partner Technical Administrator and verify Product Tiles and their redirections | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    | ROLE_PM        | Stamford Hospital |
       #| Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    | ROLE_ADMIN     | Stamford Hospital |
       #| Login with Transitional Case Manager and verify Product Tiles and their redirections       | Super Admin | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    | ROLE_TCS       | Stamford Hospital |
-      #| Login with Downstream Provider and verify Product Tiles and their redirections             | Super Admin | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      | ROLE_SNF       | Stamford Hospital |
 #
+  #| Login with Downstream Provider and verify Product Tiles and their redirections             | Super Admin | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      | ROLE_SNF       | Stamford Hospital |
   #Scenario: Verify availability of fields on General Information tab while adding a user.
-    #			Also, Verify availability of values in Role dropdown for Super Admin.
+    #	Also, Verify availability of values in Role dropdown for Super Admin.
 #
     #Given I am on the login page
     #When I enter email field lbarinstein+qaadmin@remedypartners.com for login
@@ -185,8 +201,8 @@ Feature: UA2 Front End Automation
     #Then I verify the availability of role "Remedy Program Administrator"
     #Then I verify the availability of role "Partner Technical Administrator"
     #Then I verify the availability of role "Transitional Case Manager"
-    #Then I verify the availability of role "Downstream Provider"
 #
+  #Then I verify the availability of role "Downstream Provider"
   #Scenario Outline: <Description>
     #Given I am on the login page
     #When I enter email field lbarinstein+qaadmin@remedypartners.com for login
@@ -214,6 +230,7 @@ Feature: UA2 Front End Automation
       #| Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required       |
       #| Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
       #| Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Email is required      |
+      #| Verify validation message for invalid Phone           | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Email is required      |
       #| Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
       #| Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
       #| Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
@@ -238,7 +255,7 @@ Feature: UA2 Front End Automation
     #Then I verify applications "<Applications>" are unchecked
     #Then I select "<Applications>" product
     #Then I verify applications "<Applications>" are checked
-    #Then I select "<Applications>" product
+    #Then I unselect "<Applications>" product
     #Then I verify applications "<Applications>" are unchecked
 #
     #Examples: 
@@ -261,8 +278,8 @@ Feature: UA2 Front End Automation
       #| Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |
       #| Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |
       #| Transitional Case Manager       | Episodes, Reports, Lessons                                                       |
-      #| Downstream Provider             | Episodes 2.0                                                                     |
 #
+  #| Downstream Provider             | Episodes 2.0                                                                     |
   #Scenario Outline: <Scenario Description>
     #Given I am on the login page
     #When I enter email field lbarinstein+qaadmin@remedypartners.com for login
@@ -320,8 +337,8 @@ Feature: UA2 Front End Automation
     #Then I should see header text "Users"
 #
     #Examples: 
-      #| Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                             | LearningPathwayName        | LearningPathwayID | Health System     |
-      #| Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Episodes, Episodes 2.0, Reports, Lessons | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
+      #| Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                             | LearningPathwayName | LearningPathwayID | Health System     |
+      #| Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Episodes, Episodes 2.0, Reports, Lessons | i am learning path  | NFdw0Kts2C01      | Stamford Hospital |
 #
   #Scenario Outline: Verify validation message for invalid lesson name in search box
     #Given I am on the login page
@@ -344,10 +361,11 @@ Feature: UA2 Front End Automation
     #Then I click on Select button
     #Then I verify Learning Pathway search box is available
     #Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    #And I verify No results found under Learning Pathway search box
 #
     #Examples: 
       #| Role      | Applications                             | LearningPathwayName |
-      #| Executive | Episodes, Episodes 2.0, Reports, Lessons | Test                |
+      #| Executive | Episodes, Episodes 2.0, Reports, Lessons | Test123             |
 #
   #Scenario Outline: Verify auto selected programs in Organizations
     #Given I am on the login page
@@ -394,22 +412,24 @@ Feature: UA2 Front End Automation
     #Then I click on Next button
     #Then I select "<Applications>" product
     #Then I click on Next button
+    #Then I click on Select button
     #And I search for health system with <Health System>
     #And I select a <Health System>
     #Then I click on Select button
     #Then I select "<Programs>" programs
-    #Then I select "<Locations>" locations
+    #Then I enter characters "<Locations>" in location serach
+    #Then I search and select "<Locations>" locations
     #Then I click on Submit button
     #Then I should see header text "Users"
 #
     #Examples: 
-      #| Description                                                        | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs                | Locations                                                                        |
-      #| Create user with only one program all locations - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | All                                                                              |
-      #| Create user with only one program one location  - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058)                                       |
-      #| Create user with only one program multiple locations - Super User  | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard (450058),Adventist Health Bakersfield (050455) |
-      #| Create user with multiple programs all locations - Super User      | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All                                                                              |
-      #| Create user with multiple programs one location - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist (450058-1)                                                |
-      #| Create user with multiple programs multiple locations - Super User | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital (490033), Blessing Hospital - Quincy (140015)           |
+      #| Description                                                        | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs                | Locations                                                      |
+      #| Create user with only one program all locations - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | All Locations                                                  |
+      #| Create user with only one program one location  - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard                              |
+      #| Create user with only one program multiple locations - Super User  | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard,Adventist Health Bakersfield |
+      #| Create user with multiple programs all locations - Super User      | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All Locations                                                  |
+      #| Create user with multiple programs one location - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist                                         |
+      #| Create user with multiple programs multiple locations - Super User | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital, Blessing Hospital - Quincy           |
 #
   #Scenario Outline: <Scenario Description>
     #Given I am on the login page
@@ -436,6 +456,7 @@ Feature: UA2 Front End Automation
     #Then I verify text present in location "Location" field label
 #
     #Examples: 
-      #| Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs    | Location | Loc |
-      #| Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Bap      | Bap |
+      #| Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs    | Location                          | Loc                               |
+      #| Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Bap                               | Bap                               |
       #| Search by location by full name while creation of user    | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Baptist Medical Center - Vanguard | Baptist Medical Center - Vanguard |
+#

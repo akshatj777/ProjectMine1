@@ -116,23 +116,42 @@ public class EditUser extends BaseClass {
 
 	public void iVerifyThatApplicationsAreEditable(String app, String text) {
 		delay();
-			if (text.equalsIgnoreCase("deselected")) {
-			
-			}
-		else if (text.equalsIgnoreCase("selected")) {
-			String[] application = app.split(",\\s+");
+		if (text.equalsIgnoreCase("Disabled")) {
+			if (app.contains(",")) {
+				String[] application = app.split(",\\s+");
 
-			for (int i = 0; i < application.length; i++) {
-				System.out.println("selecting list " + application[i]);
-				iWillWaitToSee(By.cssSelector("div.ui.checked.checkbox"));
-				verifyTextForElementfromList("div.ui.checked.checkbox", application[i]);
-			}
+				for (int i = 0; i < application.length; i++) {
 
+					verifyTextForElementFromListByXpath("//*[contains(text(),'Disabled')]/preceding-sibling::td",application[i]);
+
+				}
+			} else {
+
+				verifyTextForElement(
+						driver.findElement(By.xpath("//*[contains(text(),'Disabled')]/preceding-sibling::td")), app);
+
+			}
+		} else if (text.equalsIgnoreCase("Enabled")) {
+			if (app.contains(",")) {
+				String[] application = app.split(",\\s+");
+
+				for (int i = 0; i < application.length; i++) {
+
+					verifyTextForElementFromListByXpath("//*[contains(text(),'Enabled')]/preceding-sibling::td",
+							application[i]);
+
+				}
+			} else {
+
+				verifyTextForElement(
+						driver.findElement(By.xpath("//*[contains(text(),'Enabled')]/preceding-sibling::td")), app);
+
+			}
 		}
 	}
-	
-public void iClickOnDeleteOrganisation(){
-	iWillWaitToSee(By.cssSelector(".remove.link.icon"));
-	clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
-}
+
+	public void iClickOnDeleteOrganisation() {
+		iWillWaitToSee(By.cssSelector(".remove.link.icon"));
+		clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
+	}
 }

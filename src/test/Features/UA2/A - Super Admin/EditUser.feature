@@ -16,7 +16,7 @@ Feature: Edit page for superuser verification
     And I should not be able to edit Email
     Then I verify the availability of fields "Phone"
     Then I verify the availability of fields "Role"
- 
+
   Scenario Outline: Verifying the ability of SuperAdmin user to edit a field in general information tab
     Given I am on the login page
     When I log in as super user
@@ -44,7 +44,7 @@ Feature: Edit page for superuser verification
     Then I click on Next button
     Then I click on delete organisation icon
     And I click on "Remove" button
-   	Then I click on Select button
+    Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -61,27 +61,27 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role    | NPI | Applications |Health System|
-      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager |     | Episodes     |Stamford Hospital|
+      | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role    | NPI | Applications | Health System     |
+      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager |     | Episodes     | Stamford Hospital |
 
-  #| Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Executive                       |     |Episodes|
-  #| Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Case Manager                    |     |Episodes|
-  #| Login with Super Admin User and Edit user to Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Physicians                      | NPI |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy TCS                      |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy LPN role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy LPN                      |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy RN role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy RN                       |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy Field RN role                 | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Field RN                 |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy PM role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy PM                       |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy Sales Team role               | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Sales Team               |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy Executive role                | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Executive                |     |Episodes|
-  #| Login with Super Admin User and Edit user to Prospective Partner Executive role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Prospective Partner Executive   |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy Other role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Other                    |     |Episodes|
-  #| Login with Super Admin User and Edit user to Partner Program Administrator role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Partner Program Administrator   |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy Program Administrator role    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Program Administrator    |     |Episodes|
-  #| Login with Super Admin User and Edit user to Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Partner Technical Administrator |     |Episodes|
-  #| Login with Super Admin User and Edit user to Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Remedy Technical Administrator  |     |Episodes|
-  #| Login with Super Admin User and Edit user to Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Transitional Case Manager       |     |Episodes|
-  #| Login with Super Admin User and Edit user to Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Downstream Provider             |     |Episodes|
+  #| Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Executive                       |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Case Manager                    |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Physicians                      | NPI |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy TCS                      |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy LPN role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy LPN                      |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy RN role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy RN                       |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy Field RN role                 | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Field RN                 |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy PM role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy PM                       |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy Sales Team role               | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Sales Team               |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy Executive role                | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Executive                |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Prospective Partner Executive role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Prospective Partner Executive   |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy Other role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Other                    |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Partner Program Administrator role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Partner Program Administrator   |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy Program Administrator role    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Program Administrator    |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Partner Technical Administrator |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Technical Administrator  |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Transitional Case Manager       |     |Episodes|Stamford Hospital |
+  #| Login with Super Admin User and Edit user to Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Downstream Provider             |     |Episodes|Stamford Hospital |
   Scenario Outline: Login with Super Admin user to enable/disable user applications and verify Product Tiles and their redirections
     Given I am on the login page
     When I log in as super user
@@ -96,21 +96,24 @@ Feature: Edit page for superuser verification
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
-    Then I select "<Applications>" product
-    And I verify that "<Applications>" are "selected"
+    Then I select "<EnableApplications>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
+    Then I unselect "<DisableApplications>" product
     Then I click on Next button
     Then I click on delete organisation icon
     And I click on "Remove" button
-  	Then I click on Select button
+    Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
     Then I click on Select All Locations button
     And I wait for 3000 milli seconds
     Then I click on Submit button for "<User>"
+    And I wait for 3000 milli seconds
+    And I verify that "<Applications>" are "Enabled"
+    And I verify that "<ApplicationsNotVisible>" are "Disabled"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -122,62 +125,15 @@ Feature: Edit page for superuser verification
     Then I click on Hamburger menu on top right of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
-    And I click on Episode1 tile for "<User>-<Role>" user
-    And I click on Institute tile for "<User>-<Role>" user
-    And I click on Reports tile for "<User>-<Role>" user
-    And I click on Episodes two tile for "<User>-<Role>" user
-    And I click on RemedyU tile for "<User>-<Role>" user
-    And I redirect to Remedy connect page
-    And I click on the top user account link
-    And I verify "Support" in dropdown on profile icon
-    And I verify "Reset Password" in dropdown on profile icon
-    And I verify "Log Out" in dropdown on profile icon
-    And I click on "Support" in dropdown on profile icon
-    And I switch to new window
-    And I verify page header "Login" for "Support" on Remedy Connect
-    And I switch back to old window
-    And I click on "Reset Password" in dropdown on profile icon
-    Then I select Reset Password option from the dropdown
-    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password. Please check your e-mail."
-    And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
-    And I should see Log in widget
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
-    Then I select user with email "test.automatemail"
-    And I verify that I am navigated to user page
-    And I click on Edit button
-    Then I select "Applications" tab
-    Then I deselect "<DisableApplication>" product
-    Then I click on Next button
-    Then I click on Submit button for "<User>"
-    And I click on the top user account link
-    Then I click on "Log Out" button
-    And I should see Log in widget
-    Then I enter newuser email for "<user>-<Role>" login to Remedy
-    Then I enter newuser password for login to Remedy
-    And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<ApplicationsNotVisible>,<DisableApplication>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
-    And I verify "<Applications>" in product menu dropdown
-    And I verify "<ApplicationsNotVisible>,<DisableApplication>" is not present in product menu dropdown
-    And I click on the top user account link
-    Then I click on "Log Out" button
     And I should see Log in widget
 
     Examples: 
-      | User        | Role      | Applications     | DisableApplication | ApplicationsNotVisible | LearningPathwaySearchParameter | Health System     | NPI |
-      | Super Admin | Executive | Reports, Lessons | Lessons            | Episodes 2.0, Episodes | Learning Pathway 2             | Stamford Hospital |     |
-
-  #| Super Admin | manager                         | Episodes 2.0, Episodes, Lessons           |Episodes, Episodes 2.0               | Reports                | Learning Pathway 2             | Stamford Hospital |     |
-  #| Super Admin | Physicians                      | Physician Connect, Episodes 2.0, Episodes, Lessons | Physician Connect, Episodes 2.0     | Reports                | Learning Pathway 2             | Stamford Hospital | NPI |
-  #| Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons            |TCI                   | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
-  #| Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons            |TCI, Lessons                   | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
-  #| Super Admin | Remedy Program Administrator    | Physician Connect, TCI, Episodes 2.0, Lessons |    Physician Connect, TCI       | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
-  #| Super Admin | Partner Technical Administrator | Physician Connect, Administration, Episodes 2.0, Lessons |Administration, Episodes 2.0 |Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
-  #| Super Admin | Remedy Technical Administrator  | Physician Connect, Administration, Episodes 2.0, Lessons |Physician Connect, Administration |Reports, Episodes, TCI | Learning Pathway 2             | Stamford Hospital |     |
- 
+      | User        | Role                            | EnableApplications                                                               | DisableApplications                                      | Applications                                | ApplicationsNotVisible                                   | LearningPathwaySearchParameter | Health System     | NPI |  
+      | Super Admin | Executive                       | Reports, Lessons, Episodes                                                       | Lessons, Episodes                                        | Reports                                     | Episodes 2.0, Episodes, Lessons                          | Learning Pathway 2             | Stamford Hospital |     |  
+      | Super Admin | manager                         | Reports, Lessons, Episodes, Episodes 2.0                                         | Episodes 2.0, Episodes                                   | Reports, Lessons                            | Episodes, Episodes 2.0                                   | Learning Pathway 2             | Stamford Hospital |     |  
+      | Super Admin | Physicians                      | Physician Connect, Episodes 2.0, Episodes, Lessons                               | Physician Connect, Episodes 2.0                          | Episodes, Lessons                           | Reports, Physician Connect, Episodes 2.0                 | Learning Pathway 2             | Stamford Hospital | NPI |  
+      | Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons                                                       | TCI                                                      | Episodes 2.0, Lessons                       | Reports, Episodes, TCI                                   | Learning Pathway 2             | Stamford Hospital |     | 
+      | Super Admin | Remedy Program Administrator    | Physician Connect, Episodes 2.0, Episodes, Lessons, TCI                          | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, TCI            | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     | 
+      | Super Admin | Partner Technical Administrator | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration               | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, Administration | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     |  
+      | Super Admin | Remedy Technical Administrator  | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration, TCI, Reports | Physician Connect, Administration, Episodes 2.0, Lessons | Episodes, TCI, Reports                      | Physician Connect, Administration, Episodes 2.0, Lessons | Learning Pathway 2             | Stamford Hospital |     |  

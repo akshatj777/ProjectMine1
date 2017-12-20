@@ -40,7 +40,6 @@ Feature: UA2 Front End Automation
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-
     #And I clear the browser history
     #Given I am on mail login page
     #Then I enter username "test.automatemail" to login mail account

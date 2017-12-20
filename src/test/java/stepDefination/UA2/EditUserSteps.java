@@ -66,11 +66,6 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 		editUser.iClickOnApplicationTab(tab);
 	}
 		
-	
-	@Then("^I deselect \"([^\"]*)\" product$")
-	public void ideSelectTileForTheRole(String appList) throws Throwable {
-		createUserPage.iDeselectTileForTheRole(appList);
-	}
 
 	@Then("^I verify that \"([^\"]*)\" are \"([^\"]*)\"$")
 	public void i_verify_that_Episodes_Reports_Lessons_are(String apps, String select) throws Throwable {
