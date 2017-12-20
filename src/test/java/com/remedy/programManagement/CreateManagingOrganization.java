@@ -125,9 +125,9 @@ public class CreateManagingOrganization extends BaseClass {
 			CreateHHAOrganization.tempHHAOrg.put("HHANAME", createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
 		}
-		else if(text.equals("DUPLICATE_HHA"))
+		else if(text.equals("DUPLICATE_hha"))
 		{
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("HHANAME"));
 		}
 		else if(text.equals("equalsTo75Characters")) 
 		{

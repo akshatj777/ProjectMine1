@@ -168,13 +168,13 @@ public class CreateACHOrganization extends BaseClass{
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("NPI"));
 			}
 			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_CCN")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("CCN"));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg_noMO.get("CCN"));
 			}
 			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("EIN"));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg_noMO.get("EIN"));
 			}
 			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
-					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("NPI"));
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg_noMO.get("NPI"));
 			}
 			else if(id.contains("lessThan6")){
 				String value = createRandomNumber(5);
