@@ -1255,10 +1255,10 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]'/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]']/span")),text);
     }
     
     public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
     }
 }

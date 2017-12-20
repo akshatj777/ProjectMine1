@@ -720,6 +720,7 @@ Feature: M3 EC Next site of care summary report verification.
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
+    Then I verify there are no duplicate values in the eligibility filter field list
     And I should see "ELIGIBLE" in the filter value list
     And I should see "ERROR" in the filter value list
     And I should see "EXPIRED" in the filter value list
@@ -728,12 +729,6 @@ Feature: M3 EC Next site of care summary report verification.
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    Then I click on a number under episodes column
-    Then I switch to new window
-    And I wait for the elements to load in new window after clicking one of the episode
-    Then I should verify "Eligibility" is appearing under Episodes table
     
     Examples: 
       | email                                 | role     | facility    |

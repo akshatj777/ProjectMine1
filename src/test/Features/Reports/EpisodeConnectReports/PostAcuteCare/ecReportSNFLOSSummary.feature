@@ -352,27 +352,28 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
     Then I enter "1st Post Acute CCN" in the search field textbox for filters
     And I verify "1st Post Acute CCN" is appearing in the available fields under next site of care summary report
-    #Drag and Drop
+    And I click on clear search field element
+    And I wait until refresh button is disappeared
+    #Drag and Drop(1st Post Acute CCN)
     When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
     Then I verify "1st Post Acute CCN" column is added to report after selecing add to report option
-    #Filtering
+    #Filtering(1st Post Acute CCN)
     When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "1st Post Acute CCN" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "<1stpostacuteccn filter>" in the filter value list
+    And I click on "<1stpostacuteccn filter>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I click on clear search field element
     And I wait until refresh button is disappeared
     #Anchor Discharge Care Setting(SNF and HHA Filtering)
     When I click to "Anchor Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "HHA" in the header text of filter page
+    And I should see "Anchor Discharge Care Setting" in the header text of filter page
+    And I should see "HHA" in the filter value list
     And I should see "SNF" in the filter value list
     And I click on "HHA" in the filter value list
     And I click on add selected in the filter model
@@ -380,11 +381,18 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Anchor Discharge Care Setting includes HHA and  SNF" is appearing under selected anchor discharge care setting filter
-    #Network Tier(Anchor Discharge)
+    Then I verify "Anchor Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
+    #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
+    When I click to "Anchor Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Discharge Care Setting" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Discharge Care Setting" column is added to report after selecing add to report option
+    #Network Tier(Anchor Discharge - Tier Unknown)
     When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Tier Unknown" in the header text of filter page
+    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Tier Unknown" in the filter value list
     And I should not see "Tier 1" in the filter value list
     And I should not see "Tier 2" in the filter value list
     And I should not see "Out of Network" in the filter value list
@@ -395,8 +403,11 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I verify "Network Tier (Anchor Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              | 1stpostacuteccn filter |
+      | shutestaug231132a@yopmail.com      | Not Available          |
+      | reptestachmodel2opsfin@yopmail.com | Not Available          |
+      | shutestaug231132a@yopmail.com      | 0                      |
+      | reptestachmodel2opsfin@yopmail.com | 0                      |
 
   Scenario Outline: User should be able to filter the values for Tier One,Tier Two and Out Of Network under network tier(anchor discharge) filter field
     Given I am on the login page
@@ -419,7 +430,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I remove "Model" field filter under "Model" filter field from default filters
     Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
     Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
-    #Drag and Drop
+    #Drag and Drop(Network Tier - Anchor Discharge)
     When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -459,11 +470,11 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I verify "<networktier3>" is visible under "Network Tier (Anchor Discharge)" column in the report
 
     Examples: 
-      | email                   | networktier1   | networktier2 | networktier3 |
-      | RPFIN2User2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
-      | RPFIN2User2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
+      | email                     | networktier1   | networktier2 | networktier3 |
+      | RPFIN2User2@yopmail.com   | Out of Network | Tier 1       | Tier 2       |
+      | OPSFINTier1_2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
 
-  Scenario Outline: Verify drag and drop functionality for 1st post acute ccn,ccn and network tier(post acute admission) to the report
+  Scenario Outline: Verify drag and drop functionality for ccn and network tier(post acute admission) to the report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -485,12 +496,12 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "CCN" field is appearing in the layout section after selecting add to report
     Then I verify "CCN" column is added to report after selecing add to report option
-    #Post Acute CCN Drag and Drop
-    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    #Drag and Drop(Network Tier Post Acute Admission)
+    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
+    And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
+    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecing add to report option
 
     Examples: 
       | email                   |
