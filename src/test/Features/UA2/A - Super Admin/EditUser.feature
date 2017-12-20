@@ -1,6 +1,6 @@
 Feature: Edit page for superuser verification
 
-  Scenario: Verify components of edit user page for superuser
+  Scenario: Login as superUser to verify edit page components and non-editable email field
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -13,9 +13,10 @@ Feature: Edit page for superuser verification
     Then I verify the availability of fields "First Name"
     Then I verify the availability of fields "Last Name"
     Then I verify the availability of fields "Email"
+    And I should not be able to edit Email
     Then I verify the availability of fields "Phone"
     Then I verify the availability of fields "Role"
-
+ 
   Scenario Outline: Verifying the ability of SuperAdmin user to edit a field in general information tab
     Given I am on the login page
     When I log in as super user
@@ -41,7 +42,14 @@ Feature: Edit page for superuser verification
     #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
-   
+    Then I click on delete organisation icon
+    And I click on "Remove" button
+   	Then I click on Select button
+    And I search for health system with <Health System>
+    And I wait for 3000 milli seconds
+    And I select a <Health System>
+    Then I click on Select All Locations button
+    And I wait for 3000 milli seconds
     Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     And I verify First Name <FirstName> in user page
@@ -53,8 +61,8 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role    | NPI | Applications |
-      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager |     | Episodes     |
+      | Description                                               | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role    | NPI | Applications |Health System|
+      | Login with Super Admin User and Edit user to Manager role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager |     | Episodes     |Stamford Hospital|
 
   #| Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Executive                       |     |Episodes|
   #| Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 9963852451 | Case Manager                    |     |Episodes|
@@ -94,7 +102,14 @@ Feature: Edit page for superuser verification
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
-  
+    Then I click on delete organisation icon
+    And I click on "Remove" button
+  	Then I click on Select button
+    And I search for health system with <Health System>
+    And I wait for 3000 milli seconds
+    And I select a <Health System>
+    Then I click on Select All Locations button
+    And I wait for 3000 milli seconds
     Then I click on Submit button for "<User>"
     And I click on the top user account link
     Then I click on "Log Out" button
@@ -165,16 +180,4 @@ Feature: Edit page for superuser verification
   #| Super Admin | Remedy Program Administrator    | Physician Connect, TCI, Episodes 2.0, Lessons |    Physician Connect, TCI       | Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
   #| Super Admin | Partner Technical Administrator | Physician Connect, Administration, Episodes 2.0, Lessons |Administration, Episodes 2.0 |Reports, Episodes      | Learning Pathway 2             | Stamford Hospital |     |
   #| Super Admin | Remedy Technical Administrator  | Physician Connect, Administration, Episodes 2.0, Lessons |Physician Connect, Administration |Reports, Episodes, TCI | Learning Pathway 2             | Stamford Hospital |     |
-  Scenario: Verifying that email is not editable in general information tab
-    Given I am on the login page
-    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
-    Then I select user with email "test.automatemail"
-    And I verify that I am navigated to user page
-    And I click on Edit button
-    And I should not be able to edit Email
+ 

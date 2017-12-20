@@ -76,4 +76,15 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void i_verify_that_Episodes_Reports_Lessons_are(String apps, String select) throws Throwable {
 	    editUser.iVerifyThatApplicationsAreEditable(apps, select);
 	}
+	
+	
+	@Then("^I click on delete organisation icon$")
+	public void iDeleteOrganisation() throws Throwable {
+	    editUser.iClickOnDeleteOrganisation();
+	}
+	@Then("^I should not be able to edit Email$")
+	public void i_should_not_be_able_to_edit_Email() throws Throwable {
+	   editUser.iVerifyThatEmailIsNonEditable();
+	}
+
 }

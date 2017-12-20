@@ -561,9 +561,10 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void clickSelectAllLocationsButton() throws Throwable {
+	   iWillWaitToSee(By.xpath("//label[.='All Locations']"));
 	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']")));   
+  
    }
-
    public void clickSubmitButton() throws Throwable {
 	  
 		iWillWaitToSee(By.xpath("//button[.='Submit']"));
@@ -573,7 +574,6 @@ public class CreateUserPage extends BaseClass{
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
-		delay();
 		iWillWaitToSee(By.xpath("//button[.='Submit']"));
 		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
@@ -633,6 +633,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void clickLessonsSelectButton() throws Throwable {
+	   iWillWaitToSee(By.xpath("//div[text()='Select']"));
        clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
    }
 
@@ -706,7 +707,8 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void clickLogOutButton(String arg1) throws Throwable {
-       clickElement(driver.findElement(By.xpath("//span[text()='Log Out']")));
+	   iWillWaitToSee(By.xpath("//*[text()='"+arg1+"']"));
+       clickElement(driver.findElement(By.xpath("//*[text()='"+arg1+"']")));
    }
    
    public void verifyProductTiles(String products) throws Throwable {

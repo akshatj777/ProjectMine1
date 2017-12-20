@@ -35,6 +35,7 @@ Feature: UA2 Front End Automation
     And I wait for 3000 milli seconds
     And I select a <Health System>
     Then I click on Select All Locations button
+    And I wait for 3000 milli seconds
     Then I click on Submit button for "<User>"
     And I click on the top user account link
     Then I click on "Log Out" button

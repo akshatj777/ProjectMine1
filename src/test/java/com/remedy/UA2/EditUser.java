@@ -117,25 +117,9 @@ public class EditUser extends BaseClass {
 	public void iVerifyThatApplicationsAreEditable(String app, String text) {
 		delay();
 			if (text.equalsIgnoreCase("deselected")) {
-			String[] application = app.split(",\\s+");
-			iWillWaitToSee(By.cssSelector("div.ui.checked.checkbox"));
-			List<WebElement> listAll = driver.findElements(By.cssSelector("div.ui.checkbox"));
-			List<WebElement> listChecked = driver.findElements(By.cssSelector("div.ui.checked.checkbox"));
-			for (int i = 0; i < listAll.size(); i++) {
-				for (int j = 0; j < listChecked.size(); j++) {
-					if (listChecked.get(j).getText().equals(listAll.get(i).getText()) == false) {
-						for (int k = 0; k < application.length; k++) {
-							if (listAll.get(i).getText().equals(application[k])) {
-								Assert.assertEquals(listAll.get(i).getText(), application[k]);
-							}
-
-						}
-					}
-
-				}
-
+			
 			}
-		} else if (text.equalsIgnoreCase("selected")) {
+		else if (text.equalsIgnoreCase("selected")) {
 			String[] application = app.split(",\\s+");
 
 			for (int i = 0; i < application.length; i++) {
@@ -146,4 +130,9 @@ public class EditUser extends BaseClass {
 
 		}
 	}
+	
+public void iClickOnDeleteOrganisation(){
+	iWillWaitToSee(By.cssSelector(".remove.link.icon"));
+	clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
+}
 }
