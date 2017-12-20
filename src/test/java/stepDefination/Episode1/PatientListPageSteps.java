@@ -161,7 +161,7 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iEnterThePatientSearchBoxPresentOnThePatientPage(patientName);
     }
     
-    @Then("^I enter patient's firstname in the patient search box present on the patient page$")
+    @Then("^I enter patient's firstname in the patient search box on the patient page$")
     public void i_enter_patient_firstname_in_the_patient_search_box_present_on_the_patient_page() throws Throwable {
     	patientsList.iEnterPatientFirstNameSearchBoxPresentOnThePatientPage();
     }
@@ -239,6 +239,16 @@ public class PatientListPageSteps extends DriverScript {
     @Then("^I select \"([^\"]*)\" Appointment tye$")
     public void i_select_appointment_type(String text) throws Throwable {
     	patientsList.iSelectAppointmentType(text);
+    }
+    
+    @Then("^I select \"([^\"]*)\" Topic from dropdown under Note$")
+    public void i_select_topic_from_dropdown(String text) throws Throwable {
+    	patientsList.iSelectTopicFromDropDownOnNote(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" onboarding status on patient list page$")
+    public void i_verify_onboarding_status_on_patient_list_page(String text) throws Throwable {
+    	patientsList.iVerifyOnboardingStatusOnPatientList(text);
     }
 
 

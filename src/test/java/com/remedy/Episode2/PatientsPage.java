@@ -1,12 +1,17 @@
 package com.remedy.Episode2;
 
-import com.remedy.baseClass.BaseClass;
+import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import java.util.List;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.remedy.baseClass.BaseClass;
+
+
 
 
 /**
@@ -1204,5 +1209,32 @@ public class PatientsPage extends BaseClass {
 	public void Iverifythenotescreatedintheepisode1shouldnotappearinthenotessectionincareplaninepisode2() {
 			verifyTextForElement(driver.findElement(By.cssSelector("#notesTable > tbody > tr:nth-child(1) > td.sorting_1")),"Baseline");
 		}
+	
+	public void iShouldSeeSelectedEligibility(String text) {
+		iWillWaitToSee(By.cssSelector("#eligibility_button"));
+		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).trim();
+		Assert.assertEquals(text, actual);
+	}
+	
+	public void iShouldSeeSelectedOnboardingStatus(String text) {
+		String actual = getTextForElement(driver.findElement(By.cssSelector("#current_onboarding_status"))).trim();
+		Assert.assertEquals(text, actual);
+	}
+	
+	public void iClickOnEligibilityDropDown() {
+		clickElement(driver.findElement(By.cssSelector("#eligibility_button")));
+	}
+	
+	public void iSelectOptionInEligibilityDropDown(String option) {
+		if(option.equalsIgnoreCase("Run Service")){
+			clickSingleElementFromList(By.xpath("//div[@id='eligibility_service']//a"), option);
+		}
+		else 
+		{
+			clickSingleElementFromList(By.xpath("//div[@id='eligibility_service']//a//span"), option);
+		}
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+	}
+	
 	}
     

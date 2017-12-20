@@ -1583,4 +1583,24 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.Iverifythenotescreatedintheepisode1shouldnotappearinthenotessectionincareplaninepisode2();
     }
     
+    @Then ("^I should see \"([^\"]*)\" in Eligibility$")
+    public void I_should_see_selected_eligibility(String text) throws Throwable {
+    	patientsPage.iShouldSeeSelectedEligibility(text);
+    }
+    
+    @Then ("^I should see \"([^\"]*)\" in Onboarding Status$")
+    public void I_should_see_selected_onboarding_status(String text) throws Throwable {
+    	patientsPage.iShouldSeeSelectedOnboardingStatus(text);
+    }
+    
+    @Then ("^I click on Eligibility dropdown$")
+    public void I_click_on_eligibility_dropdown() throws Throwable {
+    	patientsPage.iClickOnEligibilityDropDown();
+    }
+    
+    @Then ("^I select \"([^\"]*)\" in Eligibility dropdown$")
+    public void I_select_option_in_eligibility_dropdown(String option) throws Throwable {
+    	patientsPage.iSelectOptionInEligibilityDropDown(option);
+    }
+    
     }

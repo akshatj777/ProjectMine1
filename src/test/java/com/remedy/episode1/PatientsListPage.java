@@ -124,6 +124,7 @@ public class PatientsListPage extends BaseClass {
     
     public void iClickOnSearchButtonPresentOnThePatientsPage(){
     	clickElement(driver.findElement(By.cssSelector("button.refreshPatientsList")));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
     }
     
     public void iClickOnSaveAsButtonPresentOnThePatientPage(){
@@ -174,6 +175,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnOptionFromPatientslistPatientGearMenu(String option){
+    	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
     	clickSingleElementFromList(By.xpath("//div[@class='col-md-2 center open']//li"), option);
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
@@ -183,6 +185,7 @@ public class PatientsListPage extends BaseClass {
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
     	iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
     	driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(0).click();
+    	delay();
     }
     
     public void iVerifyHeaderTextOnPopUp(String text){
@@ -226,6 +229,23 @@ public class PatientsListPage extends BaseClass {
     public void iSelectAppointmentType(String text){
     	driver.findElement(By.cssSelector("#bp_personbundle_bpappointmenttype_appointment_type"));
     	driver.findElement(By.xpath("//option[@value='"+text+"']"));
+    }
+    
+    public void iSelectTopicFromDropDownOnNote(String text){
+    	driver.findElement(By.cssSelector("#bp_personbundle_bpnotetype_topic"));
+    	driver.findElement(By.xpath("//option[@value='"+text+"']"));
+    }
+    
+    public void iVerifyOnboardingStatusOnPatientList(String text){
+    	String actual = driver.findElements(By.xpath("//div[@class='row body']//span[contains(@class,'status-value')]")).get(0).getAttribute("class");
+    	actual = actual.replaceAll("status-value", "");
+    	actual = actual.replaceAll("display ng-scope", "").trim();
+    	if(text.equalsIgnoreCase("Needs Onboarding")){
+    		Assert.assertEquals("needs-onboarding", actual);
+    	}
+    	else if (text.equalsIgnoreCase("Unknown")){
+    		Assert.assertEquals("unknown", actual);
+    	}
     }
 
 	
