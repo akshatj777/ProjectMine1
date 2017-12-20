@@ -222,7 +222,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | reptestachmodel2opsfin@yopmail.com |
       | shutestaug15240p@yopmail.com       |
       | shutestaug221145a@yopmail.com      |
-      
+
   Scenario Outline: Verify onboarding status values in database for inpatient episode clearing report under patient id
     Given I am on the login page
     When I enter email field <email> for login

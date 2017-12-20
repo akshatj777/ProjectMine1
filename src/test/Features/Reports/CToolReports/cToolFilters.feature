@@ -113,6 +113,8 @@ Feature: CTool Filter Verification
       | email                          | Menu 1     | anchor facility                  | selected anchor facility         |
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
+      #| Emblem Payer Users  |
+      | emblemachrpfin@yopmail.com     | Dashboards | Penn Presbyterian Medical Center | All                              |
       #| Multiple Payer Users|
       | multipayerachrpfin@yopmail.com | Dashboards | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
 
