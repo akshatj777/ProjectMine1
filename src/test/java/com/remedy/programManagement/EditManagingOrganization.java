@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -141,10 +142,14 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
 		}
-		else if(field2.equalsIgnoreCase("equalsTo75Characters")){
+		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - NO")){
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			String value = field2+RandomStringUtils.randomAlphabetic(55);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), value);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("equalsTo75Characters - NO")){
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",RandomStringUtils.randomAlphabetic(75));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
 		}
 		else 
 		{
