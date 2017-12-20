@@ -26,9 +26,9 @@ Feature: Create User - Super Admin User
   Then I enter NPI field with "<NPI>" for role "<Role>"
   Then I click on Next button
   Then I select "<Applications>" product
-  Then I click on Select button
-  Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-  Then I select "<LearningPathwaySearchParameter>" from the results
+  #Then I click on Select button
+  #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+  #Then I select "<LearningPathwaySearchParameter>" from the results
   Then I click on Next button
   Then I click on Select button
   And I search for health system with <Health System>
