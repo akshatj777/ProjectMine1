@@ -62,10 +62,13 @@ Feature: Reporting Help Center
       | SNF Performance (Claims) Report           |
       | Spending (Claims) Report                  |
 
-    Examples: 
+    Examples:
       | email                              |
       | shutestaug231132a@yopmail.com      |
+      | shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
+      | shutestaug15240p@yopmail.com       |
+      | shutestaug221145a@yopmail.com      |
 
   Scenario Outline: Verify help option is not appearing on the product tiles page
     Given I am on the login page
