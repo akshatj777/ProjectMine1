@@ -17,7 +17,7 @@ Feature: Create Managing organization functionality tests
     And I verify "State" header label under "Managing" organization
     And I verify "Postal Code" header label under "Managing" organization
     Then I click on "+" button on "Managing" organization page
-    And I verify "Create Management Organization" header text on create organization page
+    And I verify "Create Managing Organization" header text on create organization page
     And I verify "*Managing Organization Name" field on create organization page
     And I verify "Contact Person" field on create organization page
     And I verify "Contact Email" field on create organization page
