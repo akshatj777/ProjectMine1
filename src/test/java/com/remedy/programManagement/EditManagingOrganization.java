@@ -128,31 +128,36 @@ public class EditManagingOrganization extends BaseClass {
 		}
 		else if(field2.equalsIgnoreCase("SNFNAME - YES")){
 			CreateSNFOrganization.oldSNF_WithMO = CreateSNFOrganization.SNFOrg.get("SNFNAME");
-			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",createRandomName(field2));
+			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), createRandomName(field2));
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).getText());
 		}
 		else if(field2.equalsIgnoreCase("SNFNAME - NO")){
 			CreateSNFOrganization.oldSNF_WithoutMO = CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME");
-			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",createRandomName(field2));
+			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), createRandomName(field2));
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).getText());
 		}
 		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - YES")){
+			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
 		}
 		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - NO")){
+			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
 		}
 		else if(field2.equalsIgnoreCase("equalsTo75Characters - NO")){
-			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",RandomStringUtils.randomAlphabetic(75));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), RandomStringUtils.randomAlphabetic(75));
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).getText());
 		}
 		else 
 		{
+			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), field2);
 		}
