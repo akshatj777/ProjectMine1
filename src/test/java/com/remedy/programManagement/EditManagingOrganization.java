@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -160,6 +159,26 @@ public class EditManagingOrganization extends BaseClass {
 			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",RandomStringUtils.randomAlphabetic(75));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("HHANAME - YES")){
+			CreateHHAOrganization.oldHHA_WithMO = CreateHHAOrganization.HHAOrg.get("HHANAME");
+			CreateHHAOrganization.tempHHAOrg.put("HHANAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+		}
+		else if(field2.equalsIgnoreCase("HHANAME - NO")){
+			CreateHHAOrganization.oldHHA_WithoutMO = CreateHHAOrganization.HHAOrg_noMO.get("HHANAME");
+			CreateHHAOrganization.tempHHAOrg.put("HHANAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_HHA - YES")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateHHAOrganization.HHAOrg_noMO.get("HHANAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_HHA - NO")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateHHAOrganization.HHAOrg.get("HHANAME"));
 		}
 		else 
 		{
