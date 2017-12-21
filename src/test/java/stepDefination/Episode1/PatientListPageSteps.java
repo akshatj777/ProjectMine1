@@ -165,6 +165,11 @@ public class PatientListPageSteps extends DriverScript {
     public void i_enter_patient_firstname_in_the_patient_search_box_present_on_the_patient_page() throws Throwable {
     	patientsList.iEnterPatientFirstNameSearchBoxPresentOnThePatientPage();
     }
+    
+    @Then("^I enter patients fullname in the patient search box on the patient page$")
+    public void i_enter_patient_fullname_in_the_patient_search_box_present_on_the_patient_page() throws Throwable {
+    	patientsList.iEnterPatientFullNameSearchBoxPresentOnThePatientPage();
+    }
 
     @Then("^I should see ([^\"]*) patient on the patient list present on the patient page$")
     public void i_should_see_patient_on_the_patient_list_present_on_the_patient_page(String patientName) throws Throwable {
@@ -249,6 +254,16 @@ public class PatientListPageSteps extends DriverScript {
     @Then("^I verify \"([^\"]*)\" onboarding status on patient list page$")
     public void i_verify_onboarding_status_on_patient_list_page(String text) throws Throwable {
     	patientsList.iVerifyOnboardingStatusOnPatientList(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" Eligibility on patient list page$")
+    public void i_verify_eligibility_on_patient_list_page(String text) throws Throwable {
+    	patientsList.iVerifyEligibilityOnPatientList(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" Episode Initiator on Patient list page$")
+    public void i_should_see_episode_initiator_on_patient_list_page(String text) throws Throwable {
+    	patientsList.iShouldSeeEpisodeInitiatorOnPatientListPage(text);
     }
 
 

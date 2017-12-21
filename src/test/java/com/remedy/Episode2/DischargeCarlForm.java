@@ -42,7 +42,7 @@ public class DischargeCarlForm extends BaseClass {
 	private String CHAR_LIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private static final int RANDOM_STRING_LENGTH = 5;
 	public static String firstname  = null;
-	private static String lastname  = null;
+	public static String lastname  = null;
 	private static String final_ssn  = null;
 	String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
 	

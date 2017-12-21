@@ -150,6 +150,11 @@ public class PatientsListPage extends BaseClass {
     public void iEnterPatientFirstNameSearchBoxPresentOnThePatientPage(){
     	iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), DischargeCarlForm.firstname);
     }
+    
+    public void iEnterPatientFullNameSearchBoxPresentOnThePatientPage(){
+    	String name = DischargeCarlForm.firstname +" "+ DischargeCarlForm.lastname;
+    	iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), name);
+    }
 
     public void iShouldSeePatientOnThePatientListPresentOnThePatientPage(String patientName){
     	isElementVisible(driver.findElement(By.cssSelector("span.ng-scope>div:nth-child(1) div.element-title.ng-binding")));
@@ -246,6 +251,17 @@ public class PatientsListPage extends BaseClass {
     	else if (text.equalsIgnoreCase("Unknown")){
     		Assert.assertEquals("unknown", actual);
     	}
+    }
+    
+    public void iVerifyEligibilityOnPatientList(String text){
+    	String actual = driver.findElements(By.cssSelector(".col-md-2.two-rows.ng-binding")).get(0).getText();
+    	actual = actual.substring(actual.indexOf("Eligibility")+1).trim();
+    	Assert.assertEquals("text", actual);
+    }
+    
+    public void iShouldSeeEpisodeInitiatorOnPatientListPage(String text){
+    	String actual = driver.findElements(By.xpath("//div[div[text()='Episode Initiator']]/span")).get(0).getText();
+    	Assert.assertEquals("text", actual.trim());
     }
 
 	

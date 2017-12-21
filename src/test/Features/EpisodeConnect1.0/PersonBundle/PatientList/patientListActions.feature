@@ -57,8 +57,8 @@ Feature: Patient list action
     When I click on "Add New Clinician" from patients list patient gear menu
     Then I verify "Add New Clinician" header on popup
 
-     When I check second clinician
-     And I click 'Assign' popup button
-     And I will wait flash message to appear
-     Then I will wait to see "Clinicians assigned to patient correctly"
-     And I should be on "/secure/pn/patientslist"
+#     When I check second clinician
+#     And I click 'Assign' popup button
+#     And I will wait flash message to appear
+#     Then I will wait to see "Clinicians assigned to patient correctly"
+#     And I should be on "/secure/pn/patientslist"

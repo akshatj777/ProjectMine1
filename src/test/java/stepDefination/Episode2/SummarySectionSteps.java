@@ -210,4 +210,19 @@ public class SummarySectionSteps extends DriverScript {
 		patientclinical.Iwillclickonlinkappearingindocumenttable(text,Document_head,column,row);
 	}
 	
+	@Then ("^I click on first gear menu under Transitions on patient overview$")
+	public void I_click_on_first_gear_menu_under_Transitions_on_patient_overview() throws Throwable {
+		patientclinical.IClickOnFirstGearMenuUnderTransition();
+	}
+	
+	@Then ("^I click on \"([^\"]*)\" in gear menu option under Transition$")
+	public void I_click_on_option_in_gear_menu_under_Transitions(String text) throws Throwable {
+		patientclinical.IClickOnOptionGearMenuUnderTransition(text);
+	}
+	
+	@Then ("^I should see \"([^\"]*)\" in Episode Initiator$")
+	public void I_should_see_initiator_in_episode_initiator(String text) throws Throwable {
+		patientclinical.IShouldSeeInitiatorInEpisodeInitiator(text);
+	}
+	
 }

@@ -789,6 +789,23 @@ public class PatientClinicalDocuments extends BaseClass {
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//h3[@class='ng-scope']/span[contains(text(),'" + L_name + "')]")));
 			}
 		}
+		
+		public void IClickOnFirstGearMenuUnderTransition() {
+			driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(1).click();
+		}
+		
+		public void IClickOnOptionGearMenuUnderTransition(String text) {
+			clickSingleElementFromList(By.xpath("//i[@class='fa fa-cog']"), text);
+			driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(1).click();
+		}
+		
+		public void IShouldSeeInitiatorInEpisodeInitiator(String text) {
+			String actual = driver.findElement(By.cssSelector("#episodeInitiatorName")).getText();
+			actual = actual.substring(actual.indexOf(":")+1).trim();
+			Assert.assertEquals(text,actual);
+		}
+		
+		
 
 	
 }
