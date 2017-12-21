@@ -36,7 +36,7 @@ Feature: Episode Connect 1 Add Patient
 
     When I click on Admitting Facility present on the Add Patient page
     And I wait for 2000 milli seconds
-    And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
+    And I Select "<facility>" from the list of admitting facility present on the Add Patient page
     And I wait for 4000 milli seconds
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
@@ -56,6 +56,7 @@ Feature: Episode Connect 1 Add Patient
 
     Examples:
 
-      | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | email                | password  |facility|
+      | qa.admin@yopmail.com | Episode1! |Stamford Hospital|
+      |qa.lpn@yopmail.com|Episode1!|Allentown|
 

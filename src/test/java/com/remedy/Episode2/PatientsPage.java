@@ -525,8 +525,9 @@ public class PatientsPage extends BaseClass {
 
 	public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
 		iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
-		longDelay();
-		clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-3")));
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".select2-searching"))));
+//		clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-3")));
+		driver.findElements(By.xpath("//div[@id='select2-drop']//ul/li")).get(0).click();
 	}
 
 	public void iSelectFromTheAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
@@ -570,6 +571,10 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyTextIsPresentOnTheAddPatientPage(String text) {
 		iWillWaitToSee(By.xpath("//*[text()='" + text + "']"));
 		isElementVisible(driver.findElement(By.xpath("//*[text()='" + text + "']")));
+	}
+	
+	public void iShouldSeeMessageOnPatientFoundOnAddPatientModal(String text) {
+		iVerifyTextFromListOfElement(By.cssSelector("h4"),text);
 	}
 
 	public void iVerifyAdmitDateIsPresentOnTheTransitionPage() {

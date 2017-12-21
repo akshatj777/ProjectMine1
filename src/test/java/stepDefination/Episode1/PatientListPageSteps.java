@@ -170,6 +170,11 @@ public class PatientListPageSteps extends DriverScript {
     public void i_enter_patient_fullname_in_the_patient_search_box_present_on_the_patient_page() throws Throwable {
     	patientsList.iEnterPatientFullNameSearchBoxPresentOnThePatientPage();
     }
+    
+    @Then("^I should see patient fullname appearing on patient card on patient search$")
+    public void i_should_see_patient_fullname_appearing_on_patientCard() throws Throwable {
+    	patientsList.iShouldSeePatientFullnameAppearingOnPatientCard();
+    }
 
     @Then("^I should see ([^\"]*) patient on the patient list present on the patient page$")
     public void i_should_see_patient_on_the_patient_list_present_on_the_patient_page(String patientName) throws Throwable {
@@ -264,6 +269,11 @@ public class PatientListPageSteps extends DriverScript {
     @Then("^I should see \"([^\"]*)\" Episode Initiator on Patient list page$")
     public void i_should_see_episode_initiator_on_patient_list_page(String text) throws Throwable {
     	patientsList.iShouldSeeEpisodeInitiatorOnPatientListPage(text);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" on patient search on patient list$")
+    public void i_should_see_count_on_patient_search_on_patient_list(String text) throws Throwable {
+    	patientsList.iShouldSeeCountOnPatientSearchOnPatientList(text);
     }
 
 

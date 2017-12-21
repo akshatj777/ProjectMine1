@@ -815,6 +815,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_text_is_present_on_the_add_patient_page(String text) throws Throwable {
         patientsPage.iVerifyTextIsPresentOnTheAddPatientPage(text);
     }
+    
+    @Then("^I should see \"([^\"]*)\" on patient found on add patient modal$")
+    public void i_should_see_message_on_patient_found_on_add_patient_modal(String text) throws Throwable {
+        patientsPage.iShouldSeeMessageOnPatientFoundOnAddPatientModal(text);
+    }
 
     @Then("^I verify \"([^\"]*)\"  is present \"([^\"]*)\" on the transition page$")
     public void i_verify_is_present_on_the_transition_page(String text, String columnName) throws Throwable {

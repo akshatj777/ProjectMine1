@@ -155,6 +155,13 @@ public class PatientsListPage extends BaseClass {
     	String name = DischargeCarlForm.firstname +" "+ DischargeCarlForm.lastname;
     	iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), name);
     }
+    
+    public void iShouldSeePatientFullnameAppearingOnPatientCard(){
+    	String name = DischargeCarlForm.lastname +" "+ DischargeCarlForm.firstname;
+    	String actual = driver.findElements(By.cssSelector(".element-title.ng-binding")).get(0).getText().trim();
+    	actual = actual.replaceAll(",", "");
+    	Assert.assertEquals(name, actual);
+    }
 
     public void iShouldSeePatientOnThePatientListPresentOnThePatientPage(String patientName){
     	isElementVisible(driver.findElement(By.cssSelector("span.ng-scope>div:nth-child(1) div.element-title.ng-binding")));
@@ -262,6 +269,10 @@ public class PatientsListPage extends BaseClass {
     public void iShouldSeeEpisodeInitiatorOnPatientListPage(String text){
     	String actual = driver.findElements(By.xpath("//div[div[text()='Episode Initiator']]/span")).get(0).getText();
     	Assert.assertEquals("text", actual.trim());
+    }
+    
+    public void iShouldSeeCountOnPatientSearchOnPatientList(String text){
+    	iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
     }
 
 	

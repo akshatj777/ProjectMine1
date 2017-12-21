@@ -36,6 +36,14 @@ public class LandingPage extends BaseClass{
     	delay();
         switchBacktoOldWindow();
     }
+    
+    public void iClickProfileIconOnRemedyConnectPage(){
+    	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-profile")));
+    }
+    
+    public void iSelectValueFromProfileIconDropDown(String text){
+    	clickSingleElementFromList(By.cssSelector(".btn.btn-flyout-nav"), text);
+    }
 
     public void iClickOnTheTopUserAccountIcon (){
     	delay();

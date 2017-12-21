@@ -83,6 +83,16 @@ public class CommonSteps extends DriverScript {
     public void iSwitchBackToOLDWindow(){
         landingPage.iSwitchBackToOldWindow();
     }
+    
+    @And("^I click on profile icon on Remedy Connect page$")
+    public void iClickProfileIconOnRemedyConnectPage(){
+        landingPage.iClickProfileIconOnRemedyConnectPage();
+    }
+    
+    @And("^I select \"([^\"]*)\" from profile icon dropdown$")
+    public void iSelectValueFromProfileIconDropDown(String text){
+        landingPage.iSelectValueFromProfileIconDropDown(text);
+    }
 
     @And("^I verify current page \"([^\"]*)\" title$")
     public void iVerifyCurrentPageTitle(String pageTitle) {
