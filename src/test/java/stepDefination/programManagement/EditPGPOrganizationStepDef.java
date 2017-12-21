@@ -18,6 +18,4 @@ public class EditPGPOrganizationStepDef extends DriverScript {
 	  public void i_Edit_Market_DropdownField_For_Selected_Organization(String market, String region, String org) throws Throwable {
 		editPGPOrg.iEditMarketForSelectedOrganization(market,region);
 	    }
-
-	
 }
