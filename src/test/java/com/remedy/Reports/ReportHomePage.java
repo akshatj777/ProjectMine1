@@ -1124,6 +1124,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeColumnAfterClickingAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//td[@title='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//td[@title='"+text+"']")));
     }
     
@@ -1308,5 +1310,24 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
+    }
+    
+    public void iClickOnDashboardAnchorCCNFilterField(String text){
+    	WebElement element = driver.findElement(By.xpath("//div[@formula='[Dashboard - Anchor Facility].[CCN]']"));
+    	scrollIntoViewByJS(element);
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Dashboard - Anchor Facility].[CCN]']")));
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Dashboard - Anchor Facility].[CCN]']/div")));
+    }
+    
+    public void iClickOnFieldInLayoutSectionToOpenList(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Episode Initiator]']/div[@class='gemMenuHandle scalable']")));
+    }
+    
+    public void iClickOnRemoveFromReportInTheList(){
+    	clickElement(driver.findElement(By.xpath(".//*[@id='PM:removeAttr_text']")));
+    }
+    
+    public void iVerifyTextNotPresentInTheReportsTable(String text){
+    	verifyTextNotPresentForElementFromList(".sortActiveAsc>div>div:nth-of-type(1)",text);
     }
 }

@@ -873,3 +873,58 @@ Feature: Verification of Readmissions Claims Report
       | email                              |
       | RPFINClaimsSNFHHATier1@yopmail.com |
       | OPSFINTier1_2@yopmail.com          |
+  
+  Scenario Outline: User should be able to drag and drop the fields Dashboard-Anchor CCN,BPID,Bundle Code,Bundle Risk and Episode Initiator through add to report in readmissions claims report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions (Claims)" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions Claims" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Drag and Drop(Dashboard-Anchor CCN)
+    When I click to "Dashboard-Anchor CCN" filter field under available fields
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Dashboard - Anchor CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
+    #BPID Drag and Drop
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "BPID" field is appearing in the layout section after selecting add to report
+    Then I verify "BPID" column is added to report after selecing add to report option
+    #Bundle Code Drag and Drop
+    When I click to "Bundle Code" field filter under "Bundle" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Bundle Code" field is appearing in the layout section after selecting add to report
+    Then I verify "Bundle Code" column is added to report after selecing add to report option
+    #Bundle Risk Drag and Drop
+    When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
+    Then I verify "Bundle Risk" column is added to report after selecing add to report option
+    #Episode Initiator Drag and Drop
+    When I click on "Episode Initiator" field in the layout section to open the list
+    Then I click on remove from report option in the list
+    And I verify "Episode Initiator" column is not present in the reports
+    When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Episode Initiator" field is appearing in the layout section after selecting add to report
+    Then I verify "Episode Initiator" column is added to report after selecing add to report option
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |

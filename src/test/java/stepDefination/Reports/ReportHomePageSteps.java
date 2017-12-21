@@ -1661,4 +1661,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter(String text) throws Throwable{
     	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(text);
     }
+    
+    @When("^I click to \"([^\"]*)\" filter field under available fields$")
+    public void i_click_to_filter_field_under_available_fields(String text) throws Throwable{
+    	reportHomePage.iClickOnDashboardAnchorCCNFilterField(text);
+    }
+    
+    @When("^I click on \"([^\"]*)\" field in the layout section to open the list$")
+    public void i_click_on_field_in_the_layout_section_to_open_the_list(String text) throws Throwable{
+    	reportHomePage.iClickOnFieldInLayoutSectionToOpenList(text);
+    }
+    
+    @Then("I click on remove from report option in the list")
+    public void i_click_on_remove_from_report_option_in_the_list() throws Throwable{
+    	reportHomePage.iClickOnRemoveFromReportInTheList();
+    }
+    
+    @And("I verify \"([^\"]*)\" column is not present in the reports")
+    public void i_verify_column_is_not_present_in_the_reports(String text) throws Throwable{
+    	reportHomePage.iVerifyTextNotPresentInTheReportsTable(text);
+    }
 }
