@@ -64,6 +64,7 @@ public class EditHospitalOrganization extends BaseClass{
 		if(!text.isEmpty())
 		{
 			num = num-1;
+			scrollIntoViewByJS(driver.findElement(By.xpath("//div[input[@name='locations["+num+"].locationTypeSelector']]//span[@class='Select-clear']")));
 			driver.findElement(By.xpath("//div[input[@name='locations["+num+"].locationTypeSelector']]//span[@class='Select-clear']")).click();
 			driver.findElements(By.xpath("//div[text()='Location Type']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
 	    	delay();
