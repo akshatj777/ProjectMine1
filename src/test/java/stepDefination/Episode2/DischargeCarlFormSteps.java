@@ -334,6 +334,11 @@ public class DischargeCarlFormSteps extends DriverScript {
     	dischargecarlform.IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage();
     }
     
+    @Then("^I enter duplicate social security number in the SSN text box field present on Add Patient page$")
+    public void I_enter_duplicate_social_security_number_in_the_SSN_text_box_field_present_on_the_Add_Patient_page() throws Throwable{
+    	dischargecarlform.IenterduplicatesocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage();
+    }
+    
     @When ("^I enter \"([^\"]*)\" in the filter$")
 	public void i_Enter_SSN_Value(String text){
     	dischargecarlform.iEnterSSNValue();

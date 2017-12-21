@@ -512,6 +512,10 @@ public class DischargeCarlForm extends BaseClass {
 	System.out.println("$$$Final ssn is"+final_ssn);
 	iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
 	}
+	
+	public void IenterduplicatesocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_ssn")),final_ssn);
+		}
 
 	public void Ienterfiltervalueunderfiltertoseeemblempatient() {
 	iWillWaitToSee(By.xpath("//div[@class='ng-scope']/input"));
