@@ -634,10 +634,11 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void clickSelectAllLocationsButton() throws Throwable {
+
 	   iWillWaitToSee(By.xpath("//label[.='All Locations']"));
-	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']")));   
-  
-   }
+	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']"))); 
+	   }
+
    public void clickSubmitButton() throws Throwable {
 	  
 		iWillWaitToSee(By.xpath("//button[.='Submit']"));

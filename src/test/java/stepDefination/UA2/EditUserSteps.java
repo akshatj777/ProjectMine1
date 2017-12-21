@@ -63,7 +63,7 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	
 	@Then("^I select \"([^\"]*)\" tab$")
 	public void iSelectApplicationTab(String tab) throws Throwable {
-		editUser.iClickOnApplicationTab(tab);
+		editUser.iClickOnTab(tab);
 	}
 		
 
@@ -81,5 +81,18 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void i_should_not_be_able_to_edit_Email() throws Throwable {
 	   editUser.iVerifyThatEmailIsNonEditable();
 	}
-
+	
+	@Then("^I click on existing organisation$")
+	public void iClickOnExistingOrganisation() throws Throwable {
+	   editUser.iClickOnExisitingOrganisation();
+	}
+	
+	@Then("^I verify \"([^\"]*)\" under Data Permissions$")
+	public void i_verify_under_Data_Permissions(String arg1) throws Throwable {
+	    editUser.iVerifyDataPermission(arg1);
+	}
+	@Then("^I click on Select All Locations button for \"([^\"]*)\" Organisation$")
+	public void i_click_on_Select_All_Locations_button_for_Organisation(String arg1) throws Throwable {
+		editUser.clickAllLocationsButton(arg1);
+	}
 }

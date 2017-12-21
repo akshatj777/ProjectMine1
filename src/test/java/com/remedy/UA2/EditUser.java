@@ -109,7 +109,7 @@ public class EditUser extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector(".ui.fluid.selection.dropdown")));
 	}
 
-	public void iClickOnApplicationTab(String text) {
+	public void iClickOnTab(String text) {
 		iWillWaitToSee(By.xpath("//a[contains(text(),'" + text + "')]"));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'" + text + "')]")));
 	}
@@ -127,8 +127,8 @@ public class EditUser extends BaseClass {
 				}
 			} else {
 
-				verifyTextForElement(
-						driver.findElement(By.xpath("//*[contains(text(),'Disabled')]/preceding-sibling::td")), app);
+				verifyTextForElementFromListByXpath(
+						"//*[contains(text(),'Disabled')]/preceding-sibling::td", app);
 
 			}
 		} else if (text.equalsIgnoreCase("Enabled")) {
@@ -143,8 +143,8 @@ public class EditUser extends BaseClass {
 				}
 			} else {
 
-				verifyTextForElement(
-						driver.findElement(By.xpath("//*[contains(text(),'Enabled')]/preceding-sibling::td")), app);
+				verifyTextForElementFromListByXpath(
+						"//*[contains(text(),'Enabled')]/preceding-sibling::td", app);
 
 			}
 		}
@@ -153,5 +153,37 @@ public class EditUser extends BaseClass {
 	public void iClickOnDeleteOrganisation() {
 		iWillWaitToSee(By.cssSelector(".remove.link.icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
+	}
+	public void iClickOnExisitingOrganisation() {
+		iWillWaitToSee(By.cssSelector(".component-participant-title"));
+		clickElement(driver.findElement(By.cssSelector(".component-participant-title")));
+	}
+	public void iVerifyDataPermission(String arg){
+		delay();
+		if (arg.contains(",")) {
+			String[] org = arg.split(",\\s+");
+
+			for (int i = 0; i < org.length; i++) {
+				isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+org[i]+"')]")));
+			}
+	}
+		else{
+			isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+arg+"')]")));
+		}
+	}
+	   public void clickAllLocationsButton(String arg) throws Throwable {
+		   
+		   if(arg.equals("Second")){
+			   System.out.println("Secondffgfd");
+			  delay();
+		   clickElement(driver.findElements(By.xpath("//label[.='All Locations']")).get(1)); 
+		   } 
+		   else if(arg.equals("Third")){
+			   delay();
+			   clickElement(driver.findElements(By.xpath("//label[.='All Locations']")).get(2)); } 
+	   
+	   else{
+		   iWillWaitToSee(By.xpath("//label[.='All Locations']"));
+		   clickElement(driver.findElement(By.xpath("//label[.='All Locations']"))); }
 	}
 }

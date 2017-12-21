@@ -431,7 +431,8 @@ public class CreateUserSteps extends DriverScript{
 	public void clickNextButton() throws Throwable {
 		createUser.clickNextButton();
 	}
-
+	
+	
 	@Then("^I click on Select All Locations button$")
 	public void clickSelectAllLocationsButton() throws Throwable {
 		createUser.clickSelectAllLocationsButton();

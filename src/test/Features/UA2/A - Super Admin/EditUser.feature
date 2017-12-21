@@ -110,7 +110,7 @@ Feature: Edit page for superuser verification
     And I select a <Health System>
     Then I click on Select All Locations button
     And I wait for 3000 milli seconds
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button
     And I wait for 3000 milli seconds
     And I verify that "<Applications>" are "Enabled"
     And I verify that "<ApplicationsNotVisible>" are "Disabled"
@@ -129,11 +129,51 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | User        | Role                            | EnableApplications                                                               | DisableApplications                                      | Applications                                | ApplicationsNotVisible                                   | LearningPathwaySearchParameter | Health System     | NPI |  
-      | Super Admin | Executive                       | Reports, Lessons, Episodes                                                       | Lessons, Episodes                                        | Reports                                     | Episodes 2.0, Episodes, Lessons                          | Learning Pathway 2             | Stamford Hospital |     |  
-      | Super Admin | manager                         | Reports, Lessons, Episodes, Episodes 2.0                                         | Episodes 2.0, Episodes                                   | Reports, Lessons                            | Episodes, Episodes 2.0                                   | Learning Pathway 2             | Stamford Hospital |     |  
-      | Super Admin | Physicians                      | Physician Connect, Episodes 2.0, Episodes, Lessons                               | Physician Connect, Episodes 2.0                          | Episodes, Lessons                           | Reports, Physician Connect, Episodes 2.0                 | Learning Pathway 2             | Stamford Hospital | NPI |  
-      | Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons                                                       | TCI                                                      | Episodes 2.0, Lessons                       | Reports, Episodes, TCI                                   | Learning Pathway 2             | Stamford Hospital |     | 
-      | Super Admin | Remedy Program Administrator    | Physician Connect, Episodes 2.0, Episodes, Lessons, TCI                          | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, TCI            | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     | 
-      | Super Admin | Partner Technical Administrator | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration               | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, Administration | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     |  
-      | Super Admin | Remedy Technical Administrator  | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration, TCI, Reports | Physician Connect, Administration, Episodes 2.0, Lessons | Episodes, TCI, Reports                      | Physician Connect, Administration, Episodes 2.0, Lessons | Learning Pathway 2             | Stamford Hospital |     |  
+      | user        | Role      | EnableApplications                       | DisableApplications    | Applications     | ApplicationsNotVisible          | LearningPathwaySearchParameter | Health System     | NPI |
+      | Super Admin | Executive | Reports, Lessons, Episodes               | Lessons, Episodes      | Reports          | Episodes 2.0, Episodes, Lessons | Learning Pathway 2             | Stamford Hospital |     |
+      | Super Admin | Manager   | Reports, Lessons, Episodes, Episodes 2.0 | Episodes 2.0, Episodes | Reports, Lessons | Episodes, Episodes 2.0          | Learning Pathway 2             | Stamford Hospital |     |
+
+  #| Super Admin | Physicians                      | Physician Connect, Episodes 2.0, Episodes, Lessons                               | Physician Connect, Episodes 2.0                          | Episodes, Lessons                           | Reports, Physician Connect, Episodes 2.0                 | Learning Pathway 2             | Stamford Hospital | NPI |
+  #| Super Admin | Remedy TCS                      | TCI, Episodes 2.0, Lessons                                                       | TCI                                                      | Episodes 2.0, Lessons                       | Reports, Episodes, TCI                                   | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Remedy Program Administrator    | Physician Connect, Episodes 2.0, Episodes, Lessons, TCI                          | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, TCI            | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Partner Technical Administrator | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration               | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, Administration | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     |
+  #| Super Admin | Remedy Technical Administrator  | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration, TCI, Reports | Physician Connect, Administration, Episodes 2.0, Lessons | Episodes, TCI, Reports                      | Physician Connect, Administration, Episodes 2.0, Lessons | Learning Pathway 2             | Stamford Hospital |     |
+  
+ 
+    
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter search box in landing page with "test.automatemail"
+    Then I select user with email "test.automatemail"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on delete organisation icon
+    And I click on "Remove" button
+    Then I click on Select button
+    And I search for health system with <Health System1>
+    And I wait for 3000 milli seconds
+    And I select a <Health System1>
+    Then I click on Select All Locations button
+    Then I click on "Add Another Organization" button
+    Then I click on Select button
+    And I search for health system with <Health System2>
+    And I wait for 3000 milli seconds
+    And I select a <Health System2>
+    Then I click on Select button
+    Then I select "<Programs>" programs
+    Then I click on Select All Locations button for "Second" Organisation
+    And I wait for 3000 milli seconds
+    Then I click on Submit button
+    And I wait for 4000 milli seconds
+    Then I verify "<Health System1>, <Health System2>" under Data Permissions
+    Then I select Log Out option from the dropdown
+    And I should see Log in widget
+
+    Examples: 
+      | Description                                                                 | user        | Role      | Health System1    | Health System2   | Programs    |
+      | Remove existing organisation and add Stamford Hospital and Sound Physicians | Super Admin | Executive | Stamford Hospital | Sound Physicians | BPCI-Model2 |
