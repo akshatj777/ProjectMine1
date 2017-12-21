@@ -29,6 +29,7 @@ Feature: Store Correct Admit Facilities
     And I am on "/secure/pn/patientslist"
     Then I click on "custom" filter tab present on the patients page
     And I enter patients fullname in the patient search box on the patient page
+    Then I click on search button present on the patients page
     And I should see patient fullname appearing on patient card on patient search 
     Then I switch back to old window
     Then I click on profile icon on Remedy Connect page
@@ -45,7 +46,8 @@ Feature: Store Correct Admit Facilities
     When I click on "Patients" in the left navigator present on the episode dashboard page
     When I click on "Patient List" in the Patients dropdown menu
     Then I click on "custom" filter tab present on the patients page
-    And I enter patients fullname in the patient search box on the patient page 
+    And I enter patients fullname in the patient search box on the patient page
+    Then I click on search button present on the patients page 
     And I should see "Showing 0 to 0 of 0 results" on patient search on patient list
     
     Then I switch back to old window
@@ -96,6 +98,7 @@ Feature: Store Correct Admit Facilities
     When I click on "Patient List" in the Patients dropdown menu
     Then I click on "custom" filter tab present on the patients page
     And I enter patients fullname in the patient search box on the patient page 
+    Then I click on search button present on the patients page
     And I should see patient fullname appearing on patient card on patient search 
     
     
