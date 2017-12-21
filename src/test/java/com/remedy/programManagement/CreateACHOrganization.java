@@ -304,5 +304,4 @@ public class CreateACHOrganization extends BaseClass{
     public void iVerifyMessageInHasAManagementOrganization(String text) {
     	verifyTextForElement(driver.findElement(By.cssSelector(".Select-noresults")), text);
     }
-
 }
