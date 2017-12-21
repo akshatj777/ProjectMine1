@@ -52,5 +52,4 @@ public class SearchOrganizationDef extends DriverScript{
 	  public void i_Search_With_Location_Search_List_Field_in_View_Profile_page(String text, String org) throws Throwable {
 		 searchorganization.iSearchFieldOnLocationParametersonViewProfilePage(text, org);
 	    }
-	
 }
