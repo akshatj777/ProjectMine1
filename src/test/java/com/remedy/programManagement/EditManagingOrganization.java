@@ -166,8 +166,8 @@ public class EditManagingOrganization extends BaseClass {
 			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).sendKeys(Keys.CONTROL,"a");
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).sendKeys(Keys.DELETE);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), RandomStringUtils.randomAlphabetic(75));
-			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).getText());
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",RandomStringUtils.randomAlphabetic(75));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
 		}
 		else if(field2.equalsIgnoreCase("HHANAME - YES")){
 			CreateHHAOrganization.oldHHA_WithMO = CreateHHAOrganization.HHAOrg.get("HHANAME");
