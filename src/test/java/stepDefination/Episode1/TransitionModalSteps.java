@@ -32,5 +32,19 @@ public class TransitionModalSteps extends DriverScript {
 		transition.iclickStartCARLtoollink(transition_no);
 	}
 	
+	@Then ("^I click on \"([^\"]*)\" dropdown on Transition modal$")
+	public void I_click_on_dropdown_on_transition_modal(String text) throws Throwable {
+		transition.IClickOnDropDownOnTransitionModal(text);
+	}
+	
+	@Then ("^I verify \"([^\"]*)\" under dropdown text on Transition modal$")
+	public void I_verify_option_under_dropdown_text_on_transition_modal(String text) throws Throwable {
+		transition.IVerifyOptionUnderDropdownTextOnTransitionModal(text);
+	}
+	
+	@Then ("^I should not see \"([^\"]*)\" dropdown on Transition modal$")
+	public void I_should_not_see_dropdown_on_transition_modal(String text) throws Throwable {
+		transition.IShouldNotSeeDropDownOnTransitionModal(text);
+	}
 	
 }

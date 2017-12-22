@@ -35,4 +35,10 @@ public class EpisodeLogic extends BaseClass {
 	public void iVerifyPotentialwithoutendDate(int days) {
 		String date=currentdate(days,"MM/dd/yyyy");
 		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'..')]")));
-	}}
+	}
+	
+	public void iShouldSeeAdmitTypeUnderTransition(String text) {
+		iVerifyTextFromListOfElement(By.cssSelector(".type-column"), text);
+	}
+	
+}

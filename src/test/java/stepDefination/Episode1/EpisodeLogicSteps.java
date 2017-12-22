@@ -24,5 +24,11 @@ public class EpisodeLogicSteps extends DriverScript{
 	public void i_Verify_Potential_without_end_Date(int days){
 		logic.iVerifyPotentialwithoutendDate(days);
 	}
+	
+	@Then ("^I should see \"([^\"]*)\" in Admit type under Transitions$")
+	public void i_Should_See_AdmitType_Under_Transitions(String text){
+		logic.iShouldSeeAdmitTypeUnderTransition(text);
+	}
+	
 	}
 

@@ -254,6 +254,11 @@ public class PatientClinicalDocuments extends BaseClass {
 		Actions actions=new Actions(driver);
 		actions.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Diagnosis and DRG')]"))).click().perform();
     }
+	
+	public void IClickOnLabelTabOnAddANewTransition(String text) {
+     	iWillWaitToSee(By.cssSelector(".modal-title"));
+		clickSingleElementFromList(By.cssSelector(".nav.nav-tabs>li>a"), text);
+    }
 
 	public void IselecttheDRGtypeontheDiagnosisandDRGtabonaddanewtransition() {
      	selectDropdownVisibleElement("#bp_personbundle_bpadmissiontype_drgType", "Working");
@@ -805,7 +810,9 @@ public class PatientClinicalDocuments extends BaseClass {
 			Assert.assertEquals(text,actual);
 		}
 		
-		
+		public void IShouldSeeValidationMessageOnTransitionModal(String text) {
+			iVerifyTextFromListOfElement(By.cssSelector(".help-block.help-block-error"), text);
+		}
 
 	
 }
