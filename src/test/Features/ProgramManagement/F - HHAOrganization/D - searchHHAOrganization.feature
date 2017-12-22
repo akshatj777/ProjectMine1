@@ -32,7 +32,7 @@ Feature: Search the HHA organizations functionality tests
     And I edit "HHA Organization Name" field to "<Edited_HHA_Name> - <Has_MO>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit HHA - <Has_MO>" organization page
-    Then I search "<HHA_Name> - <Has_MO>" and verify with search list options on "HHA" organization search box
+    Then I search "<Edited_HHA_Name> - <Has_MO>" and verify with search list options on "HHA" organization search box
     Then I search with "<HHA_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New HHA Organization" link under No matches

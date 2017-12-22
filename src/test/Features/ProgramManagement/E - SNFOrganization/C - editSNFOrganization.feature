@@ -217,7 +217,30 @@ Feature: Edit SNF organization functionality tests
 
     Examples: 
       | Description                                                    | Has_MO | SNF_Name | Loc_Name     | Loc_Address1  | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2  | Loc_City  | Loc_State  | Loc_Postal_Code | Message                                         |
-      | Edit and Save an existing Location details on SNF Organization | NO     | SNFNAME  | Loc_Name new | Loc_Address12 | Skilled Nursing | Midwest    | Chicago    | Loc_Address22 | Loc_City1 | California |           10001 | Success! SNF Organization Successfully Updated. |
+      | Edit and Save an existing Location details on SNF Organization | NO     | SNFNAME  | Loc_Name new | Loc_Address12 | Skilled Nursing | Midwest    | Chicago    | Loc_Address22 | Loc_City11S| California |           10001 | Success! SNF Organization Successfully Updated. |
+
+  Scenario Outline: <Description>
+    When I search with "<SNF_Name> - <Has_MO>" on organization in search box
+    And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
+    And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
+    And I click on "Edit" button on particular organization
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Location 2" on "Create SNF" organization page
+    And I enter location name <Loc_Name> for Location "2" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
+    And I select location type <Loc_Type> for Location "2" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
+    And I select region <Loc_Region> for Location "2" on "create" organization page
+    And I enter city <Loc_City> for Location "2" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "2" on "create" organization page
+    And I select state <Loc_State> for Location "2" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                | Has_MO | SNF_Name | Loc_Name   | Loc_Address1   | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2  | Loc_City  | Loc_State  | Loc_Postal_Code | Message                                         |
+      | Add one more location Location details on SNF Organization | NO     | SNFNAME  | Loc_Name12 | Loc_Address123 | Skilled Nursing | Midwest    | Chicago    | Loc_Address22 | Loc_City1 | California |           10001 | Success! SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
