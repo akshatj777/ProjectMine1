@@ -1241,5 +1241,34 @@ public class PatientsPage extends BaseClass {
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
 	}
 	
+	public void iSelectTypeUnderAddressSection(String text){
+		clickElement(driver.findElement(By.cssSelector("#Patient_Details_address_type")));
+		selectElementByDesc("#Patient_Details_address_type>option",text);
+	}
+	
+	public void iSelectStateInTheAddressSection(String text){
+		clickElement(driver.findElement(By.cssSelector("#Patient_Details_address_state")));
+		selectElementByDesc("#Patient_Details_address_state>option",text);
+	}
+	
+	public void iClickOnAddTransitionButtonOnThePatientCreationPage(){
+		clickElement(driver.findElement(By.cssSelector("#submitButton")));
+	}
+	
+	public void iVerifyAttestationMessage(String text){
+		verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#page-content-frame>div:nth-of-type(2)>div")),text);
+	}
+	
+	public void iVerifyAttestationMessageOfNewyork(String s){
+		iWillWaitToSee(By.cssSelector(".col-md-12>ul>li:nth-of-type(1)"));
+		String text=getTextForElement(driver.findElement(By.cssSelector(".col-md-12>ul>li:nth-of-type(1)")));
+		System.out.println(text);
+		System.out.println(s);
+		s= s.replaceAll("patients", "patient’s");
+		System.out.println(s);
+		Assert.assertTrue(text.trim().contains(s));
+		
+	}
+	
 	}
     

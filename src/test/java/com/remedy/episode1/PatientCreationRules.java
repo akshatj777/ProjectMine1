@@ -39,11 +39,32 @@ public class PatientCreationRules extends BaseClass{
     	clickElement(driver.findElement(By.cssSelector(".btn.btn-success")));
     }
     
-    public void iSeeTheMessageAfterCreatingRule(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//*[@id='gritter-notice-wrapper']/div/div[2]/div[2]/p")),text);
-    }
-    
     public void iWillWaitToSeeNewlyCreatedRule(String text){
     	verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),text);
+    }
+    
+    public void iVerifyLabelTextOnNewCreationPage(String text,String page){
+    	verifyTextForElementfromList(".col-md-3.control-label",text);
+    }
+    
+    public void iSelectAdmiTFacilityOnFreeTextMappingPage(String text){
+    	clickElement(driver.findElement(By.cssSelector("#s2id_new_bpfacilityfreetext_sendingFacility .select2-choice.select2-default")));
+    	iFillInText(driver.findElement(By.cssSelector("#s2id_autogen1_search")), text);
+    	clickElement(driver.findElement(By.xpath("(//span[text()='"+text+"'])[2]")));
+    }
+    
+    public void iSelectFrom(String select,String text){
+    	clickElement(driver.findElement(By.cssSelector("#"+text+"")));
+    	selectElementByDesc("#"+text+">option",select);
+    }
+    
+    public void iFillTextWith(String selector,String text){
+    	iFillInText(driver.findElement(By.cssSelector("#"+selector+"")), text);
+    }
+    
+    public void iSelectMappedDischargeFacility(String text){
+    	clickElement(driver.findElement(By.cssSelector("#s2id_new_bpfacilityfreetext_mappedDischargedFacility .select2-choice.select2-default")));
+    	iFillInText(driver.findElement(By.cssSelector("#s2id_autogen2_search")), text);
+    	clickElement(driver.findElement(By.xpath("(//span[text()='"+text+"'])[1]")));
     }
 }

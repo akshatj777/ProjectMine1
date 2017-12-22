@@ -1608,4 +1608,28 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iSelectOptionInEligibilityDropDown(option);
     }
     
+    @Then("^I select type as \"([^\"]*)\" in the address section$")
+    public void i_select_type_as_in_the_address_section(String text) throws Throwable{
+    	patientsPage.iSelectTypeUnderAddressSection(text);
+    }
+    
+    @And("^I select state as \"([^\"]*)\" in the address section$")
+    public void i_select_state_as_in_the_address_section(String text) throws Throwable{
+    	patientsPage.iSelectStateInTheAddressSection(text);
+    }
+    
+    @And("I click on the add transition button on the patient creation page")
+    public void i_click_on_the_add_transition_button_on_the_patient_creation_page() throws Throwable{
+    	patientsPage.iClickOnAddTransitionButtonOnThePatientCreationPage();
+    }
+    
+    @Then("^I verify attestation message as \"(.*)\"$")
+    public void i_verify_attestation_message_as(String text) throws Throwable{
+    	patientsPage.iVerifyAttestationMessage(text);
+    }
+    
+    @Then("^I verify attestation message of newyork \"([^\"]*)\"$")
+    public void i_verify_attestation_message_of_newyork_as(String s) throws Throwable{
+    	patientsPage.iVerifyAttestationMessageOfNewyork(s);
+    }
     }

@@ -9,15 +9,16 @@ Feature: Patient Creation Rules in Admin
     And I click on the "Episodes" tile
     And I switch to new window
     And I am on "/secure/admin/PatientCreationRules/"
-    Then I click on new button on the patient creation rules page
-    And I wait untill i see "New Patient Creation Rule" on the patient creation rule page
+    And I wait untill "List for Patient Creation Rules" text is appearing on the patient creation rule
+    Then I click on new button
+    And I wait untill "New Patient Creation Rule" text is appearing on the patient creation rule
     Then I fill in Name with "RuleTest" on the new patient rule creation page
     And I fill in Field with "MSH~5~1" on the new patient rule creation page
     And I fill in Value with "JATA" on the new patient rule creation page
     And I fill in Priority with "5" on the new patient rule creation page
     And I press "Save" on the new patient rule creation page
-    Then I wait to see "The object was successfully saved." after creating a rule
-    And I will wait to see "You're editing the object \"RuleTest\""
+    And I will wait to see "The object was successfully saved." in "p" tag
+    And I will wait to see "You're editing the object "RuleTest""
     
     
     
