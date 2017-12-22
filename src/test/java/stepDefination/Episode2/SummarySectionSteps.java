@@ -236,4 +236,14 @@ public class SummarySectionSteps extends DriverScript {
 		patientclinical.IShouldSeeValidationMessageOnTransitionModal(message);
 	}
 	
+	@Then ("^I should see \"([^\"]*)\" in discharge location under Transition$")
+	public void I_should_see_location_in_discharge_location_under_transition(String text) throws Throwable {
+		patientclinical.IShouldSeeLocationInDischargeLocationUnderTransition(text);
+	}
+	
+	@Then ("^I should see \"([^\"]*)\" in topic under Notes$")
+	public void I_should_see_topic_under_notes(String text) throws Throwable {
+		patientclinical.IShouldSeeTopicUnderNotes(text);
+	}
+	
 }

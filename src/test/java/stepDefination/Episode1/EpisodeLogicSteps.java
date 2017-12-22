@@ -30,5 +30,10 @@ public class EpisodeLogicSteps extends DriverScript{
 		logic.iShouldSeeAdmitTypeUnderTransition(text);
 	}
 	
+	@Then ("^I should see \"([^\"]*)\" text for LOS on Transition modal$")
+	public void i_Should_See_text_for_Los_On_Transitions_Modal(String text){
+		logic.iShouldSeeTextForLOSOnTransitionModal(text);
+	}
+	
 	}
 

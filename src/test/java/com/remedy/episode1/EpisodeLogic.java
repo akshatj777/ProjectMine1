@@ -41,4 +41,9 @@ public class EpisodeLogic extends BaseClass {
 		iVerifyTextFromListOfElement(By.cssSelector(".type-column"), text);
 	}
 	
+	public void iShouldSeeTextForLOSOnTransitionModal(String text) {
+		iWillWaitToSee(By.cssSelector("#nsocelos"));
+		iVerifyTextFromListOfElement(By.cssSelector("#nsocelos"), text);
+	}
+	
 }

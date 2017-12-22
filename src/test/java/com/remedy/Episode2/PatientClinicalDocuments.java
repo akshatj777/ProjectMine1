@@ -813,6 +813,21 @@ public class PatientClinicalDocuments extends BaseClass {
 		public void IShouldSeeValidationMessageOnTransitionModal(String text) {
 			iVerifyTextFromListOfElement(By.cssSelector(".help-block.help-block-error"), text);
 		}
+		
+		public void IShouldSeeLocationInDischargeLocationUnderTransition(String text) {
+			List<WebElement> listItems = driver.findElements(By.cssSelector(".discharge_location-column"));
+			String value = null;
+			for (WebElement item : listItems) {
+				  if (item.getText().trim().contains(text)) {
+					  value=item.getText().trim();  
+				  } 
+			}
+			Assert.assertTrue(value.trim().contains(text));
+		}
+		
+		public void IShouldSeeTopicUnderNotes(String text) {
+			iVerifyTextFromListOfElement(By.cssSelector(".sorting_1"), text);
+		}
 
 	
 }
