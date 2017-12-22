@@ -263,9 +263,8 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void Iremovethedischargedateonthetransitionpage() {
 		clickElement(driver.findElement(By.cssSelector("div.field-dischargeDate.form-group.row > div > div > span:nth-child(3) > button > i")));
-	}	
-    }
-		
-
+	}
+	
+}
 
 	

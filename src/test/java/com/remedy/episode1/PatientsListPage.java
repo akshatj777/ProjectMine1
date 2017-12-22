@@ -4,9 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.server.handler.ClickElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 
@@ -160,7 +158,7 @@ public class PatientsListPage extends BaseClass {
     	String name = DischargeCarlForm.lastname +" "+ DischargeCarlForm.firstname;
     	String actual = driver.findElements(By.cssSelector(".element-title.ng-binding")).get(0).getText().trim();
     	actual = actual.replaceAll(",", "");
-    	Assert.assertEquals(name, actual);
+    	Assert.assertTrue(actual.equalsIgnoreCase(name));
     }
 
     public void iShouldSeePatientOnThePatientListPresentOnThePatientPage(String patientName){

@@ -162,4 +162,5 @@ public class ReadmissionWorklistSteps extends DriverScript {
 	public void I_remove_the_discharge_date_on_the_transition_page() throws Throwable {
 		admission.Iremovethedischargedateonthetransitionpage();
 	}
+	
 }

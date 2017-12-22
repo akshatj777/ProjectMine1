@@ -83,6 +83,11 @@ public class SummarySectionSteps extends DriverScript {
 	public void I_click_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition_to_select_the_DRG() throws Throwable {
 		patientclinical.IclickontheDiagnosisandDRGtabonaddanewtransitiontoselecttheDRG();
 	}
+	
+	@Then("^I click on \"([^\"]*)\" label tab on add a new transition$")
+	public void I_click_on_label_tab_on_add_new_transition(String text) throws Throwable {
+		patientclinical.IClickOnLabelTabOnAddANewTransition(text);
+	}
 
 	@Then("^I select the DRG type on the Diagnosis and DRG tab on add a new transition$")
 	public void I_select_the_DRG_type_on_the_Diagnosis_and_DRG_tab_on_add_a_new_transition() throws Throwable {
@@ -113,6 +118,7 @@ public class SummarySectionSteps extends DriverScript {
 	public void I_click_on_the_Create_Transition_Button_to_add_a_new_transition() throws Throwable {
 		patientclinical.IclickontheCreateTransitionButtontoaddanewtransition();
 	}
+	
 
 	@Then("^I click on the Create Transition Button to add a new transition for discharge info$")
 	public void I_click_on_the_Create_Transition_Button_to_add_a_new_transition_for_discharge_info() throws Throwable {
@@ -223,6 +229,21 @@ public class SummarySectionSteps extends DriverScript {
 	@Then ("^I should see \"([^\"]*)\" in Episode Initiator$")
 	public void I_should_see_initiator_in_episode_initiator(String text) throws Throwable {
 		patientclinical.IShouldSeeInitiatorInEpisodeInitiator(text);
+	}
+	
+	@Then("^I should see \"([^\"]*)\" validation message on Transition modal$")
+	public void I_Should_See_Validation_Message_On_Transition_Modal(String message) throws Throwable {
+		patientclinical.IShouldSeeValidationMessageOnTransitionModal(message);
+	}
+	
+	@Then ("^I should see \"([^\"]*)\" in discharge location under Transition$")
+	public void I_should_see_location_in_discharge_location_under_transition(String text) throws Throwable {
+		patientclinical.IShouldSeeLocationInDischargeLocationUnderTransition(text);
+	}
+	
+	@Then ("^I should see \"([^\"]*)\" in topic under Notes$")
+	public void I_should_see_topic_under_notes(String text) throws Throwable {
+		patientclinical.IShouldSeeTopicUnderNotes(text);
 	}
 	
 }

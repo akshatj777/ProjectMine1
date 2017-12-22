@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
 import com.steadystate.css.parser.ParseException;
@@ -54,5 +55,20 @@ public class TransitionModal extends BaseClass {
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a"));
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a")));
 		}
+	
+	public void IClickOnDropDownOnTransitionModal(String text) {
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_admit"+text));
+		clickElement(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admit"+text)));
+	}
+	
+	public void IVerifyOptionUnderDropdownTextOnTransitionModal(String text) {
+		iWillWaitToSee(By.xpath("//option[text()='"+text+"']"));;
+	}
+	
+	public void IShouldNotSeeDropDownOnTransitionModal(String text) {
+		isElementPresentOnPage(By.cssSelector("#bp_personbundle_bpadmissiontype_admit"+text));
+	}
+	
 	 
 }
