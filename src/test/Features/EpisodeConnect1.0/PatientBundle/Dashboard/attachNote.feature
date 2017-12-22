@@ -22,11 +22,36 @@ Feature: Attach Note to the Transition
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
     Then I click on the Cancel Button on the New Transition on Add Patient page
+    
+#    And I will wait to see "New Transition" in "h4" tag
+#    Then I fill in "Admit" with logic "minus" with "1" days
+#    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+#    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+#    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+#    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+#    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+#    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+#    Then I click on the Create Transition Button to add a new transition
+    
+     
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
+    
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    And I wait for 20000 milli seconds
   	And I click on first gear menu under Transitions on patient overview
     And I click on "Attach Note" in gear menu option under Transition
     Then I should see "New Note" present on the new note page

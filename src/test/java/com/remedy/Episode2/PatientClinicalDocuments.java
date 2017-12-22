@@ -800,8 +800,8 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		
 		public void IClickOnOptionGearMenuUnderTransition(String text) {
-			clickSingleElementFromList(By.xpath("//i[@class='fa fa-cog']"), text);
-			driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(1).click();
+			clickSingleElementFromList(By.xpath("//div[@class='dropdown open']//li//a"), text);
+//			driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(1).click();
 		}
 		
 		public void IShouldSeeInitiatorInEpisodeInitiator(String text) {
