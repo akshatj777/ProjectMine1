@@ -116,6 +116,7 @@ public class EditUser extends BaseClass {
 
 	public void iVerifyThatApplicationsAreEditable(String app, String text) {
 		delay();
+		
 		if (text.equalsIgnoreCase("Disabled")) {
 			if (app.contains(",")) {
 				String[] application = app.split(",\\s+");
@@ -159,7 +160,7 @@ public class EditUser extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector(".component-participant-title")));
 	}
 	public void iVerifyDataPermission(String arg){
-		delay();
+		longDelay();
 		if (arg.contains(",")) {
 			String[] org = arg.split(",\\s+");
 
@@ -184,6 +185,37 @@ public class EditUser extends BaseClass {
 	   
 	   else{
 		   iWillWaitToSee(By.xpath("//label[.='All Locations']"));
-		   clickElement(driver.findElement(By.xpath("//label[.='All Locations']"))); }
-	}
+		   clickElement(driver.findElement(By.xpath("//label[.='All Locations']"))); 
+		   }
+		   delay();
+	   }
+	   public void iVerifyProductAsPerRole(String appList, String text){
+		   iWillWaitToSee(By.cssSelector(".title.one.column.row.no-padding"));
+		   if(text.contains("Present")){
+		   if (appList.contains(",")) {
+				String[] app = appList.split(",\\s+");
+
+				for (int i = 0; i < app.length; i++) {
+					isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+app[i]+"')]")));	
+				}
+				}
+				
+				else{
+					isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+appList+"')]")));	
+				}}
+		   else if(text.contains("Not Present")){
+			   
+			   if (appList.contains(",")) {
+					String[] app = appList.split(",\\s+");
+
+					for (int i = 0; i < app.length; i++) {
+						isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+app[i]+"')]"));	
+					}
+					}
+					
+					else{
+						isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+appList+"')]"));	
+					} 
+		   }
+	   } 
 }

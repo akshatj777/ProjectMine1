@@ -95,4 +95,9 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void i_click_on_Select_All_Locations_button_for_Organisation(String arg1) throws Throwable {
 		editUser.clickAllLocationsButton(arg1);
 	}
+	@Then("^Then I verify that \"([^\"]*)\" are \"([^\"]*)\" in Applications tab$")
+	public void iVerifyProductAsPerRole(String appList, String text){
+		editUser.iVerifyProductAsPerRole(appList, text);
+	}
+
 }

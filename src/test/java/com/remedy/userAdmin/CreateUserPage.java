@@ -643,8 +643,9 @@ public class CreateUserPage extends BaseClass{
 	  
 		iWillWaitToSee(By.xpath("//button[.='Submit']"));
 	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
-	 
-	  iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation"));
+	   delay();
+	 // iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation"));
+	   iWillWaitToSee(By.cssSelector(".title.accordion-title"));
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {

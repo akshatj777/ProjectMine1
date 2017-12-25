@@ -110,7 +110,7 @@ Feature: Edit page for superuser verification
     And I select a <Health System>
     Then I click on Select All Locations button
     And I wait for 3000 milli seconds
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     And I verify that "<Applications>" are "Enabled"
     And I verify that "<ApplicationsNotVisible>" are "Disabled"
@@ -138,9 +138,6 @@ Feature: Edit page for superuser verification
   #| Super Admin | Remedy Program Administrator    | Physician Connect, Episodes 2.0, Episodes, Lessons, TCI                          | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, TCI            | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     |
   #| Super Admin | Partner Technical Administrator | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration               | Episodes 2.0, Lessons                                    | Physician Connect, Episodes, Administration | Reports, Episodes 2.0, Lessons                           | Learning Pathway 2             | Stamford Hospital |     |
   #| Super Admin | Remedy Technical Administrator  | Physician Connect, Episodes 2.0, Episodes, Lessons, Administration, TCI, Reports | Physician Connect, Administration, Episodes 2.0, Lessons | Episodes, TCI, Reports                      | Physician Connect, Administration, Episodes 2.0, Lessons | Learning Pathway 2             | Stamford Hospital |     |
-  
- 
-    
   Scenario Outline: <Description>
     Given I am on the login page
     When I log in as super user
@@ -168,12 +165,15 @@ Feature: Edit page for superuser verification
     Then I select "<Programs>" programs
     Then I click on Select All Locations button for "Second" Organisation
     And I wait for 3000 milli seconds
-    Then I click on Submit button
-    And I wait for 4000 milli seconds
+    Then I click on Submit button for "<User>"
+    And I wait for 7000 milli seconds
     Then I verify "<Health System1>, <Health System2>" under Data Permissions
-    Then I select Log Out option from the dropdown
+    And I click on the top user account link
+    Then I click on "Log Out" button
     And I should see Log in widget
 
     Examples: 
       | Description                                                                 | user        | Role      | Health System1    | Health System2   | Programs    |
       | Remove existing organisation and add Stamford Hospital and Sound Physicians | Super Admin | Executive | Stamford Hospital | Sound Physicians | BPCI-Model2 |
+
+  
