@@ -141,7 +141,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnCreateNoteButton() throws Throwable {
-		clickElement(driver.findElement(By.id("submitButton")));
+		clickElement(driver.findElement(By.cssSelector(".modal-footer>#submitButton")));
 	}
 
 	public void iClickOnActionsColumnInNotes() throws Throwable {

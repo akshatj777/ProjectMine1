@@ -227,7 +227,9 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnButtonWithText(String text){
-    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
+    	delay();
+    	clickElement(driver.findElement(By.xpath("//*[text()='"+text+"']")));
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
 
     }

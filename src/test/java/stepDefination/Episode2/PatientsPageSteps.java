@@ -756,6 +756,11 @@ public class PatientsPageSteps extends DriverScript {
         patientsPage.iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(facility);
     }
     
+    @When("^I Select \"([^\"]*)\" from the list of address type present on the Add Patient page$")
+    public void i_Select_from_the_list_of_address_type_present_on_the_Add_Patient_page(String type) throws Throwable {
+        patientsPage.iSelectFromTheListOfAddressTypePresentOnTheAddPatientPage(type);
+    }
+    
     @When("^I Select \"([^\"]*)\" from the admitting facility present on the Add Patient page$")
     public void i_Select_from_the_admitting_facility_present_on_the_Add_Patient_page(String facility) throws Throwable {
         patientsPage.iSelectFromTheAdmittingFacilityPresentOnTheAddPatientPage(facility);
@@ -1632,4 +1637,14 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_attestation_message_of_newyork_as(String s) throws Throwable{
     	patientsPage.iVerifyAttestationMessageOfNewyork(s);
     }
+    
+    @Then("^I enter \"([^\"]*)\" in \"([^\"]*)\" field on add Patient page$")
+	public void i_Enter_Details_In_Field_On_Add_Patient(String text, String field) throws Throwable {
+    	patientsPage.iEnterDetailsInFieldOnAddPatientPage(text,field);
+	}
+    
+    @Then("^I should see \"([^\"]*)\" icon on details on patients overview page$")
+	public void i_Should_See_Icon_On_Details_On_Patients_Overview_Page(String field) throws Throwable {
+    	patientsPage.iShouldSeeIconOnDetailsOnPatientsOverviewPage(field);
+	}
     }

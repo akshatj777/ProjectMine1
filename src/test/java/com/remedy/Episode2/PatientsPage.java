@@ -529,6 +529,12 @@ public class PatientsPage extends BaseClass {
 //		clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-3")));
 		driver.findElements(By.xpath("//div[@id='select2-drop']//ul/li")).get(0).click();
 	}
+	
+	public void iSelectFromTheListOfAddressTypePresentOnTheAddPatientPage(String type) {
+		clickElement(driver.findElement(By.cssSelector("#Patient_Details_address_type")));
+		selectDropdownVisibleElement("#Patient_Details_address_type", type);
+		delay();
+	}
 
 	public void iSelectFromTheAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
 		iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
@@ -1268,6 +1274,14 @@ public class PatientsPage extends BaseClass {
 		System.out.println(s);
 		Assert.assertTrue(text.trim().contains(s));
 		
+	}
+	
+	public void iEnterDetailsInFieldOnAddPatientPage(String text, String field){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_"+field)), text);
+	}
+	
+	public void iShouldSeeIconOnDetailsOnPatientsOverviewPage(String field){
+		iWillWaitToSee(By.cssSelector(".patient-header .fa.fa-"+field));
 	}
 	
 	}
