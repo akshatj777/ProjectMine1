@@ -8,9 +8,29 @@ Feature: Create PGP organization functionality tests.
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
-    When I click on "PGP" organization tab on organization dashboard
+
+  Scenario Outline: <Description>
+    Then I verify "+" button under "Managing" organization page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create MO" organization page
+
+    Examples: 
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
 
   Scenario: Verification of availability of all the fields on Create PGP Organization page
+    When I click on "PGP" organization tab on organization dashboard
     Then I verify the Search bar on "PGP" organization page
     Then I verify "+" button under "PGP" organization page
     And I verify "TIN/EIN" header label under "PGP" organization
@@ -21,8 +41,8 @@ Feature: Create PGP organization functionality tests.
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
     And I verify "*PGP Organization Name" field on create organization page
-    And I verify "Has a Management Organization" radio button on create organization page
-    And I verify "No Management Organization" radio button on create organization page
+    And I verify "Has a Managing Organization" radio button on create organization page
+    And I verify "No Managing Organization" radio button on create organization page
     And I verify "Short Name" field on create organization page
     And I verify "Address 1" field on create organization page
     And I verify "Address 2" field on create organization page
@@ -37,6 +57,7 @@ Feature: Create PGP organization functionality tests.
     And I verify "Cancel" button on create organization page
 
   Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
     And I select "<Has_MO>" radio button for managing organization
@@ -49,12 +70,13 @@ Feature: Create PGP organization functionality tests.
 
     Examples: 
       | Description                                      | Has_MO | Managing_Org | PGP_Name | EIN | NPI | ValidationMsg                                 |
-      | Check validation for blank Managing Organization | YES    | BLANK        | PGPNAME  | EIN | NPI | A Management Organization has to be selected. |
+      | Check validation for blank Managing Organization | YES    | BLANK        | PGPNAME  | EIN | NPI | A Managing Organization has to be selected. |
       | Check validation for blank PGP name              | NO     |              |          | EIN | NPI | Please enter an Organization Name             |
       | Check validation for blank Identifiers           | NO     |              | PGPNAME  |     |     | The EIN field is required                     |
       | Check validation for blank EIN Identifier        | NO     |              | PGPNAME  |     | NPI | The EIN field is required                     |
 
   Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
     Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
@@ -83,6 +105,7 @@ Feature: Create PGP organization functionality tests.
       | Check Allowed Characters for Postal code field |                                                                              |                                                           |                                                |                                                           |                                                | abcdefghi   |               |               | The address.postalCode format is invalid.                      |
 
   Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
     And I select "<Has_MO>" radio button for managing organization
@@ -115,6 +138,7 @@ Feature: Create PGP organization functionality tests.
       | Create PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | PGPNAME       | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created.                                                         |
 
   Scenario Outline: Identifiers - <Description>
+    When I click on "PGP" organization tab on organization dashboard
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
     And I provide unique "PGP - <EIN>" in "EIN" on create organization page

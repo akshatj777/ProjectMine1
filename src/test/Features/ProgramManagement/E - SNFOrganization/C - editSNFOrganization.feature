@@ -8,9 +8,62 @@ Feature: Edit SNF organization functionality tests
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
-    When I click on "SNF" organization tab on organization dashboard
 
   Scenario Outline: <Description>
+    Then I verify "+" button under "Managing" organization page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create MO" organization page
+
+    Examples: 
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
+    Then I click on "+" button on "SNF" organization page
+    And I verify "Create SNF Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <SNF_Name> in "SNF Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "SNF - <CCN>" in "CCN" on create organization page
+    And I provide unique "SNF - <EIN>" in "EIN" on create organization page
+    And I provide unique "SNF - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                         |
+      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! SNF Organization Successfully Created. |
+      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -45,6 +98,7 @@ Feature: Edit SNF organization functionality tests
       | Verification of availability of all the fields on Edit SNF Organization page | NO     | SNFNAME  |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -77,6 +131,7 @@ Feature: Edit SNF organization functionality tests
       | Check validation for blank Location Postal code | YES    | SNFNAME  | SNFNAME         | Address1     | City     | California |           10000 | LocName  | LAddress1    | LCity    | California |                 | Please enter a Zip Code           |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -113,6 +168,7 @@ Feature: Edit SNF organization functionality tests
       | Check Allowed Characters for Location Postal code field on Edit SNF Organization page | NO     | SNFNAME  |                                                                              |                                                          |                                                |                                                           |                                                |                 |                                                                                |                                                           |                                                           |                                                | abcdefghij      | Please enter a valid Zip Code                                  |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -139,7 +195,7 @@ Feature: Edit SNF organization functionality tests
 
     Examples: 
       | Description                                                                                                      | Has_MO | SNF_Name | Edited_SNF_Name      | Org_Address1                                            | Short_Name                                    | Org_Address2                                            | City                                          | State      | Org_Postal_Code | Loc_Name                                                                    | Loc_Address1                                            | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2                                            | Loc_City                                      | Loc_State  | Loc_Postal_Code | Message                                                                                                 |
-      | Check Character Limit edge condition for SNF Organization Name field on Edit SNF Organization page - Without MO  | NO     | SNFNAME  | equalsTo75Characters | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrsjklmnopqrs | Short_Name                                    | Address2                                                | City                                          | California |           10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | Success! SNF Organization Successfully Updated.                                                         |
+      | Check Character Limit edge condition for SNF Organization Name field on Edit SNF Organization page - Without MO  | NO     | SNFNAME  | equalsTo75Characters |                                                         | Short_Name                                    | Address2                                                | City                                          | California |           10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | Success! SNF Organization Successfully Updated.                                                         |
       | Check Character Limit edge condition for Address1 field on Edit SNF Organization page - Without MO               | NO     | SNFNAME  | SNFNAME              | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrsjklmnopqrs | Short_Name                                    | Address2                                                | City                                          | California |           10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | Success! SNF Organization Successfully Updated.                                                         |
       | Check Character Limit edge condition for Short Name field on Edit SNF Organization page - Without MO             | NO     | SNFNAME  | SNFNAME              | Address1                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrs | Address2                                                | City                                          | California |           10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | Success! SNF Organization Successfully Updated.                                                         |
       | Check Character Limit edge condition for Address2 field on Edit SNF Organization page - Without MO               | NO     | SNFNAME  | SNFNAME              | Address1                                                | Short_Name                                    | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrsjklmnopqrs | City                                          | California |           10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | Success! SNF Organization Successfully Updated.                                                         |
@@ -167,6 +223,7 @@ Feature: Edit SNF organization functionality tests
       | Edit SNF Organization with all the available fields - With MO                                                    | YES    | SNFNAME  | SNFNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | California |           10000 | Loc_Name                                                                    | Loc_Address1                                            | Skilled Nursing | Midwest    | Chicago    | Loc_Address2                                            | Loc_City                                      | California |           10000 | Success! SNF Organization Successfully Updated.                                                         |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -199,6 +256,7 @@ Feature: Edit SNF organization functionality tests
       | Edit a SNF Organization With Mandatory Fields Missing | NO     | SNFNAME  |                 |              |      |       |                 |          |              |          |           |                 |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -216,10 +274,11 @@ Feature: Edit SNF organization functionality tests
     Then I verify "<Message>" after submitting the "edit SNF" organization page
 
     Examples: 
-      | Description                                                    | Has_MO | SNF_Name | Loc_Name     | Loc_Address1  | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2  | Loc_City  | Loc_State  | Loc_Postal_Code | Message                                         |
-      | Edit and Save an existing Location details on SNF Organization | NO     | SNFNAME  | Loc_Name new | Loc_Address12 | Skilled Nursing | Midwest    | Chicago    | Loc_Address22 | Loc_City11S| California |           10001 | Success! SNF Organization Successfully Updated. |
+      | Description                                                    | Has_MO | SNF_Name | Loc_Name     | Loc_Address1  | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2  | Loc_City    | Loc_State  | Loc_Postal_Code | Message                                         |
+      | Edit and Save an existing Location details on SNF Organization | NO     | SNFNAME  | Loc_Name new | Loc_Address12 | Skilled Nursing | Midwest    | Chicago    | Loc_Address22 | Loc_City11S | California |           10001 | Success! SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
@@ -243,6 +302,7 @@ Feature: Edit SNF organization functionality tests
       | Add one more location Location details on SNF Organization | NO     | SNFNAME  | Loc_Name12 | Loc_Address123 | Skilled Nursing | Midwest    | Chicago    | Loc_Address22 | Loc_City1 | California |           10001 | Success! SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
+    When I click on "SNF" organization tab on organization dashboard
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page

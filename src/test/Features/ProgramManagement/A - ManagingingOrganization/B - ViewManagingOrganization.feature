@@ -1,12 +1,35 @@
 Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF associated to it
 
-  Scenario Outline: Verification of details on view profile of Managing Organization
+  Background: 
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
     Then I verify "Welcome to Program Management" header on the page
+
+  Scenario Outline: <Description>
+    When I click on Organization link on Program Management page
+    Then I verify "+" button under "Managing" organization page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create MO" organization page
+
+    Examples: 
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
+
+  Scenario Outline: Verification of details on view profile of Managing Organization
     When I click on Organization link on Program Management page
     When I search with "<MO_Name>" on organization in search box
     And I click "<MO_Name>" field in search list on organization page

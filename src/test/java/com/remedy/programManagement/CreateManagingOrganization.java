@@ -129,10 +129,37 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("HHANAME"));
 		}
-		else if(text.equals("equalsTo75Characters")) 
-		{
-			String value = text+RandomStringUtils.randomAlphabetic(55);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+		else if(text.equalsIgnoreCase("equalsTo75Characters - NO")){
+			if(field.contains("Managing"))
+			{
+				CreateManagingOrganization.tempMoOrg.put("MONAME",RandomStringUtils.randomAlphabetic(75));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
+			}
+			else if(field.contains("Hospital"))
+			{
+				CreateACHOrganization.tempAchOrg.put("ACHNAME",RandomStringUtils.randomAlphabetic(75));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
+			}
+			else if(field.contains("PGP"))
+			{
+				CreatePGPOrganization.tempPGPOrg.put("PGPNAME",RandomStringUtils.randomAlphabetic(75));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("PGPNAME"));
+			}
+			else if(field.contains("Payor"))
+			{
+				CreatePayorOrganization.tempPayorOrg.put("PAYORNAME",RandomStringUtils.randomAlphabetic(75));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
+			}
+			else if(field.contains("SNF"))
+			{
+				CreateSNFOrganization.tempSNFOrg.put("SNFNAME",RandomStringUtils.randomAlphabetic(75));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+			}
+			else if(field.contains("HHA"))
+			{
+				CreateHHAOrganization.tempHHAOrg.put("HHANAME",RandomStringUtils.randomAlphabetic(75));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+			}
 		}
 		else 	
 		{
