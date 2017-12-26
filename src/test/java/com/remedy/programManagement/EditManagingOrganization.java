@@ -2,7 +2,9 @@ package com.remedy.programManagement;
 
 import java.io.IOException;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -124,6 +126,31 @@ public class EditManagingOrganization extends BaseClass {
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
 		}
+		else if(field2.equalsIgnoreCase("SNFNAME - YES")){
+			CreateSNFOrganization.oldSNF_WithMO = CreateSNFOrganization.SNFOrg.get("SNFNAME");
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("SNFNAME - NO")){
+			CreateSNFOrganization.oldSNF_WithoutMO = CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME");
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - YES")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("DUPLICATE_SNF - NO")){
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+		}
+		else if(field2.equalsIgnoreCase("equalsTo75Characters - NO")){
+			CreateSNFOrganization.tempSNFOrg.put("SNFNAME",RandomStringUtils.randomAlphabetic(75));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+		}
 		else 
 		{
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
@@ -132,11 +159,11 @@ public class EditManagingOrganization extends BaseClass {
 	}		
 	
 	public void iEditStateFieldForOrganization(String text) {
-		if(!text.isEmpty()){
+		if(!text.isEmpty())
+		{
 			if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='address.stateSelection']")).size()>0){
 				driver.findElement(By.xpath("//div[input[@name='address.stateSelection']]//span[@class='Select-clear']")).click();
 			}
-			//driver.findElement(By.xpath("//div[text()='State']/preceding-sibling::div//div[@class='Select-value']//span")).click();
 			driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(0).sendKeys(text);
 	        clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"),text);
 		}

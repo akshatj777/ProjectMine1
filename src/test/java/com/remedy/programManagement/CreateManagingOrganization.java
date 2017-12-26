@@ -3,6 +3,7 @@ package com.remedy.programManagement;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -116,9 +117,14 @@ public class CreateManagingOrganization extends BaseClass {
 			CreateSNFOrganization.tempSNFOrg.put("SNFNAME", createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
 		}
-		else if(text.equals("DUPLICATE_ACH"))
+		else if(text.equals("DUPLICATE_SNF"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+		}
+		else if(text.equals("equalsTo75Characters")) 
+		{
+			String value = text+RandomStringUtils.randomAlphabetic(55);
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
 		}
 		else 	
 		{

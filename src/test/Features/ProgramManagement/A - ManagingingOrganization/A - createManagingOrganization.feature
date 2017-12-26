@@ -17,7 +17,7 @@ Feature: Create Managing organization functionality tests
     And I verify "State" header label under "Managing" organization
     And I verify "Postal Code" header label under "Managing" organization
     Then I click on "+" button on "Managing" organization page
-    And I verify "Create Management Organization" header text on create organization page
+    And I verify "Create Managing Organization" header text on create organization page
     And I verify "*Managing Organization Name" field on create organization page
     And I verify "Contact Person" field on create organization page
     And I verify "Contact Email" field on create organization page
@@ -34,7 +34,7 @@ Feature: Create Managing organization functionality tests
     When I click on Organization link on Program Management page
     Then I verify "+" button under "Managing" organization page
     Then I click on "+" button on "Managing" organization page
-    And I verify "Create Management Organization" header text on create organization page
+    And I verify "Create Managing Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <City> in "City" on create organization page
@@ -55,7 +55,7 @@ Feature: Create Managing organization functionality tests
     When I click on Organization link on Program Management page
     Then I verify "+" button under "Managing" organization page
     Then I click on "+" button on "Managing" organization page
-    And I verify "Create Management Organization" header text on create organization page
+    And I verify "Create Managing Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Contact_Person> in "Contact Person" on create organization page
@@ -86,7 +86,7 @@ Feature: Create Managing organization functionality tests
     When I click on Organization link on Program Management page
     Then I verify "+" button under "Managing" organization page
     Then I click on "+" button on "Managing" organization page
-    And I verify "Create Management Organization" header text on create organization page
+    And I verify "Create Managing Organization" header text on create organization page
     Then I enter <MO_Name> in "Managing Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Contact_Person> in "Contact Person" on create organization page
