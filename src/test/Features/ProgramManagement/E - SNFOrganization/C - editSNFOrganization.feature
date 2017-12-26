@@ -246,7 +246,7 @@ Feature: Edit SNF organization functionality tests
     When I search with "<SNF_Name> - <Has_MO>" on organization in search box
     And I verify "<SNF_Name> - <Has_MO>" field in search list on organization page
     And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
-    And I verify "2" location count on view "SNF" organization page
+    And I verify "1" location count on view "SNF" organization page
     And I click on "Edit" button on particular organization
     And I edit "Location Name" field to <Loc_Name> for Location "1" for organization
     And I edit "address1" field to <Loc_Address1> for Location "1" for organization
