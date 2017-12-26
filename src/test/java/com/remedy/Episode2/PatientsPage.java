@@ -1284,5 +1284,52 @@ public class PatientsPage extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".patient-header .fa.fa-"+field));
 	}
 	
+	public void iVerifyICDLabelOnDiagnosisAndDRGTab(String text){
+		iVerifyTextFromListOfElement(By.cssSelector(".icd-selection>label"),text);
 	}
-    
+	
+	public void iVerifyICD10Ischecked(String text){
+		boolean value=driver.findElement(By.xpath("//label[@for[starts-with(.,'bp_personbundle_bpadmissiontype_icdType')]]/div/span[@class='checked']")).isSelected();
+		if(value==true){
+			verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#select2-chosen-6")),"Add ICD10 Code");
+		}
+	}
+	
+	public void iVerifyICD9NotSelectedAndClick(String text){
+		boolean value=driver.findElement(By.cssSelector("#uniform-bp_personbundle_bpadmissiontype_icdType_1>span")).isSelected();
+		System.out.println(value);
+		if(value==false){
+			clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_icdType_1")));
+		}
+	}
+	
+	public void iClickOnICD10RadioButton(String text){
+		clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_icdType_0")));
+	}
+	
+	public void iVerifyTextInICD10PrimaryDxDropdown(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector("#select2-chosen-6")), text);
+	}
+	
+	public void iClickOnPrimaryDxDropDownAndSelectValue(String text){
+		clickElement(driver.findElement(By.xpath("//div[@id='s2id_bp_personbundle_bpadmissiontype_primaryDx'] //b[@role='presentation']")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen6_search")),text);
+		clickElement(driver.findElement(By.cssSelector(".select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
+	}
+	
+	public void iClickOnSecondaryDxDropDownAndSelectValue(String text){
+		clickElement(driver.findElement(By.cssSelector("input#s2id_autogen7")));
+		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7")),text);
+		clickElement(driver.findElement(By.xpath(".//*[@id='select2-result-label-504']")));
+	}
+	
+	public void iClickOnCalculateResultsOnDiagnosisAndDRGTab(){
+		clickElement(driver.findElement(By.cssSelector(".btn.btn-primary.predictIcdCodes")));
+		iWillWaitToSee(By.xpath("//span[@id='prediction']//.[@class='ng-isolate-scope']"));
+	}
+	
+	public void iVerifyCodeAndDRGOnPrediction(String number,String text){
+		iVerifyTextFromListOfElement(By.cssSelector("td.ng-binding>span"),number);
+		iVerifyTextFromListOfElement(By.cssSelector("td.ng-binding"),text);
+	}
+	}
