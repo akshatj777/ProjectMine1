@@ -1632,4 +1632,49 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verify_attestation_message_of_newyork_as(String s) throws Throwable{
     	patientsPage.iVerifyAttestationMessageOfNewyork(s);
     }
+    
+    @And("^I verify \"([^\"]*)\" label is appearing under Diagnosis and DRG tab$")
+    public void i_verify_label_is_appearing_under_Diagnosis_and_DRG_tab(String text) throws Throwable{
+    	patientsPage.iVerifyICDLabelOnDiagnosisAndDRGTab(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" radio button is checked when redirected to Diagnosis and DRG tab$")
+    public void i_verify_checkbox_is_checked_when_redirected_to_Diagnosis_and_DRG_tab(String text) throws Throwable{
+    	patientsPage.iVerifyICD10Ischecked(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" radio button is not selected and click on radio button if not selected$")
+    public void i_verify_radio_button_is_not_selected_and_click_on_radio_button_if_not_selected(String text) throws Throwable{
+    	patientsPage.iVerifyICD9NotSelectedAndClick(text);
+    }
+    
+    @Then("I click on \"([^\"]*)\" radio button on Diagnosis and DRG tab")
+    public void i_click_on_radio_button_on_Diagnosis_and_DRG_tab(String text) throws Throwable{
+    	patientsPage.iClickOnICD10RadioButton(text);
+    }
+    
+    @And("I verify \"([^\"]*)\" text is appearing inside the primary Dx dropdown for ICD10")
+    public void i_verify_text_is_appearing_inside_the_primary_Dx_dropdown_for_ICD10(String text) throws Throwable{
+    	patientsPage.iVerifyTextInICD10PrimaryDxDropdown(text);
+    }
+    
+    @Then("^I click on Primary Dx dropdown and select \"([^\"]*)\" value from the list$")
+    public void i_click_on_primary_dx_dropdown_and_select_value_from_the_list(String text) throws Throwable{
+    	patientsPage.iClickOnPrimaryDxDropDownAndSelectValue(text);
+    }
+    
+    @And("^I click on Secondary Dx dropdown and select \"([^\"]*)\" value from the list$")
+    public void i_click_on_secondary_dx_dropdown_and_select_value_from_the_lsit(String text) throws Throwable{
+    	patientsPage.iClickOnSecondaryDxDropDownAndSelectValue(text);
+    }
+    
+    @Then("^I click on claculate results on the Diagnosis and DRG tab$")
+    public void i_click_on_calculate_results_on_the_Diagnosis_and_DRG_tab() throws Throwable{
+    	patientsPage.iClickOnCalculateResultsOnDiagnosisAndDRGTab();
+    }
+    
+    @And("^I verify \"([^\"]*)\" code is appearing for \"([^\"]*)\" on DRG prediction$")
+    public void i_verify_code_is_appearing_for_on_DRG_prediction(String number,String text) throws Throwable{
+    	patientsPage.iVerifyCodeAndDRGOnPrediction(number, text);
+    }
     }
