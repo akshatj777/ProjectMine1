@@ -335,6 +335,7 @@ public class CreateUserPage extends BaseClass{
 	   while(st.hasMoreTokens())
 	   {
 		   if(st.nextToken().trim().equals("Episodes 2.0")){
+			   iWillWaitToSee(By.cssSelector(".card-view-body"));
 			   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".card-view-body")));
 			   driver.navigate().back();
 		   }
