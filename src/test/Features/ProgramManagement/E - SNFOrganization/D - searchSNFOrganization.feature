@@ -62,7 +62,7 @@ Feature: Search SNF organization functionality tests
     Then I verify the "No matches" message for invalid search in Organization
 
     Examples: 
-      | Description                                                                    | Has_MO | SNF_Name | Loc_Name        |
+      | Description                                                                    | Has_MO | SNF_Name | Loc_Name       |
       | Search SNF Organization with Location Name in SNF view profile page  - With MO | YES    | SNFNAME  | NoMatchLocNAME |
 
   Scenario Outline: <Description>
