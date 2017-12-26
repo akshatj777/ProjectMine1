@@ -27,7 +27,7 @@ Feature: Search the HHA organizations functionality tests
 
     Examples: 
       | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "HHA" organization tab on organization dashboard
@@ -52,8 +52,8 @@ Feature: Search the HHA organizations functionality tests
 
     Examples: 
       | Description                                                        | Has_MO | Managing_Org | HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region  | Market  | CCN | EIN | NPI | Message                                         |
-      | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | Success! HHA Organization Successfully Created. |
-      | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | Success! HHA Organization Successfully Created. |
+      | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
+      | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "HHA" organization tab on organization dashboard
@@ -86,8 +86,8 @@ Feature: Search the HHA organizations functionality tests
 
     Examples: 
       | Description                                                     | Has_MO | HHA_Name | Edited_HHA_Name | Message                                         |
-      | Search HHA Organization after editing the HHA name - With MO    | YES    | HHANAME  | HHANAME         | Success! HHA Organization Successfully Updated. |
-      | Search HHA Organization after editing the HHA name - Without MO | NO     | HHANAME  | HHANAME         | Success! HHA Organization Successfully Updated. |
+      | Search HHA Organization after editing the HHA name - With MO    | YES    | HHANAME  | HHANAME         | HHA Organization Successfully Updated. |
+      | Search HHA Organization after editing the HHA name - Without MO | NO     | HHANAME  | HHANAME         | HHA Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I click on "HHA" organization tab on organization dashboard

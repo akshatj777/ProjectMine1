@@ -26,8 +26,8 @@ Feature: Search SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 
-      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                       |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
@@ -58,9 +58,9 @@ Feature: Search SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                         |
-      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! SNF Organization Successfully Created. |
-      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! SNF Organization Successfully Created. |
+      | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                 |
+      | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SSNF Organization Successfully Created. |
+      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SSNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
@@ -92,9 +92,9 @@ Feature: Search SNF organization functionality tests
     And I verify the "Create New SNF Organization" link under No matches
 
     Examples: 
-      | Description                                                     | Has_MO | SNF_Name | Edited_SNF_Name | Message                                         |
-      | Search SNF Organization after editing the SNF name - With MO    | YES    | SNFNAME  | SNFNAME         | Success! SNF Organization Successfully Updated. |
-      | Search SNF Organization after editing the SNF name - Without MO | NO     | SNFNAME  | SNFNAME         | Success! SNF Organization Successfully Updated. |
+      | Description                                                     | Has_MO | SNF_Name | Edited_SNF_Name | Message                                |
+      | Search SNF Organization after editing the SNF name - With MO    | YES    | SNFNAME  | SNFNAME         | SNF Organization Successfully Updated. |
+      | Search SNF Organization after editing the SNF name - Without MO | NO     | SNFNAME  | SNFNAME         | SNF Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard

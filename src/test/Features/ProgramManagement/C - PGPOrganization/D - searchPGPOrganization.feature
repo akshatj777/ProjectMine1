@@ -26,8 +26,8 @@ Feature: Search the PGP organizations functionality tests
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 
-      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                       |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -50,9 +50,9 @@ Feature: Search the PGP organizations functionality tests
     Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                         |
-      | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created. |
-      | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | Success! PGP Organization Successfully Created. |
+      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
+      | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+      | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -78,15 +78,15 @@ Feature: Search the PGP organizations functionality tests
     And I edit "PGP Organization Name" field to "<Edited_PGP_Name> - <Has_MO>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit PGP - <Has_MO>" organization page
-    Then I search "<PGP_Name> - <Has_MO>" and verify with search list options on "PGP" organization search box
+    Then I search "<Edited_PGP_Name> - <Has_MO>" and verify with search list options on "PGP" organization search box
     Then I search with "<PGP_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New PGP Organization" link under No matches
 
     Examples: 
-      | Description                                                     | Has_MO | PGP_Name | Edited_PGP_Name | Message                                         |
-      | Search PGP Organization after editing the PGP name - With MO    | YES    | PGPNAME  | PGPNAME         | Success! PGP Organization Successfully Updated. |
-      | Search PGP Organization after editing the PGP name - Without MO | NO     | PGPNAME  | PGPNAME         | Success! PGP Organization Successfully Updated. |
+      | Description                                                     | Has_MO | PGP_Name | Edited_PGP_Name | Message                                |
+      | Search PGP Organization after editing the PGP name - With MO    | YES    | PGPNAME  | PGPNAME         | PGP Organization Successfully Updated. |
+      | Search PGP Organization after editing the PGP name - Without MO | NO     | PGPNAME  | PGPNAME         | PGP Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard

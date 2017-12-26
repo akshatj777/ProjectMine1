@@ -26,8 +26,8 @@ Feature: Search the Hospital organizations functionality tests
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 
-      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Success! Managing Organization Successfully Created. |
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                       |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -58,9 +58,9 @@ Feature: Search the Hospital organizations functionality tests
     Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                              |
-      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! Hospital Organization Successfully Created. |
-      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Success! Hospital Organization Successfully Created. |
+      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
+      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -86,15 +86,15 @@ Feature: Search the Hospital organizations functionality tests
     And I edit "Hospital Organization Name" field to "<Edited_Hospital_Name> - <Has_MO>" for organization
     Then I click on "Submit" button on "Edit" organization page
     Then I verify "<Message>" after submitting the "edit ACH - <Has_MO>" organization page
-    Then I search "<Hosp_Name> - <Has_MO>" and verify with search list options on "Hospital" organization search box
+    Then I search "<Edited_Hospital_Name> - <Has_MO>" and verify with search list options on "Hospital" organization search box
     Then I search with "<Hosp_Name> - <Has_MO>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New Hospital Organization" link under No matches
 
     Examples: 
-      | Description                                                               | Has_MO | Hosp_Name | Edited_Hospital_Name | Message                                              |
-      | Search Hospital Organization after editing the Hospital name - With MO    | YES    | ACHNAME   | ACHNAME              | Success! Hospital Organization Successfully Updated. |
-      | Search Hospital Organization after editing the Hospital name - Without MO | NO     | ACHNAME   | ACHNAME              | Success! Hospital Organization Successfully Updated. |
+      | Description                                                               | Has_MO | Hosp_Name | Edited_Hospital_Name | Message                                     |
+      | Search Hospital Organization after editing the Hospital name - With MO    | YES    | ACHNAME   | ACHNAME              | Hospital Organization Successfully Updated. |
+      | Search Hospital Organization after editing the Hospital name - Without MO | NO     | ACHNAME   | ACHNAME              | Hospital Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard

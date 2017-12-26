@@ -28,7 +28,7 @@ Feature: Search the Payor organization functionality test
 
     Examples: 
       | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                           |
-      | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Success! Payor Organization Successfully Created. |
+      | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
 
   Scenario Outline: <Description>
     Then I verify the Search bar on "Payor" organization page
@@ -50,7 +50,7 @@ Feature: Search the Payor organization functionality test
     And I verify "Edit Payor Organization" header text on edit organization page
     And I edit "Payor Organization Name" field to "<Edited_Payor_Name>" for organization
     Then I click on "Submit" button on "edit" organization page
-    Then I verify "Success! Payor Organization Successfully Updated." after submitting the "edit Payor" organization page
+    Then I verify "Payor Organization Successfully Updated." after submitting the "edit Payor" organization page
     Then I search "<Edited_Payor_Name>" and verify with search list options on "Payor" organization search box
     Then I search with "<Payor_Name>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization

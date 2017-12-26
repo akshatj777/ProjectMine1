@@ -27,8 +27,8 @@ Feature: View Payor Organization functionality tests
     Then I verify "<Message>" after submitting the "create Payor" organization page
 
     Examples: 
-      | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                           |
-      | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Success! Payor Organization Successfully Created. |
+      | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                  |
+      | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
 
   Scenario Outline: Verification of details on view profile of Payor Organization
     When I search with "<Payor_Name>" on organization in search box
