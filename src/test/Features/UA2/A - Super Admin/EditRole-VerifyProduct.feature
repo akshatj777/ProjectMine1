@@ -29,6 +29,7 @@ Feature: Edit page for superuser verification
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 7000 milli seconds
+    And I verify that I am navigated to user page
     And I click on Edit button
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role2>
@@ -65,7 +66,8 @@ Feature: Edit page for superuser verification
     And I should see Log in widget
 
     Examples: 
-      | Description                                                      | User        | Email             | Role1     | NPI1 | Applications1                            | SpecificAppFromApplication1 | LearningPathwaySearchParameter | Health System     | Role2            | NPI2 | Applications2 | ApplicationsVisible | ApplicationsNotVisible                   |
-      | Edit role from Executive to Remedy Executive and verify Products | Super Admin | test.automatemail | Executive |      | Reports, Lessons, Episodes, Episodes 2.0 |                             | Learning Pathway 2             | Stamford Hospital | Remedy Executive |      | TCI           | TCI                 | Reports, Lessons, Episodes, Episodes 2.0 |
-      #| Edit role from Manager to Remedy TCS and verify Products         | Super Admin | test.automatemail | Manager   |      | Reports, Lessons, Episodes, Episodes 2.0 |                   | Learning Pathway 2             | Stamford Hospital | Remedy TCS       |      | TCI           | TCI                 | Reports, Lessons, Episodes, Episodes 2.0           |
-      #| Edit role from Physician to Manager and verify Products          | Super Admin | test.automatemail | Physician |   NPI   | Physician Connect                        | Physician Connect | Learning Pathway 2             | Stamford Hospital | Manager          |      | Reports       | Report              | Lessons, Episodes, Episodes 2.0, Physician Connect |
+      | Description                                                              | User        | Email             | Role1     | NPI1 | Applications1     | SpecificAppFromApplication1 | LearningPathwaySearchParameter | Health System     | Role2   | NPI2 | Applications2 | ApplicationsVisible | ApplicationsNotVisible                             |
+      #| Edit role from Executive to Remedy Executive and verify Products | Super Admin | test.automatemail | Executive |      | Reports, Lessons, Episodes, Episodes 2.0 |                             | Learning Pathway 2             | Stamford Hospital | Remedy Executive |      | TCI           | TCI                 | Reports, Lessons, Episodes, Episodes 2.0 |
+      | Edit role from Manager to Remedy TCS and verify Products         | Super Admin | test.automatemail | Manager   |      | Reports, Lessons, Episodes, Episodes 2.0 |                   | Learning Pathway 2             | Stamford Hospital | Remedy TCS       |      | TCI           | TCI                 | Reports, Lessons, Episodes, Episodes 2.0           |
+      #| Edit role from Physician to Manager and verify Products                  | Super Admin | test.automatemail | Physician | NPI  | Physician Connect | Physician Connect           | Learning Pathway 2             | Stamford Hospital | Manager |      | Reports       | Report              | Lessons, Episodes, Episodes 2.0, Physician Connect |
+     

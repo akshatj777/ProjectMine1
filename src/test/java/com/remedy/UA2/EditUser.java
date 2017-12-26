@@ -190,6 +190,7 @@ public class EditUser extends BaseClass {
 		   delay();
 	   }
 	   public void iVerifyProductAsPerRole(String appList, String text){
+		   delay();
 		   iWillWaitToSee(By.cssSelector(".title.one.column.row.no-padding"));
 		   if(text.contains("Present")){
 		   if (appList.contains(",")) {
@@ -218,4 +219,13 @@ public class EditUser extends BaseClass {
 					} 
 		   }
 	   } 
+	   public void iVerifyDownstreamProviderPermission(String text, String present){
+		   if(present.equals("Present")){
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	   }
+	   else if(present.equals("Not Present")){
+		   isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]"));
+	   }
+	   }
 }

@@ -95,9 +95,14 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void i_click_on_Select_All_Locations_button_for_Organisation(String arg1) throws Throwable {
 		editUser.clickAllLocationsButton(arg1);
 	}
-	@Then("^Then I verify that \"([^\"]*)\" are \"([^\"]*)\" in Applications tab$")
-	public void iVerifyProductAsPerRole(String appList, String text){
+
+	@Then("^I verify that \"([^\"]*)\" are \"([^\"]*)\" in Applications tab$")
+	public void i_verify_that_are_in_Applications_tab(String appList, String text) throws Throwable {
 		editUser.iVerifyProductAsPerRole(appList, text);
+	}
+	@Then("^I verify text \"([^\"]*)\" is \"([^\"]*)\" in Permission tab$")
+	public void iVerifyDownstreamProviderPermission(String text, String present){
+		editUser.iVerifyDownstreamProviderPermission(text,present);
 	}
 
 }
