@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: New Note from patient list actions
 
  Scenario: Verify that note is created from patient list and displayed properly on care plan->Notes list

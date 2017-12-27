@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Edit Transition
 
 Background: Episode Active - create anchor transition
@@ -53,9 +54,9 @@ Background: Episode Active - create anchor transition
     And I click on Update Transition button present on the patient overview page
     Then I should see "Outpatient" in Admit type under Transitions
     
-  Scenario: ELOS: Verify The episode length of stay for this bundle is 14-16 days text
-  	When I click first timing transition edit link "1"
-    And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Discharge" with logic "minus" with "1" days
-    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
-    
+#  Scenario: ELOS: Verify The episode length of stay for this bundle is 14-16 days text
+#  	When I click first timing transition edit link "1"
+#    And I will wait to see "Edit Transition" in "h4" tag
+#    Then I fill in "Discharge" with logic "minus" with "1" days
+#    Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
+#    

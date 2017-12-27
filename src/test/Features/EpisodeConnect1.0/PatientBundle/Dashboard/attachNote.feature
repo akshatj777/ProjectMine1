@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Attach Note to the Transition
 
   Scenario: Attach note to the transition

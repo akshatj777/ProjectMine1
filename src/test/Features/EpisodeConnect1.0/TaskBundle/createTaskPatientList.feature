@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Create task from patient list
 
 Scenario: Verify user is able to create task from patinet list

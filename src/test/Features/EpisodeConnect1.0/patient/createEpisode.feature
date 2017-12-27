@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Episode connect 1 Create Episode
 
   Scenario Outline: User can navigate to patient and create a new episode

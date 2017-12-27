@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Discharge Location Mapping Text
 
   Scenario: Create new Facility Free Text Mapping with success

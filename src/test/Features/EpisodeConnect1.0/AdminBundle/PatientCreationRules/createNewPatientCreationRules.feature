@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Patient Creation Rules in Admin
 
   Scenario: admin user should be able to create a new rule

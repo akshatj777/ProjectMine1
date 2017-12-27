@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Verify System Filters under Patinet List
 
 Scenario Outline: Verify Patinet under System Filters in Patinet List

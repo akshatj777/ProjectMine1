@@ -1,6 +1,5 @@
+@EC1Smoke
 Feature: Patient list action
-
-
   Scenario: Verify Add Form(s) from Patient List
 	Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login

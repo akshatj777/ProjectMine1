@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Patient Details on Patient overview page
 
  Background: Episode Active - create anchor transition

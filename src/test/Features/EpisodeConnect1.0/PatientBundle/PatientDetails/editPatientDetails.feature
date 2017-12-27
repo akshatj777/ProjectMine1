@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Edit Patient Detail link from patient overview Gear icon
  
  Background: Create a Patient

@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Verify visibility and functionality of Non Remedy Convener under EI 
 
 Scenario: Create Active Patient and verify avaliablity of Non Remedy Convener under EI

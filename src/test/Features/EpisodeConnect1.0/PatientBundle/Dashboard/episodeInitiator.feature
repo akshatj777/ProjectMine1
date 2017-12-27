@@ -1,4 +1,5 @@
- Feature: Episode Initiator on Transition Table for Anchor Transition for New Patient
+@EC1Smoke
+Feature: Episode Initiator on Transition Table for Anchor Transition for New Patient
  Background: Patient Creation
  	Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login

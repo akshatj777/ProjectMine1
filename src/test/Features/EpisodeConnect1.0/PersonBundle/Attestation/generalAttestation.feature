@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: General Attestation
 
   Scenario: User should see correct attestation message for the general attestation message

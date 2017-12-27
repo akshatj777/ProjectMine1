@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Episode Connect 1 Add Patient
 
   Scenario Outline: User can see ec1 patients page and add a patient

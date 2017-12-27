@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Care Setting and Care Plan
 Background: Create Patient
 	Given I am on the login page

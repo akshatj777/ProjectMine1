@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: User can add appointment
 
   Scenario Outline: Verify that user is able create an appointment from Patient List page

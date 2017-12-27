@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Patient Transition Update
 
   Scenario Outline: Update Patient Transition Details

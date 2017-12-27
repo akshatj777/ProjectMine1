@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Episode eligibility status
 
   Background: Patient Creation

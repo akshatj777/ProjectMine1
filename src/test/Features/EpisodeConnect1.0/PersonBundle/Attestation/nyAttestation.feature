@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: NewYork Attestation
 
   Scenario: User should see correct attestation message for the newyork attestation message

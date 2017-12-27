@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Patient Matching Test Plan
 
   Scenario Outline: Patient Matching - First Phase - SSN, Medicare ID, Second Phase - LastnameMP, FirstnameMP, Gender

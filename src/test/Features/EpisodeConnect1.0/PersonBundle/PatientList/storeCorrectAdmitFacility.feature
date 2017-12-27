@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Store Correct Admit Facilities
 
  Scenario: Patient with No admissions, then only admin user can see the patients

@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Messages on patient list
 
   Scenario: Send message on patients list with success
