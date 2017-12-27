@@ -77,4 +77,24 @@ public class PatientOverviewSteps extends DriverScript {
 	public void i_Should_See_Text_Under_Section_On_MedicalRecord(String text, String field) throws Throwable {
 		overview.iShouldSeeTextUnderSectionOnMedicalRecord(text,field);
 	}
+	
+	@Then("^I should see \"([^\"]*)\" buttons under Recent Activity$")
+	public void i_Should_See_Button_Under_Recent_Activity(String text) throws Throwable {
+		overview.iShouldSeeButtonUnderRecentActivity(text);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" button under Recent Activity$")
+	public void i_Click_On_Button_Under_Recent_Activity(String text) throws Throwable {
+		overview.iClickOnButtonUnderRecentActivity(text);
+	}
+	
+	@Then("^I should see \"([^\"]*)\" in Notification column on Recent Activity Notification tab$")
+	public void i_Should_See_Text_In_Notification_Column_On_RecentActivity_Notification_Tab(String text) throws Throwable {
+		overview.iShouldSeeTextInNotificationColumnOnRecentActivityNotificationTab(text);
+	}
+	
+	@Then("^I should see \"([^\"]*)\" in By column on Recent Activity Notification tab$")
+	public void i_Should_See_Text_In_By_Column_On_RecentActivity_Notification_Tab(String text) throws Throwable {
+		overview.iShouldSeeTextInByColumnOnRecentActivityNotificationTab(text);
+	}
 }
