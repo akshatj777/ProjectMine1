@@ -106,9 +106,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 
-	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text);
+	@Then("^I enter search box in landing page with \"([^\"]*)\" for \"([^\"]*)\"$")
+	public void i_enter_search_box_in_landing_page_with(String text, String user) throws Throwable {
+		ua2LandingPage.SearchUserWithText(text, user);
 	}
 
 	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in search result$")
