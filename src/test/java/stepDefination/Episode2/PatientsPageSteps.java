@@ -1658,18 +1658,18 @@ public class PatientsPageSteps extends DriverScript {
     	patientsPage.iVerifyICD10Ischecked(text);
     }
     
-    @And("^I verify \"([^\"]*)\" radio button is not selected and click on radio button if not selected$")
-    public void i_verify_radio_button_is_not_selected_and_click_on_radio_button_if_not_selected(String text) throws Throwable{
-    	patientsPage.iVerifyICD9NotSelectedAndClick(text);
+    @And("^I click on Use ICD9 radio button on Diagnosis and DRG tab$")
+    public void i_click_on_icd9_radio_button_on_diagnos() throws Throwable{
+    	patientsPage.iClickOnICD9RadioButton();
     }
     
-    @Then("I click on \"([^\"]*)\" radio button on Diagnosis and DRG tab")
-    public void i_click_on_radio_button_on_Diagnosis_and_DRG_tab(String text) throws Throwable{
-    	patientsPage.iClickOnICD10RadioButton(text);
+    @Then("I click on Use ICD10 radio button on Diagnosis and DRG tab")
+    public void i_click_on_radio_button_on_Diagnosis_and_DRG_tab() throws Throwable{
+    	patientsPage.iClickOnICD10RadioButton();
     }
     
-    @And("I verify \"([^\"]*)\" text is appearing inside the primary Dx dropdown for ICD10")
-    public void i_verify_text_is_appearing_inside_the_primary_Dx_dropdown_for_ICD10(String text) throws Throwable{
+    @And("I verify \"([^\"]*)\" text is appearing inside the primary Dx dropdown")
+    public void i_verify_text_is_appearing_inside_the_primary_Dx_dropdown(String text) throws Throwable{
     	patientsPage.iVerifyTextInICD10PrimaryDxDropdown(text);
     }
     
@@ -1691,5 +1691,10 @@ public class PatientsPageSteps extends DriverScript {
     @And("^I verify \"([^\"]*)\" code is appearing for \"([^\"]*)\" on DRG prediction$")
     public void i_verify_code_is_appearing_for_on_DRG_prediction(String number,String text) throws Throwable{
     	patientsPage.iVerifyCodeAndDRGOnPrediction(number, text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing on DRG prediction list$")
+    public void i_verif_none_of_the_above_is_appearing_on_DRg_prediction_list(String text) throws Throwable{
+    	patientsPage.iVerifyNoneOfAboveInPredictionDRGList(text);
     }
     }
