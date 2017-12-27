@@ -1295,41 +1295,40 @@ public class PatientsPage extends BaseClass {
 		}
 	}
 	
-	public void iVerifyICD9NotSelectedAndClick(String text){
-		boolean value=driver.findElement(By.cssSelector("#uniform-bp_personbundle_bpadmissiontype_icdType_1>span")).isSelected();
-		System.out.println(value);
-		if(value==false){
-			clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_icdType_1")));
-		}
+	public void iClickOnICD9RadioButton(){
+		clickElement(driver.findElement(By.xpath("//div[@id='uniform-bp_personbundle_bpadmissiontype_icdType_1']")));
 	}
 	
-	public void iClickOnICD10RadioButton(String text){
-		clickElement(driver.findElement(By.cssSelector("input#bp_personbundle_bpadmissiontype_icdType_0")));
+	public void iClickOnICD10RadioButton(){
+		clickElement(driver.findElement(By.xpath(".//*[@id='uniform-bp_personbundle_bpadmissiontype_icdType_0']")));
 	}
 	
 	public void iVerifyTextInICD10PrimaryDxDropdown(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector("#select2-chosen-6")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//a[@class='select2-choice select2-default']/span[text()='"+text+"']")), text);
 	}
 	
 	public void iClickOnPrimaryDxDropDownAndSelectValue(String text){
 		clickElement(driver.findElement(By.xpath("//div[@id='s2id_bp_personbundle_bpadmissiontype_primaryDx'] //b[@role='presentation']")));
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen6_search")),text);
+		iFillInText(driver.findElement(By.xpath("//div[@id='select2-drop']/div/input")),text);
 		clickElement(driver.findElement(By.cssSelector(".select2-results-dept-0.select2-result.select2-result-selectable.select2-highlighted")));
 	}
 	
 	public void iClickOnSecondaryDxDropDownAndSelectValue(String text){
-		clickElement(driver.findElement(By.cssSelector("input#s2id_autogen7")));
-		iFillInText(driver.findElement(By.cssSelector("#s2id_autogen7")),text);
-		clickElement(driver.findElement(By.xpath(".//*[@id='select2-result-label-504']")));
+		//clickElement(driver.findElement(By.cssSelector("input#s2id_autogen7")));
+		iFillInText(driver.findElement(By.xpath("//div[@id='s2id_bp_personbundle_bpadmissiontype_secondaryDx']//input")),text);
+		clickElement(driver.findElement(By.xpath("//div[@class='select2-result-label'][text()='(I70.']")));
 	}
 	
 	public void iClickOnCalculateResultsOnDiagnosisAndDRGTab(){
 		clickElement(driver.findElement(By.cssSelector(".btn.btn-primary.predictIcdCodes")));
-		iWillWaitToSee(By.xpath("//span[@id='prediction']//.[@class='ng-isolate-scope']"));
 	}
 	
 	public void iVerifyCodeAndDRGOnPrediction(String number,String text){
-		iVerifyTextFromListOfElement(By.cssSelector("td.ng-binding>span"),number);
-		iVerifyTextFromListOfElement(By.cssSelector("td.ng-binding"),text);
+		verifyTextForElement(driver.findElement(By.xpath("//span[@class='ng-binding'][text()='"+number+"']")),number);
+		verifyTextForElementfromList("td.ng-binding",text);
+	}
+	
+	public void iVerifyNoneOfAboveInPredictionDRGList(String text){
+		verifyTextForElement(driver.findElement(By.xpath(".//*[@id='prediction']/div[2]/div[2]/show-predicted-drgs/table/tbody/tr[4]/td[2]")),text);
 	}
 	}

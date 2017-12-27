@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Verify Patient ID EngineUI scenarios
 
   Scenario: User should be able to verify ICD9 and ICD10 radio buttons on diagnosis and drg tab and verify the DRG prediction results.
@@ -38,13 +39,15 @@ Feature: Verify Patient ID EngineUI scenarios
     And I verify "Use ICD10" label is appearing under Diagnosis and DRG tab
     And I verify "Use ICD9" label is appearing under Diagnosis and DRG tab
     Then I verify "Use ICD10" radio button is checked when redirected to Diagnosis and DRG tab
-    And I verify "Use ICD9" radio button is not selected and click on radio button if not selected
-    Then I click on "Use ICD10" radio button on Diagnosis and DRG tab
-    And I verify "Add ICD10 Code" text is appearing inside the primary Dx dropdown for ICD10
+    And I click on Use ICD9 radio button on Diagnosis and DRG tab
+    And I verify "Add ICD9 Code" text is appearing inside the primary Dx dropdown
+    Then I click on Use ICD10 radio button on Diagnosis and DRG tab
+    And I verify "Add ICD10 Code" text is appearing inside the primary Dx dropdown
     Then I click on Primary Dx dropdown and select "543" value from the list
     And I click on Secondary Dx dropdown and select "235" value from the list
     Then I click on claculate results on the Diagnosis and DRG tab
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     And I verify "(299)" code is appearing for "PERIPHERAL VASCULAR DISORDERS W MCC" on DRG prediction
     And I verify "(252)" code is appearing for "OTHER VASCULAR PROCEDURES W MCC" on DRG prediction
     And I verify "(239)" code is appearing for "AMPUTATION FOR CIRC SYS DISORDERS EXC UPPER LIMB & TOE W MCC" on DRG prediction
-    And I verify "(0)" code is appearing for "None of the Above" on DRG prediction
+    And I verify "None of the Above" is appearing on DRG prediction list
