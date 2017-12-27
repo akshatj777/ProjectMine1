@@ -60,6 +60,7 @@ public class CreateUserPage extends BaseClass{
     public void selectOrganizationalRole(String desc){
     	if(!desc.isEmpty()){
     		delay();
+    		
         	WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
         	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         	delay();
