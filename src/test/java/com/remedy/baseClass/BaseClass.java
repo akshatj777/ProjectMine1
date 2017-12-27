@@ -56,7 +56,7 @@ public class BaseClass {
 	}
 	public WebDriverWait waitTo()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 180);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		return wait;
 	}
 

@@ -591,7 +591,7 @@ public class CreateUserSteps extends DriverScript {
 		createUser.clickAddAnotherOrganization();
 	}
 
-	@Then("^I enter characters \"([^\"]*)\" in location serach$")
+	@Then("^I enter characters \"([^\"]*)\" in location search$")
 	public void enterCharacterInLocationSearch(String text) throws Throwable {
 		createUser.enterCharacterInLocationSearch(text);
 	}
@@ -678,6 +678,13 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iclickoncancelbuttonfromfilterforuser(role);
 	 }
 	 
+	 @Then("^I click on Cross button$")
+	 public void i_click_on_cross_button() throws Throwable {
+		 createUser.clickCrossButton();
+	 }
 	 
-
+	 @Then("^I removed the already selected role$")
+	 public void i_remove_Already_Selected_Role() throws Throwable {
+		 createUser.removeAlreadySelectedRole();
+	 }
 }

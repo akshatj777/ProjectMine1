@@ -173,11 +173,11 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iSelectHealthSystem(String desc) {
-    	boolean value = isElementPresentOnPage(By.xpath("//div[text()='"+desc+"']"));
-    	if(value==true){
-    		//iWillWaitToSee(By.cssSelector(".ui-select-choices-row-inner"));
+//    	boolean value = isElementPresentOnPage(By.xpath("//div[text()='"+desc+"']"));
+//    	if(value==true){
+    	iWillWaitToSee(By.xpath("//div[text()='"+desc+"']"));
         clickElement(driver.findElement(By.xpath("//div[text()='"+desc+"']")));
-    	}
+//    	}
     }
 
     public void iShouldSeeDifferentTilesForDifferentUserRole(String role) {
@@ -293,7 +293,6 @@ public class CreateUserPage extends BaseClass{
     		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
     	}
     	userApplications = appList;
-    	 
     }
 
     public void iClickOnContinueToDashboardMessage() {
@@ -1104,5 +1103,13 @@ public class CreateUserPage extends BaseClass{
 				   clickElement(driver.findElement(By.id("dlgBtnCancel")));
 			   }
 		   }
+	 }
+	 
+	 public void clickCrossButton() throws Throwable {
+		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
+	 }
+	 
+	 public void removeAlreadySelectedRole() throws Throwable {
+		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
 }
