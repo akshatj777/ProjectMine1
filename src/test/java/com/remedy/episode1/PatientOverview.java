@@ -77,5 +77,23 @@ public class PatientOverview extends BaseClass {
 	public void iClickOnButtonUnderPatientDetails(String text){
 		clickElement(driver.findElement(By.cssSelector(".btn.blue.editable-"+text+"']")));
 	}
+	
+	public void iClickOnButtonUnderMedicalRecordOnPatientOverview(String button){
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+button+"')]")));
+	}
+	
+	public void iEnterDetailsOnFieldUnderMedicalRecord(String text, String field){
+		iFillInText(driver.findElement(By.cssSelector(field)), text);
+	}
+	
+	public void iClickOnButtonForSubmitOnPage(String button){
+		delay();
+		delay();
+		clickSingleElementFromList(By.xpath("//*[contains(@id,'submit')]"), button);
+	}
+	
+	public void iShouldSeeTextUnderSectionOnMedicalRecord(String text, String field){
+		iWillWaitToSee(By.xpath("//div[h3[contains(text(),'"+field+"')]]//span[contains(text(),'"+text+"')]"));
+	}
 
 }

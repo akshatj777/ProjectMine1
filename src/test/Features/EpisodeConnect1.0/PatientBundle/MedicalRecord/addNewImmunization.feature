@@ -1,6 +1,6 @@
 @EC1Smoke
- Feature: Add New Clinician
- 
+Feature: Add New Immunization
+
   Background: Episode Active - create anchor transition
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
@@ -42,34 +42,12 @@
     Then I click on "TCRN Checklist" label tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see onboarding status "Needs Onboarding"
-    
- Scenario: Functionality of buttons present under Care Team
-	Then I navigate to the "/secure/person/mongoID/careteam"
-    And I click on "Add New Clinician" button under "Care Team" on Patient overview
-    ###TC for Add Clinician is pending############
-    And I will wait to see "Add New Clinician" in "h4" tag
-   
-    
-    Then I navigate to the "/secure/person/mongoID/careteam"
-    And I click on "Assign Team Member" button under "Care Team" on Patient overview
-    And I will wait to see "Assign Team Member" in "h4" tag
-    And I select first facility checkbox on Assign Team Member modal
-    And I click on "Assign" button
-    And I will wait to see "Employees assigned to patient(s) correctly" in "p" tag
-    
-    Then I navigate to the "/secure/person/mongoID/careteam"
-    And I click on "Join Care Team" button under "Care Team" on Patient overview
-    And I will wait to see "Assigned to Care Team successfully." in "p" tag
-    
-    Then I navigate to the "/secure/person/mongoID/careteam"
-    And I click on "Add Family" button under "Care Team" on Patient overview
-    And I will wait to see "Add Family" in "h4" tag
-    And I enter "First Name" details in "#relative_careteam_member_type_person_firstName" under Add famaily modal
-    And I enter "Last Name" details in "#relative_careteam_member_type_person_lastName" under Add famaily modal
-    And I will wait to see "New relative created." in "p" tag
-    
-     
-    
+
+  Scenario: Add New Immunization successfully
+	Then I navigate to the "/secure/medical-record/mongoID"
+	And I click on "New Immunization" button under Medical Record on patient overview 
+	And I enter "Test Immunization" on "#bp_immunization_type_immunization" field under "New Medication" in Medical Record
+	And I click on "Save immunization" button for submit on "Medication" page
+	And I should see "Test Immunization" under "Immunization" on Medical Record
+	
+  

@@ -57,4 +57,24 @@ public class PatientOverviewSteps extends DriverScript {
 	public void i_Click_On_Button_Under_Patient_Details(String text) throws Throwable {
 		overview.iClickOnButtonUnderPatientDetails(text);
 	}
+	
+	@Then("^I click on \"([^\"]*)\" button under Medical Record on patient overview$")
+	public void i_Click_On_Button_Under_Medical_Record_On_Patient_Overview(String button) throws Throwable {
+		overview.iClickOnButtonUnderMedicalRecordOnPatientOverview(button);
+	}
+	
+	@Then("^I enter \"([^\"]*)\" on \"([^\"]*)\" field under \"([^\"]*)\" in Medical Record$")
+	public void i_Enter_Details_On_Field_Under_Medical_Record(String text, String field, String page) throws Throwable {
+		overview.iEnterDetailsOnFieldUnderMedicalRecord(text,field);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" button for submit on \"([^\"]*)\" page$")
+	public void i_Click_On_Button_For_Submit_On_Page(String button, String page) throws Throwable {
+		overview.iClickOnButtonForSubmitOnPage(button);
+	}
+	
+	@Then("^I should see \"([^\"]*)\" under \"([^\"]*)\" on Medical Record$")
+	public void i_Should_See_Text_Under_Section_On_MedicalRecord(String text, String field) throws Throwable {
+		overview.iShouldSeeTextUnderSectionOnMedicalRecord(text,field);
+	}
 }
