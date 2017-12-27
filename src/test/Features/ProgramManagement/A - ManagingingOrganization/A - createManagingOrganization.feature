@@ -32,6 +32,22 @@ Feature: Create Managing organization functionality tests
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "Please enter an Organization Name" mandatory field validation message on edit organization page
+    And I verify "Please enter an Address" mandatory field validation message on edit organization page
+    And I verify "Please enter a City" mandatory field validation message on edit organization page
+    And I verify "Please select a State" mandatory field validation message on edit organization page
+    And I verify "Please enter a Zip Code" mandatory field validation message on edit organization page
+
+  Scenario Outline: <Description>
+    When I click on Organization link on Program Management page
     Then I verify "+" button under "Managing" organization page
     Then I click on "+" button on "Managing" organization page
     And I verify "Create Managing Organization" header text on create organization page
@@ -63,7 +79,6 @@ Feature: Create Managing organization functionality tests
     And I enter <Contact_Email> in "Contact Email" on create organization page
     And I enter <City> in "City" on create organization page
     And I enter <Contact_Phone> in "Contact Phone" on create organization page
-    And I select <State> in State on create organization page
     And I enter <Postal_Code> in "Postal Code" on create organization page
     And I switch the focus to "submit" button
     And I verify "<ValidationMessage>" field validation message on create organization page
@@ -76,10 +91,10 @@ Feature: Create Managing organization functionality tests
       | Check Character Limit for Address2 field        |                                                                              |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstabcasdfghjk |                                                |                                                |               |             | The second address line may not be greater than 55 characters. |
       | Check Character Limit for ContactEmail field    |                                                                              |                                                           |                                                |                                                           | abcdefghijklmnopqrstuvwxyzabcdefgh@yopmail.com |                                                |               |             | The Contact Email may not be greater than 45 characters.       |
       | Check Character Limit for City field            |                                                                              |                                                           |                                                |                                                           |                                                | abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst |               |             | The City may not be greater than 45 characters.                |
-      | Check Character Limit for ContactPhone field    |                                                                              |                                                           |                                                |                                                           |                                                |                                                |   98745612301 |             | The Contact Phone format is invalid.                           |
+      | Check Character Limit for ContactPhone field    |                                                                              |                                                           |                                                |                                                           |                                                |                                                |   987456123012356 |             | The Contact Phone format is invalid.                           |
       | Check Character Limit for Postal code field     |                                                                              |                                                           |                                                |                                                           |                                                |                                                |               | 10000-00000 | Please enter a valid Zip Code                                  |
       | Check Allowed Characters for ContactEmail field |                                                                              |                                                           |                                                |                                                           | @$%%6%^7$^&%@yopmail.com                       |                                                |               |             | The Contact Email format is invalid.                           |
-      | Check Allowed Characters for ContactPhone field |                                                                              |                                                           |                                                |                                                           |                                                |                                                |   98745612301 |             | The Contact Phone format is invalid.                           |
+      | Check Allowed Characters for ContactPhone field |                                                                              |                                                           |                                                |                                                           |                                                |                                                |   @4561jkl |             | The Contact Phone format is invalid.                           |
       | Check Allowed Characters for PostalCode field   |                                                                              |                                                           |                                                |                                                           |                                                |                                                |               | abcdefgh    | Please enter a valid Zip Code                                  |
 
   Scenario Outline: <Description>

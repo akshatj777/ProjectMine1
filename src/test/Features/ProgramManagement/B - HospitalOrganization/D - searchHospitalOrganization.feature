@@ -111,6 +111,7 @@ Feature: Search the Hospital organizations functionality tests
       | Searching Location Matket on Hospital Profile Page  | NO     | ACHNAME   | Chicago      |
 
   Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
     Then I search with "<Hosp_Name>" on organization in search box
     Then I verify the "No matches" message for invalid search in Organization
     And I verify the "Create New Hospital Organization" link under No matches

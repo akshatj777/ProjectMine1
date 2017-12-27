@@ -114,7 +114,7 @@ Feature: Hospital Organization View profile Functionality tests.
 
     Examples: 
       | Description                                                                                    | Has_MO | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name   | Loc_Address1 | Loc_Type        | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN/TIN | NPI | StateVerification | Organization Type | Message                                     |
-      | Verification of Hospital details and count of locations displayed under Hospital org - with MO | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name21 | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Hospital Organization Successfully Updated. |
+      | Verification of Hospital details and count of locations displayed under Hospital org - with MO | YES    | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name21 | Loc_Address1 | Inpatient       | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN     | NPI | CA                | ACH               | Hospital Organization Successfully Updated. |
 
   Scenario Outline: <Description>
     When I search with "<MO_Name>" on organization in search box
@@ -153,12 +153,25 @@ Feature: Hospital Organization View profile Functionality tests.
     And I verify "ACH" organization tab present under "Managing" Organization
     And I verify count of "ACH" organizations is increased by 1
     And I search with "<Hosp_Name> - <Has_MO>" on organization in search box
-    And I verify "<Hosp_Name> - <Has_MO>" details of "ACH" associated on Managing Organization page
-    And I verify "CCN" details of "ACH" associated on Managing Organization page
-    And I verify "<City>" details of "ACH" associated on Managing Organization page
-    And I verify "<StateVerification>" details of "ACH" associated on Managing Organization page
-    And I verify "<Postal_Code>" details of "ACH" associated on Managing Organization page
+    And I verify "<Hosp_Name> - <Has_MO>" details of "Hospital" associated on Managing Organization page
+    And I verify "CCN" details of "Hospital" associated on Managing Organization page
+    And I verify "<City>" details of "Hospital" associated on Managing Organization page
+    And I verify "<StateVerification>" details of "Hospital" associated on Managing Organization page
+    And I verify "<Postal_Code>" details of "Hospital" associated on Managing Organization page
 
     Examples: 
       | Description                                                                   | Has_MO | MO_Name | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | StateVerification | Organization Type | Message                                     |
       | Verification of Hospital details and count on Hospital tab under Managing org | YES    | MONAME  | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN | NPI | CA                | ACH               | Hospital Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
+    And I verify "ACH" organization tab present under "Managing" Organization
+    And I click on "ACH" organization under Managing Organization
+    And I search with "<Hosp_Name>" on organization in search box
+    Then I verify the "No matches" message for invalid search in Organization
+    And I verify the "Create New Hospital Organization" link under No matches
+
+    Examples: 
+      | Description                                                             | MO_Name | Hosp_Name        |
+      | Searching invalid details on Managing Organization Profile Page for ACH | MONAME  | NoMatchesACHNAME |

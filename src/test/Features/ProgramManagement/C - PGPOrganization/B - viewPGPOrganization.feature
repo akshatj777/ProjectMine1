@@ -82,3 +82,33 @@ Feature: View Functionality tests for PGP Organization.
       | Description                                                             | Has_MO | PGP_Name | Address1 | Short_Name | Address2 | Region  | Market  | City | State      | Postal_Code | EIN/TIN | NPI | StateVerification | Organization Type |
       | Verification of PGP Organization details on PGP view page  - without MO | NO     | PGPNAME  | Address1 | Short_Name | Address2 | Midwest | Chicago | City | California |       10000 | EIN     | NPI | CA                | PGP               |
       | Verification of PGP Organization details on PGP view page - with MO     | YES    | PGPNAME  | Address1 | Short_Name | Address2 | Midwest | Chicago | City | California |       10000 | EIN     | NPI | CA                | PGP               |
+
+  Scenario Outline: <Description>
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
+    And I verify "PGP" organization tab present under "Managing" Organization
+    And I click on "PGP" organization under Managing Organization
+    And I get the count of "PGP" organizations
+    And I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I verify "<PGP_Name> - <Has_MO>" details of "PGP" associated on Managing Organization page
+    And I verify "TIN/EIN" details of "PGP" associated on Managing Organization page
+    And I verify "<City>" details of "PGP" associated on Managing Organization page
+    And I verify "<StateVerification>" details of "PGP" associated on Managing Organization page
+    And I verify "<Postal_Code>" details of "PGP" associated on Managing Organization page
+
+    Examples: 
+      | Description                                                       | Has_MO | MO_Name | PGP_Name | City | State      | Postal_Code | TIN/EIN | NPI | StateVerification |
+      | Searching PGP Organization Details on Managing Profile Page - PGP | YES    | MONAME  | PGPNAME  | City | California |       10000 | EIN     | NPI | CA                |
+
+  Scenario Outline: <Description>
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
+    And I verify "PGP" organization tab present under "Managing" Organization
+    And I click on "PGP" organization under Managing Organization
+    And I search with "<PGP_Name>" on organization in search box
+    Then I verify the "No matches" message for invalid search in Organization
+    And I verify the "Create New PGP Organization" link under No matches
+
+    Examples: 
+      | Description                                                             | MO_Name | PGP_Name         |
+      | Searching invalid details on Managing Organization Profile Page for PGP | MONAME  | NoMatchesPGPNAME |

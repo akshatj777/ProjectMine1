@@ -323,6 +323,17 @@ public class ViewACHOrganization  extends BaseClass{
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("CCN")+"']")));
 			}
 		}
+		else if(org.contains("PGP"))
+		{
+			if(name.contains("PGPNAME"))
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg.get("PGPNAME")+"']")));
+			}
+			else if(name.contains("EIN"))
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg.get("EIN")+"']")));
+			}
+		}
 		else if(org.contains("SNF"))
 		{
 			if(name.contains("SNFNAME"))

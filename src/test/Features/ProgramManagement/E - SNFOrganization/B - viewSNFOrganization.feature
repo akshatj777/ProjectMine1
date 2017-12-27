@@ -165,3 +165,16 @@ Feature: View SNF organization functionality tests
     Examples: 
       | Description                                                         | Has_MO | MO_Name | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Address2 | Loc_Region | Loc_City | Loc_Market | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | StateVerification | Message                                |
       | Verification of SNF details and count on SNF tab under Managing org | YES    | MONAME  | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Loc_Address2 | Midwest    | Loc_City | Chicago    | California |           10000 | CCN | EIN | NPI | CA                | SNF Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I search with "<MO_Name>" on organization in search box
+    And I click "<MO_Name>" field in search list on organization page
+    And I verify "SNF" organization tab present under "Managing" Organization
+    And I click on "SNF" organization under Managing Organization
+    And I search with "<SNF_Name>" on organization in search box
+    Then I verify the "No matches" message for invalid search in Organization
+    And I verify the "Create New SNF Organization" link under No matches
+
+    Examples: 
+      | Description                                                             | MO_Name | SNF_Name         |
+      | Searching invalid details on Managing Organization Profile Page for SNF | MONAME  | NoMatchesSNFNAME |
