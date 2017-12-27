@@ -109,8 +109,15 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterEmailToGeneratePasswordLink() {
-		iWillWaitToSee(By.xpath("//input[@name='email']"));
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+		try
+		{
+			iWillWaitToSee(By.xpath("//input[@name='email']"));
+			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
 	}
 	
 	public void iClickOnSendEmailButton() {
