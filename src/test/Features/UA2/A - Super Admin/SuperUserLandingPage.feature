@@ -65,6 +65,24 @@ Feature: Super Admin Landing page verification
     Examples: 
       | user        | Role      |
       | Super Admin | Executive |
+      | Super Admin | Manager |
+      | Super Admin | Case Manager |
+      | Super Admin | Physicians |
+      | Super Admin | Remedy TCS |
+      | Super Admin | Remedy LPN |
+      | Super Admin | Remedy RN |
+      | Super Admin | Remedy Field RN |
+      | Super Admin | Remedy PM |
+      | Super Admin | Remedy Sales Team |
+      | Super Admin | Remedy Executive |
+      | Super Admin | Prospective Partner Executive |
+      | Super Admin | Remedy Other  |
+      | Super Admin | Partner Program Administrator |
+      | Super Admin | Remedy Program Administrator |
+      | Super Admin | Partner Technical Administrator |
+      | Super Admin | Remedy Technical Administrator |
+      | Super Admin | Transitional Case Manager |
+      | Super Admin | Downstream Provider |
 
   Scenario Outline: Verify ability of Super Admin user to unlock a locked user
     Given I am on the login page
