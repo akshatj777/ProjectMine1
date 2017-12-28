@@ -129,7 +129,7 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("HHANAME"));
 		}
-		else if(text.equalsIgnoreCase("equalsTo75Characters - NO")){
+		else if(text.equals("equalsTo75Characters")){
 			if(field.contains("Managing"))
 			{
 				CreateManagingOrganization.tempMoOrg.put("MONAME",RandomStringUtils.randomAlphabetic(75));
@@ -160,6 +160,9 @@ public class CreateManagingOrganization extends BaseClass {
 				CreateHHAOrganization.tempHHAOrg.put("HHANAME",RandomStringUtils.randomAlphabetic(75));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
 			}
+//			
+//			String value = RandomStringUtils.randomAlphabetic(75);
+//			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
 		}
 		else 	
 		{

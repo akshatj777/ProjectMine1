@@ -177,4 +177,4 @@ Feature: View SNF organization functionality tests
 
     Examples: 
       | Description                                                             | MO_Name | SNF_Name         |
-      | Searching invalid details on Managing Organization Profile Page for SNF | MONAME  | NoMatchesSNFNAME |
+      #| Searching invalid details on Managing Organization Profile Page for SNF | MONAME  | NoMatchesSNFNAME |
