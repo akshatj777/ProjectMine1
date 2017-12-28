@@ -65,7 +65,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iVerifyUnlockedUser();
 	}
 
-	@Then("^I lock user with email \"([^\"]*)\"$")
+	@Then("^I lock user \"([^\"]*)\"$")
 	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
 		ua2LandingPage.iLockUser();
 	}
@@ -106,9 +106,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 
-	@Then("^I enter search box in landing page with \"([^\"]*)\" for \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text, String user) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text, user);
+	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
+	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
+		ua2LandingPage.SearchUserWithText(text, userRole);
 	}
 
 	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result for \"([^\"]*)\"$")
