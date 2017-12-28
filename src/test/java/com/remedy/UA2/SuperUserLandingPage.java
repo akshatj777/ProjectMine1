@@ -172,11 +172,11 @@ public class SuperUserLandingPage extends BaseClass {
 
 				if (text.contains("Account")) {
 					isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(i));
-					System.out.println("Account status validated for  " + i);
+					//System.out.println("Account status validated for  " + i);
 				}
 				if (text.contains("Email")) {
 					isElementVisible(driver.findElement(By.cssSelector("td.five.wide")));
-					System.out.println("email validated for " + i);
+					//System.out.println("email validated for " + i);
 
 				}
 			}
@@ -186,25 +186,25 @@ public class SuperUserLandingPage extends BaseClass {
 			for (int n = 0; n < size1; n++) {
 				if (text.contains("Name")) {
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
-					System.out.println("Name validated for " + n);
+					//System.out.println("Name validated for " + n);
 				}
 				n = n + 1;
 				if (text.contains("Role")) {
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
-					System.out.println("Role validated for " + (n - 1));
+					//System.out.println("Role validated for " + (n - 1));
 
 				}
 				n = n + 1;
 				if (text.contains("Date")) {
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
-					System.out.println("Date validated for " + (n - 2));
+					//System.out.println("Date validated for " + (n - 2));
 
 				}
 			}
 			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 				iWillWaitToSee(By.cssSelector("div.chevron-group"));
-				System.out.println("next page^^^^^^^^^^^^^");
+				//System.out.println("next page^^^^^^^^^^^^^");
 
 			} else
 				break;
@@ -253,7 +253,7 @@ public class SuperUserLandingPage extends BaseClass {
 		}
 	}
 
-	public void iVerifySearchResult(String result, String searchBy) {
+	public void iVerifySearchResult(String result, String searchBy, String role) {
 		iWillWaitToSee(By.cssSelector("td.four.wide"));
 		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
 			if (driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result))
@@ -262,6 +262,7 @@ public class SuperUserLandingPage extends BaseClass {
 			// verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0),
 			// result);
 		} else if (searchBy.equalsIgnoreCase("Email")) {
+			String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
 			System.out.println("Email value-------" + email);
 			verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);
 		}

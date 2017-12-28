@@ -1,14 +1,14 @@
 Feature: UA2 Front End Automation
 
   Scenario Outline: <Description>
-    #Given I am on mail login page
-    #Then I enter username "test.automatemail" to login mail account
-    #Then I enter password "Intel@01" to login mail account
-    #Then I click on Mail icon in my account
-    #Then I click on Inbox in mail
-    #Then I click on select all checkbox in mail
-    #Then I click on delete icon in mail
-    #Then I signout form mail account
+   Given I am on mail login page
+    Then I enter username "test.automatemail" to login mail account
+    Then I enter password "Intel@01" to login mail account
+    Then I click on Mail icon in my account
+    Then I click on Inbox in mail
+    Then I click on select all checkbox in mail
+    Then I click on delete icon in mail
+    Then I signout form mail account
     Given I am on the login page
     When I enter email field <UserName> for login
     And I enter password field <Password> for Login
@@ -39,53 +39,52 @@ Feature: UA2 Front End Automation
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    #And I clear the browser history
-    #Given I am on mail login page
-    #Then I enter username "test.automatemail" to login mail account
-    #Then I enter password "Intel@01" to login mail account
-    #Then I click on Mail icon in my account
-    #Then I click on Inbox in mail
-    #And I wait for 3000 milli seconds
-    #Then I verify Account Verification in Inbox in my account
-    #Then I click on Account Verification mail in Inbox
-    #Then I verify "Confirm my account!" link in mail content
-    #Then I click on "Confirm my account!" link in mail content
-    #And I switch to new window
-    #Then I enter email to generate password link
-    #And I click on send mail button
-    #Then I switch back to old window
-    #Then I click on Inbox in mail
-    #Then I verify the unread mail in inbox in my account
-    #Then I verify Change Password mail in Inbox in my account
-    #Then I click on Change Password mail in Inbox
-    #Then I verify "Change my password" link in mail content
-    #Then I click on "Change my password" link in mail content
-    #And I switch to new window
-    #And I enter new password "Testing1" to set new password
-    #And I enter confirm new password "Testing1" to set new password
-    #And I click on submit button to set new password
+    And I clear the browser history
+    Given I am on mail login page
+    Then I enter username "test.automatemail" to login mail account
+    Then I enter password "Intel@01" to login mail account
+    Then I click on Mail icon in my account
+    Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
+    Then I verify Account Verification in Inbox in my account
+    Then I click on Account Verification mail in Inbox
+    Then I verify "Confirm my account!" link in mail content
+    Then I click on "Confirm my account!" link in mail content
+    And I switch to new window
+    Then I enter email to generate password link
+    And I click on send mail button
+    Then I switch back to old window
+    Then I click on Inbox in mail
+    Then I verify the unread mail in inbox in my account
+    Then I verify Change Password mail in Inbox in my account
+    Then I click on Change Password mail in Inbox
+    Then I verify "Change my password" link in mail content
+    Then I click on "Change my password" link in mail content
+    And I switch to new window
+    And I enter new password "Testing1" to set new password
+    And I enter confirm new password "Testing1" to set new password
+    And I click on submit button to set new password
 
     Examples: 
       | Description                                                                           | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | NPI | LearningPathwaySearchParameter | Health System     |
       | Login with Super Admin User and create user with Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
       | Login with Super Admin User and create user with Manager role                         | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Manager                         | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | NPI | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy TCS                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy LPN role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy LPN                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy RN role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy RN                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy Field RN role                 | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy PM role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy Sales Team role               | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy Executive role                | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Prospective Partner Executive role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy Other role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Partner Program Administrator role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy Program Administrator role    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Program Administrator    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, TCI                 | Administration                                                     |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    |     | Learning Pathway 2             | Stamford Hospital |
-      #| Login with Super Admin User and create user with Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Case Manager                    | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Physicians                      | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     | NPI | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy TCS                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy LPN role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy LPN                      | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy RN role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy RN                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy Field RN role                 | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Field RN                 | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy PM role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy PM                       | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy Sales Team role               | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Sales Team               | Reports, Lessons, TCI                                                            | Administration, Physician Connect, Episodes, Episodes 2.0          |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy Executive role                | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Executive                | Episodes, Episodes 2.0, Reports, Lessons, TCI                                    | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Prospective Partner Executive role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Prospective Partner Executive   | Lessons                                                                          | Administration, Physician Connect, Episodes, Episodes 2.0, Reports |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy Other role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Other                    | Episodes, Episodes 2.0, Lessons, TCI                                             | Administration, Physician Connect, Reports                         |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Partner Program Administrator role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect                      | Administration                                                     |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy Program Administrator role    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Program Administrator    | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, TCI                 | Administration                                                     |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
+      | Login with Super Admin User and create user with Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    |     | Learning Pathway 2             | Stamford Hospital |
 #
   #Scenario Outline: <Description>
     #Given I am on the login page

@@ -111,9 +111,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.SearchUserWithText(text, user);
 	}
 
-	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in search result$")
-	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
-		ua2LandingPage.iVerifySearchResult(result, searchBy);
+	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result for \"([^\"]*)\"$")
+	public void i_should_see_for_in_landing_page(String result, String searchBy, String role) throws Throwable {
+		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
 	}
 
 	@Then("^I should not be able to login$")

@@ -35,11 +35,11 @@ Feature: Super Admin Landing page verification
     And I click on the "User Admin" tile
     Then I should see header text "Users"
     Then I enter search box in landing page with "<Search>" for "<user>-<Role>"
-    And I should see "<Search>" for "<Search By>" in search result
+    And I should see "<Search>" as "<Search By>" in search result for "<user>-<Role>"
 
     Examples: 
-   | user        | Role         | Search                                 | Search By                    |
-   | Super Admin | Executive    | FirstName, LastName, test.automatemail | First Name, Last Name, Email |
+      | user        | Role      | Search                                 | Search By                    |
+      | Super Admin | Executive | FirstName, LastName, test.automatemail | First Name, Last Name, Email |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user and cancel unlock
     Given I am on the login page
@@ -63,26 +63,26 @@ Feature: Super Admin Landing page verification
     Then I should not be able to login
 
     Examples: 
-      | user        | Role      |
-      | Super Admin | Executive |
-      | Super Admin | Manager |
-      | Super Admin | Case Manager |
-      | Super Admin | Physicians |
-      | Super Admin | Remedy TCS |
-      | Super Admin | Remedy LPN |
-      | Super Admin | Remedy RN |
-      | Super Admin | Remedy Field RN |
-      | Super Admin | Remedy PM |
-      | Super Admin | Remedy Sales Team |
-      | Super Admin | Remedy Executive |
-      | Super Admin | Prospective Partner Executive |
-      | Super Admin | Remedy Other  |
-      | Super Admin | Partner Program Administrator |
-      | Super Admin | Remedy Program Administrator |
+      | user        | Role                            |
+      | Super Admin | Executive                       |
+      | Super Admin | Manager                         |
+      | Super Admin | Case Manager                    |
+      | Super Admin | Physicians                      |
+      | Super Admin | Remedy TCS                      |
+      | Super Admin | Remedy LPN                      |
+      | Super Admin | Remedy RN                       |
+      | Super Admin | Remedy Field RN                 |
+      | Super Admin | Remedy PM                       |
+      | Super Admin | Remedy Sales Team               |
+      | Super Admin | Remedy Executive                |
+      | Super Admin | Prospective Partner Executive   |
+      | Super Admin | Remedy Other                    |
+      | Super Admin | Partner Program Administrator   |
+      | Super Admin | Remedy Program Administrator    |
       | Super Admin | Partner Technical Administrator |
-      | Super Admin | Remedy Technical Administrator |
-      | Super Admin | Transitional Case Manager |
-      | Super Admin | Downstream Provider |
+      | Super Admin | Remedy Technical Administrator  |
+      | Super Admin | Transitional Case Manager       |
+      | Super Admin | Downstream Provider             |
 
   Scenario Outline: Verify ability of Super Admin user to unlock a locked user
     Given I am on the login page
@@ -91,7 +91,7 @@ Feature: Super Admin Landing page verification
     And I click on the "User Admin" tile
     Then I should see header text "Users"
     Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
-    And I should see "test.automatemail" for "Email" in search result
+    And I should see "test.automatemail" as "Email" in search result for "<user>-<Role>"
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Unlock" button from the alert to unlock user
@@ -105,5 +105,23 @@ Feature: Super Admin Landing page verification
     Then I should see Tile text User Admin
 
     Examples: 
-      | user        | Role      |
-      | Super Admin | Executive |
+      | user        | Role                            |
+      | Super Admin | Executive                       |
+      | Super Admin | Manager                         |
+      | Super Admin | Case Manager                    |
+      | Super Admin | Physicians                      |
+      | Super Admin | Remedy TCS                      |
+      | Super Admin | Remedy LPN                      |
+      | Super Admin | Remedy RN                       |
+      | Super Admin | Remedy Field RN                 |
+      | Super Admin | Remedy PM                       |
+      | Super Admin | Remedy Sales Team               |
+      | Super Admin | Remedy Executive                |
+      | Super Admin | Prospective Partner Executive   |
+      | Super Admin | Remedy Other                    |
+      | Super Admin | Partner Program Administrator   |
+      | Super Admin | Remedy Program Administrator    |
+      | Super Admin | Partner Technical Administrator |
+      | Super Admin | Remedy Technical Administrator  |
+      | Super Admin | Transitional Case Manager       |
+      | Super Admin | Downstream Provider             |
