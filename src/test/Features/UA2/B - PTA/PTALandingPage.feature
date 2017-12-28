@@ -1,8 +1,8 @@
 Feature: Landing page verification
 
-  Scenario: Verification of PTA user Landing page UI
+  Scenario Outline: Verification of PTA user Landing page UI
     Given I am on the login page
-    Then I enter email field chloe@yopmail.com for login
+    Then I enter email field UserName for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Admin
@@ -29,49 +29,52 @@ Feature: Landing page verification
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
-   
+    Examples: 
+      | UserName                        |
+      | Partner Technical Administrator |
+
   #PTA user provision
   Scenario Outline: PTA user should see all users he has created and be able to provision user as per desired role
     Given I am on the login page
-    Then I enter email field chloe@yopmail.com for login
+    Then I enter email field UserName for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I should see users with <Role>
-    Then I enter search box in landing page with <Name> and verify result
+    Then I verify that only provisioned users "<Role>" are present in PTA landing page
+    Then I verify that users created by PTA user "<user>-<Role>" are present in landing page
 
-    Examples:
-      | Role                                                                    | Name                                                       |
-      | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | FirstNameA, FirstNameB, FirstNameC, FirstNameD, FirstNameE |
+    Examples: 
+      | UserName                        | user                            | Role                                                                    | UserName                        |
+      | Partner Technical Administrator | Partner Technical Administrator | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | Partner Technical Administrator |
 
   #search cases
   Scenario Outline: Verify ability of PTA user to search user
     Given I am on the login page
-    Then I enter email field chloe@yopmail.com for login
+    Then I enter email field UserName for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "<Search>"
-    And I should see "<Search>" for "<Search By>" in search result
+    Then I enter search box in landing page with "<Search>" for "<user>-<Role>"
+    And I should see "<Search>" as "<Search By>" in search result for "<user>-<Role>"
 
-    Examples:
-      | Search                                  | Search By                    |
-      | FirstNameA, LastName, test.automatemail | First Name, Last Name, Email |
+    Examples: 
+      | UserName                        | user                            | Role      | Search                                 | Search By                    |
+      | Partner Technical Administrator | Partner Technical Administrator | Executive | FirstName, LastName, test.automatemail | First Name, Last Name, Email |
 
   #Lock unlock cases
   Scenario Outline: Verify ability of PTA user to lock a user and cancel unlock
     Given I am on the login page
-    Then I enter email field chloe@yopmail.com for login
+    Then I enter email field UserName for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
+    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
     Then I lock user with email "test.automatemail"
     And I verify that user is locked
     Then I click on Unlock button on the table in useradmin Landing page
@@ -86,20 +89,24 @@ Feature: Landing page verification
     And I click Access button
     Then I should not be able to login
 
-    Examples:
-      | user                            | Role      |
-      | Partner Technical Administrator | Executive |
+    Examples: 
+      | UserName                        | user                            | Role                      |
+      | Partner Technical Administrator | Partner Technical Administrator | Executive                 |
+      | Partner Technical Administrator | Partner Technical Administrator | Manager                   |
+      | Partner Technical Administrator | Partner Technical Administrator | Case Manager              |
+      | Partner Technical Administrator | Partner Technical Administrator | Physicians                |
+      | Partner Technical Administrator | Partner Technical Administrator | Transitional Case Manager |
 
   Scenario Outline: Verify ability of PTA user to unlock a locked user
     Given I am on the login page
-    Then I enter email field chloe@yopmail.com for login
+    Then I enter email field UserName for login
     And I enter password field Testing1 for Login
     Then I click Access button
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
-    And I should see "test.automatemail" for "Email" in search result
+    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
+    And I should see "test.automatemail" as "Email" in search result for "<user>-<Role>"
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
     Then I click on "Unlock" button from the alert to unlock user
@@ -112,6 +119,10 @@ Feature: Landing page verification
     And I click Access button
     Then I should see Tile text User Admin
 
-    Examples:
-      | user                            | Role      |
-      | Partner Technical Administrator | Executive |
+    Examples: 
+      | UserName                        | user                            | Role                      |
+      | Partner Technical Administrator | Partner Technical Administrator | Executive                 |
+      | Partner Technical Administrator | Partner Technical Administrator | Manager                   |
+      | Partner Technical Administrator | Partner Technical Administrator | Case Manager              |
+      | Partner Technical Administrator | Partner Technical Administrator | Physicians                |
+      | Partner Technical Administrator | Partner Technical Administrator | Transitional Case Manager |

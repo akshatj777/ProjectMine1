@@ -1,12 +1,12 @@
 Feature: Edit page for superuser verification
 
-  Scenario: Login as superUser to verify edit page components and non-editable email field
+  Scenario Outline: Login as superUser to verify edit page components and non-editable email field
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
+    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
@@ -23,13 +23,17 @@ Feature: Edit page for superuser verification
     Then I click on "Log Out" button
     And I should see Log in widget
 
+    Examples: 
+      | user        | Role      |
+      | Super Admin | Executive |
+
   Scenario Outline: <Description> then verify its product tiles and redirections
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
+    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
@@ -63,10 +67,10 @@ Feature: Edit page for superuser verification
     And I verify Phone <Phone> in user page
     And I verify Role <Role> in user page
     And I verify that "<Applications>" are "Enabled"
-  	And I click on the top user account link
+    And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-		Then I enter newuser email for "<User>-<Role>" login to Remedy
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
     Then I verify "<Applications>" product
@@ -115,26 +119,27 @@ Feature: Edit page for superuser verification
     And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget
+
     Examples: 
-      | Description                                                                       | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role                            | NPI | Applications      | Health System     | LearningPathwaySearchParameter |
-      | Login with Super Admin User and Edit user to Manager role                         | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager                         |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Executive                       |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy Executive role                | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Executive                |     | Episodes, Lessons, TCI, Episodes 2.0, Reports  | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Case Manager                    |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Physicians                      | NPI | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy TCS                      |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy LPN role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy LPN                      |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy RN role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy RN                       |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy Field RN role                 | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Field RN                 |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy PM role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy PM                       |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy Sales Team role               | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Sales Team               |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Prospective Partner Executive role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Prospective Partner Executive   |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy Other role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Other                    |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Partner Program Administrator role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Partner Program Administrator   |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy Program Administrator role    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Program Administrator    |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Partner Technical Administrator |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Technical Administrator  |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
-      | Login with Super Admin User and Edit user to Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Transitional Case Manager       |     | Episodes, Lessons | Stamford Hospital | Learning Pathway 2             |
+      | Description                                                                       | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | Role                            | NPI | Applications                                  | Health System     | LearningPathwaySearchParameter |
+      | Login with Super Admin User and Edit user to Manager role                         | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Manager                         |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Executive                       |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy Executive role                | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Executive                |     | Episodes, Lessons, TCI, Episodes 2.0, Reports | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Case Manager role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Case Manager                    |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Physicians role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Physicians                      | NPI | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy TCS role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy TCS                      |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy LPN role                      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy LPN                      |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy RN role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy RN                       |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy Field RN role                 | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Field RN                 |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy PM role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy PM                       |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy Sales Team role               | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Sales Team               |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Prospective Partner Executive role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Prospective Partner Executive   |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy Other role                    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Other                    |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Partner Program Administrator role   | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Partner Program Administrator   |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy Program Administrator role    | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Program Administrator    |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Partner Technical Administrator |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Remedy Technical Administrator  |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
+      | Login with Super Admin User and Edit user to Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Transitional Case Manager       |     | Episodes, Lessons                             | Stamford Hospital | Learning Pathway 2             |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -142,7 +147,7 @@ Feature: Edit page for superuser verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
+    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
@@ -188,7 +193,7 @@ Feature: Edit page for superuser verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail"
+    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button

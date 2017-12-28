@@ -106,14 +106,14 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 
-	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text);
+	@Then("^I enter search box in landing page with \"([^\"]*)\" for \"([^\"]*)\"$")
+	public void i_enter_search_box_in_landing_page_with(String text, String user) throws Throwable {
+		ua2LandingPage.SearchUserWithText(text, user);
 	}
 
-	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in search result$")
-	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
-		ua2LandingPage.iVerifySearchResult(result, searchBy);
+	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result for \"([^\"]*)\"$")
+	public void i_should_see_for_in_landing_page(String result, String searchBy, String role) throws Throwable {
+		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
 	}
 
 	@Then("^I should not be able to login$")
