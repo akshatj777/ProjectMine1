@@ -85,15 +85,30 @@ Feature: UA2 Front End Automation
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
     And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
-    And I verify "<Health System>" facility on patient card for "<User>-<Role>" user
-    And I click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Institute homepage
     And I click on Reports tile for "<User>-<Role>" user
-    And I click on Episodes two tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I wait to see "Dashboards" under reports tile text
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Program Overview" reports text for "Dashboards" report tile
+    Then I click on Show Summary button to unhide the available global filters
+    Then I see <Health System> appearing under payer filter of global filters
+    Then I see <Health System> appearing under participant filter of global filters
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
     And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
     And I redirect to Remedy connect page
     And I click on the top user account link
     And I verify "Support" in dropdown on profile icon
@@ -194,7 +209,7 @@ Feature: UA2 Front End Automation
     Then I verify applications "<Applications>" are unchecked
     Then I select "<Applications>" product
     Then I verify applications "<Applications>" are checked
-    Then I select "<Applications>" product
+    Then I unselect "<Applications>" product
     Then I verify applications "<Applications>" are unchecked
 
     Examples: 
@@ -255,15 +270,13 @@ Feature: UA2 Front End Automation
     Then I enter "<LearningPathwayID>" in Learning Pathway search box
     Then I select "<LearningPathwayID>" from the results
     Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
     Then I click on Select All Locations button
     Then I click on Submit button
     Then I should see header text "Users"
 
     Examples: 
-      | Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                             | LearningPathwayName        | LearningPathwayID | Health System     |
-      | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Episodes, Episodes 2.0, Reports, Lessons | Care Coordinators External | a5H9TQNahzI1      | Stamford Hospital |
+      | Scenario Description                     | FirstName | LastName | Email             | Role      | Applications                             | LearningPathwayName | LearningPathwayID | Health System     |
+      | Create user with multiple Learning Paths | FirstName | LastName | test.automatemail | Executive | Episodes, Episodes 2.0, Reports, Lessons | i am learning path  | NFdw0Kts2C01      | Stamford Hospital |
 
   Scenario Outline: Verify validation message for invalid lesson name in search box
     Given I am on the login page
@@ -286,10 +299,11 @@ Feature: UA2 Front End Automation
     Then I click on Select button
     Then I verify Learning Pathway search box is available
     Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    And I verify No results found under Learning Pathway search box
 
     Examples: 
       | Role      | Applications                             | LearningPathwayName |
-      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Test                |
+      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Test123             |
 
   Scenario Outline: Verify auto selected programs in Organizations
     Given I am on the login page
@@ -309,14 +323,11 @@ Feature: UA2 Front End Automation
     Then I click on Next button
     Then I select "<Applications>" product
     Then I click on Next button
-    Then I click on Select button
-    And I search for health system with <Health System>
-    And I select a <Health System>
     Then I verify default program "BPCI-Model2" associated with organization
 
     Examples: 
-      | Role      | Applications                                                          | Health System     |
-      | Executive | Internal support, Episodes, Episodes 2.0, Reports, Lessons,Share File | Stamford Hospital |
+      | Role      | Applications                             | Health System     |
+      | Executive | Episodes, Episodes 2.0, Reports, Lessons | Stamford Hospital |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -336,11 +347,7 @@ Feature: UA2 Front End Automation
     Then I click on Next button
     Then I select "<Applications>" product
     Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select button
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
+    Then I search and select "<Locations>" locations
     Then I click on Submit button
     Then I should see header text "Users"
 
@@ -369,10 +376,6 @@ Feature: UA2 Front End Automation
     Then I click on Next button
     Then I select "<Applications>" product
     Then I click on Next button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select button
-    Then I select "<Programs>" programs
     Then I enter characters "<Loc>" in location serach
     Then I should not see "All Location" field
     Then I verify text present in location "Location" field label
