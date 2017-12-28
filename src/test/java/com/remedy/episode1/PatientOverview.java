@@ -95,5 +95,21 @@ public class PatientOverview extends BaseClass {
 	public void iShouldSeeTextUnderSectionOnMedicalRecord(String text, String field){
 		iWillWaitToSee(By.xpath("//div[h3[contains(text(),'"+field+"')]]//span[contains(text(),'"+text+"')]"));
 	}
+	
+	public void iShouldSeeButtonUnderRecentActivity(String text){
+		iVerifyTextFromListOfElement(By.xpath("//h3[contains(text(),'Recent Activity')]//button"), text); 
+	}
+	
+	public void iClickOnButtonUnderRecentActivity(String text){
+		clickSingleElementFromList(By.xpath("//h3[contains(text(),'Recent Activity')]//button"), text); 
+	}
+	
+	public void iShouldSeeTextInNotificationColumnOnRecentActivityNotificationTab(String text){
+		iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[2]/td[3][contains(text(),'"+text+"')]"));
+	}
+	
+	public void iShouldSeeTextInByColumnOnRecentActivityNotificationTab(String text){
+		iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[4][contains(text(),'"+text+"')]"));
+	}
 
 }
