@@ -146,5 +146,14 @@ public class LoginPage extends BaseClass {
 	public void iVerifyTheErrorMessage(String text){
 		verifyTextForElement(driver.findElement(By.xpath("//span[@class='animated fadeInUp']")), text);
 	}
+	
+	public void iShouldSeeTextInResetPassword(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".auth0-global-message.auth0-global-message-success")), text);
+	}
+	
+	public void iClickSendEmailButton() {
+		clickElement(driver.findElement(By.xpath("//*[contains(text(),'Send email')]")));
+		delay();
+	}
 }
 
