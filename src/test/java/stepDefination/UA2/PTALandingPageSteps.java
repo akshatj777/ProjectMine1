@@ -8,13 +8,13 @@ import cucumber.api.java.en.Then;
 public class PTALandingPageSteps extends DriverScript {
 	PTALandingPage ptaLandingPage=new PTALandingPage(driver);
 	
-	@Then("^I should see users with ([^\"]*)$")
-	public void i_should_see_users_with_Executive(String role) throws Throwable {
-	  ptaLandingPage.iVerifyUsersPresentAsPerPermission(role);
+	@Then("^I verify that only provisioned users \"([^\"]*)\" are present in PTA landing page$")
+	public void iVerifyProvisioning(String role) throws Throwable {
+	  ptaLandingPage.iVerifyProvisionedUsersAsPerRole(role);
 	}
 	
-	@Then("^I enter search box in landing page with ([^\"]*) and verify result$")
-	public void i_enter_search_box_in_landing_page_with_Name_Name_Name_Name_Name_and_verify_result(String nameList) throws Throwable {
-	    ptaLandingPage.iSearchListOfNamesAndValidateResult(nameList);
+	@Then("^I verify that users created by PTA user \"([^\"]*)\" are present in landing page$")
+	public void iVerifyUsersCreated(String nameList) throws Throwable {
+	    ptaLandingPage.iVerifyPresenceOfCreatedUser(nameList);
 	}
 	}

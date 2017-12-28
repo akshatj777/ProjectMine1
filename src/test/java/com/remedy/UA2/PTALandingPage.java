@@ -23,7 +23,7 @@ public class PTALandingPage extends BaseClass {
 		super(driver);
 	}
 
-	public void iVerifyUsersPresentAsPerPermission(String text) {
+	public void iVerifyProvisionedUsersAsPerRole(String text) {
 		// String[] role = text.split(", ");
 		List<String> expectedList = Arrays.asList(text.split("\\s*,\\s*"));
 
@@ -41,27 +41,17 @@ public class PTALandingPage extends BaseClass {
 
 		}
 	}
-public void iSearchListOfNamesAndValidateResult(String nameList){
-	if(nameList.contains(","))
-	{
-		List<String> expectedList = Arrays.asList(nameList.split("\\s*,\\s*"));
-		System.out.println("NAMELIST: "+expectedList);
-		for(int i=0; i<expectedList.size(); i++){
-		//for (String s : expectedList) {
-			System.out.println("**************** "+expectedList.get(i));
-			superUserLandingPage.SearchUserWithText(expectedList.get(i));
-        	superUserLandingPage.iVerifySearchResult(expectedList.get(i), "First Name");
-    		//verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), expectedList.get(i)+" LastName");	
-		//}
-        }
+public void iVerifyPresenceOfCreatedUser(String text){
+	String[] userRole = text.split("-");
+	String user=userRole[0];
+	String roles=userRole[1];
+	String[] role = roles.split(", ");
+	for(int i=0;i<role.length;i++){
+		System.out.println("User and role is - "+user.trim()+"-"+role[i].trim());
+		superUserLandingPage.SearchUserWithText("test.automatemail", user.trim()+"-"+role[i].trim());
+		superUserLandingPage.iVerifySearchResult("","Email",user.trim()+"-"+role[i].trim());
 	}
-	else
-	{
-		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), nameList);
-		delay();
-		verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0), nameList+"LastName");	
-	}
+	
 }
 	public void iVerifyUsersNotPresentAsPerPermission(String role) {
 		verifyTextNotPresentForElementFromList("//td[contains(@class,'four wide')]", role);
