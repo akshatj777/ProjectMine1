@@ -2,7 +2,7 @@
 Feature: Filters pinned to dashboard
  
  Background: Patient Creation
-    Given I am on the login page
+     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -28,52 +28,38 @@ Feature: Filters pinned to dashboard
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-    Then I navigate to the "/secure/person/mongoID/careteam"
+    
+ Scenario: My task test cases
+ 	Then I navigate to the "/secure/person/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
-    And I am on "/secure/dashboard"
+    And I click on gear icon on patient overview page
+  	Then I click on "Add task" option under patient overview gear icon
+  	And I verify "New Task" header on popup
+    When I fill in task Due Date with today date
+    And I fill in Task description with "TaskNavBar" for patient list
+    And I select the checkbox on popup for care team
+    And I click on "Create & Continue" button
+    And I will wait to see "Task saved" in "p" tag
+    Then I navigate to the "/secure/person/mongoID/careflow#/careFlowTasks"
+    And I verify "TaskNavBar" task description under Task in Care Plan
+    And I verify the count "1" on task navigation bar icon
+    And I am on "/secure/dashboard/#today"
+    And I should see "TaskNavBar" under My Task on Dashboard
+    Then I should see "Today(1)" in task type "today" under My Task on Dashboard
+    And I click on complete task checkbox under My task on Dashboard
+    And I will wait to see "Task completed" in "p" tag
+    Then I should see "Completed(1)" in task type "completed" under My Task on Dashboard
     
-  Scenario: Verify My patients tab, Pin Filter to dashboard and bookmark.
-    		 Also, verify Join Care team functionality form patient dashboard 
-    Then I verify "My patients" as selected tab on patient dashboard
-    And I verify patients are appearing on patient dashboard
-    And I am on "/secure/pn/patientslist"
-    Then I click on "Save As" button
-    And I will wait to see "New filter" in "h4" tag
-    And I enter "NewFilter1" in filter name on New filter
-    
-    Then I click on "Create & Continue" button
-    And I will wait to see "filter saved" in "p" tag
-    
-    And I click on "Pin to dashboard" under open filter
-    And I click on "NewFilter1" on navigation tab on patient dashboard
-    And I verify patients are appearing on patient dashboard
-    And I click on select all checkbox on patient dashboard
-    And I click on gear Icon on top on patient dashboard
-    And I click on "JOIN CARETEAM" present under gear menu on top on patient dashboard
-    And I will wait to see "Assigned to care team" in "p" tag
-    And I enter patients fullname in the patient search box under active tab on Dashboard 
-    And I should see patient first name appearing under search on Dashboard
-    And I am on "/secure/pn/patientslist"
-    And I click on "NewFilter1" filter name under patients menu
-    And I click on "Unpin to dashboard" under open filter
-    And I click on "Pin to bookmark" under open filter
-    
-    And I am on "/secure/bookmarks"
-    
-    And I should see "NewFilter1" filter under bookmark
-    Then I click on gear icon under "NewFilter1" bookmark
-    And I enter "NewFilter2" in titile field in bookmark
-    And I click on "ok" button on edit bookmark
-    And I should see "NewFilter2" filter under bookmark
+   
     
 
     
     
     
     
+        
     
-     
     
     
     

@@ -4,6 +4,7 @@ import com.remedy.episode1.PatientDashboard;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 
 public class PatientDashboardSteps extends DriverScript {
 	
@@ -73,6 +74,113 @@ public class PatientDashboardSteps extends DriverScript {
     public void i_Click_On_Button_On_Edit_Bookmark(String text) throws Throwable {
 		dashboard.iClickOnButtonEditBookmark(text);
     }
+	
+	@And("^I enter patients fullname in the patient search box under active tab on Dashboard$")
+    public void i_Enter_Patients_FullName_In_Patient_SearchBox_Under_Active_Tab_On_Dashboard() throws Throwable {
+		dashboard.iEnterPatientsFullNameInPatientSearchBoxUnderActiveTabOnDashboard();
+    }
+	
+	@And("^I should see patient first name appearing under search on Dashboard$")
+    public void i_Should_See_Patient_FirstName_Appearing_Under_Search_On_Dashboard() throws Throwable {
+		dashboard.iShouldSeePatientFirstNameAppearingUnderSearchOnDashboard();
+    }
+	
+	@Then("^I should see \"([^\"]*)\" under My Task on Dashboard$")
+	@And("^I verify \"([^\"]*)\" task description under Task in Care Plan$")
+    public void i_Verify_Task_Description_Under_Task_In_CarePlan(String text) throws Throwable {
+		dashboard.iVerifyTaskDescriptionUnderTaskInCarePlan(text);
+    }
+	
+	@And("^I verify the count \"([^\"]*)\" on task navigation bar icon$")
+    public void i_Verify_Count_On_Task_Navigation_Bar_Icon(String text) throws Throwable {
+		dashboard.iVerifyCountOnTaskNavigationBarIcon(text);
+    }
+	
+	@And("^I click on complete task checkbox under My task on Dashboard$")
+    public void i_Click_On_Complete_Task_Checkbox_Under_My_Task_On_Dashboard() throws Throwable {
+		dashboard.iClickOnCompleteTaskCheckboxUnderMyTaskOnDashboard();
+    }
+	
+	@And("^I should see \"([^\"]*)\" in task type \"([^\"]*)\" under My Task on Dashboard$")
+    public void i_Should_See_Count_In_Task_Under_MyTask_On_Dashboard(String count, String field) throws Throwable {
+		dashboard.iShouldSeeCountInTaskUnderMyTaskOnDashboard(count,field);
+    }
+	
+	@And("^I click on Message Icon on header navigation bar$")
+    public void i_Click_On_Message_Icon_On_Header_Navigation_Bar() throws Throwable {
+		dashboard.iClickOnMessageIconOnHeaderNavigationBar();
+    }
+	
+	@And("^I click on see all messages under Message on header navigation bar$")
+    public void i_Click_On_See_All_Meassages_Under_Message_On_Header_Navigation_Bar() throws Throwable {
+		dashboard.iClickOnSeeAllMessagesUnderMessageOnHeaderNavigationBar();
+    }
+	
+	@And("^I click on \"([^\"]*)\" under Message tab on Dashboard$")
+    public void i_Click_Menu_Under_Message_Tab_On_Dashboard(String text) throws Throwable {
+		dashboard.iClickMenuUnderMessageTabOnDashboard(text);
+    }
+	
+	@And("^I click on \"([^\"]*)\" button under message tab$")
+    public void i_Click_Button_Under_Message(String text) throws Throwable {
+		dashboard.iClickButtonUnderMessage(text);
+    }
+	
+	@And("^I should see \"([^\"]*)\" text error under Message$")
+    public void i_Should_See_text_Under_Message_Error(String text) throws Throwable {
+		dashboard.iShouldSeeTextErrorUnderMessage(text);
+    }
+	
+	@And("^I enter \"([^\"]*)\" in To field under Compose message$")
+    public void i_Enter_Recipient_In_To_Field_Under_Compose_Message(String text) throws Throwable {
+		dashboard.iEnterRecipientInToFieldUnderComposeMessage(text);
+    }
+	
+	@And("^I click on \"([^\"]*)\" to Add recipient in Compose message$")
+    public void i_Click_On_Recipient_To_Add_Recipient_In_Compose_Message(String text) throws Throwable {
+		dashboard.iClickOnRecipientToAddRecipientInComposeMessage(text);
+    }
+	
+	@Then("^I enter message \"([^\"]*)\" in the compose message field$")
+	public void i_enter_message_in_the_compose_message_field(String text) throws Throwable{
+		dashboard.iEnterTextInComposeMessage(text);
+	}
+	
+	@Then("^I upload Sample file to send message$")
+	public void i_Upload_Sample_File_To_Send_Message() throws Throwable{
+		dashboard.iUploadFileToSendMessage();
+	}
+	
+	@Then("^I click on first messaage in Inbox$")
+	public void i_Click_On_First_Message_In_Inbox() throws Throwable{
+		dashboard.iClickOnFirstMessageInInbox();
+	}
+	
+	@Then("^I click on gear icon for first message$")
+	public void i_Click_On_Gear_Icon_For_First_Message_In_Inbox() throws Throwable{
+		dashboard.iClickOnGearIconForFirstMessageInInbox();
+	}
+
+	@Then("^I select Move to archive for message$")
+	public void i_Select_Option_For_Message() throws Throwable{
+		dashboard.iSelectOptionForMessage();
+	}
+	
+	@And("^I click on Alert Icon on header navigation bar$")
+    public void i_Click_On_Alert_Icon_On_Header_Navigation_Bar() throws Throwable {
+		dashboard.iClickOnAlertIconOnHeaderNavigationBar();
+    }
+	
+	@And("^I click on first alert message under alert$")
+    public void i_Click_On_First_Alert_Message_Under_Alert() throws Throwable {
+		dashboard.iClickOnFirstAlertMessageUnderAlert();
+    }
+	
+	@And("^I should not see any count appearing on Alert Icon$")
+    public void i_Should_Not_See_Any_Count_OnAlert_Icon() throws Throwable {
+		dashboard.iShouldNotSeeAnyCountOnAlertIcon();
+    }
+
 
 
 }

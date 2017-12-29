@@ -46,9 +46,25 @@ public class LandingPage extends BaseClass{
     }
 
     public void iClickOnTheTopUserAccountIcon (){
-    	delay();
-    	clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
-    }
+        delay();
+        if (driver.findElements(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).size()>0){
+         clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
+        }
+        else{
+            clickElement(driver.findElement(By.xpath("//menu-dropdown[contains(@class,'flex-item item-dropdown-right')]")));
+        }
+       }
+    
+    public void iClickOnTheTopUserAccountIconAndClickOnButton(String button){
+        delay();
+        if (driver.findElements(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).size()>0){
+         clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
+        }
+        else{
+            clickElement(driver.findElement(By.xpath("//menu-dropdown[contains(@class,'flex-item item-dropdown-right')]")));
+        }
+        clickElement(driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")));
+       }
 
     public void iSelectFromTopUserAccountDropDown(String link){
     	selectElementByDesc(".btn.btn-flyout-nav", link);

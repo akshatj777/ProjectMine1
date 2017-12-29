@@ -59,6 +59,12 @@
     And I select first facility checkbox on Assign Team Member modal
     And I click on "Assign" button
     And I will wait to see "Employees assigned to patient(s) correctly" in "p" tag
+    Then I click on Alert Icon on header navigation bar 
+    And I click on first alert message under alert
+    And I will wait to see patient's name on patient summary page
+    And I click on "Dismiss All" button
+    And I should not see any count appearing on Alert Icon
+    
     
     Then I navigate to the "/secure/person/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
