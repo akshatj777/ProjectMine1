@@ -79,6 +79,22 @@ Feature: Create PGP organization functionality tests.
     When I click on "PGP" organization tab on organization dashboard
     Then I click on "+" button on "PGP" organization page
     And I verify "Create PGP Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "Please enter an Organization Name" mandatory field validation message on edit organization page
+    And I verify "The EIN field is required  " mandatory field validation message on edit organization page
+
+    Examples: 
+      | Description                                         | Has_MO | PGP_Name | EIN |
+      | Create PGP org with all Manadatory fields are blank | YES    |          |     |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    Then I click on "+" button on "PGP" organization page
+    And I verify "Create PGP Organization" header text on create organization page
     Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page

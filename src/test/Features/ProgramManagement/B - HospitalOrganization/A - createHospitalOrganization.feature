@@ -385,6 +385,42 @@ Feature: Create Hospital organization functionality tests
     Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
     Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
     And I enter <Address1> in "Address 1" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "Please enter an Organization Name" mandatory field validation message on create organization page
+    And I verify "Please enter an Address" mandatory field validation message on create organization page
+    And I verify "Please enter a City" mandatory field validation message on create organization page
+    And I verify "Please select a State" mandatory field validation message on create organization page
+    And I verify "Please enter a Zip Code" mandatory field validation message on create organization page
+    And I verify "Please enter a Location Name" mandatory field validation message on create organization page
+    And I verify "Please enter an Address" mandatory field validation message on create organization page
+    And I verify "Please enter a City" mandatory field validation message on create organization page
+    And I verify "Please select a State" mandatory field validation message on create organization page
+    And I verify "Please enter a Zip Code" mandatory field validation message on create organization page
+    And I verify "At least one identification is required" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                              | Has_MO | Hosp_Name | Address1 | City | State | Postal_Code | Loc_Name | Loc_Address1 | Loc_City | Loc_State | Loc_Postal_Code | CCN | EIN | NPI |
+      | Create a Hosp Organization With Mandatory Fields Missing | NO     |           |          |      |       |             |          |              |          |           |                 |     |     |     |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
     And I enter <Short_Name> in "Short Name" on create organization page
     And I enter <Address2> in "Address 2" on create organization page
     And I enter <City> in "City" on create organization page
