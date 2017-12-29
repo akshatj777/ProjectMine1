@@ -86,6 +86,7 @@ public class PatientCreationRulesSteps extends DriverScript {
 	}
 	
 	@And("^I wait untill \"([^\"]*)\" text is appearing on the user creation page$")
+	@Then("^I wait untill \"([^\"]*)\" text is appearing on the user list page$")
 	public void i_wait_untill_i_see_on_the_user_creation_page(String text) throws Throwable{
 		patientrules.iWaitUntillISeeElement(text);
 	}
@@ -299,5 +300,70 @@ public class PatientCreationRulesSteps extends DriverScript {
 	@Then("I verify \"([^\"]*)\" is appearing in the drg list under facility")
 	public void i_verify_is_appearing_in_the_drg_list_under_facility(String text) throws Throwable{
 		patientrules.iVerifyDRGListInFacility(text);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" tab is highlighted on the left navigation$")
+	public void i_verify_tab_is_highlighted_on_the_left_navigation(String text) throws Throwable{
+		patientrules.iVerifyTabHighlightedOnLeftNavigation(text);
+	}
+	
+	@And("^I fill \"([^\"]*)\" field with \"([^\"]*)\" on users page$")
+	public void i_fill_field_with_on_users_page(String locator,String text) throws Throwable{
+		patientrules.IFillFilterFieldOnUserPage(locator, text);
+	}
+	
+	@Then("^I click on filter option on the user list page after entering data to search$")
+	public void i_click_on_filter_option_on_the_user_list_page_after_entering_data_to_search() throws Throwable{
+		patientrules.iClickOnFilterOptionOnUsersListAfterEnteringData();
+	}
+	
+	@And("^I wait untill the searched results appearing on users list page$")
+	public void i_wait_untill_the_searched_results_appearing_on_users_list_page() throws Throwable{
+		patientrules.iWaitUntillUserListAppears();
+	}
+	
+	@And("^I click on reset filter on admin pages$")
+	public void i_click_on_reset_filter_on_admin_page() throws Throwable{
+		patientrules.iClickONResetFieldOnFilters();
+	}
+	
+	@Then("^I verify patient list filter on left navigation is highlighted$")
+	public void i_verify_patient_list_filter_on_left_navigation_is_highlighted() throws Throwable{
+		patientrules.iVerifyPatientsTabHighlightedOnLeftNavigation();
+	}
+	
+	@Then("^I click on the help under the user profile icon$")
+	public void i_click_on_the_help_under_the_user_profile_icon() throws Throwable{
+		patientrules.iClickOnHelpOnTheEpisodeConnectPage();
+	}
+	
+	@Then("^I verify the help page url \"([^\"]*)\"$")
+	public void i_verify_the_help_page_url(String url) throws Throwable{
+		patientrules.iVerifyHelpPageURL(url);
+	}
+	
+	@Then("^I click on myprofile section under the profile icon$")
+	public void i_click_on_myprofile_section_under_the_profile_icon() throws Throwable{
+		patientrules.iClickOnMyProfileEpisodeConnectPage();
+	}
+	
+	@And("^I wait untill i see \"([^\"]*)\" is appearing on the profile page$")
+	public void i_wait_untill_i_see_is_appearing_on_the_profile_page(String text) throws Throwable{
+		patientrules.iWaitUntillMyProfileAppears(text);
+	}
+	
+	@Then("^I update \"([^\"]*)\" with \"([^\"]*)\" on the my profile page$")
+	public void i_update_with_on_the_my_profile_page(String locator,String text) throws Throwable{
+		patientrules.iFillNamesOnMyProfilePage(locator, text);
+	}
+	
+	@And("^I click on save changes button on the my profile page$")
+	public void i_click_on_submit_button_on_the_my_profile_page() throws Throwable{
+		patientrules.iClickOnSaveChangesButtonOnMyProfile();
+	}
+	
+	@And("^I verify \"([^\"]*)\" as field validation on myprofile page$")
+	public void i_verify_as_field_validation_on_myprofile_page(String text) throws Throwable{
+		patientrules.iVerifyValidationMessageOnMyProfilePage(text);
 	}
 }

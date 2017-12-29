@@ -1,6 +1,7 @@
 package com.remedy.episode1;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -186,5 +187,57 @@ public class PatientCreationRules extends BaseClass{
     
     public void iVerifyDRGListInFacility(String text){
     	verifyTextForElementfromList(".td_string.td_drg_id",text);
+    }
+    
+    public void iVerifyTabHighlightedOnLeftNavigation(String text){
+    	isElementVisible(driver.findElement(By.cssSelector(".current a[href*='/secure/admin/"+text+"/']")));
+    }
+    
+    public void IFillFilterFieldOnUserPage(String locator,String text){
+    	iFillInText(driver.findElement(By.cssSelector("#filters_bppatientnavigator_"+locator+"")), text);
+    }
+    
+    public void iClickOnFilterOptionOnUsersListAfterEnteringData(){
+    	clickElement(driver.findElement(By.cssSelector(".form-group .btn.btn-sm.btn-primary")));
+    }
+    
+    public void iWaitUntillUserListAppears(){
+    	iWillWaitToSee(By.cssSelector("tr.list_trow"));
+    }
+    
+    public void iClickONResetFieldOnFilters(){
+    	clickElement(driver.findElement(By.cssSelector(".btn.btn-sm.btn-default")));
+    }
+    
+    public void iVerifyPatientsTabHighlightedOnLeftNavigation(){
+    	isElementVisible(driver.findElement(By.cssSelector(".active a#patientsListOpenClose")));
+    }
+    
+    public void iClickOnHelpOnTheEpisodeConnectPage(){
+    	clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-help")));
+    }
+    
+    public void iVerifyHelpPageURL(String url){
+    	Assert.assertEquals(getTheCurrentUrl(),url);
+    }
+    
+    public void iClickOnMyProfileEpisodeConnectPage(){
+    	clickElement(driver.findElement(By.cssSelector("#navbar-dropdown-menu-myprofile")));
+    }
+    
+    public void iWaitUntillMyProfileAppears(String text){
+    	iWillWaitToSee(By.xpath("//span[text()='"+text+"']"));
+    }
+    
+    public void iFillNamesOnMyProfilePage(String locator,String text){
+    	iFillInText(driver.findElement(By.cssSelector("#patient_navigator_type_"+locator+"")), text);
+    }
+    
+    public void iClickOnSaveChangesButtonOnMyProfile(){
+    	clickElement(driver.findElement(By.cssSelector(".btn.blue.btn-primary")));
+    }
+    
+    public void iVerifyValidationMessageOnMyProfilePage(String text){
+    	verifyTextForElementfromList(".help-block.help-block-error",text);
     }
 }
