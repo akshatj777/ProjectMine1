@@ -229,11 +229,12 @@ public class SuperUserLandingPage extends BaseClass {
 					String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
 					System.out.println("Email "+email);
 								iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
-							
+								iVerifySearchResult(text, "", role);
 						} else {
 							iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
+							iVerifySearchResult(text, "Name", role);
 						}
-
+			
 			}
 			delay();
 		} else {
@@ -258,7 +259,7 @@ public class SuperUserLandingPage extends BaseClass {
 
 	public void iVerifySearchResult(String result, String searchBy, String role) {
 		iWillWaitToSee(By.cssSelector("td.four.wide"));
-		if (searchBy.equalsIgnoreCase("First Name") || searchBy.equalsIgnoreCase("Last Name")) {
+		if (searchBy.contains("Name")) {
 			if (driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result))
 				Assert.assertTrue(
 						driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result));

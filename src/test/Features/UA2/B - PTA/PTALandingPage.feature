@@ -58,7 +58,7 @@ Feature: Landing page verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "<Search>" for "<user>-<Role>"
+    Then I enter "<Search>" in search box for "<user>-<Role>"
     And I should see "<Search>" as "<Search By>" in search result for "<user>-<Role>"
 
     Examples: 
@@ -74,8 +74,8 @@ Feature: Landing page verification
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
-    Then I lock user with email "test.automatemail"
+    Then I enter "<Search>" in search box for "<user>-<Role>"
+    Then I lock user "test.automatemail"
     And I verify that user is locked
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"
@@ -105,7 +105,7 @@ Feature: Landing page verification
     Then I should see Tile text User Adming
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "test.automatemail" for "<user>-<Role>"
+    Then I enter "<Search>" in search box for "<user>-<Role>"
     And I should see "test.automatemail" as "Email" in search result for "<user>-<Role>"
     Then I click on Unlock button on the table in useradmin Landing page
     Then I should see an alert with "Are you sure you want to unlock"

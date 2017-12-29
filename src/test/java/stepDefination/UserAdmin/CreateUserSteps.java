@@ -483,7 +483,8 @@ public class CreateUserSteps extends DriverScript{
 		createUser.enterTextLearningPathwaySearchBox(searchParam);
 	}
 
-	@Then("^I select \"([^\"]*)\" from the results$")
+	@Then("^I deselect \"([^\"]*)\" from the results$")
+	@And("^I select \"([^\"]*)\" from the results$")
 	public void selectLearningPath(String searchParam) throws Throwable {
 		createUser.selectLearningPath(searchParam);
 	}
