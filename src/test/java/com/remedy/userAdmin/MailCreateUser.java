@@ -7,8 +7,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -69,12 +72,26 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iSignOutFromMailAccount() {
-		delay();
-		iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
-		clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
-		delay();
-		clickElement(driver.findElement(By.cssSelector("#gb_71")));
-		iWillWaitToSee(By.id("headingText"));
+		try
+		{
+			delay();
+			iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
+			clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
+			delay();
+			clickElement(driver.findElement(By.cssSelector("#gb_71")));
+			delay();
+			if(!(new WebDriverWait(driver,10).until(ExpectedConditions.alertIsPresent())==null))
+			{
+				Alert alt = driver.switchTo().alert();
+				  alt.accept();
+			}
+			iWillWaitToSee(By.id("headingText"));
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
 	}
 	
 	public void iEnterEmailToCreateUser(String emailName) {
