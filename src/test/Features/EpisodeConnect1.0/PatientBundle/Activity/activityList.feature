@@ -6,7 +6,7 @@ Feature: Activity List
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
-    And I click on the "Episodes" tile
+    And I click on the "Episodes" tile 
     And I switch to new window
     And I am on "/secure/pn/patientslist"
     When I click on Add Patient button present on the ec1 patients page

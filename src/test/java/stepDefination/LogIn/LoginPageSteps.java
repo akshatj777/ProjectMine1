@@ -150,4 +150,14 @@ public class LoginPageSteps extends DriverScript{
     public void iVerifyTheErrorMessage(String text) throws Throwable{
     	loginPage.iVerifyTheErrorMessage(text);
     }
+    
+    @Then("^I should see \"([^\"]*)\" text in reset password$")
+    public void i_Should_See_Text_In_Reset_Password(String text) throws Throwable{
+    	loginPage.iShouldSeeTextInResetPassword(text);
+    }
+    
+    @And("^I click Send Email button$")
+    public void I_click_Send_Email_button() throws Throwable {
+        loginPage.iClickSendEmailButton();
+    }
 }
