@@ -401,7 +401,7 @@ public class CreateUserPage extends BaseClass{
 			   clickElement(driver.findElement(By.cssSelector("#patientsListOpenClose")));
 			   clickElement(driver.findElement(By.xpath("//a[@href='/secure/pn/patientslist']")));
 			   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
-			   waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+			   //waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
 		   }   
 	   }
    }
