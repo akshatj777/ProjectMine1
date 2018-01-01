@@ -87,7 +87,7 @@ Feature: gjfdk
       | user        | Role       | Email             | Health System1   | Health System2   | Programs    | Applications                                  | ApplicationsNotVisible |
       | Super Admin | Remedy LPN | test.automatemail | tamford Hospital | Sound Physicians | BPCI-Model2 | Episodes, Episodes 2.0, Reports, Lessons, TCI |                        |
   
-  Scenario Outline: Changing the products and general details for <Role> and verifying product tile
+  Scenario Outline: 1. Changing the products and general details for <Role> and verifying product tile
 
     Given I am on the login page
     When I log in as super user
@@ -132,7 +132,8 @@ Feature: gjfdk
       | Super Admin | Remedy RN                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |                       | Episodes, Episodes 2.0, Reports, Lessons, TCI |
       | Super Admin | Remedy PM                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons               | Episodes, Episodes 2.0, Reports, TCI          |
       | Super Admin | Remedy Program Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons, Episodes 2.0 | Episodes, Reports, Physician Connect, TCI          |
-
+ 			
+  
   Scenario Outline: Changing applications for <Role> and verifying product tile
     Given I am on the login page
     When I log in as super user

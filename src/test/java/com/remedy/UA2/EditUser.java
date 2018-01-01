@@ -46,16 +46,10 @@ public class EditUser extends BaseClass {
 	}
 
 	public void iClearTextBox(String name) {
-		if (name.equalsIgnoreCase("First Name")) {
-			iWillWaitToSee(By.cssSelector("input[placeholder='First Name']"));
-			driver.findElement(By.cssSelector("input[placeholder='First Name']")).clear();
-		} else if (name.equalsIgnoreCase("Last Name")) {
-			iWillWaitToSee(By.cssSelector("input[placeholder='Last Name']"));
-			driver.findElement(By.cssSelector("input[placeholder='Last Name']")).clear();
-		} else if (name.equalsIgnoreCase("Phone")) {
-			iWillWaitToSee(By.cssSelector("input[placeholder='Phone']"));
-			driver.findElement(By.cssSelector("input[placeholder='Phone']")).clear();
-		}
+		
+			iWillWaitToSee(By.cssSelector("input[placeholder='"+name+"']"));
+			driver.findElement(By.cssSelector("input[placeholder='"+name+"']")).clear();
+	
 	}
 
 	public void iEnterPhone(String number) {
@@ -227,5 +221,20 @@ public class EditUser extends BaseClass {
 	   else if(present.equals("Not Present")){
 		   isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]"));
 	   }
+	   }
+	   public void iSeeNoResultsForLearningPathway(String text){
+		   if(text.equals("No results found.")){
+			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+		   }
+	   }
+	   public void iVerifyDisabledNextButton(String text){
+		   WebElement el = driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   Assert.assertTrue(el.isDisplayed ());
+		   
+	   }
+	   public void iVerifyErrorMessage(String text){
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
 }

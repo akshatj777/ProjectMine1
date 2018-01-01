@@ -104,5 +104,16 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyDownstreamProviderPermission(String text, String present){
 		editUser.iVerifyDownstreamProviderPermission(text,present);
 	}
-
+	@Then("^I should see \"([^\"]*)\" for Learning Pathway$")
+	public void iSeeNoResultsForLearningPathway(String text){
+		editUser.iSeeNoResultsForLearningPathway(text);
+	}
+	@Then("^I verify that \"([^\"]*)\" button is disabled when no application is selected$")
+	public void iVerifyDisabledNextButton(String text){
+		
+	}
+	@Then("^I should see error message \"([^\"]*)\"$")
+	public void iVerifyErrorMessage(String text){
+		editUser.iVerifyErrorMessage(text);
+	}
 }
