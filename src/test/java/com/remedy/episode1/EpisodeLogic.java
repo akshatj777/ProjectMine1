@@ -37,8 +37,8 @@ public class EpisodeLogic extends BaseClass {
 		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'..')]")));
 	}
 	
-	public void iShouldSeeAdmitTypeUnderTransition(String text) {
-		iVerifyTextFromListOfElement(By.cssSelector(".type-column"), text);
+	public void iShouldSeeDischargeLocationUnderTransition(String text) {
+		iVerifyTextFromListOfElement(By.cssSelector(".discharge_location-column"), text);
 	}
 	
 	public void iShouldSeeTextForLOSOnTransitionModal(String text) {

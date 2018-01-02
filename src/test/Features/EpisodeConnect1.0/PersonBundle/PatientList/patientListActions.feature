@@ -1,5 +1,6 @@
 @EC1Smoke
 Feature: Patient list action
+
   Scenario: Verify Add Form(s) from Patient List
 	Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
@@ -36,7 +37,8 @@ Feature: Patient list action
     When I click on "Add Form(s)" from patients list patient gear menu
     Then I verify "Assign New Form" header on popup
     Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
-    And I click on "Assign" button 
+    And I click on "Assign" button
+    And I refresh the page 
     And I verify "Unknown" onboarding status on patient list page
     
   Scenario: Add New Clinician for specific patient from patient list

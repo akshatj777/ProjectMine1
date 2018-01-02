@@ -126,6 +126,16 @@ public class PatientDashboardSteps extends DriverScript {
 		dashboard.iClickButtonUnderMessage(text);
     }
 	
+	@And("^I click on Reply button for message$")
+    public void i_Click_On_Reply_Button_For_Message() throws Throwable {
+		dashboard.iClickOnReplyButtonForMessage();
+    }
+	
+	@And("^I click on Add files button to upload files for message$")
+    public void i_Click_On_AddFiles_Button_Under_Message() throws Throwable {
+		dashboard.iClickOnAddFilesButtonUnderMessage();
+    }
+	
 	@And("^I should see \"([^\"]*)\" text error under Message$")
     public void i_Should_See_text_Under_Message_Error(String text) throws Throwable {
 		dashboard.iShouldSeeTextErrorUnderMessage(text);

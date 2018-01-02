@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Verification of My Profile
 
   Scenario: Verification of my profile changes

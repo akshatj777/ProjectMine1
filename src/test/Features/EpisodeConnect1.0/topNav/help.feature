@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Verification of help page from episode connect 1
 
   Scenario: Verify the user redirects to help center page

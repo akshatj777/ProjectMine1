@@ -20,8 +20,9 @@ Scenario: Verify Message functionality
     And I click on "FRN MEDICARETESTING" to Add recipient in Compose message
     Then I enter message "Automation Testing" in the compose message field
     And I switch to default window from iframe
-    And I click on "Add files" button under message tab
+#    And I click on Add files button to upload files for message
     And I upload Sample file to send message
+    And I click on "Send" button under message tab
     And I will wait to see "Message sent" in "p" tag
     And I switch back to old window
     And I click on the top user account link and click on "Log Out" button
@@ -38,6 +39,7 @@ Scenario: Verify Message functionality
     And I click on see all messages under Message on header navigation bar
     And I click on first messaage in Inbox
     And I click on "Reply" button under message tab
+    And I click on Reply button for message
     And I click on "Send" button under message tab
     And I will wait to see "Message sent" in "p" tag
     And I click on gear icon for first message

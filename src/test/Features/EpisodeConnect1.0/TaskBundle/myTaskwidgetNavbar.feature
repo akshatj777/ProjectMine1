@@ -29,7 +29,7 @@ Feature: Filters pinned to dashboard
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
     
- Scenario: My task test cases
+ Scenario: Verify display of no of tasks and verify task moved to complete tab on mraked as complete
  	Then I navigate to the "/secure/person/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag

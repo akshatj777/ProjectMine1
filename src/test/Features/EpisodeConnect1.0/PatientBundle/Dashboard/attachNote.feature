@@ -1,7 +1,7 @@
 @EC1Smoke
 Feature: Attach Note to the Transition
 
-  Scenario: Attach note to the transition
+  Background: Create Patient
   	Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -27,9 +27,10 @@ Feature: Attach Note to the Transition
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    And I will wait to see patient's name on patient summary page
+    And I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     
+ Scenario: Attach note to the transition
+    Then I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days

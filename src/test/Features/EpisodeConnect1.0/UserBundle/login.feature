@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Login
 
   Scenario: Login feature

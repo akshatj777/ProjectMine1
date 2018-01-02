@@ -123,8 +123,18 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iClickButtonUnderMessage(String text){
-		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
-		clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+		iWillWaitToSee(By.xpath("//button[contains(text(),'"+text+"')]"));
+		clickElement(driver.findElement(By.xpath("//button[contains(text(),'"+text+"')]")));
+	}
+	
+	public void iClickOnReplyButtonForMessage(){
+		iWillWaitToSee(By.cssSelector(".btn.blue.reply-btn"));
+		clickElement(driver.findElement(By.cssSelector(".btn.blue.reply-btn")));
+	}
+	
+	public void iClickOnAddFilesButtonUnderMessage(){
+		iWillWaitToSee(By.xpath("//span[text()='Add files...']"));
+		clickElement(driver.findElement(By.cssSelector(".btn.green.fileinput-button")));
 	}
 	
 	public void iShouldSeeTextErrorUnderMessage(String text){
@@ -138,8 +148,10 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iClickOnRecipientToAddRecipientInComposeMessage(String text){
-		iWillWaitToSee(By.xpath("//li[contains(text(),'"+text+"')]"));
-		clickElement(driver.findElement(By.xpath("//li[contains(text(),'"+text+"')]")));
+		iWillWaitToSee(By.cssSelector("#messageRecipients_chzn_o_0"));
+//		iWillWaitToSee(By.xpath("//li[contains(text(),'"+text+"')]"));
+		clickElement(driver.findElement(By.cssSelector("#messageRecipients_chzn_o_0")));
+//		clickElement(driver.findElement(By.xpath("//li[contains(text(),'"+text+"')]")));
 	}
 	
 	public void iEnterTextInComposeMessage(String text){
