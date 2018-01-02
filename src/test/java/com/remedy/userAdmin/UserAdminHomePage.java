@@ -16,6 +16,7 @@ public class UserAdminHomePage extends BaseClass {
 
 	public void clickCreateUserButton() {
 		delay();
+		iWillWaitToSee(By.xpath("//button[text()='Add User']"));
 		clickElement(driver.findElement(By.xpath("//button[text()='Add User']")));
 	}
 
@@ -57,6 +58,7 @@ public class UserAdminHomePage extends BaseClass {
 	}
 
 	public void iSeeUserAdminPageHeader(String pageHeader) {
+		iWillWaitToSee(By.cssSelector(".row.page-header>h1"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".row.page-header>h1")), pageHeader);
 	}
 

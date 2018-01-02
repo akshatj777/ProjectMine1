@@ -32,9 +32,9 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
+		iWillWaitToSee(By.xpath("//input[@type='email']"));
 		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(username);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
-		delay();
 	}
 	
 	public void iEnterPasswordToLoginMailAccount(String password) {	
@@ -50,31 +50,25 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iClickOnInboxUnderMail() {
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
-		delay();
-		for(int i=0;i<5;i++){
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
-		}
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
-		delay();
+		iWillWaitToSee(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']"));
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	
 	public void iClickOnDeleteIconInMail() {
-		boolean value = driver.findElement(By.xpath("//div[@aria-label='Delete']")).isDisplayed();
-		if(value == true)
+		boolean flag = driver.findElement(By.xpath("//div[@aria-label='Delete']")).isDisplayed();
+		if(flag==true)
 		{
 			clickElement(driver.findElement(By.xpath("//div[@aria-label='Delete']")));
-			//iWillWaitToSee(By.cssSelector(".bofITb"));
-			//System.out.println(driver.findElement(By.cssSelector(".bofITb")).getText());
 		}
 	}
 	
 	public void iSignOutFromMailAccount() {
 		try
 		{
-			delay();
 			iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
 			clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
 			delay();
@@ -91,17 +85,18 @@ public class MailCreateUser extends BaseClass{
 		{
 			System.out.println(e.toString());
 		}
-		
 	}
 	
 	public void iEnterEmailToCreateUser(String emailName) {
 		if(emailName.equalsIgnoreCase("test.automatemail"))
 			{
 			email = emailName+"+"+RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
-				driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
+			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
 			}
 		else
 			{
+			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
 			}
 		
@@ -144,6 +139,7 @@ public class MailCreateUser extends BaseClass{
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
+		isElementPresentOnPage(By.xpath("//a[contains(text(),'Inbox (')]"));
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
@@ -152,6 +148,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
 	}
 	
@@ -167,12 +164,12 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iEnterNewUserEmailForLoginToRemedy(String role) {
 		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
-		System.out.println("Enter Email for singh in "+emailVal);
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
+		iWillWaitToSee(By.xpath("//input[@name='password']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
 	}
 	

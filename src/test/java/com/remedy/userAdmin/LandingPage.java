@@ -23,7 +23,7 @@ public class LandingPage extends BaseClass{
     }
        
     public void iClickOnApplicateTile(String tile){
-        delay();
+        iWillWaitToSee(By.xpath(tile));
         clickElement(driver.findElement(By.xpath(tile)));
     }
 
@@ -33,16 +33,17 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSwitchBackToOldWindow(){
-    	delay();
         switchBacktoOldWindow();
     }
 
     public void iClickOnTheTopUserAccountIcon (){
     	delay();
     	if (driver.findElements(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).size()>0){
+    		iWillWaitToSee(By.xpath("//div[@class='ui dropdown menu-profile-btn']"));
     		clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
     	}
     	else{
+    		iWillWaitToSee(By.xpath("//div[@class='ui dropdown menu-profile-btn']"));
         	clickElement(driver.findElement(By.xpath("//menu-dropdown[contains(@class,'flex-item item-dropdown-right')]")));
     	}
     }
@@ -64,6 +65,7 @@ public class LandingPage extends BaseClass{
     }
     
     public void iClickOnHamburgurMenuOnTop(){
+    	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']"));
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
 }

@@ -41,9 +41,9 @@ Feature: Create User - Super Admin User
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    #And I clear the browser history
+    And I clear the browser history
     Given I am on mail login page
-    #Then I enter username "test.automatemail" to login mail account
+    Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
     Then I click on Inbox in mail
