@@ -1330,4 +1330,16 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyTextNotPresentInTheReportsTable(String text){
     	verifyTextNotPresentForElementFromList(".sortActiveAsc>div>div:nth-of-type(1)",text);
     }
+    
+    public void iSeeAnchorHospitalAdmissionYearFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admission Year]']/span")),text);
+    }
+    
+    public void iSeeAnchorDischargeDateKeyFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[anchor Discharge Date Key].[anchor Discharge Date Key]']/span")),text);
+    }
+    
+    public void iClickonEpisodesFieldUnderDefaultMeasuresToOpenList(){
+    	clickElement(driver.findElement(By.xpath("//div[@formula='[Measures].[# Episodes]'][@type='measure'] //div[@class='gemMenuHandle scalable']")));
+    }
 }

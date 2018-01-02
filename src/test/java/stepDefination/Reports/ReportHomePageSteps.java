@@ -1440,6 +1440,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("^I verify \"([^\"]*)\" column is added to report after selecing add to report option$")
+    @And("^I verify \"([^\"]*)\" column is already present on the reports$")
     public void i_velrify_column_is_added_to_report_after_selecting_add_to_report_option(String text) throws Throwable{
     	reportHomePage.iShouldSeeColumnAfterClickingAddToReport(text);
     }
@@ -1680,5 +1681,20 @@ public class ReportHomePageSteps extends DriverScript {
     @And("I verify \"([^\"]*)\" column is not present in the reports")
     public void i_verify_column_is_not_present_in_the_reports(String text) throws Throwable{
     	reportHomePage.iVerifyTextNotPresentInTheReportsTable(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor hospital admission year filter$")
+    public void i_verify_is_appearing_under_preselected_anchor_hospital_admission_year_filter(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorHospitalAdmissionYearFilterPreselected(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected filters for anchor Discharge Date Key$")
+    public void i_verify_is_appearing_under_preselected_filters_for_anchor_Discharge_Date_Key(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorDischargeDateKeyFilterPreselected(text);
+    }
+    
+    @When("^I click on Episodes field in the default measures to open the list$")
+    public void i_click_on_Episodes_field_in_the_default_measures_to_open_the_list() throws Throwable{
+    	reportHomePage.iClickonEpisodesFieldUnderDefaultMeasuresToOpenList();
     }
 }

@@ -393,3 +393,110 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | email                              |
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: Verification of episode drg issues report with pgp model3 users
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    Then I should see Reports Tile text as Patient ID
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    #Default Filters
+    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor hospital admission year filter
+    Then I verify "anchor Discharge Date Key includes 1" is appearing under preselected filters for anchor Discharge Date Key
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #Default Dimensions
+    Then I should see "Participant" under "dimensions" field
+    Then I should see "Episode Initiator" under "dimensions" field
+    Then I should see "Issue" under "dimensions" field
+    Then I should see "Anchor Hospital Admission Month" under "dimensions" field
+    #Default Measures
+    Then I should see "# Episodes" under "measures" field
+    Then I should see "Avg. Days to First Working DRG" under "measures" field
+    Then I should see "Avg. Days to First Predicted DRG" under "measures" field
+    Then I should see "Avg. Days to First Final DRG" under "measures" field
+    #Default Fields Verification in reports
+    And I verify "Participant" column is already present on the reports
+    And I verify "Episode Initiator" column is already present on the reports
+    And I verify "Issue" column is already present on the reports
+    And I verify "Anchor Hospital Admission Month" column is already present on the reports
+    And I verify "# Episodes" column is already present on the reports
+    And I verify "Avg. Days to First Working DRG" column is already present on the reports
+    And I verify "Avg. Days to First Predicted DRG" column is already present on the reports
+    And I verify "Avg. Days to First Final DRG" column is already present on the reports
+    #Dimension Fields(Drag and Drop)
+    When I click to "Anchor Hospital Facility" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Facility" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Facility" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Provider" field filter under "Anchor Post Acute Provider" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Provider" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Provider" column is added to report after selecing add to report option
+    When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "BPID" field is appearing in the layout section after selecting add to report
+    Then I verify "BPID" column is added to report after selecing add to report option
+    When I click to "Final DRG Status" field filter under "Final DRG Status" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Final DRG Status" field is appearing in the layout section after selecting add to report
+    Then I verify "Final DRG Status" column is added to report after selecing add to report option
+    When I click to "Working DRG Status" field filter under "Working DRG Status" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Working DRG Status" field is appearing in the layout section after selecting add to report
+    Then I verify "Working DRG Status" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Provider CCN" field filter under "Anchor Post Acute Provider" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Provider CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Provider CCN" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Discharge Facility" field filter under "Anchor Hospital Discharge Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Facility" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Facility" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Provider" field filter under "Anchor Post Acute Discharge Provider" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Facility CCN" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Provider CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Provider CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Provider CCN" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Facility Type" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Facility Type" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Facility Type" column is added to report after selecing add to report option
+
+    Examples: 
+      | email                         |
+      | shutestauf171115a@yopmail.com |
+      | shutestagu22945am@yopmail.com |
