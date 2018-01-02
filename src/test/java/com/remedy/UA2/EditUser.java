@@ -53,7 +53,7 @@ public class EditUser extends BaseClass {
 	}
 
 	public void iEnterPhone(String number) {
-		iWillWaitToSee(By.cssSelector("input[placeholder='Phone']"));
+		
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Phone']")), number);
 	}
 
@@ -235,6 +235,29 @@ public class EditUser extends BaseClass {
 	   }
 	   public void iVerifyErrorMessage(String text){
 		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	   }
+	   public void removeLearningPathway(){
+		   iWillWaitToSee(By.cssSelector(".delete.icon"));
+		   clickElement(driver.findElement(By.cssSelector(".delete.icon")));
+	   }
+	   public void iClickOnCloseIcon(){
+		   clickElement(driver.findElement(By.cssSelector(".close.icon")));
+	   }
+	   public void iValidateNPI(String npi, String text){
+		   if (text.contains("not")){
+			   Assert.assertTrue(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+npi+"')]")));
+		   }
+		   else {
+			   Assert.assertTrue(isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+npi+"')]"))));
+		   }
+	   }
+	   public void iValidateAlertText(String text){
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	   }
+	   public void iValidateCancelButton(String text){
+		   
 		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
 }

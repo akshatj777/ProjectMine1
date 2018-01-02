@@ -202,6 +202,7 @@ public class BaseClass {
 			return;
 		}
 		obj.clear();
+		System.out.println("******"+text);
 		if ("".equals(text)) {
 			return;
 		}

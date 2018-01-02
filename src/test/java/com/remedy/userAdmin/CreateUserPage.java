@@ -99,11 +99,14 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterFirstName(String text){
+    
     	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
+    
     }
 
     public void iEnterLasttName(String text) {
+    	
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
     }
 
@@ -126,6 +129,7 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
+    	
     	iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
     }
@@ -293,9 +297,10 @@ public class CreateUserPage extends BaseClass{
        	}
        	else
        	{
+       		if(appList.isEmpty()==false){
        		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
        		System.out.println("deselecting "+appList);
-       		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
+       		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));}
        	}
        	userApplications = appList;
        	 
@@ -712,12 +717,27 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
-       iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
+	   if(searchParam.contains(","))
+	   {
+				String[] search = searchParam.split(",\\s+");
+
+				for (int i = 0; i < search.length; i++) {
+	    System.out.println(search[i]);
+       iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), search[i]);
+       selectLearningPath(search[i]);
+	       }
+	   }
+	   else{
+		   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
+	   }
    }
 
    public void selectLearningPath(String searchParam) throws Throwable {
+	   if(searchParam.contains(",")==false){
+		   
 	   iWillWaitToSee(By.xpath("//label[contains(text(),'"+searchParam+"')]"));
        clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
+   }
    }
    
    public void clearLearningPathwaySearchBox() throws Throwable {
@@ -739,6 +759,7 @@ public class CreateUserPage extends BaseClass{
 	   }
 	   else
 	   {
+		   iWillWaitToSee(By.xpath("//label[text()='"+programList+"']"));
 		   clickElement(driver.findElement(By.xpath("//label[text()='"+programList+"']")));
 	   }
    }

@@ -116,4 +116,24 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyErrorMessage(String text){
 		editUser.iVerifyErrorMessage(text);
 	}
+	@Then("^I remove LearningPathwaySearchParameter$")
+	public void removeLearningPathway(){
+		editUser.removeLearningPathway();
+	}
+	@Then("^I click on Close icon$")
+	public void i_click_on_Close_icon() throws Throwable {
+	  editUser.iClickOnCloseIcon();
+	}
+	@Then("^I verify that \"([^\"]*)\" is \"([^\"]*)\" on page$")
+	public void iValidateNPI(String npi, String text){
+		editUser.iValidateNPI(npi, text);
+	}
+	@Then("^I should see an alert with text \"([^\"]*)\"$")
+	public void iValidateAlertText(String text){
+		editUser.iValidateAlertText(text);
+	}
+	@Then("^I should see \"([^\"]*)\" button$")
+	public void iValidateCancelButton(String text){
+		editUser.iValidateCancelButton(text);
+	}
 }
