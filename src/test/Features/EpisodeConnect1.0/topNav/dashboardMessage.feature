@@ -12,18 +12,18 @@ Scenario: Verify Message functionality
     Then I click on Message Icon on header navigation bar 
     And I click on see all messages under Message on header navigation bar
     And I click on "Compose" under Message tab on Dashboard
-    And I click on "Send" button under message tab
-    
-    And I should see "You should enter at least one recipient" text error under Message
-    And I should see "This value should not be blank." text error under Message
     Then I enter "FRN MEDICARETESTING" in To field under Compose message
     And I click on "FRN MEDICARETESTING" to Add recipient in Compose message
-    Then I enter message "Automation Testing" in the compose message field
+    Then I enter message "Automation_Testing" in the compose message field
     And I switch to default window from iframe
 #    And I click on Add files button to upload files for message
     And I upload Sample file to send message
     And I click on "Send" button under message tab
     And I will wait to see "Message sent" in "p" tag
+    And I click on "Compose" under Message tab on Dashboard
+    And I click on "Send" button under message tab
+    And I should see "You should enter at least one recipient" text error under Message
+    And I should see "This value should not be blank." text error under Message
     And I switch back to old window
     And I click on the top user account link and click on "Log Out" button
     

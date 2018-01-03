@@ -24,13 +24,14 @@ Feature: Filters pinned to dashboard
     Then I click on the next button present on the Primary Care Physician Information page
     And I will wait to see "New Transition" in "h4" tag
     Then I click on the Cancel Button on the New Transition on Add Patient page
-    Then I navigate to the "/secure/person/mongoID/overview"
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
     
  Scenario: Verify display of no of tasks and verify task moved to complete tab on mraked as complete
- 	Then I navigate to the "/secure/person/mongoID/careteam"
+ 	Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
     And I click on gear icon on patient overview page

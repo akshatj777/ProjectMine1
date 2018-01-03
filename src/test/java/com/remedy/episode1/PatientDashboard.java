@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.server.handler.ClickElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
@@ -108,6 +109,7 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iClickOnMessageIconOnHeaderNavigationBar(){
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
 		iWillWaitToSee(By.cssSelector(".fa.fa-envelope"));
 		clickElement(driver.findElement(By.cssSelector(".fa.fa-envelope")));
 	}
@@ -164,7 +166,7 @@ public class PatientDashboard extends BaseClass {
 		String filePath = System.getProperty("user.dir")
 				+ "//src//test//Imports//ECSample.jpeg";
 		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(filePath);
-
+		delay();
 	}
 	
 	public void iClickOnFirstMessageInInbox(){

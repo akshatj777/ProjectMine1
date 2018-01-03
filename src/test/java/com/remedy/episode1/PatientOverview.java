@@ -50,7 +50,9 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iClickOnButtonUnderPatientOverview(String button){
-		clickSingleElementFromList(By.xpath("//div[@class='pull-right open']//li//a"), button);
+//		clickSingleElementFromList(By.xpath("//div[@class='pull-right open']//li//a"), button);
+		clickSingleElementFromList(By.xpath("//div[@class='pull-right']/a"), button);
+		
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ui-assign-clinician-table_processing"))));
 	}
