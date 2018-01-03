@@ -1,4 +1,4 @@
-Feature: Edit page for superuser verification
+Feature: Edit page for Downstream provider
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and verify permissions tab
     Given I am on the login page
@@ -20,15 +20,15 @@ Feature: Edit page for superuser verification
     Then I enter characters "<Locations>" in location serach
     Then I search and select "<Locations>" locations
     Then I click on Submit button
-    And I wait for 7000 milli seconds
+    And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | PreviousRole | Role                | Applications           | Locations                        |
-      | Super Admin | test.automatemail | Manager      | Downstream Provider | Episodes, Episodes 2.0 | Baptist Hospital Of Roane County |
+      | user        | Email             | PreviousRole    | Role                | Applications           | Locations                        |
+      | Super Admin | test.automatemail | Remedy Field RN | Downstream Provider | Episodes, Episodes 2.0 | Baptist Hospital Of Roane County |
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role>
     Given I am on the login page
@@ -40,11 +40,8 @@ Feature: Edit page for superuser verification
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
-    And I cleared the textbox under edit user "First Name"
     And I fill in First Name with "<FirstName>"
-    And I cleared the textbox under edit user "Last Name"
     Then I fill in Last Name with <LastName>
-    And I cleared the textbox under edit user "Phone"
     And I fill in Phone with <Phone>
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role>
@@ -76,7 +73,6 @@ Feature: Edit page for superuser verification
     Then I click on Hamburger menu on top right of homepage
     And I verify "<ApplicationsVisible>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
-    
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 

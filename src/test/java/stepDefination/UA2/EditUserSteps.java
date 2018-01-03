@@ -27,10 +27,7 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	   editUser.iClickOnEditButton();
 	}
 
-	@And("^I cleared the textbox under edit user \"([^\"]*)\"$")
-	public void i_Cleared_The_Textbox_Under_Edit_User_FirstName_Tab(String field) throws Throwable{
-		editUser.iClearTextBox(field);
-	}
+	
 	@And("^I fill in Phone with([^\"]*)$")
 	public void iFillInPhone(String number) throws Throwable {
 		editUser.iEnterPhone(number);

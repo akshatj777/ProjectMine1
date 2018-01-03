@@ -45,12 +45,7 @@ public class EditUser extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".ui.primary.button"));
 	}
 
-	public void iClearTextBox(String name) {
-		
-			iWillWaitToSee(By.cssSelector("input[placeholder='"+name+"']"));
-			driver.findElement(By.cssSelector("input[placeholder='"+name+"']")).clear();
 	
-	}
 
 	public void iEnterPhone(String number) {
 		
@@ -64,16 +59,16 @@ public class EditUser extends BaseClass {
 				driver.findElements(By.cssSelector("span.user-name-text>span")).get(1).getText().contains(field));
 		// verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(1),
 		// field);
-	}
 
+	}
 	public void iVerifyLastNameInUserPage(String field) {
+		
 		iWillWaitToSee(By.cssSelector("span.user-name-text"));
 		Assert.assertTrue(
 				driver.findElements(By.cssSelector("span.user-name-text>span")).get(0).getText().contains(field));
 		// verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0),
 		// field);
-	}
-
+		}
 	public void iVerifyRoleInUserPage(String field) {
 		String text = "Role:" + " " + field;
 		iWillWaitToSee(By.cssSelector(".info-row>span"));
@@ -82,6 +77,7 @@ public class EditUser extends BaseClass {
 	}
 
 	public void iVerifyPhoneInUserPage(String num) {
+		
 		String text = "Phone:" + " " + num;
 		iWillWaitToSee(By.cssSelector(".info-row>span"));
 		// System.out.println("text: "+text);
@@ -89,8 +85,8 @@ public class EditUser extends BaseClass {
 		// "+driver.findElement(By.xpath("//*[contains(text(),
 		// 'Phone')]")).getText());
 		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Phone')]")), text);
+	
 	}
-
 	public void iVerifyThatEmailIsNonEditable() {
 		iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 		// driver.findElement(By.xpath("//input[@placeholder='Email']"));
@@ -245,8 +241,9 @@ public class EditUser extends BaseClass {
 		   clickElement(driver.findElement(By.cssSelector(".close.icon")));
 	   }
 	   public void iValidateNPI(String npi, String text){
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'Role:')]"));
 		   if (text.contains("not")){
-			   Assert.assertTrue(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+npi+"')]")));
+			   Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+npi+"')]")));
 		   }
 		   else {
 			   Assert.assertTrue(isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+npi+"')]"))));
