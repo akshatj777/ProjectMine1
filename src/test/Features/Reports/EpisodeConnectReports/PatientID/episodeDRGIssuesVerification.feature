@@ -495,6 +495,107 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Facility Type" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Facility Type" column is added to report after selecing add to report option
+    #
+    When I click to "Anchor Post Acute Provider Type" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Provider Type" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Provider Type" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Discharge Facility Type" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Facility Type" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Facility Type" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Provider Type" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Provider Type" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Provider Type" column is added to report after selecing add to report option
+    When I click to "Bundle" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Bundle" field is appearing in the layout section after selecting add to report
+    Then I verify "Bundle" column is added to report after selecing add to report option
+    When I click to "Bundle DRG Code" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
+    Then I verify "Bundle DRG Code" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Admission Month" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Admission Month" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Admission Week" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Admission Week" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Admission Week" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Admission Quarter" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Admission Quarter" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Admission Quarter" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Admission Year" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Admission Year" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Admission Year" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Discharge Week" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Week" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Week" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Discharge Quarter" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Quarter" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Quarter" column is added to report after selecing add to report option
+    When I click to "Anchor Hospital Discharge Year" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Year" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Year" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Admission Month" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Admission Month" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Admission Month" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Admission Week" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Admission Week" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Admission Week" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Admission Quarter" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Admission Year" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Month" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Month" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Month" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Week" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Week" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Week" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Quarter" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Quarter" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Quarter" column is added to report after selecing add to report option
+    When I click to "Anchor Post Acute Discharge Year" field filter under "Anchor Hospital Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Year" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Year" column is added to report after selecing add to report option
 
     Examples: 
       | email                         |
