@@ -29,7 +29,6 @@ Feature: Edit user page for General cases
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I should see "No Results found" for Learning Pathway
 
-
     Examples: 
       | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | Applications                                                | LearningPathwaySearchParameter |
       | Super Admin | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |
@@ -55,11 +54,11 @@ Feature: Edit user page for General cases
     And I should see error message "Phone is required"
 
     Examples: 
-      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | NPI       | Role       |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |         1 |        2 | test.automatemail |   347 | 123456789 | Physicians |
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | NPI        | Role       |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |         1 |        2 | test.automatemail |   abc3479074 |  123456789 | Physicians |
+      #| Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |        56 | 1Last    | test.automatemail | as34 | asbcf12345 | Physicians |
+     # | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | 1First    |      456 | test.automatemail | as34! | qawsedrftg | Physicians |
 
-  #| Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |   56        |   1Last       | test.automatemail | as34! | asbcf12345 | Physicians |
-  #| Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |       1First    |     456     | test.automatemail | as34! | qawsedrftg | Physicians |
   Scenario Outline: verify enable/disable application functionality for <Role>
     Given I am on the login page
     When I log in as super user
@@ -87,7 +86,6 @@ Feature: Edit user page for General cases
     And I wait for 3000 milli seconds
     And I verify that "<Applications>" are "Enabled"
 
-
     Examples: 
       | user        | Email             | Role                           | DisableApplications                             | Applications                                                                     | LearningPathwaySearchParameter | Health System     | NPI |
       | Super Admin | test.automatemail | Executive                      | Lessons, Episodes                               | Reports, Lessons, Episodes, Episodes 2.0                                         | NFdw0Kts2C01                   | Stamford Hospital |     |
@@ -114,7 +112,6 @@ Feature: Edit user page for General cases
     Then I click on Next button
     Then I click on Close icon
     And I verify Role <PreviousRole> in user page
-
 
     Examples: 
       | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications                             | Health System     | LearningPathwaySearchParameter |
@@ -159,7 +156,6 @@ Feature: Edit user page for General cases
     And I wait for 3000 milli seconds
     And I verify Role <PreviousRole> in user page
     And I verify that "NPI" is "present" on page
-
 
     Examples: 
       | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications                             | Health System     | LearningPathwaySearchParameter |

@@ -47,7 +47,7 @@ Feature: Edit General information/Role/Permissions and validate
       | User        | Role       | Email             | DisableApplications | Applications                | Health System     |
       | Super Admin | Remedy TCS | test.automatemail | Reports, Lessons    | Episodes 2.0, Episodes, TCI | Stamford Hospital |
 
-  #Execute when submit is processed fast
+ 
   Scenario Outline: Changing Data permissions and add another organisation <Health System2> for <Role>
     Given I am on the login page
     When I log in as super user
@@ -69,7 +69,7 @@ Feature: Edit General information/Role/Permissions and validate
     Then I click on Select All Locations button for "Second" Organisation
     And I wait for 3000 milli seconds
     Then I click on Submit button
-    And I wait for 3000 milli seconds
+    And I wait for 7000 milli seconds
     Then I verify "<Health System1>, <Health System2>" under Data Permissions
 
     Examples: 

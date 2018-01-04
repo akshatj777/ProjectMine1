@@ -151,7 +151,9 @@ public class EditUser extends BaseClass {
 	}
 	public void iVerifyDataPermission(String arg){
 		longDelay();
+		iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
 		if (arg.contains(",")) {
+			
 			String[] org = arg.split(",\\s+");
 
 			for (int i = 0; i < org.length; i++) {
