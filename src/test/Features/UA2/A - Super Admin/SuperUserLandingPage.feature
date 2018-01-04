@@ -1,6 +1,6 @@
 Feature: Super Admin Landing page verification
 
-Scenario: Verification of Super Admin Landing page UI, user information and pagination
+  Scenario: Verification of Super Admin Landing page UI, user information and pagination
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -34,20 +34,18 @@ Scenario: Verification of Super Admin Landing page UI, user information and pagi
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-
-    Then I enter invalid data "<Search>" in search box for "<user>-<Role>"
+    Then I enter invalid data "<invalidSearch>" in search box
     Then I should see error message "No Results Found"
     Then I should see cross icon to exit search
     Then I click on cross icon
     And I should see all users back in page
-
-    Then I enter "<Search>" in search box for "<user>-<Role>"
+    Then I enter "<Search>" in search box
+    Then I enter "<Email>" in search box for "<user>-<Role>"
     And I should see "<Search>" as "<Search By>" in search result for "<user>-<Role>"
 
-
     Examples: 
-      | user        | Role      | Search                                 | Search By                    |
-      | Super Admin | Executive | FirstName, LastName, test.automatemail | First Name, Last Name, Email |
+      | user        | Role      | Email             |invalidSearch |Search              | Search By                    |
+      | Super Admin | Executive | test.automatemail | 1|FirstName, LastName | First Name, Last Name, Email |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user and cancel unlock
     Given I am on the login page
@@ -70,7 +68,7 @@ Scenario: Verification of Super Admin Landing page UI, user information and pagi
     And I click Access button
     Then I should not be able to login
 
-   Examples: 
+    Examples: 
       | user        | Role                            |
       | Super Admin | Executive, Manager              |
       | Super Admin | Manager                         |
@@ -112,7 +110,7 @@ Scenario: Verification of Super Admin Landing page UI, user information and pagi
     And I click Access button
     Then I should see Tile text User Admin
 
-  Examples: 
+    Examples: 
       | user        | Role                            |
       | Super Admin | Executive, Manager              |
       | Super Admin | Manager                         |

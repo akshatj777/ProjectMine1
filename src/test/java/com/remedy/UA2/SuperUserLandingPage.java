@@ -19,7 +19,7 @@ import com.remedy.userAdmin.MailCreateUser;
 public class SuperUserLandingPage extends BaseClass {
 	static String mail = "test.automatemail";
 	static String email = null;
-
+static int userCountOnFirstPage;
 	public SuperUserLandingPage(WebDriver driver) {
 
 		super(driver);
@@ -212,10 +212,50 @@ public class SuperUserLandingPage extends BaseClass {
 
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
+public void SearchUserWithEmail(String emailID, String role){
+	iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
+	if (emailID.contains(",")) {
+		StringTokenizer st = new StringTokenizer(emailID, ",");
 
-	public void SearchUserWithText(String searchList, String role) {
+		while (st.hasMoreTokens()) {
+			String text = st.nextToken().trim();
+			System.out.println("token -- " + text);
+if (text.equalsIgnoreCase(mail)) {
+	String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+	System.out.println("Email "+email);
+				iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
+				iVerifySearchResult(text, "", role);
+		}
+else{
+	SearchUserWithText(text);
+	}
+}
+		}
+	else{
+		if (emailID.equalsIgnoreCase(mail)) {
+			String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+			System.out.println("Email "+email);
+	
+						iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
+					
+				}
+
+				else {
+					SearchUserWithText(emailID);
+				}
+
+			
+		
+		
+	}
+	delay();
+}
+	public void SearchUserWithText(String searchList) {
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-
+		if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true)
+			userCountOnFirstPage=30;
+		else
+			userCountOnFirstPage = driver.findElements(By.cssSelector(".five.wide")).size();
 		if (searchList.contains(",")) {
 			StringTokenizer st = new StringTokenizer(searchList, ",");
 
@@ -223,35 +263,23 @@ public class SuperUserLandingPage extends BaseClass {
 				String text = st.nextToken().trim();
 				System.out.println("token -- " + text);
 
-				if (text.equalsIgnoreCase(mail)) {
-					String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
-					System.out.println("Email "+email);
-								iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
-								iVerifySearchResult(text, "", role);
-						} else {
+				
 							iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
-							iVerifySearchResult(text, "Name", role);
-						}
+							iVerifySearchResult(text, "Name", "");
+						
 			
 			}
-			delay();
+			
 		} else {
-			if (searchList.equalsIgnoreCase(mail)) {
-				String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
-				System.out.println("Email "+email);
-		
-							iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
-						
-					}
-
-					else {
+			
 						iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), searchList);
-					}
+					
 
 				
 			
-			delay();
+			
 		}
+		delay();
 	}
 
 	public void iVerifySearchResult(String result, String searchBy, String role) {
@@ -370,7 +398,10 @@ public class SuperUserLandingPage extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
-
+public void iSeeUsersBackOnClosingSearch(){
+	iWillWaitToSee(By.cssSelector("th#lastName"));
+	verifyElementCount(".five.wide", userCountOnFirstPage);
+}
 
 }
 

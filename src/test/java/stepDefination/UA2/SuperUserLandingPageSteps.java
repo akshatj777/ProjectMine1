@@ -106,15 +106,18 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 
-@Then ("^I enter invalid data \"([^\"]*)\" in search box for \"([^\"]*)\"$")
-public void i_enter_search_box_in_landing_page_withInvalidData(String text, String userRole) throws Throwable {
-	ua2LandingPage.SearchUserWithText(text, userRole);
+@Then ("^I enter invalid data \"([^\"]*)\" in search box$")
+public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
+	ua2LandingPage.SearchUserWithText(text);
 }
 
-
+@Then ("^I enter \"([^\"]*)\" in search box$")
+public void i_enter_text_in_search_box_in_landing_page(String text) throws Throwable {
+	ua2LandingPage.SearchUserWithText(text);
+}
 	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
 	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text, userRole);
+		ua2LandingPage.SearchUserWithEmail(text, userRole);
 
 	}
 
@@ -127,8 +130,9 @@ public void i_enter_search_box_in_landing_page_withInvalidData(String text, Stri
 	public void iShouldNotBeAbleToLogin() throws Throwable {
 		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
-	@Then("^Then I should see error message \"([^\"]*)\"$")
-	public void iSeeErrorMessageForInvalidSearch(String text){
+
+	@Then("^I should see error message \"([^\"]*)\"$")
+	public void i_should_see_error_message(String text) throws Throwable {
 		ua2LandingPage.iSeeErrorMessageForInvalidSearch(text);
 	}
 	@Then("^I should see cross icon to exit search$")
@@ -138,5 +142,9 @@ public void i_enter_search_box_in_landing_page_withInvalidData(String text, Stri
 	@Then("^I click on cross icon$")
 	public void iClickCrossIconForSearch(){
 		ua2LandingPage.iClickCrossIconForSearch();
+	}
+	@Then("^I should see all users back in page$")
+	public void iSeeUsersBackOnClosingSearch(){
+		ua2LandingPage.iSeeUsersBackOnClosingSearch();
 	}
 }
