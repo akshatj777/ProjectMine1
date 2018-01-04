@@ -128,8 +128,8 @@ Feature: Managing Various Episode States
     Then I fill in "Discharge" with logic "minus" with "30" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Expired" option
     When I fill in eligibility "Date of Death" with "0" days
@@ -143,12 +143,13 @@ Feature: Managing Various Episode States
   Scenario: Episode COMPLETED-365 - Anchor admit date before 365 days
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "90" days
+    Then I fill in "Admit" with logic "minus" with "400" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED 365" state
-
+    Then I will wait to see onboarding status "Unknown"
+    
   Scenario: EXPIRED AS INPATIENT-Removing dod should rerun episode logic and also reinstate previous eligibility status.
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Expired" option
