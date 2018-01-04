@@ -38,12 +38,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	   ua2LandingPage.iVerifyLandingPageUI(text);
 	}
 
-	@Then("^I enter email field \"([^\"]*)\" for login$")
-	public void i_enter_email_field_for_login(String arg1) throws Throwable {
 
-	}
 
-	@Then("^I verify \"([^\"]*)\" value for all users on landing page$")
+	@Then("^I verify \"([^\"]*)\" value for users on landing page$")
 	public void i_verify_for_all_users_on_landing_page(String arg1) throws Throwable {
 	  ua2LandingPage.verifyUserInformation(arg1);
 	}
@@ -68,7 +65,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iVerifyUnlockedUser();
 	}
 
-	@Then("^I lock user with email \"([^\"]*)\"$")
+	@Then("^I lock user \"([^\"]*)\"$")
 	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
 		ua2LandingPage.iLockUser();
 	}
@@ -108,18 +105,22 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnUsersLink();
 	}
 
-@Then ("^Then I enter search box in landing page with invalid data \"([^\"]*)\"$")
-public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
-	ua2LandingPage.SearchUserWithText(text);
+
+@Then ("^I enter invalid data \"([^\"]*)\" in search box for \"([^\"]*)\"$")
+public void i_enter_search_box_in_landing_page_withInvalidData(String text, String userRole) throws Throwable {
+	ua2LandingPage.SearchUserWithText(text, userRole);
 }
-	@Then("^I enter search box in landing page with \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text);
+
+
+	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
+	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
+		ua2LandingPage.SearchUserWithText(text, userRole);
+
 	}
 
-	@Then("^I should see \"([^\"]*)\" for \"([^\"]*)\" in search result$")
-	public void i_should_see_for_in_landing_page(String result, String searchBy) throws Throwable {
-		ua2LandingPage.iVerifySearchResult(result, searchBy);
+	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result for \"([^\"]*)\"$")
+	public void i_should_see_for_in_landing_page(String result, String searchBy, String role) throws Throwable {
+		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
 	}
 
 	@Then("^I should not be able to login$")
