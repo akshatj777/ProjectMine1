@@ -26,8 +26,8 @@ Feature: Search the Managing organization functionality test
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 
-      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                       |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
@@ -50,7 +50,7 @@ Feature: Search the Managing organization functionality test
     And I click on "Edit" button on particular organization
     And I edit "Managing Organization Name" field to "<Edited_MO_Name>" for organization
     Then I click on "Submit" button on "edit" organization page
-    Then I verify "Management Organization Successfully Updated." after submitting the "edit MO" organization page
+    Then I verify "Managing Organization Successfully Updated." after submitting the "edit MO" organization page
     Then I search "<Edited_MO_Name>" and verify with search list options on "Managing" organization search box
     Then I search with "<MO_Name>" old name in organization search box
     Then I verify the "No matches" message for invalid search in Organization
