@@ -34,6 +34,7 @@ Feature: Filters pinned to dashboard
  	Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I click on gear icon on patient overview page
   	Then I click on "Add task" option under patient overview gear icon
   	And I verify "New Task" header on popup

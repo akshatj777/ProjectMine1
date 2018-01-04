@@ -41,7 +41,9 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iClickOnGearIconOnPatientOverviewPage(){
-		clickElement(driver.findElement(By.cssSelector(".btn.btn-primary.dropdown-toggle")));
+		delay();
+		scrollIntoViewByJS(driver.findElements(By.cssSelector(".btn.btn-primary.dropdown-toggle")).get(0));
+		clickElement(driver.findElements(By.cssSelector(".btn.btn-primary.dropdown-toggle")).get(0));
 	}
 	
 	public void iClickOnOptionUnderPatientOverviewGearIcon(String text){
@@ -50,11 +52,16 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iClickOnButtonUnderPatientOverview(String button){
+		delay();
+		if(button.equalsIgnoreCase("Join Care Team")){
+			clickElement(driver.findElement(By.xpath("//a[contains(@href,'assignMyself')]")));
+		}
+		else
 //		clickSingleElementFromList(By.xpath("//div[@class='pull-right open']//li//a"), button);
-		clickSingleElementFromList(By.xpath("//div[@class='pull-right']/a"), button);
-		
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ui-assign-clinician-table_processing"))));
+		clickSingleElementFromList(By.xpath("//div[@class='row header-nav-line']//a"), button);
+//		clickElement(driver.findElement(By.xpath("//a[contains(@href,'assignMyself')]")));
+//		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
+//		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ui-assign-clinician-table_processing"))));
 	}
 	
 	public void iSelectFirstFacilityCheckboxOnAssignTeamMemberModal(){
