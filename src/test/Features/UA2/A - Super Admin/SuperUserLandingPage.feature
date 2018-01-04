@@ -37,7 +37,13 @@ Feature: Super Admin Landing page verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter search box in landing page with "<Search>"
+    Then I enter search box in landing page with invalid data "1"
+    Then I should see error message "No Results Found"
+    Then I should see cross icon to exit search
+    Then I click on cross icon
+    And I should see all users back in page
+    And I enter search box in landing page with "<Search>"
+    
     And I should see "<Search>" for "<Search By>" in search result
 
     Examples: 
