@@ -236,4 +236,16 @@ public class SuperUserLandingPage extends BaseClass {
 		}
 
 	}
+	public void iSeeErrorMessageForInvalidSearch(String text){
+		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	}
+	public void iSeeCrossIconForSearch(){
+		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
+		isElementVisible(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
+	}
+	public void iClickCrossIconForSearch(){
+		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
+		clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
+	}
 }

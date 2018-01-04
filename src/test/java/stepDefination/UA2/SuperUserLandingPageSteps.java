@@ -126,5 +126,16 @@ public void i_enter_search_box_in_landing_page_withInvalidData(String text) thro
 	public void iShouldNotBeAbleToLogin() throws Throwable {
 		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
-
+	@Then("^Then I should see error message \"([^\"]*)\"$")
+	public void iSeeErrorMessageForInvalidSearch(String text){
+		ua2LandingPage.iSeeErrorMessageForInvalidSearch(text);
+	}
+	@Then("^I should see cross icon to exit search$")
+	public void iSeeCrossIconForSearch(){
+		ua2LandingPage.iSeeCrossIconForSearch();
+	}
+	@Then("^I click on cross icon$")
+	public void iClickCrossIconForSearch(){
+		ua2LandingPage.iClickCrossIconForSearch();
+	}
 }
