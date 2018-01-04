@@ -1076,6 +1076,11 @@ public class PatientsPageSteps extends DriverScript {
     public void i_click_on_the_calender_button_present_on_the_new_tranition_page() throws Throwable {
         patientsPage.iClickOnTheCalenderButtonPresentOnTheNewTranitionPage();
     }
+    
+    @Then("^I click on admit date calender button present on the new transition page$")
+    public void i_click_on_Admit_Date_calender_button_present_on_the_new_tranition_page() throws Throwable {
+        patientsPage.iClickOnAdmitDateCalenderButtonPresentOnTheNewTranitionPage();
+    }
 
     @Then("^I select \"([^\"]*)\" from the care setting dropdown present on the add transition page$")
     public void i_select_from_the_care_setting_dropdown_present_on_the_add_transition_page(String option) throws Throwable {

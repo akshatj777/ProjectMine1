@@ -70,16 +70,13 @@ Feature: Store Correct Admit Facilities
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    
     Then I click on new transition button present on the patient overview page
     And I will wait to see "New Transition" in "h4" tag
-    Then I click on the calender button present on the new tranition page
+    And I click on admit date calender button present on the new transition page
     And I select today's date as the admission date
     Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
     And I select "Inpatient" from admission care type drop down menu present on Add transition page
-    When I click on Admitting Facility present on the Add transition page
-    And I wait for 2000 milli seconds
-    And I Select "Allentown" from the list of admitting facility present on the Add transition page
+    Then I select the "Admit" facility "Allentown" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     And I wait for 4000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page

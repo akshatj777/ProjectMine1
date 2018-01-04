@@ -623,7 +623,20 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnTheCalenderButtonPresentOnTheNewTranitionPage() {
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
 		clickElement(driver.findElement(By.cssSelector(".btn.default.date-set")));
+	}
+	
+	public void iClickOnAdmitDateCalenderButtonPresentOnTheNewTranitionPage() {
+		try{
+		delay();
+		clickElement(driver.findElement(By.cssSelector(".field-admitDate .btn.default.date-set")));
+		}
+		catch(Exception e){
+			waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+			delay();
+			clickElement(driver.findElement(By.cssSelector(".field-admitDate .btn.default.date-set")));
+		}
 	}
 
 	public void iSelectFromTheCareSettingDropdownPresentOnTheAddTransitionPage(String option) {
@@ -635,13 +648,14 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnAdmittingFacilityPresentOnTheAddTransitionPage() {
-		clickElement(driver.findElement(By.cssSelector("div[id*='bpadmissiontype_admitFacility']")));
+		clickElement(driver.findElement(By.cssSelector("#s2id_bp_personbundle_bpadmissiontype_admitFacility")));
 	}
 
 	public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddTransitionPage(String facility) {
 		iFillInText(driver.findElement(By.xpath("//div[@id='select2-drop']/div[@class='select2-search']/label[@class='select2-offscreen']/following-sibling::input")),facility);
 		longDelay();
-		clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-2")));
+		iWillWaitToSee(By.cssSelector("li.select2-highlighted"));
+		clickElement(driver.findElement(By.cssSelector("li.select2-highlighted")));
 	}
 
 	public void iClickOnEditButtonPresentOnThePatientOverviewPage() {
