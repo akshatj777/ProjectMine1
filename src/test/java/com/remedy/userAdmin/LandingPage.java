@@ -2,6 +2,11 @@ package com.remedy.userAdmin;
 
 
 import com.remedy.baseClass.BaseClass;
+
+import cucumber.api.java.en.And;
+
+import java.util.Set;
+
 //import org.apache.commons.collections.set.SynchronizedSet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +16,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class LandingPage extends BaseClass{
 
+	public static String parentWindowTitle = null;
     public LandingPage(WebDriver driver){
 
         super(driver);}
@@ -28,27 +34,58 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSwitchToNewWindow(){
-    	delay();
-        switchToNewWindow();
+    	try
+		{
+			String parentWindow = driver.getWindowHandle();
+			//parentWindowTitle = driver.switchTo().window(parentWindow).getTitle();
+			Set<String> handles = driver.getWindowHandles();
+			for (String windowHandle : handles) {
+				if (!windowHandle.equals(parentWindow)) {
+					driver.switchTo().window(windowHandle);
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
     }
 
     public void iSwitchBackToOldWindow(){
-        switchBacktoOldWindow();
+    	try
+    	{
+    		String parentWindow = driver.getWindowHandle();
+            Set<String> handles = driver.getWindowHandles();
+            if(!(driver.getWindowHandle().equals(parentWindow)))
+            //if(!(driver.switchTo().window(parentWindow).getTitle().equals(parentWindowTitle)))
+            {
+            	driver.close();
+            }
+            for (String windowHandle : handles) {
+                if (!windowHandle.equals(parentWindow)) {
+                    driver.switchTo().window(windowHandle);
+                }
+            }
+            delay();
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println(e.toString());
+    	}
     }
 
-    public void iClickOnTheTopUserAccountIcon (){
-    	delay();
-    	if (driver.findElements(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).size()>0){
-    		iWillWaitToSee(By.xpath("//div[@class='ui dropdown menu-profile-btn']"));
-    		clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
-    	}
-    	else{
-    		iWillWaitToSee(By.xpath("//div[@class='ui dropdown menu-profile-btn']"));
-        	clickElement(driver.findElement(By.xpath("//menu-dropdown[contains(@class,'flex-item item-dropdown-right')]")));
-    	}
+    public void iClickOnTheTopUserAccountIconOnRemedyConnectPage (){
+    	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+		clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")));
+    }
+    
+    public void IClickTopUserAccountLink() {
+    	iWillWaitToSee(By.xpath("//div[contains(text(),'.com')]/parent::div/i[@class='dropdown icon']"));
+		clickElement(driver.findElement(By.xpath("//div[contains(text(),'.com')]/parent::div/i[@class='dropdown icon']")));
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
+    	iWillWaitToSee(By.cssSelector(".btn.btn-flyout-nav"));
     	selectElementByDesc(".btn.btn-flyout-nav", link);
     }
 

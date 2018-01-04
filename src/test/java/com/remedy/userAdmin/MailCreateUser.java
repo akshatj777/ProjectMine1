@@ -37,10 +37,23 @@ public class MailCreateUser extends BaseClass{
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
 	}
 	
-	public void iEnterPasswordToLoginMailAccount(String password) {	
-		iWillWaitToSee(By.xpath("//input[@type='password']"));
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
-		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+	public void iEnterPasswordToLoginMailAccount(String password) throws InterruptedException {	
+		Thread.sleep(4000);
+		if(driver.findElement(By.xpath("//input[@type='email']")).isDisplayed())
+		{
+			driver.findElement(By.xpath("//input[@type='email']")).sendKeys("test.automatemail");
+			clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+			iWillWaitToSee(By.xpath("//input[@type='password']"));
+			driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
+			clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+		}
+		else
+		{
+			iWillWaitToSee(By.xpath("//input[@type='password']"));
+			driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
+			clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+		}
+		
 	}
 	
 	public void iClickOnMailIconOnMyAccount() {	
@@ -48,8 +61,10 @@ public class MailCreateUser extends BaseClass{
 		clickElement(driver.findElement(By.xpath("//a[@aria-label='Mail']")));
 	}
 	
-	public void iClickOnInboxUnderMail() {
+	public void iClickOnInboxUnderMail() throws InterruptedException {
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
+		Thread.sleep(4000);
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 	}
 	
@@ -121,15 +136,8 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterEmailToGeneratePasswordLink() {
-		try
-		{
-			iWillWaitToSee(By.xpath("//input[@name='email']"));
-			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.toString());
-		}
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
 	
 	public void iClickOnSendEmailButton() {
