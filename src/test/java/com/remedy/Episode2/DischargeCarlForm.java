@@ -539,6 +539,9 @@ public class DischargeCarlForm extends BaseClass {
 		System.out.println("$$$URL is"+BaseURL+new_Url);
 		delay();
 		driver.navigate().refresh();
+		if(driver.findElements(By.cssSelector(".dataTables_processing")).size()>0){
+			waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+		}
 	}
 
 	public void iWillWaitToSeename() {

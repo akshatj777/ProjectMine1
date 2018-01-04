@@ -227,9 +227,12 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnButtonWithText(String text){
+    	if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed")).size()>0){
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
+    	}
     	delay();
     	clickElement(driver.findElement(By.xpath("//*[text()='"+text+"']")));
+    	if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed")).size()>0)
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
 
     }
@@ -274,6 +277,12 @@ public class PatientsListPage extends BaseClass {
     public void iShouldSeeCountOnPatientSearchOnPatientList(String text){
     	iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
     }
+    
+    public void iClickOnFirstCheckboxOnClinicianModal(){
+    	iWillWaitToSee(By.cssSelector(".lpn-checkbox input"));
+    	clickElement(driver.findElements(By.cssSelector(".lpn-checkbox input")).get(0));
+    }
+
 
 	
 }

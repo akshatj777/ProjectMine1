@@ -18,7 +18,7 @@ Feature: User can add appointment
     Then I fill "Test" in "Facility" on Appointment form
     Then I fill "9748563210" in "Contact phone" on Appointment form
     And I click on "Schedule Appointment" button
-    Then I will wait to see "New appointment created."
+    And I will wait to see "New appointment created." in "p" tag
 
     Examples: 
       | Appointment_type |

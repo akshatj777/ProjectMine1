@@ -25,16 +25,17 @@ Feature: New Note from patient list actions
     And I will wait to see "New Transition" in "h4" tag
     Then I click on the Cancel Button on the New Transition on Add Patient page
     Then I click on "custom" filter tab present on the patients page
-    Then I enter patient's firstname in the patient search box on the patient page 
-    Then I click on search button present on the patients page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    #Then I enter patient's firstname in the patient search box on the patient page 
+    #Then I click on search button present on the patients page
     And I click on first patient gear menu
     When I click on "Add Note" from patients list patient gear menu
     Then I verify "New Note" header on popup
-#    And I select "Baseline" Topic from dropdown under Note
+    #And I select "Baseline" Topic from dropdown under Note
     Then I select "Baseline" from "Topic" by xpath "//*[@id='bp_personbundle_bpnotetype_topic']"
     When I fill in "Body" xpath "//*[@id='bp_personbundle_bpnotetype_body']" with "Body"
     And I click on "Create Note" button 
-  	Then I will wait to see "Note created."
+    And I will wait to see "Note created." in "p" tag
   	Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"

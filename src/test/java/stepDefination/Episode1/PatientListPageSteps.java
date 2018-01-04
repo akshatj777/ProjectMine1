@@ -275,6 +275,11 @@ public class PatientListPageSteps extends DriverScript {
     public void i_should_see_count_on_patient_search_on_patient_list(String text) throws Throwable {
     	patientsList.iShouldSeeCountOnPatientSearchOnPatientList(text);
     }
+    
+    @Then("^I click on first checkbox on Clinician modal$")
+    public void i_Click_On_First_Checkbox_On_Clinician_Modal() throws Throwable {
+    	patientsList.iClickOnFirstCheckboxOnClinicianModal();
+    }
 
 
    
