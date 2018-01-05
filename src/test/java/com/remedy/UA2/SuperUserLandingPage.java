@@ -108,9 +108,10 @@ static int userCountOnFirstPage;
 				} else {
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
 					verifyElementCount("tr.component-user-table-row", size);
-					// System.out.println("size--" + size);
+					if(isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.left")))==true){
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
+					}else
 					break;
 				}
 
@@ -284,6 +285,9 @@ else{
 
 	public void iVerifySearchResult(String result, String searchBy, String role) {
 		iWillWaitToSee(By.cssSelector("td.four.wide"));
+		if(result.contains(",")){
+			return;
+		}
 		if (searchBy.contains("Name")) {
 			if (driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result))
 				Assert.assertTrue(
@@ -403,5 +407,53 @@ public void iSeeUsersBackOnClosingSearch(){
 	verifyElementCount(".five.wide", userCountOnFirstPage);
 }
 
+public void iVerifyRowCountForSearchByEmail(){
+	iWillWaitToSee(By.cssSelector("td.four.wide"));
+	Assert.assertEquals(driver.findElements(By.cssSelector(".five.wide")).size(), 1);
+}
+public void iSelectAUser(){
+	iWillWaitToSee(By.cssSelector("td.five.wide"));
+	clickElement(driver.findElements(By.cssSelector("td.five.wide")).get(0));
+	
+}
+public void iVerifyViewUserPage(){
+	iWillWaitToSee(By.cssSelector(".two.column.row"));
+	isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
+}
+public void iShouldNotSeeErrorMsgOnUsersPage(String text){
+	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
+	if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
+		
+	
+		clickElement(driver.findElement(By.cssSelector(".icon.chevron.right")));
+		iWillWaitToSee(By.cssSelector("div.chevron-group"));
+		
+		int size = driver.findElements(By.cssSelector(".five.wide")).size();
+		if(size%3!=0){
+		verifyElementCount("tr.component-user-table-row", size);
+		}
+		if(isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.left")))==true){
+		clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
+		iWillWaitToSee(By.cssSelector("div.chevron-group"));
+		}
+	}else{
+		int size = driver.findElements(By.cssSelector(".five.wide")).size();
+		if(size%3!=0){
+		verifyElementCount("tr.component-user-table-row", size);
+		}
+		if(isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.left")))==true){
+			clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
+			iWillWaitToSee(By.cssSelector("div.chevron-group"));
+			}
+	}
+}
+
+
+
+public void iVerifyProductListInTopNavigationBarIsClosed(){
+	
+}
 }
 

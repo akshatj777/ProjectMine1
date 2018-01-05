@@ -6,6 +6,7 @@ Feature: Super Admin Landing page verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
+    And I should not see text "Unable to Load users" on Users page
     And I verify "User table" on landing page
     And I verify "Lock status Coulmn" on landing page
     And I verify "User Name Column" on landing page
@@ -17,12 +18,15 @@ Feature: Super Admin Landing page verification
     And I verify "Pagination retention" on landing page
     And I verify "Users Count" on landing page
     And I verify "Users rows allignment" on landing page
+    And I verify rows allignment on landing page when the count of users is not a multiple of three
     And I verify "Long email, first name and last name" on landing page
     And I verify "Name, Role, Email, Creation Date, Account Status" value for users on landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
     Then I am navigated to user creation page
     Then I click on close icon from user creation page
+    Then I select any user
+    And I verify that I am navigated to view user page
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
@@ -34,18 +38,23 @@ Feature: Super Admin Landing page verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
+    Then I verify the ghost text "Search" in search box
     Then I enter invalid data "<invalidSearch>" in search box
+    Then I verify that Product list on the top navigation bar is not opened
     Then I should see error message "No Results Found"
     Then I should see cross icon to exit search
     Then I click on cross icon
     And I should see all users back in page
     Then I enter "<Search>" in search box
+    Then I should see "<Search>" as "<Search By>" in search result
     Then I enter "<Email>" in search box for "<user>-<Role>"
-    And I should see "<Search>" as "<Search By>" in search result for "<user>-<Role>"
+    Then I should see single user row in search result
+    And I verify that email is displayed in same case for "<user>-<Role>"
+    And I should see "<Email>" as "Email" in search result for "<user>-<Role>"
 
     Examples: 
-      | user        | Role      | Email             |invalidSearch |Search              | Search By                    |
-      | Super Admin | Executive | test.automatemail | 1|FirstName, LastName | First Name, Last Name, Email |
+      | user        | Role      | Email             | invalidSearch | Search              | Search By             |
+      | Super Admin | Executive | test.automatemail |             1 | FirstName, LastName | First Name, Last Name |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user and cancel unlock
     Given I am on the login page

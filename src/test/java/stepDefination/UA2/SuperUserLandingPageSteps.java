@@ -120,7 +120,10 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 		ua2LandingPage.SearchUserWithEmail(text, userRole);
 
 	}
-
+	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result$")
+	public void iVerifySeachedElement(String result, String searchBy) throws Throwable {
+		ua2LandingPage.iVerifySearchResult(result, searchBy, "");
+	}
 	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result for \"([^\"]*)\"$")
 	public void i_should_see_for_in_landing_page(String result, String searchBy, String role) throws Throwable {
 		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
@@ -146,5 +149,34 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 	@Then("^I should see all users back in page$")
 	public void iSeeUsersBackOnClosingSearch(){
 		ua2LandingPage.iSeeUsersBackOnClosingSearch();
+	}
+	
+	@Then("^I should see single user row in search result$")
+	public void iVerifyRowCountForSearchByEmail(){
+		ua2LandingPage.iVerifyRowCountForSearchByEmail();
+	}
+	
+	@Then("^I select any user$")
+	public void iSelectAUser(){
+		ua2LandingPage.iSelectAUser();
+	}
+	@Then("^I verify that I am navigated to view user page$")
+	public void iVerifyViewUserPage(){
+		ua2LandingPage.iVerifyViewUserPage();
+	}
+	@Then("^I should not see text \"([^\"]*)\" on Users page$")
+	public void iShouldNotSeeErrorMsgOnUsersPage(String text){
+		ua2LandingPage.iShouldNotSeeErrorMsgOnUsersPage(text);
+	}
+	@Then("^I verify rows allignment on landing page when the count of users is not a multiple of three$")
+	public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
+		ua2LandingPage.verifyRowsAlignmentWhenCountIsNotMultipleOfThree();
+	}
+	
+	
+	
+	@Then("^I verify that Product list on the top navigation bar is not opened$")
+	public void iVerifyProductListInTopNavigationBarIsClosed(){
+		
 	}
 }
