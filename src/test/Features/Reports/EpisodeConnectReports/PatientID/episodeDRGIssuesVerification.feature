@@ -649,10 +649,10 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -697,12 +697,122 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should verify "Last Final DRG Date" is appearing under Episodes table
     Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    
+    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Provider" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Provider CCN" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Provider" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Provider CCN" is appearing under Episodes drill through columns popup
+    Then I should verify "First Working Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Working DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Predicted DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Predicted Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Predicted DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "First Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Working DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Working Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Working DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Predicted DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Predicted Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Predicted DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Type Detail (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Setting Code (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Type Code (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Patient Risk" is appearing under Episodes drill through columns popup
+    Then I should verify "Onboarding Status" is appearing under Episodes drill through columns popup
 
     Examples: 
       | email                         |
       | shutestauf171115a@yopmail.com |
       | shutestagu22945am@yopmail.com |
+
+  Scenario Outline: Verify globalfilters in episode drg issues report for model3 pgp users
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    When I see "0" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I see <payer1> appearing under payer filter of global filters
+    Then I see <payer2> appearing under payer filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I see <participant1> appearing under participant filter of global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I see <episode initiator1> appearing under episode initiator filter of global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    Then I see <anchor facility1> appearing under anchor facility filter of global filters
+    Then I click on <payer1> checkbox under payer for global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    Then I click on <participant1> checkbox under participant for global filters
+    And I verify <participant1> is appearing under applied participant on global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    And I click on Apply filters button for global filters
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    #When I click on show all filters icon button
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
+    When I switch to default window from iframe
+    When I click on "Patient ID" tile on the top navigation of reports page
+    Then I click on "InPatient Episode Clearing" report under "Patient ID" reports tile on the top of reports page
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    Then I verify "InPatient Episode Clearing" in the reports header page
+    When I see "4" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    And I verify <participant1> is appearing under applied participant on global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    And I click on Apply filters button for global filters
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    #When I click on show all filters icon button
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
+
+    Examples: 
+      | email                         | participant1     | episode initiator1                             | anchor facility1                     | participantid1 | bpid1    | ccn1   | payer1   |
+      | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
+      | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |

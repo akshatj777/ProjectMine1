@@ -647,7 +647,7 @@ public class ReportHomePage extends BaseClass {
     public void iShouldVerifyInEpisodesTable(String text){
     	WebElement element = driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']"));
     	scrollIntoViewByJS(element);
-    	verifyTextForElement(driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[text()='"+text+"']")),text);
+    	isElementVisible(driver.findElement(By.xpath(".//tr[@class='x-grid3-hd-row']/td/div[contains(text(),'"+text+"')]")));
     }
     
     public void iRemoveDeefaultFilters(String field,String title){
@@ -1341,5 +1341,11 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickonEpisodesFieldUnderDefaultMeasuresToOpenList(){
     	clickElement(driver.findElement(By.xpath("//div[@formula='[Measures].[# Episodes]'][@type='measure'] //div[@class='gemMenuHandle scalable']")));
+    }
+    
+    public void iShouldVerifyInEpisodesDrillThroughColumnsPopUp(String text){
+    	WebElement element = driver.findElement(By.xpath("//div[@class='fieldDrill attribute uncommon'][text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='fieldDrill attribute uncommon'][text()='"+text+"']")));
     }
 }

@@ -1697,4 +1697,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_Episodes_field_in_the_default_measures_to_open_the_list() throws Throwable{
     	reportHomePage.iClickonEpisodesFieldUnderDefaultMeasuresToOpenList();
     }
+    
+    @Then("^I should verify \"([^\"]*)\" is appearing under Episodes drill through columns popup$")
+    public void i_should_verify_is_appearing_under_episode_drill_through_columns_popup(String text) throws Throwable{
+    	reportHomePage.iShouldVerifyInEpisodesDrillThroughColumnsPopUp(text);
+    }
 }
