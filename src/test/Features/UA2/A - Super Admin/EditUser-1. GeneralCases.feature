@@ -54,11 +54,11 @@ Feature: Edit user page for General cases
     And I should see error message "Phone is required"
 
     Examples: 
-      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | NPI        | Role       |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |         1 |        2 | test.automatemail |   abc3479074 |  123456789 | Physicians |
-      #| Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |        56 | 1Last    | test.automatemail | as34 | asbcf12345 | Physicians |
-     # | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | 1First    |      456 | test.automatemail | as34! | qawsedrftg | Physicians |
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone      | NPI       | Role       |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |         1 |        2 | test.automatemail | abc3479074 | 123456789 | Physicians |
 
+  #| Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |        56 | 1Last    | test.automatemail | as34 | asbcf12345 | Physicians |
+  # | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | 1First    |      456 | test.automatemail | as34! | qawsedrftg | Physicians |
   Scenario Outline: verify enable/disable application functionality for <Role>
     Given I am on the login page
     When I log in as super user
@@ -114,8 +114,8 @@ Feature: Edit user page for General cases
     And I verify Role <PreviousRole> in user page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications                             | Health System     | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | Episodes, Episodes 2.0, Reports, Lessons | Stamford Hospital | Learning Pathway 2             |
+      | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications | Health System     | LearningPathwaySearchParameter |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | TCI          | Stamford Hospital | Learning Pathway 2             |
 
   Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verifying NPI
     Given I am on the login page
@@ -131,7 +131,7 @@ Feature: Edit user page for General cases
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
-    Then I select "<Applications>" product
+    Then I select "<EnableApplications1>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
@@ -146,7 +146,7 @@ Feature: Edit user page for General cases
     Then I pick a Organizational <PreviousRole>
     Then I enter NPI field with "<NPI>" for role "<PreviousRole>"
     Then I click on Next button
-    Then I select "<Applications>" product
+    Then I select "<EnableApplications1>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
@@ -158,5 +158,5 @@ Feature: Edit user page for General cases
     And I verify that "NPI" is "present" on page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications                             | Health System     | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI | Physicians   | Remedy TCS | Episodes, Episodes 2.0, Reports, Lessons | Stamford Hospital | Learning Pathway 2             |
+      | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | EnableApplications1 |EnableApplications2     | Applications|Health System     | LearningPathwaySearchParameter |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI | Physicians   | Remedy TCS | TCI           | Physician connect | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect|Stamford Hospital | Learning Pathway 2             |
