@@ -128,7 +128,7 @@ public class CommonFeatureSteps extends DriverScript {
 		common.wait_To_See_xpath_element(text,xpath);
 	}
 	
-	@When ("^I select \"([^\"]*)\" patient list filter xpath \"([^\"]*)\" with  \"([^\"]*)\"$")
+	@When ("^I select \"([^\"]*)\" patient list filter xpath \"([^\"]*)\" with \"([^\"]*)\"$")
 	public void i_Select_patient_list_filter(String variable,String xpath,int days){
 		common.iSelectpatientlistfilter(variable,xpath,days);
 	}
