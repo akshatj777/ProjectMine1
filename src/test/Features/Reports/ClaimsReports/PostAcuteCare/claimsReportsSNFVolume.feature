@@ -89,9 +89,9 @@ Feature: Verification of SNF Volume Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify initial snf los is appearing and not initial snf los (adj hist) in snf volume under post acute care report in measures available fields
     Given I am on the login page

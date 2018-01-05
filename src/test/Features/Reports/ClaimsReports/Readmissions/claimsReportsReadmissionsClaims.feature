@@ -119,9 +119,9 @@ Feature: Verification of Readmissions Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify initial snf los is appearing and not initial snf los (adj hist) under readminssion claims report in measures available fields
     Given I am on the login page
@@ -749,9 +749,9 @@ Feature: Verification of Readmissions Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
       
   Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for readmissions claims report under readmissions
     Given I am on the login page

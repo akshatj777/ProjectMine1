@@ -22,9 +22,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see default measures for physician spending claims reports
     Given I am on the login page
@@ -53,9 +53,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see levels fields for physician spending claims reports
     Given I am on the login page
@@ -143,9 +143,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove the default filters from physician spending claims reports
     Given I am on the login page
@@ -169,9 +169,9 @@ Feature: Verification of multiple scenarios for Spending(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture values when anchor admission quarter is > = 2016Q4 in spending claims report under physician
     Given I am on the login page

@@ -22,9 +22,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see default measures for volume claims report under physician
     Given I am on the login page
@@ -48,9 +48,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see levels fields for volume claims report under physician
     Given I am on the login page
@@ -136,9 +136,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove the default filters for volume claims report under physician
     Given I am on the login page
@@ -161,9 +161,9 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify initial snf los is appearing and not initial snf los (adj hist) in volume report under physician in measures available fields
     Given I am on the login page

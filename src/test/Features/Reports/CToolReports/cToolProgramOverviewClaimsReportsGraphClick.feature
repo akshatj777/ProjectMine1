@@ -33,9 +33,9 @@ Feature: Clicking on Program Overview report graphs for claims reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards |
+      #| emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should be able to click on program overview claims reports graphs under post acute utilization
     Given I am on the login page
@@ -105,9 +105,9 @@ Feature: Clicking on Program Overview report graphs for claims reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards |
+      #| emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should be able to click on program overview claims reports graphs under snf length of stay
     Given I am on the login page
@@ -149,9 +149,9 @@ Feature: Clicking on Program Overview report graphs for claims reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards |
+      #| emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should be able to click on program overview claims reports graphs under readmissions
     Given I am on the login page
@@ -195,6 +195,6 @@ Feature: Clicking on Program Overview report graphs for claims reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards |
+      #| emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |

@@ -92,9 +92,9 @@ Feature: Verification Claims Report For Spending
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture values when anchor admission quarter >= 2016Q4 in volume claims report under overall program
     Given I am on the login page
@@ -651,9 +651,9 @@ Feature: Verification Claims Report For Spending
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
       
   Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for spending claims report under overall program
     Given I am on the login page
