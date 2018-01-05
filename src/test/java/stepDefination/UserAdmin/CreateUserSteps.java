@@ -431,7 +431,8 @@ public class CreateUserSteps extends DriverScript{
 	public void clickNextButton() throws Throwable {
 		createUser.clickNextButton();
 	}
-
+	
+	
 	@Then("^I click on Select All Locations button$")
 	public void clickSelectAllLocationsButton() throws Throwable {
 		createUser.clickSelectAllLocationsButton();
@@ -482,6 +483,7 @@ public class CreateUserSteps extends DriverScript{
 		createUser.enterTextLearningPathwaySearchBox(searchParam);
 	}
 
+	
 	@Then("^I select \"([^\"]*)\" from the results$")
 	public void selectLearningPath(String searchParam) throws Throwable {
 		createUser.selectLearningPath(searchParam);

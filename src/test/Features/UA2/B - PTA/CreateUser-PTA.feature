@@ -381,6 +381,7 @@ Feature: UA2 Front End Automation
     Then I should not see "All Location" field
     Then I verify text present in location "Location" field label
 
+
     Examples: 
       | Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs    | Locations                         | Loc                               |
       | Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Bap                               | Bap                               |

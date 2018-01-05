@@ -1,7 +1,7 @@
 Feature: UA2 Front End Automation
 
   Scenario Outline: <Description>
-Given I am on mail login page
+    Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
@@ -85,7 +85,6 @@ Given I am on mail login page
       | Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration      |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
       | Login with Super Admin User and create user with Remedy Technical Administrator role  | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                                    |     | Learning Pathway 2             | Stamford Hospital |
       | Login with Super Admin User and create user with Transitional Case Manager role       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Transitional Case Manager       | Episodes, Reports, Lessons                                                       | Episodes 2.0, Administration, Physician Connect                    |     | Learning Pathway 2             | Stamford Hospital |
-
 
   #| Login with Super Admin User and create user with Downstream Provider role             | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Downstream Provider             | Episodes 2.0                                                                     | Episodes, Reports, Lessons, Physician Connect, Administration      |     | Learning Pathway 2             | Stamford Hospital |
   Scenario Outline: <Description>
@@ -458,5 +457,3 @@ Given I am on mail login page
       | Scenario Description                                      | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs    | Location                          | Loc                               |
       | Search by location by partial name while creation of user | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Bap                               | Bap                               |
       | Search by location by full name while creation of user    | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2 | Baptist Medical Center - Vanguard | Baptist Medical Center - Vanguard |
-
-    
