@@ -281,6 +281,18 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iClickOnFirstCheckboxOnClinicianModal();
     }
 
-
+    @Then ("^I verify the patient count is \"([^\"]*)\" than 1000 on the patient list page$")
+    public void i_verify_patient_count_less_than_1000(String operand){
+    	patientsList.iverifypatientcountlessthan1000(operand);
+    }
    
+    @When ("^I click \"([^\"]*)\" check box \"([^\"]*)\" on export list$")
+    public void i_click_check_box_on_export_list(String name,String datafilter){
+    	patientsList.i_click_check_box_on_export_list(name,datafilter);
+    }
+    
+    @Then ("^I verify the file \"([^\"]*)\" downloaded is in \"([^\"]*)\" format for export$")
+    public void i_verify_downloaded_file_on_export(String filename,String format){
+    	patientsList.i_verify_downloaded_file_on_export(filename,format);
+    }
 }

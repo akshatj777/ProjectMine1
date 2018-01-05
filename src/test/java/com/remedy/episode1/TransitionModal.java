@@ -17,9 +17,15 @@ public class TransitionModal extends BaseClass {
 	 public TransitionModal(WebDriver driver){
 		 super(driver);
 	    }
-
+   Actions action=new Actions(driver);
 	public void iclickEpisodeinitiatorEdit() {
-		clickElement(driver.findElement(By.xpath("//td[contains(@class,'Episode Initiator')]/a[contains(text(),'Edit')]")));
+		delay();
+//		action.moveToElement(driver.findElement(By.xpath("//td[contains(@class,'Episode Initiator')]/a[contains(text(),'Edit')]"))).build().perform();
+//		longDelay();
+//		clickElement(driver.findElement(By.xpath("//td[contains(@class,'Episode Initiator')]/a[contains(text(),'Edit')]")));
+		action.moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr/td/a"))).build().perform();
+		longDelay();
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr/td/a")));
 		}
 
 	public void iVerifyvalueintable(String value, String table, int row, int column) {

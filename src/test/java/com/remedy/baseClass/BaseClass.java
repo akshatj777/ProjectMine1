@@ -516,26 +516,20 @@ public class BaseClass {
 	
 	 public void verifyDownloadedFile(String downloadFilepath,String fileName,String ext) {
 			try {
-				String importDir = System.getProperty("user.dir");
-				
 				File dir = new File(downloadFilepath);
 
 				File[] dir_contents = dir.listFiles();
 				for (int i = 0; i < dir_contents.length; i++) {
-					dir_contents[i].delete();
-				}
-
-				for (int i = 0; i < dir_contents.length; i++) {
 					if (dir_contents[i].isFile()) {
 						if (dir_contents[i].getName().equals(fileName)) {
 							Assert.assertEquals(fileName, dir_contents[i].getName());
-							Assert.assertEquals(fileName, dir_contents[i].getName().contains(ext));
-
-						} else {
+							System.out.println(dir_contents[i].getName());
+							Assert.assertTrue(dir_contents[i].getName().contains(ext));
+							} else {
 							System.out.println("No Hurray");
 						}
 					}
-					dir_contents[i].delete();
+					
 				}
 				for (int i = 0; i < dir_contents.length; i++) {
 					dir_contents[i].delete();
