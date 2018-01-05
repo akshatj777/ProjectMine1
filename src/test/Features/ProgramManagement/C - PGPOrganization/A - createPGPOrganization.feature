@@ -26,8 +26,8 @@ Feature: Create PGP organization functionality tests.
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 
-      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                       |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
 
   Scenario: Verification of availability of all the fields on Create PGP Organization page
     When I click on "PGP" organization tab on organization dashboard
@@ -85,7 +85,7 @@ Feature: Create PGP organization functionality tests.
     And I provide unique "PGP - <EIN>" in "EIN" on create organization page
     Then I click on "Submit" button on "create" organization page
     And I verify "Please enter an Organization Name" mandatory field validation message on edit organization page
-    And I verify "The EIN field is required  " mandatory field validation message on edit organization page
+    And I verify "The EIN field is required" mandatory field validation message on edit organization page
 
     Examples: 
       | Description                                         | Has_MO | PGP_Name | EIN |

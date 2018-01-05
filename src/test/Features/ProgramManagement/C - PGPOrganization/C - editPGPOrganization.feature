@@ -26,8 +26,8 @@ Feature: Edit PGP organization functionality tests
     Then I verify "<Message>" after submitting the "create MO" organization page
 
     Examples: 
-      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                              |
-      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Management Organization Successfully Created. |
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -50,7 +50,7 @@ Feature: Edit PGP organization functionality tests
     Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                         |
+      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
       | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
       | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
 
@@ -138,7 +138,7 @@ Feature: Edit PGP organization functionality tests
     Then I verify "<Message>" after submitting the "Edit PGP - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                                                                                                | Has_MO | Managing_Org | PGP_Name | Edited_PGP_Name      | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Region  | Market  | State      | Postal_Code | Message                                         |
+      | Description                                                                                                                                | Has_MO | Managing_Org | PGP_Name | Edited_PGP_Name      | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Region  | Market  | State      | Postal_Code | Message                                |
       | Check Character Limit edge condition for PGP Name field on Edit PGP Organization - Without MO                                              | NO     |              | PGPNAME  | equalsTo75Characters | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated. |
       | Check Character Limit edge condition for Address1 field on Edit PGP Organization - Without MO                                              | NO     |              | PGPNAME  | PGPNAME              | abcdefghijklmnopqrstuvwxyzabcdefgopmailcomabcdefghijklm | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated. |
       | Check Character Limit edge condition for Short Name field on Edit PGP Organization - Without MO                                            | NO     |              | PGPNAME  | PGPNAME              | Address1                                                | abcdefghijklmnopqrstuvwxyzabcdefgopmailcomabc | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated. |
