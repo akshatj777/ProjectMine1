@@ -65,6 +65,8 @@ Feature: Landing page verification
       | UserName                        | user                            | Role      | Search                                 | Search By                    |
       | Partner Technical Administrator | Partner Technical Administrator | Executive | FirstName, LastName, test.automatemail | First Name, Last Name, Email |
 
+ 
+  
   #Lock unlock cases
   Scenario Outline: Verify ability of PTA user to lock a user and cancel unlock
     Given I am on the login page
@@ -126,3 +128,25 @@ Feature: Landing page verification
       | Partner Technical Administrator | Partner Technical Administrator | Case Manager              |
       | Partner Technical Administrator | Partner Technical Administrator | Physicians                |
       | Partner Technical Administrator | Partner Technical Administrator | Transitional Case Manager |
+
+  Scenario Outline: Edit Role from <PreviousRole> to <Role> and search
+    Given I am on the login page
+    Then I enter email field UserName for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter "<Email>" in search box for "<user>-<Role>"
+    And I should see "<Email>" as "Email" in search result for "<user>-<Role>"
+    And I click on the top user link
+    Then I select "Log Out" option from the dropdown list
+    And I should see Log in widget
+     When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    
+    Examples:
+    | UserName                        |Email |user                            | PreviousRole|Role                      |
+    | Partner Technical Administrator |test.automatemail |Partner Technical Administrator | Executive| Remedy TCS                |
