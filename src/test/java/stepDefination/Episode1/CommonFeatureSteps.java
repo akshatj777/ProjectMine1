@@ -99,7 +99,7 @@ public class CommonFeatureSteps extends DriverScript {
 	}
 
 	@And("^I will verify Episode Marker Admit Date \"([^\"]*)\" and Termination date \"([^\"]*)\" and Episode Status \"([^\"]*)\"$")
-	public void i_Verify_Episode_Marker_Admit_Terminate_date(int days, int terminate_date, String status, String logic) throws ParseException {
+	public void i_Verify_Episode_Marker_Admit_Terminate_date(int days, int terminate_date, String status) throws ParseException {
 		common.iVerifyEpisodeMarkerAdmitTerminatedate(days, terminate_date, status);
 	}
 

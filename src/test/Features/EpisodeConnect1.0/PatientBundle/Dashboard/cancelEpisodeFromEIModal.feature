@@ -43,8 +43,10 @@ Feature: Canceling Episode from EI Assignment Window
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     And I click Episode initiator Edit
-    And I will wait to see "Edit Episode Initiator" in "td" tag
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
     When I click "Cancel Episode" xpath element "//*[@id='episode_initiator_cancelEpisode']"
     And I will wait to see patient's name on patient summary page
     And I should not see "Expired" in "h3" tag
@@ -71,5 +73,5 @@ Feature: Canceling Episode from EI Assignment Window
     Examples: 
       | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus |
       | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |
-      #| qa.rn@yopmail.com    | minus |                   0 | firsttest    | CANCELED      |
-      #| qa.lpn@yopmail.com   | plus  |                  -2 | firsttest    | CANCELED      |
+      #| qa.admin@yopmail.com | minus |                   0 | firsttest    | CANCELED      |
+      #| qa.admin@yopmail.com | plus  |                  -2 | firsttest    | CANCELED      |

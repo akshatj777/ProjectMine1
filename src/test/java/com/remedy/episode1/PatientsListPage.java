@@ -1,5 +1,8 @@
 package com.remedy.episode1;
 
+import java.io.File;
+
+import org.apache.commons.lang.StringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -30,11 +33,13 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iShouldSeeInThePatientsDropdownMenu(String text){
+    	iWillWaitToSee(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]"));
     	isElementVisible(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));	
     }
 
     public void iClickOnInThePatientsDropdownMenu(String text){
-        clickElement(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));
+        iWillWaitToSee(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]"));
+    	clickElement(driver.findElement(By.xpath("//ul[@id='patientsFilter']//*[contains(text(),'"+text+"')]")));
     }
 
     public void iClickOnAddPatientButtonPresentOnTheEcPatientsPage(int text){
@@ -65,6 +70,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iShouldSeePresentOnThePatientListFilterPagePresentOnThePatientListPage(String text){
+    	iWillWaitToSee(By.xpath("//h3/span[contains(text(),'"+text+"')]"));
     	isElementVisible(driver.findElement(By.xpath("//h3/span[contains(text(),'"+text+"')]")));	
     }
     
@@ -284,5 +290,33 @@ public class PatientsListPage extends BaseClass {
     }
 
 
+	public void iverifypatientcountlessthan1000(String operand) {
+		delay();
+		iWillWaitToSee(By.cssSelector("div.count_info"));
+		longDelay();
+		String patient_count=getTextForElement(driver.findElement(By.cssSelector("div.count_info")));
+		String[] sp = patient_count.split(" ");
+		int exact_count=Integer.parseInt(sp[5]);
+	    if(operand.equals("less")){
+		Assert.assertTrue(exact_count<1000);}
+		else if(operand.equals("greater")){
+	    Assert.assertTrue(exact_count>1000);}	
+		}
+	
+
+
+
+	public void i_click_check_box_on_export_list(String name, String datafilter) {
+		iWillWaitToSee(By.xpath("//*[@id='ajax-modal']/div/div/div[2]//*[@id='filter-form']//label[@data-filter-name='"+datafilter+"']"));
+		clickElement(driver.findElement(By.xpath("//*[@id='ajax-modal']/div/div/div[2]//*[@id='filter-form']//label[@data-filter-name='"+datafilter+"']")));
+	}
+
+
+	public void i_verify_downloaded_file_on_export(String filename, String format) {
+		String importDir = System.getProperty("user.dir");
+		String downloadFilepath = importDir + File.separator + "src" + File.separator + "test" + File.separator + "Imports" + File.separator + "Downloads" ;
+		verifyDownloadedFile(downloadFilepath,filename,format);
+		
+	}
 	
 }
