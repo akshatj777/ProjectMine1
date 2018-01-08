@@ -59,7 +59,6 @@ Scenario Outline: Care Type validation for admitting facility for HHH, Expired, 
     And I verify "Non skilled services" under dropdown text on Transition modal
     
     Then I select the "Admit" "caresetting" "HPC - Hospice" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    And I click on "CareType" dropdown on Transition modal
     And I should not see "CareType" dropdown on Transition modal
     
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition

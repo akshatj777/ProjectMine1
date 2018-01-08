@@ -236,6 +236,11 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iClickOnButtonWithText(text);
     }
     
+    @Then("^I close modal popup$")
+    public void i_close_modal_popup() throws Throwable {
+    	patientsList.iCloseModalPopUp();
+    }
+    
     @Then("^I will wait to see \"([^\"]*)\"$")
     public void i_will_wait_to_see_text(String text) throws Throwable {
     	patientsList.iWillWaitToSeeText(text);

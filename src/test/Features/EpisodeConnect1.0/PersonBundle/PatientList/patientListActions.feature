@@ -30,14 +30,15 @@ Feature: Patient list action
  
   Scenario: Verify Add Form(s) from Patient List
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-#    And I verify "Needs Onboarding" onboarding status on patient list page
     And I click on first patient gear menu
     When I click on "Add Form(s)" from patients list patient gear menu
     Then I verify "Assign New Form" header on popup
     Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     And I click on "Assign" button
     And I refresh the page 
-    And I verify "Unknown" onboarding status on patient list page
+    And I verify "Needs Onboarding" onboarding status on patient list page
+    Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
+    And I should see "Clinical Risk Assessment" in Assigned forms under Care Plan on Patient page
     
   Scenario: Add New Clinician for specific patient from patient list
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
@@ -47,3 +48,5 @@ Feature: Patient list action
     And I click on first checkbox on Clinician modal
     And I click on "Assign" button 
     And I will wait to see "Clinicians assigned to patient correctly" in "p" tag
+    Then I navigate to the "/secure/patient/mongoID/careteam"
+    And I should see Physician card under Physicians under Care Team on Patient page 

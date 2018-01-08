@@ -141,6 +141,7 @@ public class PatientsListPage extends BaseClass {
     
     public void iClickOnSubmitButtonPresentOnTheNewFilterModal(){
     	clickElement(driver.findElement(By.cssSelector("button#submitButton")));
+    	delay();
     }
     
     public void iShouldSeePresentOnTheCustomFilterList(String filter){
@@ -198,7 +199,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnFirstPatientGearMenu(){
-    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+//    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
     	iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
     	driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(0).click();
     	delay();
@@ -241,6 +242,12 @@ public class PatientsListPage extends BaseClass {
     	if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed")).size()>0)
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
 
+    }
+    
+    public void iCloseModalPopUp() throws InterruptedException{
+    	Thread.sleep(20000);
+    	iWillWaitToSee(By.cssSelector(".modal-content .close"));
+    	clickElement(driver.findElement(By.cssSelector(".modal-content .close")));
     }
     
     public void iFillTextOnAppointmentForm(String text,String field){

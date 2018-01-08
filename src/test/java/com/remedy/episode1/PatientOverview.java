@@ -41,9 +41,10 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iClickOnGearIconOnPatientOverviewPage(){
-		delay();
-		scrollIntoViewByJS(driver.findElements(By.cssSelector(".btn.btn-primary.dropdown-toggle")).get(0));
-		clickElement(driver.findElements(By.cssSelector(".btn.btn-primary.dropdown-toggle")).get(0));
+		longDelay();
+		longDelay();
+//		scrollIntoViewByJS(driver.findElements(By.cssSelector("h3 .fa.fa-cog")).get(0));
+		clickElement(driver.findElement(By.cssSelector("h3 .fa.fa-cog")));
 	}
 	
 	public void iClickOnOptionUnderPatientOverviewGearIcon(String text){
@@ -119,6 +120,22 @@ public class PatientOverview extends BaseClass {
 	
 	public void iShouldSeeTextInByColumnOnRecentActivityNotificationTab(String text){
 		iWillWaitToSee(By.xpath("//div[@id='notificationsBlock']//tbody/tr[1]/td[4][contains(text(),'"+text+"')]"));
+	}
+
+	public void iVerifyAppointmentsUnderCarePlanOnPatientPage(String text){
+		iWillWaitToSee(By.cssSelector(".panel-title"));
+		String actual = getTextForElement(driver.findElement(By.cssSelector(".panel-title")));
+		Assert.assertEquals(text, actual.trim());
+	}
+	
+	public void ishouldSeeAssignedFormsUnderCarePlanOnPatientPage(String text){
+		iWillWaitToSee(By.cssSelector("#assignedForms .caption.ng-binding"));
+		String actual = getTextForElement(driver.findElement(By.cssSelector("#assignedForms .caption.ng-binding")));
+		Assert.assertEquals(text, actual.trim());
+	}
+	
+	public void ishouldSeePhysicianCardUnderCareTeamOnPatientPage(){
+		iWillWaitToSee(By.cssSelector(".col-md-12 .panel-body"));
 	}
 
 }

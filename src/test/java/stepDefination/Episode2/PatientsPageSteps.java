@@ -1702,4 +1702,44 @@ public class PatientsPageSteps extends DriverScript {
     public void i_verif_none_of_the_above_is_appearing_on_DRg_prediction_list(String text) throws Throwable{
     	patientsPage.iVerifyNoneOfAboveInPredictionDRGList(text);
     }
+    
+    @And("^I enter \"([^\"]*)\" in Medical Record number on Add Patient page$")
+    public void i_Enter_MedicalRecordNumber_On_Add_Patient_Page(String text) throws Throwable{
+    	patientsPage.iEnterMedicalRecordNumberOnAddPatientPage(text);
+    }
+    
+    @And("^I select \"([^\"]*)\" in Address Type on Add Patient page$")
+    public void i_Select_Address_Type_On_Add_Patient_Page(String text) throws Throwable{
+    	patientsPage.iSelectAddressTypeOnAddPatientPage(text);
+    }
+    
+    @And("^I enter \"([^\"]*)\" in street on Add Patient page$")
+    public void i_Enter_Street_On_Add_Patient_Page(String text) throws Throwable{
+    	patientsPage.iEnterStreetOnAddPatientPage(text);
+    }
+    
+    @And("^I enter \"([^\"]*)\" in City on Add Patient page$")
+    public void i_Enter_City_On_Add_Patient_Page(String text) throws Throwable{
+    	patientsPage.iEnterCityOnAddPatientPage(text);
+    }
+    
+    @And("^I enter \"([^\"]*)\" in Zip on Add Patient page$")
+    public void i_Enter_Zip_On_Add_Patient_Page(String text) throws Throwable{
+    	patientsPage.iEnterZipOnAddPatientPage(text);
+    }
+    
+    @And("^I select \"([^\"]*)\" in State on Add Patient page$")
+    public void i_Select_State_On_Add_Patient_Page(String text) throws Throwable{
+    	patientsPage.iSelectStateOnAddPatientPage(text);
+    }
+    
+    @And("^I click on Add new button to add phone number$")
+    public void i_Click_On_Add_New_Button_To_Add_PhoneNumber() throws Throwable{
+    	patientsPage.iClickOnAddNewButtonToAddPhoneNumber();
+    }
+    
+    @And("^I enter \"([^\"]*)\" in Number \"([^\"]*)\" on Add Patient page$")
+    public void i_Enter_Number_On_Add_Patient_Page(String text, String field) throws Throwable{
+    	patientsPage.iEnterNumberOnAddPatientPage(text,field);
+    }
     }
