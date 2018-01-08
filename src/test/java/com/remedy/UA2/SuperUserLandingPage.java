@@ -51,28 +51,27 @@ static int userCountOnFirstPage;
 			verifyTextForElement(driver.findElement(By.cssSelector(".current-page")), "1");
 			Assert.assertTrue(driver.findElement(By.cssSelector(".number-of-pages")).getText().contains("of"));
 		} else if (text.contains("Pagination retention")) {
-			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
+			if (isElementPresentOnPage(By.cssSelector(".icon.chevron.right")) == true) {
 				clickElement(driver.findElement(By.cssSelector(".icon.chevron.right")));
 				iWillWaitToSee(By.cssSelector("div.chevron-group"));
 				String s = driver.findElement(By.cssSelector(".current-page")).getText();
 				iClickOnAddUserButton();
 				iClickOnCloseIconFromAddUserPage();
 				verifyTextForElement(driver.findElement(By.cssSelector(".current-page")), s);
-				clickElement(driver.findElement(By.cssSelector(".icon.chevron.left")));
-				iWillWaitToSee(By.cssSelector("div.chevron-group"));
-			}
+				
+			}else{return;}
 		} else if (text.contains("next icons")) {
 			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
-				isElementNotPresentOnPage(By.cssSelector(".icon.chevron.left"));
-				isElementNotPresentOnPage(By.cssSelector("div.double-chevron.left"));
+				Assert.assertFalse(isElementNotPresentOnPage(By.cssSelector(".icon.chevron.left")));
+				Assert.assertFalse(isElementNotPresentOnPage(By.cssSelector("div.double-chevron.left")));
 				isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.right")));
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 				iWillWaitToSee(By.cssSelector("div.chevron-group"));
 				String s = driver.findElement(By.cssSelector(".current-page")).getText();
 				s = "of " + s;
 				verifyTextForElement(driver.findElement(By.cssSelector(".number-of-pages")), s);
-				isElementNotPresentOnPage(By.cssSelector(".icon.chevron.right"));
-				isElementNotPresentOnPage(By.cssSelector("div.double-chevron.right"));
+				Assert.assertFalse(isElementNotPresentOnPage(By.cssSelector(".icon.chevron.right")));
+				Assert.assertFalse(isElementNotPresentOnPage(By.cssSelector("div.double-chevron.right")));
 				isElementVisible(driver.findElement(By.cssSelector(".icon.chevron.left")));
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
 				iWillWaitToSee(By.cssSelector("div.chevron-group"));
@@ -81,7 +80,7 @@ static int userCountOnFirstPage;
 		}
 
 		else if (text.contains("Users Count")) {
-			do {
+			
 				if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 					verifyElementCount(".five.wide", 30);
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
@@ -91,15 +90,13 @@ static int userCountOnFirstPage;
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
 					// System.out.println("size--" + size);
 					verifyElementCount(".five.wide", size);
-					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
-					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					break;
+
 				}
 
-			} while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
+			
 
 		} else if (text.contains("rows allignment")) {
-			do {
+			
 				if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 					verifyElementCount("tr.component-user-table-row", 30);
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
@@ -111,22 +108,18 @@ static int userCountOnFirstPage;
 					if(isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.left")))==true){
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					}else
-					break;
+					}
+				
 				}
 
-			} while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
+			
 
 		} else if (text.contains("Long email")) {
-			do {
+			
 				if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 					for (int i = 0; i < 90; i++) {
 						String name = driver.findElements(By.cssSelector("td.four.wide")).get(i).getText();
-						String[] splited = name.split(" ");
-						// System.out.println(splited[0] + "&&&&&" +
-						// splited[1]);
-						Assert.assertEquals(splited.length, 2);
-						// System.out.println("Name validated" + i);
+						Assert.assertTrue(name.contains(" "));
 						i = i + 2;
 					}
 					for (int j = 0; j < 30; j++) {
@@ -136,15 +129,26 @@ static int userCountOnFirstPage;
 					}
 					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 					iWillWaitToSee(By.cssSelector("div.chevron-group"));
+					int size = driver.findElements(By.cssSelector(".five.wide")).size();
+					for (int i = 0; i < size * 3; i++) {
+						String name = driver.findElements(By.cssSelector("td.four.wide")).get(i).getText();
+						Assert.assertTrue(name.contains(" "));
+						i = i + 2;
+					}
+					for (int j = 0; j < size; j++) {
+						String mail = driver.findElements(By.cssSelector("td.five.wide")).get(j).getText();
+						Assert.assertTrue(mail.contains("@")&&mail.contains(".com"));
+						// System.out.println("email validated" + j);
+
+					}
+					
+					
 					// System.out.println("count of 30");
 				} else {
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
 					for (int i = 0; i < size * 3; i++) {
 						String name = driver.findElements(By.cssSelector("td.four.wide")).get(i).getText();
-						String[] splited = name.split(" ");
-						int n = splited.length;
-						Assert.assertEquals(splited.length, 2);
-						// System.out.println("Name validated" + i);
+						Assert.assertTrue(name.contains(" "));
 						i = i + 2;
 					}
 					for (int j = 0; j < size; j++) {
@@ -153,12 +157,11 @@ static int userCountOnFirstPage;
 						// System.out.println("email validated" + j);
 
 					}
-					clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
-					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					break;
+					
+					
 				}
-
-			} while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
+				clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
+				iWillWaitToSee(By.cssSelector("div.chevron-group"));
 
 		}
 
@@ -295,10 +298,14 @@ else{
 			// verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0),
 			// result);
 		} else if (searchBy.equalsIgnoreCase("Email")) {
+			if(result.equals(mail)){
 			String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
 			System.out.println("Email value-------" + email);
 			verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);
-		}
+			}
+			else{
+				verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), result);
+			}}
 	}
 
 	public void iClickOnTopUserDropDown() {
@@ -310,28 +317,16 @@ else{
 		selectElementByDesc(".item", text);
 	}
 
-	public void iLockUser() {
-		iWillWaitToSee(By.cssSelector("span.unlocked-icon"));
-
-		clickElement(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
+	public void iLockUser(String role) {
+		iWillWaitToSee(By.cssSelector("td.five.wide"));
+		clickElement(driver.findElements(By.cssSelector(".SVGInline-svg.SVGInline--cleaned-svg.component-remedy-icons-svg")).get(1));
 
 	}
 
-	public void iVerifyLockedUser() {
-		iWillWaitToSee(By.cssSelector("span.lock-icon"));
-		verifyElementAttributeContainsValue(driver.findElements(By.cssSelector("span.lock-icon")).get(0), "class",
-				"lock-icon");
-	}
 
-	public void iClickOnSortByLockIcon() {
-		// iWillWaitToSee(By.cssSelector("th#auth0State"));
-		delay();
-		clickElement(driver.findElement(By.cssSelector("th#auth0State")));
-	}
-
-	public void iClickOnUnlock() {
-		iWillWaitToSee(By.cssSelector(".lock-icon"));
-		clickElement(driver.findElements(By.cssSelector(".lock-icon")).get(0));
+	public void iUnlockUser(String role) {
+		iWillWaitToSee(By.cssSelector("td.five.wide"));
+		clickElement(driver.findElements(By.cssSelector(".SVGInline-svg.SVGInline--cleaned-svg.component-remedy-icons-svg")).get(1));
 	}
 
 	public void iVerifyTextfromUnlockPopup(String text) {
@@ -344,10 +339,7 @@ else{
 		delay();
 	}
 
-	public void iVerifyUnlockedUser() {
-		iWillWaitToSee(By.cssSelector("td.center.aligned.one.wide"));
-		isElementVisible(driver.findElements(By.cssSelector("span.unlocked-icon")).get(0));
-	}
+
 
 	public void iClickOnCancelButtonFromPopup() {
 		clickElement(driver.findElement(By.xpath("//div[@class='actions']/a")));
@@ -390,9 +382,9 @@ else{
 
 	}
 
-	public void iSeeErrorMessageForInvalidSearch(String text){
-		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
-		isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	public void iShouldNotSeeSearchResults(){
+		Assert.assertFalse(isElementNotPresentOnPage(By.cssSelector("th#lastName")));
+		
 	}
 	public void iSeeCrossIconForSearch(){
 		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
@@ -432,6 +424,7 @@ public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
 		
 		int size = driver.findElements(By.cssSelector(".five.wide")).size();
 		if(size%3!=0){
+			System.out.println("if-size%3 "+size%3);
 		verifyElementCount("tr.component-user-table-row", size);
 		}
 		if(isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.left")))==true){
@@ -441,6 +434,7 @@ public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
 	}else{
 		int size = driver.findElements(By.cssSelector(".five.wide")).size();
 		if(size%3!=0){
+			System.out.println("else-size%3 "+size%3);
 		verifyElementCount("tr.component-user-table-row", size);
 		}
 		if(isElementVisible(driver.findElement(By.cssSelector("div.double-chevron.left")))==true){
@@ -450,10 +444,15 @@ public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
 	}
 }
 
-
+public void iVerifyThatEmailIsDisplayedInSameCase(String role){
+	if(role.isEmpty()==false){
+	String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
+	verifyTextForElement(driver.findElements(By.cssSelector("td.five.wide")).get(0), email);
+	}
+	}
 
 public void iVerifyProductListInTopNavigationBarIsClosed(){
-	
+	Assert.assertTrue(isElementNotPresentOnPage(".ui.active.visible.dropdown.remedy-connect-title"));
 }
 }
 

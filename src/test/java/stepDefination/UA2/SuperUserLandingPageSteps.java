@@ -55,29 +55,18 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
 
-	@Then("^I verify that user is locked$")
-	public void i_verify_that_user_is_locked() throws Throwable {
-		ua2LandingPage.iVerifyLockedUser();
-	}
 
-	@Then("^I verify users with Unlock icon button present on useradmin Landing page$")
-	public void i_verify_users_with_Unlock_icon_button_present_on_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iVerifyUnlockedUser();
-	}
+
+	
 
 	@Then("^I lock user \"([^\"]*)\"$")
-	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
-		ua2LandingPage.iLockUser();
+	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String role) throws Throwable {
+		ua2LandingPage.iLockUser( role);
 	}
 
-	@Then("^I click on sort by lock icon$")
-	public void i_click_on_sortBy_lock_icon() throws Throwable {
-		ua2LandingPage.iClickOnSortByLockIcon();
-	}
-
-	@Then("^I click on Unlock button on the table in useradmin Landing page$")
-	public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iClickOnUnlock();
+	@Then("^I unlock user \"([^\"]*)\"$")
+	public void i_click_on_UnLock_button_on_the_table_in_useradmin_Landing_page(String role) throws Throwable {
+		ua2LandingPage.iUnlockUser( role);
 	}
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
@@ -95,10 +84,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnCancelButtonFromPopup();
 	}
 
-	@Then("^I verify that the user is unlocked on Landing page$")
-	public void i_verify_that_the_user_is_unlocked_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iVerifyUnlockedUser();
-	}
+
 
 	@Then("^I click on \"([^\"]*)\" link$")
 	public void i_click_on_link(String arg1) throws Throwable {
@@ -134,9 +120,9 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
 
-	@Then("^I should see error message \"([^\"]*)\"$")
-	public void i_should_see_error_message(String text) throws Throwable {
-		ua2LandingPage.iSeeErrorMessageForInvalidSearch(text);
+	@Then("^I should not see search results")
+	public void i_should_see_error_message() throws Throwable {
+		ua2LandingPage.iShouldNotSeeSearchResults();
 	}
 	@Then("^I should see cross icon to exit search$")
 	public void iSeeCrossIconForSearch(){
@@ -173,10 +159,13 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 		ua2LandingPage.verifyRowsAlignmentWhenCountIsNotMultipleOfThree();
 	}
 	
-	
+	@Then("^I verify that email is displayed in same case for \"([^\"]*)\"$")
+	public void iVerifyThatEmailIsDisplayedInSameCase(String role){
+		ua2LandingPage.iVerifyThatEmailIsDisplayedInSameCase(role);
+	}
 	
 	@Then("^I verify that Product list on the top navigation bar is not opened$")
 	public void iVerifyProductListInTopNavigationBarIsClosed(){
-		
+		ua2LandingPage.iVerifyProductListInTopNavigationBarIsClosed();
 	}
 }
