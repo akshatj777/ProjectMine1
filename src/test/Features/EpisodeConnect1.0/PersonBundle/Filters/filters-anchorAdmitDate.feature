@@ -48,7 +48,7 @@ Scenario: Filtering results by using single widget
     Then I will wait to see the "Anchor admit Date Filter" element xpath "//*[@id='filter-selector-admitted_anchor']"
     And I press "Single"
     When I click "Anchor Admit dropdown" element "#filter-selector-admitted_anchor > div.btn-group>div.date-filter-widget"
-    When I select "Anchor Admit date" patient list filter xpath "//*[@id='form_admitted_anchor_admitted_anchor_from']" with  "-120" 
+    When I select "Anchor Admit date" patient list filter xpath "//*[@id='form_admitted_anchor_admitted_anchor_from']" with "-120" 
     Then I will wait to see the "Patient name" element xpath "//*[@id='filter-selector-admitted_anchor']"
     Then I will see patient name title on the patient card
     

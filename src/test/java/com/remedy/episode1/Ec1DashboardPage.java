@@ -279,6 +279,11 @@ public class Ec1DashboardPage extends BaseClass{
 	}
 
     public void ifillinfacilityname(String name) {
+		iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-anchor_facility']/div/div/div/div/div/div/input")),name);
+		
+	}
+    
+    public void ifillindischargefacilityname(String name) {
 		iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-anchor_dicharge_facility']/div/div/div/div/div/div/input")),name);
 		
 	}

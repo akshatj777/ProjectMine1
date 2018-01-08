@@ -580,6 +580,7 @@ public class PatientsPage extends BaseClass {
 	}
 	
 	public void iShouldSeeMessageOnPatientFoundOnAddPatientModal(String text) {
+		iWillWaitToSee(By.cssSelector("h4"));
 		iVerifyTextFromListOfElement(By.cssSelector("h4"),text);
 	}
 
@@ -984,7 +985,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
-		 delay();
+		longDelay();
 	     iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
 		 clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 		 longDelay();

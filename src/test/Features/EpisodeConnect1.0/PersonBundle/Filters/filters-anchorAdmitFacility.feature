@@ -49,5 +49,5 @@ Feature: Filters - Anchor Admit Date
     Then I will wait to see the "Anchor Facility" element xpath "//*[@id='filter-selector-anchor_facility']"
     When I click "Anchor facility" element "#filter-selector-anchor_facility > div.dynamic-select-filter-widget > div"
     When I fill in Facility name with value "stamford hospital"
-    When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_anchor_dicharge_facility_0']"
+    When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_anchor_facility_0']"
     Then I will see patient name title on the patient card

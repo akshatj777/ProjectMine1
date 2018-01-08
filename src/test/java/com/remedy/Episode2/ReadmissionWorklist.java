@@ -124,6 +124,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IselecttheLOSdaysonDischargedateonAddTransition(String days) {
 		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_los")), days);
+		longDelay();
 	}
 
 	public void IclickontheReadmissionssubtabonImpatienttabonpatientCardPage() {

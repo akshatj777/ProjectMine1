@@ -329,6 +329,11 @@ public class EC1DashboardSteps extends DriverScript {
 	   ec1Dashboard.ifillinfacilityname(name);
    }
    
+   @When ("^I fill in Discharge Facility name with value \"([^\"]*)\"$")
+   public void i_fill_in_discharge_facility_name(String name){
+	   ec1Dashboard.ifillindischargefacilityname(name);
+   }
+   
    @When ("^I fill in DRG with value \"([^\"]*)\"$")
    public void i_fill_in_DRG(String value){
 	   ec1Dashboard.ifillinDRG(value);

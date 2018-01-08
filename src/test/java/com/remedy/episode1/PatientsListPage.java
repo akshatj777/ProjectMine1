@@ -236,7 +236,7 @@ public class PatientsListPage extends BaseClass {
     	if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed")).size()>0){
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
     	}
-    	delay();
+    	longDelay();
     	clickElement(driver.findElement(By.xpath("//*[text()='"+text+"']")));
     	if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed")).size()>0)
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
