@@ -377,4 +377,9 @@ public class DischargeCarlFormSteps extends DriverScript {
     public void verify_SSN(){
     	dischargecarlform.verify_SSN();
     }
+    
+    @And ("^I enter duplicate firstname and lastname on Add Patient modal$")
+    public void i_Enter_Duplicate_Firstname_And_LastName_On_Add_Patient_Modal(){
+    	dischargecarlform.iEnterDuplicateNameInTextboxFieldPresentOnAddPatientModal();
+    }
 }

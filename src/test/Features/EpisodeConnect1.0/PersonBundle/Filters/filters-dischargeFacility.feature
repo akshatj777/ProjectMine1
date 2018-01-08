@@ -35,14 +35,15 @@ Feature: Filters - Anchor Facility
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I select the "Discharge" "caresetting" "HOM - Home" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
+    Then I select the "Discharge" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     #Then I wait to the see the visibility of loader to disappear
-    #Then I select the "Discharge" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
-    Then I select the "Discharge" facility "Home" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
+    Then I select the "Discharge" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
+    Then I select the "Discharge" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
+    And I close modal popup
     #Then I click on "×" button
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
@@ -52,7 +53,7 @@ Feature: Filters - Anchor Facility
     And I search "anchor discharge facility" from the list of Filter
     Then I click on the "Anchor discharge facility" filter
     Then I will wait to see the "Anchor discharge facility" element xpath "//*[@id='filter-selector-anchor_dicharge_facility']"
-    When I click "Anchor Discharge dropdown" element "#filter-selector-anchor_dicharge_facility >div.btn-group>div.date-filter-widget"
+    When I click "Anchor Discharge dropdown" element "#filter-selector-anchor_dicharge_facility >div.btn-group>div"
     When I fill in Discharge Facility name with value "stamford hospital"
     When I click "Stamford Hospital - Stamford (STAMFORD, CT)" xpath element "//*[@id='uniform-dynamic_select_filter_anchor_dicharge_facility_0']"
     Then I will see patient name title on the patient card

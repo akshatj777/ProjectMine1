@@ -3,6 +3,7 @@ package stepDefination.Episode1;
 import com.remedy.episode1.PatientOverview;
 import com.remedy.resources.DriverScript;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class PatientOverviewSteps extends DriverScript {
@@ -96,5 +97,20 @@ public class PatientOverviewSteps extends DriverScript {
 	@Then("^I should see \"([^\"]*)\" in By column on Recent Activity Notification tab$")
 	public void i_Should_See_Text_In_By_Column_On_RecentActivity_Notification_Tab(String text) throws Throwable {
 		overview.iShouldSeeTextInByColumnOnRecentActivityNotificationTab(text);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" in Appointments under Care Plan on Patient page$")
+	public void i_Verify_Appointments_Under_CarePlan_On_Patient_Page(String text) throws Throwable {
+		overview.iVerifyAppointmentsUnderCarePlanOnPatientPage(text);
+	}
+	
+	@And("^I should see \"([^\"]*)\" in Assigned forms under Care Plan on Patient page$")
+	public void i_Should_See_Assigned_Forms_Under_Care_Plan_On_Patient_Page(String text) throws Throwable {
+		overview.ishouldSeeAssignedFormsUnderCarePlanOnPatientPage(text);
+	}
+	
+	@And("^I should see Physician card under Physicians under Care Team on Patient page$")
+	public void i_Should_See_PhysicianCard_Under_Care_Team_On_Patient_Page() throws Throwable {
+		overview.ishouldSeePhysicianCardUnderCareTeamOnPatientPage();
 	}
 }

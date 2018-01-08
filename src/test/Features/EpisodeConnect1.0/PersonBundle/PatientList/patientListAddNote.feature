@@ -1,8 +1,7 @@
 @EC1Smoke
 Feature: New Note from patient list actions
-
- Scenario: Verify that note is created from patient list and displayed properly on care plan->Notes list
-    Given I am on the login page
+Background: Patient creation
+ 	Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -23,9 +22,14 @@ Feature: New Note from patient list actions
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
     And I will wait to see "New Transition" in "h4" tag
-    Then I click on the Cancel Button on the New Transition on Add Patient page
-    Then I click on "custom" filter tab present on the patients page
-    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    And I click on submit button present on the new filter modal
+
+ Scenario: Verify that note is created from patient list and displayed properly on care plan->Notes list
+    Given I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     #Then I enter patient's firstname in the patient search box on the patient page 
     #Then I click on search button present on the patients page
     And I click on first patient gear menu

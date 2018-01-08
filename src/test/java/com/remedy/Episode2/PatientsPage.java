@@ -580,8 +580,10 @@ public class PatientsPage extends BaseClass {
 	}
 	
 	public void iShouldSeeMessageOnPatientFoundOnAddPatientModal(String text) {
-		iWillWaitToSee(By.cssSelector("h4"));
-		iVerifyTextFromListOfElement(By.cssSelector("h4"),text);
+		iWillWaitToSee(By.xpath("//h4[text()='"+text+"']"));
+//		iVerifyTextFromListOfElement(By.cssSelector("h4"),text);
+		String actual = getTextForElement(driver.findElement(By.xpath("//h4[text()='"+text+"']")));
+		Assert.assertEquals(text, actual);
 	}
 
 	public void iVerifyAdmitDateIsPresentOnTheTransitionPage() {
@@ -1346,4 +1348,39 @@ public class PatientsPage extends BaseClass {
 	public void iVerifyNoneOfAboveInPredictionDRGList(String text){
 		verifyTextForElement(driver.findElement(By.xpath(".//*[@id='prediction']/div[2]/div[2]/show-predicted-drgs/table/tbody/tr[4]/td[2]")),text);
 	}
+	
+	public void iEnterMedicalRecordNumberOnAddPatientPage(String text){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_medicalRecordNumber")), text);
+	}
+	
+	public void iSelectAddressTypeOnAddPatientPage(String text){
+		clickElement(driver.findElement(By.cssSelector("#Patient_Details_address_type")));
+		clickSingleElementFromList(By.cssSelector("#Patient_Details_address_type>option"), text);
+	}
+	
+	public void iEnterStreetOnAddPatientPage(String text){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_address_street")), text);
+	}
+	
+	public void iEnterCityOnAddPatientPage(String text){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_address_city")), text);
+	}
+	
+	public void iSelectStateOnAddPatientPage(String text){
+		clickElement(driver.findElement(By.cssSelector("#Patient_Details_address_state")));
+		clickSingleElementFromList(By.cssSelector("#Patient_Details_address_state>option"), text);
+	}
+	
+	public void iEnterZipOnAddPatientPage(String text){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_address_zip")), text);
+	}
+	
+	public void iClickOnAddNewButtonToAddPhoneNumber(){
+		clickElement(driver.findElement(By.cssSelector(".btn.blue.add_to_collection")));
+	}
+	
+	public void iEnterNumberOnAddPatientPage(String text, String field){
+		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_phones_"+field+"_number")), text);
+	}
+	
 	}

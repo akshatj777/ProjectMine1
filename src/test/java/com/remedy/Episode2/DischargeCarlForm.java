@@ -581,6 +581,11 @@ public class DischargeCarlForm extends BaseClass {
 		String new_word = " "+ "SSN"+" xxx-xx-"+ssn_final.substring(ssn_final.length() - 3);
 		verifyTextForElement(driver.findElement(By.cssSelector("ec2-embed-patient-ssn")),new_word);
 	}
+	
+	public void iEnterDuplicateNameInTextboxFieldPresentOnAddPatientModal() {
+			iFillInText(driver.findElement(By.cssSelector("#Patient_Details_firstName")), firstname);
+			iFillInText(driver.findElement(By.cssSelector("#Patient_Details_lastName")), lastname);
+	}
 
 	
 }
