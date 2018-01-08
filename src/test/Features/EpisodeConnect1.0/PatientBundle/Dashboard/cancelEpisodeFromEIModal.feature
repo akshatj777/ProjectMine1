@@ -54,7 +54,8 @@ Feature: Canceling Episode from EI Assignment Window
     Then I will wait to see "CANCELED" state
     Then I will wait to see onboarding status "Unknown"
     Then I verify "UNGROUPABLE" in "DRG" table in row "2" and column "2"
-    And I will verify Episode Marker Admit Date "4" and Termination date "1" and Episode Status "ACTIVE"
+    And I will verify Episode Marker Admit Date "<daysToAdmitWRTToday>" and Termination date "<daysToAdmitWRTToday>" and Episode Status "CANCELED"
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
@@ -71,7 +72,7 @@ Feature: Canceling Episode from EI Assignment Window
     Then I will wait to see "ACTIVE" state
 
     Examples: 
-      | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus |
-      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |
-      #| qa.admin@yopmail.com | minus |                   0 | firsttest    | CANCELED      |
-      #| qa.admin@yopmail.com | plus  |                  -2 | firsttest    | CANCELED      |
+      | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus | Admit Date | Terminate Date |
+      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |          1 |              1 |
+      | qa.admin@yopmail.com | minus |                   0 | firsttest    | CANCELED      |          0 |              1 |
+      | qa.admin@yopmail.com | plus  |                  -2 | firsttest    | CANCELED      |         -2 |             -2 |
