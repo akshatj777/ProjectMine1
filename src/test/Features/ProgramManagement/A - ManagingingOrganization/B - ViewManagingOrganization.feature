@@ -53,6 +53,7 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     And I verify "ACH" organization tab present under "Managing" Organization
     And I verify "PGP" organization tab present under "Managing" Organization
     And I verify "SNF" organization tab present under "Managing" Organization
+    And I verify "HHA" organization tab present under "Managing" Organization
     Then I verify "+" button under "Managing" organization page
     Then I verify "ACH" organization tab by default selected under Managing Organization
     And I verify "CCN" header label under "ACH" organization
@@ -74,6 +75,13 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     And I verify "City" header label under "SNF" organization
     And I verify "State" header label under "SNF" organization
     And I verify "Postal Code" header label under "SNF" organization
+    And I verify the count "0 Organizations" for the associated organization
+    And I click on "HHA" organization under Managing Organization
+    And I verify "CCN" header label under "HHA" organization
+    And I verify "HHA Organization Name" header label under "HHA" organization
+    And I verify "City" header label under "HHA" organization
+    And I verify "State" header label under "HHA" organization
+    And I verify "Postal Code" header label under "HHA" organization
     And I verify the count "0 Organizations" for the associated organization
 
     Examples: 
