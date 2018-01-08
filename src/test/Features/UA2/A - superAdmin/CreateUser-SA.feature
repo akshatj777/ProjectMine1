@@ -100,6 +100,7 @@ Feature: Create User - Super Admin User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
@@ -111,7 +112,9 @@ Feature: Create User - Super Admin User
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Reports homepage
     And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
@@ -126,9 +129,11 @@ Feature: Create User - Super Admin User
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
     And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
     And I click on RemedyU tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to RemedyU homepage
     And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "Learning Pathway 2" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I switch back to old window
     And I redirect to Remedy connect page
     And I click on the top user account link
     And I verify "Support" in dropdown on profile icon
@@ -266,6 +271,7 @@ Feature: Create User - Super Admin User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
@@ -277,7 +283,9 @@ Feature: Create User - Super Admin User
     And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
     And I click on Reports tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Reports homepage
     And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
@@ -292,9 +300,11 @@ Feature: Create User - Super Admin User
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
     And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
     And I click on RemedyU tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to RemedyU homepage
     And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "Learning Pathway 2" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I switch back to old window
     And I redirect to Remedy connect page
     And I click on the top user account link
     And I verify "Support" in dropdown on profile icon

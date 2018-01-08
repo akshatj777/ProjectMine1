@@ -11,18 +11,24 @@ Feature: View User - Super Admin User
     Then I search for user with role "<User>-<Role>"
     Then I select user with role "<User>-<Role>"
     And I verify that I am navigated to user page
-    Then I verify "EditIcon"
-    Then I verify "Unlock"
-    Then I verify "<FirstName>"
-    Then I verify "<LastName>"
-    Then I verify "<Role>"
-    Then I verify "<Email>"
-    Then I verify "<Phone>"
-    Then I verify "<NPI>"
+    Then I verify Edit Icon
+    Then I verify Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
     Then I verify enabled "<ApplicationsEnabled>"
     Then I verify disabled "<ApplicationsDisabled>"
-    Then I verify "<HealthSystem>"
-    Then I verify "<Programs>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I click on "<HealthSystem>" drop down
+    Then I verify Health System search box
+    Then I enter "<HealthSystem>" in Health System search box
+    Then I verify BPID "<BPID>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify health system location "<HealthSystemLocation>"
 
     Examples: 
       | Description                                                                           | User        | FirstName | LastName | Email             | Phone | Role                            | ApplicationsEnabled                                                     | ApplicationsDisbaled                                      | NPI | Health System     |

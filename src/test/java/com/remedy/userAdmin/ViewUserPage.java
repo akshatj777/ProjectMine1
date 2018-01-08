@@ -32,8 +32,65 @@ public class ViewUserPage extends BaseClass {
 		isElementPresentOnPage(By.xpath("//h3[text()='Applications']"));
 	}
 
-	public void verifyFields(String field) throws Throwable {
+	public void verifyFirstName(String field) throws Throwable {
+		isElementPresentOnPage(By.xpath("//span[text()=', "+field+"']"));
+	}
+	
+	public void verifyLastName(String field) throws Throwable {
+		isElementPresentOnPage(By.xpath("//span[text()='"+field+"']"));
+	}
+	
+	public void verifyRole(String field) throws Throwable {
 		
+	}
+	
+	public void verifyEmail(String field) throws Throwable {
+		isElementPresentOnPage(By.xpath("//span[@title='"+field+"']"));
+	}
+
+	public void verifyPhone(String field) throws Throwable {
+		
+	}
+	
+	public void verifyNPI(String field) throws Throwable {
+		
+	}
+	
+	public void verifyHealthSystem(String field) throws Throwable {
+		
+	}
+	
+	public void verifyPrograms(String field) throws Throwable {
+		
+	}
+	
+	public void verifyBPID(String field) throws Throwable {
+
+	}
+	
+
+	public void verifyHealthSystemLocation(String field) throws Throwable {
+
+	}
+	
+	public void verifyEditIcon() throws Throwable {
+	
+	}
+	
+	public void verifyUnlockIcon() throws Throwable {
+	
+	}
+	
+	public void verifyHealthSystemSearchBox() throws Throwable {
+	
+	}
+	
+	public void ClickHealthSytemDropdown(String field) throws Throwable {
+	
+	}
+	
+	public void EnterTextInHealthSytemSerchBox(String field) throws Throwable {
+	
 	}
 
 	public void verifyEnabledApplications(String applicationsEnabled) throws Throwable {

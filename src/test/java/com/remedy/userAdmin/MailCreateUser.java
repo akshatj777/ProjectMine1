@@ -7,8 +7,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -69,12 +72,26 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iSignOutFromMailAccount() {
-		delay();
-		iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
-		clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
-		delay();
-		clickElement(driver.findElement(By.cssSelector("#gb_71")));
-		iWillWaitToSee(By.id("headingText"));
+		try
+		{
+			delay();
+			iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
+			clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
+			delay();
+			clickElement(driver.findElement(By.cssSelector("#gb_71")));
+			delay();
+			if(!(new WebDriverWait(driver,10).until(ExpectedConditions.alertIsPresent())==null))
+			{
+				Alert alt = driver.switchTo().alert();
+				  alt.accept();
+			}
+			iWillWaitToSee(By.id("headingText"));
+		}
+		catch(Exception e)
+		{
+			//System.out.println(e.toString());
+		}
+		
 	}
 	
 	public void iEnterEmailToCreateUser(String emailName) {
@@ -112,17 +129,25 @@ public class MailCreateUser extends BaseClass{
 		try
 		{
 			iWillWaitToSee(By.xpath("//input[@name='email']"));
+			//iWillWaitToSee(By.xpath("//input[@name='hllo']"));
 			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.toString());
+			driver.switchTo().window(parentWindow);
 		}
 	}
 	
 	public void iClickOnSendEmailButton() {
-		iWillWaitToSee(By.xpath("//button[@type='submit']"));
-		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+		try
+		{
+			iWillWaitToSee(By.xpath("//button[@type='submit']"));
+			clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+		}
+		catch(Exception e)
+		{
+			driver.switchTo().window(parentWindow);
+		}
 	}
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
@@ -139,13 +164,28 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
-		iWillWaitToSee(By.name("password"));
-		iFillInText(driver.findElement(By.name("password")), text);
+		try
+		{
+			iWillWaitToSee(By.name("password"));
+			iFillInText(driver.findElement(By.name("password")), text);
+		}
+		catch(Exception e)
+		{
+			driver.switchTo().window(parentWindow);
+		}
+		
 	}
 	
 	public void iEnterConfirmNewPasswordToSetNewPassword(String text) {
-		iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
+		try
+		{
+			iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
+		}
+		catch(Exception e)
+		{
+			driver.switchTo().window(parentWindow);
+		}
 	}
 	
 	public void iEnterNewUserEmailForLoginToRemedy(String role) {
