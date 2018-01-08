@@ -40,7 +40,7 @@ Background: Potential M3 Active
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will wait to see "POTENTIAL MODEL3" state
+    Then I will wait to see "POTENTIAL MODEL 3" state
     Then I will wait to see onboarding status "Needs Onboarding"
 
 Scenario: POT3 will get activated on post acute admission, which its admit date is between HHH discharge to the POT3 episode end date.
@@ -49,7 +49,6 @@ Scenario: POT3 will get activated on post acute admission, which its admit date 
     And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "15" LOS days on Discharge date on Add Transition
     Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
-    Then I wait to the see the visibility of loader to disappear
     Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     Then I click on update transition to add a new episode
