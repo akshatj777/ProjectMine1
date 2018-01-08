@@ -43,9 +43,11 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     Then I will wait to see "ACTIVE" state
     Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     And I will wait to see "Episode Initiator" in "th" tag
-    And I will wait to see "Unassigned" in "th" tag
-    Then I click "Edit" text in tag "a"
+    And I will wait to see "Unassigned" in "td" tag
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
       | Unassigned                                        |
@@ -58,8 +60,10 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
-    And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "th" tag
-    Then I click "Edit" text in tag "a"
+    And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I select "Saber Health - Broomall Healthcare Group, Inc." from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
     Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
@@ -67,8 +71,10 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
-    And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "th" tag
-    Then I click "Edit" text in tag "a"
+    And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "td" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I select "Non-Remedy Convener" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
     Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
@@ -76,7 +82,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
-    And I will wait to see "Non-Remedy Convener" in "th" tag
+    And I will wait to see "Non-Remedy Convener" in "td" tag
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "1" LOS days on Discharge date on Add Transition
@@ -85,11 +91,13 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
+    And I will verify Episode Marker Admit Date "4" and Termination date "-86" and Episode Status "ACTIVE"
     Then I will wait to see onboarding status "Needs Onboarding"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     And I will wait to see "Episode Initiator" in "th" tag
-    And I will wait to see "Unassigned" in "th" tag
-    Then I click "Edit" text in tag "a"
+    And I will wait to see "Non-Remedy Convener" in "td" tag
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
       | Unassigned                                        |
@@ -101,56 +109,53 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-60" and Episode Status "ACTIVE"
-    And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "th" tag
-    Then I click "Edit" text in tag "a"
+    And I will verify Episode Marker Admit Date "4" and Termination date "-26" and Episode Status "ACTIVE"
+    And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I select "Saber Health - Broomall Healthcare Group, Inc." from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
     Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-30" and Episode Status "ACTIVE"
-    And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "th" tag
-    Then I click "Edit" text in tag "a"
+    And I will verify Episode Marker Admit Date "4" and Termination date "-56" and Episode Status "ACTIVE"
+    And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "td" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I select "Unassigned" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
     Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-90" and Episode Status "ACTIVE"
-    And I will wait to see "Unassigned" in "th" tag
-    
-    When I click first timing transition edit link "1"
-    And I will wait to see "Edit Transition" in "h4" tag
-    Then I select the "1" LOS days on Discharge date on Add Transition
-    Then I click on update transition to add a new episode
+    And I will verify Episode Marker Admit Date "4" and Termination date "-86" and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "Unassigned" in "td" tag
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
+    Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
+      | Unassigned                                        |
+      | Envision Health Care - Kemwall Inpatient Services |
+      | Saber Health - Broomall Healthcare Group, Inc.    |
+      | Non-Remedy Convener                               |
+    Then I select "Non-Remedy Convener" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
+    When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    
-    And I will verify Episode Marker Admit Date "4" and Termination date "-90" and Episode Status "ACTIVE"
-    And I will wait to see "Unassigned" in "th" tag
-    
+    And I will verify Episode Marker Admit Date "4" and Termination date "-86" and Episode Status "ACTIVE"
+    And I will wait to see "Non-Remedy Convener" in "td" tag
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "70" days
+    Then I click on update transition to add a new episode
     Then I click "Edit" text in tag "a"
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
       | Unassigned                                        |
       | Envision Health Care - Kemwall Inpatient Services |
       | Non-Remedy Convener                               |
-      
-    Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-90" and Episode Status "ACTIVE"
-    When I click first timing transition edit link "1"
-    And I will wait to see "Edit Transition" in "h4" tag
-    Then I clear the "LOS" xpath "//*[@id='bp_personbundle_bpadmissiontype_los']" 
-    Then I click on update transition to add a new episode
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
-    And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "th" tag
-    

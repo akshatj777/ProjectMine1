@@ -54,7 +54,7 @@ Feature: Canceling Episode from EI Assignment Window
     Then I will wait to see "CANCELED" state
     Then I will wait to see onboarding status "Unknown"
     Then I verify "UNGROUPABLE" in "DRG" table in row "2" and column "2"
-    And I will verify Episode Marker Admit Date "<daysToAdmitWRTToday>" and Termination date "<daysToAdmitWRTToday>" and Episode Status "CANCELED"
+    And I will verify Episode Marker Admit Date "<Admit Date>" and Termination date "<Terminate Date>" and Episode Status "<episodeStatus>"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"

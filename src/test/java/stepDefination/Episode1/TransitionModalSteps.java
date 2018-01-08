@@ -22,9 +22,9 @@ public class TransitionModalSteps extends DriverScript {
 		transition.iVerifyvalueintable(value,table,row,column);
 	}
 	
-	@Then ("^I select the admit date \"([^\"]*)\" hour \"([^\"]*)\" in transition \"([^\"]*)\"$")
-	public void i_Select_one_hour_later_or_before(int time,String later,String tranistion) throws ParseException{
-		transition.iSelectonehourlaterorbefore(time,later,tranistion);
+	@Then ("^I select the \"([^\"]*)\" admit date with \"([^\"]*)\" hour \"([^\"]*)\" in transition \"([^\"]*)\"$")
+	public void i_Select_one_hour_later_or_before(int days,int time,String later,String tranistion) throws ParseException{
+		transition.iSelectonehourlaterorbefore(days,time,later,tranistion);
 	}
 	
 	@When ("^I click Start CARL tool link \"([^\"]*)\"$")
@@ -45,6 +45,11 @@ public class TransitionModalSteps extends DriverScript {
 	@Then ("^I should not see \"([^\"]*)\" dropdown on Transition modal$")
 	public void I_should_not_see_dropdown_on_transition_modal(String text) throws Throwable {
 		transition.IShouldNotSeeDropDownOnTransitionModal(text);
+	}
+	
+	@And ("^I click on Cancel button on discharge modal$")
+	public void i_click_on_cancel_button(){
+		transition.iclickoncancelbutton();
 	}
 	
 }

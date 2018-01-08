@@ -217,7 +217,7 @@ public void iwillverifytextinelement(String text, String xpath) {
 public void iwillverifylistofoptionsindropdown(String element, String xpath, List<String> dropdownvalues) {
 	iWillWaitToSee(By.xpath(xpath));
 	for(int i=0;i<dropdownvalues.size();i++){
-	verifyTextForElementFromListByXpath(element,dropdownvalues.get(i));
+	verifyTextForElementFromListByXpath(xpath,dropdownvalues.get(i));
 	}
 }
 

@@ -2,6 +2,7 @@ package com.remedy.episode1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -10,11 +11,12 @@ public class EpisodeLogic extends BaseClass {
 	public EpisodeLogic(WebDriver driver) {
 		super(driver);
 	}
-
+  
 	public void iclickanchortransitiondelete(int tran) throws InterruptedException {
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"));
 		delay();
-		clickAction(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
+		Actions actions=new Actions(driver);
+		actions.moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"))).build().perform();;
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div/ul/li[3]/a"));
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div/ul/li[3]/a")));

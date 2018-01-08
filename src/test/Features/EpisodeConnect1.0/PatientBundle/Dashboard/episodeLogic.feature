@@ -267,7 +267,7 @@ Feature: Managing Various Episode States
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will wait to see "POTENTIAL MODEL3" state
+    Then I will wait to see "POTENTIAL MODEL 3" state
     Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: POTENTIAL EPISODE CANCELED

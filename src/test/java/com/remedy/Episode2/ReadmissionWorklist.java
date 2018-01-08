@@ -124,7 +124,7 @@ public class ReadmissionWorklist extends BaseClass {
 
 	public void IselecttheLOSdaysonDischargedateonAddTransition(String days) {
 		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_los")), days);
-		longDelay();
+		delay();
 	}
 
 	public void IclickontheReadmissionssubtabonImpatienttabonpatientCardPage() {
@@ -171,9 +171,13 @@ public class ReadmissionWorklist extends BaseClass {
 	}
 
 	public void Iclickonupdatetransitiontoaddanewepisode() {
-		 iWillWaitToSee(By.cssSelector("#submitButton"));
+		delay(); 
+		iWillWaitToSee(By.cssSelector("#submitButton"));
          Actions actions = new Actions(driver);
-         actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).click().perform();
+         actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
+         clickElement(driver.findElement(By.cssSelector("#submitButton")));
+         new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='ajax-modal-lg']/div/div/div[3]/div/span")));
+         longDelay();
 	}
 
 	public void Iselectthedischargecaresettingvalueonaddanewtransition(String caresetting) {
