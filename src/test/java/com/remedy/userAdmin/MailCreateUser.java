@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 public class MailCreateUser extends BaseClass{
 
@@ -29,6 +30,10 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iAmOnMailLoginPage() throws InterruptedException {
         driver.navigate().to("https://accounts.google.com");
+        if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+        {
+        	driver.manage().window().maximize();
+        }
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
@@ -182,9 +187,13 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
-	    driver.get("chrome://settings/clearBrowserData");
-	    Thread.sleep(10000);
-	    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
-	    Thread.sleep(10000);
+	    if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+	    {
+	    	driver.get("chrome://settings/clearBrowserData");
+		    Thread.sleep(10000);
+		    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
+		    Thread.sleep(10000);
+	    }
+		
 	}
 }

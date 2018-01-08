@@ -576,6 +576,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.clickLogOutButton(arg1);
 	}
 
+	@Then("^I click on \"([^\"]*)\" button again$")
+	public void click_LogOut_ButtonAgain(String arg1) throws Throwable {
+		createUser.clickLogOutButtonAgain(arg1);
+	}
+	
 	@Then("^I verify \"([^\"]*)\" product on SPOE page$")
 	public void verifyProductTiles(String products) throws Throwable {
 		createUser.verifyProductTiles(products);

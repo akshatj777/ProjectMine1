@@ -2,9 +2,13 @@ package com.remedy.userAdmin;
 
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 //import org.apache.commons.collections.set.SynchronizedSet;
@@ -36,14 +40,29 @@ public class LandingPage extends BaseClass{
     public void iSwitchToNewWindow(){
     	try
 		{
-			String parentWindow = driver.getWindowHandle();
-			//parentWindowTitle = driver.switchTo().window(parentWindow).getTitle();
-			Set<String> handles = driver.getWindowHandles();
-			for (String windowHandle : handles) {
-				if (!windowHandle.equals(parentWindow)) {
-					driver.switchTo().window(windowHandle);
+			if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+			{
+				String parentWindow = driver.getWindowHandle();
+				//parentWindowTitle = driver.switchTo().window(parentWindow).getTitle();
+				Set<String> handles = driver.getWindowHandles();
+			//	for (String windowHandle : handles) {
+				if(!((String)handles.toArray()[handles.size()-1]).equals(parentWindow))
+				{
+					driver.switchTo().window((String)handles.toArray()[handles.size()-1]);
 				}
 			}
+			else if(DriverScript.Config.getProperty("Browser").equals("firefox"))
+			{
+				String parentWindow = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				Object[] array = handles.toArray();
+				Arrays.sort(array);
+				if(!(array[array.length-1].toString().equals(parentWindow)))
+				{
+					driver.switchTo().window(array[array.length-1].toString());
+				}
+			}
+    		
 		}
 		catch(Exception e)
 		{
@@ -54,19 +73,29 @@ public class LandingPage extends BaseClass{
     public void iSwitchBackToOldWindow(){
     	try
     	{
-    		String parentWindow = driver.getWindowHandle();
-            Set<String> handles = driver.getWindowHandles();
-            if(!(driver.getWindowHandle().equals(parentWindow)))
-            //if(!(driver.switchTo().window(parentWindow).getTitle().equals(parentWindowTitle)))
-            {
-            	driver.close();
-            }
-            for (String windowHandle : handles) {
-                if (!windowHandle.equals(parentWindow)) {
-                    driver.switchTo().window(windowHandle);
-                }
-            }
-            delay();
+    		if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                if(!((String)handles.toArray()[0]).equals(parentWindow))
+    			{
+    				driver.switchTo().window((String)handles.toArray()[0]);
+    			}
+                delay();
+    		}
+    		else if(DriverScript.Config.getProperty("Browser").equals("firefox"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                Object[] array = handles.toArray();
+				Arrays.sort(array);
+                if(!(array[0].toString().equals(parentWindow)))
+    			{
+    				driver.switchTo().window(array[0].toString());
+    			}
+                delay();
+    		}
+    		
     	}
     	catch(Exception e)
     	{
@@ -85,8 +114,20 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
-    	iWillWaitToSee(By.cssSelector(".btn.btn-flyout-nav"));
-    	selectElementByDesc(".btn.btn-flyout-nav", link);
+//    	iWillWaitToSee(By.cssSelector(".btn.btn-flyout-nav"));
+//    	selectElementByDesc(".btn.btn-flyout-nav", link);
+    	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
+	      delay();
+	      if(link.equals("Log Out"))
+	      {
+	    	  driver.findElement(By.xpath("//a[@ng-click='user.logout()']")).click(); 
+	      }
+	      else if(link.equals("Reset Password"))
+	      {
+	    	  driver.findElement(By.xpath("//a[contains(@ng-click,'valentino.reset-password')]")).click();
+	      }
+	      
     }
 
     public void iVerifyTextForJiraLogInPage(String text){

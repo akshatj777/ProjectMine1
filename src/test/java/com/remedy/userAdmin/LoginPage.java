@@ -63,7 +63,8 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iVerifyResetPasswordText(String text) {
-		iVerifyTextFromListOfElement(By.cssSelector(".sso-reset-password-text-container>p"), text);
+		iWillWaitToSee(By.xpath("//div[@class='sso-reset-password-text-container']/p[contains(text(),'"+text+"')]"));
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='sso-reset-password-text-container']/p[contains(text(),'"+text+"')]")));
 	}
 
 	public void iClickOkayButtonForResetPasswordPopupFromAccountLink() {
@@ -112,6 +113,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iVerifyLogInWidget() {
+		iWillWaitToSee(By.cssSelector(".auth0-lock-content"));
 		isElementVisible(driver.findElement(By.cssSelector(".auth0-lock-content")));
 	}
 	

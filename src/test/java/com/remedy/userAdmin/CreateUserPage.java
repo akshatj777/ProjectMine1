@@ -35,7 +35,8 @@ public class CreateUserPage extends BaseClass{
 	public static HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
 	WebDriverWait wait = new WebDriverWait(driver, 60); 
-
+	LandingPage objLandingPage = new LandingPage(driver);
+	
     public CreateUserPage(WebDriver driver){
         super(driver);
     }
@@ -371,8 +372,8 @@ public class CreateUserPage extends BaseClass{
 		   if(st.nextToken().trim().equals("Episodes")){
 			   iWillWaitToSee(By.xpath("//p[text()='Episodes']"));
 			   clickElement(driver.findElement(By.xpath("//a[@class='spoe-button episodes']")));
-			   switchToNewWindow();
-			   iWillWaitToSee(By.cssSelector(".username"));
+			   //switchToNewWindow();
+			   //iWillWaitToSee(By.cssSelector(".username"));
 		   }   
 	   }
    }
@@ -383,6 +384,7 @@ public class CreateUserPage extends BaseClass{
 	   while(st.hasMoreTokens())
 	   {
 		   if(st.nextToken().trim().equals("Episodes")){
+			   iWillWaitToSee(By.cssSelector(".username"));
 			   isElementPresentOnPage(By.xpath("//h3/span[contains(text(),'Dashboard')]"));
 		   }   
 	   }
@@ -437,17 +439,30 @@ public class CreateUserPage extends BaseClass{
 	   }
    }
    
-   public void iClickOnAddNoteAndVerifyRole(String userrole, String role){
+   public void iClickOnAddNoteAndVerifyRole(String userrole, String role) throws InterruptedException{
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   StringTokenizer st = new StringTokenizer(application, ",");
 	   while(st.hasMoreTokens())
 	   {
 		   if(st.nextToken().trim().equals("Episodes")){
 			   iWillWaitToSee(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']"));
+			   longDelay();
+			   scrollIntoViewByJS(driver.findElements(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']")).get(0));
 			   driver.findElements(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']")).get(0).click();
+			   //driver.findElement(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']")).click();
+			   delay();
+			   scrollIntoViewByJS(driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0));
 			   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
 			   delay();
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+//			   //waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+//			   iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
+//			     driver.findElements(By.xpath("//a[@class='btn btn-default dropdown-toggle']/i[@class='fa fa-cog']")).get(0).click();
+//			     delay();
+//			     //driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
+//			     scrollIntoViewByJS(driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")));
+//			     driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")).click();
+//			     Thread.sleep(2000);
+//			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
 		   }   
 	   }   
    }
@@ -458,6 +473,7 @@ public class CreateUserPage extends BaseClass{
 	   while(st.hasMoreTokens())
 	   {
 		   if(st.nextToken().trim().equals("Episodes")){
+			   waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.id("tblPatients_processing")));
 			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@ng-repeat='element in patientsList']")));
 		   } 
 	   }   
@@ -467,13 +483,13 @@ public class CreateUserPage extends BaseClass{
 		iWillWaitToSee(By.xpath("//p[text()='Institute']"));   
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='Institute']")));
-		   switchToNewWindow();
+		   //switchToNewWindow();
 		   delay();
    }
    
    public void iVerifyNavigationOnInstituteHomePage(String role){
+	   iWillWaitToSee(By.cssSelector(".navbar-header"));
 	   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".navbar-header")));
-	   switchBacktoOldWindow(); 
    }
    
    public void iClickOnReportsTileUnderSpecificUserLoginPage(String role){
@@ -498,7 +514,7 @@ public class CreateUserPage extends BaseClass{
 		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='RemedyU']")));
 		   clickElement(driver.findElement(By.xpath("//p[text()='RemedyU']")));
 		   delay();
-		   switchToNewWindow();
+		   objLandingPage.iSwitchToNewWindow();
    	}
    }
    
@@ -543,7 +559,7 @@ public class CreateUserPage extends BaseClass{
 			   String actual = driver.findElement(By.cssSelector(".mb-0.litmos-small-header.hidden-xs")).getText();
 			   Assert.assertEquals(pathway, actual);
 		   }
-		   switchBacktoOldWindow(); 
+		   objLandingPage.iSwitchBackToOldWindow(); 
 	   }
    }
    
@@ -825,11 +841,22 @@ public class CreateUserPage extends BaseClass{
        clickElement(driver.findElement(By.xpath("//span[text()='Log Out']")));
    }
    
+   public void clickLogOutButtonAgain(String arg1) throws Throwable {
+	   Thread.sleep(2000);
+	   if(driver.findElements(By.cssSelector(".title>p")).size()>0)
+	   {
+		   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
+	      delay();
+	      driver.findElement(By.xpath("//a[@ng-click='user.logout()']")).click();
+	   }
+   }
+   
    public void verifyProductTiles(String products) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(products,",");
 	   String token = null;
        while (st.hasMoreTokens()) {
-    	   String newToken = st.nextToken();
+    	   String newToken = st.nextToken().trim();
     	   if(newToken.contains("Lessons"))
     	   {
     		   token = "RemedyU";
@@ -913,7 +940,7 @@ public class CreateUserPage extends BaseClass{
 		String token = null;
 		while (st.hasMoreTokens()) 
 	       {
-			String newToken = st.nextToken();
+			String newToken = st.nextToken().trim();
 			if(newToken.contains("Lessons"))
 	    	   {
 	    		   token = "RemedyU";
@@ -934,7 +961,10 @@ public class CreateUserPage extends BaseClass{
 	    	   {
 	    		   token = newToken;   
 	    	   }
-			iVerifyTextFromListOfElement(By.xpath("//menu-dropdown[@class='flex-item order-0']//a[contains(@class,'btn btn-flyout-nav')]"), token.trim());
+			if(token.equals("Episodes"))
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
+			}
 	       } 
 	}
    
@@ -978,34 +1008,62 @@ public class CreateUserPage extends BaseClass{
 	}
    
    public void iVerifyDropDownValueFromProfileIcon(String text) {
-		iWillWaitToSee(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"));
-		if (text.isEmpty() != true) {
-			iVerifyTextFromListOfElement(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
+	   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+		if(text.equals("Internal Support"))
+		{
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@ng-href='https://jira.remedypartners.com/servicedesk/customer/portal/2']")));
+		}
+		else if(text.equals("Support"))
+		{
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")));
+		}
+		else if(text.equals("Reset Password"))
+		{
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(@ng-click,'valentino.reset-password')]")));
+		}
+		else if(text.equals("Log Out"))
+		{
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@ng-click='user.logout()']")));
 		}
 	}
    
    public void iClickOnFiledInDropdownOnProfileIcon(String text) {
 		
-		if(driver.findElement(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']")).isDisplayed())
-		{
-			if (text.isEmpty() != true) {
-				iWillWaitToSee(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"));
-				clickSingleElementFromList(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
-			}
-		}
-		else {
-			iWillWaitToSee(By.cssSelector(".valentino-icon-profile"));
-			clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
-			delay();
-			if (text.isEmpty() != true) {
-				clickSingleElementFromList(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
-				}
-		}
+//		if(driver.findElement(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']")).isDisplayed())
+//		{
+//			if (text.isEmpty() != true) {
+//				iWillWaitToSee(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"));
+//				clickSingleElementFromList(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
+//			}
+//		}
+//		else {
+//			iWillWaitToSee(By.cssSelector(".valentino-icon-profile"));
+//			clickElement(driver.findElement(By.cssSelector(".valentino-icon-profile")));
+//			delay();
+//			if (text.isEmpty() != true) {
+//				clickSingleElementFromList(By.xpath("//menu-dropdown-content[contains(@class,'right')]//a[@class='btn btn-flyout-nav']"),text);
+//				}
+//		}
+	   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
+	      delay();
+	      driver.findElement(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")).click();
 	}
    
    public void iVerifyPageHeaderForPageOnRemedyConnect(String title) {
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1"))));
-		getTextForElement(driver.findElement(By.cssSelector(".aui-item.cv-title>div>h1")));
+	   if(!driver.findElement(By.xpath("//h1[text()='Login']")).isDisplayed())
+	   {
+		   driver.navigate().refresh();
+		   iWillWaitToSee(By.xpath("//h1[text()='Login']"));
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Login']")));
+	   }
+	   else
+	   {
+		   iWillWaitToSee(By.xpath("//h1[text()='Login']"));
+		   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Login']")));
+	   }
+		   
+	   
 	}
    
    public void iVerifyNoResultsFoundUnderLearningPathWaySearch() {

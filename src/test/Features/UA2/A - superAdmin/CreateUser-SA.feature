@@ -41,9 +41,10 @@ Feature: Create User - Super Admin User
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
+    Given I am on the login page
+    Then I click on "Log Out" button again
     And I clear the browser history
     Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
     Then I click on Inbox in mail
@@ -100,6 +101,7 @@ Feature: Create User - Super Admin User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
@@ -108,19 +110,21 @@ Feature: Create User - Super Admin User
     And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
     And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
-    And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
-    And I click on Reports tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Reports homepage
-    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
-    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
-    When I click on field-panel-icon button for "<User>-<Role>" user
-    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
-    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
-    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
-    And I click on cancel button from filter for "<User>-<Role>" user
+    And I switch back to old window
+    #And I click on Reports tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Reports homepage
+    #And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    #Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    #When I click on field-panel-icon button for "<User>-<Role>" user
+    #When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    #And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    #And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    #And I click on cancel button from filter for "<User>-<Role>" user
     And I redirect to Remedy connect page
     And I click on Episodes 2 tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
@@ -130,7 +134,7 @@ Feature: Create User - Super Admin User
     And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "Learning Pathway 2" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on the top user account link
+    And I click on the top user account link on remedy connect page
     And I verify "Support" in dropdown on profile icon
     And I verify "Reset Password" in dropdown on profile icon
     And I verify "Log Out" in dropdown on profile icon
@@ -138,9 +142,8 @@ Feature: Create User - Super Admin User
     And I switch to new window
     And I verify page header "Login" for "Support" on Remedy Connect
     And I switch back to old window
-    And I click on "Reset Password" in dropdown on profile icon
     Then I select Reset Password option from the dropdown
-    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password. Please check your e-mail."
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
     And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget
@@ -163,7 +166,7 @@ Feature: Create User - Super Admin User
       | Login with Partner Program Administrator and verify Product Tiles and their redirections   | Super Admin | Partner Program Administrator   | Episodes, Episodes 2.0, Reports, Physician Connect, TCI                          | Administration                                            | ROLE_PRM       | Stamford Hospital |
       | Login with Remedy Program Administrator and verify Product Tiles and their redirections    | Super Admin | Remedy Program Administrator    | Episodes, Episodes 2.0, Reports, Physician Connect, TCI                          | Administration                                            | ROLE_PRM       | Stamford Hospital |
       | Login with Partner Technical Administrator and verify Product Tiles and their redirections | Super Admin | Partner Technical Administrator | Episodes, Episodes 2.0, Reports, Physician Connect, Administration, TCI          |                                                           | ROLE_PRM       | Stamford Hospital |
-      | Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect, Administration, TCI |                                                           | ROLE_ADMIN     | Stamford Hospital |
+      | Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Episodes, Episodes 2.0, Reports, Physician Connect, Administration, TCI |                                                           | ROLE_ADMIN     | Stamford Hospital |
       | Login with Transitional Case Manager and verify Product Tiles and their redirections       | Super Admin | Transitional Case Manager       | Episodes, Reports, TCI                                                           | Episodes 2.0, Administration, Physician Connect           | ROLE_TCS       | Stamford Hospital |
 
   Scenario Outline: <Description>
@@ -207,9 +210,10 @@ Feature: Create User - Super Admin User
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
+    Given I am on the login page
+    Then I click on "Log Out" button again
     And I clear the browser history
     Given I am on mail login page
-    Then I enter username "test.automatemail" to login mail account
     Then I enter password "Intel@01" to login mail account
     Then I click on Mail icon in my account
     Then I click on Inbox in mail
@@ -266,6 +270,7 @@ Feature: Create User - Super Admin User
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     And I redirect to Remedy connect page
     And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
     And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
     And I verify "<Health System>" facility on user profile for "<User>-<Role>" user
@@ -274,19 +279,21 @@ Feature: Create User - Super Admin User
     And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
     And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
     And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
-    And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
     And I switch back to old window
     And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
-    And I click on Reports tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Reports homepage
-    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
-    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
-    When I click on field-panel-icon button for "<User>-<Role>" user
-    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
-    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
-    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
-    And I click on cancel button from filter for "<User>-<Role>" user
+    And I switch back to old window
+    #And I click on Reports tile for "<User>-<Role>" user
+    #And I verify "<User>-<Role>" user navigated to Reports homepage
+    #And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    #Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    #When I click on field-panel-icon button for "<User>-<Role>" user
+    #When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    #And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    #And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    #And I click on cancel button from filter for "<User>-<Role>" user
     And I redirect to Remedy connect page
     And I click on Episodes 2 tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
@@ -296,7 +303,7 @@ Feature: Create User - Super Admin User
     And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
     And I verify learning pathway "Learning Pathway 2" appearing for "<User>-<Role>" user on RemedyU dashboard
     And I redirect to Remedy connect page
-    And I click on the top user account link
+    And I click on the top user account link on remedy connect page
     And I verify "Support" in dropdown on profile icon
     And I verify "Reset Password" in dropdown on profile icon
     And I verify "Log Out" in dropdown on profile icon
@@ -304,9 +311,8 @@ Feature: Create User - Super Admin User
     And I switch to new window
     And I verify page header "Login" for "Support" on Remedy Connect
     And I switch back to old window
-    And I click on "Reset Password" in dropdown on profile icon
     Then I select Reset Password option from the dropdown
-    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password. Please check your e-mail."
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
     And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget

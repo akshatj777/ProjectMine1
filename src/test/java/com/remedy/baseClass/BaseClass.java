@@ -441,6 +441,7 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
+			System.out.println(item.getText());
 			  if (item.getText().trim().equals(text)) {
 				  value=item.getText().trim();  
 			  } 

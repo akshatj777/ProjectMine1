@@ -145,22 +145,22 @@ public class DriverScript {
 			break;			
 
 		default:
-//			String geckoDrvrPath;
-//			geckoDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
-//			os: switch (os) {
-//			case "linux32":
-//			case "linux64":
-//			case "mac":    
-//			System.setProperty("webdriver.gecko.driver",
-//			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver");
-//			break os;
-//			case "win":    
-//			System.setProperty("webdriver.gecko.driver",
-//			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver.exe");
-//			break os;
-//			default:
-//			throw new IllegalStateException("Invalid OS paramter, expected values 'linux32||linux64||mac||win'");    
-//			   }
+			String geckoDrvrPath;
+			geckoDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
+			os: switch (os) {
+			case "linux32":
+			case "linux64":
+			case "mac":    
+			System.setProperty("webdriver.gecko.driver",
+			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver");
+			break os;
+			case "win":    
+			System.setProperty("webdriver.gecko.driver",
+			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver.exe");
+			break os;
+			default:
+			throw new IllegalStateException("Invalid OS paramter, expected values 'linux32||linux64||mac||win'");    
+			   }
 			driver = new FirefoxDriver();
 			}
 		

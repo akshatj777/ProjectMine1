@@ -14,8 +14,9 @@ public class UserAdminHomePage extends BaseClass {
 		super(driver);
 	}
 
-	public void clickCreateUserButton() {
+	public void clickCreateUserButton() throws InterruptedException {
 		delay();
+		Thread.sleep(5000);
 		iWillWaitToSee(By.xpath("//button[text()='Add User']"));
 		clickElement(driver.findElement(By.xpath("//button[text()='Add User']")));
 	}
