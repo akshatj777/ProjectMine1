@@ -200,6 +200,7 @@ public class PatientsListPage extends BaseClass {
     
     public void iClickOnFirstPatientGearMenu(){
 //    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
+    	delay();
     	iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
     	driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(0).click();
     	delay();

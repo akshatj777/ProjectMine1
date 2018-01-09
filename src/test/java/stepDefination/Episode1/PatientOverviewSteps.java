@@ -79,6 +79,11 @@ public class PatientOverviewSteps extends DriverScript {
 		overview.iShouldSeeTextUnderSectionOnMedicalRecord(text,field);
 	}
 	
+	@Then("^I click on \"([^\"]*)\" under Medical Record$")
+	public void i_Click_On_Text_Under_MedicalRecord(String text) throws Throwable {
+		overview.iClickOnTextUnderMedicalRecord(text);
+	}
+	
 	@Then("^I should see \"([^\"]*)\" buttons under Recent Activity$")
 	public void i_Should_See_Button_Under_Recent_Activity(String text) throws Throwable {
 		overview.iShouldSeeButtonUnderRecentActivity(text);

@@ -48,8 +48,11 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iClickOnOptionUnderPatientOverviewGearIcon(String text){
-		clickSingleElementFromList(By.xpath("//div[@class='pull-right open']//li//a"), text);
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
+		iWillWaitToSee(By.xpath("//div[@class='pull-right open']//li//a"));
+//		clickSingleElementFromList(By.xpath("//div[@class='pull-right open']//li//a"), text);
+		clickElement(driver.findElement(By.xpath("//div[@class='pull-right open']//li//a[contains(text(),'"+text+"')]")));
+		delay();
+//		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed"))));
 	}
 	
 	public void iClickOnButtonUnderPatientOverview(String button){
@@ -74,18 +77,29 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void IEditFieldUnderPatientDetails(String field, String text){
-		driver.findElement(By.xpath("//div[@class='col-md-9']//input[@id='BP_patientType_"+field+"']")).clear();
-		iFillInText(driver.findElement(By.xpath("//div[@class='col-md-9']//input[@id='BP_patientType_"+field+"']")), text);
+		longDelay();
+		iWillWaitToSee(By.xpath("//div[@class='col-md-9']"));
+		driver.findElement(By.xpath("//div[@class='col-md-9']//input[@id='BP_patientType_"+field+"']/..")).click();
+		iFillInText(driver.findElement(By.cssSelector(".form-control.input-medium.pull-left")), text);
+		delay();
 	}
 	
 	public void ISelectDropDownUnderEditPatientDetails(String text, String field){
-		clickElement(driver.findElement(By.cssSelector("select[id='BP_patientType_"+field+"']")));
-		selectDropdownVisibleElement("select[id='BP_patientType_"+field+"']", text);
+		clickElement(driver.findElement(By.cssSelector("div[name='BP_patientType["+field+"]']")));
+		delay();
+		clickSingleElementFromList(By.cssSelector("#BP_patientType_"+field+" option"), text);
 		delay();
 	}
 	
 	public void iClickOnButtonUnderPatientDetails(String text){
-		clickElement(driver.findElement(By.cssSelector(".btn.blue.editable-"+text+"']")));
+		if(text.equalsIgnoreCase("submit")){
+			iWillWaitToSee(By.cssSelector(".btn.blue.editable-submit i"));
+			clickElement(driver.findElement(By.cssSelector(".btn.blue.editable-submit i")));
+		}
+		else{
+			clickElement(driver.findElement(By.cssSelector(".btn.default.editable-cancel i")));
+		}
+		longDelay();
 	}
 	
 	public void iClickOnButtonUnderMedicalRecordOnPatientOverview(String button){
@@ -103,7 +117,12 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iShouldSeeTextUnderSectionOnMedicalRecord(String text, String field){
-		iWillWaitToSee(By.xpath("//div[h3[contains(text(),'"+field+"')]]//span[contains(text(),'"+text+"')]"));
+		iWillWaitToSee(By.xpath("//div[h3[contains(text(),'"+field+"')]]//*[contains(text(),'"+text+"')]"));
+	}
+	
+	public void iClickOnTextUnderMedicalRecord(String text){
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Drug')]"));
+		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Drug')]")));
 	}
 	
 	public void iShouldSeeButtonUnderRecentActivity(String text){
