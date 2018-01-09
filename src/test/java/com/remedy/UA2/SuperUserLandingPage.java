@@ -255,6 +255,7 @@ else{
 	delay();
 }
 	public void SearchUserWithText(String searchList) {
+		if(searchList.isEmpty()==false){
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
 		if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true)
 			userCountOnFirstPage=30;
@@ -283,7 +284,8 @@ else{
 			
 			
 		}
-		delay();
+		delay();}
+		else{return;}
 	}
 
 	public void iVerifySearchResult(String result, String searchBy, String role) {

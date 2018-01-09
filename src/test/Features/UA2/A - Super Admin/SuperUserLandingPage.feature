@@ -53,6 +53,7 @@ Feature: Super Admin Landing page verification
     Examples: 
       | user        | Role      | Email             | invalidSearch | Search              | Search By             |
       | Super Admin | Executive | test.automatemail |       1768789 | FirstName, LastName | First Name, Last Name |
+      #| Super Admin | Manager   | test.automatemail |               | FirstName, LastName | First Name, Last Name |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user and cancel unlock
     Given I am on the login page
@@ -75,8 +76,8 @@ Feature: Super Admin Landing page verification
     Then I should not be able to login
 
     Examples: 
-      | user        | Role      |Email|
-      | Super Admin | Executive |test.automatemail+pZKHBfDt@gmail.com|
+      | user        | Role      | Email             |
+      | Super Admin | Executive | test.automatemail |
 
   Scenario Outline: Verify ability of Super Admin user to unlock a locked user
     Given I am on the login page
@@ -98,5 +99,5 @@ Feature: Super Admin Landing page verification
     Then I should see Tile text User Admin
 
     Examples: 
-      | user        | Role      |Email|
-      | Super Admin | Executive |test.automatemail|
+      | user        | Role      | Email             |
+      | Super Admin | Executive | test.automatemail |

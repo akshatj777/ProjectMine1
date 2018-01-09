@@ -43,12 +43,20 @@ public class EditHospitalOrganization extends BaseClass{
 	
 	public void iEditLocationStateForLocationsofSelectedOrganization(String text, int num){
 		num = num-1;
-		scrollIntoViewByJS(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
-		iWillWaitToSee(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span"));
-		clickElement(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
-		if(!text.isEmpty()){
-	    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")), text);
-	    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+		if(driver.findElements(By.cssSelector(".Select.Select--single.is-clearable.is-searchable.has-value>input[name='locations["+num+"].address.stateSelection']")).size()>0){
+			if(!text.isEmpty()){
+				scrollIntoViewByJS(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
+				iWillWaitToSee(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span"));
+				clickElement(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//span[@class='Select-clear-zone']/span")));
+				
+		    	iFillInText(driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")), text);
+		    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+			}
+			else{
+				scrollIntoViewByJS(driver.findElement(By.xpath("//div[input[@name='locations["+num+"].address.stateSelection']]//span[@class='Select-clear']")));
+				driver.findElement(By.xpath("//div[input[@name='locations["+num+"].address.stateSelection']]//span[@class='Select-clear']")).click();
+				
+			}
 		}
 	}
 	
@@ -93,7 +101,6 @@ public class EditHospitalOrganization extends BaseClass{
 				element.click();
 	        }
 		}
-		
 	}
 	
     public void iEditMarketForLocation(String market, String region, int num) {
@@ -121,5 +128,4 @@ public class EditHospitalOrganization extends BaseClass{
 	public void iVerifyIdentifierIsNotEditable(String id){
 		Assert.assertEquals("true",driver.findElement(By.cssSelector(".text-input-field-"+id)).getAttribute("disabled"));
 	}
-
 }
