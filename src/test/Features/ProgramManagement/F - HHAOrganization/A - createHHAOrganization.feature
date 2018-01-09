@@ -55,6 +55,32 @@ Feature: Create HHA organization functionality tests
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
 
+  Scenario Outline: <Description>
+    When I click on "HHA" organization tab on organization dashboard
+    Then I click on "+" button on "HHA" organization page
+    And I verify "Create HHA Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <HHA_Name> in "HHA Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "HHA - <CCN>" in "CCN" on create organization page
+    And I provide unique "HHA - <EIN>" in "EIN" on create organization page
+    And I provide unique "HHA - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    And I verify "Please enter an Organization Name" mandatory field validation message on create organization page
+    And I verify "Please enter an Address" mandatory field validation message on create organization page
+    And I verify "Please enter a City" mandatory field validation message on create organization page
+    And I verify "Please select a State" mandatory field validation message on create organization page
+    And I verify "Please enter a Zip Code" mandatory field validation message on create organization page
+    And I verify "At least one identification is required" mandatory field validation message on create organization page
+
+    Examples: 
+      | Description                                             | Has_MO | HHA_Name | Address1 | City | State | Postal_Code | CCN | EIN | NPI |
+      | Create a HHA Organization With Mandatory Fields Missing | YES    |          |          |      |       |             |     |     |     |
+
   Scenario: Check validation for Invalid Managing Organization in Create HHA Organization
     When I click on "HHA" organization tab on organization dashboard
     Then I click on "+" button on "HHA" organization page
