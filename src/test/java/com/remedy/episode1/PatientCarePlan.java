@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -228,7 +229,7 @@ public class PatientCarePlan extends BaseClass {
 	public void IwillcheckCareintheradiobutton(String text) {
 		longDelay();
 		iWillWaitToSee(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span"));
-		clickAction(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
 		clickElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
 	}
 
@@ -296,6 +297,10 @@ public class PatientCarePlan extends BaseClass {
 	public void iwillwaittoseeCARLToolonactivestate(int index) {
 		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]"));
 		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]")));
+	}
+
+	public void assignCarePlanButtonenabled() {
+		new WebDriverWait(driver,5).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@ng-click='assignCarePlan()' and contains(@class,'btn-disabled')]")));
 	}
    
 }

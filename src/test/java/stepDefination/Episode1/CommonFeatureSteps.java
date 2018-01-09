@@ -103,6 +103,10 @@ public class CommonFeatureSteps extends DriverScript {
 		common.iVerifyEpisodeMarkerAdmitTerminatedate(days, terminate_date, status);
 	}
 
+	@And("^I will verify Episode Marker Admit Date \"([^\"]*)\" and \"([^\"]*)\" Discharge date \"([^\"]*)\" with \"([^\"]*)\" to show end date and Episode Status \"([^\"]*)\"$")
+	public void i_Verify_Episode_Marker_Admit_Discharge_date(int days,String logic, int discharge_date,int terminate_date,String status) throws ParseException {
+		common.iVerifyEpisodeMarkerAdmitEnddate(days,discharge_date,logic, terminate_date, status);
+	}
 	@And("^I select \"([^\"]*)\" from \"([^\"]*)\" by xpath \"([^\"]*)\"$")
 	public void i_Select_value(String variable, String value, String xpath) throws ParseException {
 		common.i_Select_value(variable, value, xpath);

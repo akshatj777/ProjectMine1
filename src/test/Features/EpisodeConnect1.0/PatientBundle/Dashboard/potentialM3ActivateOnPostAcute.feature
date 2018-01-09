@@ -42,39 +42,25 @@ Feature: POT3 will get activated on post acute admission
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL 3" state
     Then I verify potential m3 Episode Marker Admit Date "30" is created without end date
-    Then I will wait to see onboarding status "Needs Onboarding"
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see patient's name on patient summary page
-    When I click anchor transition delete link "1"
-    And I will wait to see patient's name on patient summary page
-
+    
   Scenario: POT3 will get activated on post acute admission, which its admit date is between HHH discharge to the POT3 episode end date.
-    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
-    And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "30" days
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Emanuel County Hospital Authority" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "15" LOS days on Discharge date on Add Transition
     Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
     Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on the Create Transition Button to add a new transition
-    And I will wait to see "New Transition" in "h4" tag
-    And I click on Cancel button on discharge modal
+    Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    And I will verify Episode Marker Admit Date "15" and Termination date "-74" and Episode Status "ACTIVE"
+    And I will verify Episode Marker Admit Date "30" and Termination date "-74" and Episode Status "ACTIVE"
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "30" admit date with "1" hour "later" in transition "1"
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    And I will verify Episode Marker Admit Date "15" and Termination date "-74" and Episode Status "ACTIVE"
+    And I will verify Episode Marker Admit Date "30" and Termination date "-74" and Episode Status "ACTIVE"
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "30" admit date with "-2" hour "before" in transition "1"

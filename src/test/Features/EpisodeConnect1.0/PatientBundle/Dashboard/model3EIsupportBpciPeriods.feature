@@ -30,7 +30,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "4" days
+    Then I fill in "Admit" with logic "minus" with "-268" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Emanuel County Hospital Authority" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -41,7 +41,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
+    Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -59,7 +59,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
+    Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
     And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -70,7 +70,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
+    Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
     And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "td" tag
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -81,7 +81,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "4" is created without end date
+    Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
     And I will wait to see "Non-Remedy Convener" in "td" tag
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
@@ -91,7 +91,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-86" and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "-268" and "add" Discharge date "-269" with "89" to show end date and Episode Status "ACTIVE"
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -109,7 +109,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-26" and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "-268" and "add" Discharge date "269" with "29" to show end date and Episode Status "ACTIVE"
     And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -120,7 +120,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-56" and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "-268" and "add" Discharge date "-269" with "59" to show end date and Episode Status "ACTIVE"
     And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "td" tag
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -131,7 +131,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-86" and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "-268" and "add" Discharge date "-269" with "89" to show end date and Episode Status "ACTIVE"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     And I will wait to see "Unassigned" in "td" tag
@@ -147,15 +147,71 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I will verify Episode Marker Admit Date "4" and Termination date "-86" and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "-268" and "add" Discharge date "-269" with "89" to show end date and Episode Status "ACTIVE"
     And I will wait to see "Non-Remedy Convener" in "td" tag
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "70" days
+    Then I fill in "Admit" with logic "minus" with "54" days
     Then I click on update transition to add a new episode
-    Then I click "Edit" text in tag "a"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
+    And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
       | Unassigned                                        |
       | Envision Health Care - Kemwall Inpatient Services |
       | Non-Remedy Convener                               |
+    When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "-54" and "add" Discharge date "-55" with "89" to show end date and Episode Status "ACTIVE"
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "372" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "Saber Health - Broomall Healthcare Group, Inc." in "td" tag
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
+    Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
+      | Unassigned                                     |
+      | Saber Health - Broomall Healthcare Group, Inc. |
+      | Non-Remedy Convener                            |
+    When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "20" and "add" Discharge date "19" with "29" to show end date and Episode Status "ACTIVE"
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "191" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "Unassigned" in "td" tag
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
+    Then I will verify the list of options in dropdown list "Episode Initator" element xpath "//*[@id='episode_initiator_episodeInitiator']/option"
+      | Unassigned                                        |
+      | Envision Health Care - Kemwall Inpatient Services |
+      | Saber Health - Broomall Healthcare Group, Inc.    |
+      | Non-Remedy Convener                               |
+    When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "20" and "add" Discharge date "19" with "29" to show end date and Episode Status "ACTIVE"
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
+    Then I select "Unassigned" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
+    Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I select the "Admit" "caretype" "Outpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "POTENTIAL EPISODE CANCELED" state

@@ -3,9 +3,11 @@ package com.remedy.episode1;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -19,6 +21,8 @@ import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 import com.remedy.resources.DriverScript;
 import com.remedy.userAdmin.LandingPage;
+
+
 
 public class CommonFeature extends BaseClass {
 	 LandingPage landingPage = new LandingPage(driver);
@@ -224,6 +228,31 @@ public void iwillverifylistofoptionsindropdown(String element, String xpath, Lis
 public void clear_Value(String text, String xpath) {
 	iWillWaitToSee(By.xpath(xpath));
 	driver.findElement(By.xpath(xpath)).clear();
+}
+
+public void iVerifyEpisodeMarkerAdmitEnddate(int days,int discharge_date,String logic, int terminate_date, String status) {
+	String date=currentdate(days,"MM/dd/yyyy");
+    String discharge_date1=currentdate(discharge_date,"MM/dd/yyyy");
+    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+	Calendar c = Calendar.getInstance();
+	try{
+	   //Setting the date to the given date
+	   c.setTime(sdf.parse(discharge_date1));
+	}catch(ParseException e){
+		e.printStackTrace();
+	 }
+	   
+	//Number of Days to add
+	c.add(Calendar.DAY_OF_MONTH, terminate_date);  
+	//Date after adding the days to the given date
+	String newDate = sdf.format(c.getTime());  
+	//Displaying the new Date after addition of Days
+	System.out.println("Date after Addition: "+newDate);
+	String Newdate="-"+" "+newDate;
+	if(days>0){
+	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'"+Newdate+"') and contains(text(),'"+status+"')]")));
+	}
+	
 }
 
 

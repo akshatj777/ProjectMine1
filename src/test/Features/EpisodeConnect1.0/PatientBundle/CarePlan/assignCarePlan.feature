@@ -60,13 +60,23 @@ Feature: Assign Care Plan
     And I will wait to see "Acute Myocardial Infarction" in "h4" tag
     Then I will not see Care Plan "3"
     Then I will "check in" the "Acute Myocardial Infarction" Care Plan radio button at index "1"
-    And I press "Save changes"
+    Then I click "Save changes" text in tag "button"
     And I will wait to see "Acute Myocardial Infarction" in "h4" tag
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow"
     And I will wait to see "Review Care Plan" in "a" tag
-    And I press "Review Care Plan"
-
+    Then I click "Review Care Plan" text in tag "a"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "(1)" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    And I should see Assign Care Plan Button enabled
+    
   Scenario: Assign and Review carePlan by Issue after search
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -95,9 +105,9 @@ Feature: Assign Care Plan
     And I will wait to see "Hypertension (HTN)" in "h4" tag
     Then I will not see Care Plan "2"
     Then I will "check in" the "Hypertension (HTN)" Care Plan radio button at index "1"
-    And I press "Save changes"
+    Then I click "Save changes" text in tag "button"
     And I will wait to see "Hypertension (HTN)" in "h4" tag
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow"
     And I will wait to see "Review Care Plan" in "a" tag
-    And I press "Review Care Plan"
+    Then I click "Review Care Plan" text in tag "a"

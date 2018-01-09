@@ -236,6 +236,11 @@ public class PatientCarePlanSteps extends DriverScript
 		patientcare.assignCarePlanButtondisabled();
 	}
 	
+	@And ("^I should see Assign Care Plan Button enabled$")
+	public void assign_Care_Plan_Button_enabled(){
+		patientcare.assignCarePlanButtonenabled();
+	}
+	
 	@Then ("^I will \"([^\"]*)\" the \"([^\"]*)\" Care Plan radio button at index \"([^\"]*)\"$")
 	public void I_will_check_Care_in_the_radio_button(String action,String buttonname,String position) throws Throwable {
 		patientcare.IwillcheckCareintheradiobutton(buttonname);
