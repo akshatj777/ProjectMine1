@@ -52,6 +52,7 @@ Feature: Add Medication
 	And I enter "Direct" on "#BP_medicationType_directions" field under "New Medication" in Medical Record
 	And I click on "Add Medication" button for submit on "Medication" page
 	And I will wait to see "Medication created." in "p" tag
+	And I click on "Drug" under Medical Record
 	And I should see "Test" under "Current Medications" on Medical Record 
 	
 	

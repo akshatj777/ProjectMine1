@@ -670,6 +670,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnTheEpisodeInitiatorDropdownPresentOnTheEditEpisodeInitiatorModal() {
+		longDelay();
 		clickElement(driver.findElement(By.cssSelector("select#episode_initiator_episodeInitiator")));
 	}
 

@@ -105,7 +105,7 @@ public class PatientDashboard extends BaseClass {
 	
 	public void iClickOnCompleteTaskCheckboxUnderMyTaskOnDashboard(){
 		iWillWaitToSee(By.cssSelector(".btn.button-big.complete-task"));
-		clickElement(driver.findElement(By.cssSelector(".btn.button-big.complete-task")));
+		clickElement(driver.findElements(By.cssSelector(".btn.button-big.complete-task")).get(0));
 	}
 	
 	public void iClickOnMessageIconOnHeaderNavigationBar(){

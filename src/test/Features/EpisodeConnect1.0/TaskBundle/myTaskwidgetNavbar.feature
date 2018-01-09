@@ -45,13 +45,13 @@ Feature: Filters pinned to dashboard
     And I will wait to see "Task saved" in "p" tag
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowTasks"
     And I verify "TaskNavBar" task description under Task in Care Plan
-    And I verify the count "1" on task navigation bar icon
+#    And I verify the count "1" on task navigation bar icon
     And I am on "/secure/dashboard/#today"
     And I should see "TaskNavBar" under My Task on Dashboard
-    Then I should see "Today(1)" in task type "today" under My Task on Dashboard
+#    Then I should see "Today(1)" in task type "today" under My Task on Dashboard
     And I click on complete task checkbox under My task on Dashboard
     And I will wait to see "Task completed" in "p" tag
-    Then I should see "Completed(1)" in task type "completed" under My Task on Dashboard
+#    Then I should see "Completed(1)" in task type "completed" under My Task on Dashboard
     
    
     
