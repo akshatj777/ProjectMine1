@@ -62,11 +62,10 @@ Feature: Super Admin Landing page verification
     Then I should see header text "Users"
     Then I enter "<Email>" in search box for "<user>-<Role>"
     And I should see "<Email>" as "Email" in search result for "<user>-<Role>"
-    Then I lock user "<user>-<Role>"
-    
-    Then I unlock user "<user>-<Role>"
+    Then I "lock" user "<user>-<Role>"
+    Then I "unlock" user "<user>-<Role>"
     Then I should see an alert with "Are you sure you want to unlock"
-    Then I click on "Cancel" button from the alert to cancel unlock
+    Then I click on "Cancel" button from the unlock alert
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
@@ -77,7 +76,7 @@ Feature: Super Admin Landing page verification
 
     Examples: 
       | user        | Role      |Email|
-      | Super Admin | Executive |test.automatemail|
+      | Super Admin | Executive |test.automatemail+pZKHBfDt@gmail.com|
 
   Scenario Outline: Verify ability of Super Admin user to unlock a locked user
     Given I am on the login page
@@ -87,9 +86,9 @@ Feature: Super Admin Landing page verification
     Then I should see header text "Users"
     Then I enter "<Email>" in search box for "<user>-<Role>"
     And I should see "<Email>" as "Email" in search result for "<user>-<Role>"
-    Then I unlock user "<user>-<Role>"
+    Then I "unlock" user "<user>-<Role>"
     Then I should see an alert with "Are you sure you want to unlock"
-    Then I click on "Unlock" button from the alert to unlock user
+    Then I click on "Unlock" button from the unlock alert
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget

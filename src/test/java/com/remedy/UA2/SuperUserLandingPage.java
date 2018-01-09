@@ -317,20 +317,17 @@ else{
 		selectElementByDesc(".item", text);
 	}
 
-	public void iLockUser(String role) {
+	public void iLockUnlockUser(String status, String role) {
+		if(status.contains("lock")){
 		iWillWaitToSee(By.cssSelector("td.five.wide"));
 		clickElement(driver.findElements(By.cssSelector(".SVGInline-svg.SVGInline--cleaned-svg.component-remedy-icons-svg")).get(1));
-
-	}
-
-
-	public void iUnlockUser(String role) {
-		iWillWaitToSee(By.cssSelector("td.five.wide"));
-		clickElement(driver.findElements(By.cssSelector(".SVGInline-svg.SVGInline--cleaned-svg.component-remedy-icons-svg")).get(1));
+		delay();
+		}
 	}
 
 	public void iVerifyTextfromUnlockPopup(String text) {
-		verifyTextForElement(driver.findElement(By.xpath("//span/h3[1]")), text);
+		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")), text);
 
 	}
 
@@ -341,9 +338,10 @@ else{
 
 
 
-	public void iClickOnCancelButtonFromPopup() {
-		clickElement(driver.findElement(By.xpath("//div[@class='actions']/a")));
-		delay();
+	public void iClickOnButtonFromPopup(String text) {
+		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+		
 	}
 
 	public void iClickOnUsersLink() {

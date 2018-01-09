@@ -59,29 +59,23 @@ public class SuperUserLandingPageSteps extends DriverScript {
 
 	
 
-	@Then("^I lock user \"([^\"]*)\"$")
-	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String role) throws Throwable {
-		ua2LandingPage.iLockUser( role);
+	@Then("^I \"([^\"]*)\" user \"([^\"]*)\"$")
+	public void iLockUnlockUser(String status, String role) throws Throwable {
+		ua2LandingPage.iLockUnlockUser(status, role);
 	}
 
-	@Then("^I unlock user \"([^\"]*)\"$")
-	public void i_click_on_UnLock_button_on_the_table_in_useradmin_Landing_page(String role) throws Throwable {
-		ua2LandingPage.iUnlockUser( role);
-	}
+	
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
 	public void i_should_see_an_alert_with(String text) throws Throwable {
 		ua2LandingPage.iVerifyTextfromUnlockPopup(text);
 	}
 
-	@Then("^I click on \"([^\"]*)\" button from the alert to unlock user$")
-	public void i_click_on_button_from_the_alert_to_unlock_user(String arg1) throws Throwable {
-		ua2LandingPage.iClickOnUnlockButtonFromPopup();
-	}
+	
 
-	@Then("^I click on \"([^\"]*)\" button from the alert to cancel unlock$")
-	public void i_click_on_button_from_the_alert_to_cancel_unlock(String arg1) throws Throwable {
-		ua2LandingPage.iClickOnCancelButtonFromPopup();
+	@Then("^I click on \"([^\"]*)\" button from the unlock alert$")
+	public void i_click_on_button_from_the_alert(String arg1) throws Throwable {
+		ua2LandingPage.iClickOnButtonFromPopup(arg1);
 	}
 
 
