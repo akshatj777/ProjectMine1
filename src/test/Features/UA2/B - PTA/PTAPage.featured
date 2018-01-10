@@ -50,8 +50,8 @@ Feature: Landing page verification
     Then I verify that users created by PTA user "<user>-<Role>" are present in landing page
 
     Examples: 
-      | UserName                        | user                            | Role                                                                    | UserName                        |
-      | Partner Technical Administrator | Partner Technical Administrator | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | Partner Technical Administrator |
+      | UserName          | user                            | Role                                                                    | UserName                        |
+      | chloe@yopmail.com | Partner Technical Administrator | Executive, Manager, Case Manager, Physicians, Transitional Case Manager | Partner Technical Administrator |
 
   #search cases
   Scenario Outline: Verify ability of PTA user to search user
@@ -153,9 +153,9 @@ Feature: Landing page verification
     Then I should not see search results
 
     Examples: 
-      | UserName                        | user                            | Role                            | Email             |
-      | Partner Technical Administrator | Partner Technical Administrator | Partner Technical Administrator | test.automatemail |
-      | Partner Technical Administrator | Partner Technical Administrator | Downstream Provider             | test.automatemail |
+      | UserName          | user                            | Role                            | Email                                    |
+      | chloe@yopmail.com | Partner Technical Administrator | Partner Technical Administrator | test.automatemail+160817150415@gmail.com |
+      | chloe@yopmail.com | Partner Technical Administrator | Downstream Provider             | downstreamFL@yopmail.com                 |
 
   Scenario Outline: Edit Role from non-provisioned role-<PreviousRole> to provisioned role-<Role> and search
     Given I am on the login page
@@ -198,9 +198,9 @@ Feature: Landing page verification
     And I should see "<Email>" as "Email" in search result for "<user>-<Role>"
 
     Examples: 
-      | UserName                        | Email             | user                            | PreviousRole        | Role       | NPI | EnableApplications                  | Applications                                                | LearningPathwaySearchParameter |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Remedy Other        | Manager    |     | Reports, Lessons                    | Episodes, Episodes 2.0, Reports, Lessons                    | Learning Pathway 2             |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Downstream Provider | Physicians | NPI | Reports, Lessons, Physician connect | Episodes, Episodes 2.0, Reports, Lessons, Physician connect | Learning Pathway 2             |
+      | UserName          | Email                                    | user                            | PreviousRole        | Role       | NPI | EnableApplications                  | Applications                                                | LearningPathwaySearchParameter |
+      | chloe@yopmail.com | test.automatemail+160817233146@gmail.com | Partner Technical Administrator | Remedy Other        | Manager    |     | Reports, Lessons                    | Episodes, Episodes 2.0, Reports, Lessons                    | Learning Pathway 2             |
+      | chloe@yopmail.com | downstreamFL@yopmail.com                 | Partner Technical Administrator | Downstream Provider | Physicians | NPI | Reports, Lessons, Physician connect | Episodes, Episodes 2.0, Reports, Lessons, Physician connect | Learning Pathway 2             |
 
   Scenario Outline: Edit Role from provisioned role-<PreviousRole> to non-provisioned role-<Role> and search
     Given I am on the login page
@@ -243,8 +243,8 @@ Feature: Landing page verification
     Then I should not see search results
 
     Examples: 
-      | UserName                        | Email             | user                            | PreviousRole | Role       | NPI | EnableApplications | Applications                                  | LearningPathwaySearchParameter |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Executive    | Remedy TCS |     | Lessons, TCI       | Episodes, Episodes 2.0, Reports, Lessons, TCI | Learning Pathway 2             |
+      | UserName          | Email                                | user                            | PreviousRole | Role       | NPI | EnableApplications | Applications                                  | LearningPathwaySearchParameter |
+      | chloe@yopmail.com | test.automatemail+XyDmnZUv@gmail.com | Partner Technical Administrator | Executive    | Remedy TCS |     | Lessons, TCI       | Episodes, Episodes 2.0, Reports, Lessons, TCI | Learning Pathway 2             |
 
   Scenario Outline: Edit Role from provisioned role-<PreviousRole> to non-provisioned role-<Role> and search
     Given I am on the login page
@@ -289,5 +289,5 @@ Feature: Landing page verification
     Then I should not see search results
 
     Examples: 
-      | UserName                        | Email             | user                            | PreviousRole | Role                | NPI | EnableApplications | Applications           | Locations                        | LearningPathwaySearchParameter |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Case Manager | Downstream Provider |     |                    | Episodes, Episodes 2.0 | Baptist Hospital Of Roane County | Learning Pathway 2             |
+      | UserName          | Email                                | user                            | PreviousRole | Role                | NPI | EnableApplications | Applications           | Locations                        | LearningPathwaySearchParameter |
+      | chloe@yopmail.com | test.automatemail+XyDmnZUv@gmail.com | Partner Technical Administrator | Case Manager | Downstream Provider |     |                    | Episodes, Episodes 2.0 | Baptist Hospital Of Roane County | Learning Pathway 2             |

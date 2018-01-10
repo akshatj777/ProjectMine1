@@ -32,11 +32,11 @@ public class InitialSetup {
     public void afterScenario(Scenario scenario) throws IOException {
 
         try {
-            if (scenario.isFailed()) {
-                 byte[] screenshot = ((TakesScreenshot) driver)
-                        .getScreenshotAs(OutputType.BYTES);
-                scenario.embed(screenshot, "image/png");
-            }
+//            if (scenario.isFailed()) {
+//                 byte[] screenshot = ((TakesScreenshot) driver)
+//                        .getScreenshotAs(OutputType.BYTES);
+//                scenario.embed(screenshot, "image/png");
+//            }
         } finally {
         	
         	
