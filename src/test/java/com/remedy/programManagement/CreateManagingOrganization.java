@@ -160,14 +160,43 @@ public class CreateManagingOrganization extends BaseClass {
 				CreateHHAOrganization.tempHHAOrg.put("HHANAME",RandomStringUtils.randomAlphabetic(75));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
 			}
-//			
-//			String value = RandomStringUtils.randomAlphabetic(75);
-//			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+		}
+		else if(text.equals("AllowedCharatcters")){
+			String str="a~`@!#$%^&*()-+_={}|;'[]<>,.?/Testing120";
+			if(field.contains("Managing")){
+			CreateManagingOrganization.tempMoOrg.put("MONAME",str+RandomStringUtils.randomAlphabetic(7));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
+			}
+			else if(field.contains("Hospital"))
+			{
+				CreateACHOrganization.tempAchOrg.put("ACHNAME",str+RandomStringUtils.randomAlphabetic(7));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateACHOrganization.tempAchOrg.get("ACHNAME"));
+			}
+			else if(field.contains("PGP"))
+			{
+				CreatePGPOrganization.tempPGPOrg.put("PGPNAME",str+RandomStringUtils.randomAlphabetic(7));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("PGPNAME"));
+			}
+			else if(field.contains("Payor"))
+			{
+				CreatePayorOrganization.tempPayorOrg.put("PAYORNAME",str+RandomStringUtils.randomAlphabetic(7));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
+			}
+			else if(field.contains("SNF"))
+			{
+				CreateSNFOrganization.tempSNFOrg.put("SNFNAME",str+RandomStringUtils.randomAlphabetic(7));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("SNFNAME"));
+			}
+			else if(field.contains("HHA"))
+			{
+				CreateHHAOrganization.tempHHAOrg.put("HHANAME",str+RandomStringUtils.randomAlphabetic(7));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
+			}
 		}
 		else 	
 		{
 	    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
-		}		
+		}
 	}
 
 	public void iSelectStateFromDropDownOnCreateOrganizationPage(String text) {
