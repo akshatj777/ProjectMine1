@@ -1,6 +1,6 @@
 Feature: Edit user page for General cases
 
-  Scenario Outline: Verifying editable/non-editable fields of general tab and validating Applications tab
+  Scenario Outline: Verifying editable/non-editable fields of general, validating Applications tab and searching invalid learning pathway
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin

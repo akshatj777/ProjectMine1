@@ -44,6 +44,12 @@ public class SearchOrganization extends BaseClass{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
+		else if(text.equals("PAYORNAME"))
+		{
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 		else
 		{	
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -74,7 +80,7 @@ public class SearchOrganization extends BaseClass{
 				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
 			  }
-		}
+			}
 		  else if (org.equalsIgnoreCase("Hospital")){
 			  if (value.equals("ACHNAME - YES")){
 				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
@@ -107,8 +113,65 @@ public class SearchOrganization extends BaseClass{
 				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
 			  }
 	     }
-	}
-		
+		  else if (org.equalsIgnoreCase("PGP")){
+			  if (value.equals("PGPNAME - YES"))
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg.get("PGPNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreatePGPOrganization.pgpOrg.get("PGPNAME");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("PGPNAME - NO"))
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("EIN - YES"))
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg.get("EIN"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreatePGPOrganization.pgpOrg.get("EIN");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("EIN - NO"))
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.pgpOrg_noMO.get("EIN"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreatePGPOrganization.pgpOrg_noMO.get("EIN");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value.replace("-", "").trim());
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
+			  }
+	     }
+		  else if (org.equalsIgnoreCase("Payor")){
+			  if (value.equals("PAYORNAME"))
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePayorOrganization.payorOrg.get("PAYORNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreatePayorOrganization.payorOrg.get("PAYORNAME");
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("PID")){
+				  String query = "SELECT participant_id from program_management.organization where name = '"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"'";
+				  value = fetchParticipantID(query);
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value);
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else
+			  {
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), value.replace("-", "").trim());
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
+			  }
+		  }
+	}	
 	
 	public void iVerifySearchBarOnOrganizationPage(String text) {
 		iWillWaitToSee(By.cssSelector(".text-input-field-organizationFilterTerm"));
@@ -138,6 +201,11 @@ public class SearchOrganization extends BaseClass{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
 			isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg_noMO.get("ACHNAME")+"']"));
 		}
+		else if(text.contains("PAYORNAME"))
+		{
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"']"));
+		}
 		else
 		{
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
@@ -156,6 +224,15 @@ public class SearchOrganization extends BaseClass{
 		}
 		else if (org.equals("ACHNAME - NO")){
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.oldACH_WithoutMO);
+		}
+		else if(org.equals("PGPNAME - YES")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.oldPGP_WithMO);
+		}
+		else if (org.equals("PGPNAME - NO")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePGPOrganization.oldPGP_WithoutMO);
+		}
+		else if (org.equals("PAYORNAME")){
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreatePayorOrganization.oldPayorOrg);
 		}
 	}
 	

@@ -33,6 +33,15 @@ public class PTALandingPage extends BaseClass {
 			listOfRoles.add(driver.findElements(By.xpath("//*[@class='four wide']")).get(n).getText());
 			n = n + 2;
 		}
+		if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
+			clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
+			iWillWaitToSee(By.cssSelector("div.chevron-group"));
+			int size2 = driver.findElements(By.xpath("//*[@class='four wide']")).size();
+			for (int n = 1; n <= size2; n++) {
+				listOfRoles.add(driver.findElements(By.xpath("//*[@class='four wide']")).get(n).getText());
+				n = n + 2;
+			}
+		}
 		System.out.println("***************" + listOfRoles);
 
 		for (String s : listOfRoles) {
@@ -48,7 +57,7 @@ public void iVerifyPresenceOfCreatedUser(String text){
 	String[] role = roles.split(", ");
 	for(int i=0;i<role.length;i++){
 		System.out.println("User and role is - "+user.trim()+"-"+role[i].trim());
-		superUserLandingPage.SearchUserWithText("test.automatemail", user.trim()+"-"+role[i].trim());
+		superUserLandingPage.SearchUserWithEmail("test.automatemail", user.trim()+"-"+role[i].trim());
 		superUserLandingPage.iVerifySearchResult("","Email",user.trim()+"-"+role[i].trim());
 	}
 	

@@ -96,6 +96,28 @@ public class CreateACHOrganization extends BaseClass{
 				delay();
 			}
 		}
+		if (id.contains("Payor"))
+		{
+			if((id.substring(id.indexOf("-")+1).trim()).equals("EIN"))
+			{
+				CreatePayorOrganization.tempPayorOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN"))
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("EIN"));
+			}
+			else if(id.contains("greaterThan10"))
+			{
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else 
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
+		}
 	}
 	
 	public void iEnterLocationNameForLocationOnACHOrg(String text, int num) {
@@ -149,8 +171,7 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterStateForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
+    	driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	if(!text.isEmpty()){
     	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
     	}

@@ -81,7 +81,7 @@ public class LoginPage extends BaseClass {
 	}
 
 	public void iEnteruserEmail(String userName) {
-
+		driver.manage().window().maximize();
 		if(userName.equals("Remedy Technical Administrator"))
 		{
 			iFillInText(driver.findElement(By.name("email")), CreateUserPage.usersEmailPerRole.get("Super Admin-Remedy Technical Administrator").get(userName));

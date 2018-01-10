@@ -55,50 +55,32 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
 
-	@Then("^I verify that user is locked$")
-	public void i_verify_that_user_is_locked() throws Throwable {
-		ua2LandingPage.iVerifyLockedUser();
+
+
+
+	
+
+
+	@Then("^I \"([^\"]*)\" user \"([^\"]*)\"$")
+	public void iLockUnlockUser(String status, String role) throws Throwable {
+		ua2LandingPage.iLockUnlockUser(status, role);
 	}
 
-	@Then("^I verify users with Unlock icon button present on useradmin Landing page$")
-	public void i_verify_users_with_Unlock_icon_button_present_on_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iVerifyUnlockedUser();
-	}
-
-	@Then("^I lock user \"([^\"]*)\"$")
-	public void i_click_on_Lock_button_on_the_table_in_useradmin_Landing_page(String text) throws Throwable {
-		ua2LandingPage.iLockUser();
-	}
-
-	@Then("^I click on sort by lock icon$")
-	public void i_click_on_sortBy_lock_icon() throws Throwable {
-		ua2LandingPage.iClickOnSortByLockIcon();
-	}
-
-	@Then("^I click on Unlock button on the table in useradmin Landing page$")
-	public void i_click_on_Unlock_button_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iClickOnUnlock();
-	}
+	
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
 	public void i_should_see_an_alert_with(String text) throws Throwable {
 		ua2LandingPage.iVerifyTextfromUnlockPopup(text);
 	}
 
-	@Then("^I click on \"([^\"]*)\" button from the alert to unlock user$")
-	public void i_click_on_button_from_the_alert_to_unlock_user(String arg1) throws Throwable {
-		ua2LandingPage.iClickOnUnlockButtonFromPopup();
+	
+
+	@Then("^I click on \"([^\"]*)\" button from the unlock alert$")
+	public void i_click_on_button_from_the_alert(String arg1) throws Throwable {
+		ua2LandingPage.iClickOnButtonFromPopup(arg1);
 	}
 
-	@Then("^I click on \"([^\"]*)\" button from the alert to cancel unlock$")
-	public void i_click_on_button_from_the_alert_to_cancel_unlock(String arg1) throws Throwable {
-		ua2LandingPage.iClickOnCancelButtonFromPopup();
-	}
 
-	@Then("^I verify that the user is unlocked on Landing page$")
-	public void i_verify_that_the_user_is_unlocked_on_the_table_in_useradmin_Landing_page() throws Throwable {
-		ua2LandingPage.iVerifyUnlockedUser();
-	}
 
 	@Then("^I click on \"([^\"]*)\" link$")
 	public void i_click_on_link(String arg1) throws Throwable {
@@ -106,11 +88,25 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 
+@Then ("^I enter invalid data \"([^\"]*)\" in search box$")
+public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
+	ua2LandingPage.SearchUserWithText(text);
+}
+
+
+@Then ("^I enter \"([^\"]*)\" in search box$")
+public void i_enter_text_in_search_box_in_landing_page(String text) throws Throwable {
+	ua2LandingPage.SearchUserWithText(text);
+}
 	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
 	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
-		ua2LandingPage.SearchUserWithText(text, userRole);
-	}
+		ua2LandingPage.SearchUserWithEmail(text, userRole);
 
+	}
+	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result$")
+	public void iVerifySeachedElement(String result, String searchBy) throws Throwable {
+		ua2LandingPage.iVerifySearchResult(result, searchBy, "");
+	}
 	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result for \"([^\"]*)\"$")
 	public void i_should_see_for_in_landing_page(String result, String searchBy, String role) throws Throwable {
 		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
@@ -121,4 +117,52 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
 	}
 
+	@Then("^I should not see search results")
+	public void i_should_see_error_message() throws Throwable {
+		ua2LandingPage.iShouldNotSeeSearchResults();
+	}
+	@Then("^I should see cross icon to exit search$")
+	public void iSeeCrossIconForSearch(){
+		ua2LandingPage.iSeeCrossIconForSearch();
+	}
+	@Then("^I click on cross icon$")
+	public void iClickCrossIconForSearch(){
+		ua2LandingPage.iClickCrossIconForSearch();
+	}
+	@Then("^I should see all users back in page$")
+	public void iSeeUsersBackOnClosingSearch(){
+		ua2LandingPage.iSeeUsersBackOnClosingSearch();
+	}
+	
+	@Then("^I should see single user row in search result$")
+	public void iVerifyRowCountForSearchByEmail(){
+		ua2LandingPage.iVerifyRowCountForSearchByEmail();
+	}
+	
+	@Then("^I select any user$")
+	public void iSelectAUser(){
+		ua2LandingPage.iSelectAUser();
+	}
+	@Then("^I verify that I am navigated to view user page$")
+	public void iVerifyViewUserPage(){
+		ua2LandingPage.iVerifyViewUserPage();
+	}
+	@Then("^I should not see text \"([^\"]*)\" on Users page$")
+	public void iShouldNotSeeErrorMsgOnUsersPage(String text){
+		ua2LandingPage.iShouldNotSeeErrorMsgOnUsersPage(text);
+	}
+	@Then("^I verify rows allignment on landing page when the count of users is not a multiple of three$")
+	public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
+		ua2LandingPage.verifyRowsAlignmentWhenCountIsNotMultipleOfThree();
+	}
+	
+	@Then("^I verify that email is displayed in same case for \"([^\"]*)\"$")
+	public void iVerifyThatEmailIsDisplayedInSameCase(String role){
+		ua2LandingPage.iVerifyThatEmailIsDisplayedInSameCase(role);
+	}
+	
+	@Then("^I verify that Product list on the top navigation bar is not opened$")
+	public void iVerifyProductListInTopNavigationBarIsClosed(){
+		ua2LandingPage.iVerifyProductListInTopNavigationBarIsClosed();
+	}
 }
