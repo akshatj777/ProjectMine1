@@ -142,6 +142,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnCreateNoteButton() throws Throwable {
+		longDelay();
 		clickElement(driver.findElement(By.cssSelector(".modal-footer>#submitButton")));
 	}
 

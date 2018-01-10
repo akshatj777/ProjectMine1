@@ -815,6 +815,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		
 		public void IShouldSeeLocationInDischargeLocationUnderTransition(String text) {
+			iWillWaitToSee(By.cssSelector(".discharge_location-column"));
 			List<WebElement> listItems = driver.findElements(By.cssSelector(".discharge_location-column"));
 			String value = null;
 			for (WebElement item : listItems) {

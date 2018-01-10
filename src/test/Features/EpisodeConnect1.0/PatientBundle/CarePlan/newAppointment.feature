@@ -39,7 +39,7 @@ Feature: New Appointment
     When I fill in "Facility" xpath "//*[@id='bp_personbundle_bpappointmenttype_facility']" with "Facility 123"
     When I fill in "Phone" xpath "//*[@id='bp_personbundle_bpappointmenttype_contact_phone']" with "718-534-1234"
     When I click Schedule Appointment
-    And I will wait to see "New Appointment created." in "p" tag
+    And I will wait to see "New appointment created." in "p" tag
     Then I should see new apointment button
     And I will wait to see "Office Visit" in "h4" tag
     And I will wait to see "Note of appointment" in "p" tag

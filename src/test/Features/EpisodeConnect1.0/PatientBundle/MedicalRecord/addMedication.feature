@@ -53,7 +53,6 @@ Feature: Add Medication
 	And I click on "Add Medication" button for submit on "Medication" page
 	And I will wait to see "Medication created." in "p" tag
 	And I click on "Drug" under Medical Record
-#	And I should see "Test" under "Current Medications" on Medical Record 
 	And I should see "Test" Priscriber under Current Medication for Medical Record 
 	
 	

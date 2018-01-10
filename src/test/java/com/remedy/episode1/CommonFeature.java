@@ -204,6 +204,7 @@ public void iSelectpatientlistfilter(String variable,String xpath,int days) {
 
 public void i_Click_Appointment() {
 	clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
+	delay();
 }
 
 public void clicktext(String text, String tag) {
