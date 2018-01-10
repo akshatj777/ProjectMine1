@@ -37,15 +37,18 @@ Feature: Filters pinned to dashboard
     		 Also, verify Join Care team functionality form patient dashboard 
     Then I verify "My patients" as selected tab on patient dashboard
     And I verify patients are appearing on patient dashboard
+    
+    And I enter patients fullname in the patient search box under active tab on Dashboard 
+    And I should see patient first name appearing under search on Dashboard
+    
     And I am on "/secure/pn/patientslist"
     Then I click on "Save As" button
     And I will wait to see "New filter" in "h4" tag
     And I enter "NewFilter1" in filter name on New filter
-    
     Then I click on "Create & Continue" button
     And I will wait to see "filter saved" in "p" tag
-    
     And I click on "Pin to dashboard" under open filter
+    And I will wait to see "filter pinned to dashboard" in "p" tag
     And I click on "NewFilter1" on navigation tab on patient dashboard
     And I verify patients are appearing on patient dashboard
     And I click on select all checkbox on patient dashboard
@@ -57,15 +60,25 @@ Feature: Filters pinned to dashboard
     And I am on "/secure/pn/patientslist"
     And I click on "NewFilter1" filter name under patients menu
     And I click on "Unpin to dashboard" under open filter
+    And I will wait to see "filter unpinned from dashboard" in "p" tag
     And I click on "Pin to bookmark" under open filter
-    
+    And I will wait to see "filter pinned to bookmarks" in "p" tag
     And I am on "/secure/bookmarks"
-    
     And I should see "NewFilter1" filter under bookmark
     Then I click on gear icon under "NewFilter1" bookmark
     And I enter "NewFilter2" in titile field in bookmark
     And I click on "ok" button on edit bookmark
     And I should see "NewFilter2" filter under bookmark
+    Then I click on gear icon under "NewFilter2" bookmark
+    And I clear titile field in bookmark
+    And I click on "ok" button on edit bookmark
+    And I will wait to see "You have some form errors. Please check below." in "p" tag
+    And I click on "exit" button on edit bookmark
+    And I am on "/secure/pn/patientslist"
+    And I click on "NewFilter2" filter name under patients menu
+    And I click on "Unpin to bookmark" under open filter
+    And I will wait to see "filter unpinned from bookmark" in "p" tag
+    
     
 
     

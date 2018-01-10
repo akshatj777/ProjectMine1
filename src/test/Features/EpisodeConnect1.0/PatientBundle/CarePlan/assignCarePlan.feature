@@ -68,7 +68,8 @@ Feature: Assign Care Plan
     Then I click "Review Care Plan" text in tag "a"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
-    When I click first timing transition edit link "1"
+    And I click on first gear menu under Transitions on patient overview
+    And I click on "Edit" in gear menu option under Transition
     And I will wait to see "Edit Transition" in "h4" tag
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
@@ -103,8 +104,8 @@ Feature: Assign Care Plan
     And I press "by Issue"
     Then I fill in Care Plan Search with "Hypertension (HTN)"
     And I will wait to see "Hypertension (HTN)" in "h4" tag
-    Then I will not see Care Plan "2"
-    Then I will "check in" the "Hypertension (HTN)" Care Plan radio button at index "1"
+    Then I will not see Care Plan "3"
+    Then I will "check in" the "Hypertension (HTN)" Care Plan radio button at index "2"
     Then I click "Save changes" text in tag "button"
     And I will wait to see "Hypertension (HTN)" in "h4" tag
     And I will wait to see patient's name on patient summary page

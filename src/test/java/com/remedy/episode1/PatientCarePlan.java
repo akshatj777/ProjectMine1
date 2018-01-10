@@ -47,6 +47,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnAssignCarePlan() throws Throwable {
+		delay();
 		clickElement(driver.findElement(By.cssSelector("#ui-care-plan-container div.row.header-nav-line a")));
 	}
 

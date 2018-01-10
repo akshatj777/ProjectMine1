@@ -70,6 +70,11 @@ public class PatientDashboardSteps extends DriverScript {
 		dashboard.iEnterTextInTitleFieldInBookmark(text);
     }
 	
+	@And("^I clear titile field in bookmark$")
+    public void i_Clear_TitleField_In_Bookmark() throws Throwable {
+		dashboard.iClearTitleFieldUnderBookMark();
+    }
+	
 	@And("^I click on \"([^\"]*)\" button on edit bookmark$")
     public void i_Click_On_Button_On_Edit_Bookmark(String text) throws Throwable {
 		dashboard.iClickOnButtonEditBookmark(text);

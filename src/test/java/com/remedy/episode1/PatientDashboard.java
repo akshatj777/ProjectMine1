@@ -71,9 +71,15 @@ public class PatientDashboard extends BaseClass {
 		driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).sendKeys(text);
 	}
 	
+	public void iClearTitleFieldUnderBookMark(){
+		iWillWaitToSee(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input"));
+		driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).clear();
+	}
+	
+	
 	public void iClickOnButtonEditBookmark(String text){
 		iWillWaitToSee(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input"));
-		clickElement(driver.findElement(By.cssSelector(".btn.btn-default.btn-sm.bookmarks-circle-"+text)));
+		clickElement(driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']/div[@class='pull-right']/a[contains(@class,'-"+text+"')]")));
 	}
 	
 	public void iEnterPatientsFullNameInPatientSearchBoxUnderActiveTabOnDashboard(){
