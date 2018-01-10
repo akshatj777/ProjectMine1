@@ -117,7 +117,15 @@ public class PatientOverview extends BaseClass {
 	}
 	
 	public void iShouldSeeTextUnderSectionOnMedicalRecord(String text, String field){
-		iWillWaitToSee(By.xpath("//div[h3[contains(text(),'"+field+"')]]//*[contains(text(),'"+text+"')]"));
+		String actual = driver.findElement(By.xpath("//div[h3[contains(text(),'"+field+"')]]//ul[@class='list-unstyled list-records']/li")).getText();
+		Assert.assertTrue(actual.trim().contains(text));
+	}
+	
+	public void iShouldSeePriscriberUnderCurrentMedicationForMedicalRecord(String text){
+		iWillWaitToSee(By.xpath("//div[h4[text()='Prescriber']]//strong[text()='"+text+"']"));
+//		String actual = driver.findElement(By.xpath("//div[h4[text()='Prescriber']]//strong[text()='"+text+"']")).getText();
+//		System.out.println("Value"+actual);
+//		Assert.assertTrue(actual.trim().contains(text));
 	}
 	
 	public void iClickOnTextUnderMedicalRecord(String text){

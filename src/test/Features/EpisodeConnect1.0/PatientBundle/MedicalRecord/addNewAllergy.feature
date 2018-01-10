@@ -49,5 +49,3 @@ Scenario: Add New Allergy successfully
 	And I enter "Test Allergy" on "#BP_allergyType_allergy" field under "New Medication" in Medical Record
 	And I click on "Add Allergy" button for submit on "Medication" page
 	And I should see "Test Allergy" under "Allergies" on Medical Record
-	
-  
