@@ -181,9 +181,9 @@ Feature: Landing page verification
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I select "<EnableApplications>" product
-    Then I click on Select button
-    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    Then I select "<LearningPathwaySearchParameter>" from the results
+    #Then I click on Select button
+    #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+    #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Submit button
     And I wait for 3000 milli seconds
@@ -199,8 +199,8 @@ Feature: Landing page verification
 
     Examples: 
       | UserName                        | Email             | user                            | PreviousRole        | Role       | NPI | EnableApplications                  | Applications                                                | LearningPathwaySearchParameter |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Remedy Other        | Manager    |     | Reports, Lessons                    | Episodes, Episodes 2.0, Reports, Lessons                    | Learning Pathway 2             |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Downstream Provider | Physicians | NPI | Reports, Lessons, Physician connect | Episodes, Episodes 2.0, Reports, Lessons, Physician connect | Learning Pathway 2             |
+      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Remedy Other        | Manager    |     | Reports                    | Episodes, Episodes 2.0, Reports, Lessons                    | Learning Pathway 2             |
+      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Downstream Provider | Physicians | NPI | Reports, Physician connect | Episodes, Episodes 2.0, Reports, Lessons, Physician connect | Learning Pathway 2             |
 
   Scenario Outline: Edit Role from provisioned role-<PreviousRole> to non-provisioned role-<Role> and search
     Given I am on the login page
@@ -226,9 +226,9 @@ Feature: Landing page verification
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I select "<EnableApplications>" product
-    Then I click on Select button
-    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    Then I select "<LearningPathwaySearchParameter>" from the results
+    #Then I click on Select button
+    #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+    #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Submit button
     And I wait for 3000 milli seconds
@@ -244,7 +244,7 @@ Feature: Landing page verification
 
     Examples: 
       | UserName                        | Email             | user                            | PreviousRole | Role       | NPI | EnableApplications | Applications                                  | LearningPathwaySearchParameter |
-      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Executive    | Remedy TCS |     | Lessons, TCI       | Episodes, Episodes 2.0, Reports, Lessons, TCI | Learning Pathway 2             |
+      | Partner Technical Administrator | test.automatemail | Partner Technical Administrator | Executive    | Remedy TCS |     | TCI       | Episodes, Episodes 2.0, Reports, Lessons, TCI | Learning Pathway 2             |
 
   Scenario Outline: Edit Role from provisioned role-<PreviousRole> to non-provisioned role-<Role> and search
     Given I am on the login page
@@ -270,9 +270,7 @@ Feature: Landing page verification
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I select "<EnableApplications>" product
-    Then I click on Select button
-    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    Then I select "<LearningPathwaySearchParameter>" from the results
+
     Then I click on Next button
     Then I enter characters "<Locations>" in location serach
     Then I search and select "<Locations>" locations

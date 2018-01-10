@@ -18,7 +18,7 @@ Feature: Create User - Super Admin User
     Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
-    Then I verify the header "General Information"
+    #Then I verify the header "General Information"
     And I fill in First Name with "<FirstName>"
     Then I fill in Last Name with <LastName>
     And I enter Email "<Email>" to Create user
@@ -26,13 +26,13 @@ Feature: Create User - Super Admin User
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
-    Then I verify the header "Applications"
+    #Then I verify the header "Applications"
     Then I select "<Applications>" product
     #Then I click on Select button
     #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
-    Then I verify the header "Permissions"
+    #Then I verify the header "Permissions"
     Then I click on Select button
     And I search for health system with <Health System>
     And I select a <Health System>
