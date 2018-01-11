@@ -27,7 +27,7 @@ Feature: Edit user page for General cases
     Then I select "<Applications>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    Then I should see "No Results found" for Learning Pathway
+    And I verify No results found under Learning Pathway search box
 
     Examples: 
       | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | Applications                                                | LearningPathwaySearchParameter |
@@ -117,7 +117,7 @@ Feature: Edit user page for General cases
       | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications | Health System     | LearningPathwaySearchParameter |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | TCI          | Stamford Hospital | Learning Pathway 2             |
 
-  Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verifying NPI
+  Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify NPI and product list in Applications tab
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -130,7 +130,9 @@ Feature: Edit user page for General cases
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
-    Then I click on Next button
+    And I select "Applications" tab
+    Then I verify the header "Applications"
+    Then I verify that "Less" products are shown in Applications tab as compared to "<PreviousRoleProductCount>"
     Then I select "<EnableApplications1>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
@@ -144,19 +146,59 @@ Feature: Edit user page for General cases
     And I click on Edit button
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <PreviousRole>
-    Then I enter NPI field with "<NPI>" for role "<PreviousRole>"
+    Then I enter NPI field with "<NPI_previousRole>" for role "<PreviousRole>"
     Then I click on Next button
+    Then I verify that "More" products are shown in Applications tab as compared to "<RoleProductCount>"
     Then I select "<EnableApplications1>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
+    Then I click on delete organisation icon
+    Then I should see an alert with text "Are you sure you want to remove"
+    And I should see "Cancel" button
+    And I click on "Remove" button
+    Then I click on Select button
+    And I search for health system with <Health System>
     And I wait for 3000 milli seconds
+    And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I click on Select All Locations button
     Then I click on Submit button
     And I wait for 3000 milli seconds
     And I verify Role <PreviousRole> in user page
     And I verify that "NPI" is "present" on page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | EnableApplications1 |EnableApplications2     | Applications|Health System     | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI | Physicians   | Remedy TCS | TCI           | Physician connect | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect|Stamford Hospital | Learning Pathway 2             |
+      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2                       | Applications                                                | Health System | LearningPathwaySearchParameter | Programs                |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Remedy Sales Team |                3 | TCI                 | Physician connect, Episodes, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | TEST Hospital | Learning Pathway 2             | BPCI-Model2,BPCI-Model3 |
+
+  Scenario Outline: Validate error message for Invalid characters in permissions tab
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter "<Role>" in search box for "<user>-<Role>"
+    Then I select user with email "<Email>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on "Add Another Organization" button on permissions tab
+    Then I click on Select button
+    And I search for health system with <Health System_invalid>
+    And I wait for 3000 milli seconds
+    Then I should see text "No Results found"
+    Then I click on existing organisation
+    Then I enter characters "<locations_invalid>" in location search
+    Then I should see text "No Results found"
+    Then I remove existing program
+    Then I click on Select button
+    Then I select "<Programs>" programs
+    Then I click on Select All Locations button
+    #And I wait for 3000 milli seconds
+    Then I click on Submit button
+
+    Examples: 
+      | User        | Role       | Email             | Health System_invalid | locations_invalid | Programs    |
+      | Super Admin | Remedy TCS | test.automatemail | abc                   | abc               | BPCI-Model2 |
