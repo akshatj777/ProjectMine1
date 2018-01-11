@@ -1348,4 +1348,21 @@ public class ReportHomePage extends BaseClass {
     	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//div[@class='fieldDrill attribute uncommon'][text()='"+text+"']")));
     }
+
+	public void ichooseremovereportoptionfromselectoptionoffilterfield() {
+		clickElement(driver.findElement(By.xpath("//*[@id='PM:removeAttr_text']")));
+		
+	}
+
+	public void isearchforthefieldfromavailablefield(String text) {
+		iFillInText(driver.findElement(By.cssSelector("#searchField")),text);
+		
+	}
+
+	public void iclickfilterfieldinlayoutsection(String filterTitle,String filterField) {
+		clickElement(driver.findElement(By.xpath("//div[contains(@id,'gem_["+filterTitle+"].["+filterField+"]') and @formula=["+filterTitle+"].["+filterField+"]']")));
+    }
+
+	
+    
 }

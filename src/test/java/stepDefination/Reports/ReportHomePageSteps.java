@@ -1702,4 +1702,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_verify_is_appearing_under_episode_drill_through_columns_popup(String text) throws Throwable{
     	reportHomePage.iShouldVerifyInEpisodesDrillThroughColumnsPopUp(text);
     }
+    
+    @And ("^I choose remove report option from select options of filter field$")
+    public void i_choose_remove_report_option_from_select_option_of_filter_field(){
+    	reportHomePage.ichooseremovereportoptionfromselectoptionoffilterfield();
+    }
+    
+    @Then ("^I search for the field \"([^\"]*)\" from the available fields$") 
+    public void i_search_for_the_field_from_available_field(String text){
+    	reportHomePage.isearchforthefieldfromavailablefield(text);
+    }
+    
+    @When ("^I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field in layout section$")
+    public void i_click_filter_field_in_layout_section(String filterTitle,String filterField){
+    	reportHomePage.iclickfilterfieldinlayoutsection(filterTitle,filterField);
+    }
 }

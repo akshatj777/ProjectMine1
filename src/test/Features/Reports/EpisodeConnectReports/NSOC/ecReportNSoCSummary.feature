@@ -512,7 +512,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -570,7 +570,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     #Default Filters
@@ -783,27 +783,183 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for Patient ID Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     #measures field drag and drop
-    When I click to "Avg. Days to Last Working DRG" field filter under "Measures" filter field
+    When I click to "# Episodes" field filter under "Measures" filter field in layout section
+    And I choose remove report option from select options of filter field
+    Then I search for the field "#" from the available fields 
+    When I click to "# Episodes" field filter under "Measures" filter field 
+    And I verify "# Episodes" field is appearing in the layout section after selecting add to report
+    Then I verify "# Episodes" column is added to report after selecing add to report option
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "Avg. Days to Last Working DRG" field is appearing in the layout section after selecting add to report
-    Then I verify "Avg. Days to Last Working DRG" column is added to report after selecing add to report option
-    When I click to "Avg. Days to Last Predicted DRG" field filter under "Measures" filter field
-    And I choose add to report option from select options of filter field
+    And I verify "# Episodes" field is appearing in the layout section after selecting add to report
+    Then I verify "# Episodes" column is added to report after selecing add to report option
+   
+    Examples: 
+      | email                         |
+      | shutestauf171115a@yopmail.com |
+      | shutestagu22945am@yopmail.com |
+      
+   Scenario Outline: Verify the drill patient drill through values in Next site of care summary report for model3 pgp user
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    And I verify "Avg. Days to Last Predicted DRG" field is appearing in the layout section after selecting add to report
-    Then I verify "Avg. Days to Last Predicted DRG" column is added to report after selecing add to report option
-    When I click to "Avg. Days to Last Final DRG" field filter under "Measures" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Avg. Days to Last Final DRG" field is appearing in the layout section after selecting add to report
-    Then I verify "Avg. Days to Last Final DRG" column is added to report after selecing add to report option
+    Then I click on a number under episodes column
+    Then I switch to new window
+    And I wait for the elements to load in new window after clicking one of the episode
+    Then I should verify "Participant" is appearing under Episodes table
+    Then I should verify "BPID" is appearing under Episodes table
+    Then I should verify "Episode Initiator" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility" is appearing under Episodes table
+    Then I should verify "Medicare ID" is appearing under Episodes table
+    Then I should verify "Patient" is appearing under Episodes table
+    Then I should verify "DOB" is appearing under Episodes table
+    Then I should verify "DOD" is appearing under Episodes table
+    Then I should verify "Eligibility" is appearing under Episodes table
+    Then I should verify "Episode Status" is appearing under Episodes table
+    Then I should verify "Bundle" is appearing under Episodes table
+    Then I should verify "Bundle DRG Code" is appearing under Episodes table
+    Then I should verify "Bundle DRG Status" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Setting" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Type" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Type Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Type Detail (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Setting Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
+    Then I should verify "Anchor Month" is appearing under Episodes table
+    Then I click on "Select Columns" appearing in the new window after clicking on drill through
+    Then I switch to new window
+    When I switch to reports embedded iframe
+    Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
+    Then I should verify "Anchor Hospital Admission Weeks" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Admission Week" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Admission Year" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Admission Quarter" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Admission Month" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Care Setting" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Care Setting Code (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Care Type Code (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Care Type Detail (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Care Setting" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Care Type" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Year" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Quarter" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Month" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Facility Type" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Hospital Facility" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Last Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Type Detail (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Setting Code (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Care Type Code (EC)" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes drill through columns popup
+    Then I should verify "Patient Risk" is appearing under Episodes drill through columns popup
+    Then I should verify "Onboarding Status" is appearing under Episodes drill through columns popup
 
     Examples: 
       | email                         |
       | shutestauf171115a@yopmail.com |
       | shutestagu22945am@yopmail.com |
+
+  Scenario Outline: Verify globalfilters in Next site of care summary for model3 pgp users
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    When I see "0" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I see <payer1> appearing under payer filter of global filters
+    Then I see <payer2> appearing under payer filter of global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I see <participant1> appearing under participant filter of global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I see <episode initiator1> appearing under episode initiator filter of global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    Then I see <anchor facility1> appearing under anchor facility filter of global filters
+    Then I click on <payer1> checkbox under payer for global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    Then I click on <participant1> checkbox under participant for global filters
+    And I verify <participant1> is appearing under applied participant on global filters
+    Then I click on <episode initiator1> checkbox under episode initiator for global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    Then I click on <anchor facility1> checkbox under anchor facility for global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    And I click on Apply filters button for global filters
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    #When I click on show all filters icon button
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
+    When I switch to default window from iframe
+    When I click on "Patient ID" tile on the top navigation of reports page
+    Then I click on "InPatient Episode Clearing" report under "Patient ID" reports tile on the top of reports page
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I switch to default window from iframe
+    Then I verify "InPatient Episode Clearing" in the reports header page
+    When I see "4" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    And I verify <participant1> is appearing under applied participant on global filters
+    And I verify <episode initiator1> is appearing under applied episode initiator on global filters
+    And I verify <anchor facility1> is appearing under applied anchor facility on global filters
+    And I verify <payer1> is appearing under applied payer on global filters
+    And I click on Apply filters button for global filters
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    #When I click on show all filters icon button
+    Then I verify participant filter is selected with <participantid1> under selected filters
+    Then I verify episode initiator filter is selected with <bpid1> under selected filters
+    Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
+    Then I verify payer filter is selected with <payer1> under selected filters
+
+    Examples: 
+      | email                         | participant1     | episode initiator1                             | anchor facility1                     | participantid1 | bpid1    | ccn1   | payer1   |
+      | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
+      | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
+     
+      
