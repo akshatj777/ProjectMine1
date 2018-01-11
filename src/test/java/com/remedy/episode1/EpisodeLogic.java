@@ -27,6 +27,7 @@ public class EpisodeLogic extends BaseClass {
 	}
 
 	public void Iclickfirsttimingtransitioneditlink(int tran) throws InterruptedException {
+		delay();
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"));
 		clickAction(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
