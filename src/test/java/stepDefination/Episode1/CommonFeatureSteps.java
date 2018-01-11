@@ -37,6 +37,11 @@ public class CommonFeatureSteps extends DriverScript {
 	public void i_Wait_To_See(String text, String tag) {
 		common.i_Wait_To_See(text, tag);
 	}
+	
+	@Then("^I will wait for invisibility of \"([^\"]*)\" in \"([^\"]*)\" tag$")
+	public void i_Wait_For_Invisibility_Of(String text, String tag) {
+		common.i_Wait_For_Invisibility_Of(text, tag);
+	}
 
 	@Then("^I will wait to see onboarding status \"([^\"]*)\"$")
 	public void i_Wait_To_See_onboarding_status(String text) {
