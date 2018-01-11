@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.server.handler.ClickElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.seleniumhq.jetty9.server.Iso88591HttpWriter;
 
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
@@ -151,7 +152,9 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iEnterRecipientInToFieldUnderComposeMessage(String text){
+		delay();
 		iWillWaitToSee(By.cssSelector(".chzn-choices"));
+		clickElement(driver.findElement(By.xpath("//ul[@class='chzn-choices']")));
 		iFillInText(driver.findElement(By.xpath("//ul[@class='chzn-choices']//input")), text);
 	}
 	
@@ -168,9 +171,9 @@ public class PatientDashboard extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//body[@class='form-control wysihtml5-editor']")), text);
 	}
 	
-	public void iUploadFileToSendMessage(){
+	public void iUploadFileToSendMessage(String text){
 		String filePath = System.getProperty("user.dir")
-				+ "//src//test//Imports//ECSample.jpeg";
+				+ "//src//test//Imports//"+text;
 		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(filePath);
 		delay();
 	}
@@ -186,8 +189,8 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iSelectOptionForMessage(){
-		iWillWaitToSee(By.cssSelector(".move-to-archive-btn"));
-		clickElement(driver.findElement(By.cssSelector(".move-to-archive-btn")));
+		iWillWaitToSee(By.xpath("//div[contains(@class,'open')]//a"));
+		clickElement(driver.findElement(By.xpath("//div[contains(@class,'open')]//a")));
 	}
 	
 	public void iClickOnAlertIconOnHeaderNavigationBar(){
@@ -203,5 +206,37 @@ public class PatientDashboard extends BaseClass {
 	public void iShouldNotSeeAnyCountOnAlertIcon(){
 		Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[i[@class='fa fa-bell-o']]/span[@class='badge badge-info']")));
 	}
+	
+	public void iShouldSeeTextUnderBodyForMessage(String text){
+		waitTo().until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector("iframe.wysihtml5-sandbox")));
+		iWillWaitToSee(By.xpath("//body[contains(text(),'"+text+"')]"));
+		switchToParentFrame();
+	}
+	
+	public void iVerifyFilePresentUnderAttachment(String text){
+		iWillWaitToSee(By.xpath("//a[text()='"+text+"']"));
+	}
+	
+	public void iVerifyFileNotPresentUnderAttachment(String text){
+		delay();
+		Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[text()='"+text+"']")));
+	}
+	
+	public void iDeleteFilePresentUnderAttachment(String text){
+		iWillWaitToSee(By.xpath("//td[a[text()='"+text+"']]/..//td[@class='delete']"));
+		clickElement(driver.findElement(By.xpath("//td[a[text()='"+text+"']]/..//td[@class='delete']")));
+	}
+	
+	public void iClickOnFirstGearIcon(){
+		iWillWaitToSee(By.cssSelector(".fa.fa-cog"));
+		clickElement(driver.findElements(By.cssSelector(".fa.fa-cog")).get(0));
+	}
+	
+	public void iClickOnSelectAllMessageCheckbox(){
+		iWillWaitToSee(By.cssSelector("#check-all-messages"));
+		clickElement(driver.findElement(By.cssSelector("#check-all-messages")));
+	}
+
+
 
 }

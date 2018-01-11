@@ -161,9 +161,9 @@ public class PatientDashboardSteps extends DriverScript {
 		dashboard.iEnterTextInComposeMessage(text);
 	}
 	
-	@Then("^I upload Sample file to send message$")
-	public void i_Upload_Sample_File_To_Send_Message() throws Throwable{
-		dashboard.iUploadFileToSendMessage();
+	@Then("^I upload \"([^\"]*)\" file to send message$")
+	public void i_Upload_Sample_File_To_Send_Message(String text) throws Throwable{
+		dashboard.iUploadFileToSendMessage(text);
 	}
 	
 	@Then("^I click on first messaage in Inbox$")
@@ -194,6 +194,36 @@ public class PatientDashboardSteps extends DriverScript {
 	@And("^I should not see any count appearing on Alert Icon$")
     public void i_Should_Not_See_Any_Count_OnAlert_Icon() throws Throwable {
 		dashboard.iShouldNotSeeAnyCountOnAlertIcon();
+    }
+	
+	@And("^I should see \"([^\"]*)\" text under body for message$")
+    public void i_Should_See_Text_Under_Body_For_Message(String text) throws Throwable {
+		dashboard.iShouldSeeTextUnderBodyForMessage(text);
+    }
+	
+	@And("^I verify \"([^\"]*)\" file present under attachment$")
+    public void i_Verify_File_Present_Under_Attachment(String text) throws Throwable {
+		dashboard.iVerifyFilePresentUnderAttachment(text);
+    }
+	
+	@And("^I delete \"([^\"]*)\" file present under attachment$")
+    public void i_Delete_File_Present_Under_Attachment(String text) throws Throwable {
+		dashboard.iDeleteFilePresentUnderAttachment(text);
+    }
+	
+	@And("^I verify \"([^\"]*)\" file not present under attachment$")
+    public void i_Verify_File_Not_Present_Under_Attachment(String text) throws Throwable {
+		dashboard.iVerifyFileNotPresentUnderAttachment(text);
+    }
+	
+	@And("^I click on first gear icon$")
+    public void i_Click_On_First_Gear_Icon() throws Throwable {
+		dashboard.iClickOnFirstGearIcon();
+    }
+	
+	@And("^I click on select all message checkbox$")
+    public void i_Click_On_Select_All_Message_Checkbox() throws Throwable {
+		dashboard.iClickOnSelectAllMessageCheckbox();
     }
 
 
