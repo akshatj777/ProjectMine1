@@ -294,6 +294,26 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
 	}
 	
+	@And("^I click on Gainsharing Physician Survey tile for \"([^\"]*)\" user$")
+	public void iClickOnPhysicianTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnPhysicianTileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to Gainsharing Physician Survey homepage$")
+	public void iVerifyUserNavigatedToPhysician(String role) throws Throwable {
+		createUser.iVerifyNavigationOnPhysicianHomePage(role);
+	}
+	
+	@And("^I click on User Admin tile for \"([^\"]*)\" user$")
+	public void iClickOnUSerAdminTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnUserAdminTileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to User Admin homepage$")
+	public void iVerifyUserNavigatedToUserAdmin(String role) throws Throwable {
+		createUser.iVerifyNavigationOnUserAdminHomePage(role);
+	}
+	
 	@And("^I verify \"([^\"]*)\" after redirection to EC1 for \"([^\"]*)\" user$")
 	public void veifyDashboardOnEC1(String text, String role) throws Throwable {
 		createUser.verifyDashboardOnEC1(role);
@@ -535,10 +555,25 @@ public class CreateUserSteps extends DriverScript {
 	public void selectPrograms(String programList) throws Throwable {
 		createUser.selectPrograms(programList);
 	}
-
-	@Then("^I search and select \"([^\"]*)\" locations$")
+	
+	@Then("^I select \"([^\"]*)\" locations$")
 	public void selectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
+	}
+	
+	@Then("^I select \"([^\"]*)\" locations2$")
+	public void selectLocations2(String locationList) throws Throwable {
+		createUser.selectLocations2(locationList);
+	}
+	
+	@Then("^I select \"([^\"]*)\" locations3$")
+	public void selectLocations3(String locationList) throws Throwable {
+		createUser.selectLocations3(locationList);
+	}
+	
+	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
+	public void clickAddOrgButton(String flag) throws Throwable {
+		createUser.clickAddHealthSystemButton(flag);
 	}
 
 	@Then("^I verify default program \"([^\"]*)\" associated with organization$")
@@ -639,7 +674,7 @@ public class CreateUserSteps extends DriverScript {
 	 }
 	 
 	 @Then("^I verify page header \"([^\"]*)\" for \"([^\"]*)\" on Remedy Connect$")
-	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page){
+	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page) throws InterruptedException{
 		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text);
 	 }
 	 
