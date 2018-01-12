@@ -12,11 +12,11 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    #Then I verify "Model" filter is preselected under the filter
-    #Then I should see "Model includes 2" is present under preselected model filter
+    Then I verify "Model" filter is preselected under the filter
+    Then I should see "Model includes 2" is present under preselected model filter
     Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
