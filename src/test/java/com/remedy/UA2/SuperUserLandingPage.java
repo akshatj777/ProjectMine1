@@ -257,7 +257,7 @@ else{
 	public void SearchUserWithText(String searchList) {
 		if(searchList.isEmpty()==false){
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true)
+		
 	
 		if (searchList.contains(",")) {
 			StringTokenizer st = new StringTokenizer(searchList, ",");
@@ -386,11 +386,11 @@ else{
 		
 	}
 	public void iSeeCrossIconForSearch(){
-		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
+		//iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		isElementVisible(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
 	public void iClickCrossIconForSearch(){
-		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
+		//iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
 public void iSeeUsersBackOnClosingSearch(){
