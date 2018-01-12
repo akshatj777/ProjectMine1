@@ -17,14 +17,14 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I should see "Model includes 2" is present under preselected model filter
-    Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
+    Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Participant"
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Episode Initiator"
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Anchor Facility"
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "1st Post Acute Facility"
     Then I verify Initial SNF Length of Stay Summary reports column text as "Anchor Admission Month"
-    Then I verify Initial SNF Length of Stay Summary reports column text as "2016-01"
-    Then I verify Initial SNF Length of Stay Summary reports column text as "2017-03"
+    Then I verify Initial SNF Length of Stay Summary reports column text as "2017-01"
+    Then I verify Initial SNF Length of Stay Summary reports column text as "2018-03"
     Then I verify Initial SNF Length of Stay Summary reports column text as "# Episodes"
     When I click on field-panel-icon button
     When I click on field-layout-icon button

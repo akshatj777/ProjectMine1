@@ -12,7 +12,7 @@ Feature: Remove the default filters from NSoC Summary Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
