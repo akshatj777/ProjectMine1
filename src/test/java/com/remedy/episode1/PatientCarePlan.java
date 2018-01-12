@@ -219,9 +219,10 @@ public class PatientCarePlan extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//*[@id='edit_BPRAFormCRA']")));
 	}
 
-	public void i_Verify_Risk_Assessment() {
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[1]/div/div/div[1]/div[1]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[1]/div/div/div[1]/div[1]")));
+	public void i_Verify_Risk_Assessment(String text,String formlist,int n) {
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div"));
+		System.out.println("%%%%%Inner Text"+driver.findElement(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")).getAttribute("innerText").trim());
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")).getAttribute("innerText").trim(), ""+text+"");
 	}
 
 	public void assignCarePlanButtondisabled() {
@@ -273,6 +274,7 @@ public class PatientCarePlan extends BaseClass {
 	public void Isetpatientonboardingstatusto(String index) {
 		iWillWaitToSee(By.xpath("//a[@data-onboarding-status="+index+"]"));
 		clickElement(driver.findElement(By.xpath("//a[@data-onboarding-status="+index+"]")));
+		longDelay();
 	}
 
 	public void iEntervalueinnecessaryservices(String value) {
@@ -303,6 +305,14 @@ public class PatientCarePlan extends BaseClass {
 
 	public void assignCarePlanButtonenabled() {
 		new WebDriverWait(driver,5).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@ng-click='assignCarePlan()' and contains(@class,'btn-disabled')]")));
+	}
+
+	public void isubmitCRA() {
+		delay();
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='submitButton']")));
+		delay();
+		clickElement(driver.findElement(By.xpath("//*[@id='submitButton']")));
+		
 	}
    
 }

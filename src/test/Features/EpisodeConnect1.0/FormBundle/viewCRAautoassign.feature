@@ -30,7 +30,7 @@ Feature: CRA Auto-assignment
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I fill in "Admit" with logic "minus" with "3" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -44,16 +44,28 @@ Feature: CRA Auto-assignment
     Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
-    When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
-    When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
-    Then I verify Clinical Risk Assessment in Assigned Form list
+    Then I navigate to the "/secure/person/mongoID/careflow/forms"
+    And I will wait to see patient's name on patient summary page
+    Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
     And I should see text of "2" in assigned form counter
+    Then I edit the CRA
+    And I will wait to see "Clinical Risk Assessment Form (Read/Write)" in "h4" tag
+    Then I submit the Clinical Risk Assessment Form
+    And I will wait to see patient's name on patient summary page
+    Then I will wait to see onboarding status "Onboarded"
+    And I should see text of "1" in active form counter
+    Then I verify "Clinical Risk Assessment" in "Active Form list" "3"
+    And I should see text of "1" in assigned form counter
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
-    When I click anchor transition delete link "1"
-    When I reload the page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Final" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "(1)" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
-    Then I will not see "Episode Marker" xpath element "//*[@id='s2id_episodeSelectionBox']"
+    Then I will wait to see onboarding status "Unknown"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
@@ -70,7 +82,8 @@ Feature: CRA Auto-assignment
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
-    When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
-    Then I verify Clinical Risk Assessment in Assigned Form list
+    Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I should see text of "2" in assigned form counter
+    Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
+    And I should see text of "1" in active form counter
+    Then I verify "Clinical Risk Assessment" in "Active Form list" "3"
