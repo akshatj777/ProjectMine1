@@ -74,6 +74,12 @@ public class SearchOrganization extends BaseClass{
 			iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateHHAOrganization.HHAOrg_noMO.get("HHANAME"));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
+		else if(text.contains("PROGRAMNAME"))
+		{
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get("PROGRAMNAME"));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 		else
 		{	
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -301,6 +307,10 @@ public class SearchOrganization extends BaseClass{
 		else if(text.contains("SNFNAME - NO")){
 			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
 			isElementPresentOnPage(By.xpath("//div[text()='"+CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME")+"']"));
+		}
+		else if(text.contains("PROGRAMNAME")){
+			iWillWaitToSee(By.cssSelector(".data-table-cell.link-content"));
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePrograms.programs.get("PROGRAMNAME")+"']"));
 		}
 		else
 		{

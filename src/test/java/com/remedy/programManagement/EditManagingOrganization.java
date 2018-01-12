@@ -67,6 +67,11 @@ public class EditManagingOrganization extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//div[text()='"+CreateHHAOrganization.HHAOrg_noMO.get("HHANAME")+"']")));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
+		else if(field.contains("PROGRAMNAME"))
+		{
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get("PROGRAMNAME")+"']")));
+			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		}
 		else
 		{
 			clickElement(driver.findElement(By.xpath("//div[text()='"+field+"']")));
@@ -85,7 +90,7 @@ public class EditManagingOrganization extends BaseClass {
 			CreateManagingOrganization.tempMoOrg.put("MONAME",createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
-			}
+		}
 		else if(field2.equalsIgnoreCase("ACHNAME - YES")){
 			CreateACHOrganization.oldACH_WithMO = CreateACHOrganization.achOrg.get("ACHNAME");
 			CreateACHOrganization.tempAchOrg.put("ACHNAME",createRandomName(field2));
@@ -161,6 +166,12 @@ public class EditManagingOrganization extends BaseClass {
 			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+		}
+		else if(field2.contains("PROGRAMNAME")){
+			CreatePrograms.programName = CreatePrograms.programs.get("PROGRAMNAME");
+			CreatePrograms.tempPrograms.put("PROGRAMNAME",createRandomName(field2));
+			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePrograms.tempPrograms.get("PROGRAMNAME"));
 		}
 		else if(field2.equalsIgnoreCase("equalsTo75Characters - NO")){
 			if(field1.contains("Managing"))

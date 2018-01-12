@@ -129,6 +129,10 @@ public class CreateManagingOrganization extends BaseClass {
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("HHANAME"));
 		}
+		else if(text.equals("PROGRAMNAME")) {
+			CreatePrograms.tempPrograms.put("PROGRAMNAME", createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get("PROGRAMNAME"));
+		}
 		else if(text.equals("equalsTo75Characters")){
 			if(field.contains("Managing"))
 			{
@@ -320,6 +324,17 @@ public class CreateManagingOrganization extends BaseClass {
 					{
 						CreateHHAOrganization.HHAOrg_noMO.putAll(CreateHHAOrganization.tempHHAOrg);
 						CreateHHAOrganization.tempHHAOrg.clear();
+					}
+					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				}
+				else if(org.contains("Programs"))
+				{
+					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>div"));
+					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>div")), msg);
+					if(!CreatePrograms.tempPrograms.isEmpty())
+					{
+						CreatePrograms.programs.putAll(CreatePrograms.tempPrograms);
+						CreatePrograms.tempPrograms.clear();
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
