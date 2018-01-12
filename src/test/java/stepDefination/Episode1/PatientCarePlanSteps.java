@@ -226,12 +226,13 @@ public class PatientCarePlanSteps extends DriverScript
 		patientcare.iEditCRA();	
 	}
 	
-	@Then ("^I verify Clinical Risk Assessment in Assigned Form list$")
-	public void i_Verify_Risk_Assessment(){
-		patientcare.i_Verify_Risk_Assessment();
+	@Then ("^I verify \"([^\"]*)\" in \"([^\"]*)\" \"([^\"]*)\"$")
+	public void i_Verify_Risk_Assessment(String text,String formlist,int n){
+		patientcare.i_Verify_Risk_Assessment(text,formlist,n);
 	}
 	
-	@And ("^I should see Assign Care Plan Button disabled$")
+	
+    @And ("^I should see Assign Care Plan Button disabled$")
 	public void assign_Care_Plan_Button_disabled(){
 		patientcare.assignCarePlanButtondisabled();
 	}
@@ -304,5 +305,10 @@ public class PatientCarePlanSteps extends DriverScript
 	 @Then ("^I will wait to see CARL Tool \"([^\"]*)\" on active state$")
 	 public void i_will_wait_to_see_CARL_Tool_on_active_state(int index){
 		 patientcare.iwillwaittoseeCARLToolonactivestate(index);
+	 }
+	 
+	 @Then("^I submit the Clinical Risk Assessment Form$")
+	 public void i_submit_CRA(){
+		 patientcare.isubmitCRA();
 	 }
 }
