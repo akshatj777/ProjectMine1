@@ -96,7 +96,7 @@ Feature: Super Admin Landing page verification
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I should see Tile text User Admin
+    Then I should see header text "Users"
 
     Examples: 
       | user        | Role      | Email             |
