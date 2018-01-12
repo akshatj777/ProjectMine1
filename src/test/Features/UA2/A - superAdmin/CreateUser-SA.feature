@@ -18,7 +18,9 @@ Feature: Create User - Super Admin User
     Then I should see header text "Users"
     When I click on Add User button
     Then I should see "Add New User" on the user creation page
-    #Then I verify the header "General Information"
+
+    Then I verify the header "General Information"
+
     And I fill in First Name with "<FirstName>"
     Then I fill in Last Name with <LastName>
     And I enter Email "<Email>" to Create user

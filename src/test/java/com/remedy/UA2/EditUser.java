@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.ClickElement;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -71,7 +72,7 @@ public class EditUser extends BaseClass {
 		}
 	public void iVerifyRoleInUserPage(String field) {
 		String text = "Role:" + " " + field;
-		iWillWaitToSee(By.cssSelector(".info-row>span"));
+		iWillWaitToSee(By.xpath("//*[contains(text(), 'Role')]"));
 		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Role')]")), text);
 
 	}
@@ -220,7 +221,7 @@ public class EditUser extends BaseClass {
 		   isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]"));
 	   }
 	   }
-	   public void iSeeNoResultsForLearningPathway(String text){
+	   public void iSeeNoResults(String text){
 		   if(text.equals("No results found.")){
 			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
@@ -259,4 +260,23 @@ public class EditUser extends BaseClass {
 		   
 		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
+	   public void iVerifyProductsCount(String text, int count){
+		   iWillWaitToSee(By.cssSelector(".ui.checkbox"));
+		   int countActual=getElementCount(".ui.checkbox");
+		   System.out.println("Actual count "+countActual);
+		   if(text.contains("Less")){
+			Assert.assertTrue(countActual<count);
+		   }
+		   else{
+			   Assert.assertTrue(countActual>count);
+		   }
+	   }
+	   
+	   public void iClickOnAddAnotherOrganisation(String text){
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	   }
+	  public void iRemoveExistingProgram(){
+		  clickElement(driver.findElement(By.cssSelector(".delete.icon")));
+	  }
 }

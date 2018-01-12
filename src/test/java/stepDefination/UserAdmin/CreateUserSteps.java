@@ -13,12 +13,11 @@ import cucumber.api.java.en.When;
  * Created by salam on 7/29/15.
  */
 
-
-public class CreateUserSteps extends DriverScript{
-    LoginPage loginPage = new LoginPage(driver);
-    LandingPage landingPage = new LandingPage(driver);
-    UserAdminHomePage userAdminPage = new UserAdminHomePage(driver);
-    CreateUserPage createUser = new CreateUserPage(driver);
+public class CreateUserSteps extends DriverScript {
+	LoginPage loginPage = new LoginPage(driver);
+	LandingPage landingPage = new LandingPage(driver);
+	UserAdminHomePage userAdminPage = new UserAdminHomePage(driver);
+	CreateUserPage createUser = new CreateUserPage(driver);
 
 
 	@When("^I log in as super user$")
@@ -298,6 +297,13 @@ public class CreateUserSteps extends DriverScript{
 		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
 	}
 	
+
+	@And("^I verify \"([^\"]*)\" after redirection to EC1 for \"([^\"]*)\" user$")
+	public void veifyDashboardOnEC1(String text, String role) throws Throwable {
+		createUser.verifyDashboardOnEC1(role);
+	}
+	
+
 	@And("^I click on username icon on right top corner \"([^\"]*)\" and open user profile on EC1$")
 	public void iClickOnUserNameIconOnEC1AndOpenUserProfile(String role) throws Throwable {
 		createUser.iClickOnUserNameIconOnEC1AndOpenUserProfile(role);
@@ -323,6 +329,13 @@ public class CreateUserSteps extends DriverScript{
 		createUser.iVerifyPayerAppearingOnUserProfile(payer, role);
 	}
 	
+
+	@And("^I should not see \"([^\"]*)\" payer on user profile for \"([^\"]*)\" user$")
+	public void verifyEmblemNotAppearingOnUserProfileForUser(String payer, String role) throws Throwable {
+		createUser.verifyEmblemNotAppearingOnUserProfile(payer, role);
+	}
+	
+
 	@And("^I click on gear menu and then click on Add Note and verify user role \"([^\"]*)\" for \"([^\"]*)\" user$")
 	public void iClickOnAddNoteAndVerifyUserRoleForUser(String userrole, String role) throws Throwable {
 		createUser.iClickOnAddNoteAndVerifyRole(userrole, role);
@@ -357,6 +370,18 @@ public class CreateUserSteps extends DriverScript{
 	public void iVerifuUserNavigatedToRemedyU(String role) throws Throwable {
 		createUser.iVerifyNavigationOnRemedyUHomePage(role);
 	}
+
+	
+	@And("^I verify details \"([^\"]*)\" for \"([^\"]*)\" user on RemedyU dashboard$")
+	 public void i_Verify_Details_For_User_On_RemedyU_Dashboard(String details, String user){
+		 createUser.iVerifyDetailsForUserOnRemedyUDashBoard(details, user);
+	 }
+	
+	@And("^I verify learning pathway \"([^\"]*)\" appearing for \"([^\"]*)\" user on RemedyU dashboard$")
+	 public void i_Verify_LearningPathWay_Appearing_For_User_On_RemedyU_Dashboard(String pathway, String user){
+		 createUser.iVerifyPathWayForUserOnRemedyUDashBoard(pathway, user);
+	 }
+
 
 	@And("^I click on Physican connect tile for \"([^\"]*)\" user$")
 	public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String role) throws Throwable {
@@ -428,11 +453,27 @@ public class CreateUserSteps extends DriverScript{
 	}
 
 	@Then("^I click on Next button$")
-	public void clickNextButton() throws Throwable {
+
+	public void click_Next_Button() throws Throwable {
 		createUser.clickNextButton();
 	}
 	
+	@Then("^I click on Back button$")
+	public void click_Back_Button() throws Throwable {
+		createUser.clickBackButton();
+	}
 	
+	@Then("^I click on \"([^\"]*)\" tab on the left$")
+	public void clickTab(String text) throws Throwable {
+		createUser.clickTab(text);
+	}
+	
+	@Then("^I verify the header \"([^\"]*)\"$")
+	public void verifyHeader(String text) throws Throwable {
+		createUser.verifyHeader(text);
+	}
+
+
 	@Then("^I click on Select All Locations button$")
 	public void clickSelectAllLocationsButton() throws Throwable {
 		createUser.clickSelectAllLocationsButton();
@@ -478,12 +519,19 @@ public class CreateUserSteps extends DriverScript{
 		createUser.clickLessonsSelectButton();
 	}
 
+	
+	@Then("^I click on Cancel button$")
+	public void clickCancelButton() throws Throwable {
+		createUser.clickCancelButton();
+	}
+
+
 	@Then("^I enter \"([^\"]*)\" in Learning Pathway search box$")
 	public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
 		createUser.enterTextLearningPathwaySearchBox(searchParam);
 	}
 
-	
+
 	@Then("^I select \"([^\"]*)\" from the results$")
 	public void selectLearningPath(String searchParam) throws Throwable {
 		createUser.selectLearningPath(searchParam);
@@ -540,16 +588,25 @@ public class CreateUserSteps extends DriverScript{
 	}
 
 	@Then("^I click on \"([^\"]*)\" button$")
-	public void clickLogOutButton(String arg1) throws Throwable {
+
+	public void click_LogOut_Button(String arg1) throws Throwable {
 		createUser.clickLogOutButton(arg1);
 	}
 
-	@Then("^I verify \"([^\"]*)\" product$")
+	@Then("^I click on \"([^\"]*)\" button again$")
+	public void click_LogOut_ButtonAgain(String arg1) throws Throwable {
+		createUser.clickLogOutButtonAgain(arg1);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" product on SPOE page$")
+
 	public void verifyProductTiles(String products) throws Throwable {
 		createUser.verifyProductTiles(products);
 	}
 	
-	@Then("^I verify \"([^\"]*)\" product is not visible$")
+
+	@Then("^I verify \"([^\"]*)\" product is not visible on SPOE page$")
+
 	public void verifyProductTilesNotPresent(String products) throws Throwable {
 		createUser.verifyProductTilesNotPresent(products);
 	}
@@ -559,7 +616,9 @@ public class CreateUserSteps extends DriverScript{
 		createUser.clickAddAnotherOrganization();
 	}
 
-	@Then("^I enter characters \"([^\"]*)\" in location serach$")
+
+	@Then("^I enter characters \"([^\"]*)\" in location search$")
+
 	public void enterCharacterInLocationSearch(String text) throws Throwable {
 		createUser.enterCharacterInLocationSearch(text);
 	}
@@ -611,5 +670,49 @@ public class CreateUserSteps extends DriverScript{
 		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
 	 }
 
+	 @Then("^I click on the Reports Tile with text \"([^\"]*)\" for \"([^\"]*)\" user$")
+	 public void i_click_on_the_Reports_Tile_with_text_for_user(String text, String role) throws Throwable {
+	     createUser.iclickontheReportsTilewithtextforuser(text,role);
+	 }
+
+	 @Then("^I click on \"([^\"]*)\" report text for Overall Program Reports for \"([^\"]*)\" user$")
+	 public void i_click_on_report_text_for_Overall_Program_Reports_for_user(String text, String role) throws Throwable {
+		 createUser.iclickonreporttextforOverallProgramReportsforuser(text,role);
+	 }
+
+	 @When("^I click on field-panel-icon button for \"([^\"]*)\" user$")
+	 public void i_click_on_field_panel_icon_button_for_user(String role) throws Throwable {
+		 createUser.iclickonfieldpaneliconbuttonforuser(role);
+	 }
+
+	 @When("^I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field for \"([^\"]*)\" user$")
+	 public void i_click_to_field_filter_under_filter_field_for_user(String filterField, String filterTitle, String role) throws Throwable {
+		 createUser.iclicktofieldfilterunderfilterfieldforuser(filterField,filterTitle,role);
+	 }
+
+	 @When("^I choose \"([^\"]*)\" option from select options of filter field for \"([^\"]*)\" user$")
+	 public void i_choose_option_from_select_options_of_filter_field_for_user(String text, String role) throws Throwable {
+		 createUser.ichooseoptionfromselectoptionsoffilterfieldforuser("//td[@id='cmdField"+text+"_text']",role);
+	 }
+
+	 @When("^I should see \"([^\"]*)\" in the filter value list for \"([^\"]*)\" user$")
+	 public void i_should_see_in_the_filter_value_list_for_user(String text, String role) throws Throwable {
+		 createUser.ishouldseeinthefiltervaluelistforuser(text,role);
+	 }
+
+	 @When("^I click on cancel button from filter for \"([^\"]*)\" user$")
+	 public void i_click_on_cancel_button_from_filter_for_user(String role) throws Throwable {
+		 createUser.iclickoncancelbuttonfromfilterforuser(role);
+	 }
+	 
+	 @Then("^I click on Cross button$")
+	 public void i_click_on_cross_button() throws Throwable {
+		 createUser.clickCrossButton();
+	 }
+	 
+	 @Then("^I removed the already selected role$")
+	 public void i_remove_Already_Selected_Role() throws Throwable {
+		 createUser.removeAlreadySelectedRole();
+	 }
 
 }

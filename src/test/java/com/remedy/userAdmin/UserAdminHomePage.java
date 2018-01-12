@@ -16,10 +16,13 @@ WebDriverWait wait= new WebDriverWait(driver, 30);
 		super(driver);
 	}
 
-	public void clickCreateUserButton() {
+	public void clickCreateUserButton() throws InterruptedException {
 		delay();
-		iWillWaitToSee(By.cssSelector("button.ui.green.right.floated.button.add-user-button"));
-		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+
+		Thread.sleep(5000);
+		iWillWaitToSee(By.xpath("//button[text()='Add User']"));
+		clickElement(driver.findElement(By.xpath("//button[text()='Add User']")));
+
 	}
 
 	public void clickImportUsers() {

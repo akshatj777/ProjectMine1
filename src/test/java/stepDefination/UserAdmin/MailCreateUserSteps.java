@@ -2,7 +2,6 @@ package stepDefination.UserAdmin;
 
 import com.remedy.resources.DriverScript;
 import com.remedy.userAdmin.MailCreateUser;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
