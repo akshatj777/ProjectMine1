@@ -16,11 +16,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
 
 public class ReadmissionWorklist extends BaseClass {
-
+	
 	public ReadmissionWorklist(WebDriver driver) {
 		super(driver);
 	}
-
+	
+	public String dischargeDate;
+	public String admitDate;
+	
 	public void IclickontheTransitionssubtabonthePatientSummaryPage() {
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Transitions')]")));
 	}
@@ -270,6 +273,24 @@ public class ReadmissionWorklist extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector("div.field-dischargeDate.form-group.row > div > div > span:nth-child(3) > button > i")));
 	}
 	
+	public void IStoreValueAppearingInField(String value, String field) {
+		if(value.contains("Discharge")){
+			 dischargeDate = driver.findElements(By.cssSelector("#bp_personbundle_bpadmissiontype_dischargeDate")).get(0).getAttribute("value");
+		}
+		else
+		{
+			 admitDate = driver.findElements(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")).get(0).getAttribute("value");
+		}
+	}
+	
+	public void IVerifyDateAppearingInTransitionOnPatientOverview(String text) {
+		if(text.contains("admit")){
+			iWillWaitToSee(By.xpath("//td[contains(@class,'admit_date') and text()='"+admitDate+"']"));
+		}
+		else{
+			iWillWaitToSee(By.xpath("//td[contains(@class,'discharge_date') and text()='"+dischargeDate+"']"));
+		}
+	}
 }
 
 	

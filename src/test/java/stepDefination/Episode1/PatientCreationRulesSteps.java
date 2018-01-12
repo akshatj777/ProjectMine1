@@ -366,4 +366,9 @@ public class PatientCreationRulesSteps extends DriverScript {
 	public void i_verify_as_field_validation_on_myprofile_page(String text) throws Throwable{
 		patientrules.iVerifyValidationMessageOnMyProfilePage(text);
 	}
+	
+	@And("^I search and select \"([^\"]*)\" Drg on care plan form$")
+	public void i_search_select_drg_on_care_plan_form(String text) throws Throwable{
+		patientrules.iSearchAndSelectDrgOnCarePlanForm(text);
+	}
 }

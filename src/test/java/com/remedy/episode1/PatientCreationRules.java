@@ -140,11 +140,13 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iClickOnSubmitOnCarePlanForm(){
+    	longDelay();
     	clickElement(driver.findElement(By.cssSelector("#adminCarePlanForm .btn-primary")));
     }
     
     public void IwaitToSeeThePopUp(String text){
     	delay();
+    	System.out.println(text);
     	iWillWaitToSee(By.xpath("//p[contains(text(),'"+text+"')]"));
     	isElementVisible(driver.findElement(By.xpath("//p[contains(text(),'"+text+"')]")));
     }
@@ -239,5 +241,12 @@ public class PatientCreationRules extends BaseClass{
     
     public void iVerifyValidationMessageOnMyProfilePage(String text){
     	verifyTextForElementfromList(".help-block.help-block-error",text);
+    }
+    
+    public void iSearchAndSelectDrgOnCarePlanForm(String text){
+    	iWillWaitToSee(By.cssSelector(".select2-search-field>input"));
+    	driver.findElement(By.cssSelector(".select2-search-field>input")).sendKeys(text);
+    	iWillWaitToSee(By.xpath("//span[text()='"+text+"']"));
+    	clickElement(driver.findElement(By.xpath("//span[text()='"+text+"']")));
     }
 }

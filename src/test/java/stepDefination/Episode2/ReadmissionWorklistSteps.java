@@ -163,4 +163,14 @@ public class ReadmissionWorklistSteps extends DriverScript {
 		admission.Iremovethedischargedateonthetransitionpage();
 	}
 	
+	@Then ("^I store \"([^\"]*)\" value appearing in \"([^\"]*)\" field$")
+	public void I_Store_Value_Appearing_In_Field(String value, String field) throws Throwable {
+		admission.IStoreValueAppearingInField(value, field);
+	}
+	
+	@Then ("^I verify \"([^\"]*)\" appearing in transition on patient overview$")
+	public void I_Verify_Date_Appearing_In_Transition_On_Patient_Overview(String text) throws Throwable {
+		admission.IVerifyDateAppearingInTransitionOnPatientOverview(text);
+	}
+	
 }

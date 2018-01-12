@@ -164,5 +164,68 @@ public class PatientOverview extends BaseClass {
 	public void ishouldSeePhysicianCardUnderCareTeamOnPatientPage(){
 		iWillWaitToSee(By.cssSelector(".col-md-12 .panel-body"));
 	}
+	
+	public void iVerifyTabPresentUnderHeaderNavigationOnPatientOverview(String text){
+		iWillWaitToSee(By.xpath("//ul[@id='patientProfileHeaderNav']/li"));
+		String actual = getTextForElement(driver.findElement(By.xpath("//ul[@id='patientProfileHeaderNav']/li")));
+		Assert.assertEquals(text, actual.trim());
+	}
+	
+	public void iVerifySearchPresentUnderTransitionOnPatientOverview(){
+		iWillWaitToSee(By.xpath("//label[contains(text(),'Search')]"));
+	}
+	
+	public void iVerifyTextAppearingUnderHeaderForTransitionOnPatientOverview(String text, String field, String no){
+		iWillWaitToSee(By.xpath("//tbody/tr["+no+"]/td[contains(@class,'"+field+"')]"));
+		String actual = getTextForElement(driver.findElement(By.xpath("//tbody/tr["+no+"]/td[contains(@class,'"+field+"')]")));
+		Assert.assertTrue(actual.trim().contains(text));
+	}
+	
+	public void iShouldSeePaginationUnderTransitionOnPatientOverview(){
+		iWillWaitToSee(By.cssSelector("#ui-transitions-table_length>label"));
+	}
+	
+	public void iClickOnOnboardingStatusDropDownOnPatientOverview(){
+		clickElement(driver.findElement(By.cssSelector("#current_onboarding_status")));
+	}
+	
+	public void iVerifyDropdownValueOnOnboardingStatusDropDownOnPatientOverview(String text){
+		iWillWaitToSee(By.cssSelector(".onboarding-status span"));
+		iVerifyTextFromListOfElement(By.cssSelector(".label.label-default.status-label"), text);
+	}
+	
+	public void iClickOnEligibilityDropDownOnPatientOverview(){
+		clickElement(driver.findElement(By.cssSelector("#eligibility_button")));
+	}
+	
+	public void iVerifyDropdownValueOnEligibilityDropDownOnPatientOverview(String text){
+		iWillWaitToSee(By.cssSelector("#eligibility_service li a"));
+		if(text.equalsIgnoreCase("Eligible")){
+			iWillWaitToSee(By.cssSelector(".set_eligibility_value.set_eligibility_eligible"));
+		}
+		else if(text.equalsIgnoreCase("Not eligible")){
+			iWillWaitToSee(By.cssSelector(".set_eligibility_value.set_eligibility_not_eligible"));
+		}
+		
+		else if(text.equalsIgnoreCase("Not eligible")){
+			iWillWaitToSee(By.cssSelector(".set_eligibility_value.set_eligibility_not_eligible_esrd"));
+		}
+		else{
+			List<WebElement> listItems = driver.findElements(By.cssSelector("#eligibility_service li a"));
+			String value = null;
+			for (WebElement item : listItems) {
+				  if (item.getText().trim().contains(text)) {
+					  value=item.getText().trim();  
+				  } 
+			}
+			Assert.assertTrue(value.contains(text));
+		}
+	}
+	
+	public void iSelectFirstTextFromTagDropdownOnPatientOverview(){
+		clickElement(driver.findElement(By.cssSelector(".select2-search-field")));
+		delay();
+		clickElement(driver.findElement(By.xpath("//div[@class='select2-result-label ui-select-choices-row-inner']/div")));
+	}
 
 }

@@ -39,6 +39,7 @@ Feature: Episode Connect 1 Add Patient
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
+    Then I will wait to see onboarding status "Unknown"
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "-120" days
@@ -50,6 +51,7 @@ Feature: Episode Connect 1 Add Patient
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
+    Then I will wait to see onboarding status "Needs Onboarding"
 
     Examples: 
       | email                | password  |

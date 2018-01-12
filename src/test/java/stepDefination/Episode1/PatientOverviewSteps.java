@@ -123,4 +123,49 @@ public class PatientOverviewSteps extends DriverScript {
 	public void i_Should_See_PhysicianCard_Under_Care_Team_On_Patient_Page() throws Throwable {
 		overview.ishouldSeePhysicianCardUnderCareTeamOnPatientPage();
 	}
+	
+	@And("^I verify \"([^\"]*)\" tab is present under header navigation on patient overview$")
+	public void i_Verify_Tab_Present_Under_Header_Navigation_On_Patient_Overview(String text) throws Throwable {
+		overview.iVerifyTabPresentUnderHeaderNavigationOnPatientOverview(text);
+	}
+	
+	@And("^I verify search present under transition on patient overview$")
+	public void i_Verify_Search_Present_Under_Transition_On_Patient_Overview() throws Throwable {
+		overview.iVerifySearchPresentUnderTransitionOnPatientOverview();
+	}
+	
+	@And("^I verify \"([^\"]*)\" appearing under \"([^\"]*)\" for \"([^\"]*)\" tranisition on patient overview$")
+	public void i_Verify_Text_Appearing_Under_Header_For_Transition_On_Patient_Overview(String text, String field, String no) throws Throwable {
+		overview.iVerifyTextAppearingUnderHeaderForTransitionOnPatientOverview(text, field, no);
+	}
+	
+	@And("^I should see Pagination under Transition on patient overview$")
+	public void i_Should_See_Pagination_Under_Transition_On_Patient_Overview() throws Throwable {
+		overview.iShouldSeePaginationUnderTransitionOnPatientOverview();
+	}
+	
+	@And("^I click on Onboarding status dropdown on patient overview page$")
+	public void i_Click_On_OnboardingStatus_DropDown_On_Patient_Overview() throws Throwable {
+		overview.iClickOnOnboardingStatusDropDownOnPatientOverview();
+	}
+
+	@And("^I should see \"([^\"]*)\" under onboarding status dropdown on patient overview page$")
+	public void i_Should_See_DropDown_Value_Under_OnboardingStatus_DropDown_On_Patient_Overview(String text) throws Throwable {
+		overview.iVerifyDropdownValueOnOnboardingStatusDropDownOnPatientOverview(text);
+	}
+	
+	@And("^I click on Eligibility dropdown on patient overview page$")
+	public void i_Click_On_Eligibility_DropDown_On_Patient_Overview() throws Throwable {
+		overview.iClickOnEligibilityDropDownOnPatientOverview();
+	}
+	
+	@And("^I should see \"([^\"]*)\" under Eligibility dropdown on patient overview page$")
+	public void i_Should_See_DropDown_Value_Under_Eligibility_DropDown_On_Patient_Overview(String text) throws Throwable {
+		overview.iVerifyDropdownValueOnEligibilityDropDownOnPatientOverview(text);
+	}
+	
+	@And("^I select first text from tag drodown on patient overview page$")
+	public void i_Select_First_Text_From_Tag_Dropdown_On_Patient_Overview() throws Throwable {
+		overview.iSelectFirstTextFromTagDropdownOnPatientOverview();
+	}
 }
