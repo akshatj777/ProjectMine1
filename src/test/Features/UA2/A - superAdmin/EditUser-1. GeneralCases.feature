@@ -139,7 +139,7 @@ Feature: Edit user page for General cases
     #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Submit button
-    And I wait for 10000 milli seconds
+    And I wait for 3000 milli seconds
     And I verify Role <Role> in user page
     And I verify that "NPI" is "not present" on page
     And I click on Edit button
@@ -157,22 +157,20 @@ Feature: Edit user page for General cases
     Then I should see an alert with text "Are you sure you want to remove"
     And I should see "Cancel" button
     Then I click on "Remove" button on permissions tab
-    Then I click on Select button
+    #Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
-    Then I click on Select button
     Then I select "<Programs>" programs
-    Then I enter characters "<Locations>" in location search
-    Then I search and select "<Locations>" locations
+    Then I select "<Locations>" locations
     Then I click on Submit button
     And I wait for 3000 milli seconds
     And I verify Role <PreviousRole> in user page
     And I verify that "NPI" is "present" on page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2                       | Applications                                                | Health System  | LearningPathwaySearchParameter | Programs                 | Locations |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Trinity Health | Learning Pathway 2             | BPCI-Model2, BPCI-Model3 |           |
+      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2                       | Applications                                                | Health System | LearningPathwaySearchParameter | Programs                 | Locations                                                                                                 |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | TeamHealth    | Learning Pathway 2             | BPCI-Model2, BPCI-Model3 | 2070-g14--North Shore Med Center, 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
 
   Scenario Outline: Validate error message for Invalid characters in permissions tab and Edit multiple to single programs
     Given I am on the login page
@@ -185,21 +183,23 @@ Feature: Edit user page for General cases
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
+    Then I click on existing organisation 
+    Then I deselect "<RemovePrograms>" programs
+    Then I enter characters "<locations_invalid>" in location search
+    Then I should see text "No Results found"
     Then I click on "Add Another Organization" button on permissions tab
-    Then I click on Select button
     And I search for health system with <Health System_invalid>
     And I wait for 3000 milli seconds
     Then I should see text "No Results found"
-    Then I click on existing organisation
-    Then I enter characters "<locations_invalid>" in location search
-    Then I should see text "No Results found"
-    Then I remove existing program
-    #And I wait for 3000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on Submit button
-
+		And I wait for 3000 milli seconds
+		And I click on the top user account link
+    Then I click on "Log Out" button
+    And I should see Log in widget
     Examples: 
-      | User        | Role       | Email             | Health System_invalid | locations_invalid | Programs    |
-      | Super Admin | Physicians | test.automatemail | abc                   | abc               | BPCI-Model2 |
+      | User        | Role       | Email             | Health System_invalid | locations_invalid | RemovePrograms |
+      | Super Admin | Physicians | test.automatemail | abc                   | abc               | BPCI-Model2    |
 
   Scenario Outline: Remove existing Program and select another Program in permissions tab
     Given I am on the login page
@@ -213,13 +213,14 @@ Feature: Edit user page for General cases
     And I click on Edit button
     Then I select "Permissions" tab
     Then I click on existing organisation
-    Then I remove existing program
-    Then I click on Select button
+    Then I deselect "<RemovePrograms>" programs
     Then I select "<Programs>" programs
-    Then I enter characters "<Locations>" in location search
-    Then I search and select "<Locations>" locations
+    Then I select "<Locations>" locations
     Then I click on Submit button
-
+		And I wait for 5000 milli seconds
+		And I click on the top user account link
+    Then I click on "Log Out" button
+    And I should see Log in widget
     Examples: 
-      | User        | Role       | Email             | Programs    | Locations                         |
-      | Super Admin | Physicians | test.automatemail | BPCI-Model2 | Baptist Medical Center - Vanguard |
+      | User        | Role       | Email             | RemovePrograms | Programs    | Locations                         |
+      | Super Admin | Physicians | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | all locations |

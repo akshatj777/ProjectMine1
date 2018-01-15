@@ -298,6 +298,27 @@ public class CreateUserSteps extends DriverScript {
 	}
 	
 
+	@And("^I click on Gainsharing Physician Survey tile for \"([^\"]*)\" user$")
+	public void iClickOnPhysicianTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnPhysicianTileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to Gainsharing Physician Survey homepage$")
+	public void iVerifyUserNavigatedToPhysician(String role) throws Throwable {
+		createUser.iVerifyNavigationOnPhysicianHomePage(role);
+	}
+	
+	@And("^I click on User Admin tile for \"([^\"]*)\" user$")
+	public void iClickOnUSerAdminTileUnderSpecificUserLoginPage(String role) throws Throwable {
+		createUser.iClickOnUserAdminTileUnderSpecificUserLoginPage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" user navigated to User Admin homepage$")
+	public void iVerifyUserNavigatedToUserAdmin(String role) throws Throwable {
+		createUser.iVerifyNavigationOnUserAdminHomePage(role);
+	}
+	
+
 	@And("^I verify \"([^\"]*)\" after redirection to EC1 for \"([^\"]*)\" user$")
 	public void veifyDashboardOnEC1(String text, String role) throws Throwable {
 		createUser.verifyDashboardOnEC1(role);
@@ -546,15 +567,34 @@ public class CreateUserSteps extends DriverScript {
 	public void verifyLoginButton() throws Throwable {
 		createUser.verifyLoginButton();
 	}
-
+	@Then("^I deselect \"([^\"]*)\" programs$")
+	public void deselectPrograms(String programList) throws Throwable {
+		createUser.deselectPrograms(programList);
+	}
+	
 	@Then("^I select \"([^\"]*)\" programs$")
 	public void selectPrograms(String programList) throws Throwable {
 		createUser.selectPrograms(programList);
 	}
-
-	@Then("^I search and select \"([^\"]*)\" locations$")
+	
+	@Then("^I select \"([^\"]*)\" locations$")
 	public void selectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
+	}
+	
+	@Then("^I select \"([^\"]*)\" locations2$")
+	public void selectLocations2(String locationList) throws Throwable {
+		createUser.selectLocations2(locationList);
+	}
+	
+	@Then("^I select \"([^\"]*)\" locations3$")
+	public void selectLocations3(String locationList) throws Throwable {
+		createUser.selectLocations3(locationList);
+	}
+	
+	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
+	public void clickAddOrgButton(String flag) throws Throwable {
+		createUser.clickAddHealthSystemButton(flag);
 	}
 
 	@Then("^I verify default program \"([^\"]*)\" associated with organization$")
@@ -650,19 +690,19 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iRedirectToRemedyConnectPage();
 	 }
     
-	 @Then("^I verify \"([^\"]*)\" in dropdown on profile icon$")
-	 public void i_Verify_Value_In_DropDown_On_ProfileIcon(String text){
-		 createUser.iVerifyDropDownValueFromProfileIcon(text);
+	 @Then("^I verify \"([^\"]*)\" in dropdown on profile icon for \"([^\"]*)\" user$")
+	 public void i_Verify_Value_In_DropDown_On_ProfileIcon(String text, String role){
+		 createUser.iVerifyDropDownValueFromProfileIcon(text, role);
 	 }
 	 
-	 @Then("^I click on \"([^\"]*)\" in dropdown on profile icon$")
-	 public void i_Click_On_Field_InDropdown_On_Profile_Icon(String text){
-		 createUser.iClickOnFiledInDropdownOnProfileIcon(text);
+	 @Then("^I click on \"([^\"]*)\" in dropdown on profile icon for \"([^\"]*)\" user$")
+	 public void i_Click_On_Field_InDropdown_On_Profile_Icon(String text, String role){
+		 createUser.iClickOnFiledInDropdownOnProfileIcon(text,role);
 	 }
 	 
-	 @Then("^I verify page header \"([^\"]*)\" for \"([^\"]*)\" on Remedy Connect$")
-	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page){
-		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text);
+	 @Then("^I verify page header \"([^\"]*)\" for \"([^\"]*)\" on Remedy Connect for \"([^\"]*)\" user$")
+	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page, String role) throws InterruptedException{
+		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text, role);
 	 }
 	 
 	 @And("^I verify No results found under Learning Pathway search box$")

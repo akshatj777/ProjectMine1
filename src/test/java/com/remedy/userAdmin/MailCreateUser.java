@@ -1,6 +1,8 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,9 +13,12 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -33,8 +38,16 @@ public class MailCreateUser extends BaseClass{
 		super(driver);
 	}
 	
-	public void iAmOnMailLoginPage() throws InterruptedException {
-        driver.navigate().to("https://accounts.google.com");
+
+	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
+//		driver.get("chrome://settings/");
+//		Thread.sleep(5000);
+//		scrollIntoViewByJS(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
+//		driver.findElement(By.cssSelector("* /deep/ #zoomLevel")).click();
+//		delay();
+//		Select oSelect = new Select(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
+//		oSelect.selectByValue("0.9");
+		driver.navigate().to("https://accounts.google.com");
 
         if(DriverScript.Config.getProperty("Browser").equals("chrome"))
         {

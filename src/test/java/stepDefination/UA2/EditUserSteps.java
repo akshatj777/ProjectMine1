@@ -141,8 +141,5 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyProductsCount(String text, int count){
 		editUser.iVerifyProductsCount(text,count);
 	}
-	@Then("^I remove existing program$")
-	public void iRemoveExistingProgram(){
-		editUser.iRemoveExistingProgram();
-	}
+
 }

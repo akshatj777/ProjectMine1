@@ -276,7 +276,5 @@ public class EditUser extends BaseClass {
 		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 		   clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
-	  public void iRemoveExistingProgram(){
-		  clickElement(driver.findElement(By.cssSelector(".delete.icon")));
-	  }
+	 
 }
