@@ -1,13 +1,10 @@
 package com.remedy.episode1;
 
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 
@@ -30,6 +27,7 @@ public class PatientOverview extends BaseClass {
 			String expected = "SSN xxx-xx-"+sSN;
 			Assert.assertTrue(value.contains(expected));
 		}
+		else{
 		List<WebElement> element = driver.findElements(By.cssSelector("div.row>ul>li"));
 		String value = null;
 		for (WebElement webElement : element) {
@@ -38,6 +36,7 @@ public class PatientOverview extends BaseClass {
 			}
 		}
 		Assert.assertTrue(value.contains(text));
+		}
 	}
 	
 	public void iClickOnGearIconOnPatientOverviewPage(){
@@ -45,6 +44,11 @@ public class PatientOverview extends BaseClass {
 		longDelay();
 //		scrollIntoViewByJS(driver.findElements(By.cssSelector("h3 .fa.fa-cog")).get(0));
 		clickElement(driver.findElement(By.cssSelector("h3 .fa.fa-cog")));
+	}
+	
+	public void iShouldSeeOptionsUnderPatientOverviewGearIcon(String text){
+		iWillWaitToSee(By.cssSelector(".pull-right.open li"));
+		iVerifyTextFromListOfElement(By.cssSelector(".pull-right.open li"), text);
 	}
 	
 	public void iClickOnOptionUnderPatientOverviewGearIcon(String text){
@@ -61,6 +65,7 @@ public class PatientOverview extends BaseClass {
 			clickElement(driver.findElement(By.xpath("//a[contains(@href,'assignMyself')]")));
 		}
 		else
+			iWillWaitToSee(By.xpath("//div[@class='row header-nav-line']//a"));
 //		clickSingleElementFromList(By.xpath("//div[@class='pull-right open']//li//a"), button);
 		clickSingleElementFromList(By.xpath("//div[@class='row header-nav-line']//a"), button);
 //		clickElement(driver.findElement(By.xpath("//a[contains(@href,'assignMyself')]")));
@@ -167,8 +172,9 @@ public class PatientOverview extends BaseClass {
 	
 	public void iVerifyTabPresentUnderHeaderNavigationOnPatientOverview(String text){
 		iWillWaitToSee(By.xpath("//ul[@id='patientProfileHeaderNav']/li"));
-		String actual = getTextForElement(driver.findElement(By.xpath("//ul[@id='patientProfileHeaderNav']/li")));
-		Assert.assertEquals(text, actual.trim());
+//		String actual = getTextForElement(driver.findElement(By.xpath("//ul[@id='patientProfileHeaderNav']/li")));
+		iVerifyTextFromListOfElement(By.xpath("//ul[@id='patientProfileHeaderNav']/li"), text);
+//		Assert.assertEquals(text, actual.trim());
 	}
 	
 	public void iVerifySearchPresentUnderTransitionOnPatientOverview(){
@@ -207,7 +213,7 @@ public class PatientOverview extends BaseClass {
 			iWillWaitToSee(By.cssSelector(".set_eligibility_value.set_eligibility_not_eligible"));
 		}
 		
-		else if(text.equalsIgnoreCase("Not eligible")){
+		else if(text.equalsIgnoreCase("Not Eligible - ESRD")){
 			iWillWaitToSee(By.cssSelector(".set_eligibility_value.set_eligibility_not_eligible_esrd"));
 		}
 		else{

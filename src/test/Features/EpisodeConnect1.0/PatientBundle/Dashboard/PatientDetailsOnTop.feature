@@ -50,17 +50,28 @@ Feature: Patient Details on Patient overview page
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on "TCRN Checklist" label tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
+    And I wait for 20000 milli seconds
+    Then I click on the Cancel Button on the New Transition on Add Patient page
     And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Patient Details on Patient overview page+
    Then I verify patients fullname on patient overview page
 #   And I should see details "01/05/1995" on patients overview page
 #   And I should see details "Male" on patients overview page
+	And I click on gear icon on patient overview page
+	And I should see "Edit patient details" under patient overview gear icon
+	And I should see "Send message" under patient overview gear icon
+	And I should see "Add task" under patient overview gear icon
+	And I should see "Add Appointment" under patient overview gear icon
+	And I should see "Add Note" under patient overview gear icon
+	And I should see "Assign Form" under patient overview gear icon
+	And I should see "Add New Clinician" under patient overview gear icon
+	And I should see "Eligibility Verification" under patient overview gear icon
+	When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will wait to see onboarding status "Needs Onboarding"
    And I verify patient DOB Age Gender on patient summary page
-   And I should see details "Street" on patients overview page
+   And I should see details "STREET" on patients overview page
    And I should see details "SSN xxx-xx-0800" on patients overview page
    And I should see details "Stamford - Stamford Hospital" on patients overview page
    And I should see details "ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC (63)" on patients overview page
@@ -78,7 +89,9 @@ Feature: Patient Details on Patient overview page
    And I should see "user" icon on details on patients overview page
    And I should see "umbrella" icon on details on patients overview page
    And I should see "flash" icon on details on patients overview page
-   And I should see "alt" icon on details on patients overview page
+#   And I should see "alt" icon on details on patients overview page
+   And I reload my page
+   And I will wait to see patient's name on patient summary page
    And I select first text from tag drodown on patient overview page
    
    And I click on Onboarding status dropdown on patient overview page
@@ -86,13 +99,14 @@ Feature: Patient Details on Patient overview page
    And I should see "Not-Onboarded" under onboarding status dropdown on patient overview page
    And I should see "Onboarded" under onboarding status dropdown on patient overview page
    And I reload my page 
+   And I will wait to see patient's name on patient summary page
    And I click on Eligibility dropdown on patient overview page
    And I should see "Run Service" under Eligibility dropdown on patient overview page
-   And I should see "Review Service Response " under Eligibility dropdown on patient overview page
+   And I should see "Review Service Response" under Eligibility dropdown on patient overview page
    And I should see "Reset Payer Section" under Eligibility dropdown on patient overview page
    And I should see "Eligible" under Eligibility dropdown on patient overview page
    And I should see "Not Eligible" under Eligibility dropdown on patient overview page
-   And I should see "Not Eligible – ESRD" under Eligibility dropdown on patient overview page
+   And I should see "Not Eligible - ESRD" under Eligibility dropdown on patient overview page
    And I should see "Unknown" under Eligibility dropdown on patient overview page
    And I should see "Expired" under Eligibility dropdown on patient overview page
    
@@ -113,8 +127,19 @@ Feature: Patient Details on Patient overview page
    And I verify "admit date" appearing in transition on patient overview
    And I verify "discharge date" appearing in transition on patient overview
    
+   And I click on first gear menu under Transitions on patient overview
+   And I should see "Edit" under transition gear icon on patient overview page
+   And I should see "Add Transition" under transition gear icon on patient overview page
+   And I should see "Delete" under transition gear icon on patient overview page
+   And I should see "Assign" under transition gear icon on patient overview page
+   And I should see "Attach Note" under transition gear icon on patient overview page
+   And I should see "Start CARL Tool" under transition gear icon on patient overview page
+   
    And I should see Pagination under Transition on patient overview
+   
+   And I reload my page
+   And I will wait to see patient's name on patient summary page
    And I click on gear icon on patient overview page
    And I click on "Add New Clinician" option under patient overview gear icon
    And I will wait to see "Add New Clinician" in "h4" tag
-
+#

@@ -221,6 +221,11 @@ public class SummarySectionSteps extends DriverScript {
 		patientclinical.IClickOnFirstGearMenuUnderTransition();
 	}
 	
+	@Then ("^I should see \"([^\"]*)\" under transition gear icon on patient overview page$")
+	public void I_Should_See_Option_In_gear_menu_under_Transitions_on_patient_overview(String text) throws Throwable {
+		patientclinical.IShouldSeeOptionInGearMenuUnderTransitionOnPatientOverview(text);
+	}
+	
 	@Then ("^I click on \"([^\"]*)\" in gear menu option under Transition$")
 	public void I_click_on_option_in_gear_menu_under_Transitions(String text) throws Throwable {
 		patientclinical.IClickOnOptionGearMenuUnderTransition(text);
@@ -244,6 +249,16 @@ public class SummarySectionSteps extends DriverScript {
 	@Then ("^I should see \"([^\"]*)\" in topic under Notes$")
 	public void I_should_see_topic_under_notes(String text) throws Throwable {
 		patientclinical.IShouldSeeTopicUnderNotes(text);
+	}
+	
+	@Then("^I click on \"([^\"]*)\" tab on transition modal$")
+	public void I_click_On_Tab_OnTransition_Modal(String tab) throws Throwable {
+		patientclinical.IClickOnTabOnTransitionModal(tab);
+	}
+	
+	@Then("^I enter \"([^\"]*)\" in \"([^\"]*)\" field on transition modal$")
+	public void I_Enter_In_Field_OnTransition_Modal(String text,String field) throws Throwable {
+		patientclinical.IEnterInFieldOnTransitionModal(text,field);
 	}
 	
 }
