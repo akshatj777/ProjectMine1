@@ -74,7 +74,7 @@ Feature: POT3 will get activated on post acute admission
     And I will verify Episode Marker Admit Date "15" and Termination date "-74" and Episode Status "ACTIVE"
     When I click "Care Plan" xpath element "//*[@id='carePlanButton']"
     When I click "Forms" xpath element "//*[@id='careFlowFormsTab']"
-    Then I verify Clinical Risk Assessment in Assigned Form list
+    Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
     Then I edit the CRA
     When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page

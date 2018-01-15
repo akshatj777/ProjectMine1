@@ -226,11 +226,31 @@ public class PatientCarePlanSteps extends DriverScript
 		patientcare.iEditCRA();	
 	}
 	
+	@Then("^I delete the assigned \"([^\"]*)\" \"([^\"]*)\"$")
+	public void i_delete_assigned_form(String form,int n){
+		patientcare.ideleteassignedform(form,n);	
+	}
+	
+	@Then("^I edited the assigned \"([^\"]*)\" \"([^\"]*)\"$")
+	public void i_edited_assigned_form(String form,int n){
+		patientcare.ieditedassignedform(form,n);	
+	}
+	
 	@Then ("^I verify \"([^\"]*)\" in \"([^\"]*)\" \"([^\"]*)\"$")
 	public void i_Verify_Risk_Assessment(String text,String formlist,int n){
 		patientcare.i_Verify_Risk_Assessment(text,formlist,n);
 	}
 	
+	@Then ("^I verify First Call in \"([^\"]*)\"$")
+	public void i_Verify_First_Call_assigned_list(int n){
+		patientcare.iVerifyFirstCallassignedlist(n);
+	}
+	
+	
+	@Then ("^I verify \"([^\"]*)\" not in \"([^\"]*)\" \"([^\"]*)\"$")
+	public void i_Verify_Risk_Assessment_not_in_list(String text,String formlist,int n){
+		patientcare.iVerifyRiskAssessmentnotinlist(text,formlist,n);
+	}
 	
     @And ("^I should see Assign Care Plan Button disabled$")
 	public void assign_Care_Plan_Button_disabled(){
@@ -310,5 +330,15 @@ public class PatientCarePlanSteps extends DriverScript
 	 @Then("^I submit the Clinical Risk Assessment Form$")
 	 public void i_submit_CRA(){
 		 patientcare.isubmitCRA();
+	 }
+	 
+	 @Then ("^I verify the Form Type error \"([^\"]*)\"$")
+	 public void verify_Form_Type_Error(String message){
+		 patientcare.verifyFormTypeError(message);
+	 }
+	 
+	 @Then ("^I verify the Form error \"([^\"]*)\"$")
+	 public void verify_Form_Error(String message){
+		 patientcare.verifyFormError(message);
 	 }
 }

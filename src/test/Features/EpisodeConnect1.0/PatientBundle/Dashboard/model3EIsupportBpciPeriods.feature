@@ -166,8 +166,6 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     Then I select "Unassigned" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
     Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
     And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "Admit" "caretype" "Outpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
