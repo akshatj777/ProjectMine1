@@ -381,8 +381,8 @@ else{
 	}
 
 	public void iShouldNotSeeSearchResults(){
-		
-		Assert.assertFalse(isElementNotPresentOnPage("th#lastName"));
+	
+		verifyElementCount(".five.wide", 0);
 		
 	}
 	public void iSeeCrossIconForSearch(){
