@@ -257,15 +257,23 @@ public class BaseClass {
     }
 
     public void switchBacktoOldWindow() {
-        String parentWindow = driver.getWindowHandle();
-        Set<String> handles = driver.getWindowHandles();
-        driver.close();
-        for (String windowHandle : handles) {
-            if (!windowHandle.equals(parentWindow)) {
-                driver.switchTo().window(windowHandle);
+    	try
+    	{
+    		String parentWindow = driver.getWindowHandle();
+            Set<String> handles = driver.getWindowHandles();
+            driver.close();
+            for (String windowHandle : handles) {
+                if (!windowHandle.equals(parentWindow)) {
+                    driver.switchTo().window(windowHandle);
+                }
             }
-        }
-        delay();
+            delay();
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println(e.toString());
+    	}
+    	
     }
 
     public void verifyTextNotPresentForElementFromList(String element, String itemtext) {
@@ -297,13 +305,21 @@ public class BaseClass {
 	}
 
 	public void switchToNewWindow() {
-		String parentWindow = driver.getWindowHandle();
-		Set<String> handles = driver.getWindowHandles();
-		for (String windowHandle : handles) {
-			if (!windowHandle.equals(parentWindow)) {
-				driver.switchTo().window(windowHandle);
+		try
+		{
+			String parentWindow = driver.getWindowHandle();
+			Set<String> handles = driver.getWindowHandles();
+			for (String windowHandle : handles) {
+				if (!windowHandle.equals(parentWindow)) {
+					driver.switchTo().window(windowHandle);
+				}
 			}
 		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
 	}
 
 	public void verifyTextForElementFromListByXpath(String element, String itemtext) {
@@ -426,6 +442,7 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
+			System.out.println(item.getText());
 			  if (item.getText().trim().equals(text)) {
 				  value=item.getText().trim();  
 			  } 

@@ -83,6 +83,10 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iClickOnExistingOrganisation() throws Throwable {
 	   editUser.iClickOnExisitingOrganisation();
 	}
+	@Then("^I click on \"([^\"]*)\" button on permissions tab$")
+		public void iClickOnAddAnotherOrganisation(String text){
+			editUser.iClickOnAddAnotherOrganisation(text);
+		}
 	
 	@Then("^I verify \"([^\"]*)\" under Data Permissions$")
 	public void i_verify_under_Data_Permissions(String arg1) throws Throwable {
@@ -101,9 +105,9 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyDownstreamProviderPermission(String text, String present){
 		editUser.iVerifyDownstreamProviderPermission(text,present);
 	}
-	@Then("^I should see \"([^\"]*)\" for Learning Pathway$")
-	public void iSeeNoResultsForLearningPathway(String text){
-		editUser.iSeeNoResultsForLearningPathway(text);
+	@Then("^I should see text \"([^\"]*)\"$")
+	public void iSeeNoResults(String text){
+		editUser.iSeeNoResults(text);
 	}
 	@Then("^I verify that \"([^\"]*)\" button is disabled when no application is selected$")
 	public void iVerifyDisabledNextButton(String text){
@@ -132,5 +136,13 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	@Then("^I should see \"([^\"]*)\" button$")
 	public void iValidateCancelButton(String text){
 		editUser.iValidateCancelButton(text);
+	}
+	@Then("^I verify that \"([^\"]*)\" products are shown in Applications tab as compared to \"([^\"]*)\"$")
+	public void iVerifyProductsCount(String text, int count){
+		editUser.iVerifyProductsCount(text,count);
+	}
+	@Then("^I remove existing program$")
+	public void iRemoveExistingProgram(){
+		editUser.iRemoveExistingProgram();
 	}
 }
