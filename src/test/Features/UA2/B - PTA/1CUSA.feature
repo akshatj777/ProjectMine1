@@ -1,7 +1,16 @@
 Feature: Create User - Super Admin User
 
   Scenario Outline: <Description>
+     Given I am on mail login page
+    Then I enter username "test.automatemail" to login mail account
+    Then I enter password "Intel@01" to login mail account
+    Then I click on Mail icon in my account
+    Then I click on Inbox in mail
+    Then I click on select all checkbox in mail
+    Then I click on delete icon in mail
+    Then I signout form mail account
     Given I am on the login page
+  
     When I enter email field <UserName> for login
     And I enter password field <Password> for Login
     Then I click Access button
@@ -31,9 +40,34 @@ Feature: Create User - Super Admin User
     Then I click on Select All Locations button
     Then I click on Submit button for "<User>"
     And I click on the top user account link
-    Then I click on "Log Out" button
+   Then I click on "Log Out" button
     And I should see Log in widget
     Given I am on the login page
+    Then I click on "Log Out" button again
+    And I clear the browser history
+    Given I am on mail login page
+    Then I enter password "Intel@01" to login mail account
+    Then I click on Mail icon in my account
+    Then I click on Inbox in mail
+    And I wait for 3000 milli seconds
+    Then I verify Account Verification in Inbox in my account
+    Then I click on Account Verification mail in Inbox
+    Then I verify "Confirm my account!" link in mail content
+    Then I click on "Confirm my account!" link in mail content
+    And I switch to new window
+    Then I enter email to generate password link
+    And I click on send mail button
+    Then I switch back to old window
+    Then I click on Inbox in mail
+    Then I verify the unread mail in inbox in my account
+    Then I verify Change Password mail in Inbox in my account
+    Then I click on Change Password mail in Inbox
+    Then I verify "Change my password" link in mail content
+    Then I click on "Change my password" link in mail content
+    And I switch to new window
+    And I enter new password "Testing1" to set new password
+    And I enter confirm new password "Testing1" to set new password
+    And I click on submit button to set new password
 
     Examples: 
       | Description                                                                           | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                       | ApplicationsNotVisible            | NPI | LearningPathwaySearchParameter | Health System     |

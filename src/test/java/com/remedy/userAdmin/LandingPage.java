@@ -13,7 +13,9 @@ import java.util.Set;
 
 //import org.apache.commons.collections.set.SynchronizedSet;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by salam on 7/29/15.
@@ -43,9 +45,7 @@ public class LandingPage extends BaseClass{
 			if(DriverScript.Config.getProperty("Browser").equals("chrome"))
 			{
 				String parentWindow = driver.getWindowHandle();
-				//parentWindowTitle = driver.switchTo().window(parentWindow).getTitle();
 				Set<String> handles = driver.getWindowHandles();
-			//	for (String windowHandle : handles) {
 				if(!((String)handles.toArray()[handles.size()-1]).equals(parentWindow))
 				{
 					driver.switchTo().window((String)handles.toArray()[handles.size()-1]);
@@ -53,13 +53,19 @@ public class LandingPage extends BaseClass{
 			}
 			else if(DriverScript.Config.getProperty("Browser").equals("firefox"))
 			{
+				Thread.sleep(5000);
 				String parentWindow = driver.getWindowHandle();
 				Set<String> handles = driver.getWindowHandles();
 				Object[] array = handles.toArray();
 				Arrays.sort(array);
+				System.out.println("Windows : "+Arrays.toString(array));
 				if(!(array[array.length-1].toString().equals(parentWindow)))
 				{
 					driver.switchTo().window(array[array.length-1].toString());
+					new WebDriverWait(driver, 180).until(
+					          webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+					System.out.println("Hello : "+driver.getTitle());
+					System.out.println("After Switching Window Handle : "+driver.getWindowHandle());
 				}
 			}
     		
@@ -125,8 +131,7 @@ public class LandingPage extends BaseClass{
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
-//    	iWillWaitToSee(By.cssSelector(".btn.btn-flyout-nav"));
-//    	selectElementByDesc(".btn.btn-flyout-nav", link);
+    	driver.navigate().refresh();
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
 	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
 	      delay();
@@ -138,7 +143,6 @@ public class LandingPage extends BaseClass{
 	      {
 	    	  driver.findElement(By.xpath("//a[contains(@ng-click,'valentino.reset-password')]")).click();
 	      }
-	      
     }
 
     public void iVerifyTextForJiraLogInPage(String text){

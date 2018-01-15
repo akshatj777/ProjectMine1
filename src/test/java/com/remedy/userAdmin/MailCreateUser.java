@@ -1,6 +1,8 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,6 +13,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,7 +37,7 @@ public class MailCreateUser extends BaseClass{
 		super(driver);
 	}
 	
-	public void iAmOnMailLoginPage() throws InterruptedException {
+	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
         driver.navigate().to("https://accounts.google.com");
 
         if(DriverScript.Config.getProperty("Browser").equals("chrome"))

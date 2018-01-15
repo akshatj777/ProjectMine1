@@ -62,10 +62,10 @@ Feature: Landing page verification
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter invalid data "<invalidSearch>" in search box
+     Then I enter invalid data "<invalidSearch>" in search box
+    Then I should see cross icon to exit search
     Then I verify that Product list on the top navigation bar is not opened
     Then I should not see search results
-    Then I should see cross icon to exit search
     Then I click on cross icon
     And I should see all users back in page
     Then I enter "<Search>" in search box
