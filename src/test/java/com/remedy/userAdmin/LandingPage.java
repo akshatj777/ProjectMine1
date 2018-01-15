@@ -44,6 +44,7 @@ public class LandingPage extends BaseClass{
 		{
 			if(DriverScript.Config.getProperty("Browser").equals("chrome"))
 			{
+				Thread.sleep(5000);
 				String parentWindow = driver.getWindowHandle();
 				Set<String> handles = driver.getWindowHandles();
 				if(!((String)handles.toArray()[handles.size()-1]).equals(parentWindow))

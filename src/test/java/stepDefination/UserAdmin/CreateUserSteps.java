@@ -663,19 +663,19 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iRedirectToRemedyConnectPage();
 	 }
     
-	 @Then("^I verify \"([^\"]*)\" in dropdown on profile icon$")
-	 public void i_Verify_Value_In_DropDown_On_ProfileIcon(String text){
-		 createUser.iVerifyDropDownValueFromProfileIcon(text);
+	 @Then("^I verify \"([^\"]*)\" in dropdown on profile icon for \"([^\"]*)\" user$")
+	 public void i_Verify_Value_In_DropDown_On_ProfileIcon(String text, String role){
+		 createUser.iVerifyDropDownValueFromProfileIcon(text, role);
 	 }
 	 
-	 @Then("^I click on \"([^\"]*)\" in dropdown on profile icon$")
-	 public void i_Click_On_Field_InDropdown_On_Profile_Icon(String text){
-		 createUser.iClickOnFiledInDropdownOnProfileIcon(text);
+	 @Then("^I click on \"([^\"]*)\" in dropdown on profile icon for \"([^\"]*)\" user$")
+	 public void i_Click_On_Field_InDropdown_On_Profile_Icon(String text, String role){
+		 createUser.iClickOnFiledInDropdownOnProfileIcon(text,role);
 	 }
 	 
-	 @Then("^I verify page header \"([^\"]*)\" for \"([^\"]*)\" on Remedy Connect$")
-	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page) throws InterruptedException{
-		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text);
+	 @Then("^I verify page header \"([^\"]*)\" for \"([^\"]*)\" on Remedy Connect for \"([^\"]*)\" user$")
+	 public void i_Verify_PageHeader_For_Page_On_RemedyConnect(String text, String page, String role) throws InterruptedException{
+		 createUser.iVerifyPageHeaderForPageOnRemedyConnect(text, role);
 	 }
 	 
 	 @And("^I verify No results found under Learning Pathway search box$")
