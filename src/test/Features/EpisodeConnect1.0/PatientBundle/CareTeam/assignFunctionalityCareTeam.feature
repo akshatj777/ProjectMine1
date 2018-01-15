@@ -47,12 +47,14 @@
     Then I will wait to see onboarding status "Needs Onboarding"
     
  Scenario: Functionality of buttons present under Care Team
-	Then I navigate to the "/secure/person/mongoID/careteam"
+	Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Add New Clinician" button under "Care Team" on Patient overview
-    ###TC for Add Clinician is pending############
     And I will wait to see "Add New Clinician" in "h4" tag
-   
-    
+    And I click on first checkbox on Clinician modal
+    And I click on "Assign" button 
+    And I will wait to see "Clinicians assigned to patient correctly" in "p" tag
+    Then I navigate to the "/secure/patient/mongoID/careteam"
+    And I should see Physician card under Physicians under Care Team on Patient page 
     Then I navigate to the "/secure/person/mongoID/careteam"
     And I click on "Assign Team Member" button under "Care Team" on Patient overview
     And I will wait to see "Assign Team Member" in "h4" tag
@@ -64,7 +66,6 @@
     And I will wait to see patient's name on patient summary page
     And I click on "Dismiss All" button
     And I should not see any count appearing on Alert Icon
-    
     
     Then I navigate to the "/secure/person/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview

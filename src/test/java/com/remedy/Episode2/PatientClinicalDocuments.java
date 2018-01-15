@@ -795,8 +795,15 @@ public class PatientClinicalDocuments extends BaseClass {
 			}
 		}
 		
-		public void IClickOnFirstGearMenuUnderTransition() {
+		public void IClickOnFirstGearMenuUnderTransition() throws InterruptedException {
+			iWillWaitToSee(By.xpath("//tbody//i[@class='fa fa-cog']"));
+			longDelay();
 			driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(1).click();
+		}
+		
+		public void IShouldSeeOptionInGearMenuUnderTransitionOnPatientOverview(String text) {
+			iWillWaitToSee(By.cssSelector(".dropdown.open li a"));
+			iVerifyTextFromListOfElement(By.cssSelector(".dropdown.open li a"), text);
 		}
 		
 		public void IClickOnOptionGearMenuUnderTransition(String text) {
@@ -815,19 +822,32 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		
 		public void IShouldSeeLocationInDischargeLocationUnderTransition(String text) {
-			iWillWaitToSee(By.cssSelector(".discharge_location-column"));
-			List<WebElement> listItems = driver.findElements(By.cssSelector(".discharge_location-column"));
+			iWillWaitToSee(By.cssSelector(".discharge_location-column a"));
+			List<WebElement> listItems = driver.findElements(By.cssSelector(".discharge_location-column a"));
 			String value = null;
 			for (WebElement item : listItems) {
 				  if (item.getText().trim().contains(text)) {
 					  value=item.getText().trim();  
 				  } 
 			}
+			System.out.println("Valueeeeeeee"+value);
 			Assert.assertTrue(value.trim().contains(text));
 		}
 		
 		public void IShouldSeeTopicUnderNotes(String text) {
 			iVerifyTextFromListOfElement(By.cssSelector(".sorting_1"), text);
+		}
+		
+		public void IClickOnTabOnTransitionModal(String tab) {
+	     	iWillWaitToSee(By.xpath("//a[contains(text(),'"+tab+"')]"));
+	     	delay();
+			Actions actions=new Actions(driver);
+			actions.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'"+tab+"')]"))).click().perform();
+		}
+		
+		public void IEnterInFieldOnTransitionModal(String text,String field) {
+			iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_"+field));
+			iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_"+field)), text);
 		}
 
 	

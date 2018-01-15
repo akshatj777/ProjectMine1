@@ -30,7 +30,7 @@ Background: Episode Active - create anchor transition
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I fill in "Admit" with logic "minus" with "10" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -42,16 +42,24 @@ Background: Episode Active - create anchor transition
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
+    And I reload my page
+    And I will wait to see patient's name on patient summary page 
 
   Scenario: Edit transition & ELOS
-    When I click first timing transition edit link "1"
+    When I click on first gear menu under Transitions on patient overview
+    And I click on "Edit" in gear menu option under Transition
     And I will wait to see "Edit Transition" in "h4" tag
-#    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-#    Then I select the "Admit" "caretype" "Outpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I fill in "Discharge" with logic "minus" with "1" days
+    Then I enter TestReason on create transition page on transition tab on Patient Summary
+    Then I enter "5" Room or Bed on create transition page on transition tab on Patient Summary
+    Then I fill in "Discharge" with logic "minus" with "2" days
     Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
-    And I should see "The episode length of stay for this bundle is 14-16 days" text for LOS on Transition modal 
+    And I should see "The episode length of stay for this bundle is 13-16 days" text for LOS on Transition modal 
+    Then I click on "Treatment Info" tab on transition modal
+    And I enter "Test treatment" in "treatments" field on transition modal
+    And I enter "Test adverseReactions" in "adverseReactions" field on transition modal
+    And I enter "Test hospitalist" in "hospitalist" field on transition modal
+    And I enter "Test specialist" in "specialist" field on transition modal
     And I click on Update Transition button present on the patient overview page
-    And I refresh the page
-    Then I should see "SNF" in Discharge location under Transitions
+   And I close modal popup
+    And I will wait to see patient's name on patient summary page
     

@@ -24,6 +24,11 @@ public class PatientOverviewSteps extends DriverScript {
 		overview.iClickOnGearIconOnPatientOverviewPage();
 	}
 	
+	@Then("^I should see \"([^\"]*)\" under patient overview gear icon$")
+	public void i_Should_See_Options_Under_Patient_Overview_Gear_Icon(String text) throws Throwable {
+		overview.iShouldSeeOptionsUnderPatientOverviewGearIcon(text);
+	}
+	
 	@Then("^I click on \"([^\"]*)\" option under patient overview gear icon$")
 	public void i_Click_On_Option_Under_Patient_Overview_Gear_Icon(String text) throws Throwable {
 		overview.iClickOnOptionUnderPatientOverviewGearIcon(text);

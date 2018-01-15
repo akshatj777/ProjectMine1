@@ -23,7 +23,6 @@ Feature: Attach Note to the Transition
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
     Then I click on the Cancel Button on the New Transition on Add Patient page
-     
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
@@ -47,7 +46,6 @@ Feature: Attach Note to the Transition
     And I click on "Attach Note" in gear menu option under Transition
     Then I should see "New Note" present on the new note page
     Then I click on create note button
-#    Then I click on "Create Note" button
     And I will wait to see "Note created." in "p" tag
     And I should see "Discharge Summary" in discharge location under Transition
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowNotes"

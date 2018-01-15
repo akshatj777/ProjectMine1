@@ -237,6 +237,12 @@ public class ReadmissionWorklist extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitReason")), admitreason);
 
 	}
+	
+	public void IenterBedoncreatetransitionpageontransitiontabonPatientSummary(String text) {
+		iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_admitLocation"));
+		iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitLocation")), text);
+
+	}
 
 	public void IwaittoseeandenabletheattestationonthepatientforonthePatientCardpage(int patientno) {
 		try {
