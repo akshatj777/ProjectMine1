@@ -1,7 +1,7 @@
 Feature: UA2 Front End Automation
 
   Scenario Outline: <Description>
-    #Given I am on mail login page
+#Given I am on mail login page
     #Then I enter username "test.automatemail" to login mail account
     #Then I enter password "Intel@01" to login mail account
     #Then I click on Mail icon in my account
@@ -11,7 +11,7 @@ Feature: UA2 Front End Automation
     #Then I signout form mail account
     Given I am on the login page
     When I enter email field <UserName> for login
-    And I enter password field Testing1 for Login
+    And I enter password field <Password> for Login
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
@@ -31,12 +31,13 @@ Feature: UA2 Front End Automation
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Select button
-    Then I select "<Programs>" programs
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
     Then I click on Select All Locations button
+     And I wait for 3000 milli seconds
     Then I click on Submit button for "<User>"
+    
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -67,11 +68,6 @@ Feature: UA2 Front End Automation
     #And I click on submit button to set new password
 
     Examples: 
-      | Description                                                             | User                            | UserName                        | FirstName | LastName | Email             | Phone | Role                      | Applications                                                | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System     |
-      | Login with PTA user and create user with Executive role                 | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Executive                 | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Manager role                   | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Manager                   | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Case Manager role              | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Case Manager              | Episodes, Episodes 2.0, Reports, Lessons                    |                        |     | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Physicians role                | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Physicians                | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect |                        | NPI | Learning Pathway 2             | Stamford Hospital |
-      | Login with PTA user and create user with Transitional Case Manager role | Partner Technical Administrator | Partner Technical Administrator | FirstName | LastName | test.automatemail |       | Transitional Case Manager | Episodes, Reports, Lessons                                  |                        |     | Learning Pathway 2             | Stamford Hospital |
-
-    
+      | Description                                                                           | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role                            | Applications                                                                     | ApplicationsNotVisible                                             | NPI | LearningPathwaySearchParameter | Health System     |
+      | Login with Super Admin User and create user with Executive role                       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Executive                       | Episodes, Episodes 2.0, Reports, Lessons                                         | Administration, Physician Connect                                  |     | Learning Pathway 2             | Stamford Hospital |
+      

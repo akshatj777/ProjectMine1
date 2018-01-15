@@ -19,7 +19,7 @@ import com.remedy.userAdmin.MailCreateUser;
 public class SuperUserLandingPage extends BaseClass {
 	static String mail = "test.automatemail";
 	static String email = null;
-static int userCountOnFirstPage;
+
 	public SuperUserLandingPage(WebDriver driver) {
 
 		super(driver);
@@ -259,10 +259,8 @@ else{
 	public void SearchUserWithText(String searchList) {
 		if(searchList.isEmpty()==false){
 		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-		if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true)
-			userCountOnFirstPage=30;
-		else
-			userCountOnFirstPage = driver.findElements(By.cssSelector(".five.wide")).size();
+		
+	
 		if (searchList.contains(",")) {
 			StringTokenizer st = new StringTokenizer(searchList, ",");
 
@@ -392,20 +390,26 @@ if(result.contains(",")){
 
 
 	public void iShouldNotSeeSearchResults(){
-		Assert.assertFalse(isElementNotPresentOnPage(By.cssSelector("th#lastName")));
+	
+		verifyElementCount(".five.wide", 0);
 		
 	}
 	public void iSeeCrossIconForSearch(){
-		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
+		//iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		isElementVisible(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
 	public void iClickCrossIconForSearch(){
-		iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
+		//iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
 public void iSeeUsersBackOnClosingSearch(){
 	iWillWaitToSee(By.cssSelector("th#lastName"));
-	verifyElementCount(".five.wide", userCountOnFirstPage);
+	if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true)
+	verifyElementCount(".five.wide", 30);
+	else{
+		int countRow = driver.findElements(By.cssSelector(".five.wide")).size();
+		verifyElementCount(".five.wide", countRow);
+	}
 }
 
 public void iVerifyRowCountForSearchByEmail(){
