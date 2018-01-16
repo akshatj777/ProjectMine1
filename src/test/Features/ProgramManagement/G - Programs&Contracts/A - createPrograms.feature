@@ -81,7 +81,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
       | Description                            | Payor_Name | Program_Name | Edited_Program_Name | Message                      |
       | Edit Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | PROGRAMNAME         | Program Successfully Updated |
 
-  Scenario Outline: Edit Programs under Payor Organization
+  Scenario Outline: Create Contracts under Payor Organization
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
@@ -89,9 +89,21 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I click on "Contracts" tab on view profile of payor Organization
     And I verify the "Create New Contract" button on view profile of payor Organization
     Then I click on "Create New Contract" button on "create" organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization 
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I verify "Contract 1" on "Create Contract" page under Payor Organization
     And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
-     
-    
+    And I select Start Date for Organization_Name for Contract "1" on "create" Contracts page
+    And I select End Date for Organization_Name for Contract "1" on "create" Contracts page
+    And I verify "Bundle 1" on "Create Contract" page under Payor Organization
+    And I select Bundle1 "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I select Start Date for Bundle1 for Contract "1" on "create" Contracts page
+    And I select End Date for Bundle1 for Contract "1" on "create" Contracts page
+    And I verify "Bundle Price 1" on "Create Contract" page under Payor Organization
+    And I enter price "<Price>" for Contract "1" on "create" Contracts page
+    And I select Start Date for Bundle_Price1 for Contract "1" on "create" Contracts page
+    And I select End Date for Bundle_Price1 for Contract "1" on "create" Contracts page
+
+    Examples: 
+      | Description                               | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price |
+      | Create Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |

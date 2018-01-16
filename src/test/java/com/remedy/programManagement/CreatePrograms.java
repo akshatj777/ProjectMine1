@@ -49,8 +49,9 @@ public class CreatePrograms extends BaseClass {
 	}
 
 	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) {
-		iFillInText(driver.findElement(By.xpath("//div[@class='Select-placeholder']")), CreatePrograms.programs.get("PROGRAMNAME"));
-		clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Program']")), CreatePrograms.programs.get("PROGRAMNAME"));
+		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
@@ -59,15 +60,50 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text) {
 			iFillInText(driver.findElement(By.cssSelector(".Select-value")), text);
-			clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption.VirtualizedSelectSelectedOption")));
+			waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+			clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
 	}
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text) {
-		List<WebElement> myElements = driver.findElements(By.xpath("//div[text()='Search Name or CCN']"));
-	       for(WebElement e : myElements) {
-	         if(e.getText().equalsIgnoreCase("Your_Desire_Value")) {
-	             e.click();
-	         }
-	       }
+		iFillInText(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")), text);
+		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
 	}
+	
+	public void iSelectStartDateforOrganizationNameContractsPage(int num) {
+		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']")));
+		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--mon' AND @aria-label='day-1']")));
+	}
+	
+	public void iSelectEndDateforOrganizationNameContractsPage(int num) {
+		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='YYYY/MM/DD']")));
+		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--wed' AND @aria-label='day-31']")));
+	}
+	
+	public void iSelectStartDateforBundle1ContractsPage(int num) {
+		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-8']//preceding::label[text()='Enter the start date']")));
+		clickElement(driver.findElement(By.xpath("")));
+	}
+	
+	public void iSelectEndDateforBundle1ContractsPage(int num) {
+		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-8']//preceding::label[text()='YYYY/MM/DD']")));
+		clickElement(driver.findElement(By.xpath("")));
+	}
+	
+	public void iSelectStartDateforBundle_Price1ContractsPage(int num) {
+		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']")));
+		clickElement(driver.findElement(By.xpath("")));
+	}
+	
+	public void iSelectEndDateforBundle_Price1ContractsPage(int num) {
+		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']")));
+		clickElement(driver.findElement(By.xpath("")));
+	}
+	
+	public void iSelectBundle1eOnCreateContratsPageUnderPayorOrganization(String text) {
+		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Bundle']")), text);
+		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+}
+
 }
