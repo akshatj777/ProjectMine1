@@ -80,3 +80,18 @@ Feature: Create Programs organization under Payor Organization functionality tes
     Examples: 
       | Description                            | Payor_Name | Program_Name | Edited_Program_Name | Message                      |
       | Edit Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | PROGRAMNAME         | Program Successfully Updated |
+
+  Scenario Outline: Edit Programs under Payor Organization
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under Payor Organization
+    And I click on "Contracts" tab on view profile of payor Organization
+    And I verify the "Create New Contract" button on view profile of payor Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization 
+    And I verify "Contract 1" on "Create Contract" page under Payor Organization
+    And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
+     
+    
