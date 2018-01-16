@@ -19,8 +19,6 @@ Feature: Add Medication
     And I enter random social security number in the SSN text box field present on the Add Patient page
     When I click on Admitting Facility present on the Add Patient page
     And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
-#    And I Select "Home" from the list of address type present on the Add Patient page
-#    And I enter "Street" in "address_street" field on add Patient page
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page

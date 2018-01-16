@@ -178,4 +178,14 @@ public class PatientOverviewSteps extends DriverScript {
 	public void i_Select_First_Text_From_Tag_Dropdown_On_Patient_Overview() throws Throwable {
 		overview.iSelectFirstTextFromTagDropdownOnPatientOverview();
 	}
+	
+	@And("^I click on View Changes under Activity$")
+	public void i_Click_On_View_Changes_Under_Activity() throws Throwable {
+		overview.iClickOnViewChangesUnderActivity();
+	}
+	
+	@And("^I should see \"([^\"]*)\" under chnages in view changes$")
+	public void i_Should_See_Chnages_In_View_Changes(String text) throws Throwable {
+		overview.iShouldSeeChangesInViewChanges(text);
+	}
 }

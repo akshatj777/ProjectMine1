@@ -238,5 +238,17 @@ public class PatientOverview extends BaseClass {
 		delay();
 		clickElement(driver.findElement(By.xpath("//div[@class='select2-result-label ui-select-choices-row-inner']/div")));
 	}
+	
+	public void iClickOnViewChangesUnderActivity(){
+		iWillWaitToSee(By.cssSelector(".btn.btn-xs.btn-primary.pull-right"));
+		clickElement(driver.findElements(By.cssSelector(".btn.btn-xs.btn-primary.pull-right")).get(0));
+		System.out.println("Vaslueasdfasdf"+driver.findElement(By.xpath("//div[@class='modal-body clearfix']")).getText());
+		System.out.println("asdgfasdgfasdf"+driver.findElement(By.xpath("//div[@class='modal-body clearfix']//tr/td")).getText());
+	}
+	
+	public void iShouldSeeChangesInViewChanges(String text){
+		iWillWaitToSee(By.xpath("//div[@class='modal-body clearfix']"));
+		iWillWaitToSee(By.xpath("//td[text()='"+text+"']"));
+	}
 
 }
