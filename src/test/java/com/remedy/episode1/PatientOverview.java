@@ -81,6 +81,11 @@ public class PatientOverview extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector("#relative_careteam_member_type_person_"+field)), text);
 	}
 	
+	public void iClickOnAddFamilyButtonOnAddFamilyModal(){
+		iWillWaitToSee(By.cssSelector("button[type='submit'] .fa.fa-plus"));
+		clickElement(driver.findElement(By.cssSelector("button[type='submit'] .fa.fa-plus")));
+	}
+	
 	public void IEditFieldUnderPatientDetails(String field, String text){
 		longDelay();
 		iWillWaitToSee(By.xpath("//div[@class='col-md-9']"));
@@ -163,7 +168,7 @@ public class PatientOverview extends BaseClass {
 	public void ishouldSeeAssignedFormsUnderCarePlanOnPatientPage(String text){
 		iWillWaitToSee(By.cssSelector("#assignedForms .caption.ng-binding"));
 		String actual = getTextForElement(driver.findElement(By.cssSelector("#assignedForms .caption.ng-binding")));
-		Assert.assertEquals(text, actual.trim());
+		Assert.assertTrue(actual.trim().contains(text));
 	}
 	
 	public void ishouldSeePhysicianCardUnderCareTeamOnPatientPage(){

@@ -49,6 +49,11 @@ public class PatientOverviewSteps extends DriverScript {
 		overview.iEnterDetailsInFieldUnderAddFamilyModal(text, field);
 	}
 	
+	@Then("^I click on Add Family button on Add Family modal$")
+	public void i_Click_On_Add_Family_Button_On_Add_Family_Modal() throws Throwable {
+		overview.iClickOnAddFamilyButtonOnAddFamilyModal();
+	}
+	
 	@Then("^I edit \"([^\"]*)\" to \"([^\"]*)\" under patient details$")
 	public void i_Edit_Field_Under_Patient_Details(String field, String text) throws Throwable {
 		overview.IEditFieldUnderPatientDetails(field, text);
