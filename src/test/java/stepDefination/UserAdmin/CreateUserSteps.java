@@ -571,16 +571,6 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocations(locationList);
 	}
 	
-	@Then("^I select \"([^\"]*)\" locations2$")
-	public void selectLocations2(String locationList) throws Throwable {
-		createUser.selectLocations2(locationList);
-	}
-	
-	@Then("^I select \"([^\"]*)\" locations3$")
-	public void selectLocations3(String locationList) throws Throwable {
-		createUser.selectLocations3(locationList);
-	}
-	
 	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
 	public void clickAddOrgButton(String flag) throws Throwable {
 		createUser.clickAddHealthSystemButton(flag);

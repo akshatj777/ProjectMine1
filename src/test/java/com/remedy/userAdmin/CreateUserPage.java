@@ -919,8 +919,8 @@ public class CreateUserPage extends BaseClass{
    public void selectLocations(String locationList) throws Throwable {
 	   if(!(locationList.equals("")))
 	   	{
-	   if(locationList.equalsIgnoreCase("all locations")){
-		   clickElement(driver.findElement(By.xpath("//label[text()='All Locations']")));
+	   if(locationList.equalsIgnoreCase("All Locations")){
+		   clickElement(driver.findElement(By.xpath("//div[@class='content active']//label[text()='All Locations']")));
 		   delay();
 	   }
 	   
@@ -931,13 +931,27 @@ public class CreateUserPage extends BaseClass{
 	    	   String token = st.nextToken().trim();
 	    	   String location = token.substring(token.indexOf("--")+2, token.length());
 	    	   String BPID = token.substring(0, token.indexOf("--"));
-	    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-	    	   delay();
-	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), location);
-	    	   String a = "//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]";
-	    	   iWillWaitToSee(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]"));
-	    	   driver.findElement(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]")).click();
-	    	   Thread.sleep(3000);
+	    	   if(location.contains(BPID))
+	    	   {
+	    		   delay();
+		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
+		    	   delay();
+		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
+		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+		    	   Thread.sleep(3000);
+	    	   }
+	    	   else
+	    	   {
+	    		   delay();
+		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
+		    	   delay();
+		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
+		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+		    	   Thread.sleep(3000); 
+	    	   }
+	    	   
 	       }   
 	   }
 	   else if(locationList.contains("--"))
@@ -945,86 +959,12 @@ public class CreateUserPage extends BaseClass{
 		   String token = locationList;
     	   String location = token.substring(token.indexOf("--")+2, token.length());
     	   String BPID = token.substring(0, token.indexOf("--"));
-    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
     	   delay();
-    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), location);
-    	   iWillWaitToSee(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]"));
-    	   driver.findElement(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]")).click();
-    	   Thread.sleep(3000);
-	   	    }	
-	   }
-   }
-   
-   public void selectLocations2(String locationList) throws Throwable {
-	   if(!(locationList.equals("")))
-	   	{
-	   if(locationList.equalsIgnoreCase("all locations")){
-		   clickElement(driver.findElement(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]/div/div[1]/div[1]/label")));
-		   delay();
-	   }
-	   else if (locationList.contains(","))
-	   {
-		   StringTokenizer st = new StringTokenizer(locationList,",");
-	       while (st.hasMoreTokens()) {
-	    	   String token = st.nextToken().trim();
-	    	   String location = token.substring(token.indexOf("--")+2, token.length());
-	    	   String BPID = token.substring(0, token.indexOf("--"));
-	    	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")).clear();
-	    	   delay();
-	    	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")), location);
-	    	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
-	    	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
-	    	   Thread.sleep(3000);
-	       }   
-	   }
-	   else if(locationList.contains("--"))
-	   {
-		   String token = locationList;
-    	   String location = token.substring(token.indexOf("--")+2, token.length());
-    	   String BPID = token.substring(0, token.indexOf("--"));
-    	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")).clear();
+    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
     	   delay();
-    	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")), location);
-    	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
-    	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
-    	   Thread.sleep(3000);
-	   	    }	
-	   }
-   }
-   
-   public void selectLocations3(String locationList) throws Throwable {
-	   if(!(locationList.equals("")))
-	   	{
-	   if(locationList.equalsIgnoreCase("all locations")){
-		   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+locationList.trim()+"')]")));
-		   delay();
-	   }
-	   
-	   else if (locationList.contains(","))
-	   {
-		   StringTokenizer st = new StringTokenizer(locationList,",");
-	       while (st.hasMoreTokens()) {
-	    	   String token = st.nextToken().trim();
-	    	   String location = token.substring(token.indexOf("--")+2, token.length());
-	    	   String BPID = token.substring(0, token.indexOf("--"));
-	    	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")).clear();
-	    	   delay();
-	    	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")), location);
-	    	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
-	    	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
-	    	   Thread.sleep(3000);
-	       }   
-	   }
-	   else if(locationList.contains("--"))
-	   {
-		   String token = locationList;
-    	   String location = token.substring(token.indexOf("--")+2, token.length());
-    	   String BPID = token.substring(0, token.indexOf("--"));
-    	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")).clear();
-    	   delay();
-    	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")), location);
-    	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
-    	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
+    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
+    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
     	   Thread.sleep(3000);
 	   	    }	
 	   }
