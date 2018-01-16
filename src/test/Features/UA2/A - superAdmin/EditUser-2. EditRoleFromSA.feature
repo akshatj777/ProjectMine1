@@ -17,7 +17,7 @@ Feature: Edit General information/Role/Permissions and validate
     Then I should see an alert with text "Are you sure you want to remove"
     And I should see "Cancel" button
     And I click on "Remove" button
-    Then I click on Select button
+   
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -34,9 +34,9 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<DisableApplications>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
+    Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage 
     And I verify "<Applications>" in product menu dropdown
     And I verify "<DisableApplications>" is not present in product menu dropdown
     And I click on the top user account link
@@ -59,16 +59,16 @@ Feature: Edit General information/Role/Permissions and validate
     And I click on Edit button
     Then I select "Permissions" tab
     Then I click on "Add Another Organization" button
-    Then I click on Select button
+    #Then I click on Select button
     And I search for health system with <Health System2>
     And I wait for 3000 milli seconds
     And I select a <Health System2>
-    Then I click on Select button
+    #Then I click on Select button
     Then I select "<Programs>" programs
     Then I click on Select All Locations button for "Second" Organisation
     And I wait for 3000 milli seconds
     Then I click on Submit button
-    And I wait for 7000 milli seconds
+    And I wait for 3000 milli seconds
     Then I verify "<Health System1>, <Health System2>" under Data Permissions
 
     Examples: 
@@ -104,9 +104,9 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<DisableApplications>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
+    Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<DisableApplications>" is not present in product menu dropdown
 
@@ -140,9 +140,9 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<DisableApplications>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
+    Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<DisableApplications>" is not present in product menu dropdown
 
@@ -166,7 +166,7 @@ Feature: Edit General information/Role/Permissions and validate
     Then I select "Permissions" tab
     Then I click on delete organisation icon
     And I click on "Remove" button
-    Then I click on Select button
+    #Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -221,18 +221,18 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<ApplicationsNotVisible>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
-    And I verify "<Applications>" in product menu dropdown
+     Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
+   And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                  | Role         | EnableApplications | Applications                                  | ApplicationsNotVisible            | Roletext | Health System     | LearningPathwaySearchParameter         |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Manager                       | Remedy TCS   | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | ROLE_TCS | Stamford Hospital | Learning Pathway 2, i am learning path |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Partner Program Administrator | Case Manager |                    | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect | ROLE_TCS | Stamford Hospital | Learning Pathway 2                     |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                  | Role         | EnableApplications | Applications                                  | ApplicationsNotVisible             | Health System     | LearningPathwaySearchParameter         |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Manager                       | Remedy TCS   | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2, i am learning path |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Partner Program Administrator | Case Manager |                    | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2                     |
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and Data permissions
     Given I am on the login page
@@ -255,7 +255,7 @@ Feature: Edit General information/Role/Permissions and validate
     Then I click on Next button
     Then I click on delete organisation icon
     And I click on "Remove" button
-    Then I click on Select button
+    #Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -271,19 +271,19 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<ApplicationsNotVisible>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
-    And I verify "<Applications>" in product menu dropdown
+     Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
+   And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role             | EnableApplications | Applications                                  | ApplicationsNotVisible            | Roletext | Health System     | LearningPathwaySearchParameter |  |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Executive    | Remedy Executive | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | ROLE_PRM | Stamford Hospital | Learning Pathway 2             |  |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Other | Manager          | Reports            | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect | ROLE_PRM | Stamford Hospital | Learning Pathway 2             |  |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy LPN   | Remedy Field RN  |                    | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | ROLE_FRN | Stamford Hospital | Learning Pathway 2             |  |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role             | EnableApplications | Applications                                  | ApplicationsNotVisible             | Health System     | LearningPathwaySearchParameter |  
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Executive    | Remedy Executive | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2             |  
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Other | Manager          | Reports            | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2             |  
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy LPN   | Remedy Field RN  |                    | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2             |  
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role>
     Given I am on the login page
@@ -315,18 +315,18 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<ApplicationsNotVisible>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
+     Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole     | Role         | EnableApplications | Applications                             | ApplicationsNotVisible            | Roletext | Health System     | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager     | Executive    |                    | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect | ROLE_PRM | Stamford Hospital | Learning Pathway 2             |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive | Remedy Other |                    | Episodes, Episodes 2.0, Lessons, TCI     | Administration, Physician Connect | ROLE_PRM | Stamford Hospital | Learning Pathway 2             |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole     | Role         | EnableApplications | Applications                             | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager     | Executive    |                    | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive | Remedy Other |                    | Episodes, Episodes 2.0, Lessons, TCI     | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |
 
   Scenario Outline: Changing General information, Role from <PreviousRole> to <Role> and Data permissions
     Given I am on the login page
@@ -352,7 +352,7 @@ Feature: Edit General information/Role/Permissions and validate
     Then I click on Next button
     Then I click on delete organisation icon
     And I click on "Remove" button
-    Then I click on Select button
+    #Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -368,10 +368,10 @@ Feature: Edit General information/Role/Permissions and validate
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I verify "<Applications>" product
-    Then I verify "<ApplicationsNotVisible>" product is not visible
-    Then I click on Hamburger menu on top right of homepage
-    And I verify "<Applications>" in product menu dropdown
+    Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
+   And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
     Then I select Log Out option from the dropdown
     And I should see Log in widget

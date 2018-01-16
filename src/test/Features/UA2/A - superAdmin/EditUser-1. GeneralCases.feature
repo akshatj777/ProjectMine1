@@ -81,15 +81,16 @@ Feature: Edit user page for General cases
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
+    Then I verify that "<LearningPathwayID>" is not shown in edit page
     Then I click on Next button
     Then I click on Submit button
     And I wait for 3000 milli seconds
     And I verify that "<Applications>" are "Enabled"
 
     Examples: 
-      | user        | Email             | Role                           | DisableApplications                             | Applications                                                                     | LearningPathwaySearchParameter | Health System     | NPI |
-      | Super Admin | test.automatemail | Executive                      | Lessons, Episodes                               | Reports, Lessons, Episodes, Episodes 2.0                                         | NFdw0Kts2C01                   | Stamford Hospital |     |
-      | Super Admin | test.automatemail | Remedy Technical Administrator | Physician Connect, Lessons, TCI, Administration | Reports, Lessons, Episodes, Episodes 2.0, Physician Connect, TCI, Administration | Learning Pathway 2             | Stamford Hospital |     |
+      | user        | Email             | Role                           | DisableApplications                             | Applications                                                                  | LearningPathwayID  | LearningPathwaySearchParameter | Health System     | NPI |
+      | Super Admin | test.automatemail | Executive                      | Lessons, Episodes                               | Reports, Lessons, Episodes, Episodes 2.0                                       | NFdw0Kts2C01 | NFdw0Kts2C01                   | Stamford Hospital |     |
+    #  | Super Admin | test.automatemail | Remedy Technical Administrator | Physician Connect, Lessons, TCI, Administration | Reports, Lessons, Episodes, Episodes 2.0, Physician Connect, TCI, Administration|NFdw0Kts2C01 | Learning Pathway 2             | Stamford Hospital |     |
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and hitting Cancel button
     Given I am on the login page
@@ -117,7 +118,7 @@ Feature: Edit user page for General cases
       | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications | Health System     | LearningPathwaySearchParameter |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | TCI          | Stamford Hospital | Learning Pathway 2             |
 
-  Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify, product list in Applications tab and search location by BPID
+  Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify, product list in Applications tab and search location by facility id
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -162,6 +163,7 @@ Feature: Edit user page for General cases
     And I wait for 3000 milli seconds
     And I select a <Health System>
     Then I select "<Programs>" programs
+    Then I select location by "<facilityKey>"
     Then I select "<Locations>" locations
     Then I click on Submit button
     And I wait for 3000 milli seconds
@@ -169,8 +171,8 @@ Feature: Edit user page for General cases
     And I verify that "NPI" is "present" on page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2                       | Applications                                                | Health System | LearningPathwaySearchParameter | Programs                 | Locations                                                                                                 |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | TeamHealth    | Learning Pathway 2             | BPCI-Model2, BPCI-Model3 | 2070-g14--North Shore Med Center, 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
+      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2                       | Applications                                                | Health System | LearningPathwaySearchParameter | Programs                 | facilityKey | Locations                                                                                                 |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | TeamHealth    | Learning Pathway 2             | BPCI-Model2, BPCI-Model3 |      100029 | 2070-g14--North Shore Med Center, 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
 
   Scenario Outline: Validate error message for Invalid characters in permissions tab and Edit multiple to single programs
     Given I am on the login page
@@ -183,25 +185,26 @@ Feature: Edit user page for General cases
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on existing organisation 
+    Then I click on existing organisation
     Then I deselect "<RemovePrograms>" programs
+    Then I deselect "<RemoveLocations>" locations
     Then I enter characters "<locations_invalid>" in location search
     Then I should see text "No Results found"
     Then I click on "Add Another Organization" button on permissions tab
     And I search for health system with <Health System_invalid>
     And I wait for 3000 milli seconds
     Then I should see text "No Results found"
-    And I wait for 3000 milli seconds
     Then I click on Submit button
-		And I wait for 3000 milli seconds
-		And I click on the top user account link
+    And I wait for 3000 milli seconds
+    And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Examples: 
-      | User        | Role       | Email             | Health System_invalid | locations_invalid | RemovePrograms |
-      | Super Admin | Physicians | test.automatemail | abc                   | abc               | BPCI-Model2    |
 
-  Scenario Outline: Remove existing Program and select another Program in permissions tab
+    Examples: 
+      | User        | Role       | Email             | Health System_invalid | locations_invalid | RemovePrograms | RemoveLocations                                                         |
+      | Super Admin | Physicians | test.automatemail | abc                   | abc               | BPCI-Model2    | 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
+
+  Scenario Outline: Remove existing Program and select another Program in permissions tab and verify facility Key in data permissions
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -215,12 +218,17 @@ Feature: Edit user page for General cases
     Then I click on existing organisation
     Then I deselect "<RemovePrograms>" programs
     Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
+    Then I search location by "<BPID>" and select "<Locations>"
     Then I click on Submit button
-		And I wait for 5000 milli seconds
-		And I click on the top user account link
+    And I wait for 5000 milli seconds
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on existing organisation
+    Then I should see "<facilityKey>" for locations under data permissions
+    And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
+
     Examples: 
-      | User        | Role       | Email             | RemovePrograms | Programs    | Locations                         |
-      | Super Admin | Physicians | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | all locations |
+      | User        | Role       | Email             | RemovePrograms | Programs                 | BPID               | Locations                                                                      | facilityKey    |
+      | Super Admin | Physicians | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | 2070-g14, 2070-g14 | Baptist Medical Center  Beaches (100117), Plantation General Hospital (100167) | 100117, 100167 |

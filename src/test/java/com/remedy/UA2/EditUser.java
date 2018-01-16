@@ -276,5 +276,77 @@ public class EditUser extends BaseClass {
 		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 		   clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
-	 
+	   public void iSearchLocByBPID(String bpid, String loc) throws InterruptedException{
+		   
+		   if (bpid.contains(",") && loc.contains(",")){
+		   StringTokenizer st1 = new StringTokenizer(bpid,",");
+		   StringTokenizer st2 = new StringTokenizer(loc,",");
+	       while (st1.hasMoreTokens()&&st2.hasMoreTokens()) {
+	    	   String tokenBpid = st1.nextToken().trim();
+	    	   String tokenLoc = st2.nextToken().trim();
+	    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), tokenBpid);
+	    	   
+	    	   iWillWaitToSee(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]"));
+	    	   
+	    	   driver.findElement(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]")).click();
+	    	   Thread.sleep(3000);
+	       		}
+	       
+		   }
+		   else{
+			   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), bpid);
+	    	   
+	    	   iWillWaitToSee(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]"));
+	    	   
+	    	   driver.findElement(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]")).click();
+	    	   Thread.sleep(3000); 
+		   }
+}
+	   public void iVerifyFacilityKey(String key){
+		   if (key.contains(",")){
+			   StringTokenizer st = new StringTokenizer(key,",");
+			   while (st.hasMoreTokens()){
+				   String token = st.nextToken().trim();
+				   iWillWaitToSee(By.xpath("//*[contains(text(),'-')]"));
+				   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
+			   }
+		   }
+		   else{
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'-')]"));
+		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+key+"')]")));
+		   }
+	   }
+	   public void iSelectLocByFacilityKey(String key) throws InterruptedException{
+		   if (key.contains(",")){
+			   StringTokenizer st = new StringTokenizer(key,",");
+			   
+		       while (st.hasMoreTokens()) {
+		    	   String token = st.nextToken().trim();
+		    	   String facToken="("+token+")";
+		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), token);
+		    	   
+		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facToken+"')]"));
+		    	   
+		    	   driver.findElement(By.xpath("//*[contains(text(),'"+facToken+"')]")).click();
+		    	   Thread.sleep(3000);
+		       		}
+		       
+			   }
+			   else{
+				   String facilityKey="("+key+")";
+				   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), key);
+		    	   
+		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facilityKey+"')]"));
+		    	   
+		    	   driver.findElement(By.xpath("//*[contains(text(),'"+facilityKey+"')]")).click();
+		    	   Thread.sleep(3000); 
+			   }
+		}
+	   public void iVerifyLearningPathwayIDIsNotPresentOnEditPage(String text){
+			Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"']")));
+		}
 }

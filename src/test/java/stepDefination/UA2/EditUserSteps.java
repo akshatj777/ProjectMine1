@@ -141,5 +141,20 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyProductsCount(String text, int count){
 		editUser.iVerifyProductsCount(text,count);
 	}
-
+	@Then("^I search location by \"([^\"]*)\" and select \"([^\"]*)\"$")
+	public void iSearchLocByBPID(String bpid, String location) throws InterruptedException{
+		editUser.iSearchLocByBPID(bpid, location);
+	}
+	@Then("^I should see \"([^\"]*)\" for locations under data permissions$")
+	public void iVerifyFacilityKey(String key){
+		editUser.iVerifyFacilityKey(key);
+	}
+	@Then("^I select location by \"([^\"]*)\"$")
+	public void iSelectLocByFacilityKey(String key) throws InterruptedException{
+		editUser.iSelectLocByFacilityKey(key);
+	}
+	@Then("^I verify that \"([^\"]*)\" is not shown in edit page$")
+	public void iVerifyLearningPathwayIDIsNotPresentOnEditPage(String text){
+		editUser.iVerifyLearningPathwayIDIsNotPresentOnEditPage(text);
+	}
 }

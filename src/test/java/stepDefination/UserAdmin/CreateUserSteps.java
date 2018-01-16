@@ -577,6 +577,10 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectPrograms(programList);
 	}
 	
+	@Then("^I deselect \"([^\"]*)\" locations$")
+	public void deselectLocations(String locationList) throws Throwable {
+		createUser.selectLocations(locationList);
+	}
 	@Then("^I select \"([^\"]*)\" locations$")
 	public void selectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
