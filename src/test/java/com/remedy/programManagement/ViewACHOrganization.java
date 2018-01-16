@@ -34,13 +34,8 @@ public class ViewACHOrganization  extends BaseClass{
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
 			    Assert.assertEquals("CCN: "+CreateACHOrganization.achOrg_noMO.get("CCN"),actual.replace("|", ""));
 			}
-			else
-			{
-				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
-			    Assert.assertEquals("CCN: "+text,actual.replace("|", ""));
-			}
 		}
-		if (org.contains("SNF"))
+		else if (org.contains("SNF"))
 		{
 			if (text.contains("YES"))
 			{
@@ -52,13 +47,7 @@ public class ViewACHOrganization  extends BaseClass{
 				String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
 				Assert.assertEquals("CCN: "+CreateSNFOrganization.SNFOrg_noMO.get("CCN"),actual.replace("|", ""));
 			}
-		else
-		{
-			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
-		    Assert.assertEquals("CCN: "+text,actual.replace("|", ""));
-		}
-		}
-		if (org.contains("HHA"))
+		else if (org.contains("HHA"))
 		{
 			if (text.contains("YES"))
 			{
@@ -71,10 +60,10 @@ public class ViewACHOrganization  extends BaseClass{
 				Assert.assertEquals("CCN: "+CreateHHAOrganization.HHAOrg_noMO.get("CCN"),actual.replace("|", ""));
 			}
 		}
-		else
-		{
+		else{
 			String actual = getTextForElement(driver.findElement(By.cssSelector(".id-ccn"))); 
 		    Assert.assertEquals("CCN: "+text,actual.replace("|", ""));
+			}
 		}
 	}
 	
@@ -321,6 +310,17 @@ public class ViewACHOrganization  extends BaseClass{
 			else if(name.contains("CCN"))
 			{
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("CCN")+"']")));
+			}
+		}
+		else if(org.contains("PGP"))
+		{
+			if(name.contains("PGPNAME"))
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg.get("PGPNAME")+"']")));
+			}
+			else if(name.contains("EIN"))
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg.get("EIN")+"']")));
 			}
 		}
 		else if(org.contains("SNF"))
