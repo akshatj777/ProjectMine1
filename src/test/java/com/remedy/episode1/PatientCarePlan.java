@@ -277,7 +277,10 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iEntervalueinnecessaryservices(String value) {
-		setAttributevalue(driver.findElement(By.xpath("//*[@id='s2id_bp_first_call_form_type_necessary_equipment']/ul")),"innerText",value);
+		clickElement(driver.findElement(By.xpath("//*[@id='s2id_bp_first_call_form_type_necessary_equipment']")));
+		iFillInText(driver.findElement(By.xpath("//*[@id='s2id_bp_first_call_form_type_necessary_equipment']/ul/li/input")),value);
+		delay();
+		clickElement(driver.findElement(By.xpath("//*[@id='select2-drop']/ul/li[1]")));
 	}
 
 	public void iseeTextinarchivedformcounter(String count) {

@@ -326,5 +326,34 @@ public class PatientsListPage extends BaseClass {
 		verifyDownloadedFile(downloadFilepath,filename,format);
 		
 	}
+
+
+	public void progress_on_patient_card(String value) {
+		iWillWaitToSee(By.xpath("//div[contains(@ng-if,'element.progress.exists')]/span"));
+		verifyTextForElement(driver.findElement(By.xpath("//div[contains(@ng-if,'element.progress.exists')]/span")),value);
+	}
+
+
+	public void location_on_patient_card(String value1, String value2) {
+		iWillWaitToSee(By.xpath("//span[contains(@ng-if,'element.currentTransitionStatus.length')]/b"));
+		verifyTextForElement(driver.findElement(By.xpath("//span[contains(@ng-if,'element.currentTransitionStatus.length')]/b")),value1);
+		verifyTextForElement(driver.findElement(By.xpath("//span[contains(@ng-if,'element.currentTransitionLocation.length')]")),value2);
+	}
+
+
+	public void drgonpatientcard(String value1, String value2) {
+		iWillWaitToSee(By.xpath("//span[contains(@ng-if,'element.currentTransitionStatus.length')]/b"));
+		verifyTextForElement(driver.findElement(By.xpath("//div[contains(@ng-if,'element.drg')]")),value1);
+		String firstName = driver.findElement(By.xpath("//span[contains(@ng-if,'element.drg.name.length')]")).getText();
+    	Assert.assertTrue(firstName.contains(value2));
+    }
+
+
+	public void iShouldSeeAnchorFacilityOnPatientListPage(String text1,String text2) {
+		String actual = driver.findElement(By.xpath("//div[contains(@ng-if,'element.facility')]")).getText();
+    	Assert.assertEquals(text2, actual.trim());
+    	String actual1 = driver.findElement(By.xpath("//div[contains(@ng-if,'element.facility')]/b")).getText();
+    	Assert.assertEquals(text1, actual1.trim());
+	}
 	
 }

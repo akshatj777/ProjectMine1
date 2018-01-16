@@ -52,4 +52,8 @@ public class TransitionModalSteps extends DriverScript {
 		transition.iclickoncancelbutton();
 	}
 	
+	@Then ("^I verify DRG \"([^\"]*)\" \"([^\"]*)\" in transition \"([^\"]*)\" in transition modal$")
+	public void i_verify_DRG(String drg,String type,int n){
+		transition.iverifyDRG(drg,type,n);
+	}
 }

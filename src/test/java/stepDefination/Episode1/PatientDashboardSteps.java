@@ -90,6 +90,11 @@ public class PatientDashboardSteps extends DriverScript {
 		dashboard.iShouldSeePatientFirstNameAppearingUnderSearchOnDashboard();
     }
 	
+	@And("^I should see \"([^\"]*)\" appearing under search on \"([^\"]*)\" \"([^\"]*)\" Dashboard$")
+    public void i_Should_See_Patient_Value_Appearing_Under_Search_On_Dashboard(String column,String header,String clas) throws Throwable {
+		dashboard.iShouldSeePatientValueAppearingUnderSearchOnDashboard(column,header,clas);
+    }
+	
 	@Then("^I should see \"([^\"]*)\" under My Task on Dashboard$")
 	@And("^I verify \"([^\"]*)\" task description under Task in Care Plan$")
     public void i_Verify_Task_Description_Under_Task_In_CarePlan(String text) throws Throwable {

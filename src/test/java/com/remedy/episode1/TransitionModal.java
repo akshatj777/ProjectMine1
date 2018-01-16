@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 import com.steadystate.css.parser.ParseException;
@@ -81,6 +82,18 @@ public class TransitionModal extends BaseClass {
 		longDelay();
 		new Actions(driver).moveToElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]"))).build().perform();
 		clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
+	}
+
+	public void iverifyDRG(String drg, String type,int n) {
+		delay();
+		if(type.equals(" ")){
+			iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+n+"]/td[9]/div/table/tbody/tr[2]/td[2][contains(text(),'"+drg+"')]"));
+			isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+n+"]/td[9]/div/table/tbody/tr[2]/td[2][contains(text(),'"+drg+"')]")));
+			new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+n+"]/td[9]/div/table/tbody/tr[2]/td[2][contains(text(),'"+drg+"')]/b[contains(text(),'(BPCI)')]")));
+		}else{
+	    iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+n+"]/td[9]/div/table/tbody/tr[2]/td[2][contains(text(),'"+drg+"')]/b[contains(text(),'"+type+"')]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+n+"]/td[9]/div/table/tbody/tr[2]/td[2][contains(text(),'"+drg+"')]/b[contains(text(),'"+type+"')]")));	
+		}
 	}
 	
 	 

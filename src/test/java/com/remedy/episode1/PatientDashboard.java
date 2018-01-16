@@ -87,7 +87,7 @@ public class PatientDashboard extends BaseClass {
 		String name = DischargeCarlForm.firstname +" "+ DischargeCarlForm.lastname;
 		iWillWaitToSee(By.xpath("//div[@class='tab-pane active']//input[@placeholder='Patient Search']"));
 		iFillInText(driver.findElement(By.xpath("//div[@class='tab-pane active']//input[@placeholder='Patient Search']")), name);
-		clickElement(driver.findElement(By.xpath("//div[@class='tab-pane active']//button[@class='btn btn-primary']")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-patient-navigator-home-search-button_myPatients']")));
 	}
 	
 	public void iShouldSeePatientFirstNameAppearingUnderSearchOnDashboard(){
@@ -235,6 +235,22 @@ public class PatientDashboard extends BaseClass {
 	public void iClickOnSelectAllMessageCheckbox(){
 		iWillWaitToSee(By.cssSelector("#check-all-messages"));
 		clickElement(driver.findElement(By.cssSelector("#check-all-messages")));
+	}
+
+	public void iShouldSeePatientValueAppearingUnderSearchOnDashboard(String column,String header, String clas) {
+        longDelay();
+		if(column.equals(" ")){
+        	return;
+        }
+		if(header.equals("PROGRESS")){
+			iWillWaitToSee(By.xpath("//tbody//td[contains(@class,'progress-column')]/a/div[@class='days-left']"));
+	    	String Value = driver.findElement(By.xpath("//tbody//td[contains(@class,'progress-column')]/a/div[@class='days-left']")).getText();
+	    	Assert.assertEquals(column,Value);
+		}else{
+		iWillWaitToSee(By.xpath("//tbody//td[contains(@class,'"+clas+"')]/a"));
+    	String Value = driver.findElement(By.xpath("//tbody//td[contains(@class,'"+clas+"')]/a")).getText();
+    	Assert.assertEquals(column,Value);
+		}
 	}
 
 

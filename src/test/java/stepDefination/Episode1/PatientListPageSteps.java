@@ -300,4 +300,24 @@ public class PatientListPageSteps extends DriverScript {
     public void i_verify_downloaded_file_on_export(String filename,String format){
     	patientsList.i_verify_downloaded_file_on_export(filename,format);
     }
+    
+    @Then ("^I should see \"([^\"]*)\" appearing under progress on patient card$")
+    public void progress_on_patient_card(String value){
+    	patientsList.progress_on_patient_card(value);
+    }
+    
+    @Then ("^I should see \"([^\"]*)\" \"([^\"]*)\" appearing under current location on patient card$")
+    public void location_on_patient_card(String value1,String value2){
+    	patientsList.location_on_patient_card(value1,value2);
+    }
+    
+    @Then ("^I should see \"([^\"]*)\" \"([^\"]*)\" appearing under drg on patient card$")
+    public void drg_on_patient_card(String value1,String value2){
+    	patientsList.drgonpatientcard(value1,value2);
+    }
+    
+    @Then("^I should see \"([^\"]*)\" \"([^\"]*)\" Anchor Facility on Patient list page$")
+    public void i_should_see_Anchor_Facility_on_patient_list_page(String text1,String text2) throws Throwable {
+    	patientsList.iShouldSeeAnchorFacilityOnPatientListPage(text1,text2);
+    }
 }

@@ -37,13 +37,48 @@ Feature: Managing Various Episode States
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on "TCRN Checklist" label tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
+
+  Scenario: Active with discharge & verify end date
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    Then I fill in "Admit" with logic "minus" with "5" days
+    Then I fill in "Discharge" with logic "minus" with "3" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "3" with "89" to show end date and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/patient/mongoID/careteam"
+    And I click on "Join Care Team" button under "Care Team" on Patient overview
+    And I will wait to see "Assigned to Care Team successfully." in "p" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I am on "/secure/dashboard"
+    Then I verify "My patients" as selected tab on patient dashboard
+    And I verify patients are appearing on patient dashboard
+    And I enter patients fullname in the patient search box under active tab on Dashboard
+    And I should see patient first name appearing under search on Dashboard
+    And I should see "87 days left" appearing under search on "PROGRESS" "progress-column" Dashboard
+    And I should see "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" appearing under search on "EPISODE DRG" "episode-column" Dashboard
+    And I should see "(HHH) Stamford Hospital" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard
+    And I should see " " appearing under search on "CURRENT FACILITY" "current_facility-column" Dashboard
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    And I should see "87 days left" appearing under progress on patient card
+    And I should see "(UNK)" "Facility not assigned" appearing under current location on patient card
+    And I should see "(63)" "ACUTE ISCHEMIC STROKE W USE OF" appearing under drg on patient card
+    And I should see "Stamford" Episode Initiator on Patient list page
+    And I should see "(HHH)" "Stamford Hospital" Anchor Facility on Patient list page
 
   Scenario: Episode CANCELED - delete anchor transition (Episode marker will be invisible)
     When I click anchor transition delete link "1"
@@ -77,6 +112,20 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "PENDING CANCELLATION" state
     Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I will wait to see and click on "Diagnosis and DRG" followed by "a" tag
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "(63)" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
+    Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
 
   Scenario: Episode EXPIRED AS INPATIENT - Set patient as exp.
     When I click on "Eligibility" dropdown button
@@ -117,13 +166,56 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "120" days
-    Then I fill in "Discharge" with logic "minus" with "110" days
+    Then I fill in "Admit" with logic "minus" with "10" days
+    Then I fill in "Discharge" with logic "minus" with "3" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "9" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    Then I navigate to the "/secure/patient/mongoID/careteam"
+    And I click on "Join Care Team" button under "Care Team" on Patient overview
+    And I will wait to see "Assigned to Care Team successfully." in "p" tag
+    And I am on "/secure/dashboard"
+    Then I verify "My patients" as selected tab on patient dashboard
+    And I verify patients are appearing on patient dashboard
+    And I enter patients fullname in the patient search box under active tab on Dashboard
+    And I should see patient first name appearing under search on Dashboard
+    And I should see "1" appearing under search on "Readmission" "readmission-column" Dashboard
+    Then I navigate to the "/secure/person/mongoID/careflow/forms"
+    And I will wait to see patient's name on patient summary page
+    Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
+    And I should see text of "2" in assigned form counter
+    Then I edit the CRA
+    And I will wait to see "Clinical Risk Assessment Form (Read/Write)" in "h4" tag
+    Then I submit the Clinical Risk Assessment Form
+    And I will wait to see patient's name on patient summary page
+    Then I will wait to see onboarding status "Onboarded"
+    And I should see text of "1" in active form counter
+    Then I verify "Clinical Risk Assessment" in "Active Form list" "3"
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "95" days
+    Then I fill in "Discharge" with logic "minus" with "92" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED" state
     Then I will wait to see onboarding status "Unknown"
+    And I am on "/secure/dashboard"
+    Then I verify "My patients" as selected tab on patient dashboard
+    And I verify patients are appearing on patient dashboard
+    And I enter patients fullname in the patient search box under active tab on Dashboard
+    And I should see patient first name appearing under search on Dashboard
+    And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
 
   Scenario: Episode COMPLETED EXPIRED - Update the discharge date and set patient as exp
     When I click first timing transition edit link "1"
@@ -153,7 +245,7 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED 365" state
     Then I will wait to see onboarding status "Unknown"
-    
+
   Scenario: EXPIRED AS INPATIENT-Removing dod should rerun episode logic and also reinstate previous eligibility status.
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Expired" option
@@ -216,6 +308,7 @@ Feature: Managing Various Episode States
     And I should not see "Expired" in "h3" tag
 
   Scenario: EPISODE_EXCLUDED Cancelled episode terminated as excluded
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
@@ -225,12 +318,37 @@ Feature: Managing Various Episode States
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "239" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "(6)" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will wait to see "EXCLUDED BY 239" state
+    Then I will wait to see "EXCLUDED BY 6" state
     Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify potential m3 Episode Marker Admit Date "0" is created without end date
+    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "1" with "0" to show end date and Episode Status "EXCLUDED BY 6"
+    Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "2" in transition modal
+    Then I verify DRG "(6) LIVER TRANSPLANT W/O MCC" "(BPCI)" in transition "1" in transition modal
+    Then I navigate to the "/secure/patient/mongoID/careteam"
+    And I click on "Join Care Team" button under "Care Team" on Patient overview
+    And I will wait to see "Assigned to Care Team successfully." in "p" tag
+    And I am on "/secure/dashboard"
+    Then I verify "My patients" as selected tab on patient dashboard
+    And I verify patients are appearing on patient dashboard
+    And I enter patients fullname in the patient search box under active tab on Dashboard
+    And I should see "0 days to anchor admission" appearing under search on "PROGRESS" "progress-column" Dashboard
+    And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under search on "EPISODE DRG" "episode-column" Dashboard
+    And I should see "(HHH) Stamford Hospital" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard
+    And I should see " " appearing under search on "CURRENT FACILITY" "current_facility-column" Dashboard
+    And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    And I should see "0 days to anchor admission" appearing under progress on patient card
+    And I should see "(HHH) Inpatient" "Stamford - Stamford Hospital" appearing under current location on patient card
+    And I should see "(6)" "LIVER TRANSPLANT W/O MCC" appearing under drg on patient card
+    And I should see "Stamford" Episode Initiator on Patient list page
+    And I should see "(HHH)" "Stamford Hospital" Anchor Facility on Patient list page
 
   Scenario: Potential M3 ActiveBPCI DRG M3 in the HHH's PGP
     Given I am on the login page

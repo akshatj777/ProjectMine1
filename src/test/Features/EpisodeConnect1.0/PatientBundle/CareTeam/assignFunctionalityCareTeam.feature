@@ -47,7 +47,7 @@
     Then I will wait to see onboarding status "Needs Onboarding"
     
  Scenario: Functionality of buttons present under Care Team
-	Then I navigate to the "/secure/patient/mongoID/careteam"
+	  Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Add New Clinician" button under "Care Team" on Patient overview
     And I will wait to see "Add New Clinician" in "h4" tag
     And I click on first checkbox on Clinician modal
