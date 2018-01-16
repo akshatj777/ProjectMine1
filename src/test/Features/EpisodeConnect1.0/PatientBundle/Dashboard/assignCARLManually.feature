@@ -48,7 +48,6 @@ Feature: Assign CARL Tool Manually
     And I will wait to see "Due Date" in "label" tag
     And I will wait to see "Admission Id" in "label" tag
     When I click "Submit" xpath element "//*[@id='submitButton']"
-   # And I will wait to see "Form assigned" in "p" tag
     And I will wait to see patient's name on patient summary page
     Then I will wait to see CARL Tool
     And I will wait to see "Created on:" in "h7" tag
@@ -67,11 +66,9 @@ Feature: Assign CARL Tool Manually
     Then I select "Assistance needed for one or more ADLs" from "Activities of Daily Living in Independence" by xpath "//*[@id='bp_nsoc_form_type_activitiesOfDailyLiving']"
     Then I select "Forgetful" from "Cognitive Status in Independence" by xpath "//*[@id='bp_nsoc_form_type_cognitiveStatus']"
     Then I select "24 hours a day (or no caregiver needed)" from "Capable Caregiver Availability in Independence" by xpath "//*[@id='bp_nsoc_form_type_capableCaregiverAvailability']"
-    When I click "Save and Close" xpath element "//*[@id='form_save_and_close']"
     Then I click "Therapies" text in tag "a"
-    And I will wait to see "Therapies" in "label" tag
+    And I will wait to see "Therapy Needs" in "label" tag
     Then I select "More than one therapy" from "Therapy Needs" by xpath "//*[@id='bp_nsoc_form_type_totalTimeNeeded']"
-    When I click "Save and Close" xpath element "//*[@id='form_save_and_close']"
     Then I click "Skilled Nursing Services" text in tag "a"
     And I will wait to see "Ostomy" in "label" tag
     Then I select "Not needed" from "Ostomy" by xpath "//*[@id='bp_nsoc_form_type_ostomy']"
@@ -82,15 +79,14 @@ Feature: Assign CARL Tool Manually
     Then I select "Not needed" from "Venipuncture Blood Testing" by xpath "//*[@id='bp_nsoc_form_type_venipunctureBloodTesting']"
     Then I select "Not needed" from "Clinical Nursing Oversight" by xpath "//*[@id='bp_nsoc_form_type_clinicalNursingOversight']"
     Then I select "Not needed" from "Teaching And Training Activities" by xpath "//*[@id='bp_nsoc_form_type_teachingAndTrainingActivities']"
-    Then I select "Not needed" from "Wound Care" by xpath "//*[@id='bp_nsoc_form_type_woundCare']]"
+    Then I select "Not needed" from "Wound Care" by xpath "//*[@id='bp_nsoc_form_type_woundCare']"
     Then I select "Not needed" from "Oxygen Or Other Respiratory Support" by xpath "//*[@id='bp_nsoc_form_type_oxygenOrOtherRespiratorySupport']"
-    When I click "Save and Close" xpath element "//*[@id='form_save_and_close']"
     Then I click "Proposal" text in tag "a"
     And I will wait to see "Proposal" in "label" tag
     Then I will wait to see the proposal "Home With Limited Services (HOM)*"
     Then I will verify text "Proper Use of the CARL Tool. The CARL Tool provides decision support, which is intended to give qualified healthcare providers guidance when formulating a recommendation for the next site of care for a patient. It should not be used without, or as a substitute for, the judgement of a qualified healthcare provider who has the ability to assess the individual circumstances of each patient's case." in xpath element "//div[@id='disclaimer'][2]"
     Then I will verify text "Patient may benefit from community or home-based services, including Part B PT, personal care attendant, outpatient specialty care or other services." in xpath element "//div[@id='disclaimer'][1]"
-    Then I select "Agrees" from "Agrees with Proposal" by xpath "//*[@id='bp_nsoc_form_type_ostomy']"
+    Then I select "Agrees" from "Agrees with Proposal" by xpath "//*[@id='bp_nsoc_form_type_agreesWithRecommendedNSC']"
     When I fill in "Staff Member Name" xpath "//*[@id='bp_nsoc_form_type_hospitalStaffMember']" with "testHospitalStaff"
     When I fill in "Additional comments" xpath "//*[@id='bp_nsoc_form_type_additionalComments']" with "Additional Comments"
     When I click "Submit" xpath element "//*[@id='submitButton']"

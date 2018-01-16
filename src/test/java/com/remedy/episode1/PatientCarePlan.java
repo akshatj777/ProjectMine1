@@ -221,7 +221,6 @@ public class PatientCarePlan extends BaseClass {
 
 	public void i_Verify_Risk_Assessment(String text,String formlist,int n) {
 		iWillWaitToSee(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div"));
-		System.out.println("%%%%%Inner Text"+driver.findElement(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")).getAttribute("innerText").trim());
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")).getAttribute("innerText").trim(), ""+text+"");
 	}
 
@@ -312,7 +311,39 @@ public class PatientCarePlan extends BaseClass {
 		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='submitButton']")));
 		delay();
 		clickElement(driver.findElement(By.xpath("//*[@id='submitButton']")));
+	}
+
+	public void iVerifyRiskAssessmentnotinlist(String text, String formlist, int n) {
+		new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")));
+	}
+
+	public void verifyFormTypeError(String message) {
+		verifyTextForElement(driver.findElement(By.cssSelector("span.help-block-error")),message);
+		}
+
+	public void ideleteassignedform(String form,int n) {
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]"));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
+		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
+		}
+
+	public void ieditedassignedform(String form, int n) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']"));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']")));
+		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']")));
+	}
+
+	public void verifyFormError(String message) {
+		isElementVisible(driver.findElement(By.xpath("//p[contains(text(),'"+message+"')]")));
 		
+	}
+
+	public void iVerifyFirstCallassignedlist(int n) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "First Call assigned");
 	}
    
 }

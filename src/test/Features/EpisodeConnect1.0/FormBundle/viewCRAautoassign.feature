@@ -43,7 +43,7 @@ Feature: CRA Auto-assignment
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
 
-  Scenario: Verify CRA Forms not assigned automatically upon admission/transition if already exist in "assigned" portlet
+  Scenario: CRA should be assigned automatically if other CRA exists in active section . Existing functionality of automatically changing an "Unknown" risk score to "Needs Onboarding" upon receipt of BPCI DRG, which triggers assignment of Clinical Risk Assessment 
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I will wait to see patient's name on patient summary page
     Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"

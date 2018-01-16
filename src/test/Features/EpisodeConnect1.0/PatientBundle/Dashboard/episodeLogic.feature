@@ -42,6 +42,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
+    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Episode CANCELED - delete anchor transition (Episode marker will be invisible)
@@ -111,6 +112,9 @@ Feature: Managing Various Episode States
     Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Episode COMPLETED - discharge date before 90 days
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "120" days
