@@ -368,42 +368,6 @@ Feature: Create User - Super Admin User
       | Login with Remedy Technical Administrator and verify Product Tiles and their redirections  | Super Admin | Remedy Technical Administrator  | Physician Connect, Administration, TCI                  |                                                                    | ROLE_ADMIN     | Stamford Hospital |
       | Login with Transitional Case Manager and verify Product Tiles and their redirections       | Super Admin | Transitional Case Manager       | Reports, TCI                                            | Episodes 2.0, Administration, Physician Connect                    | ROLE_TCS       | Stamford Hospital |
 
-  Scenario: Verify availability of fields and roles on General Information tab while adding a user.
-    Given I am on the login page
-    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    Then I verify the header "General Information"
-    Then I verify the availability of fields "First Name"
-    Then I verify the availability of fields "Last Name"
-    Then I verify the availability of fields "Email"
-    Then I verify the availability of fields "Phone"
-    Then I verify the availability of fields "Role"
-    When I click the Organizational Role Field
-    Then I verify the availability of role "Executive"
-    Then I verify the availability of role "Manager"
-    Then I verify the availability of role "Case Manager"
-    Then I verify the availability of role "Physicians"
-    Then I verify the availability of role "Remedy Technical Administrator"
-    Then I verify the availability of role "Remedy TCS"
-    Then I verify the availability of role "Remedy LPN"
-    Then I verify the availability of role "Remedy RN"
-    Then I verify the availability of role "Remedy Field RN"
-    Then I verify the availability of role "Remedy PM"
-    Then I verify the availability of role "Remedy Sales Team"
-    Then I verify the availability of role "Remedy Executive"
-    Then I verify the availability of role "Prospective Partner Executive"
-    Then I verify the availability of role "Remedy Other"
-    Then I verify the availability of role "Partner Program Administrator"
-    Then I verify the availability of role "Remedy Program Administrator"
-    Then I verify the availability of role "Partner Technical Administrator"
-    Then I verify the availability of role "Transitional Case Manager"
-
   Scenario Outline: <Description>
     Given I am on the login page
     When I enter email field lbarinstein+qaadmin@remedypartners.com for login
@@ -609,46 +573,6 @@ Feature: Create User - Super Admin User
       | Role      | Applications                             | Health System     |
       | Executive | Episodes, Episodes 2.0, Reports, Lessons | Stamford Hospital |
 
-  Scenario Outline: <Description>
-    Given I am on the login page
-    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    Then I verify the header "General Information"
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    When I click the Organizational Role Field
-    Then I pick a Organizational <Role>
-    Then I click on Next button
-    Then I verify the header "Applications"
-    Then I select "<Applications>" product
-    Then I click on Next button
-    Then I verify the header "Permissions"
-    Then I click on Select button
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I click on Select button
-    Then I select "<Programs>" programs
-    Then I enter characters "<Locations>" in location search
-    Then I search and select "<Locations>" locations
-    Then I click on Submit button
-    Then I should see header text "Users"
-
-    Examples: 
-      | Description                                                        | FirstName | LastName | Email             | Phone | Role      | Applications                             | NPI | Health System    | Programs                | Locations                                                      |
-      | Create user with only one program all locations - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | All Locations                                                  |
-      | Create user with only one program one location  - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard                              |
-      | Create user with only one program multiple locations - Super User  | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2             | Baptist Medical Center - Vanguard,Adventist Health Bakersfield |
-      | Create user with multiple programs all locations - Super User      | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | All Locations                                                  |
-      | Create user with multiple programs one location - Super User       | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Mission Trails Baptist                                         |
-      | Create user with multiple programs multiple locations - Super User | FirstName | LastName | test.automatemail |       | Executive | Episodes, Episodes 2.0, Reports, Lessons |     | Sound Physicians | BPCI-Model2,BPCI-Model3 | Warren Memorial Hospital, Blessing Hospital - Quincy           |
-
   Scenario Outline: <Scenario Description>
     Given I am on the login page
     When I log in as super user
@@ -720,36 +644,6 @@ Feature: Create User - Super Admin User
     And I select a Stamford Hospital
     Then I click on Select All Locations button
     Then I click on Cancel button
-    Then I should see header text "Users"
-
-  Scenario: Verify the functionality of Cross button on General Information Tab on Create User page
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    Then I click on Cross button
-    Then I should see header text "Users"
-
-  Scenario: Verify the functionality of Cross button on Applications Tab on Create User page
-    Given I am on the login page
-    When I log in as super user
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    And I fill in First Name with "First Name"
-    Then I fill in Last Name with LastName
-    And I enter Email "test.automatemail" to Create user
-    When I click the Organizational Role Field
-    Then I pick a Organizational Executive
-    Then I click on Next button
-    Then I verify the header "Applications"
-    Then I select "Episodes, Episodes 2.0" product
-    Then I click on Cross button
     Then I should see header text "Users"
 
   Scenario: Verify the functionality of Cross button on Permissions Tab on Create User page

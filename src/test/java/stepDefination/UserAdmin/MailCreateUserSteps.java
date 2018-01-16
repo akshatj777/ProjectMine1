@@ -44,7 +44,7 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iClickOnDeleteIconInMail();
 	}
 	
-	@Then("^I signout form mail account$") 
+	@Then("^I signout from mail account$") 
 	public void i_SignOut_From_Mail_Account() throws Throwable {
 		mailcreateuser.iSignOutFromMailAccount();
 	}

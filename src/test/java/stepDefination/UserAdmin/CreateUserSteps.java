@@ -238,6 +238,11 @@ public class CreateUserSteps extends DriverScript {
 	public void iSelectTileForTheRole(String appList) throws Throwable {
 		createUser.iSelectTileForTheRole(appList);
 	}
+	
+	@Then("^I verify \"([^\"]*)\" is not visible on Applications tab$")
+	public void verifyProductNotPresentOnApplicationsTab(String products) throws Throwable {
+		createUser.verifyProductNotPresentOnAppTab(products);
+	}
 
 	@And("^I turn off the share file application$")
 	public void iTurnOffTheShareFileApplication() throws Throwable {
@@ -360,8 +365,13 @@ public class CreateUserSteps extends DriverScript {
 	}
 	
 	@And("^I verify \"([^\"]*)\" user navigated to Institute homepage$")
-	public void iVerifuUserNavigatedToInstitute(String role) throws Throwable {
+	public void iVerifyUserNavigatedToInstitute(String role) throws Throwable {
 		createUser.iVerifyNavigationOnInstituteHomePage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" on the reports main page$")
+	public void iVerifyReportOnReportMainPage(String reportName) throws Throwable {
+		createUser.iVerifyRepOnReportsMainPage(reportName);
 	}
 
 	@And("^I click on Reports tile for \"([^\"]*)\" user$")
@@ -715,6 +725,11 @@ public class CreateUserSteps extends DriverScript {
 
 	 @When("^I click on cancel button from filter for \"([^\"]*)\" user$")
 	 public void i_click_on_cancel_button_from_filter_for_user(String role) throws Throwable {
+		 createUser.iclickoncancelbuttonfromfilterforuser(role);
+	 }
+	 
+	 @Then("^I click on Reports to navigate back to reports dashboard for \"([^\"]*)\" user$")
+	 public void i_click_on_Report_Button(String role) throws Throwable {
 		 createUser.iclickoncancelbuttonfromfilterforuser(role);
 	 }
 	 

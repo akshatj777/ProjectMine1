@@ -571,6 +571,15 @@ public class CreateUserPage extends BaseClass{
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
    }
    
+   public void iVerifyRepOnReportsMainPage(String reportName){
+	   longDelay();
+       iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+       swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
+       delay();
+	   iWillWaitToSee(By.xpath("//div[contains(text(),\""+reportName+"\")]"));
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[contains(text(),\""+reportName+"\")]")));
+   }
+   
    public void iClickOnReportsTileUnderSpecificUserLoginPage(String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   if(application.contains("Reports")){
@@ -923,6 +932,7 @@ public class CreateUserPage extends BaseClass{
 	    	   String location = token.substring(token.indexOf("--")+2, token.length());
 	    	   String BPID = token.substring(0, token.indexOf("--"));
 	    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+	    	   delay();
 	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), location);
 	    	   String a = "//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]";
 	    	   iWillWaitToSee(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]"));
@@ -936,6 +946,7 @@ public class CreateUserPage extends BaseClass{
     	   String location = token.substring(token.indexOf("--")+2, token.length());
     	   String BPID = token.substring(0, token.indexOf("--"));
     	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+    	   delay();
     	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), location);
     	   iWillWaitToSee(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]"));
     	   driver.findElement(By.xpath("//th[text()='"+BPID+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+location+"\")]")).click();
@@ -959,6 +970,7 @@ public class CreateUserPage extends BaseClass{
 	    	   String location = token.substring(token.indexOf("--")+2, token.length());
 	    	   String BPID = token.substring(0, token.indexOf("--"));
 	    	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")).clear();
+	    	   delay();
 	    	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")), location);
 	    	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
 	    	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
@@ -971,6 +983,7 @@ public class CreateUserPage extends BaseClass{
     	   String location = token.substring(token.indexOf("--")+2, token.length());
     	   String BPID = token.substring(0, token.indexOf("--"));
     	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")).clear();
+    	   delay();
     	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[4]/section/section/div[1]/div/input")), location);
     	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
     	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[4]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
@@ -995,6 +1008,7 @@ public class CreateUserPage extends BaseClass{
 	    	   String location = token.substring(token.indexOf("--")+2, token.length());
 	    	   String BPID = token.substring(0, token.indexOf("--"));
 	    	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")).clear();
+	    	   delay();
 	    	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")), location);
 	    	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
 	    	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
@@ -1007,6 +1021,7 @@ public class CreateUserPage extends BaseClass{
     	   String location = token.substring(token.indexOf("--")+2, token.length());
     	   String BPID = token.substring(0, token.indexOf("--"));
     	   driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")).clear();
+    	   delay();
     	   iFillInText(driver.findElement(By.xpath("html/body/div[2]/div/div[2]/div[1]/form/section/div/div/div/div/div[6]/section/section/div[1]/div/input")), location);
     	   iWillWaitToSee(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]"));
     	   driver.findElement(By.xpath("html/body/div[2]//form/section//div[6]/section/section/div[2]//table[@class='ui table component-bpid-table']//th[text()='"+BPID+"']/../../../tbody/tr[2]/td[1]/div/label[contains(text(),\""+location+"\")]")).click();
@@ -1120,6 +1135,16 @@ public class CreateUserPage extends BaseClass{
     		   token = newToken;   
     	   }
     		Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//p[text()='"+token.trim()+"']")));
+       } 
+   }
+   
+   public void verifyProductNotPresentOnAppTab(String products) throws Throwable {
+	   StringTokenizer st = new StringTokenizer(products,",");
+	   String token = null;
+       while (st.hasMoreTokens()) 
+       {
+    	   String newToken = st.nextToken().trim();
+    		Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//label[.='"+newToken+"']")));
        } 
    }
    
@@ -1264,14 +1289,22 @@ public class CreateUserPage extends BaseClass{
    
    public void iVerifyPageHeaderForPageOnRemedyConnect(String title, String role ) throws InterruptedException {
 	      //iWillWaitToSee(By.xpath("//h1[text()='Login']"));
-	   if(!(role.equals("Remedy Sales Team") || role.equals("Prospective Partner Executive")))
+	   try
 	   {
-		   Thread.sleep(2000);
-		      System.out.println(driver.findElement(By.xpath("//h1[text()='Login']")).getText());
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Login']")));
-			   delay();
-			      objLandingPage.iSwitchBackToOldWindow();
+		   if(!(role.equals("Remedy Sales Team") || role.equals("Prospective Partner Executive")))
+		   {
+			   Thread.sleep(2000);
+			      System.out.println(driver.findElement(By.xpath("//h1[text()='Login']")).getText());
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Login']")));
+				   delay();
+				      objLandingPage.iSwitchBackToOldWindow();
+		   }  
 	   }
+	   catch(Exception e)
+	   {
+		   objLandingPage.iSwitchBackToOldWindow();
+	   }
+	   
 	}
    
    public void iVerifyNoResultsFoundUnderLearningPathWaySearch() {
@@ -1301,15 +1334,24 @@ public class CreateUserPage extends BaseClass{
 		   {
 			   if(st.nextToken().trim().equals("Reports"))
 			   {
-		 
-				   	selectElementByTextDescByXpath("//div[label[text()='Overall Program']]/following-sibling::div/a", text);
-			        longDelay();
-			        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
-			        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
-			        delay();
-			        iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='Performance']"));
-			    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
-			    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+				   if(text.equals("Performance (Claims)"))
+				   {
+					   selectElementByTextDescByXpath("//div[label[text()='text']]/following-sibling::div/a", text);
+				        longDelay();
+				        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+				        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
+				        delay();
+				        iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='Performance']"));
+				    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));  
+				   }
+				   else if(text.contains("Episode DRG Issues"))
+				   {
+				       driver.findElement(By.xpath("//a[contains(text(),\""+text+"\")]")).click(); 
+					   longDelay();
+				        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+				        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
+				        delay();
+				   }
 			   }
 		   }
 	 }
@@ -1361,9 +1403,22 @@ public class CreateUserPage extends BaseClass{
 		   {
 			   if(st.nextToken().trim().equals("Reports"))
 			   {
-				   verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), "Filter on BPID");
-				   iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
-				   verifyTextForElementfromList("#FT_valueList div", text);
+				   if(text.contains(","))
+				   {
+					   StringTokenizer st1 = new StringTokenizer(text, ",");
+					   while(st1.hasMoreTokens())
+					   {
+						   verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), "Filter on BPID");
+						   iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+						   verifyTextForElementfromList("#FT_valueList div", st1.nextToken().trim());
+					   }
+				   }
+				   else
+				   {
+					   verifyTextForElement(driver.findElement(By.xpath("//*[@id='dialogTitleBar']/table/tbody/tr/td[1]")), "Filter on BPID");
+					   iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+					   verifyTextForElementfromList("#FT_valueList div", text);  
+				   }
 			   }
 		   }
 	 }
@@ -1377,6 +1432,19 @@ public class CreateUserPage extends BaseClass{
 			   {
 				   iWillWaitToSee(By.id("dlgBtnCancel"));
 				   clickElement(driver.findElement(By.id("dlgBtnCancel")));
+			   }
+		   }
+	 }
+	 
+	 public void iclickOnReportButton(String role) throws Throwable {
+		 String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Reports"))
+			   {
+				   iWillWaitToSee(By.xpath("//div[@class='flex-item order-2 btn logo valentino-icon-reports']"));
+				   clickElement(driver.findElement(By.xpath("//div[@class='flex-item order-2 btn logo valentino-icon-reports']")));
 			   }
 		   }
 	 }
