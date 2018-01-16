@@ -26,7 +26,13 @@ Feature: Patient list action
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    And I click on submit button present on the new filter modal
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+	And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
  
   Scenario: Verify Add Form(s) from Patient List
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
@@ -37,6 +43,8 @@ Feature: Patient list action
     And I click on "Assign" button
     And I refresh the page 
     And I verify "Needs Onboarding" onboarding status on patient list page
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
     And I should see "Clinical Risk Assessment" in Assigned forms under Care Plan on Patient page
     
@@ -48,5 +56,7 @@ Feature: Patient list action
     And I click on first checkbox on Clinician modal
     And I click on "Assign" button 
     And I will wait to see "Clinicians assigned to patient correctly" in "p" tag
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/patient/mongoID/careteam"
     And I should see Physician card under Physicians under Care Team on Patient page 

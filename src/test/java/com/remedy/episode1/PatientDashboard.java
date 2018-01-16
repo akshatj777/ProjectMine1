@@ -194,6 +194,7 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iClickOnAlertIconOnHeaderNavigationBar(){
+		longDelay();
 		iWillWaitToSee(By.cssSelector(".fa.fa-bell-o"));
 		clickElement(driver.findElement(By.cssSelector(".fa.fa-bell-o")));
 	}
@@ -204,7 +205,13 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iShouldNotSeeAnyCountOnAlertIcon(){
-		Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[i[@class='fa fa-bell-o']]/span[@class='badge badge-info']")));
+		try{
+			Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[i[@class='fa fa-bell-o']]/span[@class='badge badge-info']")));
+		}
+		catch (Exception e){
+			driver.navigate().refresh();
+			Assert.assertFalse(isElementPresentOnPage(By.xpath("//a[i[@class='fa fa-bell-o']]/span[@class='badge badge-info']")));
+		}
 	}
 	
 	public void iShouldSeeTextUnderBodyForMessage(String text){

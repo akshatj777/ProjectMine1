@@ -49,6 +49,11 @@ public class PatientOverviewSteps extends DriverScript {
 		overview.iEnterDetailsInFieldUnderAddFamilyModal(text, field);
 	}
 	
+	@Then("^I click on Add Family button on Add Family modal$")
+	public void i_Click_On_Add_Family_Button_On_Add_Family_Modal() throws Throwable {
+		overview.iClickOnAddFamilyButtonOnAddFamilyModal();
+	}
+	
 	@Then("^I edit \"([^\"]*)\" to \"([^\"]*)\" under patient details$")
 	public void i_Edit_Field_Under_Patient_Details(String field, String text) throws Throwable {
 		overview.IEditFieldUnderPatientDetails(field, text);
@@ -172,5 +177,15 @@ public class PatientOverviewSteps extends DriverScript {
 	@And("^I select first text from tag drodown on patient overview page$")
 	public void i_Select_First_Text_From_Tag_Dropdown_On_Patient_Overview() throws Throwable {
 		overview.iSelectFirstTextFromTagDropdownOnPatientOverview();
+	}
+	
+	@And("^I click on View Changes under Activity$")
+	public void i_Click_On_View_Changes_Under_Activity() throws Throwable {
+		overview.iClickOnViewChangesUnderActivity();
+	}
+	
+	@And("^I should see \"([^\"]*)\" under chnages in view changes$")
+	public void i_Should_See_Chnages_In_View_Changes(String text) throws Throwable {
+		overview.iShouldSeeChangesInViewChanges(text);
 	}
 }

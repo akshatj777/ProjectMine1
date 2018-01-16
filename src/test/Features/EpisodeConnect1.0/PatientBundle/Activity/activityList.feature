@@ -51,3 +51,20 @@ Feature: Activity List
 	Then I click on "Notifications" button under Recent Activity
 	And I should see "New Episode has been created" in Notification column on Recent Activity Notification tab 
 	And I should see "QA ADMIN" in By column on Recent Activity Notification tab 
+	And I click on View Changes under Activity
+	And I should see "id" under chnages in view changes
+	And I should see "startDate" under chnages in view changes
+	And I should see "readmissionCounter" under chnages in view changes
+	And I should see "duration" under chnages in view changes
+	And I should see "patient" under chnages in view changes
+	And I should see "episode" under chnages in view changes
+	And I should see "episodeStatus" under chnages in view changes
+	And I should see "episodeState" under chnages in view changes
+	And I should see "carePlan" under chnages in view changes
+	And I should see "episodeAssignment" under chnages in view changes
+	And I should see "episodeModel" under chnages in view changes
+	And I should see "episodeInitiator" under chnages in view changes
+	And I should see "payer" under chnages in view changes
+	And I should see "tags" under chnages in view changes
+	
+	
