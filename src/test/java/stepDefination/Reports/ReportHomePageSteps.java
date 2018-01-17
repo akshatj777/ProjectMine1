@@ -1439,7 +1439,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iShouldNotSeeElementInTheFilterValueList(text);
     }
     
-    @Then("^I verify \"([^\"]*)\" column is added to report after selecing add to report option$")
+    @Then("^I verify \"([^\"]*)\" column is added to report after selecting add to report option$")
     public void i_velrify_column_is_added_to_report_after_selecting_add_to_report_option(String text) throws Throwable{
     	reportHomePage.iShouldSeeColumnAfterClickingAddToReport(text);
     }
