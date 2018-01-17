@@ -90,10 +90,17 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I verify the "Create New Contract" button on view profile of payor Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I verify "Contract 1" on "Create Contract" page under Payor Organization
+    And I verify "Contract 1 " on "Create Contract" page under Payor Organization
     And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
     And I select Start Date for Organization_Name for Contract "1" on "create" Contracts page
+    Then i insert "<days>" in date picker
+    |1|
+    |2|
+    |3|
+    |2|
+    |3|
+    |4|
     And I select End Date for Organization_Name for Contract "1" on "create" Contracts page
     And I verify "Bundle 1" on "Create Contract" page under Payor Organization
     And I select Bundle1 "<Bundle_1>" for Contract "1" on "create" Contracts page
@@ -103,7 +110,13 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
     And I select Start Date for Bundle_Price1 for Contract "1" on "create" Contracts page
     And I select End Date for Bundle_Price1 for Contract "1" on "create" Contracts page
+    And I select Start Date for Baseline Start for Contract "1" on "create" Contracts page
+    And I select End Date for Baseline End for Contract "1" on "create" Contracts page
+    And I enter "<Trend_Factor>" for "Bundle Price1" for Contract "1" on "create" Contracts page
+    And I enter "<Upper_Bound>" for "Bundle Price1" for Contract "1" on "create" Contracts page
+    And I enter "<Lower_Bound>" for "Bundle Price1" for Contract "1" on "create" Contracts page
+    Then I click on "Submit" button on "create" organization page
 
     Examples: 
-      | Description                               | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price |
-      | Create Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |
+      | Description                               | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound |
+      | Create Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 |
