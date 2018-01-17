@@ -164,9 +164,8 @@ public void iVerifyEpisodeMarkerAdmitTerminatedate(int days,int terminate,String
 	String date=currentdate(days,"MM/dd/yyyy");
     String terminate_date=currentdate(terminate,"MM/dd/yyyy");
 	String Newdate="-"+" "+terminate_date;
-	if(days>0){
 	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'"+Newdate+"') and contains(text(),'"+status+"')]")));
-	}
+	
 }
 
 public void i_Select_value(String value, String variable, String xpath) {
@@ -255,6 +254,13 @@ public void iVerifyEpisodeMarkerAdmitEnddate(int days,int discharge_date,String 
 	if(days>0){
 	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'"+Newdate+"') and contains(text(),'"+status+"')]")));
 	}
+	
+}
+
+public void iWillWaitToSeeFacilityonEpisodeMarker(String facility) {
+	delay();
+	iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']/a/span"));
+	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+facility+"')]")));
 	
 }
 

@@ -88,12 +88,13 @@ public class PatientDashboard extends BaseClass {
 		iWillWaitToSee(By.xpath("//div[@class='tab-pane active']//input[@placeholder='Patient Search']"));
 		iFillInText(driver.findElement(By.xpath("//div[@class='tab-pane active']//input[@placeholder='Patient Search']")), name);
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-patient-navigator-home-search-button_myPatients']")));
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ui-table-patients-dashboard_myPatients_processing"))));
 	}
 	
 	public void iShouldSeePatientFirstNameAppearingUnderSearchOnDashboard(){
 		iWillWaitToSee(By.xpath("//tbody//td[contains(@class,'first_name-column')]"));
-    	String firstName = driver.findElement(By.xpath("//tbody//td[contains(@class,'first_name-column')]")).getText();
-    	Assert.assertEquals(DischargeCarlForm.firstname,firstName);
+	    String firstName = driver.findElement(By.xpath("//tbody//td[contains(@class,'first_name-column')]")).getText();
+	    Assert.assertTrue(DischargeCarlForm.firstname.equalsIgnoreCase(firstName));
     }
 	
 	public void iVerifyTaskDescriptionUnderTaskInCarePlan(String text){

@@ -140,6 +140,11 @@ public class PatientDetailsSteps extends DriverScript {
 	public void edit_Date_Of_Death(int days){
 		details.editDateOfDeath(days);
 	}
+	
+	@Then ("^I verify error \"([^\"]*)\" in DOD field$")
+	public void verify_error_in_DOD(String error){
+		details.verifyerrorinDOD(error);
+	}
 	@And ("^I will clear the Date of death field on patient details page$")
 	public void clear_the_Date_of_death(){
 		details.cleartheDateofdeath();

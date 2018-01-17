@@ -61,11 +61,12 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     Then I will wait to see "ACTIVE" state
     Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
     And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on update transition to add a new episode
-    When I reload the page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
@@ -106,6 +107,8 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     Then I will wait to see "ACTIVE" state
     Then I will verify Episode Marker Admit Date "-268" and "add" Discharge date "-269" with "89" to show end date and Episode Status "ACTIVE"
     And I will wait to see "Non-Remedy Convener" in "td" tag
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "-54" days
@@ -124,6 +127,8 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will verify Episode Marker Admit Date "-54" and "add" Discharge date "-55" with "89" to show end date and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "20" days
@@ -142,6 +147,8 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will verify Episode Marker Admit Date "20" and "add" Discharge date "19" with "29" to show end date and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "-191" days
@@ -158,13 +165,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
       | Non-Remedy Convener                               |
     When I click "Cancel" xpath element "//*[@id='cancelButton']"
     And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will verify Episode Marker Admit Date "-119" and "add" Discharge date "-120" with "29" to show end date and Episode Status "ACTIVE"
-    And I click Episode initiator Edit
-    And I will wait to see "Edit Episode Initiator" in "h4" tag
-    Then I select "Unassigned" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
-    Then I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
@@ -173,3 +174,4 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL EPISODE CANCELED" state
+    Then I will verify Episode Marker Admit Date "-191" and "add" Discharge date "-192" with "1" to show end date and Episode Status "POTENTIAL EPISODE CANCELED"

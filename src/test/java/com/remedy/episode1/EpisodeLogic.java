@@ -14,7 +14,7 @@ public class EpisodeLogic extends BaseClass {
   
 	public void iclickanchortransitiondelete(int tran) throws InterruptedException {
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"));
-		delay();
+		longDelay();
 		Actions actions=new Actions(driver);
 		actions.moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"))).build().perform();;
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));

@@ -78,6 +78,11 @@ public class CommonFeatureSteps extends DriverScript {
 		common.iWillWaitToSeeState(state);
 	}
 
+	@Then("^I will wait to see \"([^\"]*)\" Facility on Episode Marker$")
+	public void i_Will_Wait_To_See_Facility_on_Episode_Marker(String facility) {
+		common.iWillWaitToSeeFacilityonEpisodeMarker(facility);
+	}
+	
 	@Then("^I should not see \"([^\"]*)\" in \"([^\"]*)\" tag$")
 	public void i_Should_not_see(String text, String tag) {
 		common.iShouldnotsee(text, tag);

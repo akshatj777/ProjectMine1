@@ -1,9 +1,9 @@
 @EC1Smoke
-Feature: Canceling Episode from EI Assignment Window
+Feature: Managing Various Episode States - Removing DOD
 
-  Scenario Outline: To verify Episode termination date when episode is manually cancelled
+  Background: Patient with no Episode
     Given I am on the login page
-    When I enter email field <email> for login
+    When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -28,52 +28,84 @@ Feature: Canceling Episode from EI Assignment Window
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
-    And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "<logic>" with "<daysToAdmitWRTToday>" days
-    Then I enter <admit reason> on create transition page on transition tab on Patient Summary
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on the Create Transition Button to add a new transition
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see onboarding status "Needs Onboarding"
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see patient's name on patient summary page
-    And I click Episode initiator Edit
-    And I will wait to see "Edit Episode Initiator" in "h4" tag
-    When I click "Cancel Episode" xpath element "//*[@id='episode_initiator_cancelEpisode']"
-    And I will wait to see patient's name on patient summary page
-    And I should not see "Expired" in "h3" tag
-    When I click on episode marker drop down
-    Then I will wait to see "CANCELED" state
-    Then I will wait to see onboarding status "Unknown"
-    Then I verify "UNGROUPABLE" in "DRG" table in row "2" and column "2"
-    And I will verify Episode Marker Admit Date "<Admit Date>" and Termination date "<Terminate Date>" and Episode Status "<episodeStatus>"
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see patient's name on patient summary page
-    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
-    And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "<daysToAdmitWRTToday>" days
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on the Create Transition Button to add a new transition
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see "CANCELED" state
 
-    Examples: 
-      | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus | Admit Date | Terminate Date |
-      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |          1 |              1 |
-      | qa.admin@yopmail.com | minus |                   0 | firsttest    | CANCELED      |          0 |              0 |
-      | qa.admin@yopmail.com | plus  |                  -2 | firsttest    | CANCELED      |         -2 |             -2 |
+  Scenario: EXPIRED AS INPATIENT-Edit dod (future,before DOB,current) should rerun episode logic and also reinstate previous eligibility status.
+    Then I navigate to the "/secure/person/mongoID/patient-details"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "General" in "h3" tag
+    And I edit date of death with "-30"
+    Then I verify error "The date of death can not be in the future" in DOD field
+    And I edit date of death with "15000"
+    Then I verify error "The date of death can not come before dob." in DOD field
+    And I edit date of death with "1"
+    Then I verify error "The date of death can not be in the future" in DOD field
+    When I reload the page
+    And I will wait to see patient's name on patient summary page
+    And I should see tag "Expired"
+
+  Scenario: EXPIRED AS INPATIENT-Active episode with discharge
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "5" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I verify potential m3 Episode Marker Admit Date "5" is created without end date
+    Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
+    Then I navigate to the "/secure/person/mongoID/patient-details"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "General" in "h3" tag
+    And I edit date of death with "1"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I should see tag "Expired"
+    When I click on episode marker drop down
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "0" with "2" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will wait to see "EXPIRED AS INPATIENT" state
+    Then I navigate to the "/secure/person/mongoID/patient-details"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "General" in "h3" tag
+    And I will clear the Date of death field on patient details page
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I verify potential m3 Episode Marker Admit Date "5" is created without end date
+    And I should see tag "Error"
+
+  Scenario: Completed Expired-Active episode With discharge disposition
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "5" days
+    Then I fill in "Discharge" with logic "minus" with "3" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "3" with "89" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
+    Then I navigate to the "/secure/person/mongoID/patient-details"
+    And I will wait to see patient's name on patient summary page
+    And I will wait to see "General" in "h3" tag
+    And I edit date of death with "1"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    And I should see tag "Expired"
+    When I click on episode marker drop down
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "0" with "2" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will wait to see "COMPLETED EXPIRED" state

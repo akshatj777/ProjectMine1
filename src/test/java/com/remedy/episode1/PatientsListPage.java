@@ -285,7 +285,7 @@ public class PatientsListPage extends BaseClass {
     
     public void iShouldSeeEpisodeInitiatorOnPatientListPage(String text){
     	String actual = driver.findElements(By.xpath("//div[div[text()='Episode Initiator']]/span")).get(0).getText();
-    	Assert.assertEquals("text", actual.trim());
+    	Assert.assertEquals(text, actual.trim());
     }
     
     public void iShouldSeeCountOnPatientSearchOnPatientList(String text){
@@ -341,19 +341,17 @@ public class PatientsListPage extends BaseClass {
 	}
 
 
-	public void drgonpatientcard(String value1, String value2) {
-		iWillWaitToSee(By.xpath("//span[contains(@ng-if,'element.currentTransitionStatus.length')]/b"));
-		verifyTextForElement(driver.findElement(By.xpath("//div[contains(@ng-if,'element.drg')]")),value1);
-		String firstName = driver.findElement(By.xpath("//span[contains(@ng-if,'element.drg.name.length')]")).getText();
-    	Assert.assertTrue(firstName.contains(value2));
-    }
+	public void drgonpatientcard(String value1) {
+		delay();
+		iWillWaitToSee(By.xpath("//div[contains(@ng-if,'element.drg')]"));
+	    String text=driver.findElement(By.xpath("//div[contains(@ng-if,'element.drg')]")).getAttribute("innerText");
+	    Assert.assertTrue(text.contains(value1));
+	}
 
 
-	public void iShouldSeeAnchorFacilityOnPatientListPage(String text1,String text2) {
-		String actual = driver.findElement(By.xpath("//div[contains(@ng-if,'element.facility')]")).getText();
-    	Assert.assertEquals(text2, actual.trim());
-    	String actual1 = driver.findElement(By.xpath("//div[contains(@ng-if,'element.facility')]/b")).getText();
-    	Assert.assertEquals(text1, actual1.trim());
+	public void iShouldSeeAnchorFacilityOnPatientListPage(String text1) {
+		String actual = driver.findElement(By.xpath("//div[contains(@ng-if,'element.facility')]")).getAttribute("outerText");
+    	Assert.assertEquals(text1, actual);
 	}
 	
 }
