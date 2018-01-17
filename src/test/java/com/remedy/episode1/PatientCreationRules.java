@@ -1,6 +1,7 @@
 package com.remedy.episode1;
 
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -76,7 +77,9 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iFillInUserEmailOnRegisterUserPage(String text){
-    	iFillInText(driver.findElement(By.cssSelector("#new_bppatientnavigator_user_email")), text);
+    	 String random_UserEmail=text+"+"+(RandomStringUtils.randomAlphabetic(5))+"@Example.com";
+    	 System.out.println(random_UserEmail);
+    	iFillInText(driver.findElement(By.cssSelector("#new_bppatientnavigator_user_email")), random_UserEmail);
     }
     
     public void iFillInPasswordOnRegisterUserPage(String text){
@@ -88,11 +91,23 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iFillFieldsOnRegisterClinicianPage(String locator,String text){
-    	iFillInText(driver.findElement(By.cssSelector("#clinician_admin_type_"+locator+"")), text);
+    	if(text.contains("random")){
+    		String random_UserEmail=text+"+"+(RandomStringUtils.randomAlphabetic(5))+"@Example.com";
+    		iFillInText(driver.findElement(By.cssSelector("#clinician_admin_type_"+locator+"")), random_UserEmail);
+    	}
+    	else{
+    		iFillInText(driver.findElement(By.cssSelector("#clinician_admin_type_"+locator+"")), text);
+    	}
     }
     
     public void iFillFieldsOnFacilityCreationPage(String locator,String text){
-    	iFillInText(driver.findElement(By.cssSelector("#new_bpfacility_"+locator+"")), text);
+    	if(text.contains("randomKey")){
+    		String key = text+RandomStringUtils.randomAlphabetic(5);
+    		iFillInText(driver.findElement(By.cssSelector("#new_bpfacility_"+locator+"")), key);
+    	}
+    	else{
+    		iFillInText(driver.findElement(By.cssSelector("#new_bpfacility_"+locator+"")), text);
+    	}
     }
     
     public void iFillFieldsOnNewExclusionsListsPage(String locator,String text){
@@ -171,8 +186,13 @@ public class PatientCreationRules extends BaseClass{
     	iWillWaitToSee(By.xpath("//a[text()='"+text+"']"));
     }
     
+    public void iSelectAllCheckboxOptionOnDRGListUnderFacilities(){
+    	iWillWaitToSee(By.cssSelector("#selectAllCheckbox"));
+    	clickElement(driver.findElement(By.cssSelector("#selectAllCheckbox")));
+    }
+    
     public void iClickOnAddNewDRGOptionDRGListPage(String text){
-    	clickElement(driver.findElement(By.xpath("//a[text()='"+text+"']")));
+    	clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
     }
     
     public void iWaitToSeeTheDRGPopup(){

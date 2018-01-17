@@ -56,5 +56,5 @@ Scenario: Verify Message functionality
  	And I click on select all message checkbox 
  	And I click on first gear icon 
     And I select Move to archive for message 
-    And I will wait to see "Message moved." in "p" tag
+    And I will wait to see "Messages moved." in "p" tag
     
