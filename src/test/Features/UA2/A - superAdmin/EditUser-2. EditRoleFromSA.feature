@@ -17,7 +17,6 @@ Feature: Edit General information/Role/Permissions and validate
     Then I should see an alert with text "Are you sure you want to remove"
     And I should see "Cancel" button
     And I click on "Remove" button
-   
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -31,21 +30,71 @@ Feature: Edit General information/Role/Permissions and validate
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Then I enter newuser email for "<User>-<Role>" login to Remedy
+Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
     Then I verify "<Applications>" product on SPOE page
     Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
-    Then I click on Hamburger menu on top left of homepage 
+    Then I click on Hamburger menu on top left of homepage
     And I verify "<Applications>" in product menu dropdown
-    And I verify "<DisableApplications>" is not present in product menu dropdown
-    And I click on the top user account link
-    Then I click on "Log Out" button
+    And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I click on Reports tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    When I click on field-panel-icon button for "<User>-<Role>" user
+    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    And I click on cancel button from filter for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    #And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I redirect to Remedy connect page
+    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    And I redirect to Remedy connect page
+    And I click on User Admin tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to User Admin homepage
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
+    Then I select Log Out option from the dropdown
     And I should see Log in widget
 
+
     Examples: 
-      | User        | Role       | Email             | DisableApplications | Applications                | Health System     |
-      | Super Admin | Remedy TCS | test.automatemail | Reports, Lessons    | Episodes 2.0, Episodes, TCI | Stamford Hospital |
+      | User        | Role       | Email             | DisableApplications | Applications                |ApplicationsNotVisible |Health System     |  Roletext       |LearningPathway |Facilities    |
+      | Super Admin | Remedy TCS | test.automatemail | Reports, Lessons    | Episodes 2.0, Episodes, TCI |Reports, Lessons, Administration, Physician Connect ||Stamford Hospital |
 
   Scenario Outline: Changing Data permissions and add another organisation <Health System2> for <Role>
     Given I am on the login page
@@ -108,14 +157,66 @@ Feature: Edit General information/Role/Permissions and validate
     Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
     Then I click on Hamburger menu on top left of homepage
     And I verify "<Applications>" in product menu dropdown
-    And I verify "<DisableApplications>" is not present in product menu dropdown
+    And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I click on Reports tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    When I click on field-panel-icon button for "<User>-<Role>" user
+    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    And I click on cancel button from filter for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    #And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I redirect to Remedy connect page
+    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    And I redirect to Remedy connect page
+    And I click on User Admin tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to User Admin homepage
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
+    Then I select Log Out option from the dropdown
+    And I should see Log in widget
 
     Examples: 
-      | User        | Role                         | FirstName       | LastName       | Email             | Phone        | DisableApplications   | Applications                                  |
-      | Super Admin | Case Manager                 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Episodes 2.0, Lessons | Episodes, Reports                             |
-      | Super Admin | Remedy RN                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |                       | Episodes, Episodes 2.0, Reports, Lessons, TCI |
-      | Super Admin | Remedy PM                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons               | Episodes, Episodes 2.0, Reports, TCI          |
-      | Super Admin | Remedy Program Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons, Episodes 2.0 | Episodes, Reports, Physician Connect, TCI     |
+      | User        | Role                         | FirstName       | LastName       | Email             | Phone        | DisableApplications   | Applications                                  |ApplicationsNotVisible |Health System     |  Roletext       |LearningPathway |Facilities    |
+      | Super Admin | Case Manager                 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Episodes 2.0, Lessons | Episodes, Reports                             |Administration, Physician Connect|
+      | Super Admin | Remedy RN                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |                       | Episodes, Episodes 2.0, Reports, Lessons, TCI |Administration, Physician Connect|
+      | Super Admin | Remedy PM                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons               | Episodes, Episodes 2.0, Reports, TCI          |Administration, Physician Connect|
+      | Super Admin | Remedy Program Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons, Episodes 2.0 | Episodes, Reports, Physician Connect, TCI     |Administration|
 
   Scenario Outline: Changing applications for <Role> and verifying product tile
     Given I am on the login page
@@ -218,19 +319,69 @@ Feature: Edit General information/Role/Permissions and validate
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-     Then I verify "<Applications>" product on SPOE page
+    Then I verify "<Applications>" product on SPOE page
     Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
     Then I click on Hamburger menu on top left of homepage
-   And I verify "<Applications>" in product menu dropdown
+    And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I click on Reports tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    When I click on field-panel-icon button for "<User>-<Role>" user
+    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    And I click on cancel button from filter for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    #And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I redirect to Remedy connect page
+    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    And I redirect to Remedy connect page
+    And I click on User Admin tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to User Admin homepage
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                  | Role         | EnableApplications | Applications                                  | ApplicationsNotVisible             | Health System     | LearningPathwaySearchParameter         |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                  | Role         | EnableApplications | Applications                                  | ApplicationsNotVisible             | Health System     | LearningPathwaySearchParameter         |Roletext       |Facilities    |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Manager                       | Remedy TCS   | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2, i am learning path |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Partner Program Administrator | Case Manager |                    | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2                     |
 
@@ -268,19 +419,69 @@ Feature: Edit General information/Role/Permissions and validate
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-     Then I verify "<Applications>" product on SPOE page
+    Then I verify "<Applications>" product on SPOE page
     Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
     Then I click on Hamburger menu on top left of homepage
-   And I verify "<Applications>" in product menu dropdown
+    And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I click on Reports tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    When I click on field-panel-icon button for "<User>-<Role>" user
+    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    And I click on cancel button from filter for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    #And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I redirect to Remedy connect page
+    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    And I redirect to Remedy connect page
+    And I click on User Admin tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to User Admin homepage
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role             | EnableApplications | Applications                                  | ApplicationsNotVisible             | Health System     | LearningPathwaySearchParameter |  
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role             | EnableApplications | Applications                                  | ApplicationsNotVisible             | Health System     | LearningPathwaySearchParameter |  Roletext    |Facilities    |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Executive    | Remedy Executive | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2             |  
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Other | Manager          | Reports            | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2             |  
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy LPN   | Remedy Field RN  |                    | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect  | Stamford Hospital | Learning Pathway 2             |  
@@ -312,19 +513,69 @@ Feature: Edit General information/Role/Permissions and validate
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-     Then I verify "<Applications>" product on SPOE page
+    Then I verify "<Applications>" product on SPOE page
     Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
     Then I click on Hamburger menu on top left of homepage
     And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I click on Reports tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    When I click on field-panel-icon button for "<User>-<Role>" user
+    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    And I click on cancel button from filter for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    #And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I redirect to Remedy connect page
+    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    And I redirect to Remedy connect page
+    And I click on User Admin tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to User Admin homepage
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole     | Role         | EnableApplications | Applications                             | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole     | Role         | EnableApplications | Applications                             | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter |Roletext   |Facilities    |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager     | Executive    |                    | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive | Remedy Other |                    | Episodes, Episodes 2.0, Lessons, TCI     | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |
 
@@ -365,19 +616,69 @@ Feature: Edit General information/Role/Permissions and validate
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
     Then I verify "<Applications>" product on SPOE page
     Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
     Then I click on Hamburger menu on top left of homepage
-   And I verify "<Applications>" in product menu dropdown
+    And I verify "<Applications>" in product menu dropdown
     And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    #And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I click on Reports tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Reports homepage
+    And I click on the Reports Tile with text "Overall Program" for "<User>-<Role>" user
+    Then I click on "Performance (Claims)" report text for Overall Program Reports for "<User>-<Role>" user
+    When I click on field-panel-icon button for "<User>-<Role>" user
+    When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
+    And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
+    And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
+    And I click on cancel button from filter for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I click on RemedyU tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to RemedyU homepage
+    And I verify details "FirstName LastName" for "<User>-<Role>" user on RemedyU dashboard
+    #And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
+    And I redirect to Remedy connect page
+    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
+    And I redirect to Remedy connect page
+    And I click on User Admin tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to User Admin homepage
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
     Then I select Log Out option from the dropdown
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                   | Role             | EnableApplications              | Applications                                                | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                   | Role             | EnableApplications              | Applications                                                | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter |Roletext    |Facilities    |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Sales Team              | Remedy Executive | Episodes, Episodes 2.0          | Episodes, Episodes 2.0, Reports, Lessons, TCI               | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive               | Executive        |                                 | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Remedy Technical Administrator | Physicians       |                                 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                    | Stamford Hospital | Learning Pathway 2             |
