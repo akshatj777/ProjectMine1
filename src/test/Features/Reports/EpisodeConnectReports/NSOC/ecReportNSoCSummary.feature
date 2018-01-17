@@ -302,7 +302,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Eligibility" field is appearing in the layout section after selecting add to report
-    Then I verify "Eligibility" column is added to report after selecing add to report option
+    Then I verify "Eligibility" column is added to report after selecting add to report option
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
@@ -351,7 +351,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "1st Post Acute CCN" column is added to report after selecing add to report option
+    Then I verify "1st Post Acute CCN" column is added to report after selecting add to report option
     #Filtering(1st Post Acute CCN)
     When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
     And I choose "Filter" option from select options of filter field
@@ -379,7 +379,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Discharge Care Setting" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Discharge Care Setting" column is added to report after selecing add to report option
+    Then I verify "Anchor Discharge Care Setting" column is added to report after selecting add to report option
     #Network Tier(Anchor Discharge - Tier Unknown)
     When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
     And I choose "Filter" option from select options of filter field
@@ -427,7 +427,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Network Tier (Anchor Discharge)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Anchor Discharge)" column is added to report after selecing add to report option
+    Then I verify "Network Tier (Anchor Discharge)" column is added to report after selecting add to report option
     #Filtering(Out Of Network)
     When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
     And I choose "Filter" option from select options of filter field
@@ -487,13 +487,13 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    Then I verify "CCN" column is added to report after selecting add to report option
     #Drag and Drop(Network Tier Post Acute Admission)
     When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecing add to report option
+    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecting add to report option
 
     Examples: 
       | email                   |

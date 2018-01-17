@@ -228,7 +228,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click to "DRG" field filter under "DRG" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
+    Then I verify "DRG" column is added to report after selecting add to report option
     And I verify "<DRG>" is appearing in the drg column rows
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
@@ -717,7 +717,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
       | email                         |
       | shutestaug231132a@yopmail.com |
       
-  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for volume claims report under physician
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for volume claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -756,12 +756,12 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "Post Acute Type" column is added to report after selecing add to report option
+    Then I verify "Post Acute Type" column is added to report after selecting add to report option
     #Drag and Drop(Network tier)
     When I click to "Network Tier" field filter under "Network Tier" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier" column is added to report after selecing add to report option
+    Then I verify "Network Tier" column is added to report after selecting add to report option
     #Filtering
     When I click to "Network Tier" field filter under "Network Tier" filter field
     And I choose "Filter" option from select options of filter field
@@ -824,13 +824,13 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    Then I verify "CCN" column is added to report after selecting add to report option
     #Post Acute CCN Drag and Drop
     When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
+    Then I verify "Post Acute CCN" column is added to report after selecting add to report option
     
     Examples: 
       | email                              |
