@@ -157,4 +157,8 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyLearningPathwayIDIsNotPresentOnEditPage(String text){
 		editUser.iVerifyLearningPathwayIDIsNotPresentOnEditPage(text);
 	}
+	@Then("^I verify that provisioned roles of PTA are present on edit page$")
+	public void iVerifyPTAProvisionedRoleOnEditPage(){
+		
+	}
 }

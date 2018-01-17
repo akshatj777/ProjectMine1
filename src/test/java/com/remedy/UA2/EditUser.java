@@ -349,4 +349,10 @@ public class EditUser extends BaseClass {
 	   public void iVerifyLearningPathwayIDIsNotPresentOnEditPage(String text){
 			Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"']")));
 		}
+	   public void iVerifyPTAProvisionedRoleOnEditPage(){
+			String []Roles={"Executive", "Manager", "Case Manager", "Physicians", "Transitional Case Manager"};
+			for(int i=0;i<Roles.length;i++){
+				isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+Roles[i]+"')]")));
+			}
+		}
 }

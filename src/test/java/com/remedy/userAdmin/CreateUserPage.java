@@ -1347,6 +1347,7 @@ public class CreateUserPage extends BaseClass{
 
 			driver.get("https://cdn-qa.remedypartners.com/");
 			delay();
+<<<<<<< HEAD
 		}
 	}
    
@@ -1362,6 +1363,20 @@ public class CreateUserPage extends BaseClass{
 		      delay();
 		      objLandingPage.iSwitchToNewWindow();
 	   }
+=======
+
+		}
+	}
+   
+   public void iClickOnFiledInDropdownOnProfileIcon(String text) {
+
+
+	   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+	      delay();
+	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
+	      iWillWaitToSee(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']"));
+	      driver.findElement(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")).click();
+>>>>>>> e8ef6e89276790d28dc0a4632230bc9a03af3acb
 	}
    
    public void iVerifyPageHeaderForPageOnRemedyConnect(String title, String role ) throws InterruptedException {

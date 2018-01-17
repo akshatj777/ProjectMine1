@@ -2,7 +2,7 @@ Feature: Edit user page for General cases
 
   Scenario Outline: Verifying editable/non-editable fields of general, validating Applications tab and searching invalid learning pathway
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -20,6 +20,7 @@ Feature: Edit user page for General cases
     Then I fill in Last Name with <LastName>
     And I fill in Phone with <Phone>
     When I click the Organizational Role Field to edit
+    Then I verify that provisioned roles of PTA are present on edit page
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
@@ -30,12 +31,12 @@ Feature: Edit user page for General cases
     And I verify No results found under Learning Pathway search box
 
     Examples: 
-      | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | Applications                                                | LearningPathwaySearchParameter |
-      | Super Admin | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |
+      | UserName                        | User                            | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | Applications                                                | LearningPathwaySearchParameter |  |
+      | Partner Technical Administrator | Partner Technical Administrator | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |  |
 
   Scenario Outline: Edit General Information tab with invalid data and verify Error message
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -54,14 +55,14 @@ Feature: Edit user page for General cases
     And I should see error message "Phone is required"
 
     Examples: 
-      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone      | NPI       | Role       |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |         1 |        2 | test.automatemail | abc3479074 | 123456789 | Physicians |
+      | User                            | UserName                        | Password | FirstName | LastName | Email             | Phone      | NPI        | Role       |
+      | Partner Technical Administrator | Partner Technical Administrator | Testing1 |         1 |        2 | test.automatemail | abc3479074 |  123456789 | Physicians |
+      | Partner Technical Administrator | Partner Technical Administrator | Testing1 |        56 | 1Last    | test.automatemail | as34       | asbcf12345 | Physicians |
+      | Partner Technical Administrator | Partner Technical Administrator | Testing1 | 1First    |      456 | test.automatemail | as34!      | qawsedrftg | Physicians |
 
-  #| Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 |        56 | 1Last    | test.automatemail | as34 | asbcf12345 | Physicians |
-  # | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | 1First    |      456 | test.automatemail | as34! | qawsedrftg | Physicians |
   Scenario Outline: verify enable/disable application functionality for <Role>
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -88,13 +89,12 @@ Feature: Edit user page for General cases
     And I verify that "<Applications>" are "Enabled"
 
     Examples: 
-      | user        | Email             | Role                           | DisableApplications                             | Applications                                                                  | LearningPathwayID  | LearningPathwaySearchParameter | Health System     | NPI |
-      | Super Admin | test.automatemail | Executive                      | Lessons, Episodes                               | Reports, Lessons, Episodes, Episodes 2.0                                       | NFdw0Kts2C01 | NFdw0Kts2C01                   | Stamford Hospital |     |
-    #  | Super Admin | test.automatemail | Remedy Technical Administrator | Physician Connect, Lessons, TCI, Administration | Reports, Lessons, Episodes, Episodes 2.0, Physician Connect, TCI, Administration|NFdw0Kts2C01 | Learning Pathway 2             | Stamford Hospital |     |
+      | UserName                        | user                            | Email             | Role      | DisableApplications | Applications                             | LearningPathwayID | LearningPathwaySearchParameter | Health System     | NPI |
+      | Partner Technical Administrator | Partner Technical Administrator | test.automatemail | Executive | Lessons, Episodes   | Reports, Lessons, Episodes, Episodes 2.0 | NFdw0Kts2C01      | NFdw0Kts2C01                   | Stamford Hospital |     |
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and hitting Cancel button
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -115,12 +115,12 @@ Feature: Edit user page for General cases
     And I verify Role <PreviousRole> in user page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | Applications | Health System     | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | TCI          | Stamford Hospital | Learning Pathway 2             |
+      | User                            | UserName                        | Password | Email             | NPI | PreviousRole | Role    | Applications | Health System     | LearningPathwaySearchParameter |
+      | Partner Technical Administrator | Partner Technical Administrator | Testing1 | test.automatemail |     | Executive    | Manager | TCI          | Stamford Hospital | Learning Pathway 2             |
 
   Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify, product list in Applications tab and search location by facility id
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -171,12 +171,12 @@ Feature: Edit user page for General cases
     And I verify that "NPI" is "present" on page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2                       | Applications                                                | Health System | LearningPathwaySearchParameter | Programs                 | facilityKey | Locations                                                                                                 |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | TeamHealth    | Learning Pathway 2             | BPCI-Model2, BPCI-Model3 |      100029 | 2070-g14--North Shore Med Center, 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
+      | User                            | UserName                        | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role    | RoleProductCount | EnableApplications1 | EnableApplications2 | Applications                                                | Health System | LearningPathwaySearchParameter | Programs                 | facilityKey | Locations                                                                                                 |
+      | Partner Technical Administrator | Partner Technical Administrator | Testing1 | test.automatemail | NPI              | Physicians   |                        5 |     | Manager |                3 |                     | Physician Connect   | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | TeamHealth    | Learning Pathway 2             | BPCI-Model2, BPCI-Model3 |      100029 | 2070-g14--North Shore Med Center, 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
 
   Scenario Outline: Validate error message for Invalid characters in permissions tab and Edit multiple to single programs
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -201,12 +201,12 @@ Feature: Edit user page for General cases
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | Email             | Health System_invalid | locations_invalid | RemovePrograms | RemoveLocations                                                         |
-      | Super Admin | Physicians | test.automatemail | abc                   | abc               | BPCI-Model2    | 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
+      | UserName                        | User                            | Role       | Email             | Health System_invalid | locations_invalid | RemovePrograms | RemoveLocations                                                         |
+      | Partner Technical Administrator | Partner Technical Administrator | Physicians | test.automatemail | abc                   | abc               | BPCI-Model2    | 3056-q91--Rhea Medical Center, 3056-q91--The Medical Center At Franklin |
 
   Scenario Outline: Remove existing Program and select another Program in permissions tab and verify facility Key in data permissions
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -230,5 +230,5 @@ Feature: Edit user page for General cases
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | Email             | RemovePrograms | Programs                 | BPID               | Locations                                                                      | facilityKey    |
-      | Super Admin | Physicians | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | 2070-g14, 2070-g14 | Baptist Medical Center  Beaches (100117), Plantation General Hospital (100167) | 100117, 100167 |
+      | UserName                        | User                            | Role       | Email             | RemovePrograms | Programs                 | BPID               | Locations                                                                      | facilityKey    |
+      | Partner Technical Administrator | Partner Technical Administrator | Physicians | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | 2070-g14, 2070-g14 | Baptist Medical Center  Beaches (100117), Plantation General Hospital (100167) | 100117, 100167 |
