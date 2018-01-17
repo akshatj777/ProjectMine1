@@ -735,7 +735,7 @@ Feature: Verification of Post Acute Care Claims Report
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for post acute care claims report under post acute care
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for post acute care claims report under post acute care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
