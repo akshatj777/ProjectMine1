@@ -13,7 +13,7 @@ Feature: Create new User
     And I fill in "firstName" with "TestFirstName" on register user page
     And I fill in "lastName" with "TestLastName" on register user page
     And I fill in "phone" with "111-222-333" on register user page
-    And I fill in user email with "TestEmail@example.com" on register user page
+    And I fill in user email with "randomemail" on register user page
     And I fill in Password with "Testing1" on registeres user page
     And I fill in Confirm Password with "Testing1" on register user page
     And I select "Admin" from "new_bppatientnavigator_user_roles"

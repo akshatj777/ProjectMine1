@@ -13,7 +13,7 @@ Feature: Create new clinician
     And I fill in "firstName" with "TestFirstName" on register clinician page
     And I fill in "lastName" with "TestLastName" on register clinician page
     And I fill in "classification" with "TestClassification" on register clinician page
-    And I fill in "user_email" with "TestEmailClinician@example.com" on register clinician page
+    And I fill in "user_email" with "randomemail" on register clinician page
     And I fill in "user_plain_password_password" with "Testing1" on register clinician page
     And I fill in "user_plain_password_confirm" with "Testing1" on register clinician page
     Then I press "Save" on the register clinician page

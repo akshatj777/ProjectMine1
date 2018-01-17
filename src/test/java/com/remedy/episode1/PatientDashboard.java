@@ -1,17 +1,16 @@
 package com.remedy.episode1;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.server.handler.ClickElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.seleniumhq.jetty9.server.Iso88591HttpWriter;
-
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 
 
 public class PatientDashboard extends BaseClass {
+	public static String filter_Name;
 
 	public PatientDashboard(WebDriver driver) {
 		super(driver);
@@ -23,23 +22,32 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iverifyPatientsAreAppearingOnPatientDashboard(){
-		iWillWaitToSee(By.xpath("//tr[contains(@class,'ui-dashboard-patients-tr')]"));
+		iWillWaitToSee(By.cssSelector(".tab-pane.active .ui-dashboard-patients-tr"));
 	}
 	
 	public void iClickOnListOptionUnderOpenFilter(String text){
-		clickSingleElementFromList(By.xpath("//li[a[@data-name='create']]//a"), text);
+		delay();
+		iWillWaitToSee(By.cssSelector(".savedFilter.open>.sub-menu>li>a"));
+		clickSingleElementFromList(By.cssSelector(".savedFilter.open>.sub-menu>li>a"), text);
+		delay();
 	}
 	
 	public void iClickOnTabOnNavigationTabOnPatientDashboard(String text){
-		clickSingleElementFromList(By.cssSelector(".nav.nav-tabs>li>a"), text);
+		if(text.contains("Random")){
+			clickSingleElementFromList(By.cssSelector(".nav.nav-tabs>li>a"), filter_Name);
+		}
+		else{
+			clickSingleElementFromList(By.cssSelector(".nav.nav-tabs>li>a"), text);
+		}
 	}
 	
 	public void iEnterTextInFilterNameOnNewFilter(String text){
-		driver.findElement(By.cssSelector("#filter_name")).sendKeys(text);
+		filter_Name= text+RandomStringUtils.randomAlphabetic(5);
+		driver.findElement(By.cssSelector("#filter_name")).sendKeys(filter_Name);
 	}
 	
 	public void iClickOnSelectAllCheckboxOnPatientDashboard(){
-		clickAction(driver.findElement(By.cssSelector("#check-all-patients")));
+		clickAction(driver.findElement(By.cssSelector(".tab-pane.active #check-all-patients")));
 	}
 	
 	public void iClickOnGearIconOnTopOnPatientDashboard(){
@@ -53,23 +61,51 @@ public class PatientDashboard extends BaseClass {
 	}
 	
 	public void iClickOnFilterNameUnderPatientsMenu(String text){
-		iWillWaitToSee(By.cssSelector(".filter-name"));
-		clickSingleElementFromList(By.cssSelector(".filter-name"), text);
+		if(text.contains("Random")){
+			iWillWaitToSee(By.cssSelector(".filter-name"));
+			clickSingleElementFromList(By.cssSelector(".filter-name"), filter_Name);
+		}
+		else{
+			iWillWaitToSee(By.cssSelector(".filter-name"));
+			clickSingleElementFromList(By.cssSelector(".filter-name"), text);
+		}
 	}
 	
 	public void iShouldSeeFilterUnderBookmark(String text){
-		iWillWaitToSee(By.cssSelector(".bookmarks_filter_widget-view.bookmarks-circle>h3"));
-		iVerifyTextFromListOfElement(By.cssSelector(".bookmarks_filter_widget-view.bookmarks-circle>h3"), text);
+		if(text.contains("Random")){
+			iWillWaitToSee(By.xpath("//h3[text()='"+filter_Name+"']"));
+		}
+		else{
+			iWillWaitToSee(By.xpath("//h3[text()='"+text+"']"));
+		}
 	}
 	
 	public void iClickOnGearIconUnderBookmark(String text){
-		iWillWaitToSee(By.xpath("//h3[text()='"+text+"']/preceding-sibling::a/i"));
-		clickElement(driver.findElement(By.xpath("//h3[text()='"+text+"']/preceding-sibling::a/i")));
+		if(text.contains("Random")){
+			longDelay();
+			iWillWaitToSee(By.xpath("//h3[text()='"+filter_Name+"']"));
+			clickElement(driver.findElement(By.xpath("//h3[text()='"+filter_Name+"']/preceding-sibling::a/i[@class='fa fa-cog']")));
+		}
+		else{
+			iWillWaitToSee(By.xpath("//h3[text()='"+text+"']/preceding-sibling::a/i[@class='fa fa-cog']"));
+			clickElement(driver.findElement(By.xpath("//h3[text()='"+text+"']/preceding-sibling::a/i[@class='fa fa-cog']")));
+		}
 	}
 	
 	public void iEnterTextInTitleFieldInBookmark(String text){
-		iWillWaitToSee(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input"));
-		driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).sendKeys(text);
+		if(text.contains("Random")){
+			filter_Name=RandomStringUtils.randomAlphabetic(5)+text;
+			iWillWaitToSee(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input"));
+			driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).clear();
+			driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).sendKeys(filter_Name);
+			delay();
+		}
+		else{
+			iWillWaitToSee(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input"));
+			driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).clear();
+			driver.findElement(By.xpath("//div[@class='bookmarks_filter_widget-edit bookmarks-circle']//div[@class='input-group']/input")).sendKeys(text);
+			delay();
+		}
 	}
 	
 	public void iClearTitleFieldUnderBookMark(){
@@ -88,12 +124,13 @@ public class PatientDashboard extends BaseClass {
 		iWillWaitToSee(By.xpath("//div[@class='tab-pane active']//input[@placeholder='Patient Search']"));
 		iFillInText(driver.findElement(By.xpath("//div[@class='tab-pane active']//input[@placeholder='Patient Search']")), name);
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-patient-navigator-home-search-button_myPatients']")));
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#ui-table-patients-dashboard_myPatients_processing"))));
 	}
 	
 	public void iShouldSeePatientFirstNameAppearingUnderSearchOnDashboard(){
 		iWillWaitToSee(By.xpath("//tbody//td[contains(@class,'first_name-column')]"));
     	String firstName = driver.findElement(By.xpath("//tbody//td[contains(@class,'first_name-column')]")).getText();
-    	Assert.assertEquals(DischargeCarlForm.firstname,firstName);
+    	Assert.assertTrue(DischargeCarlForm.firstname.equalsIgnoreCase(firstName));
     }
 	
 	public void iVerifyTaskDescriptionUnderTaskInCarePlan(String text){

@@ -277,6 +277,11 @@ public class PatientCreationRulesSteps extends DriverScript {
 		patientrules.iWaitUntillISeeOptionOnDRGListUnderFacilities(text);
 	}
 	
+	@Then("^I select all checkbox option on drg list page under facility$")
+	public void i_Select_All_Checkbox_Option_On_drg_list_page_under_facility() throws Throwable{
+		patientrules.iSelectAllCheckboxOptionOnDRGListUnderFacilities();
+	}
+	
 	@And("^I click on \"([^\"]*)\" option on the drg list page in the facility$")
 	public void i_click_on_option_on_the_drg_list_page_in_the_facility(String text) throws Throwable{
 		patientrules.iClickOnAddNewDRGOptionDRGListPage(text);

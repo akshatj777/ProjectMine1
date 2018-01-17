@@ -10,7 +10,7 @@ Feature: Create new facility
     And I switch to new window
     When I am on "/secure/admin/facility/new"
     And I wait untill "New Facility" text is appearing on the new facility creation page
-    And I fill in "facilityKey" with "testCreateNewFacilityKey" on facility creation page
+    And I fill in "facilityKey" with "randomKey" on facility creation page
     And I fill in "group" with "testNewGroup" on facility creation page
     And I fill in "name" with "testCreateNewFacilityName" on facility creation page
     And I select "HHH - Hospital" from "new_bpfacility_facilityCategory"
