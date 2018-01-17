@@ -325,7 +325,7 @@ Scenario Outline: User should be able to see 1st post acute ccn and network tier
     And I should see "1st Post Acute CCN" in the header text of filter page
     And I should see "Not Available" in the filter value list
     And I click on "Not Available" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I click on clear search field element

@@ -655,7 +655,7 @@ Feature: Verification Claims Report For Spending
       #| Multiple Payer Users          |
       | multipayerachrpfin@yopmail.com |
       
-  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for spending claims report under overall program
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for spending claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

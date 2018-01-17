@@ -761,7 +761,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       | email                         |
       | shutestaug231132a@yopmail.com |
       
-  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for performance claims report under physician
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
