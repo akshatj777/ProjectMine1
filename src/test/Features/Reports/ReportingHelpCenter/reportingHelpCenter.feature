@@ -538,7 +538,7 @@ Feature: Reporting Help Center
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
 
-  Scenario Outline: User should see auth0 login widget if trying to access the url directly and login with valid credentials to see reporting help center page
+  Scenario Outline: User should see auth0 login widget if trying to access the url directly and login with valid credentials to see program overview dashboard page under reporting help center
     Given I am on the login page
     And I go to "https://hlpctr-qa.remedypartners.com/help/Content/REPORTS_Category/Dashboards/Program%20Overview%20Dashboard.htm" page
     And I should see Log in widget
