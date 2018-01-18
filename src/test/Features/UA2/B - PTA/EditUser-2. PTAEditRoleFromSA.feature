@@ -2,7 +2,9 @@ Feature: Edit General information/Role/Permissions and validate
 
   Scenario Outline: Changing the applications and Data permissions for <Role> and verifying product tile
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -92,12 +94,14 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | Email             | DisableApplications | Applications                | ApplicationsNotVisible                              | Health System     | Roletext | LearningPathway | Facilities |
-      | Super Admin | Remedy TCS | test.automatemail | Reports, Lessons    | Episodes 2.0, Episodes, TCI | Reports, Lessons, Administration, Physician Connect | Stamford Hospital |          |                 |            |
+      | User                            | Role       | Email             | DisableApplications | Applications                | ApplicationsNotVisible                              | Health System     | Roletext | LearningPathway | Facilities |
+      | Partner Technical Administrator | Remedy TCS | test.automatemail | Reports, Lessons    | Episodes 2.0, Episodes, TCI | Reports, Lessons, Administration, Physician Connect | Stamford Hospital |          |                 |            |
 
   Scenario Outline: Changing Data permissions and add another organisation <Health System2> for <Role>
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -120,12 +124,14 @@ Feature: Edit General information/Role/Permissions and validate
     Then I verify "<Health System1>, <Health System2>" under Data Permissions
 
     Examples: 
-      | user        | Role       | Email             | Health System1    | Health System2   | Programs    |
-      | Super Admin | Remedy TCS | test.automatemail | Stamford Hospital | Sound Physicians | BPCI-Model2 |
+      | user                            | Role       | Email             | Health System1    | Health System2   | Programs    |
+      | Partner Technical Administrator | Remedy TCS | test.automatemail | Stamford Hospital | Sound Physicians | BPCI-Model2 |
 
   Scenario Outline: Changing the products and general details for <Role> and verifying product tile
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -211,15 +217,17 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | Role                         | FirstName       | LastName       | Email             | Phone        | DisableApplications   | Applications                                  | ApplicationsNotVisible            | Health System | Roletext | LearningPathway | Facilities |
-      | Super Admin | Case Manager                 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Episodes 2.0, Lessons | Episodes, Reports                             | Administration, Physician Connect |               |          |                 |            |
-      | Super Admin | Remedy RN                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |                       | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect |               |          |                 |            |
-      | Super Admin | Remedy PM                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons               | Episodes, Episodes 2.0, Reports, TCI          | Administration, Physician Connect |               |          |                 |            |
-      | Super Admin | Remedy Program Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons, Episodes 2.0 | Episodes, Reports, Physician Connect, TCI     | Administration                    |               |          |                 |            |
+      | User                            | Role                         | FirstName       | LastName       | Email             | Phone        | DisableApplications   | Applications                                  | ApplicationsNotVisible            | Health System | Roletext | LearningPathway | Facilities |
+      | Partner Technical Administrator | Case Manager                 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Episodes 2.0, Lessons | Episodes, Reports                             | Administration, Physician Connect |               |          |                 |            |
+      | Partner Technical Administrator | Remedy RN                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |                       | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect |               |          |                 |            |
+      | Partner Technical Administrator | Remedy PM                    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons               | Episodes, Episodes 2.0, Reports, TCI          | Administration, Physician Connect |               |          |                 |            |
+      | Partner Technical Administrator | Remedy Program Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons, Episodes 2.0 | Episodes, Reports, Physician Connect, TCI     | Administration                    |               |          |                 |            |
 
   Scenario Outline: Changing applications for <Role> and verifying product tile
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -300,12 +308,14 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | Role             | Email             | DisableApplications | Applications                    | RemoveLearningPathwaySearchParameter | ApplicationsNotVisible            | Health System | Roletext | LearningPathway | Facilities |
-      | Super Admin | Remedy Executive | test.automatemail | Episodes 2.0        | Episodes, Reports, Lessons, TCI | max-test-052417                      | Administration, Physician Connect |               |          |                 |            |
+      | User                            | Role             | Email             | DisableApplications | Applications                    | RemoveLearningPathwaySearchParameter | ApplicationsNotVisible            | Health System | Roletext | LearningPathway | Facilities |
+      | Partner Technical Administrator | Remedy Executive | test.automatemail | Episodes 2.0        | Episodes, Reports, Lessons, TCI | max-test-052417                      | Administration, Physician Connect |               |          |                 |            |
 
   Scenario Outline: Changing the permissions and general details for <Role> and verifying product tile
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -334,12 +344,14 @@ Feature: Edit General information/Role/Permissions and validate
     Then I verify "<Health System>" under Data Permissions
 
     Examples: 
-      | User        | Role                          | FirstName       | LastName       | Email             | Phone        | Applications | Health System     |
-      | Super Admin | Prospective Partner Executive | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons      | Stamford Hospital |
+      | User                            | Role                          | FirstName       | LastName       | Email             | Phone        | Applications | Health System     |
+      | Partner Technical Administrator | Prospective Partner Executive | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Lessons      | Stamford Hospital |
 
   Scenario Outline: Changing General details and Role from <PreviousRole> to <Role>
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -433,13 +445,15 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                  | Role         | EnableApplications | Applications                                  | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter         | Roletext | Facilities |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Manager                       | Remedy TCS   | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2, i am learning path |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Partner Program Administrator | Case Manager |                    | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2                     |          |            |
+      | User                            | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                  | Role         | EnableApplications | Applications                                  | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter         | Roletext | Facilities |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Manager                       | Remedy TCS   | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2, i am learning path |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Partner Program Administrator | Case Manager |                    | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2                     |          |            |
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and Data permissions
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -533,14 +547,16 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role             | EnableApplications | Applications                                  | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter | Roletext | Facilities |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Executive    | Remedy Executive | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Other | Manager          | Reports            | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy LPN   | Remedy Field RN  |                    | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | User                            | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role             | EnableApplications | Applications                                  | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter | Roletext | Facilities |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Executive    | Remedy Executive | TCI                | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Other | Manager          | Reports            | Episodes, Episodes 2.0, Reports, Lessons      | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy LPN   | Remedy Field RN  |                    | Episodes, Episodes 2.0, Reports, Lessons, TCI | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
 
   Scenario Outline: Changing Role from <PreviousRole> to <Role>
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -627,13 +643,15 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole     | Role         | EnableApplications | Applications                             | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter | Roletext | Facilities |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager     | Executive    |                    | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive | Remedy Other |                    | Episodes, Episodes 2.0, Lessons, TCI     | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | User                            | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole     | Role         | EnableApplications | Applications                             | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter | Roletext | Facilities |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager     | Executive    |                    | Episodes, Episodes 2.0, Reports, Lessons | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive | Remedy Other |                    | Episodes, Episodes 2.0, Lessons, TCI     | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
 
   Scenario Outline: Changing General information, Role from <PreviousRole> to <Role> and Data permissions
     Given I am on the login page
-    When I log in as super user
+    When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -730,8 +748,8 @@ Feature: Edit General information/Role/Permissions and validate
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                   | Role             | EnableApplications              | Applications                                                | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter | Roletext | Facilities |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Sales Team              | Remedy Executive | Episodes, Episodes 2.0          | Episodes, Episodes 2.0, Reports, Lessons, TCI               | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive               | Executive        |                                 | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Remedy Technical Administrator | Physicians       |                                 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                    | Stamford Hospital | Learning Pathway 2             |          |            |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Transitional Case Manager      | Physicians       | Physician Connect, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                    | Stamford Hospital | Learning Pathway 2             |          |            |
+      | User                            | UserName                               | Password | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole                   | Role             | EnableApplications              | Applications                                                | ApplicationsNotVisible            | Health System     | LearningPathwaySearchParameter | Roletext | Facilities |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Sales Team              | Remedy Executive | Episodes, Episodes 2.0          | Episodes, Episodes 2.0, Reports, Lessons, TCI               | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 |     | Remedy Executive               | Executive        |                                 | Episodes, Episodes 2.0, Reports, Lessons                    | Administration, Physician Connect | Stamford Hospital | Learning Pathway 2             |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Remedy Technical Administrator | Physicians       |                                 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                    | Stamford Hospital | Learning Pathway 2             |          |            |
+      | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Transitional Case Manager      | Physicians       | Physician Connect, Episodes 2.0 | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | Administration                    | Stamford Hospital | Learning Pathway 2             |          |            |

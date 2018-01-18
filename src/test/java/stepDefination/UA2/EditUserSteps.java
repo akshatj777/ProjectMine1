@@ -88,10 +88,7 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 			editUser.iClickOnAddAnotherOrganisation(text);
 		}
 	
-	@Then("^I verify \"([^\"]*)\" under Data Permissions$")
-	public void i_verify_under_Data_Permissions(String arg1) throws Throwable {
-	    editUser.iVerifyDataPermission(arg1);
-	}
+
 	@Then("^I click on Select All Locations button for \"([^\"]*)\" Organisation$")
 	public void i_click_on_Select_All_Locations_button_for_Organisation(String arg1) throws Throwable {
 		editUser.clickAllLocationsButton(arg1);
@@ -160,5 +157,10 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	@Then("^I verify that provisioned roles of PTA are present on edit page$")
 	public void iVerifyPTAProvisionedRoleOnEditPage(){
 		editUser.iVerifyPTAProvisionedRoleOnEditPage();
+	}
+	
+	@Then("^I verify \"([^\"]*)\" under Data Permissions in view user page$")
+	public void i_verify_under_Data_Permissions_in_view_user_page(String arg1) throws Throwable {
+		editUser.iVerifyDataPermissions(arg1);
 	}
 }

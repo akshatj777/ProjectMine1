@@ -151,21 +151,8 @@ public class EditUser extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".component-participant-title"));
 		clickElement(driver.findElement(By.cssSelector(".component-participant-title")));
 	}
-	public void iVerifyDataPermission(String arg){
-		longDelay();
-		iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
-		if (arg.contains(",")) {
-			
-			String[] org = arg.split(",\\s+");
 
-			for (int i = 0; i < org.length; i++) {
-				isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+org[i]+"')]")));
-			}
-	}
-		else{
-			isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+arg+"')]")));
-		}
-	}
+	
 	   public void clickAllLocationsButton(String arg) throws Throwable {
 		   
 		   if(arg.equals("Second")){
@@ -360,5 +347,41 @@ public class EditUser extends BaseClass {
 		   clickElement(driver.findElement(By.cssSelector(".ui.selection.dropdown")));
 		   createUserPage.selectLearningPath(searchParam);
 	   }
+		public void iVerifyDataPermissions(String arg){
+			longDelay();
+			iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
+			if (arg.contains(",")) {
+				String[] org = arg.split(",\\s+");
+				for (int i = 0; i < org.length; i++) {
+					
+					
+						String[] heathProgLoc = org[i].split("--");
+						clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+heathProgLoc[0].trim()+"')]")));
+						if (heathProgLoc[1].contains("-")){
+							   StringTokenizer st = new StringTokenizer(heathProgLoc[1],"-");
+						       while (st.hasMoreTokens()) {
+						    	   String token = st.nextToken().trim();
+						    	   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
+						       }
+					
+				}
+		}
+		}
+			else{
+				
+					String[] heathProgLoc = arg.split("--");
+					clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+heathProgLoc[0].trim()+"')]")));
+					if (heathProgLoc[1].contains("-")){
+						   StringTokenizer st = new StringTokenizer(heathProgLoc[1],"-");
+					       while (st.hasMoreTokens()) {
+					    	   String token = st.nextToken().trim();
+					    	   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
+					       }
+				
+			
+		
+}
 
+}
+		}
 }
