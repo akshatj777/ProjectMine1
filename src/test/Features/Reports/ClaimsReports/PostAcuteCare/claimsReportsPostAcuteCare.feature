@@ -100,9 +100,9 @@ Feature: Verification of Post Acute Care Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify initial snf los is appearing and not initial snf los (adj hist) under post acute care report in measures available fields
     Given I am on the login page
@@ -731,9 +731,43 @@ Feature: Verification of Post Acute Care Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
+      
+  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for post acute care claims report under post acute care
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Post Acute Care" under reports tile text
+    When I click on the Reports Tile with text "Post Acute Care"
+    Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Post Acute Care" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #CCN Drag and Drop
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "CCN" column is added to report after selecing add to report option
+    #Post Acute CCN Drag and Drop
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
+    
+    Examples: 
+      | email                              |
+      | RPFINClaimsSNFHHATier1@yopmail.com |
+      | OPSFINTier1_2@yopmail.com          |
 
   Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for post acute care claims report under post acute care
     Given I am on the login page
@@ -821,37 +855,3 @@ Feature: Verification of Post Acute Care Claims Report
       | email                              | postacutetype1 | postacutetype2 | networktier1   | networktier2 | networktier3 |
       | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
       | OPSFINTier1_2@yopmail.com          | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
-
-  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for post acute care claims report under post acute care
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Post Acute Care" under reports tile text
-    When I click on the Reports Tile with text "Post Acute Care"
-    Then I click on "Post Acute Care (Claims)" report text for Post Acute Care Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Post Acute Care" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #CCN Drag and Drop
-    When I click to "CCN" field filter under "Anchor Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
-    #Post Acute CCN Drag and Drop
-    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
-    
-    Examples: 
-      | email                              |
-      | RPFINClaimsSNFHHATier1@yopmail.com |
-      | OPSFINTier1_2@yopmail.com          |

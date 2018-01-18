@@ -94,9 +94,9 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should remove the existing default filters
     Given I am on the login page
@@ -121,105 +121,105 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: Verify the participant filter after removing the default filters for RPFIN,OPSFIN and RPNOFIN role multiple payer users
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Financial Performance" is appearing inside the iframe
-    When I click on field-panel-icon button
-    When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Participant" in the header text of filter page
-    And I should see "<participant1>" in the filter value list
-    And I should see "<participant2>" in the filter value list
-    And I click on cancel button from filter
-    And I wait until refresh button is disappeared
-    When I click on filter count label to see preselected filters
-    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
-    Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
-    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-    When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Participant" in the header text of filter page
-    And I should see "<participant1>" in the filter value list
-    And I should see "<participant2>" in the filter value list
-    And I click on "<participant2>" in the filter value list
-    And I click on add selected in the filter model
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "<participant2>" result in "Participant" field column for "Episode Initiator" filter field
+  #Scenario Outline: Verify the participant filter after removing the default filters for RPFIN,OPSFIN and RPNOFIN role multiple payer users
+    #Given I am on the login page
+    #When I enter email field <email> for login
+    #And I enter password field Testing1 for Login
+    #Then I click Access button
+    #And I wait to see "Reports" tile
+    #When I click on the "Reports" tile
+    #And I wait to see "Overall Program" under reports tile text
+    #When I click on the Reports Tile with text "Overall Program"
+    #Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
+    #And I wait for the reports embedded iframe to load
+    #When I switch to reports embedded iframe
+    #And I will wait to see "Financial Performance" is appearing inside the iframe
+    #When I click on field-panel-icon button
+    #When I click to "Participant" field filter under "Episode Initiator" filter field
+    #And I choose "Filter" option from select options of filter field
+    #And I should see "Participant" in the header text of filter page
+    #And I should see "<participant1>" in the filter value list
+    #And I should see "<participant2>" in the filter value list
+    #And I click on cancel button from filter
+    #And I wait until refresh button is disappeared
+    #When I click on filter count label to see preselected filters
+    #Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    #Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
+    #Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
+    #When I click to "Participant" field filter under "Episode Initiator" filter field
+    #And I choose "Filter" option from select options of filter field
+    #And I should see "Participant" in the header text of filter page
+    #And I should see "<participant1>" in the filter value list
+    #And I should see "<participant2>" in the filter value list
+    #And I click on "<participant2>" in the filter value list
+    #And I click on add selected in the filter model
+    #And I click on ok button from filter
+    #And I wait until refresh button is disappeared
+    #And I should see "<participant2>" result in "Participant" field column for "Episode Initiator" filter field
+#
+    #Examples: 
+      #| email                            | participant1 | participant2    |
+      #| multipayerachrpfin@yopmail.com   | Penn         | RP Payer Test A |
+      #| multipayerachrpnofin@yopmail.com | Penn         | RP Payer Test A |
+      #| multipayerachopsfin@yopmail.com  | Penn         | RP Payer Test A |
+#
+  #Scenario Outline: Verify the data is appearing inside the report after removing the default filter for emblem user
+    #Given I am on the login page
+    #When I enter email field <email> for login
+    #And I enter password field Testing1 for Login
+    #Then I click Access button
+    #And I wait to see "Reports" tile
+    #When I click on the "Reports" tile
+    #And I wait to see "Overall Program" under reports tile text
+    #When I click on the Reports Tile with text "Overall Program"
+    #Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
+    #And I wait for the reports embedded iframe to load
+    #When I switch to reports embedded iframe
+    #And I will wait to see "Financial Performance" is appearing inside the iframe
+    #When I click on show all filters icon button
+    #Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    #Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
+    #Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
+    #Then I should see performance reports column Tile text as "Participant"
+    #Then I should see performance reports column Tile text as "Episode Initiator"
+    #Then I should see performance reports column Tile text as "Bundle"
+    #Then I should see performance reports column Tile text as "Anchor Admission Quarter"
+    #And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
+#
+    #Examples: 
+      #| email                     | participant     |
+      #| emblemrpnofin@yopmail.com | RP Payer Test A |
 
-    Examples: 
-      | email                            | participant1 | participant2    |
-      | multipayerachrpfin@yopmail.com   | Penn         | RP Payer Test A |
-      | multipayerachrpnofin@yopmail.com | Penn         | RP Payer Test A |
-      | multipayerachopsfin@yopmail.com  | Penn         | RP Payer Test A |
-
-  Scenario Outline: Verify the data is appearing inside the report after removing the default filter for emblem user
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Financial Performance" is appearing inside the iframe
-    When I click on show all filters icon button
-    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
-    Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
-    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-    Then I should see performance reports column Tile text as "Participant"
-    Then I should see performance reports column Tile text as "Episode Initiator"
-    Then I should see performance reports column Tile text as "Bundle"
-    Then I should see performance reports column Tile text as "Anchor Admission Quarter"
-    And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
-
-    Examples: 
-      | email                     | participant     |
-      | emblemrpnofin@yopmail.com | RP Payer Test A |
-
-  Scenario Outline: Verify user is able to see claims data in claims report with emblem payer user
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Financial Performance" is appearing inside the iframe
-    When I click on field-panel-icon button
-    When I click to "Participant" field filter under "Episode Initiator" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Participant" in the header text of filter page
-    And I should see "<participant>" in the filter value list
-    And I click on cancel button from filter
-    And I wait until refresh button is disappeared
-    And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
-
-    Examples: 
-      | email                      | participant     |
-      | emblemrpfin@yopmail.com    | RP Payer Test A |
-      | emblemachrpfin@yopmail.com | RP Payer Test A |
+  #Scenario Outline: Verify user is able to see claims data in claims report with emblem payer user
+    #Given I am on the login page
+    #When I enter email field <email> for login
+    #And I enter password field Testing1 for Login
+    #Then I click Access button
+    #And I wait to see "Reports" tile
+    #When I click on the "Reports" tile
+    #And I wait to see "Overall Program" under reports tile text
+    #When I click on the Reports Tile with text "Overall Program"
+    #Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
+    #And I wait for the reports embedded iframe to load
+    #When I switch to reports embedded iframe
+    #And I will wait to see "Financial Performance" is appearing inside the iframe
+    #When I click on field-panel-icon button
+    #When I click to "Participant" field filter under "Episode Initiator" filter field
+    #And I choose "Filter" option from select options of filter field
+    #And I should see "Participant" in the header text of filter page
+    #And I should see "<participant>" in the filter value list
+    #And I click on cancel button from filter
+    #And I wait until refresh button is disappeared
+    #And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
+#
+    #Examples: 
+      #| email                      | participant     |
+      #| emblemrpfin@yopmail.com    | RP Payer Test A |
+      #| emblemachrpfin@yopmail.com | RP Payer Test A |
 
   Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture values when anchor admission quarter >= 2016Q4 in financial performance claims report under overall program
     Given I am on the login page
@@ -743,6 +743,40 @@ Feature: Verification Claims Report For Financial Performance Claims Report
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for financial performance claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Financial Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #CCN Drag and Drop
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "CCN" column is added to report after selecing add to report option
+    #Post Acute CCN Drag and Drop
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
+    
+    Examples: 
+      | email                              |
+      | RPFINClaimsSNFHHATier1@yopmail.com |
+      | OPSFINTier1_2@yopmail.com          |
 
   Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for financial performance claims report under overall program
     Given I am on the login page
@@ -830,37 +864,3 @@ Feature: Verification Claims Report For Financial Performance Claims Report
       | email                              | postacutetype1 | postacutetype2 | networktier1   | networktier2 | networktier3 |
       | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
       | OPSFINTier1_2@yopmail.com          | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
-
-  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for financial performance claims report under overall program
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Financial Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Financial Performance" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #CCN Drag and Drop
-    When I click to "CCN" field filter under "Anchor Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
-    #Post Acute CCN Drag and Drop
-    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
-    
-    Examples: 
-      | email                              |
-      | RPFINClaimsSNFHHATier1@yopmail.com |
-      | OPSFINTier1_2@yopmail.com          |

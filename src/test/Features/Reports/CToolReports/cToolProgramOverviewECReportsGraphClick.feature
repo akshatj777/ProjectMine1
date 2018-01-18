@@ -68,7 +68,7 @@ Feature: Clicking on Program Overview report graphs for EPisode Connect reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should be able to click on program overview episode connect reports graphs under snf length of stay
     Given I am on the login page
@@ -107,7 +107,7 @@ Feature: Clicking on Program Overview report graphs for EPisode Connect reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |
 
   Scenario Outline: User should be able to click on program overview episode connect reports graphs under readmissions
     Given I am on the login page
@@ -154,4 +154,4 @@ Feature: Clicking on Program Overview report graphs for EPisode Connect reports
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |
