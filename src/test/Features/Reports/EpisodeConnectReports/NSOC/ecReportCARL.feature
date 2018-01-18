@@ -132,7 +132,7 @@ Feature: Verification of CARL EC Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify user should be able to search exact values in the availbale filter fields
     Given I am on the login page

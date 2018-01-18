@@ -72,7 +72,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify user can search for network tier under snf los summary report
     Given I am on the login page
