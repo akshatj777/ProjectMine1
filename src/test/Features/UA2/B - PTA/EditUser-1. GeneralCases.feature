@@ -3,6 +3,8 @@ Feature: Edit user page for General cases
   Scenario Outline: Verifying editable/non-editable fields of general, validating Applications tab and searching invalid learning pathway
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -25,18 +27,20 @@ Feature: Edit user page for General cases
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I verify that "Next" button is disabled when no application is selected
-    Then I select "<Applications>" product
+    Then I select "<EnableApplications>" product
     Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     And I verify No results found under Learning Pathway search box
 
     Examples: 
-      | UserName                        | User                            | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | Applications                                                | LearningPathwaySearchParameter |  |
-      | Partner Technical Administrator | Partner Technical Administrator | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |  |
+      | UserName          | User                            | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | EnableApplications | Applications                                                | LearningPathwaySearchParameter |  |
+      | chloe@yopmail.com | Partner Technical Administrator | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physician Connect  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |  |
 
   Scenario Outline: Edit General Information tab with invalid data and verify Error message
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -55,14 +59,16 @@ Feature: Edit user page for General cases
     And I should see error message "Phone is required"
 
     Examples: 
-      | User                            | UserName                        | Password | FirstName | LastName | Email             | Phone      | NPI        | Role       |
-      | Partner Technical Administrator | Partner Technical Administrator | Testing1 |         1 |        2 | test.automatemail | abc3479074 |  123456789 | Physicians |
-      | Partner Technical Administrator | Partner Technical Administrator | Testing1 |        56 | 1Last    | test.automatemail | as34       | asbcf12345 | Physicians |
-      | Partner Technical Administrator | Partner Technical Administrator | Testing1 | 1First    |      456 | test.automatemail | as34!      | qawsedrftg | Physicians |
+      | User                            | UserName          | Password | FirstName | LastName | Email             | Phone      | NPI       | Role       |
+      | Partner Technical Administrator | chloe@yopmail.com | Testing1 |         1 |        2 | test.automatemail | abc3479074 | 123456789 | Physicians |
 
+  # | Partner Technical Administrator | chloe@yopmail.com | Testing1 |        56 | 1Last    | test.automatemail | as34       | asbcf12345 | Physicians |
+  #| Partner Technical Administrator | Partner Technical Administrator | Testing1 | 1First    |      456 | test.automatemail | as34!      | qawsedrftg | Physicians |
   Scenario Outline: verify enable/disable application functionality for <Role>
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -95,6 +101,8 @@ Feature: Edit user page for General cases
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and hitting Cancel button
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -121,6 +129,8 @@ Feature: Edit user page for General cases
   Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify, product list in Applications tab and search location by facility id
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -135,9 +145,6 @@ Feature: Edit user page for General cases
     Then I verify the header "Applications"
     Then I verify that "Less" products are shown in Applications tab as compared to "<PreviousRoleProductCount>"
     Then I select "<EnableApplications1>" product
-    #Then I click on Select button
-    #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Submit button
     And I wait for 3000 milli seconds
@@ -150,15 +157,11 @@ Feature: Edit user page for General cases
     Then I click on Next button
     Then I verify that "More" products are shown in Applications tab as compared to "<RoleProductCount>"
     Then I select "<EnableApplications2>" product
-    #Then I click on Select button
-    #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
-    #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on delete organisation icon
     Then I should see an alert with text "Are you sure you want to remove"
     And I should see "Cancel" button
     Then I click on "Remove" button on permissions tab
-    #Then I click on Select button
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
     And I select a <Health System>
@@ -177,6 +180,8 @@ Feature: Edit user page for General cases
   Scenario Outline: Validate error message for Invalid characters in permissions tab and Edit multiple to single programs
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
@@ -207,6 +212,8 @@ Feature: Edit user page for General cases
   Scenario Outline: Remove existing Program and select another Program in permissions tab and verify facility Key in data permissions
     Given I am on the login page
     When I enter email field <UserName> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"

@@ -111,15 +111,15 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	}
 	@Then("^I verify that \"([^\"]*)\" button is disabled when no application is selected$")
 	public void iVerifyDisabledNextButton(String text){
-		
+		editUser.iVerifyDisabledNextButton(text);
 	}
 	@Then("^I should see error message \"([^\"]*)\"$")
 	public void iVerifyErrorMessage(String text){
 		editUser.iVerifyErrorMessage(text);
 	}
-	@Then("^I remove LearningPathwaySearchParameter$")
-	public void removeLearningPathway(){
-		editUser.removeLearningPathway();
+	@Then("^I unselect \"([^\"]*)\" from the results$")
+	public void unselectLearningPath(String searchParam) throws Throwable {
+		editUser.unselectLearningPath(searchParam);
 	}
 	@Then("^I click on Close icon$")
 	public void i_click_on_Close_icon() throws Throwable {
@@ -159,6 +159,6 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	}
 	@Then("^I verify that provisioned roles of PTA are present on edit page$")
 	public void iVerifyPTAProvisionedRoleOnEditPage(){
-		
+		editUser.iVerifyPTAProvisionedRoleOnEditPage();
 	}
 }
