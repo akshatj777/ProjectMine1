@@ -77,6 +77,7 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void i_Wait_To_See(String text,String tag) {
+		delay();
 		iWillWaitToSee(By.xpath("//"+tag+"[contains(text(),'"+text+"')]"));
 		isElementVisible(driver.findElement(By.xpath("//"+tag+"[contains(text(),'"+text+"')]")));
 		delay();

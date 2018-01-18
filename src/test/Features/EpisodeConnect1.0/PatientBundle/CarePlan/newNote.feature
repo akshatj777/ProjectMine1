@@ -1,7 +1,7 @@
 @EC1Smoke
 Feature: New Note
 
-  Scenario Outline: Adding new note from Care Plan
+  Scenario Outline: Adding new note from Care Plan (Add baseline note test case).
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Episode1! for Login
@@ -40,6 +40,5 @@ Feature: New Note
     And I will wait to see "body text in this input" in "pre" tag
 
     Examples: 
-      | email              |
+      | email                |
       | qa.admin@yopmail.com |
-      #| qa.prm@yopmail.com |
