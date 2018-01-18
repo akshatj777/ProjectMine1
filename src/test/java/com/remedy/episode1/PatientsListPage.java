@@ -329,6 +329,7 @@ public class PatientsListPage extends BaseClass {
 
 
 	public void progress_on_patient_card(String value) {
+		longDelay();
 		iWillWaitToSee(By.xpath("//div[contains(@ng-if,'element.progress.exists')]/span"));
 		verifyTextForElement(driver.findElement(By.xpath("//div[contains(@ng-if,'element.progress.exists')]/span")),value);
 	}

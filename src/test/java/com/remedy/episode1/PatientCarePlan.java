@@ -302,6 +302,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iwillwaittoseeCARLToolonactivestate(int index) {
+		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]"));
 		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]")));
 	}

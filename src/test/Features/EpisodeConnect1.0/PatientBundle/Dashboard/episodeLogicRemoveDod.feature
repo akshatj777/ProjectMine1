@@ -34,11 +34,10 @@ Feature: Managing Various Episode States - Removing DOD
     And I will wait to see patient's name on patient summary page
     And I will wait to see "General" in "h3" tag
     And I edit date of death with "-30"
-    Then I verify error "The date of death can not be in the future" in DOD field
+    Then I verify error "The date of death can not be in the future." in DOD field
     And I edit date of death with "15000"
     Then I verify error "The date of death can not come before dob." in DOD field
     And I edit date of death with "1"
-    Then I verify error "The date of death can not be in the future" in DOD field
     When I reload the page
     And I will wait to see patient's name on patient summary page
     And I should see tag "Expired"

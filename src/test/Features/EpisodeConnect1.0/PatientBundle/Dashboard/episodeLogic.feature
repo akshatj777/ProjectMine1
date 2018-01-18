@@ -100,7 +100,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "CANCELED" state
-    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "0" with "1" to show end date and Episode Status "CANCELED"
+    Then I will verify Episode Marker Admit Date "1" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "CANCELED"
     Then I will wait to see onboarding status "Unknown"
 
   Scenario: Episode PENDING CANCELLATION - update anchor with non-final non-bpci drg
@@ -134,7 +134,8 @@ Feature: Managing Various Episode States
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
 
   Scenario: Episode EXPIRED AS INPATIENT - Set patient as exp.
-    Then I navigate to the "/secure/person/mongoID/overview"
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Expired" option
@@ -146,7 +147,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "EXPIRED AS INPATIENT" state
-    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "0" with "1" to show end date and Episode Status "CANCELED"
+    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "0" with "-1" to show end date and Episode Status "EXPIRED AS INPATIENT"
     Then I will wait to see onboarding status "Unknown"
 
   Scenario: Episode NOT ELIGIBLE and Back to Active - set patient eligibility to not eligible then back to eligible
@@ -172,12 +173,11 @@ Feature: Managing Various Episode States
     Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: Episode COMPLETED - discharge date before 90 days
-   Then I navigate to the "/secure/person/mongoID/overview"
+    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "10" days
-    Then I fill in "Discharge" with logic "minus" with "3" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
@@ -211,7 +211,7 @@ Feature: Managing Various Episode States
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
-    When I click first timing transition edit link "1"
+    When I click first timing transition edit link "2"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "95" days
     Then I fill in "Discharge" with logic "minus" with "92" days
@@ -247,6 +247,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED EXPIRED" state
+    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "0" with "-1" to show end date and Episode Status "EXPIRED AS INPATIENT"
 
   Scenario: Episode COMPLETED-365 - Anchor admit date before 365 days
     Then I navigate to the "/secure/person/mongoID/overview"
@@ -259,43 +260,7 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED 365" state
     Then I will wait to see onboarding status "Unknown"
-
- 
-  Scenario: COMPLETED EXPIRED -Removing dod should rerun episode logic and also reinstate previous eligibility status.
-    And I should see tag "Error"
-    When I click first timing transition edit link "1"
-    And I will wait to see "Admission Date" in "label" tag
-    Then I fill in "Admit" with logic "minus" with "90" days
-    Then I fill in "Discharge" with logic "minus" with "30" days
-    Then I click on update transition to add a new episode
-    When I reload the page
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I scroll the page to bottom by "-50"
-    When I click on "Eligibility" dropdown button
-    When I click on eligibility set "Expired" option
-    When I fill in eligibility "Date of Death" with "0" days
-    When I click "Confirm" xpath element "//*[@id='submitExpired']"
-    And I will wait to see "Your changes have been successfully saved" in "p" tag
-    And I should see tag "Expired"
-    When I reload the page
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "COMPLETED EXPIRED" state
-    And I should see tag "Expired"
-    Then I navigate to the "/secure/person/mongoID/patient-details"
-    And I will wait to see patient's name on patient summary page
-    And I will wait to see "General" in "h3" tag
-    And I will clear the Date of death field on patient details page
-    When I edit medicare ID with "123456799A"
-    And I will wait to see "123456799A" in "div" tag
-    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    Then I will wait to see onboarding status "Unknown"
-    And I should not see "Expired" in "h3" tag
+    Then I will verify Episode Marker Admit Date "400" and "add" Discharge date "400" with "364" to show end date and Episode Status "COMPLETED 365"
 
   Scenario: EPISODE_EXCLUDED Cancelled episode terminated as excluded
     Then I navigate to the "/secure/person/mongoID/overview"
@@ -324,8 +289,8 @@ Feature: Managing Various Episode States
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
     And I am on "/secure/dashboard"
     Then I verify "My patients" as selected tab on patient dashboard
-    And I verify patients are appearing on patient dashboard
     And I enter patients fullname in the patient search box under active tab on Dashboard
+    And I should see patient first name appearing under search on Dashboard
     And I should see "0 days to anchor admission" appearing under search on "PROGRESS" "progress-column" Dashboard
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under search on "EPISODE DRG" "episode-column" Dashboard
     And I should see "(HHH) Stamford Hospital" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard

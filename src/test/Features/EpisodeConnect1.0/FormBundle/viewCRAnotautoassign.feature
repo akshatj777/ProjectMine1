@@ -59,7 +59,7 @@ Feature: CRA Not Auto-assignment
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I should see text of "2" in assigned form counter
     Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
-    Then I will wait to see onboarding status "Needs onboarding"
+    Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: CRA should not get assigned automatically if Onboarding status is Onboarded.
     Given I am on the login page

@@ -45,6 +45,5 @@ Feature: New Appointment
     And I will wait to see "Note of appointment" in "p" tag
 
     Examples: 
-      | email              |
+      | email                |
       | qa.admin@yopmail.com |
-     # | qa.prm@yopmail.com |
