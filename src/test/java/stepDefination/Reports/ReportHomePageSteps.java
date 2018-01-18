@@ -1662,7 +1662,6 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(text);
     }
     
-<<<<<<< HEAD
     @When("^I click to \"([^\"]*)\" filter field under available fields$")
     public void i_click_to_filter_field_under_available_fields(String text) throws Throwable{
     	reportHomePage.iClickOnDashboardAnchorCCNFilterField(text);
@@ -1681,7 +1680,8 @@ public class ReportHomePageSteps extends DriverScript {
     @And("I verify \"([^\"]*)\" column is not present in the reports")
     public void i_verify_column_is_not_present_in_the_reports(String text) throws Throwable{
     	reportHomePage.iVerifyTextNotPresentInTheReportsTable(text);
-=======
+    }
+    
     @Then("^I verify \"([^\"]*)\" text is appearing in the FAQ page$")
     public void i_verify_text_is_appearing_in_the_FAQ_page(String text) throws Throwable{
     	reportHomePage.iVerifyTextOnTheFAQPage(text);
@@ -1690,6 +1690,5 @@ public class ReportHomePageSteps extends DriverScript {
     @And("^I should be able to see FAQ links list mentioned in the FAQ page$")
     public void i_should_be_able_to_see_FAQ_links_list_mentioned_in_the_FAQ_page() throws Throwable{
     	reportHomePage.iShouldSeeFAQListOnFAQPage();
->>>>>>> c8c14099d6bc20e41919b4b231a782b40c794971
     }
 }
