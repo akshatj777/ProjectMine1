@@ -462,7 +462,7 @@ Feature: Verification of Readmissions EC report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Eligibility" field is appearing in the layout section after selecting add to report
-    Then I verify "Eligibility" column is added to report after selecing add to report option
+    Then I verify "Eligibility" column is added to report after selecting add to report option
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
@@ -502,31 +502,31 @@ Feature: Verification of Readmissions EC report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecing add to report option
+    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
     #BPID Drag and Drop
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecing add to report option
+    Then I verify "BPID" column is added to report after selecting add to report option
     #Patient Risk Drag and Drop
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Patient Risk" column is added to report after selecing add to report option
+    Then I verify "Patient Risk" column is added to report after selecting add to report option
     #Onboarding Sttaus Drag and Drop
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Onboarding Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Onboarding Status" column is added to report after selecing add to report option
+    Then I verify "Onboarding Status" column is added to report after selecting add to report option
     #Risk Score Drag and Drop
     When I click to "Risk Score" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Risk Score" field is appearing in the layout section after selecting add to report
-    Then I verify "Risk Score" column is added to report after selecing add to report option
+    Then I verify "Risk Score" column is added to report after selecting add to report option
 
     Examples: 
       | email                              |

@@ -173,7 +173,7 @@ Feature: Verification Claims Report For Performance (Claims)
     When I click to "DRG" field filter under "DRG" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
+    Then I verify "DRG" column is added to report after selecting add to report option
     And I verify "<DRG>" is appearing in the drg column rows
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
@@ -740,7 +740,41 @@ Feature: Verification Claims Report For Performance (Claims)
       #| Multiple Payer Users          |
       #| multipayerachrpfin@yopmail.com |
 
-  Scenario Outline: User should be able to verify Tier1,Tier2 and Tier Unknown when user is having post acute type as snf and hha for performance claims report under overall program
+  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for performance claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Performance (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #CCN Drag and Drop
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "CCN" column is added to report after selecting add to report option
+    #Post Acute CCN Drag and Drop
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Post Acute CCN" column is added to report after selecting add to report option
+    
+    Examples: 
+      | email                              |
+      | RPFINClaimsSNFHHATier1@yopmail.com |
+      | OPSFINTier1_2@yopmail.com          |
+
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -779,12 +813,12 @@ Feature: Verification Claims Report For Performance (Claims)
     When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "Post Acute Type" column is added to report after selecing add to report option
+    Then I verify "Post Acute Type" column is added to report after selecting add to report option
     #Drag and Drop(Network tier)
     When I click to "Network Tier" field filter under "Network Tier" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier" column is added to report after selecing add to report option
+    Then I verify "Network Tier" column is added to report after selecting add to report option
     #Filtering
     When I click to "Network Tier" field filter under "Network Tier" filter field
     And I choose "Filter" option from select options of filter field
@@ -827,40 +861,6 @@ Feature: Verification Claims Report For Performance (Claims)
       | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
       | OPSFINTier1_2@yopmail.com          | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
 
-  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for performance claims report under overall program
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    When I click on the Reports Tile with text "Overall Program"
-    Then I click on "Performance (Claims)" report text for Overall Program Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Performance" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #CCN Drag and Drop
-    When I click to "CCN" field filter under "Anchor Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
-    #Post Acute CCN Drag and Drop
-    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
-
-    Examples: 
-      | email                              |
-      | RPFINClaimsSNFHHATier1@yopmail.com |
-      | OPSFINTier1_2@yopmail.com          |
-
   Scenario Outline: User should be able to drag and drop the fields Dashboard-Anchor CCN,BPID,Bundle Code,Bundle Risk and Episode Initiator through add to report in performance claims report under overall program
     Given I am on the login page
     When I enter email field <email> for login
@@ -882,25 +882,25 @@ Feature: Verification Claims Report For Performance (Claims)
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Dashboard - Anchor CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
+    Then I verify "Dashboard - Anchor CCN" column is added to report after selecting add to report option
     #BPID Drag and Drop
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecing add to report option
+    Then I verify "BPID" column is added to report after selecting add to report option
     #Bundle Code Drag and Drop
     When I click to "Bundle Code" field filter under "Bundle" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Bundle Code" field is appearing in the layout section after selecting add to report
-    Then I verify "Bundle Code" column is added to report after selecing add to report option
+    Then I verify "Bundle Code" column is added to report after selecting add to report option
     #Bundle Risk Drag and Drop
     When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Bundle Risk" column is added to report after selecing add to report option
+    Then I verify "Bundle Risk" column is added to report after selecting add to report option
     #Episode Initiator Drag and Drop
     When I click on "Episode Initiator" field in the layout section to open the list
     Then I click on remove from report option in the list
@@ -909,7 +909,7 @@ Feature: Verification Claims Report For Performance (Claims)
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Episode Initiator" field is appearing in the layout section after selecting add to report
-    Then I verify "Episode Initiator" column is added to report after selecing add to report option
+    Then I verify "Episode Initiator" column is added to report after selecting add to report option
 
     Examples: 
       | email                              |
