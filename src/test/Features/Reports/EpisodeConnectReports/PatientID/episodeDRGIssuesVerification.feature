@@ -125,7 +125,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
     Given I am on the login page
@@ -157,7 +157,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should not see fracture/non-fracture filters in the available fields in episode drg issues report under patient id
     Given I am on the login page

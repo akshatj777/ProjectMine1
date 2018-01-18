@@ -64,7 +64,7 @@ Feature: Verification of Next Site of Care Summary EC Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify user can search for network tier under nsoc summary report
     Given I am on the login page
