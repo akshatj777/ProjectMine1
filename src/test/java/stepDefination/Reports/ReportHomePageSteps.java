@@ -1661,4 +1661,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter(String text) throws Throwable{
     	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(text);
     }
+    
+    @Then("^I verify \"([^\"]*)\" text is appearing in the FAQ page$")
+    public void i_verify_text_is_appearing_in_the_FAQ_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTextOnTheFAQPage(text);
+    }
+    
+    @And("^I should be able to see FAQ links list mentioned in the FAQ page$")
+    public void i_should_be_able_to_see_FAQ_links_list_mentioned_in_the_FAQ_page() throws Throwable{
+    	reportHomePage.iShouldSeeFAQListOnFAQPage();
+    }
 }

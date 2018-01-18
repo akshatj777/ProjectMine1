@@ -1309,4 +1309,12 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
     }
+    
+    public void iVerifyTextOnTheFAQPage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>h1:nth-of-type(1)")),text);
+    }
+    
+    public void iShouldSeeFAQListOnFAQPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    }
 }

@@ -61,8 +61,19 @@ Feature: Reporting Help Center
       | Readmissions (Claims) Report              |
       | SNF Performance (Claims) Report           |
       | Spending (Claims) Report                  |
+    And I click on "Report Insights" tab on the reporting help center page
+    Then I should see following text under report insights section in reporting help center page
+      | Retrospective Analysis     |
+      | Real-Time Analysis         |
+      | Data Completion and Claims |
+    And I click on "FAQs" tab on the reporting help center page
+    Then I verify "Frequently Asked Questions" text is appearing in the FAQ page
+    And I should be able to see FAQ links list mentioned in the FAQ page
+    And I click on "Glossary" tab on the reporting help center page
+    Then I verify "The following terms and concepts are used across Remedy Connect Reports." text is appearing in the glossary page
+    And I should be able to see terms and conditions list mentioned in the glossary page
 
-    Examples:
+    Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
       | shutestaug221130a@yopmail.com      |
@@ -515,29 +526,6 @@ Feature: Reporting Help Center
       | RPFINM3SNFSaberHealth@yopmail.com  |
       | OPSFINM3SNFSaberHealth@yopmail.com |
 
-  Scenario Outline: User should click on glossary and verify terms and conditions are appearing on the glossary page
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Overall Program" under reports tile text
-    Then I click on avatar symbol to see the menu
-    And I verify "Help Center" is appearing in the list after clicking on avatar
-    Then I click on "Help Center" tab after clicking on avatar symbol to redirect to reporting help center page
-    And I switch to new window
-    Then I wait to see "Reports Help Center" in the new tab after clicking on help center
-    And I should not see login widget after switching to a new tab
-    And I click on "Glossary" tab on the reporting help center page
-    Then I verify "The following terms and concepts are used across Remedy Connect Reports." text is appearing in the glossary page
-    And I should be able to see terms and conditions list mentioned in the glossary page
-
-    Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
-
   Scenario Outline: User should see auth0 login widget if trying to access the url directly and login with valid credentials to see program overview dashboard page under reporting help center
     Given I am on the login page
     And I go to "https://hlpctr-qa.remedypartners.com/help/Content/REPORTS_Category/Dashboards/Program%20Overview%20Dashboard.htm" page
@@ -556,7 +544,7 @@ Feature: Reporting Help Center
     Given I am on the login page
     And I go to "https://hlpctr-qa.remedypartners.com/help/Content/REPORTS_Category/Dashboards/Program%20Overview%20Dashboard.htm" page
     And I should see Log in widget
-    When I enter email field <email> for login
+    When I enter email field test@remedypartnerscom for login
     And I enter password field Testing1 for Login
     Then I click Access button
     And I should see Log in widget
