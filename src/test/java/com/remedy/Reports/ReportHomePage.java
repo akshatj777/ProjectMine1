@@ -1312,7 +1312,6 @@ public class ReportHomePage extends BaseClass {
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
     }
     
-<<<<<<< HEAD
     public void iClickOnDashboardAnchorCCNFilterField(String text){
     	WebElement element = driver.findElement(By.xpath("//div[@formula='[Dashboard - Anchor Facility].[CCN]']"));
     	scrollIntoViewByJS(element);
@@ -1330,13 +1329,13 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyTextNotPresentInTheReportsTable(String text){
     	verifyTextNotPresentForElementFromList(".sortActiveAsc>div>div:nth-of-type(1)",text);
-=======
+    }
+    
     public void iVerifyTextOnTheFAQPage(String text){
     	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>h1:nth-of-type(1)")),text);
     }
     
     public void iShouldSeeFAQListOnFAQPage(){
     	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
->>>>>>> c8c14099d6bc20e41919b4b231a782b40c794971
     }
 }
