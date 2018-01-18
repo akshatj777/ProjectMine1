@@ -14,10 +14,10 @@ Scenario: Add new DRG for first period
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
     And I click on "DRG" appearing beside the facility
-    Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
     And I select all checkbox option on drg list page under facility
     And I click on "DELETE DRG" option on the drg list page in the facility
     And I click on "OK" button
+    Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
     And I click on "ADD NEW DRG" option on the drg list page in the facility
     And I wait untill i see add drg popup
     And I fill in "s2id_autogen1" with "291"

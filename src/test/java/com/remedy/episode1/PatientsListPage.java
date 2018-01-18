@@ -192,7 +192,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnOptionFromPatientslistPatientGearMenu(String option){
-    	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+//    	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
     	clickSingleElementFromList(By.xpath("//div[@class='col-md-2 center open']//li"), option);
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));

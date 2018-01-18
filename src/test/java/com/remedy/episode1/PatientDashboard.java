@@ -297,6 +297,23 @@ public class PatientDashboard extends BaseClass {
     	Assert.assertEquals(column,Value);
 		}
 	}
+	
+	public void iClickOnFirstMessageUnderSentBox(){
+		iWillWaitToSee(By.xpath("//tbody/tr"));
+		clickElement(driver.findElements(By.xpath("//tbody/tr")).get(0));
+	}
+	
+	public void iShouldSeeMessageTextInMessageBodyUnderMessage(String text){
+		iWillWaitToSee(By.cssSelector(".inbox-view"));
+		String actual = getTextForElement(driver.findElement(By.cssSelector(".inbox-view"))).trim();
+		Assert.assertEquals(text, actual);
+	}
+	
+	public void iClickOnDateSortingUnderMessage(){
+		iWillWaitToSee(By.xpath("//th[text()='Date']"));
+		clickElement(driver.findElement(By.xpath("//th[text()='Date']")));
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#tblMessages_processing")));
+	}
 
 
 
