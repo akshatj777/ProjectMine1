@@ -576,8 +576,8 @@ public class CreateUserPage extends BaseClass{
        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
        delay();
-	   iWillWaitToSee(By.xpath("//div[contains(text(),\""+reportName+"\")]"));
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[contains(text(),\""+reportName+"\")]")));
+	   iWillWaitToSee(By.xpath("//div[text()=\""+reportName+"\"]"));
+	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()=\""+reportName+"\"]")));
    }
    
    public void iClickOnReportsTileUnderSpecificUserLoginPage(String role){
@@ -866,13 +866,16 @@ public class CreateUserPage extends BaseClass{
         	   {
         		   StringTokenizer st = new StringTokenizer(searchParam, ",");
         		   while (st.hasMoreTokens()) {
-        			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
-        			   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
+        			   driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")).clear();
+        			   String a = st.nextToken().trim();
+        			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), a);
+        			   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+a+"')]")));
         			   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
         		   }
         	   }
         	   else
         	   {
+        		   driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")).clear();
         		   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
     			   delay();
         		   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
@@ -1294,24 +1297,8 @@ public class CreateUserPage extends BaseClass{
 		   {
 			   if(st.nextToken().trim().equals("Reports"))
 			   {
-				   if(text.equals("Performance (Claims)"))
-				   {
-					   selectElementByTextDescByXpath("//div[label[text()='text']]/following-sibling::div/a", text);
-				        longDelay();
-				        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
-				        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
-				        delay();
-				        iWillWaitToSee(By.xpath("//*[@id='RPT001ReportName'][text()='Performance']"));
-				    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));  
-				   }
-				   else if(text.contains("Episode DRG Issues"))
-				   {
-				       driver.findElement(By.xpath("//a[contains(text(),\""+text+"\")]")).click(); 
+				       driver.findElement(By.xpath("//a[text()=\""+text+"\"]")).click(); 
 					   longDelay();
-				        iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
-				        swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
-				        delay();
-				   }
 			   }
 		   }
 	 }
