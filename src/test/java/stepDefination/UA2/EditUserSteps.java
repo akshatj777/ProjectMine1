@@ -163,4 +163,8 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void i_verify_under_Data_Permissions_in_view_user_page(String arg1) throws Throwable {
 		editUser.iVerifyDataPermissions(arg1);
 	}
+	@Then("^I should see \"([^\"]*)\" under data permissions$")
+	public void iVerifydataPermissionsField(String field){
+		editUser.iVerifydataPermissionsField(field);
+	}
 }

@@ -384,4 +384,18 @@ public class EditUser extends BaseClass {
 
 }
 		}
+		public void iVerifydataPermissionsField(String field){
+			 if (field.contains(",")){
+				   StringTokenizer st = new StringTokenizer(field,",");
+				   while (st.hasMoreTokens()){
+					   String token = st.nextToken().trim();
+					   iWillWaitToSee(By.xpath("//*[contains(text(),'"+token+"')]"));
+					   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
+				   }
+			   }
+			   else{
+			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+field+"')]"));
+			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+field+"')]")));
+			   }
+		}
 }

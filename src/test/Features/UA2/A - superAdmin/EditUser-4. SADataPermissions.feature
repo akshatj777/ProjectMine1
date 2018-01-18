@@ -47,7 +47,10 @@ Scenario Outline: Edit single location to multiple locations
     Then I click on Select All Locations button
     Then I click on Submit button
     And I wait for 3000 milli seconds
+    
     Examples: 
       | user        | Role       | Email             | 
       | Super Admin | Remedy TCS | test.automatemail |
+      
+ 
     
