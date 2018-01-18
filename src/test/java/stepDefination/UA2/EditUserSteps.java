@@ -117,9 +117,9 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyErrorMessage(String text){
 		editUser.iVerifyErrorMessage(text);
 	}
-	@Then("^I remove LearningPathwaySearchParameter$")
-	public void removeLearningPathway(){
-		editUser.removeLearningPathway();
+	@Then("^I unselect \"([^\"]*)\" from the results$")
+	public void unselectLearningPath(String searchParam) throws Throwable {
+		editUser.unselectLearningPath(searchParam);
 	}
 	@Then("^I click on Close icon$")
 	public void i_click_on_Close_icon() throws Throwable {

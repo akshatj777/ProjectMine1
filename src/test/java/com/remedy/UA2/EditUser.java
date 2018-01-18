@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.server.handler.ClickElement;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.userAdmin.CreateUserPage;
 
 public class EditUser extends BaseClass {
 	DateFormat df = new SimpleDateFormat("ddMMyyHHmmss");
@@ -20,7 +21,7 @@ public class EditUser extends BaseClass {
 	String time = df.format(timestamp);
 	String mail = "test.automatemail";
 	final String email = mail + "+" + time + "@gmail.com";
-
+	CreateUserPage createUserPage=new CreateUserPage(driver);
 	public EditUser(WebDriver driver) {
 
 		super(driver);
@@ -236,10 +237,7 @@ public class EditUser extends BaseClass {
 		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
-	   public void removeLearningPathway(){
-		   iWillWaitToSee(By.cssSelector(".delete.icon"));
-		   clickElement(driver.findElement(By.cssSelector(".delete.icon")));
-	   }
+	 
 	   public void iClickOnCloseIcon(){
 		   clickElement(driver.findElement(By.cssSelector(".close.icon")));
 	   }
@@ -349,4 +347,9 @@ public class EditUser extends BaseClass {
 	   public void iVerifyLearningPathwayIDIsNotPresentOnEditPage(String text){
 			Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"']")));
 		}
+	   public void unselectLearningPath(String searchParam) throws Throwable {
+		   iWillWaitToSee(By.cssSelector(".ui.selection.dropdown"));
+		   clickElement(driver.findElement(By.cssSelector(".ui.selection.dropdown")));
+		   createUserPage.selectLearningPath(searchParam);
+	   }
 }
