@@ -571,13 +571,22 @@ public class CreateUserPage extends BaseClass{
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
    }
    
-   public void iVerifyRepOnReportsMainPage(String reportName){
-	   longDelay();
-       iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
-       swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
-       delay();
-	   iWillWaitToSee(By.xpath("//div[text()=\""+reportName+"\"]"));
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()=\""+reportName+"\"]")));
+   public void iVerifyRepOnReportsMainPage(String reportName, String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Reports"))
+		   {
+			   longDelay();
+		       iWillWaitToSee(By.xpath("//iframe[@class='embedded-iframe ng-scope']"));
+		       swithToFrame("//iframe[@class='embedded-iframe ng-scope']");
+		       delay();
+			   iWillWaitToSee(By.xpath("//div[text()=\""+reportName+"\"]"));
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()=\""+reportName+"\"]")));
+		   }
+	   }
+	   
    }
    
    public void iClickOnReportsTileUnderSpecificUserLoginPage(String role){
@@ -960,7 +969,6 @@ public class CreateUserPage extends BaseClass{
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
 		    	   Thread.sleep(3000); 
 	    	   }
-	    	   
 	       }   
 	   }
 	   else if(locationList.contains("--"))

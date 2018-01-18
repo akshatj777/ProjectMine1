@@ -369,9 +369,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyNavigationOnInstituteHomePage(role);
 	}
 	
-	@And("^I verify \"([^\"]*)\" on the reports main page$")
-	public void iVerifyReportOnReportMainPage(String reportName) throws Throwable {
-		createUser.iVerifyRepOnReportsMainPage(reportName);
+	@And("^I verify \"([^\"]*)\" on the reports main page for \"([^\"]*)\" user$")
+	public void iVerifyReportOnReportMainPage(String reportName, String role) throws Throwable {
+		createUser.iVerifyRepOnReportsMainPage(reportName, role);
 	}
 
 	@And("^I click on Reports tile for \"([^\"]*)\" user$")
