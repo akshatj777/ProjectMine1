@@ -58,28 +58,49 @@ Feature: POT3 will get activated on post acute admission
     Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
+    Then I select "Coosa valley health care - Coosa valley health care" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
+    When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "29" to show end date and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I select the "30" admit date with "1" hour "later" in transition "1"
+    Then I select the "15" admit date with "1" hour "later" in transition "1"
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
+    Then I select "Coosa valley health care - Coosa valley health care" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
+    When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "29" to show end date and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I select the "30" admit date with "-2" hour "before" in transition "1"
+    Then I select the "15" admit date with "-2" hour "before" in transition "1"
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "0" with "-1" to show end date and Episode Status "CANCELED"
-    Then I will verify Episode Marker Admit Date "30" and "add" Discharge date "0" with "15" to show end date and Episode Status "POTENTIAL MODEL 3"
+    Then I will verify Episode Marker Admit Date "15" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "CANCELED"
+    Then I will verify Episode Marker Admit Date "30" and "add" Discharge date "15" with "29" to show end date and Episode Status "POTENTIAL MODEL 3"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click anchor transition delete link "1"
     And I will wait to see patient's name on patient summary page
-    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "0" with "-1" to show end date and Episode Status "CANCELED"
+    Then I will verify Episode Marker Admit Date "30" and "add" Discharge date "15" with "29" to show end date and Episode Status "POTENTIAL MODEL 3"
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
     And I will wait to see patient's name on patient summary page
     Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
@@ -89,12 +110,12 @@ Feature: POT3 will get activated on post acute admission
     Then I will wait to see onboarding status "Onboarded"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
-    When I click Start CARL tool link "1"
+    When I click Start CARL tool link "2"
     When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
-    When I click Start CARL tool link "2"
+    When I click Start CARL tool link "1"
     When I click "Submit" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
     When I click "Add New+" xpath element "//*[@id='addNewForm']"

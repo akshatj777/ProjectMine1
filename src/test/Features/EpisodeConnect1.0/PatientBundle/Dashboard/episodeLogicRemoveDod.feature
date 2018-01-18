@@ -67,7 +67,7 @@ Feature: Managing Various Episode States - Removing DOD
     And I will wait to see patient's name on patient summary page
     And I should see tag "Expired"
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "0" with "2" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "0" with "-2" to show end date and Episode Status "EXPIRED AS INPATIENT"
     Then I will wait to see "EXPIRED AS INPATIENT" state
     Then I navigate to the "/secure/person/mongoID/patient-details"
     And I will wait to see patient's name on patient summary page
@@ -95,7 +95,7 @@ Feature: Managing Various Episode States - Removing DOD
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "3" with "89" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "3" with "89" to show end date and Episode Status "ACTIVE"
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
     Then I navigate to the "/secure/person/mongoID/patient-details"
@@ -106,5 +106,5 @@ Feature: Managing Various Episode States - Removing DOD
     And I will wait to see patient's name on patient summary page
     And I should see tag "Expired"
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "0" with "2" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will verify Episode Marker Admit Date "5" and "add" Discharge date "0" with "-2" to show end date and Episode Status "COMPLETED EXPIRED"
     Then I will wait to see "COMPLETED EXPIRED" state

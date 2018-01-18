@@ -1,5 +1,5 @@
 @EC1Smoke
-Feature: Filters - DRG Type
+Feature: Filters - DRG
 
   Scenario: Filtering results on patient list by DRG
     Given I am on the login page
@@ -30,7 +30,7 @@ Feature: Filters - DRG Type
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "-600" days
+    Then I fill in "Admit" with logic "minus" with "6" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -49,5 +49,5 @@ Feature: Filters - DRG Type
     Then I will wait to see the "Episode drg" element xpath "//*[@id='filter-selector-episode_drg']"
     When I click "Episode Drg dropdown" element "#filter-selector-episode_drg > div.dynamic-select-filter-widget > div.btn-group"
     When I fill in DRG with value "63"
-    Then I click "(63) ACUTE ISCHEMIC STROKE" text in tag "span"
+    Then I click "(63) ACUTE ISCHEMIC STROKE" text in tag "label"
     Then I will see patient name title on the patient card

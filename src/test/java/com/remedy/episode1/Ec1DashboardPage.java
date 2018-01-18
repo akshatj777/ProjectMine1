@@ -291,6 +291,6 @@ public class Ec1DashboardPage extends BaseClass{
     public void ifillinDRG(String value) {
     	iWillWaitToSee(By.xpath("//*[@id='filter-selector-episode_drg']/div/div/div/div/div/div/input"));
     	iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-episode_drg']/div/div/div/div/div/div/input")),value);
-		
+		longDelay();
 	}
 }

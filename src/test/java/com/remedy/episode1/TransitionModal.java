@@ -37,7 +37,7 @@ public class TransitionModal extends BaseClass {
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+tranistion+"]/td[3]"));
 		String date3=currentdate(days,"MM/dd/yyyy");
 		
-		String date=getTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+tranistion+"]/td[3]")));
+		String date=getTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+tranistion+"]/td[6]")));
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		Date myDateTime = null;
 		myDateTime = simpleDateFormat.parse(date);
