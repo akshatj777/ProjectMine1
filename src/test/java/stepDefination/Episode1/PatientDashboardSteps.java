@@ -230,6 +230,21 @@ public class PatientDashboardSteps extends DriverScript {
     public void i_Click_On_Select_All_Message_Checkbox() throws Throwable {
 		dashboard.iClickOnSelectAllMessageCheckbox();
     }
+	
+	@And("^I click on first message under sent box under Message$")
+    public void i_Click_On_First_Message_Under_Sent_Box_Under_Message() throws Throwable {
+		dashboard.iClickOnFirstMessageUnderSentBox();
+    }
+	
+	@And("^I should see \"([^\"]*)\" in message body under Message$")
+    public void i_Should_See_MessageText_In_Message_Body_Under_Message(String text) throws Throwable {
+		dashboard.iShouldSeeMessageTextInMessageBodyUnderMessage(text);
+    }
+	
+	@And("^I click on date sorting under Message$")
+    public void i_Click_On_Date_Sorting_Under_Message() throws Throwable {
+		dashboard.iClickOnDateSortingUnderMessage();
+    }
 
 
 

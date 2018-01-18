@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.aventstack.extentreports.utils.StringUtil;
 import com.remedy.baseClass.BaseClass;
 
 public class PatientCreationRules extends BaseClass{
@@ -115,7 +116,13 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iFillFieldsOnNewEpisodesPage(String locator,String text){
-    	iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_"+locator+"")), text);
+    	if(text.contains("randomDrg")){
+    		String textRandom = RandomStringUtils.randomNumeric(6);
+    		iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_"+locator+"")), textRandom);
+    	}
+    	else{
+    		iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_"+locator+"")), text);
+    	}
     }
     
     public void iClickOnSaveButtonOnNewEpisodePage(){
