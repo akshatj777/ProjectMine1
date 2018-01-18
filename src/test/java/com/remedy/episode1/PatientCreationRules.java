@@ -175,6 +175,7 @@ public class PatientCreationRules extends BaseClass{
     
     public void iEnterTextInFacilityFilterFields(String text,String locator){
     	iFillInText(driver.findElement(By.cssSelector("#filters_bpfacility_"+locator+"")), text);
+    	delay();
     }
     
     public void iClickOnFilterOpationOnFacilities(){
@@ -194,12 +195,16 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iSelectAllCheckboxOptionOnDRGListUnderFacilities(){
-    	iWillWaitToSee(By.cssSelector("#selectAllCheckbox"));
-    	clickElement(driver.findElement(By.cssSelector("#selectAllCheckbox")));
+    	longDelay();
+    	iWillWaitToSee(By.xpath("//*[@id='uniform-selectAllCheckbox']"));
+    	clickElement(driver.findElement(By.xpath("//*[@id='uniform-selectAllCheckbox']")));
+    	
+    	//clickElement(driver.findElement(By.xpath("//thead/tr//input[@name='selectAll']")));
+    	
     }
     
     public void iClickOnAddNewDRGOptionDRGListPage(String text){
-    	clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+    	clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
     }
     
     public void iWaitToSeeTheDRGPopup(){
