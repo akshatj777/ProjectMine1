@@ -2,7 +2,7 @@
 Feature: Attach Note to the Transition
 
   Background: Create Patient
-  	Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -27,8 +27,8 @@ Feature: Attach Note to the Transition
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     And I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    
- Scenario: Attach note to the transition
+
+  Scenario: Attach note to the transition
     Then I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
@@ -42,16 +42,11 @@ Feature: Attach Note to the Transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     And I wait for 20000 milli seconds
-  	And I click on first gear menu under Transitions on patient overview
+    And I click on first gear menu under Transitions on patient overview
     And I click on "Attach Note" in gear menu option under Transition
     Then I should see "New Note" present on the new note page
     Then I click on create note button
     And I will wait to see "Note created." in "p" tag
     And I should see "Discharge Summary" in discharge location under Transition
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowNotes"
-    Then I should see "Discharge Note" in topic under Notes 
-    
-    
-
-    
-
+    Then I should see "Discharge Note" in topic under Notes

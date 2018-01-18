@@ -246,6 +246,15 @@ public class PatientCarePlanSteps extends DriverScript
 		patientcare.iVerifyFirstCallassignedlist(n);
 	}
 	
+	@Then ("^I verify Subsequent Call in \"([^\"]*)\"$")
+	public void i_Verify_Subsequent_Call_assigned_list(int n){
+		patientcare.iVerifySubsequentCallassignedlist(n);
+	}
+	
+	@Then ("^I verify After Hour Call in \"([^\"]*)\"$")
+	public void i_Verify_AfterHour_Call_assigned_list(int n){
+		patientcare.iVerifyAfterHourCallassignedlist(n);
+	}
 	
 	@Then ("^I verify \"([^\"]*)\" not in \"([^\"]*)\" \"([^\"]*)\"$")
 	public void i_Verify_Risk_Assessment_not_in_list(String text,String formlist,int n){

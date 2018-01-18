@@ -311,13 +311,13 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.location_on_patient_card(value1,value2);
     }
     
-    @Then ("^I should see \"([^\"]*)\" \"([^\"]*)\" appearing under drg on patient card$")
-    public void drg_on_patient_card(String value1,String value2){
-    	patientsList.drgonpatientcard(value1,value2);
+    @Then ("^I should see \"([^\"]*)\" appearing under drg on patient card$")
+    public void drg_on_patient_card(String value1){
+    	patientsList.drgonpatientcard(value1);
     }
     
-    @Then("^I should see \"([^\"]*)\" \"([^\"]*)\" Anchor Facility on Patient list page$")
-    public void i_should_see_Anchor_Facility_on_patient_list_page(String text1,String text2) throws Throwable {
-    	patientsList.iShouldSeeAnchorFacilityOnPatientListPage(text1,text2);
+    @Then("^I should see \"([^\"]*)\" Anchor Facility on Patient list page$")
+    public void i_should_see_Anchor_Facility_on_patient_list_page(String text1) throws Throwable {
+    	patientsList.iShouldSeeAnchorFacilityOnPatientListPage(text1);
     }
 }

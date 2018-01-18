@@ -129,8 +129,9 @@ public class PatientDashboard extends BaseClass {
 	
 	public void iShouldSeePatientFirstNameAppearingUnderSearchOnDashboard(){
 		iWillWaitToSee(By.xpath("//tbody//td[contains(@class,'first_name-column')]"));
-    	String firstName = driver.findElement(By.xpath("//tbody//td[contains(@class,'first_name-column')]")).getText();
+        String firstName = driver.findElement(By.xpath("//tbody//td[contains(@class,'first_name-column')]")).getText();
     	Assert.assertTrue(DischargeCarlForm.firstname.equalsIgnoreCase(firstName));
+
     }
 	
 	public void iVerifyTaskDescriptionUnderTaskInCarePlan(String text){

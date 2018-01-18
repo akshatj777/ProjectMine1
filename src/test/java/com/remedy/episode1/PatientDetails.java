@@ -143,10 +143,14 @@ public class PatientDetails extends BaseClass {
 	}
 
 	public void editDateOfDeath(int days) {
-		iWillWaitToSee(By.xpath("//div[@name='BP_patientType[dod]']"));
+	    iWillWaitToSee(By.xpath("//div[@name='BP_patientType[dod]']"));
 		if (days!=0){
-		clickElement(driver.findElement(By.xpath("//*[@id='BP_patientType_dob']")));
-		currentdate(days,"MM/dd/yyyy");}
+		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[dod]']")));
+		String date2=currentdate(days,"MM/dd/yyyy");
+		iFillInText(driver.findElement(By.cssSelector("div.editable-input>div.input-group>input")),date2);
+		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
+		longDelay();
+	}
 	}
 
 	public void cleartheDateofdeath() {
@@ -154,6 +158,7 @@ public class PatientDetails extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[dod]']")));
 		driver.findElement(By.cssSelector("div.editable-input>div.input-group>input")).clear();
 		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
+		longDelay();
 		}
 
 	public void edit_Medicare_Id(String id) {
@@ -176,6 +181,11 @@ public class PatientDetails extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//div[@name='BP_patientType[pcp][pcpPhone]']")));
 		iFillInText(driver.findElement(By.cssSelector("div.editable-input>input")),phone);
 		clickElement(driver.findElement(By.cssSelector("div.editable-buttons>button.editable-submit")));
+	}
+
+	public void verifyerrorinDOD(String error) {
+		delay();
+		verifyTextForElement(driver.findElement(By.cssSelector("span.help-block")),error);
 	}
 		
 		

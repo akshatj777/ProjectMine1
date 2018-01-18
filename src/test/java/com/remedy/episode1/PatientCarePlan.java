@@ -236,6 +236,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void ifillinCarePlanSearch(String text) {
+		longDelay();
 		iWillWaitToSee(By.xpath("//input[@placeholder='Care Plan search']"));
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Care Plan search']")),text);
 	}
@@ -347,6 +348,21 @@ public class PatientCarePlan extends BaseClass {
 		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
 		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "First Call assigned");
+	}
+
+	public void iVerifySubsequentCallassignedlist(int n) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "Subsequent Call assigned");
+		
+	}
+
+	public void iVerifyAfterHourCallassignedlist(int n) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "After Hour Call assigned");
 	}
    
 }
