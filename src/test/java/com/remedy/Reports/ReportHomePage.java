@@ -753,7 +753,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Begin Date].[Anchor Admission Year]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admission Year]']/span")),text);
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){

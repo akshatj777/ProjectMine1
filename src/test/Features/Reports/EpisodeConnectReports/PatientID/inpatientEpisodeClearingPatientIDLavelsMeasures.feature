@@ -21,8 +21,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
     When I click on show all filters icon button
-    Then I should see "Model includes 2" is present under preselected model filter
-    Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
+    #Then I should see "Model includes 2" is present under preselected model filter
+    #Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
+    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
@@ -145,8 +146,8 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I remove "Anchor Admission Year" field filter under "Anchor Begin Date" filter field from default filters
-    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    #Then I remove "Model" field filter under "Model" filter field from default filters
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds
     When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field

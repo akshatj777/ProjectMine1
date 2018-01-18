@@ -106,7 +106,7 @@ Feature: Global Filters Verification for Multiple Scenarios
     Then I click on "Next Site of Care Summary" report under "Next Site of Care" reports tile on the top of reports page
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I switch to default window from iframe
     Then I verify "Next Site of Care Summary" in the reports header page

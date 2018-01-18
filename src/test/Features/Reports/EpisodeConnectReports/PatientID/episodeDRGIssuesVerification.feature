@@ -15,8 +15,8 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I should see "Model includes 2" is present under preselected model filter
-    Then I verify "Anchor Admission Year includes previous Anchor Admission Year and current Anchor Admission Year" is appearing under preselected anchor admission year filter
+    #Then I should see "Model includes 2" is present under preselected model filter
+    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
@@ -142,8 +142,8 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I remove "Anchor Admission Year" field filter under "Anchor Begin Date" filter field from default filters
-    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    #Then I remove "Model" field filter under "Model" filter field from default filters
     When I click on field-panel-icon button
     When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field
     And I choose "Filter" option from select options of filter field
@@ -359,11 +359,11 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #CCN Drag and Drop
-    When I click to "CCN" field filter under "Anchor Facility" filter field
+    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecing add to report option
     #BPID Drag and Drop
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
