@@ -839,8 +839,11 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void clickLessonsSelectButton() throws Throwable {
-       iWillWaitToSee(By.xpath("//div[text()='Select']"));
-	   clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
+       if(userApplications.contains("Lessons"))
+       {
+    	   iWillWaitToSee(By.xpath("//div[text()='Select']"));
+    	   clickElement(driver.findElement(By.xpath("//div[text()='Select']")));  
+       }
    }
    
    public void clickCancelButton() throws Throwable {
@@ -855,24 +858,27 @@ public class CreateUserPage extends BaseClass{
    }
 
    public void selectLearningPath(String searchParam) throws Throwable {
-       if(!(searchParam.equals("")))
+       if(userApplications.contains("Lessons"))
        {
-    	   if(searchParam.contains(","))
-    	   {
-    		   StringTokenizer st = new StringTokenizer(searchParam, ",");
-    		   while (st.hasMoreTokens()) {
-    			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
-    			   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
-    			   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
-    		   }
-    	   }
-    	   else
-    	   {
-    		   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
-			   delay();
-    		   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
-    		   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
-    	   }
+    	   if(!(searchParam.equals("")))
+           {
+        	   if(searchParam.contains(","))
+        	   {
+        		   StringTokenizer st = new StringTokenizer(searchParam, ",");
+        		   while (st.hasMoreTokens()) {
+        			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
+        			   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
+        			   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
+        		   }
+        	   }
+        	   else
+        	   {
+        		   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
+    			   delay();
+        		   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
+        		   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
+        	   }
+           } 
        }
    }
    
@@ -959,13 +965,27 @@ public class CreateUserPage extends BaseClass{
 		   String token = locationList;
     	   String location = token.substring(token.indexOf("--")+2, token.length());
     	   String BPID = token.substring(0, token.indexOf("--"));
-    	   delay();
-    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
-    	   delay();
-    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
-    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
-    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
-    	   Thread.sleep(3000);
+    	   if(location.contains(BPID))
+    	   {
+    		   delay();
+        	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
+        	   delay();
+        	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
+        	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+        	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+        	   Thread.sleep(3000);
+    	   }
+    	   else
+    	   {
+    		   delay();
+        	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
+        	   delay();
+        	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
+        	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+        	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+        	   Thread.sleep(3000);   
+    	   }
+    	   
 	   	    }	
 	   }
    }
