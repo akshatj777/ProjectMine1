@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -80,7 +81,13 @@ public class CreatePrograms extends BaseClass {
 //		iFillInText(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")), text);
 //		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")));
+		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+	}
+	
+	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) {
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Enter the price for the bundle']")), text);
+
 	}
 	
 	public void iSelectStartDateforOrganizationNameContractsPage(int num, String field) {
@@ -125,7 +132,7 @@ public class CreatePrograms extends BaseClass {
 //		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Bundle']")), text);
 //		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
-		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+		clickSingleElementFromList((By.cssSelector(".ReactVirtualized__Grid.ReactVirtualized__List.VirtualSelectGrid")), text);
 	}
 	
 	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1) {
@@ -133,18 +140,19 @@ public class CreatePrograms extends BaseClass {
 		iFillInText(driver.findElement(By.xpath("//div//input[@class='text-input-field-contracts["+num+"].contractBundles["+num+"].bundlePrices["+num+"].trendFactor']")), text);
 	}
 
-	public void iInsertdays(List<Integer> days) {
+	public void iInsertdays(List<String> days) {
 		List<WebElement> listItemsStart = driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='Enter the start date']"));
-		List<WebElement> listItemsEnd = driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='YYYY/MM/DD']"));
-		List<String> Dates=new ArrayList<String>();
-//		for(int i=0;i<days.size();i++){
-//			 date1=currentdate(days.get(i),"dd/MM/yyyy");
-//		}
-//		
-		for(int i=0;i<listItemsStart.size();i++){
-			listItemsStart.get(i).sendKeys("");
+		for(WebElement ele:listItemsStart)
+		{
+			
+			String date=ele.getText();
+			
+			if(date.equalsIgnoreCase("28"))
+			{
+				ele.click();
+				break;
+			}
 		}
-		
 	}
 	
 	public static String currentdate(int days,String format) {
@@ -154,4 +162,15 @@ public class CreatePrograms extends BaseClass {
 		  String date = dtf.format(b);
 		  return date;
 		 }
+	
+	public void setAttributevalue(WebElement element, String attName, String attValue) {
+		  JavascriptExecutor js = (JavascriptExecutor) driver;
+		  js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", 
+		                element, attName, attValue);
+		    }
+	
+	public void iInsertdays1(int days) {
+		currentdate(days,"yyyy/MM/dd");
+		setAttributevalue(driver.findElement(By.cssSelector("div.react-datepicker-wrapper")),"textContent","");
+	}
 }

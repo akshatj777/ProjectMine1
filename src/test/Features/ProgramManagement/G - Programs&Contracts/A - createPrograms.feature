@@ -94,6 +94,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
     And I select Start Date for Organization_Name for Contract "1" on "create" Contracts page
+    Then i insert "<days>" in date picker1
     Then i insert "<days>" in date picker
     |1|
     |2|
@@ -103,13 +104,21 @@ Feature: Create Programs organization under Payor Organization functionality tes
     |4|
     And I select End Date for Organization_Name for Contract "1" on "create" Contracts page
     And I verify "Bundle 1" on "Create Contract" page under Payor Organization
+    
     And I select Bundle1 "<Bundle_1>" for Contract "1" on "create" Contracts page
+    Then i insert "<days>" in date picker
+    
     And I select Start Date for Bundle1 for Contract "1" on "create" Contracts page
     And I select End Date for Bundle1 for Contract "1" on "create" Contracts page
     And I verify "Bundle Price 1" on "Create Contract" page under Payor Organization
+    
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
+    
     And I select Start Date for Bundle_Price1 for Contract "1" on "create" Contracts page
     And I select End Date for Bundle_Price1 for Contract "1" on "create" Contracts page
+    
+    Then i insert "<days>" in date picker
+    
     And I select Start Date for Baseline Start for Contract "1" on "create" Contracts page
     And I select End Date for Baseline End for Contract "1" on "create" Contracts page
     And I enter "<Trend_Factor>" for "Bundle Price1" for Contract "1" on "create" Contracts page

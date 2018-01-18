@@ -6,6 +6,7 @@ import com.remedy.programManagement.CreatePrograms;
 import com.remedy.resources.DriverScript;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 
 public class CreateProgramsStepDef extends DriverScript{
 	CreatePrograms programs= new CreatePrograms(driver);
@@ -48,7 +49,7 @@ public class CreateProgramsStepDef extends DriverScript{
 	
 	@And("^I enter price \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Enter_Price_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
-		programs.iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(text,num,field);
+		programs.iEnterPriceOnCreateContractsPage(text,num,field);
 	    }
 	
 	@And("^I select Start Date for Organization_Name for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
@@ -95,8 +96,14 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, int num, String field1) throws Throwable {
 		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1);
 	    }
-	@And ("i insert \"([^\"]*)\" in date picker")
-	public void i_insert_days(List<Integer> days){
+	
+	@Then ("^i insert \"([^\"]*)\" in date picker$")
+	public void i_insert_days(List<String> days){
 		programs.iInsertdays(days);
+	}
+	
+	@Then ("^i insert \"([^\"]*)\" in date picker1$")
+	public void i_insert_days1(int days){
+		programs.iInsertdays1(days);
 	}
 }
