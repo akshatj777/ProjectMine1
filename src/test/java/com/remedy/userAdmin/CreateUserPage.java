@@ -644,22 +644,25 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyPathWayForUserOnRemedyUDashBoard(String pathway, String role){
-	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   if(application.contains("Lessons")){
-		   if(pathway.contains(","))
-		   {
-			   StringTokenizer st = new StringTokenizer(pathway, ",");
-			   while(st.hasMoreTokens())
+	   if(!(pathway.equals("")))
+	   {
+		   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   if(application.contains("Lessons")){
+			   if(pathway.contains(","))
 			   {
-				   String a = st.nextToken().trim();
-				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+a+"\")]")));
+				   StringTokenizer st = new StringTokenizer(pathway, ",");
+				   while(st.hasMoreTokens())
+				   {
+					   String a = st.nextToken().trim();
+					   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+a+"\")]")));
+				   }
 			   }
-		   }
-		   else
-		   {
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+pathway+"\")]")));
-		   }
-		   objLandingPage.iSwitchBackToOldWindow(); 
+			   else
+			   {
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+pathway+"\")]")));
+			   }
+			   objLandingPage.iSwitchBackToOldWindow(); 
+		   }  
 	   }
    }
    
@@ -875,19 +878,24 @@ public class CreateUserPage extends BaseClass{
         	   {
         		   StringTokenizer st = new StringTokenizer(searchParam, ",");
         		   while (st.hasMoreTokens()) {
+        			   delay();
+        			   scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")));
         			   driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")).clear();
         			   String a = st.nextToken().trim();
+        			   delay();
         			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), a);
-        			   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+a+"')]")));
-        			   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
+        			   clickElement(driver.findElement(By.xpath("//label[contains(text(),\""+a+"\")]")));
+        			   delay();
         		   }
+        		   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
         	   }
         	   else
         	   {
+        		   scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")));
         		   driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")).clear();
         		   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), searchParam);
     			   delay();
-        		   clickElement(driver.findElement(By.xpath("//label[contains(text(),'"+searchParam+"')]")));
+        		   clickElement(driver.findElement(By.xpath("//label[contains(text(),\""+searchParam+"\")]")));
         		   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
         	   }
            } 
@@ -954,6 +962,10 @@ public class CreateUserPage extends BaseClass{
 	    		   delay();
 		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
 		    	   delay();
+		    	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+		    	   {
+		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+		    	   }
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -962,8 +974,12 @@ public class CreateUserPage extends BaseClass{
 	    	   else
 	    	   {
 	    		   delay();
-		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
+		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
 		    	   delay();
+		    	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+		    	   {
+		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+		    	   }
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -981,6 +997,10 @@ public class CreateUserPage extends BaseClass{
     		   delay();
         	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
         	   delay();
+        	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+	    	   {
+	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+	    	   }
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -991,6 +1011,10 @@ public class CreateUserPage extends BaseClass{
     		   delay();
         	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
         	   delay();
+        	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+	    	   {
+	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+	    	   }
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -1224,12 +1248,16 @@ public class CreateUserPage extends BaseClass{
 		}
 		else if(text.equals("Support"))
 		{
-			   if(!(role.equals("Remedy Sales Team") || role.equals("Prospective Partner Executive")))
+			String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+			if(application.contains("Episodes"))
+			{
+				if(!(role.substring((role.indexOf("-")+1)).equals("Remedy Sales Team") || role.substring((role.indexOf("-")+1)).equals("Prospective Partner Executive")))
 				   {
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")));
 			driver.get("https://cdn-qa.remedypartners.com/");
 			delay();
 				   }
+			}
 		}
 		else if(text.equals("Reset Password"))
 		{
@@ -1246,36 +1274,42 @@ public class CreateUserPage extends BaseClass{
 	}
    
    public void iClickOnFiledInDropdownOnProfileIcon(String text, String role) {
-	   if(!(role.equals("Remedy Sales Team") || role.equals("Prospective Partner Executive")))
-	   {
-		   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
-		      delay();
-		      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
-		      iWillWaitToSee(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']"));
-		      driver.findElement(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")).click();
-		      delay();
-		      objLandingPage.iSwitchToNewWindow();
-	   }
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		if(application.contains("Episodes"))
+		{
+			if(!(role.substring((role.indexOf("-")+1)).equals("Remedy Sales Team") || role.substring((role.indexOf("-")+1)).equals("Prospective Partner Executive")))
+			   {
+				   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
+				      delay();
+				      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
+				      iWillWaitToSee(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']"));
+				      driver.findElement(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")).click();
+				      delay();
+				      objLandingPage.iSwitchToNewWindow();
+			   }
+		}
 	}
    
    public void iVerifyPageHeaderForPageOnRemedyConnect(String title, String role ) throws InterruptedException {
-	      //iWillWaitToSee(By.xpath("//h1[text()='Login']"));
-	   try
-	   {
-		   if(!(role.equals("Remedy Sales Team") || role.equals("Prospective Partner Executive")))
-		   {
-			   Thread.sleep(2000);
-			      System.out.println(driver.findElement(By.xpath("//h1[text()='Login']")).getText());
-				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Login']")));
-				   delay();
-				      objLandingPage.iSwitchBackToOldWindow();
-		   }  
-	   }
-	   catch(Exception e)
-	   {
-		   objLandingPage.iSwitchBackToOldWindow();
-	   }
-	   
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		if(application.contains("Episodes"))
+		{
+			try
+			   {
+				   if(!(role.substring((role.indexOf("-")+1)).equals("Remedy Sales Team") || role.substring((role.indexOf("-")+1)).equals("Prospective Partner Executive")))
+				   {
+					   Thread.sleep(2000);
+					      System.out.println(driver.findElement(By.xpath("//h1[text()='Login']")).getText());
+						   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Login']")));
+						   delay();
+						      objLandingPage.iSwitchBackToOldWindow();
+				   }  
+			   }
+			   catch(Exception e)
+			   {
+				   objLandingPage.iSwitchBackToOldWindow();
+			   }
+		}
 	}
    
    public void iVerifyNoResultsFoundUnderLearningPathWaySearch() {
