@@ -479,7 +479,6 @@ public class CreateUserPage extends BaseClass{
 		            while (st1.hasMoreTokens()) {  
 		            	String token = st1.nextToken().trim();
 		            	System.out.println(token);
-		            	scrollIntoViewByJS(driver.findElement(By.xpath("//li[contains(text(),\""+token+"\")]")));
 		            	iWillWaitToSee(By.xpath("//li[contains(text(),\""+token+"\")]"));
 		            	Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[contains(text(),\""+token+"\")]")));
 		            }
