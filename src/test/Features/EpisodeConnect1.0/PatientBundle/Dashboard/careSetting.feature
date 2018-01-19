@@ -21,6 +21,7 @@ Background: Create Patient
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
+    And I will wait to see "New Transition" in "h4" tag
     Then I click on the Cancel Button on the New Transition on Add Patient page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page

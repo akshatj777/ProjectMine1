@@ -10,9 +10,7 @@ Feature: Store Correct Admit Facilities
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
-    Then I should see Episode header text "Dashboard"
-    When I click on "Patients" in the left navigator present on the episode dashboard page
-    When I click on "Patient List" in the Patients dropdown menu
+    And I am on "/secure/pn/patientslist"
     Then I click on Add Patient button present on the ec1 patients page
     Then I verify "Add Patient" text is present on the add patient page
     Then I enter random Patient First Name in the first name text box field present on the Add Patient page
@@ -36,7 +34,7 @@ Feature: Store Correct Admit Facilities
     Then I click on profile icon on Remedy Connect page
     Then I select "Log Out" from profile icon dropdown 
     Given I am on the login page
-    When I enter email field qa.prm@yopmail.com for login
+    When I enter email field qa.lpn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
@@ -62,10 +60,7 @@ Feature: Store Correct Admit Facilities
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
-    Then I should see Episode header text "Dashboard"
-    When I click on "Patients" in the left navigator present on the episode dashboard page
-    When I click on "Patient List" in the Patients dropdown menu
-    Then I click on "custom" filter tab present on the patients page
+    And I am on "/secure/pn/patientslist"
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
@@ -84,16 +79,14 @@ Feature: Store Correct Admit Facilities
     Then I click on profile icon on Remedy Connect page
     Then I select "Log Out" from profile icon dropdown 
     Given I am on the login page
-    When I enter email field qa.prm@yopmail.com for login
+    When I enter email field qa.lpn@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     And I wait for 2000 milli seconds
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
-    Then I should see Episode header text "Dashboard"
-    When I click on "Patients" in the left navigator present on the episode dashboard page
-    When I click on "Patient List" in the Patients dropdown menu
+    And I am on "/secure/pn/patientslist"
     Then I click on "custom" filter tab present on the patients page
     And I enter patients fullname in the patient search box on the patient page 
     Then I click on search button present on the patients page
