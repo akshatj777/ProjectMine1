@@ -34,8 +34,8 @@ Feature: Episode Connect export patient list
     And I will wait to see "Download Complete" in "h2" tag
     And I will wait to see "This patient list was successfully downloaded to your computer." in "p" tag
     Then I verify the file "patientList.csv" downloaded is in "csv" format for export
- 
- Scenario: Validation pop up(Cannot Export List - Lists with more than 1,000 patients cannot be exported).
+
+  Scenario: Validation pop up(Cannot Export List - Lists with more than 1,000 patients cannot be exported).
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com  for login
     And I enter password field Episode1! for Login
@@ -52,8 +52,8 @@ Feature: Episode Connect export patient list
     Then I click on the export button present on the patient list page
     Then I verify "Cannot Export List" on export list
     And I will wait to see "Lists with more than 1,000 patients cannot be exported. Please refine your search." in "p" tag
-   
-   Scenario: Message should be displayed when there are no patient on patient list and user try to export.
+
+  Scenario: Message should be displayed when there are no patient on patient list and user try to export.
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com  for login
     And I enter password field Episode1! for Login
@@ -77,4 +77,3 @@ Feature: Episode Connect export patient list
     Then I click on the export button present on the patient list page
     Then I verify "Cannot Export List" on export list
     And I will wait to see "No patients found matching current search criteria. Please refine your search." in "p" tag
-    
