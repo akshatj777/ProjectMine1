@@ -193,14 +193,15 @@ public class PatientsListPage extends BaseClass {
     
     public void iClickOnOptionFromPatientslistPatientGearMenu(String option){
 //    	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
-    	clickSingleElementFromList(By.xpath("//div[@class='col-md-2 center open']//li"), option);
+    	delay();
+    	clickSingleElementFromList(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div/ul/li"), option);
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
     }
     
     public void iClickOnFirstPatientGearMenu(){
 //    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
-    	delay();
+    	longDelay();
     	iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
     	driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(0).click();
     	delay();

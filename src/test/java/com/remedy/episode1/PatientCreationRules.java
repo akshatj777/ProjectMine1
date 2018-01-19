@@ -12,6 +12,7 @@ import com.remedy.baseClass.BaseClass;
 
 public class PatientCreationRules extends BaseClass{
 	
+	public static String Key_CreationName;
     public PatientCreationRules(WebDriver driver) {
         super(driver);
     }
@@ -25,7 +26,8 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iEnterNameInNewPatientCreationRule(String text){
-		iFillInText(driver.findElement(By.cssSelector("#new_bppatientcreationrules_name")), text);
+    	Key_CreationName = text+RandomStringUtils.randomAlphabetic(5);
+    	iFillInText(driver.findElement(By.cssSelector("#new_bppatientcreationrules_name")), Key_CreationName);
     }
     
     public void iFillInFieldWithOnPatientRuleCreationPage(String text){
@@ -45,7 +47,8 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iWillWaitToSeeNewlyCreatedRule(String text){
-    	verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),text);
+    	text=PatientCreationRules.Key_CreationName;
+    	verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing the object"+ " " + "\"" + text + "\"");
     }
     
     public void iVerifyLabelTextOnNewCreationPage(String text,String page){

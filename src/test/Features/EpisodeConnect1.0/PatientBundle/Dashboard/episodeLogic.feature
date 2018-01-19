@@ -151,7 +151,8 @@ Feature: Managing Various Episode States
     Then I will wait to see onboarding status "Unknown"
 
   Scenario: Episode NOT ELIGIBLE and Back to Active - set patient eligibility to not eligible then back to eligible
-    Then I navigate to the "/secure/person/mongoID/overview"
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Not Eligible" option
@@ -247,7 +248,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "COMPLETED EXPIRED" state
-    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "0" with "-1" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "0" with "-1" to show end date and Episode Status "COMPLETED EXPIRED"
 
   Scenario: Episode COMPLETED-365 - Anchor admit date before 365 days
     Then I navigate to the "/secure/person/mongoID/overview"
@@ -297,8 +298,6 @@ Feature: Managing Various Episode States
     And I should see " " appearing under search on "CURRENT FACILITY" "current_facility-column" Dashboard
     And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
-    Then I Expand to the patient summary page
-    And I will wait to see patient's name on patient summary page
     And I should see "0 days to anchor admission" appearing under progress on patient card
     And I should see "(HHH) Inpatient" "Stamford - Stamford Hospital" appearing under current location on patient card
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under drg on patient card

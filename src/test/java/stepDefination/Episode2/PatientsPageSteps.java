@@ -787,8 +787,7 @@ public class PatientsPageSteps extends DriverScript {
     }
    
     @Then ("^I click on the Cancel Button on the New Transition on Add Patient page$")
-    public void I_click_on_the_Cancel_Button_on_the_New_Transition_on_Add_Patient_page()
-    {
+    public void I_click_on_the_Cancel_Button_on_the_New_Transition_on_Add_Patient_page() {
     	patientsPage.IclickontheCancelButtonontheNewTransitiononAddPatientpage();
     }
     @When("^I select today's date as the admission date$")

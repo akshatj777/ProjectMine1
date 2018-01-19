@@ -243,7 +243,6 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     Then I select "After Hour Call" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     Then I fill in Due Date with logic "minus" with "-1" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
-    And I should see text of "4" in assigned form counter
     Then I verify After Hour Call in "4"
 
     Examples: 

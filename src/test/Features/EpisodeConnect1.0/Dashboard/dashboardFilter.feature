@@ -1,7 +1,7 @@
 @EC1Smoke
 Feature: Filters pinned to dashboard
- 
- Background: Patient Creation
+
+  Background: Patient Creation
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -34,15 +34,14 @@ Feature: Filters pinned to dashboard
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
     And I am on "/secure/dashboard"
-    
+
   Scenario: Verify My patients tab, Pin Filter to dashboard and bookmark.
-    		 Also, verify Join Care team functionality form patient dashboard 
+    		 Also, verify Join Care team functionality form patient dashboard
+
     Then I verify "My patients" as selected tab on patient dashboard
     And I verify patients are appearing on patient dashboard
-    
-    And I enter patients fullname in the patient search box under active tab on Dashboard 
+    And I enter patients fullname in the patient search box under active tab on Dashboard
     And I should see patient first name appearing under search on Dashboard
-    
     And I am on "/secure/pn/patientslist"
     Then I click on "Save As" button
     And I will wait to see "New filter" in "h4" tag
@@ -55,7 +54,6 @@ Feature: Filters pinned to dashboard
     And I click on "Pin to dashboard" under open filter
     And I will wait to see "filter pinned to dashboard" in "p" tag
     And I am on "/secure/dashboard"
-  	
     And I click on "Random filter" on navigation tab on patient dashboard
     And I verify patients are appearing on patient dashboard
     And I click on select all checkbox on patient dashboard
@@ -83,8 +81,8 @@ Feature: Filters pinned to dashboard
     And I click on "exit" button on edit bookmark
     And I am on "/secure/pn/patientslist"
     And I click on "Random filter" filter name under patients menu
-    And I click on "Unpin from bookmark" under open filter
-    And I will wait to see "filter unpinned from bookmark" in "p" tag
+    And I click on "Unpin from bookmarks" under open filter
+    And I will wait to see "filter unpinned from bookmarks" in "p" tag
     And I am on "/secure/pn/patientslist"
     And I click on "Random filter" filter name under patients menu
     And I click on "Delete" under open filter

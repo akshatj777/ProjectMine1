@@ -46,7 +46,7 @@ Feature: Filters - DRG Type
     When I click "Add Filter" xpath element "//*[@id='filters-selector']"
     And I search "DRG type" from the list of Filter
     Then I click on the "DRG type" filter
-    Then I will wait to see the "Anchor discharge date" element xpath "//*[@id='filter-selector-drg_type']"
-    When I click "Anchor Discharge dropdown" element "#filter-selector-drg_type >div.btn-group>div.date-filter-widget"
+    Then I will wait to see the "DRG type" element xpath "//*[@id='filter-selector-drg_type']"
+    When I click "DRG Type dropdown" element "#filter-selector-drg_type >div.btn-group>div.pull-left"
     When I click "Working" xpath element "//*[@id='uniform-form_drg_type_drg_type_2']"
     Then I will see patient name title on the patient card

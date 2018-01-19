@@ -1,7 +1,8 @@
 @EC1Smoke
 Feature: Episode Initiator on Transition Table for Anchor Transition for New Patient
- Background: Patient Creation
-  Given I am on the login page
+
+  Background: Patient Creation
+    Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -23,48 +24,17 @@ Feature: Episode Initiator on Transition Table for Anchor Transition for New Pat
     Then I click on the next button present on the Primary Care Physician Information page
     And I will wait to see "New Transition" in "h4" tag
     Then I click on the Cancel Button on the New Transition on Add Patient page
- 
- Scenario: Display Active EI and DRG if Episode from separate EI is recently canceled (RE-6995)
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see "Attestation" in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+
+  Scenario: Display Active EI and DRG if Episode from separate EI is recently canceled (RE-6995)
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
-    
-    Then I click on new transition button present on the patient overview page
-    And I will wait to see "New Transition" in "h4" tag
-    Then I click on the calender button present on the new tranition page
-    And I select today's date as the admission date
-    Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
-    And I select "Inpatient" from admission care type drop down menu present on Add transition page
-    When I click on Admitting Facility present on the Add transition page
-    And I wait for 2000 milli seconds
-    And I Select "Stamford Hospital" from the list of admitting facility present on the Add transition page
-    And I wait for 4000 milli seconds
-    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
-    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on the Create Transition Button to add a new transition
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "ACTIVE" state
-    And I click on first gear menu under Transitions on patient overview
-    And I click on "Edit" in gear menu option under Transition
-    Then I select the "Final" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "1" DRG value on the Diagnosis and DRG tab on add a new transition
-    Then I click on the Create Transition Button to add a new transition
-    And I will wait to see patient's name on patient summary page
-    When I click on episode marker drop down
-    Then I will wait to see "Cancelled" state
-    
-    Then I click on new transition button present on the patient overview page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days
-    Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
-    And I select "Inpatient" from admission care type drop down menu present on Add transition page
-    When I click on Admitting Facility present on the Add transition page
-    And I wait for 2000 milli seconds
-    And I Select "Allentown" from the list of admitting facility present on the Add transition page
-    And I wait for 4000 milli seconds
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -72,12 +42,42 @@ Feature: Episode Initiator on Transition Table for Anchor Transition for New Pat
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I should see "St Luke's - Allentown" in Episode Initiator
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I will wait to see and click on "Diagnosis and DRG" followed by "a" tag
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Final" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "CANCELED" state
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    Then I click on new transition button present on the patient overview page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    And I should see "(HHH) Stamford - Stamford Hospital" in Episode Initiator
     Then I click on edit button present on the patient overview page
     Then I should see "Edit Episode Initiator" button is present on the Edit Episode Initiator modal
     Then I click on the "Cancel" button present on the Edit Episode Initiator modal
+    And I will wait to see patient's name on patient summary page
     And I am on "/secure/pn/patientslist"
     Then I click on "custom" filter tab present on the patients page
     And I enter patients fullname in the patient search box on the patient page
     Then I click on search button present on the patients page
-    And I should see "St Luke's" Episode Initiator on Patient list page
+    And I should see "Stamford" Episode Initiator on Patient list page

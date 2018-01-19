@@ -84,7 +84,7 @@ public class PatientDashboard extends BaseClass {
 		if(text.contains("Random")){
 			longDelay();
 			iWillWaitToSee(By.xpath("//h3[text()='"+filter_Name+"']"));
-			clickElement(driver.findElement(By.xpath("//h3[text()='"+filter_Name+"']/preceding-sibling::a/i[@class='fa fa-cog']")));
+			clickElement(driver.findElement(By.xpath("//h3[text()='"+filter_Name+"']/preceding-sibling::a")));
 		}
 		else{
 			iWillWaitToSee(By.xpath("//h3[text()='"+text+"']/preceding-sibling::a/i[@class='fa fa-cog']"));

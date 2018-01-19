@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 
@@ -43,7 +45,8 @@ public class PatientOverview extends BaseClass {
 		longDelay();
 		longDelay();
 //		scrollIntoViewByJS(driver.findElements(By.cssSelector("h3 .fa.fa-cog")).get(0));
-		clickElement(driver.findElement(By.cssSelector("h3 .fa.fa-cog")));
+		new Actions(driver).moveToElement(driver.findElement(By.cssSelector("span.ec2-embed-patient-actions>div.pull-right"))).build().perform();
+		clickElement(driver.findElement(By.cssSelector("span.ec2-embed-patient-actions>div.pull-right")));
 	}
 	
 	public void iShouldSeeOptionsUnderPatientOverviewGearIcon(String text){

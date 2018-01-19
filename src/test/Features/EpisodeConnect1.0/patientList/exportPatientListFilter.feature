@@ -1,3 +1,4 @@
+@EC1Smoke
 Feature: Episode Connect export patient list
 
   Scenario: User can load a system filter and export patient list
@@ -43,7 +44,8 @@ Feature: Episode Connect export patient list
     And I click on the "Episodes" tile
     And I switch to new window
     Then I should see Episode header text "Dashboard"
-    When I click on "Patients" in the left navigator present on the episode dashboard page
+    And I am on "/secure/pn/patientslist"
+    Then I verify "Add Patient" text is present on the add patient page
     Then I should see patient list count info present on the patient list page
     Then I verify the patient count is "greater" than 1000 on the patient list page
     Then I verify export button is present on the patient list page
@@ -60,7 +62,8 @@ Feature: Episode Connect export patient list
     And I click on the "Episodes" tile
     And I switch to new window
     Then I should see Episode header text "Dashboard"
-    When I click on "Patients" in the left navigator present on the episode dashboard page
+    And I am on "/secure/pn/patientslist"
+    Then I verify "Add Patient" text is present on the add patient page
     Then I should see patient list count info present on the patient list page
     Then I verify the patient count is "greater" than 1000 on the patient list page
     When I click "Add Filter" xpath element "//*[@id='filters-selector']"

@@ -34,11 +34,10 @@ public class TransitionModal extends BaseClass {
      	}
 
 	public void iSelectonehourlaterorbefore(int days,int time,String later,String tranistion) throws java.text.ParseException {
-		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+tranistion+"]/td[3]"));
+		iWillWaitToSee(By.xpath("#bp_personbundle_bpadmissiontype_dischargeDate"));
 		String date3=currentdate(days,"MM/dd/yyyy");
-		
-		String date=getTextForElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr["+tranistion+"]/td[6]")));
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		String date=driver.findElement(By.xpath("#bp_personbundle_bpadmissiontype_dischargeDate")).getAttribute("value");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 		Date myDateTime = null;
 		myDateTime = simpleDateFormat.parse(date);
 	    System.out.println("This is the Actual Date:"+myDateTime);
@@ -52,6 +51,7 @@ public class TransitionModal extends BaseClass {
 	    setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date1);
 	}
 
+	
 	public void iclickStartCARLtoollink(int tran) throws InterruptedException {
 		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"));

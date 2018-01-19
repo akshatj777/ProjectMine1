@@ -579,7 +579,7 @@ public class DischargeCarlForm extends BaseClass {
 	public void verify_SSN() {
 		String ssn_final=final_ssn;
 		String new_word = " "+ "SSN"+" xxx-xx-"+ssn_final.substring(ssn_final.length() - 3);
-		verifyTextForElement(driver.findElement(By.cssSelector("ec2-embed-patient-ssn")),new_word);
+		verifyTextForElement(driver.findElement(By.cssSelector("li.ec2-embed-patient-ssn")),new_word);
 	}
 	
 	public void iEnterDuplicateNameInTextboxFieldPresentOnAddPatientModal() {

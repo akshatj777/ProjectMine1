@@ -1,7 +1,8 @@
 @EC1Smoke
 Feature: User can add appointment
- Background: Patient creation
- 	Given I am on the login page
+
+  Background: Patient creation
+    Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -29,7 +30,9 @@ Feature: User can add appointment
     And I click on submit button present on the new filter modal
 
   Scenario Outline: Verify that user is able create an appointment from Patient List page
-    Given I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
     And I click on first patient gear menu
     When I click on "Add Appointment" from patients list patient gear menu
     Then I verify "New Appointment" header on popup
@@ -39,13 +42,8 @@ Feature: User can add appointment
     Then I fill "9748563210" in "Contact phone" on Appointment form
     And I click on "Schedule Appointment" button
     And I will wait to see "New appointment created." in "p" tag
-    Then I Expand to the patient summary page
-    And I will wait to see "Attestation" in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowAppointments"
     And I verify "Office Visit" in Appointments under Care Plan on Patient page
-    
 
     Examples: 
       | Appointment_type |
