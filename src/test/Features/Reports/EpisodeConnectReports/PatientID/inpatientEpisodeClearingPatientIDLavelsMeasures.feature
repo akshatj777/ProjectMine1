@@ -21,8 +21,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
     When I click on show all filters icon button
-    Then I should see "Model includes 2" is present under preselected model filter
-    Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
+    #Then I should see "Model includes 2" is present under preselected model filter
+    #Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
+    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
@@ -128,7 +129,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
     Given I am on the login page
@@ -145,8 +146,8 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I remove "Anchor Admission Year" field filter under "Anchor Begin Date" filter field from default filters
-    Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    #Then I remove "Model" field filter under "Model" filter field from default filters
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds
     When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field
@@ -163,7 +164,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should not see fracture/non-fracture filters in the available fields in inpatient episode clearing issues report under patient id
     Given I am on the login page
@@ -316,7 +317,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Eligibility" field is appearing in the layout section after selecting add to report
-    Then I verify "Eligibility" column is added to report after selecing add to report option
+    Then I verify "Eligibility" column is added to report after selecting add to report option
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
@@ -356,31 +357,31 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Dashboard - Anchor CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Dashboard - Anchor CCN" column is added to report after selecing add to report option
+    Then I verify "Dashboard - Anchor CCN" column is added to report after selecting add to report option
     #BPID Drag and Drop
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecing add to report option
+    Then I verify "BPID" column is added to report after selecting add to report option
     #Patient Risk Drag and Drop
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Patient Risk" column is added to report after selecing add to report option
+    Then I verify "Patient Risk" column is added to report after selecting add to report option
     #Onboarding Sttaus Drag and Drop
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Onboarding Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Onboarding Status" column is added to report after selecing add to report option
+    Then I verify "Onboarding Status" column is added to report after selecting add to report option
     #Risk Score Drag and Drop
     When I click to "Risk Score" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Risk Score" field is appearing in the layout section after selecting add to report
-    Then I verify "Risk Score" column is added to report after selecing add to report option
+    Then I verify "Risk Score" column is added to report after selecting add to report option
 
     Examples: 
       | email                              |

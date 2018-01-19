@@ -13,7 +13,7 @@ Feature: Nsoc next site of care summary
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see Next site of care summary reports column Tile text as "Participant"
     Then I should see Next site of care summary reports column Tile text as "Episode Initiator"
@@ -38,24 +38,24 @@ Feature: Nsoc next site of care summary
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
-    When I click to "Anchor Facility" field filter under "Anchor Facility" filter field
+    When I click to "Anchor Hospital Facility" field filter under "Anchor Hospital Facility" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Facility" in the header text of filter page
+    And I should see "Anchor Hospital Facility" in the header text of filter page
     And I should see "<anchorFacility1>" in the filter value list
     And I click on "<anchorFacility1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
-    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I should see "<anchorFacility1>" result in "Anchor Hospital Facility" field column for "Anchor Hospital Facility" filter field
+    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "CCN" in the header text of filter page
+    And I should see "Anchor Hospital Facility CCN" in the header text of filter page
     And I should see "<ccn1>" in the filter value list
     And I click on "<ccn1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
+    And I should see "<ccn1>" result in "Anchor Hospital Facility CCN" field column for "Anchor Hospital Facility" filter field
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "BPID" in the header text of filter page
@@ -65,16 +65,16 @@ Feature: Nsoc next site of care summary
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
-    When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
+    When I click to "Anchor Hospital Admission Quarter" field filter under "Anchor Hospital Admit Date" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Admission Quarter" in the header text of filter page
+    And I should see "Anchor Hospital Admission Quarter" in the header text of filter page
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "<anchor admission quarter1>" result in "Anchor Admission Quarter" field column for "Anchor Begin Date" filter field
+    And I should see "<anchor admission quarter1>" result in "Anchor Hospital Admission Quarter" field column for "Anchor Hospital Admit Date" filter field
     When I switch to default window from iframe
     When I click on reports tab appearing on reports page
     Then I verify current page "Reports" title
