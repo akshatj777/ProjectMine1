@@ -3,6 +3,7 @@ package com.remedy.episode1;
 import com.remedy.baseClass.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * Created by salam on 5/6/16.
@@ -101,7 +102,8 @@ public class Ec1DashboardPage extends BaseClass{
     }
     
     public void iMoveTheMouseToUserProfileIcon(){
-    	moveToTheElement(driver.findElement(By.cssSelector("span.username")));
+    	Actions action = new Actions(driver);
+    	action.moveToElement(driver.findElement(By.cssSelector("span.username"))).perform();
     }
     
     public void iClickOnReturnOnRemedyConnectPresentOn_TheUserProfileDropdown(){

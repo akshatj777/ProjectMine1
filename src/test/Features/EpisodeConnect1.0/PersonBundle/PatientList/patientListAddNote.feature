@@ -22,11 +22,12 @@ Background: Patient creation
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "1" days
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    And I click on submit button present on the new filter modal
+    #Then I fill in "Admit" with logic "minus" with "1" days
+    #Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    #Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    #Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    #And I click on submit button present on the new filter modal
+    Then I click on the Cancel Button on the New Transition on Add Patient page
 
  Scenario: Verify that note is created from patient list and displayed properly on care plan->Notes list
     Given I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN

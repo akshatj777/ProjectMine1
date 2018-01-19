@@ -818,6 +818,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		
 		public void IShouldSeeValidationMessageOnTransitionModal(String text) {
+			iWillWaitToSee(By.cssSelector(".help-block.help-block-error"));
 			iVerifyTextFromListOfElement(By.cssSelector(".help-block.help-block-error"), text);
 		}
 		

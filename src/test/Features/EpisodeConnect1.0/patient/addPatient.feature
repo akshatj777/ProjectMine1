@@ -56,4 +56,4 @@ Feature: Episode Connect 1 Add Patient
     Examples: 
       | email                | password  |
       | qa.admin@yopmail.com | Episode1! |
-      | qa.lpn@yopmail.com   | Episode1! |
+
