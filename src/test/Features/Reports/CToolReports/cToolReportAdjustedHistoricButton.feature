@@ -26,6 +26,6 @@ Feature: CTool Report Adjusted Historic Button Is not clickable
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards |
+      #| emblemachrpfin@yopmail.com     | Dashboards |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |
+      #| multipayerachrpfin@yopmail.com | Dashboards |

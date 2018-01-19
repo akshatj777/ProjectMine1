@@ -1439,8 +1439,8 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iShouldNotSeeElementInTheFilterValueList(text);
     }
     
-    @Then("^I verify \"([^\"]*)\" column is added to report after selecing add to report option$")
     @And("^I verify \"([^\"]*)\" column is already present on the reports$")
+    @Then("^I verify \"([^\"]*)\" column is added to report after selecting add to report option$")
     public void i_velrify_column_is_added_to_report_after_selecting_add_to_report_option(String text) throws Throwable{
     	reportHomePage.iShouldSeeColumnAfterClickingAddToReport(text);
     }
@@ -1716,5 +1716,20 @@ public class ReportHomePageSteps extends DriverScript {
     @When ("^I click to \"([^\"]*)\" field filter under \"([^\"]*)\" filter field in layout section$")
     public void i_click_filter_field_in_layout_section(String filterTitle,String filterField){
     	reportHomePage.iclickfilterfieldinlayoutsection(filterTitle,filterField);
+    }
+
+    @Then("^I verify \"([^\"]*)\" text is appearing in the FAQ page$")
+    public void i_verify_text_is_appearing_in_the_FAQ_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTextOnTheFAQPage(text);
+    }
+    
+    @And("^I should be able to see FAQ links list mentioned in the FAQ page$")
+    public void i_should_be_able_to_see_FAQ_links_list_mentioned_in_the_FAQ_page() throws Throwable{
+    	reportHomePage.iShouldSeeFAQListOnFAQPage();
+    }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected anchor discharge date key filter$")
+    public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
     }
 }

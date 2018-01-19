@@ -23,8 +23,8 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "Anchor Facility"
     Then I should see Initial SNF Length of Stay Summary reports column Tile text as "1st Post Acute Facility"
     Then I verify Initial SNF Length of Stay Summary reports column text as "Anchor Admission Month"
-    Then I verify Initial SNF Length of Stay Summary reports column text as "2017-01"
     Then I verify Initial SNF Length of Stay Summary reports column text as "2018-03"
+    Then I verify Initial SNF Length of Stay Summary reports column text as "2017-03"
     Then I verify Initial SNF Length of Stay Summary reports column text as "# Episodes"
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -72,7 +72,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify user can search for network tier under snf los summary report
     Given I am on the login page
@@ -310,7 +310,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Eligibility" field is appearing in the layout section after selecting add to report
-    Then I verify "Eligibility" column is added to report after selecing add to report option
+    Then I verify "Eligibility" column is added to report after selecting add to report option
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
@@ -359,7 +359,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "1st Post Acute CCN" column is added to report after selecing add to report option
+    Then I verify "1st Post Acute CCN" column is added to report after selecting add to report option
     #Filtering(1st Post Acute CCN)
     When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
     And I choose "Filter" option from select options of filter field
@@ -387,7 +387,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Discharge Care Setting" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Discharge Care Setting" column is added to report after selecing add to report option
+    Then I verify "Anchor Discharge Care Setting" column is added to report after selecting add to report option
     #Network Tier(Anchor Discharge - Tier Unknown)
     When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
     And I choose "Filter" option from select options of filter field
@@ -435,7 +435,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Network Tier (Anchor Discharge)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Anchor Discharge)" column is added to report after selecing add to report option
+    Then I verify "Network Tier (Anchor Discharge)" column is added to report after selecting add to report option
     #Filtering(Out Of Network)
     When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
     And I choose "Filter" option from select options of filter field
@@ -471,8 +471,8 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
 
     Examples: 
       | email                     | networktier1   | networktier2 | networktier3 |
-      | RPFIN2User2@yopmail.com   | Out of Network | Tier 1       | Tier 2       |
-      | OPSFINTier1_2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
+      | RPFIN2User2@yopmail.com   | Out Of Network | Tier 1       | Tier 2       |
+      | OPSFINTier1_2@yopmail.com | Out Of Network | Tier 1       | Tier 2       |
 
   Scenario Outline: Verify drag and drop functionality for ccn and network tier(post acute admission) to the report
     Given I am on the login page
@@ -495,13 +495,13 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    Then I verify "CCN" column is added to report after selecting add to report option
     #Drag and Drop(Network Tier Post Acute Admission)
     When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecing add to report option
+    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecting add to report option
 
     Examples: 
       | email                   |
@@ -529,37 +529,37 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "SNF Discharge Date" field is appearing in the layout section after selecting add to report
-    Then I verify "SNF Discharge Date" column is added to report after selecing add to report option
+    Then I verify "SNF Discharge Date" column is added to report after selecting add to report option
     #CCN Drag and Drop
     When I click to "CCN" field filter under "Anchor Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    Then I verify "CCN" column is added to report after selecting add to report option
     #BPID Drag and Drop
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecing add to report option
+    Then I verify "BPID" column is added to report after selecting add to report option
     #Patient Risk Drag and Drop
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Patient Risk" column is added to report after selecing add to report option
+    Then I verify "Patient Risk" column is added to report after selecting add to report option
     #Onboarding Sttaus Drag and Drop
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Onboarding Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Onboarding Status" column is added to report after selecing add to report option
+    Then I verify "Onboarding Status" column is added to report after selecting add to report option
     #Risk Score Drag and Drop
     When I click to "Risk Score" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Risk Score" field is appearing in the layout section after selecting add to report
-    Then I verify "Risk Score" column is added to report after selecing add to report option
+    Then I verify "Risk Score" column is added to report after selecting add to report option
 
     Examples: 
       | email                              |
