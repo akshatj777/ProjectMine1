@@ -435,7 +435,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I should see "Bundle Code" is added in layout section after clicking on add to report
-    Then I verify "Bundle Code" column is added to report after selecing add to report option
+    Then I verify "Bundle Code" column is added to report after selecting add to report option
     #Filtering
     When I click on "Bundle Code" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
@@ -716,7 +716,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Eligibility" field is appearing in the layout section after selecting add to report
-    Then I verify "Eligibility" column is added to report after selecing add to report option
+    Then I verify "Eligibility" column is added to report after selecting add to report option
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page

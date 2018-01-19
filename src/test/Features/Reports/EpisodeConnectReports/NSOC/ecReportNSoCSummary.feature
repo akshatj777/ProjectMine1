@@ -12,12 +12,13 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I verify "Model" filter is preselected under the filter
-    Then I should see "Model includes 2" is present under preselected model filter
-    Then I should see "Dashboard Admission Month is between (and includes) 2016-01 and 2017-12" is present under preselected anchor month filter
+    #Then I verify "Model" filter is preselected under the filter
+    #Then I should see "Model includes 2" is present under preselected model filter
+    Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
+    Then I should see "anchor Discharge Date Key includes 1" is present under preselected anchor discharge date key filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
@@ -64,7 +65,7 @@ Feature: Verification of Next Site of Care Summary EC Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify user can search for network tier under nsoc summary report
     Given I am on the login page
@@ -78,16 +79,16 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
     Then I enter "Network Tier" in the search field textbox for filters
-    And I verify "Network Tier (Anchor Discharge)" is appearing in the available fields under next site of care summary report
+    And I verify "Network Tier (Anchor Hospital Discharge)" is appearing in the available fields under next site of care summary report
     And I verify "Network Tier (Post Acute Admission)" is appearing in the available fields under next site of care summary report
-    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
     And I should see "<networktier1>" in the filter value list
     And I should see "<networktier1>" in the filter value list
     And I click on cancel button from filter
@@ -114,7 +115,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
@@ -141,7 +142,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
@@ -172,7 +173,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -181,13 +182,13 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    And I click on "Anchor Facility Type" checkbox under "Anchor Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
     And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
     And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
-    Then I should verify "Anchor Facility Type" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility Type" is appearing under Episodes table
     Then I should verify "1st Post Acute Facility" is appearing under Episodes table
     Then I should verify "1st Post Acute CCN" is appearing under Episodes table
 
@@ -207,7 +208,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
@@ -222,7 +223,7 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
       | rmexeallonboradvale@yopmail.com | Unknown           | Needs Onboarding  | Onboarded         | Not Onboarded     |
 
-  Scenario Outline: Verify patient risk values in database for next site of care under next site of care summary
+  Scenario Outline: Verify patient risk values for next site of care under next site of care summary
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -234,7 +235,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click to "Patient Risk" field filter under "Patient" filter field
@@ -261,7 +262,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -294,7 +295,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -302,7 +303,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Eligibility" field is appearing in the layout section after selecting add to report
-    Then I verify "Eligibility" column is added to report after selecing add to report option
+    Then I verify "Eligibility" column is added to report after selecting add to report option
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
@@ -333,15 +334,13 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
-    Then I remove "Model" field filter under "Model" filter field from default filters
-    Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
-    Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
+    Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
     Then I enter "1st Post Acute CCN" in the search field textbox for filters
     And I verify "1st Post Acute CCN" is appearing in the available fields under next site of care summary report
     And I click on clear search field element
@@ -351,7 +350,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "1st Post Acute CCN" column is added to report after selecing add to report option
+    Then I verify "1st Post Acute CCN" column is added to report after selecting add to report option
     #Filtering(1st Post Acute CCN)
     When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
     And I choose "Filter" option from select options of filter field
@@ -379,11 +378,11 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Discharge Care Setting" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Discharge Care Setting" column is added to report after selecing add to report option
+    Then I verify "Anchor Discharge Care Setting" column is added to report after selecting add to report option
     #Network Tier(Anchor Discharge - Tier Unknown)
-    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
     And I should see "Tier Unknown" in the filter value list
     And I should not see "Tier 1" in the filter value list
     And I should not see "Tier 2" in the filter value list
@@ -392,7 +391,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
 
     Examples: 
       | email                              | 1stpostacuteccn filter |
@@ -413,53 +412,51 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
-    Then I remove "Model" field filter under "Model" filter field from default filters
-    Then I remove "DataQualityFlag" field filter under "DataQualityFlag" filter field from default filters
-    Then I remove "isSNFAdmissionReport" field filter under "isSNFAdmissionReport" filter field from default filters
+    Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
     #Drag and Drop(Network Tier - Anchor Discharge)
-    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "Network Tier (Anchor Discharge)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Anchor Discharge)" column is added to report after selecing add to report option
+    And I verify "Network Tier (Anchor Hospital Discharge)" field is appearing in the layout section after selecting add to report
+    Then I verify "Network Tier (Anchor Hospital Discharge)" column is added to report after selecting add to report option
     #Filtering(Out Of Network)
-    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
     And I click on "<networktier1>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Out of Network" is appearing under selected network tier anchor discharge filter
-    And I verify "<networktier1>" is visible under "Network Tier (Anchor Discharge)" column in the report
-    Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Out of Network" is appearing under selected network tier anchor discharge filter
+    And I verify "<networktier1>" is visible under "Network Tier (Anchor Hospital Discharge)" column in the report
+    Then I remove "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field from default filters
     #Filtering(Tier 1)
-    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
     And I click on "<networktier2>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Tier 1" is appearing under selected network tier anchor discharge filter
-    And I verify "<networktier2>" is visible under "Network Tier (Anchor Discharge)" column in the report
-    Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Tier 1" is appearing under selected network tier anchor discharge filter
+    And I verify "<networktier2>" is visible under "Network Tier (Anchor Hospital Discharge)" column in the report
+    Then I remove "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field from default filters
     #Filtering(Tier 2)
-    When I click to "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Anchor Discharge)" in the header text of filter page
+    And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
     And I click on "<networktier3>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Tier 2" is appearing under selected network tier anchor discharge filter
-    And I verify "<networktier3>" is visible under "Network Tier (Anchor Discharge)" column in the report
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Tier 2" is appearing under selected network tier anchor discharge filter
+    And I verify "<networktier3>" is visible under "Network Tier (Anchor Hospital Discharge)" column in the report
 
     Examples: 
       | email                     | networktier1   | networktier2 | networktier3 |
@@ -478,22 +475,22 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #CCN Drag and Drop
-    When I click to "CCN" field filter under "Anchor Facility" filter field
+    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
     #Drag and Drop(Network Tier Post Acute Admission)
     When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecing add to report option
+    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecting add to report option
 
     Examples: 
       | email                   |
@@ -512,46 +509,40 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
-    #SNF Discharge Date Drag and Drop
-    When I click to "SNF Discharge Date" field filter under "SNF Discharge Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "SNF Discharge Date" field is appearing in the layout section after selecting add to report
-    Then I verify "SNF Discharge Date" column is added to report after selecing add to report option
     #CCN Drag and Drop
-    When I click to "CCN" field filter under "Anchor Facility" filter field
+    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
     #BPID Drag and Drop
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecing add to report option
+    Then I verify "BPID" column is added to report after selecting add to report option
     #Patient Risk Drag and Drop
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Patient Risk" column is added to report after selecing add to report option
+    Then I verify "Patient Risk" column is added to report after selecting add to report option
     #Onboarding Sttaus Drag and Drop
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Onboarding Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Onboarding Status" column is added to report after selecing add to report option
+    Then I verify "Onboarding Status" column is added to report after selecting add to report option
     #Risk Score Drag and Drop
     When I click to "Risk Score" field filter under "Patient" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Risk Score" field is appearing in the layout section after selecting add to report
-    Then I verify "Risk Score" column is added to report after selecing add to report option
+    Then I verify "Risk Score" column is added to report after selecting add to report option
 
     Examples: 
       | email                              |
