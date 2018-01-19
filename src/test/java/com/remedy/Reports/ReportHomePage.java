@@ -1338,4 +1338,8 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeFAQListOnFAQPage(){
     	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
     }
+    
+    public void iSeeAnchorDischargeDateKeyFilterPreselected(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[anchor Discharge Date Key].[anchor Discharge Date Key]']/span")),text);
+    }
 }

@@ -1691,4 +1691,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_be_able_to_see_FAQ_links_list_mentioned_in_the_FAQ_page() throws Throwable{
     	reportHomePage.iShouldSeeFAQListOnFAQPage();
     }
+    
+    @Then("^I should see \"([^\"]*)\" is present under preselected anchor discharge date key filter$")
+    public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
+    	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
+    }
 }
