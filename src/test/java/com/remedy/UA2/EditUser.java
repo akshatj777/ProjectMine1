@@ -347,42 +347,155 @@ public class EditUser extends BaseClass {
 		   clickElement(driver.findElement(By.cssSelector(".ui.selection.dropdown")));
 		   createUserPage.selectLearningPath(searchParam);
 	   }
-		public void iVerifyDataPermissions(String arg){
-			longDelay();
-			iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
-			if (arg.contains(",")) {
-				String[] org = arg.split(",\\s+");
-				for (int i = 0; i < org.length; i++) {
-					
-					
-						String[] heathProgLoc = org[i].split("--");
-						clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+heathProgLoc[0].trim()+"')]")));
-						if (heathProgLoc[1].contains("-")){
-							   StringTokenizer st = new StringTokenizer(heathProgLoc[1],"-");
-						       while (st.hasMoreTokens()) {
-						    	   String token = st.nextToken().trim();
-						    	   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
-						       }
+
+	public void iVerifyDataPermissions(String arg) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
+		if (arg.contains(",")) {
+			String[] org = arg.split(",\\s+");
+			for (int i = 0; i < org.length; i++) {
+
+				String[] heathProgLoc = org[i].split("::");
+				if(heathProgLoc[0].trim().isEmpty()==false){
+				iWillWaitToSee(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]"));
+				isElementVisible(
+						driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
+
+				clickElement(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
+				}
+				else{
+					iWillWaitToSee(By.cssSelector(".angle.right.icon.icon-angle-right"));
+					clickElement(driver.findElement(By.cssSelector(".angle.right.icon.icon-angle-right")));
 					
 				}
-		}
-		}
-			else{
-				
-					String[] heathProgLoc = arg.split("--");
-					clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+heathProgLoc[0].trim()+"')]")));
-					if (heathProgLoc[1].contains("-")){
-						   StringTokenizer st = new StringTokenizer(heathProgLoc[1],"-");
-					       while (st.hasMoreTokens()) {
-					    	   String token = st.nextToken().trim();
-					    	   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
-					       }
-				
-			
-		
-}
+				if (heathProgLoc[1].contains(":")) {
+					StringTokenizer st = new StringTokenizer(heathProgLoc[1], ":");
+					while (st.hasMoreTokens()) {
+						String token = st.nextToken().trim();
+						if (token.contains(",")) {
+							StringTokenizer st1 = new StringTokenizer(token, ",");
+							while (st1.hasMoreTokens()) {
+								String token1 = st.nextToken().trim();
+								if (token1.equals("BPCI-Model2")) {
+									String prog = "BPCI Model 2";
+									iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+								} else if (token1.equals("BPCI-Model3")) {
+									String prog = "BPCI Model 3";
+									iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+								}
+								else if (token1.equals("--")) {
+									StringTokenizer st2 = new StringTokenizer(token1, "--");
+									while (st2.hasMoreTokens()) {
+										String	loc = st.nextToken().trim();
+										iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
+										isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
+								}
+										
+									}
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + token1 + "')]"));
+								isElementVisible(
+										driver.findElement(By.xpath("//*[contains(text(),'" + token1 + "')]")));
+							}
+						} else {
+							if (token.equals("BPCI-Model2")) {
+								String prog = "BPCI Model 2";
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+							} else if (token.equals("BPCI-Model3")) {
+								String prog = "BPCI Model 3";
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+							}
+							else if (token.equals("--")) {
+								StringTokenizer st2 = new StringTokenizer(token, "--");
+								while (st2.hasMoreTokens()) {
+									String	loc = st.nextToken().trim();
+									iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
+									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
+							}
+								}
+							iWillWaitToSee(By.xpath("//*[contains(text(),'" + token + "')]"));
+							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + token + "')]")));
+						}
+					}
+				}
 
-}
+			}
+		} else {
+
+			String[] heathProgLoc = arg.split("::");
+			if(heathProgLoc[0].trim().isEmpty()==false){
+			iWillWaitToSee(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]"));
+			isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
+
+			clickElement(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));}
+			else{
+				iWillWaitToSee(By.cssSelector(".angle.right.icon.icon-angle-right"));
+				clickElement(driver.findElement(By.cssSelector(".angle.right.icon.icon-angle-right")));
+				
+			}
+			if (heathProgLoc[1].contains(":")) {
+				StringTokenizer st = new StringTokenizer(heathProgLoc[1], ":");
+				while (st.hasMoreTokens()) {
+					String token = st.nextToken().trim();
+
+					if (token.contains(",")) {
+						StringTokenizer st1 = new StringTokenizer(token, ",");
+						while (st1.hasMoreTokens()) {
+							String token1 = st.nextToken().trim();
+							if (token1.equals("BPCI-Model2")) {
+								String prog = "BPCI Model 2";
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+							} else if (token1.equals("BPCI-Model3")) {
+								String prog = "BPCI Model 3";
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+							}
+							else if (token1.equals("--")) {
+								StringTokenizer st2 = new StringTokenizer(token1, "--");
+								while (st2.hasMoreTokens()) {
+								String	loc = st.nextToken().trim();
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
+						}
+								
+							}
+							iWillWaitToSee(By.xpath("//*[contains(text(),'" + token1 + "')]"));
+							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + token1 + "')]")));
+						}
+
+					}
+
+					else {
+						if (token.equals("BPCI-Model2")) {
+							String prog = "BPCI Model 2";
+							iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+						} else if (token.equals("BPCI-Model3")) {
+							String prog = "BPCI Model 3";
+							iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
+							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
+						}
+					
+						else if (token.equals("--")) {
+							StringTokenizer st2 = new StringTokenizer(token, "--");
+							while (st2.hasMoreTokens()) {
+								String	loc = st.nextToken().trim();
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
+						}
+								
+							}
+						
+					}
+				}
+
+			}
+			}
+		
 		}
 		public void iVerifydataPermissionsField(String field){
 			 if (field.contains(",")){
