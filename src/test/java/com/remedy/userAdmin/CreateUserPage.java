@@ -478,14 +478,16 @@ public class CreateUserPage extends BaseClass{
 				   StringTokenizer st1 = new StringTokenizer(facility,",");
 		            while (st1.hasMoreTokens()) {  
 		            	String token = st1.nextToken().trim();
+		            	System.out.println(token);
+		            	scrollIntoViewByJS(driver.findElement(By.xpath("//li[contains(text(),\""+token+"\")]")));
 		            	iWillWaitToSee(By.xpath("//li[contains(text(),\""+token+"\")]"));
-		            	Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[text()='"+token+"']")));
+		            	Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[contains(text(),\""+token+"\")]")));
 		            }
 			   }
 			   else
 			   {
 				   iWillWaitToSee(By.xpath("//li[contains(text(),\""+facility+"\")]"));
-				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[text()='"+facility+"']")));
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[contains(text(),\""+facility+"\")]")));
 			   }
 		   }   
 	   }
@@ -960,12 +962,11 @@ public class CreateUserPage extends BaseClass{
 	    	   if(location.contains(BPID))
 	    	   {
 	    		   delay();
-		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
-		    	   delay();
-		    	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+		    	   while(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
 		    	   {
-		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();  
 		    	   }
+		    	   delay();
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -974,12 +975,11 @@ public class CreateUserPage extends BaseClass{
 	    	   else
 	    	   {
 	    		   delay();
-		    	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
-		    	   delay();
-		    	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+	    		   while(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
 		    	   {
-		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();  
 		    	   }
+		    	   delay();
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -995,12 +995,11 @@ public class CreateUserPage extends BaseClass{
     	   if(location.contains(BPID))
     	   {
     		   delay();
-        	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
-        	   delay();
-        	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+    		   while(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
 	    	   {
-	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();  
 	    	   }
+        	   delay();
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
@@ -1009,12 +1008,11 @@ public class CreateUserPage extends BaseClass{
     	   else
     	   {
     		   delay();
-        	   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();
-        	   delay();
-        	   if(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
+    		   while(!(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).getText().equals("")))
 	    	   {
-	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys("");
+	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).clear();  
 	    	   }
+        	   delay();
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
