@@ -394,9 +394,7 @@ public class EditUser extends BaseClass {
 								}
 										
 									}
-								iWillWaitToSee(By.xpath("//*[contains(text(),'" + token1 + "')]"));
-								isElementVisible(
-										driver.findElement(By.xpath("//*[contains(text(),'" + token1 + "')]")));
+								
 							}
 						} else {
 							if (token.equals("BPCI-Model2")) {
@@ -416,8 +414,7 @@ public class EditUser extends BaseClass {
 									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
 							}
 								}
-							iWillWaitToSee(By.xpath("//*[contains(text(),'" + token + "')]"));
-							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + token + "')]")));
+							
 						}
 					}
 				}
@@ -463,8 +460,7 @@ public class EditUser extends BaseClass {
 						}
 								
 							}
-							iWillWaitToSee(By.xpath("//*[contains(text(),'" + token1 + "')]"));
-							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + token1 + "')]")));
+							
 						}
 
 					}
