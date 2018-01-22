@@ -859,35 +859,33 @@ Feature: Verification of Readmissions EC report
     Then I should verify "Readmission Discharge Date 3" is appearing under Episodes table
     Then I should verify "Readmission CCN 4" is appearing under Episodes table
     Then I should verify "Readmission Facility Name 4" is appearing under Episodes table
+    Then I should verify "Readmission DRG 4" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 4" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 4" is appearing under Episodes table
+    Then I should verify "Readmission CCN 5" is appearing under Episodes table
+    Then I should verify "Readmission Facility Name 5" is appearing under Episodes table
+    Then I should verify "Readmission DRG 5" is appearing under Episodes table
+    Then I should verify "Readmission Admit Date 5" is appearing under Episodes table
+    Then I should verify "Readmission Discharge Date 5" is appearing under Episodes table
     Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
+    Then I should verify "Anchor Month" is appearing under Episodes table
+    Then I should verify "Eps w Readmits" is appearing under Episodes table
+    Then I should verify "Readmit - 15 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 30 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 60 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 7 Days" is appearing under Episodes table
+    Then I should verify "Readmit - 90 Days" is appearing under Episodes table
+    Then I should verify "Readmits Leaked" is appearing under Episodes table
+    Then I should verify "Total Readmits" is appearing under Episodes table
     Then I click on "Select Columns" appearing in the new window after clicking on drill through
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes drill through columns popup
-    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Provider" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Provider CCN" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Provider" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Provider CCN" is appearing under Episodes drill through columns popup
-    Then I should verify "First Working Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Working DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Predicted DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Predicted Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Predicted DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Working DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Working Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Working DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Predicted DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Predicted Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Predicted DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Type Detail (EC)" is appearing under Episodes drill through columns popup
