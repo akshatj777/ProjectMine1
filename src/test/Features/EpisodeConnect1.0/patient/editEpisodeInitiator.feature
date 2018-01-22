@@ -95,7 +95,7 @@ Feature: Episode connect 1 edit Episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL 3" state
-    Then I verify potential m3 Episode Marker Admit Date "30" is created without end date
+    Then I verify Episode Marker with Admit Date "30" is created without end date
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"

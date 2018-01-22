@@ -41,7 +41,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "5" is created without end date
+    Then I verify Episode Marker with Admit Date "5" is created without end date
     Then I verify DRG "(66) INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/overview"
@@ -99,7 +99,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL MODEL 3" state
-    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
+    Then I verify Episode Marker with Admit Date "1" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
 
   Scenario: POTENTIAL EPISODE CANCELED

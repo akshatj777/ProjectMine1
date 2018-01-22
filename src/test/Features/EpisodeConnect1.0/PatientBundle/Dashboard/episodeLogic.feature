@@ -41,7 +41,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
+    Then I verify Episode Marker with Admit Date "1" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
 
@@ -117,7 +117,7 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "PENDING CANCELLATION" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
+    Then I verify Episode Marker with Admit Date "1" is created without end date
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
@@ -129,7 +129,7 @@ Feature: Managing Various Episode States
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "1" is created without end date
+    Then I verify Episode Marker with Admit Date "1" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
 
@@ -280,7 +280,7 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "EXCLUDED BY 6" state
     Then I will wait to see onboarding status "Needs Onboarding"
-    Then I verify potential m3 Episode Marker Admit Date "0" is created without end date
+    Then I verify Episode Marker with Admit Date "0" is created without end date
     Then I will verify Episode Marker Admit Date "1" and "add" Discharge date "1" with "0" to show end date and Episode Status "EXCLUDED BY 6"
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "2" in transition modal

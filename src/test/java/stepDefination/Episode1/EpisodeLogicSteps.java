@@ -20,7 +20,7 @@ public class EpisodeLogicSteps extends DriverScript{
 		logic.Iclickfirsttimingtransitioneditlink(tran);
 	}
 	
-	@Then ("^I verify potential m3 Episode Marker Admit Date \"([^\"]*)\" is created without end date$")
+	@Then ("^I verify Episode Marker with Admit Date \"([^\"]*)\" is created without end date$")
 	public void i_Verify_Potential_without_end_Date(int days){
 		logic.iVerifyPotentialwithoutendDate(days);
 	}

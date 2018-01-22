@@ -41,7 +41,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
+    Then I verify Episode Marker with Admit Date "-268" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
@@ -59,7 +59,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "-268" is created without end date
+    Then I verify Episode Marker with Admit Date "-268" is created without end date
     And I will wait to see "Envision Health Care - Kemwall Inpatient Services" in "td" tag
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page

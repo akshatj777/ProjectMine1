@@ -56,7 +56,7 @@ Feature: Managing Various Episode States - Removing DOD
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "5" is created without end date
+    Then I verify Episode Marker with Admit Date "5" is created without end date
     Then I will wait to see onboarding status "Needs Onboarding"
     Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
     Then I navigate to the "/secure/person/mongoID/patient-details"
@@ -77,7 +77,7 @@ Feature: Managing Various Episode States - Removing DOD
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I verify potential m3 Episode Marker Admit Date "5" is created without end date
+    Then I verify Episode Marker with Admit Date "5" is created without end date
     And I should see tag "Error"
 
   Scenario: Completed Expired-Active episode With discharge disposition
