@@ -1,11 +1,16 @@
 package com.remedy.programManagement;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -81,8 +86,8 @@ public class CreatePrograms extends BaseClass {
 //		iFillInText(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")), text);
 //		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")));
-		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
-		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".org-name")));
+		clickSingleElementFromList((By.cssSelector(".org-name")), text);
 	}
 	
 	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) {
@@ -132,7 +137,7 @@ public class CreatePrograms extends BaseClass {
 //		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Bundle']")), text);
 //		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
-		clickSingleElementFromList((By.cssSelector(".ReactVirtualized__Grid.ReactVirtualized__List.VirtualSelectGrid")), text);
+		clickSingleElementFromList((By.cssSelector(".react-select-option-row.highlight>div")), text);
 	}
 	
 	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1) {
@@ -169,8 +174,70 @@ public class CreatePrograms extends BaseClass {
 		                element, attName, attValue);
 		    }
 	
-	public void iInsertdays1(int days) {
-		currentdate(days,"yyyy/MM/dd");
-		setAttributevalue(driver.findElement(By.cssSelector("div.react-datepicker-wrapper")),"textContent","");
+	public void iInsertdays1(List<Map<String,Integer>> data) throws ParseException {
+		List<WebElement> startelemnts = null;
+		List<WebElement> endelemnts = null;
+		for(int i=0;i<data.size();i++){
+			startelemnts=driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='Enter the start date']"));
+			endelemnts=driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='YYYY/MM/DD']"));
+		}
+		for(int i=0;i<data.size();i++){
+			
+				scrollIntoViewByJS(startelemnts.get(i));
+				handleDatepicker(data.get(i).get("Start Date"),startelemnts.get(i));
+				handleDatepicker(data.get(i).get("End Date"),endelemnts.get(i));
+		}
+			
+	}			
+
+	public void handleDatepicker(int date1,WebElement element) throws ParseException {
+		
+		System.out.println(date1);
+		String newDate=currentdate(date1,"yyyy/MM/dd");
+		Date convertedDate=covertStringtoInt(newDate);
+		String date3=convertedDate.toString();
+		System.out.println(date3);
+		String year=getLastnCharacters(date3,4);
+		String date6=date3.substring(4,7);
+	    System.out.println("Stting is"+year);
+	    System.out.println("month is"+date6);
+	    element.click();
+	    WebElement midtext = driver.findElement(By.cssSelector("div.react-datepicker__current-month")); 
+	     
+	    String yeartext=midtext.getText();
+	    String date44=getLastnCharacters(newDate,2);
+	    if(year.equals(getLastnCharacters(yeartext,4)) && date6.equals(yeartext.substring(0, 3))){
+	    	
+	    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__month')]/div[contains(@class,'react-datepicker__week')]/div[contains(@class,'react-datepicker__day') and not(contains(@class,'react-datepicker__day--outside')) and text()='"+date44+"']")));
+	         delay();
+	    }else{
+	    	driver.findElement(By.cssSelector("a.react-datepicker__navigation--previous")).click();
+	    	delay();
+	    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__month')]/div[contains(@class,'react-datepicker__week')]/div[contains(@class,'react-datepicker__day') and not(contains(@class,'react-datepicker__day--outside')) and text()='"+date44+"']")));
+	    }
+	}
+	
+	public Date covertStringtoInt(String source) throws ParseException{
+		DateFormat formatter =new SimpleDateFormat("yyyy/MM/dd");
+		Date convertedDate =(Date) formatter.parse(source);
+		return convertedDate;
+	}
+	
+	public void i_navigate_to_the(String url) {
+		driver.navigate().to(url);
+		 longDelay();
+	}
+	
+	public String getLastnCharacters(String inputString, 
+    int subStringLength)
+	{
+		int length = inputString.length();
+		if(length <= subStringLength)
+		{
+			return inputString;
+		}
+     int startIndex = length-subStringLength;
+     return inputString.substring(startIndex);
 	}
 }
+

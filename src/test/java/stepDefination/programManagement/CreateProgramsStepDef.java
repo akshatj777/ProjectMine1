@@ -1,16 +1,20 @@
 package stepDefination.programManagement;
 
+import java.text.ParseException;
 import java.util.List;
+import java.util.Map;
 
+import com.remedy.programManagement.CreateManagingOrganization;
 import com.remedy.programManagement.CreatePrograms;
 import com.remedy.resources.DriverScript;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class CreateProgramsStepDef extends DriverScript{
 	CreatePrograms programs= new CreatePrograms(driver);
-	
+	CreateManagingOrganization createMO = new CreateManagingOrganization(driver);
 	
 	@And("^I verify \"([^\"]*)\" after submitting the \"([^\"]*)\" on Payor organization page$")
 	  public void i_Verify_Message_After_Submitting_Create_Organization_Page(String text, String org) throws Throwable {
@@ -97,13 +101,19 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1);
 	    }
 	
-	@Then ("^i insert \"([^\"]*)\" in date picker$")
-	public void i_insert_days(List<String> days){
-		programs.iInsertdays(days);
+	@Then ("^I select the date from date picker with logic \"([^\"]*)\" days from current date$")
+	public void i_insert_days(String logic,DataTable dates) throws ParseException{
+		List<Map<String,Integer>> data = dates.asMaps(String.class,Integer.class);
+		programs.iInsertdays1(data);
+       }
+	
+	@Then ("^i navigate to the \"([^\"]*)\"$")
+	public void i_navigate_to_the(String url){
+		programs.i_navigate_to_the(url);
 	}
 	
-	@Then ("^i insert \"([^\"]*)\" in date picker1$")
-	public void i_insert_days1(int days){
-		programs.iInsertdays1(days);
+	@Then ("^I Click on \"([^\"]*)\" button$")
+	public void i_Click_on_Addbundle_Button(String text){
+		createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	}
 }

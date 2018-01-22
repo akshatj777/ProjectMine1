@@ -93,39 +93,29 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I verify "Contract 1 " on "Create Contract" page under Payor Organization
     And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
-    And I select Start Date for Organization_Name for Contract "1" on "create" Contracts page
-    Then i insert "<days>" in date picker1
-    Then i insert "<days>" in date picker
-    |1|
-    |2|
-    |3|
-    |2|
-    |3|
-    |4|
-    And I select End Date for Organization_Name for Contract "1" on "create" Contracts page
     And I verify "Bundle 1" on "Create Contract" page under Payor Organization
-    
     And I select Bundle1 "<Bundle_1>" for Contract "1" on "create" Contracts page
-    Then i insert "<days>" in date picker
-    
-    And I select Start Date for Bundle1 for Contract "1" on "create" Contracts page
-    And I select End Date for Bundle1 for Contract "1" on "create" Contracts page
     And I verify "Bundle Price 1" on "Create Contract" page under Payor Organization
-    
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
-    
-    And I select Start Date for Bundle_Price1 for Contract "1" on "create" Contracts page
-    And I select End Date for Bundle_Price1 for Contract "1" on "create" Contracts page
-    
-    Then i insert "<days>" in date picker
-    
-    And I select Start Date for Baseline Start for Contract "1" on "create" Contracts page
-    And I select End Date for Baseline End for Contract "1" on "create" Contracts page
+    Then I select the date from date picker with logic "minus" days from current date
+      | Start Date | End Date |
+      |         10 |        1 |
+      |          9 |        2 |
+      |          8 |        3 |
+      |          7 |        4 |
     And I enter "<Trend_Factor>" for "Bundle Price1" for Contract "1" on "create" Contracts page
     And I enter "<Upper_Bound>" for "Bundle Price1" for Contract "1" on "create" Contracts page
     And I enter "<Lower_Bound>" for "Bundle Price1" for Contract "1" on "create" Contracts page
+    Then I click on "Add Bundle" button on "create Contracts" organization page
+    And I select Bundle1 "<Bundle_2>" for Contract "1" on "create" Contracts page
+    And I enter price "<Price>" for Contract "1" on "create" Contracts page
+    Then I select the date from date picker with logic "minus" days from current date
+      | Start Date | End Date |
+      |          6 |        5 |
+      |          5 |        4 |
+      |          4 |        6 |
     Then I click on "Submit" button on "create" organization page
 
     Examples: 
-      | Description                               | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound |
-      | Create Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 |
+      | Description                               | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_1                  |
+      | Create Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 |
