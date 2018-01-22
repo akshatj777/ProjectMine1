@@ -125,12 +125,12 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
-      | email                          |
+      | email                         |
       #| Medicare Payer Users          |
-      | shutestaug231132a@yopmail.com  |
-      #| Multiple Payer Users          |
-      #| multipayerachrpfin@yopmail.com |
+      | shutestaug231132a@yopmail.com |
 
+  #| Multiple Payer Users          |
+  #| multipayerachrpfin@yopmail.com |
   Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
     Given I am on the login page
     When I enter email field <email> for login
@@ -160,12 +160,12 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait for 3000 milli seconds
 
     Examples: 
-      | email                          |
+      | email                         |
       #| Medicare Payer Users          |
-      | shutestaug231132a@yopmail.com  |
-      #| Multiple Payer Users          |
-      #| multipayerachrpfin@yopmail.com |
+      | shutestaug231132a@yopmail.com |
 
+  #| Multiple Payer Users          |
+  #| multipayerachrpfin@yopmail.com |
   Scenario Outline: User should not see fracture/non-fracture filters in the available fields in inpatient episode clearing issues report under patient id
     Given I am on the login page
     When I enter email field <email> for login
@@ -405,34 +405,26 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I click on show all filters icon button
     #Default Filters
     Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor hospital admission year filter
-    Then I verify "anchor Discharge Date Key includes 1" is appearing under preselected filters for anchor Discharge Date Key
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Default Dimensions
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
-    Then I should see "Issue" under "dimensions" field
+    Then I should see "Anchor Hospital Facility" under "dimensions" field
+    Then I should see "Bundle" under "dimensions" field
+    Then I should see "Anchor Hospital Discharge Care Setting" under "dimensions" field
     Then I should see "Anchor Hospital Admission Month" under "dimensions" field
     #Default Measures
     Then I should see "# Episodes" under "measures" field
-    Then I should see "Avg. Days to First Working DRG" under "measures" field
-    Then I should see "Avg. Days to First Predicted DRG" under "measures" field
-    Then I should see "Avg. Days to First Final DRG" under "measures" field
     #Default Fields Verification in reports
     And I verify "Participant" column is already present on the reports
     And I verify "Episode Initiator" column is already present on the reports
-    And I verify "Issue" column is already present on the reports
+    And I verify "Anchor Hospital Facility" column is already present on the reports
+    And I verify "Bundle" column is already present on the reports
+    And I verify "Anchor Hospital Discharge Care Setting" column is already present on the reports
     And I verify "Anchor Hospital Admission Month" column is already present on the reports
     And I verify "# Episodes" column is already present on the reports
-    And I verify "Avg. Days to First Working DRG" column is already present on the reports
-    And I verify "Avg. Days to First Predicted DRG" column is already present on the reports
-    And I verify "Avg. Days to First Final DRG" column is already present on the reports
     #Dimension Fields(Drag and Drop)
-    When I click to "Anchor Hospital Facility" field filter under "Anchor Hospital Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Facility" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Facility" column is added to report after selecting add to report option
     When I click to "Anchor Post Acute Provider" field filter under "Anchor Post Acute Provider" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -443,16 +435,6 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
     Then I verify "BPID" column is added to report after selecting add to report option
-    When I click to "Final DRG Status" field filter under "Final DRG Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Final DRG Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Final DRG Status" column is added to report after selecting add to report option
-    When I click to "Working DRG Status" field filter under "Working DRG Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Working DRG Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Working DRG Status" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -513,6 +495,61 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle DRG Code" column is added to report after selecting add to report option
+    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Care Setting" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Setting" column is added to report after selecting add to report option
+    When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Care Setting" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Care Setting" column is added to report after selecting add to report option
+    When I click to "Anchor Hospital Discharge Care Type" field filter under "Dim Anchor Discharge Care Setting" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Care Type" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Type" column is added to report after selecting add to report option
+    When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Care Type" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Care Type" column is added to report after selecting add to report option
+    When I click to "Anchor Hospital Discharge Care Type Detail (EC)" field filter under "Dim Anchor Discharge Care Setting Type" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Care Type Detail (EC)" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Type Detail (EC)" column is added to report after selecting add to report option
+    When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Care Type Detail (EC)" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Care Type Detail (EC)" column is added to report after selecting add to report option
+    When I click to "Anchor Hospital Discharge Care Setting Code (EC)" field filter under "Dim Anchor Discharge Care Setting Code" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Care Setting Code (EC)" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Setting Code (EC)" column is added to report after selecting add to report option
+    When I click to "Anchor Post Acute Discharge Care Setting Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Code" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Care Setting Code (EC)" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Care Setting Code (EC)" column is added to report after selecting add to report option
+    When I click to "Anchor Hospital Discharge Care Type Code (EC)" field filter under "Dim Anchor Discharge Care Setting Type" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Care Type Code (EC)" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Type Code (EC)" column is added to report after selecting add to report option
+    When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Post Acute Discharge Care Type Code (EC)" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Post Acute Discharge Care Type Code (EC)" column is added to report after selecting add to report option
+    When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Network Tier (Anchor Hospital Discharge)" field is appearing in the layout section after selecting add to report
+    Then I verify "Network Tier (Anchor Hospital Discharge)" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -533,6 +570,11 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Admission Year" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Admission Year" column is added to report after selecting add to report option
+    When I click to "Anchor Hospital Discharge Month" field filter under "Anchor Hospital Discharge Date" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Anchor Hospital Discharge Month" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Month" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Discharge Week" field filter under "Anchor Hospital Discharge Date.Anchor Hospital Discharge Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -594,45 +636,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | shutestauf171115a@yopmail.com |
       | shutestagu22945am@yopmail.com |
 
-  Scenario Outline: Verify the measures field are draggable in inpatient episode clearing report for model3 pgp users
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Patient ID" under reports tile text
-    When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #measures field drag and drop
-    When I click to "Avg. Days to Last Working DRG" field filter under "Measures" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Avg. Days to Last Working DRG" field is appearing in the layout section after selecting add to report
-    Then I verify "Avg. Days to Last Working DRG" column is added to report after selecting add to report option
-    When I click to "Avg. Days to Last Predicted DRG" field filter under "Measures" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Avg. Days to Last Predicted DRG" field is appearing in the layout section after selecting add to report
-    Then I verify "Avg. Days to Last Predicted DRG" column is added to report after selecting add to report option
-    When I click to "Avg. Days to Last Final DRG" field filter under "Measures" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Avg. Days to Last Final DRG" field is appearing in the layout section after selecting add to report
-    Then I verify "Avg. Days to Last Final DRG" column is added to report after selecting add to report option
-
-    Examples: 
-      | email                         |
-      | shutestauf171115a@yopmail.com |
-      | shutestagu22945am@yopmail.com |
-      
-     Scenario Outline: Verify the drill patient drill through values in Inpatient Episode Clearing report for model3 pgp user
+  Scenario Outline: Verify the drill patient drill through values in Inpatient Episode Clearing report for model3 pgp user
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -654,30 +658,24 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should verify "Episode Initiator" is appearing under Episodes table
     Then I should verify "Anchor Hospital Facility CCN" is appearing under Episodes table
     Then I should verify "Anchor Hospital Facility" is appearing under Episodes table
+    Then I should verify "Patient Risk" is appearing under Episodes table
     Then I should verify "Medicare ID" is appearing under Episodes table
     Then I should verify "Patient" is appearing under Episodes table
     Then I should verify "DOB" is appearing under Episodes table
     Then I should verify "DOD" is appearing under Episodes table
+    Then I should verify "Onboarding Status" is appearing under Episodes table
     Then I should verify "Eligibility" is appearing under Episodes table
     Then I should verify "Episode Status" is appearing under Episodes table
     Then I should verify "Bundle" is appearing under Episodes table
     Then I should verify "Bundle DRG Code" is appearing under Episodes table
     Then I should verify "Bundle DRG Status" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Setting" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Type" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Type Code (EC)" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Type Detail (EC)" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Care Setting Code (EC)" is appearing under Episodes table
-    Then I should verify "Issue" is appearing under Episodes table
-    Then I should verify "First Predicted Bundle" is appearing under Episodes table
-    Then I should verify "First Predicted DRG" is appearing under Episodes table
-    Then I should verify "First Predicted DRG Date" is appearing under Episodes table
-    Then I should verify "First Working Bundle" is appearing under Episodes table
-    Then I should verify "First Working DRG" is appearing under Episodes table
-    Then I should verify "First Working DRG Date" is appearing under Episodes table
-    Then I should verify "First Final Bundle" is appearing under Episodes table
-    Then I should verify "First Final DRG" is appearing under Episodes table
-    Then I should verify "First Final DRG Date" is appearing under Episodes table
     Then I should verify "Last Predicted Bundle" is appearing under Episodes table
     Then I should verify "Last Predicted DRG" is appearing under Episodes table
     Then I should verify "Last Predicted DRG Date" is appearing under Episodes table
@@ -687,44 +685,27 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should verify "Last Final Bundle" is appearing under Episodes table
     Then I should verify "Last Final DRG" is appearing under Episodes table
     Then I should verify "Last Final DRG Date" is appearing under Episodes table
+    Then I should verify "Record Creator" is appearing under Episodes table
+    Then I should verify "Physician Name" is appearing under Episodes table
+    Then I should verify "Days Left in Bundle" is appearing under Episodes table
     Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
     Then I click on "Select Columns" appearing in the new window after clicking on drill through
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes drill through columns popup
-    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Provider" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Provider CCN" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Provider" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Provider CCN" is appearing under Episodes drill through columns popup
-    Then I should verify "First Working Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Working DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Predicted DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Predicted Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Predicted DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "First Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Working DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Working Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Working DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Predicted DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Predicted Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Predicted DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Final DRG(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Final Bundle(Post Acute Admission)" is appearing under Episodes drill through columns popup
-    Then I should verify "Last Final DRG Date(Post Acute Admission)" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Setting" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Type" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Type Detail (EC)" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Setting Code (EC)" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Type Code (EC)" is appearing under Episodes drill through columns popup
+    #Then I should verify "" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes drill through columns popup
-    Then I should verify "Patient Risk" is appearing under Episodes drill through columns popup
-    Then I should verify "Onboarding Status" is appearing under Episodes drill through columns popup
 
     Examples: 
       | email                         |
@@ -769,7 +750,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
-    #When I click on show all filters icon button
+    When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
@@ -798,7 +779,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    #When I click on show all filters icon button
+    When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
@@ -808,4 +789,3 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | email                         | participant1     | episode initiator1                             | anchor facility1                     | participantid1 | bpid1    | ccn1   | payer1   |
       | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
       | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
-     
