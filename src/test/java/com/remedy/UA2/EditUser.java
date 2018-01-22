@@ -351,8 +351,8 @@ public class EditUser extends BaseClass {
 	public void iVerifyDataPermissions(String arg) {
 		longDelay();
 		iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
-		if (arg.contains(",")) {
-			String[] org = arg.split(",\\s+");
+		if (arg.contains(";")) {
+			String[] org = arg.split(";\\s+");
 			for (int i = 0; i < org.length; i++) {
 
 				String[] heathProgLoc = org[i].split("::");
@@ -372,23 +372,25 @@ public class EditUser extends BaseClass {
 					StringTokenizer st = new StringTokenizer(heathProgLoc[1], ":");
 					while (st.hasMoreTokens()) {
 						String token = st.nextToken().trim();
+						System.out.println("token: "+token);
 						if (token.contains(",")) {
-							StringTokenizer st1 = new StringTokenizer(token, ",");
-							while (st1.hasMoreTokens()) {
-								String token1 = st.nextToken().trim();
-								if (token1.equals("BPCI-Model2")) {
+							String[] progLocArr = token.split(",\\s+");
+							for (int j = 0; j < progLocArr.length; j++) {
+								
+								//System.out.println("comma sepated--"+token1);
+								if (progLocArr[j].equals("BPCI-Model2")) {
 									String prog = "BPCI Model 2";
 									iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
 									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
-								} else if (token1.equals("BPCI-Model3")) {
+								} else if (progLocArr[j].equals("BPCI-Model3")) {
 									String prog = "BPCI Model 3";
 									iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
 									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 								}
-								else if (token1.equals("--")) {
-									StringTokenizer st2 = new StringTokenizer(token1, "--");
+								else if (progLocArr[j].contains("--")) {
+									StringTokenizer st2 = new StringTokenizer(progLocArr[j], "--");
 									while (st2.hasMoreTokens()) {
-										String	loc = st.nextToken().trim();
+										String	loc = st2.nextToken().trim();
 										iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
 										isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
 								}
@@ -406,10 +408,10 @@ public class EditUser extends BaseClass {
 								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 							}
-							else if (token.equals("--")) {
+							else if (token.contains("--")) {
 								StringTokenizer st2 = new StringTokenizer(token, "--");
 								while (st2.hasMoreTokens()) {
-									String	loc = st.nextToken().trim();
+									String	loc = st2.nextToken().trim();
 									iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
 									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
 							}
@@ -439,22 +441,23 @@ public class EditUser extends BaseClass {
 					String token = st.nextToken().trim();
 
 					if (token.contains(",")) {
-						StringTokenizer st1 = new StringTokenizer(token, ",");
-						while (st1.hasMoreTokens()) {
-							String token1 = st.nextToken().trim();
-							if (token1.equals("BPCI-Model2")) {
+						String[] progLocArr = token.split(",\\s+");
+						for (int j = 0; j < progLocArr.length; j++) {
+							
+							System.out.println("comma sepated--"+progLocArr[j]);
+							if (progLocArr[j].equals("BPCI-Model2")) {
 								String prog = "BPCI Model 2";
 								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
-							} else if (token1.equals("BPCI-Model3")) {
+							} else if (progLocArr[j].equals("BPCI-Model3")) {
 								String prog = "BPCI Model 3";
 								iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 							}
-							else if (token1.equals("--")) {
-								StringTokenizer st2 = new StringTokenizer(token1, "--");
+							else if (progLocArr[j].contains("--")) {
+								StringTokenizer st2 = new StringTokenizer(progLocArr[j], "--");
 								while (st2.hasMoreTokens()) {
-								String	loc = st.nextToken().trim();
+								String	loc = st2.nextToken().trim();
 								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
 						}
@@ -466,6 +469,7 @@ public class EditUser extends BaseClass {
 					}
 
 					else {
+						System.out.println("no comma-"+token);
 						if (token.equals("BPCI-Model2")) {
 							String prog = "BPCI Model 2";
 							iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
@@ -476,10 +480,10 @@ public class EditUser extends BaseClass {
 							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 						}
 					
-						else if (token.equals("--")) {
+						else if (token.contains("--")) {
 							StringTokenizer st2 = new StringTokenizer(token, "--");
 							while (st2.hasMoreTokens()) {
-								String	loc = st.nextToken().trim();
+								String	loc = st2.nextToken().trim();
 								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
 						}

@@ -944,7 +944,7 @@ public class CreateUserPage extends BaseClass {
 		}
 	}
 
-	// '.ui.selection.dropdown'
+
 	public void deselectPrograms(String programList) throws Throwable {
 		if (!(programList.equals(""))) {
 			longDelay();
@@ -976,6 +976,7 @@ public class CreateUserPage extends BaseClass {
 			driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
 		}
 	}
+
 
 	public void selectLocations(String locationList) throws Throwable {
 		if (!(locationList.equals(""))) {
@@ -1025,6 +1026,8 @@ public class CreateUserPage extends BaseClass {
 						.click();
 				Thread.sleep(3000);
 			}
+		}else{
+			return;
 		}
 	}
 
