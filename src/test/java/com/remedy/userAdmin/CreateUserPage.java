@@ -920,9 +920,26 @@ public class CreateUserPage extends BaseClass {
 			longDelay();
 			if (!(driver.findElements(By.xpath("//div[text()='Select']")).size() > 0)) {
 				longDelay();
-				driver.findElement(By.xpath("//i[@class='delete icon']")).click();
+				if (programList.contains(",")) {
+					StringTokenizer st = new StringTokenizer(programList, ",");
+					driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+					while (st.hasMoreTokens()) {
+						String programs = st.nextToken().trim();
+						iWillWaitToSee(By.xpath("//label[text()='" + programs + "']"));
+						driver.findElement(By.xpath("//label[text()='" + programs + "']")).click();
+						Thread.sleep(2000);
+					}
+				} else {
+
+					longDelay();
+					driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+					longDelay();
+					driver.findElement(By.xpath("//label[text()='" + programList + "']")).click();
+					longDelay();
+
+				}
 				longDelay();
-			}
+			}else{
 			if (programList.contains(",")) {
 				StringTokenizer st = new StringTokenizer(programList, ",");
 				driver.findElement(By.xpath("//div[text()='Select']")).click();
@@ -943,7 +960,7 @@ public class CreateUserPage extends BaseClass {
 			}
 		}
 	}
-
+	}
 
 	public void deselectPrograms(String programList) throws Throwable {
 		if (!(programList.equals(""))) {
@@ -981,6 +998,7 @@ public class CreateUserPage extends BaseClass {
 	public void selectLocations(String locationList) throws Throwable {
 		if (!(locationList.equals(""))) {
 			if (locationList.equalsIgnoreCase("all locations")) {
+				delay();
 				clickElement(driver.findElement(By.xpath("//label[text()='All Locations']")));
 				delay();
 			}

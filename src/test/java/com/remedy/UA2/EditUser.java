@@ -147,9 +147,24 @@ public class EditUser extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".remove.link.icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
 	}
-	public void iClickOnExisitingOrganisation() {
+	public void iClickOnExisitingOrganisation(String text) {
+		if (getElementCount(".component-participant-title")>1){
+			if(text.contains("first")){
+				iWillWaitToSee(By.cssSelector(".component-participant-title"));
+				clickElement(driver.findElements(By.cssSelector(".component-participant-title")).get(0));
+			}
+			else if(text.contains("second")){
+				iWillWaitToSee(By.cssSelector(".component-participant-title"));
+				clickElement(driver.findElements(By.cssSelector(".component-participant-title")).get(1));
+			}
+			else if(text.contains("third")){
+				iWillWaitToSee(By.cssSelector(".component-participant-title"));
+				clickElement(driver.findElements(By.cssSelector(".component-participant-title")).get(2));
+			}
+		}else{
 		iWillWaitToSee(By.cssSelector(".component-participant-title"));
 		clickElement(driver.findElement(By.cssSelector(".component-participant-title")));
+		}
 	}
 
 	
@@ -357,17 +372,33 @@ public class EditUser extends BaseClass {
 
 				String[] heathProgLoc = org[i].split("::");
 				if(heathProgLoc[0].trim().isEmpty()==false){
-				iWillWaitToSee(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]"));
-				isElementVisible(
-						driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
-
-				clickElement(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
-				}
-				else{
 					iWillWaitToSee(By.cssSelector(".angle.right.icon.icon-angle-right"));
-					clickElement(driver.findElement(By.cssSelector(".angle.right.icon.icon-angle-right")));
 					
+				
+						if(heathProgLoc[0].trim().equals("HealthSystem1")){
+							clickElement(driver.findElements(By.cssSelector(".angle.right.icon.icon-angle-right")).get(0));
+						}
+						else if(heathProgLoc[0].trim().equals("HealthSystem2") && getElementCount(".angle.right.icon.icon-angle-right")>1){
+							clickElement(driver.findElements(By.cssSelector(".angle.right.icon.icon-angle-right")).get(1));
+						}
+						else if(heathProgLoc[0].trim().equals("HealthSystem3") && getElementCount(".angle.right.icon.icon-angle-right")>2){
+							clickElement(driver.findElements(By.cssSelector(".angle.right.icon.icon-angle-right")).get(2));
+						}
+						
+					
+					else if(!(heathProgLoc[0].trim().equals("HealthSystem1")||heathProgLoc[0].trim().equals("HealthSystem2")||heathProgLoc[0].trim().equals("HealthSystem3"))){
+							//isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
+						clickElement(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
+					}
+					else
+					clickElement(driver.findElement(By.cssSelector(".angle.right.icon.icon-angle-right")));
+				
+				
 				}
+				
+					
+					
+				
 				if (heathProgLoc[1].contains(":")) {
 					StringTokenizer st = new StringTokenizer(heathProgLoc[1], ":");
 					while (st.hasMoreTokens()) {
@@ -377,7 +408,7 @@ public class EditUser extends BaseClass {
 							String[] progLocArr = token.split(",\\s+");
 							for (int j = 0; j < progLocArr.length; j++) {
 								
-								//System.out.println("comma sepated--"+token1);
+								System.out.println("comma sepated--"+progLocArr[j]);
 								if (progLocArr[j].equals("BPCI-Model2")) {
 									String prog = "BPCI Model 2";
 									iWillWaitToSee(By.xpath("//*[contains(text(),'" + prog + "')]"));
@@ -388,12 +419,13 @@ public class EditUser extends BaseClass {
 									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 								}
 								else if (progLocArr[j].contains("--")) {
-									StringTokenizer st2 = new StringTokenizer(progLocArr[j], "--");
-									while (st2.hasMoreTokens()) {
-										String	loc = st2.nextToken().trim();
-										iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
-										isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
-								}
+									String[] loc = progLocArr[j].split("--");
+									
+									System.out.println("loc "+loc[0]);
+									
+									iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc[0] + "')]"));
+									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc[0] + "')]")));
+								
 										
 									}
 								
@@ -409,11 +441,12 @@ public class EditUser extends BaseClass {
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 							}
 							else if (token.contains("--")) {
-								StringTokenizer st2 = new StringTokenizer(token, "--");
-								while (st2.hasMoreTokens()) {
-									String	loc = st2.nextToken().trim();
-									iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
-									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
+								String[] loc = token.split("--");
+								
+									System.out.println("loc "+loc[0]);
+									
+									iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc[0] + "')]"));
+									isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc[0] + "')]")));
 							}
 								}
 							
@@ -421,20 +454,35 @@ public class EditUser extends BaseClass {
 					}
 				}
 
-			}
+			
 		} else {
 
 			String[] heathProgLoc = arg.split("::");
 			if(heathProgLoc[0].trim().isEmpty()==false){
-			iWillWaitToSee(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]"));
-			isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
-
-			clickElement(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));}
-			else{
 				iWillWaitToSee(By.cssSelector(".angle.right.icon.icon-angle-right"));
-				clickElement(driver.findElement(By.cssSelector(".angle.right.icon.icon-angle-right")));
+				if(heathProgLoc[0].trim().equals("HealthSystem1")){
+					clickElement(driver.findElements(By.cssSelector(".angle.right.icon.icon-angle-right")).get(0));
+				}
+				else if(heathProgLoc[0].trim().equals("HealthSystem2")&& getElementCount(".angle.right.icon.icon-angle-right")>1){
+					clickElement(driver.findElements(By.cssSelector(".angle.right.icon.icon-angle-right")).get(1));
+				}
+				else if(heathProgLoc[0].trim().equals("HealthSystem3")&& getElementCount(".angle.right.icon.icon-angle-right")>2){
+					clickElement(driver.findElements(By.cssSelector(".angle.right.icon.icon-angle-right")).get(2));
+				}
 				
+			
+			else if(!(heathProgLoc[0].trim().equals("HealthSystem1")||heathProgLoc[0].trim().equals("HealthSystem2")||heathProgLoc[0].trim().equals("HealthSystem3"))){
+					//isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
+				clickElement(driver.findElement(By.xpath("//*[contains(text(),'" + heathProgLoc[0].trim() + "')]")));
 			}
+			else
+			clickElement(driver.findElement(By.cssSelector(".angle.right.icon.icon-angle-right")));
+		
+		
+		}
+			
+			
+			
 			if (heathProgLoc[1].contains(":")) {
 				StringTokenizer st = new StringTokenizer(heathProgLoc[1], ":");
 				while (st.hasMoreTokens()) {
@@ -455,13 +503,12 @@ public class EditUser extends BaseClass {
 								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + prog + "')]")));
 							}
 							else if (progLocArr[j].contains("--")) {
-								StringTokenizer st2 = new StringTokenizer(progLocArr[j], "--");
-								while (st2.hasMoreTokens()) {
-								String	loc = st2.nextToken().trim();
-								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
-								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
-						}
+								String[] loc = progLocArr[j].split("--");
 								
+								System.out.println("loc "+loc[0]);
+								
+								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc[0] + "')]"));
+								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc[0] + "')]")));
 							}
 							
 						}
@@ -481,14 +528,13 @@ public class EditUser extends BaseClass {
 						}
 					
 						else if (token.contains("--")) {
-							StringTokenizer st2 = new StringTokenizer(token, "--");
-							while (st2.hasMoreTokens()) {
-								String	loc = st2.nextToken().trim();
-								iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc + "')]"));
-								isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc + "')]")));
-						}
-								
-							}
+							String[] loc = token.split("--");
+							
+							System.out.println("loc "+loc[0]);
+							
+							iWillWaitToSee(By.xpath("//*[contains(text(),'" + loc[0] + "')]"));
+							isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'" + loc[0] + "')]")));
+					}
 						
 					}
 				}

@@ -79,9 +79,9 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	   editUser.iVerifyThatEmailIsNonEditable();
 	}
 	
-	@Then("^I click on existing organisation$")
-	public void iClickOnExistingOrganisation() throws Throwable {
-	   editUser.iClickOnExisitingOrganisation();
+	@Then("^I click on \"([^\"]*)\" existing organisation$")
+	public void iClickOnExistingOrganisation(String text) throws Throwable {
+	   editUser.iClickOnExisitingOrganisation(text);
 	}
 	@Then("^I click on \"([^\"]*)\" button on permissions tab$")
 		public void iClickOnAddAnotherOrganisation(String text){
