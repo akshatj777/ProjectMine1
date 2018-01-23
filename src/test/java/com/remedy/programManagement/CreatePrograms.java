@@ -57,110 +57,53 @@ public class CreatePrograms extends BaseClass {
 		    }	
 		}
 
-	public void iVerifyHeaderLabelUnderSelectedOrganization(String header,String org) {
+	public void iVerifyHeaderLabelUnderSelectedOrganization(String header,String org) 
+	{
 		iWillWaitToSee(By.cssSelector(".data-table-header-cell>a"));
 		iVerifyTextFromListOfElement(By.cssSelector(".data-table-header-cell>a"), header);
 	}
 
-	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) {
-//		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Program']")), CreatePrograms.programs.get("PROGRAMNAME"));
-//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
-//		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
-	clickElement(driver.findElement(By.xpath("//div[text()='Select a Program']")));
-	clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
+	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) 
+	{
+		clickElement(driver.findElement(By.xpath("//div[text()='Select a Program']")));
+		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
 	}
-	
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")), text);
 	}
 	
-	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) {
-//			iFillInText(driver.findElement(By.cssSelector(".Select-value")), text);
-//			waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
+	{
 		    clickElement(driver.findElement(By.cssSelector(".Select-value")));
 			clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
 	}
 	
-	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) {
-//		iFillInText(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")), text);
-//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
+	{
 		clickElement(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")));
 		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".org-name")));
 		clickSingleElementFromList((By.cssSelector(".org-name")), text);
 	}
 	
-	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) {
+	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) 
+	{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Enter the price for the bundle']")), text);
 
 	}
 	
-	public void iSelectStartDateforOrganizationNameContractsPage(int num, String field) {
-//		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']")));
-//		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--mon' AND @aria-label='day-1']")));
-		
-		build.moveToElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']"))).click().perform();
-		iWillWaitToSee(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--mon' AND @aria-label='day-1']"));
-		build.moveToElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--mon' AND @aria-label='day-1']"))).click().perform();
-	}
-	
-	public void iSelectEndDateforOrganizationNameContractsPage(int num, String field) {
-		//clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='YYYY/MM/DD']")));
-		build.moveToElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='YYYY/MM/DD']"))).click();
-		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--wed' AND @aria-label='day-31']")));
-	}
-	
-	public void iSelectStartDateforBundle1ContractsPage(int num, String field) {
-		//clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-8']//preceding::label[text()='Enter the start date']")));
-		build.moveToElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-8']//preceding::label[text()='Enter the start date']"))).click();
-		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--wed' AND @aria-label='day-3']")));
-	}
-	
-	public void iSelectEndDateforBundle1ContractsPage(int num, String field) {
-		//clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-8']//preceding::label[text()='YYYY/MM/DD']")));
-		build.moveToElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-8']//preceding::label[text()='YYYY/MM/DD']"))).click();
-		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--mon' AND @aria-label='day-29']")));
-	}
-	
-	public void iSelectStartDateforBundle_Price1ContractsPage(int num, String field) {
-		//clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']")));
-		build.moveToElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']"))).click();
-		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--sat react-datepicker__day--weekend' AND @aria-label='day-6']")));
-	}
-	
-	public void iSelectEndDateforBundle_Price1ContractsPage(int num, String field) {
-		clickElement(driver.findElement(By.xpath("//form//div[@class='start-date-end-date-block col-sm-9']//preceding::label[text()='Enter the start date']")));
-		clickElement(driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--fri' AND @aria-label='day-26']")));
-	}
-	
 	public void iSelectBundle1OnCreateContratsPageUnderPayorOrganization(String text, int num, String field) {
-//		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Bundle']")), text);
-//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
 		clickSingleElementFromList((By.cssSelector(".react-select-option-row.highlight>div")), text);
 	}
 	
-	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1) {
-		num=num-1;
-		iFillInText(driver.findElement(By.xpath("//div//input[@class='text-input-field-contracts["+num+"].contractBundles["+num+"].bundlePrices["+num+"].trendFactor']")), text);
+	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1, String field2) 
+	{
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
 	}
 
-	public void iInsertdays(List<String> days) {
-		List<WebElement> listItemsStart = driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='Enter the start date']"));
-		for(WebElement ele:listItemsStart)
-		{
-			
-			String date=ele.getText();
-			
-			if(date.equalsIgnoreCase("28"))
-			{
-				ele.click();
-				break;
-			}
-		}
-	}
-	
-	public static String currentdate(int days,String format) {
+	public static String currentdate(int days,String format) 
+	{
 		  DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
 		  LocalDate localDate = LocalDate.now();
 		  LocalDate b = localDate.minus(Period.ofDays(days));
@@ -191,7 +134,6 @@ public class CreatePrograms extends BaseClass {
 	}			
 
 	public void handleDatepicker(int date1,WebElement element) throws ParseException {
-		
 		System.out.println(date1);
 		String newDate=currentdate(date1,"yyyy/MM/dd");
 		Date convertedDate=covertStringtoInt(newDate);
@@ -228,8 +170,7 @@ public class CreatePrograms extends BaseClass {
 		 longDelay();
 	}
 	
-	public String getLastnCharacters(String inputString, 
-    int subStringLength)
+	public String getLastnCharacters(String inputString, int subStringLength)
 	{
 		int length = inputString.length();
 		if(length <= subStringLength)
@@ -238,6 +179,14 @@ public class CreatePrograms extends BaseClass {
 		}
      int startIndex = length-subStringLength;
      return inputString.substring(startIndex);
+	}
+	
+	public void iVerifyCreateContractHeaderTextOnCreateContractsPage(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".row.headline")), text);
+	}
+	
+	public void iVerifyFieldOnCreateContractsPage(String text){
+		verifyTextForElement(driver.findElement(By.cssSelector(".select-field-caption.required")), text);
 	}
 }
 

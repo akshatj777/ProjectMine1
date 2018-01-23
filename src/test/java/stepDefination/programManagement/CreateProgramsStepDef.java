@@ -56,49 +56,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iEnterPriceOnCreateContractsPage(text,num,field);
 	    }
 	
-	@And("^I select Start Date for Organization_Name for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Start_Date_For_Organization_Name_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectStartDateforOrganizationNameContractsPage(num, field);
-	    }
-	
-	@And("^I select End Date for Organization_Name for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_End_Date_For_Organization_Name_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectEndDateforOrganizationNameContractsPage(num, field);
-	    }
-	
-	@And("^I select Start Date for Bundle1 for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Start_Date_For_Bundle1_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectStartDateforBundle1ContractsPage(num, field);
-	    }
-	
-	@And("^I select End Date for Bundle1 for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_End_Date_For_Bundle1_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectEndDateforBundle1ContractsPage(num, field);
-	    }
-	
-	@And("^I select Start Date for Bundle_Price1 for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Start_Date_For_Bundle_Price1_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectStartDateforBundle_Price1ContractsPage(num, field);
-	    }
-	
-	@And("^I select End Date for Bundle_Price1 for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Date_For_Bundle_Price1_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectEndDateforBundle_Price1ContractsPage(num, field);
-	    }
-
-	@And("^I select Start Date for Baseline Start for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Date_For_Baseline_Start_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectEndDateforBundle_Price1ContractsPage(num, field);
-	    }
-	
-	@And("^I select End Date for Baseline End for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Select_Date_For_Baseline_End_on_Create_Contracts_Page(int num, String field) throws Throwable {
-		programs.iSelectEndDateforBundle_Price1ContractsPage(num, field);
-	    }
-	
-	@And("^I enter \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, int num, String field1) throws Throwable {
-		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1);
+	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1, int num, String field2) throws Throwable {
+		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1, field2);
 	    }
 	
 	@Then ("^I select the date from date picker with logic \"([^\"]*)\" days from current date$")
@@ -116,4 +76,20 @@ public class CreateProgramsStepDef extends DriverScript{
 	public void i_Click_on_Addbundle_Button(String text){
 		createMO.iClickOnButtonOnCreateOrganizationPage(text);
 	}
+	
+	@And("^I verify \"([^\"]*)\" header text on create Contracts page$")
+	  public void i_Verify_Create_Contract_Header_Text_On_Create_Contracts_Page(String text) throws Throwable {
+		programs.iVerifyCreateContractHeaderTextOnCreateContractsPage(text);
+	    }
+	
+	@And("^I verify \"([^\"]*)\" field on create Contracts page$")
+	  public void i_Verify_Field_On_Create_Contracts_Page(String text) throws Throwable {
+		programs.iVerifyFieldOnCreateContractsPage(text);
+	    }
+	
+	@And("^I verify \"([^\"]*)\" field for Contract \"([^\"]*)\" on Create Contracts page$")
+	  public void i_Verify_Dates_Field_On_Create_Contracts_Page(String text) throws Throwable {
+		programs.iVerifyFieldOnCreateContractsPage(text);
+	    }
+	
 }
