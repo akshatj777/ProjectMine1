@@ -46,4 +46,4 @@ Feature: New Appointment
 
     Examples: 
       | email                |
-      | qa.admin@yopmail.com |
+      | qa.adminuser@yopmail.com |

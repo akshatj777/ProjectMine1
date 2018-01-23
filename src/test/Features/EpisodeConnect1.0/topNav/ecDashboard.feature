@@ -21,7 +21,7 @@ Feature: Episode Connect dashboard
     Then I should see "Dashboard" in the left navigator present on the episode dashboard page
     Then I should see "Bookmarks" in the left navigator present on the episode dashboard page
     Then I should see "Patients" in the left navigator present on the episode dashboard page
-    Then I should see "Admin Center" in the left navigator present on the episode dashboard page
+    
     Then I should see refresh button is present on the episode dashboard page
 
     Then I should see user profile icon on the episode dashboard page
@@ -36,7 +36,7 @@ Feature: Episode Connect dashboard
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
   
   
    

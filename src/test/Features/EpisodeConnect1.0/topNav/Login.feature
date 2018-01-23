@@ -22,5 +22,5 @@ Feature: Login Logout test
 
     Examples:
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
   

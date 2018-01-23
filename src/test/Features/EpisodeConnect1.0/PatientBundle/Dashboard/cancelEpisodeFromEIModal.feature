@@ -74,6 +74,6 @@ Feature: Canceling Episode from EI Assignment Window
 
     Examples: 
       | email                | logic | daysToAdmitWRTToday | admit reason | episodeStatus | Admit Date | Terminate Date |
-      | qa.admin@yopmail.com | minus |                   1 | firsttest    | CANCELED      |          1 |              1 |
-      | qa.admin@yopmail.com | minus |                   0 | firsttest    | CANCELED      |          0 |              0 |
-      | qa.admin@yopmail.com | plus  |                  -2 | firsttest    | CANCELED      |         -2 |             -2 |
+      | qa.adminuser@yopmail.com | minus |                   1 | firsttest    | CANCELED      |          1 |              1 |
+      | qa.adminuser@yopmail.com | minus |                   0 | firsttest    | CANCELED      |          0 |              0 |
+      | qa.adminuser@yopmail.com | plus  |                  -2 | firsttest    | CANCELED      |         -2 |             -2 |

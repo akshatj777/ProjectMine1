@@ -1,5 +1,7 @@
 package stepDefination.Episode1;
 
+import java.text.ParseException;
+
 import org.openqa.selenium.By;
 
 import com.remedy.episode1.PatientCarePlan;
@@ -256,6 +258,11 @@ public class PatientCarePlanSteps extends DriverScript
 		patientcare.iVerifyAfterHourCallassignedlist(n);
 	}
 	
+	@Then ("^I verify CARL form in \"([^\"]*)\"$")
+	public void i_Verify_CARL_form_assigned_list(int n){
+		patientcare.iVerifyCARLformassignedlist(n);
+	}
+	
 	@Then ("^I verify \"([^\"]*)\" not in \"([^\"]*)\" \"([^\"]*)\"$")
 	public void i_Verify_Risk_Assessment_not_in_list(String text,String formlist,int n){
 		patientcare.iVerifyRiskAssessmentnotinlist(text,formlist,n);
@@ -299,6 +306,11 @@ public class PatientCarePlanSteps extends DriverScript
 	 @Then ("^I fill in Due Date with logic \"([^\"]*)\" with \"([^\"]*)\" days$")
 	 public void i_Fill_in_Due_Date(String logic,int days){
 		 patientcare.iFillinDueDate(days);
+	 }
+	 
+	 @Then ("^I fill in Due Date with end date \"([^\"]*)\" \"([^\"]*)\" days$")
+	 public void i_Fill_in_Due_Date_with_end_date(String logic,int days) throws ParseException{
+		 patientcare.iFillinDueDatewithenddate(days);
 	 }
 	 
 	 @And ("^I should see text of \"([^\"]*)\" in active form counter$")

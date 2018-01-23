@@ -4,7 +4,7 @@ Feature: Reset Password
 Scenario: To verify that Email format validation is displayed for Username field
 	Given I am on the login page
 	When I click on the forgot password button
-	Then I enter qa.admin@yopmail.com for changing password
+	Then I enter qa.adminuser@yopmail.com for changing password
 	And I click Send Email button
 	And I should see "We just sent you an email to reset your password." text in reset password
 	Then I am on the login page

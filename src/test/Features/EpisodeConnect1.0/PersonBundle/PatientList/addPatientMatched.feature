@@ -71,4 +71,4 @@ Feature: Patient Matching Test Plan
 
     Examples: 
       | email                | password  | facility          |
-      | qa.admin@yopmail.com | Episode1! | Stamford Hospital |
+      | qa.adminuser@yopmail.com | Episode1! | Stamford Hospital |

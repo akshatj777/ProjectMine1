@@ -20,7 +20,7 @@ Feature: Episode Connect Alerts
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
 
 
   Scenario Outline: User can dismiss all Alerts
@@ -41,6 +41,6 @@ Feature: Episode Connect Alerts
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
    
    

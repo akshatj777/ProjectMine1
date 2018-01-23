@@ -3,7 +3,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
 
   Scenario Outline: Field Validation on Form Assign
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -88,25 +88,37 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I select the "5" LOS days on Discharge date on Add Transition
+    Then I fill in "Admit" with logic "minus" with "124" days
+    Then I fill in "Discharge" with logic "minus" with "118" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will verify Episode Marker Admit Date "124" and "add" Discharge date "118" with "89" to show end date and Episode Status "COMPLETED"
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I will wait to see patient's name on patient summary page
     And I will wait to see Assigned Forms List
     And I should see text of "2" in assigned form counter
     When I click "Add New+" xpath element "//*[@id='addNewForm']"
     Then I select "<formType>" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
-    Then I fill in Due Date with logic "minus" with "-31" days
+    Then I fill in Due Date with end date "plus" "-31" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     Then I verify the Form error "<errorMessageNoAnchor>"
-    Then I fill in Due Date with logic "minus" with "-30" days
+    Then I fill in Due Date with end date "plus" "-30" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     And I should see text of "3" in assigned form counter
     Then I verify "First Call assigned" in "Assigned Form list" "2"
     Then I delete the assigned "First Call" "3"
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+     When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "10" days
+    Then I fill in "Discharge" with logic "minus" with "5" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Expired" option
@@ -133,7 +145,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
 
   Scenario Outline: Field Validation on Form Assign (Subsequent Form)
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes

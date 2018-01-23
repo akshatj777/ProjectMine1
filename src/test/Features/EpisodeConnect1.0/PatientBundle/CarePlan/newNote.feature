@@ -41,4 +41,4 @@ Feature: New Note
 
     Examples: 
       | email                |
-      | qa.admin@yopmail.com |
+      | qa.adminuser@yopmail.com |

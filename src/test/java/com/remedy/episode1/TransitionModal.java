@@ -34,34 +34,30 @@ public class TransitionModal extends BaseClass {
      	}
 
 	public void iSelectonehourlaterorbefore(int days,int time,String later,String tranistion) throws java.text.ParseException {
-		iWillWaitToSee(By.xpath("#bp_personbundle_bpadmissiontype_dischargeDate"));
+		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_bpadmissiontype_admitDate']"));
 		String date3=currentdate(days,"MM/dd/yyyy");
-		String date=driver.findElement(By.xpath("#bp_personbundle_bpadmissiontype_dischargeDate")).getAttribute("value");
+		String date=driver.findElement(By.xpath("//*[@id='bp_personbundle_bpadmissiontype_admitDate']")).getAttribute("value");
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 		Date myDateTime = null;
 		myDateTime = simpleDateFormat.parse(date);
-	    System.out.println("This is the Actual Date:"+myDateTime);
 	    Calendar cal = new GregorianCalendar();
 	    cal.setTime(myDateTime);
         cal.add(Calendar.HOUR_OF_DAY, time);
-	    System.out.println("This is Hours Added Date:"+cal.getTime());
-        String[] newDate = cal.getTime().toString().split(" ");
-		System.out.println("Date"+newDate[3].substring(0,5));
-	    String date1=date3+" "+newDate[3].substring(0,5);
+	    String[] newDate = cal.getTime().toString().split(" ");
+		String date1=date3+" "+newDate[3].substring(0,5);
 	    setAttributevalue(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_admitDate")),"value",date1);
 	}
 
 	
 	public void iclickStartCARLtoollink(int tran) throws InterruptedException {
-		longDelay();
 		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"));
+		longDelay();
 		Actions actions=new Actions(driver);
-		actions.moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
+		actions.moveToElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div"))).build().perform();;
 		delay();
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div")));
 		Thread.sleep(5000);
-		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a"));
-		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a")));
+		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[" + tran+ "]/td[contains(@class, 'settings-column')]/div/ul/li[6]/a")));
 		}
 	
 	public void IClickOnDropDownOnTransitionModal(String text) {

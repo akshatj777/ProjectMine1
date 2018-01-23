@@ -14,7 +14,6 @@ Feature: Patient Transition Delete
     Then I should see "Dashboard" in the left navigator present on the episode dashboard page
     Then I should see "Bookmarks" in the left navigator present on the episode dashboard page
     Then I should see "Patients" in the left navigator present on the episode dashboard page
-    Then I should see "Admin Center" in the left navigator present on the episode dashboard page
     When I click on "Patients" in the left navigator present on the episode dashboard page
     Then I click on "Patient List" present in the Patients dropdown menu
     Then I should see "Patient" present on the patient list filter page present on the patient list page
@@ -33,4 +32,4 @@ Feature: Patient Transition Delete
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |

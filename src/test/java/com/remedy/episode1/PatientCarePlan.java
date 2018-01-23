@@ -1,5 +1,14 @@
 package com.remedy.episode1;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -303,8 +312,8 @@ public class PatientCarePlan extends BaseClass {
 
 	public void iwillwaittoseeCARLToolonactivestate(int index) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div/div/div/div[1]/div["+index+"]")));
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[3]/div/div[2]/div[2]/div/div["+index+"]/div/div/div/div"));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div[3]/div/div[2]/div[2]/div/div["+index+"]/div/div/div/div")).getAttribute("innerText"),"CARL Tool");
 	}
 
 	public void assignCarePlanButtonenabled() {
@@ -364,6 +373,29 @@ public class PatientCarePlan extends BaseClass {
 		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
 		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "After Hour Call assigned");
+	}
+
+	public void iVerifyCARLformassignedlist(int n) {
+		longDelay();
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "CARL Tool assigned");
+		
+	}
+
+	public void iFillinDueDatewithenddate(int days) throws ParseException {
+		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']"));
+		CommonFeature common=new CommonFeature(driver); 
+		String date=common.Newdate;
+		 System.out.println("The End date is"+date);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");   
+		Calendar cal = Calendar.getInstance();    
+		cal.setTime( dateFormat.parse(date));    
+		cal.add( Calendar.DATE, days );    
+		String convertedDate=dateFormat.format(cal.getTime());    
+		System.out.println("Date increase by one.."+convertedDate);
+
+		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",convertedDate);
 	}
    
 }

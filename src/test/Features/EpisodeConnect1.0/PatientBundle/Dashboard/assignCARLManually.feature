@@ -3,7 +3,7 @@ Feature: Assign CARL Tool Manually
 
   Background: Manually Assign CARL Tool on Patient Overview - Transitions
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -91,7 +91,7 @@ Feature: Assign CARL Tool Manually
     When I fill in "Additional comments" xpath "//*[@id='bp_nsoc_form_type_additionalComments']" with "Additional Comments"
     When I click "Submit" xpath element "//*[@id='submitButton']"
     Then I will wait to see CARL Tool "1" on active state
-    And I should see text of "1" in active form counter
+    And I should see text of "2" in active form counter
     And I will wait to see "Home With Limited Services (HOM)*" in "b" tag
     And I will wait to see "testHospitalStaff" in "b" tag
     And I will wait to see "Agrees" in "span" tag

@@ -29,6 +29,7 @@ public class CommonFeature extends BaseClass {
 	 DischargeCarlForm dischargecarl=new DischargeCarlForm(driver);
 	 String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
 	 public static String href_URL;
+	 public String Newdate;
 	public CommonFeature(WebDriver driver) {
 		super(driver);
 		}
@@ -252,7 +253,7 @@ public void iVerifyEpisodeMarkerAdmitEnddate(int days,int discharge_date,String 
 	String newDate = sdf.format(c.getTime());  
 	//Displaying the new Date after addition of Days
 	System.out.println("Date after Addition: "+newDate);
-	String Newdate="-"+" "+newDate;
+	Newdate="-"+" "+newDate;
 	if(days>0){
 	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+date+"') and contains(text(),'"+Newdate+"') and contains(text(),'"+status+"')]")));
 	}

@@ -58,4 +58,4 @@ Scenario Outline: Verify Patinet under System Filters in Patinet List
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |

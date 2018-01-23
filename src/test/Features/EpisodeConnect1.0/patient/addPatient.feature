@@ -18,7 +18,6 @@ Feature: Episode Connect 1 Add Patient
     Then I should see "Dashboard" in the left navigator present on the episode dashboard page
     Then I should see "Bookmarks" in the left navigator present on the episode dashboard page
     Then I should see "Patients" in the left navigator present on the episode dashboard page
-    Then I should see "Admin Center" in the left navigator present on the episode dashboard page
     When I click on "Patients" in the left navigator present on the episode dashboard page
     When I click on "Patient List" in the Patients dropdown menu
     When I click on Add Patient button present on the ec1 patients page
@@ -55,5 +54,5 @@ Feature: Episode Connect 1 Add Patient
 
     Examples: 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
 

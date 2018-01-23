@@ -11,11 +11,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CommonFeatureSteps extends DriverScript {
-
 	CommonFeature common = new CommonFeature(driver);
-
+	EC1DashboardSteps ec=new EC1DashboardSteps();
+	
 	@When("^I click \"([^\"]*)\" element \"([^\"]*)\"$")
-	public void i_Click_Element(String text, String locator) {
+	public void i_Click_Element(String text, String locator) throws Throwable {
 		common.iClickElement(locator);
 	}
 

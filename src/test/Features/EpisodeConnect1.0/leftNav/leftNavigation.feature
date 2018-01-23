@@ -2,7 +2,7 @@ Feature: Verify the left navigation in users and patient filters
 
   Scenario: Verify that currently visited page have same UI indication on partient list filters and admin
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -11,7 +11,7 @@ Feature: Verify the left navigation in users and patient filters
     When I am on "/secure/admin/user/"
     Then I wait untill "User List" text is appearing on the user list page
     Then I verify "user" tab is highlighted on the left navigation
-    And I fill "email" field with "qa.admin@yopmail.com" on users page
+    And I fill "email" field with "qa.adminuser@yopmail.com" on users page
     Then I click on filter option on the user list page after entering data to search
     And I wait untill the searched results appearing on users list page
     Then I verify "user" tab is highlighted on the left navigation

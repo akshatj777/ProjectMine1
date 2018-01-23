@@ -3,7 +3,7 @@ Feature: Episode connect 1 edit Episode
 
   Scenario Outline: User can navigate to patient overview page and edit an episode
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -53,11 +53,11 @@ Feature: Episode connect 1 edit Episode
 
     Examples: 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
 
   Scenario: : Setting to Non-Remedy Convener - episode length updated to 90 days countdown 
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes

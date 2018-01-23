@@ -40,7 +40,7 @@ Feature: Patient Eligibility and Matching
 
     Examples:
       | email                | password  | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch    |
-      | qa.admin@yopmail.com | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
+      | qa.adminuser@yopmail.com | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
 
   Scenario Outline: Create matching patient
     Given I am on the login page
@@ -71,5 +71,5 @@ Feature: Patient Eligibility and Matching
 
     Examples:
       | email                | password  | Episode1 | FirstName | LastName | DateofBirth | FicilitySearch    |
-      | qa.admin@yopmail.com | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
+      | qa.adminuser@yopmail.com | Episode1! | Episodes | Patient   | Testing  | 01/08/1990  | stamford Hospital |
   

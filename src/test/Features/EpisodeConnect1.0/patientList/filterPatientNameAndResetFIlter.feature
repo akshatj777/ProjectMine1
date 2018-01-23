@@ -21,7 +21,7 @@ Feature: Episode Connect add and reset filter
     Then I should see "Dashboard" in the left navigator present on the episode dashboard page
     Then I should see "Bookmarks" in the left navigator present on the episode dashboard page
     Then I should see "Patients" in the left navigator present on the episode dashboard page
-    Then I should see "Admin Center" in the left navigator present on the episode dashboard page
+    
 
     When I click on "Patients" in the left navigator present on the episode dashboard page
     And I wait for 4000 milli seconds
@@ -37,5 +37,5 @@ Feature: Episode Connect add and reset filter
     Examples:
 
       | email                | password  | filter           | Patient Name |
-      | qa.admin@yopmail.com | Episode1! | testcustomfilter | AB1RTRUU     |
+      | qa.adminuser@yopmail.com | Episode1! | testcustomfilter | AB1RTRUU     |
   

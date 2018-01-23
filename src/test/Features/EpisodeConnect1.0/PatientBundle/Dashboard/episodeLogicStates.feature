@@ -3,7 +3,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
 
   Scenario: Episode CANCELED - BPCI but not in admit time range
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -61,7 +61,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
 
   Scenario: Potential M3 ActiveBPCI DRG M3 in the HHH's PGP
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -104,7 +104,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
 
   Scenario: POTENTIAL EPISODE CANCELED
     Given I am on the login page
-    When I enter email field qa.admin@yopmail.com for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes

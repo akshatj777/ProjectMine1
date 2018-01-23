@@ -28,7 +28,7 @@ Feature: Episode Connect Tasks
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
 
 
   Scenario Outline: User can create a new task from the task overview page
@@ -82,4 +82,4 @@ Feature: Episode Connect Tasks
     Examples:
 
       | email                | password  |
-      | qa.admin@yopmail.com | Episode1! |
+      | qa.adminuser@yopmail.com | Episode1! |
