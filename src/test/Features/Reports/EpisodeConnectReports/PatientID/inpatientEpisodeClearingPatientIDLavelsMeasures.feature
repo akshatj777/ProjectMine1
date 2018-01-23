@@ -789,3 +789,98 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | email                         | participant1     | episode initiator1                             | anchor facility1                     | participantid1 | bpid1    | ccn1   | payer1   |
       | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
       | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
+
+  Scenario Outline: User should be able to verify episode status having potential M3 for Model3 users in inpatient episode clearing report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Model" field filter under "Model" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Model" field is appearing in the layout section after selecting add to report
+    Then I verify "Model" column is added to report after selecting add to report option
+    When I click to "Model" field filter under "Model" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Model" in the header text of filter page
+    And I should see "3" in the filter value list
+    And I click on "3" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "3" result in "Model" field column for "Model" filter field
+    When I click to "Episode Status" field filter under "Episode Status" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Episode Status" field is appearing in the layout section after selecting add to report
+    Then I verify "Episode Status" column is added to report after selecting add to report option
+    When I click to "Episode Status" field filter under "Episode Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Episode Status" in the header text of filter page
+    And I should see "potentialM3" in the filter value list
+    And I click on "potentialM3" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "potentialM3" result in "Episode Status" field column for "Episode Status" filter field
+
+    Examples: 
+      | email                         |
+      | shutestauf171115a@yopmail.com |
+      | shutestagu22945am@yopmail.com |
+
+  Scenario Outline: User with model2 shoould not see episode status potential M3 value under inpatient episode clearing report
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Inpatient Episode Clearing" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Model" field filter under "Model" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Model" field is appearing in the layout section after selecting add to report
+    Then I verify "Model" column is added to report after selecting add to report option
+    When I click to "Model" field filter under "Model" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Model" in the header text of filter page
+    And I should see "2" in the filter value list
+    And I click on "2" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I should see "2" result in "Model" field column for "Model" filter field
+    When I click to "Episode Status" field filter under "Episode Status" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Episode Status" field is appearing in the layout section after selecting add to report
+    Then I verify "Episode Status" column is added to report after selecting add to report option
+    When I click to "Episode Status" field filter under "Episode Status" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Episode Status" in the header text of filter page
+    And I should not see "potentialM3" in the filter value list
+
+    Examples: 
+      | email                        |
+      | shutestaug15252p@yopmail.com |
+      | shutestaug26212p@yopmail.com |
