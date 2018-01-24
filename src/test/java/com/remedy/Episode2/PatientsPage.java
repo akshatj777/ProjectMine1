@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -1240,6 +1241,7 @@ public class PatientsPage extends BaseClass {
 		}
 	
 	public void iShouldSeeSelectedEligibility(String text) {
+		longDelay();
 		iWillWaitToSee(By.cssSelector("#eligibility_button"));
 		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).trim();
 		Assert.assertEquals(text, actual);
@@ -1262,8 +1264,9 @@ public class PatientsPage extends BaseClass {
 		{
 			clickSingleElementFromList(By.xpath("//div[@id='eligibility_service']//a//span"), option);
 		}
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
-	}
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));}
+
+	
 	
 	public void iSelectTypeUnderAddressSection(String text){
 		clickElement(driver.findElement(By.cssSelector("#Patient_Details_address_type")));
@@ -1382,6 +1385,19 @@ public class PatientsPage extends BaseClass {
 	
 	public void iEnterNumberOnAddPatientPage(String text, String field){
 		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_phones_"+field+"_number")), text);
+	}
+
+	public void Ishouldnotseeeligibility(String text) {
+		delay();
+		new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='eligibility_service']/a[contains(text(),'"+text+"')]")));
+	}
+
+	public void IshouldseeNotEligibleESRDeligibility() {
+		longDelay();
+		iWillWaitToSee(By.cssSelector("#eligibility_button"));
+		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).trim().replaceAll("-","");
+		Assert.assertEquals("Not Eligible ESRD", actual);
+		
 	}
 	
 	}

@@ -386,7 +386,7 @@ public class PatientCarePlan extends BaseClass {
 	public void iFillinDueDatewithenddate(int days) throws ParseException {
 		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']"));
 		CommonFeature common=new CommonFeature(driver); 
-		String date=common.Newdate;
+		String date=common.Newdate.replaceAll("-","");
 		 System.out.println("The End date is"+date);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");   
 		Calendar cal = Calendar.getInstance();    

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -25,14 +26,22 @@ public class PatientEligiblity extends BaseClass{
 		delay();
 		if(value.equals("Eligible")){
 			iWillWaitToSee(By.cssSelector("a.set_eligibility_value.set_eligibility_eligible"));
-			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_value.set_eligibility_eligible")));}
+			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_value.set_eligibility_eligible")));
+		   waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));}
 		else if(value.equals("Expired")){
 			iWillWaitToSee(By.cssSelector("a.set_eligibility_expired"));
-			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_expired")));}
+			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_expired")));
+			waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));}
 		else if(value.equals("Not Eligible")){
 			iWillWaitToSee(By.cssSelector("a.set_eligibility_not_eligible"));
-			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_not_eligible")));}
-		}
+			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_not_eligible")));
+			waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));}
+		else if(value.contains("ESRD")){
+			iWillWaitToSee(By.cssSelector("a.set_eligibility_not_eligible_esrd"));
+			delay();
+			clickElement(driver.findElement(By.cssSelector("a.set_eligibility_not_eligible_esrd")));
+			longDelay();
+		}}
 
 	public void selectDateofDeath(int days) {
 		String date=currentdate(days,"MM/dd/yyyy");

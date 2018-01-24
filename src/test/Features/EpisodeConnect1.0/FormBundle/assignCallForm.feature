@@ -88,22 +88,36 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "124" days
-    Then I fill in "Discharge" with logic "minus" with "118" days
+    Then I fill in "Admit" with logic "minus" with "125" days
+    Then I fill in "Discharge" with logic "minus" with "120" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "124" and "add" Discharge date "118" with "89" to show end date and Episode Status "COMPLETED"
+    Then I will verify Episode Marker Admit Date "125" and "add" Discharge date "120" with "89" to show end date and Episode Status "COMPLETED"
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I will wait to see patient's name on patient summary page
     And I will wait to see Assigned Forms List
     And I should see text of "2" in assigned form counter
     When I click "Add New+" xpath element "//*[@id='addNewForm']"
     Then I select "<formType>" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
-    Then I fill in Due Date with end date "plus" "-31" days
+    Then I fill in Due Date with end date "plus" "31" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     Then I verify the Form error "<errorMessageNoAnchor>"
-    Then I fill in Due Date with end date "plus" "-30" days
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "10" days
+    Then I fill in "Discharge" with logic "minus" with "6" days
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will verify Episode Marker Admit Date "10" and "add" Discharge date "6" with "89" to show end date and Episode Status "ACTIVE"
+    Then I navigate to the "/secure/person/mongoID/careflow/forms"
+    And I will wait to see patient's name on patient summary page
+    When I click "Add New+" xpath element "//*[@id='addNewForm']"
+    Then I select "<formType>" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
+    Then I fill in Due Date with logic "minus" with "0" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     And I should see text of "3" in assigned form counter
     Then I verify "First Call assigned" in "Assigned Form list" "2"
@@ -111,10 +125,9 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
-     When I click first timing transition edit link "1"
+    When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "10" days
-    Then I fill in "Discharge" with logic "minus" with "5" days
+    Then I clear the "LOS value" xpath "//*[@id='bp_personbundle_bpadmissiontype_los']"
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN

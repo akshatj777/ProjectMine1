@@ -163,6 +163,9 @@ Feature: Managing Various Episode States
     When I click on episode marker drop down
     Then I will wait to see "NOT ELIGIBLE" state
     Then I will wait to see onboarding status "Unknown"
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     When I click on "Eligibility" dropdown button
     When I click on eligibility set "Eligible" option
     And I will wait to see "Your changes have been successfully saved" in "p" tag
@@ -271,7 +274,7 @@ Feature: Managing Various Episode States
     Then I fill in "Admit" with logic "minus" with "0" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I select the "Admit" facility "Allentown" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "(6)" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -294,12 +297,12 @@ Feature: Managing Various Episode States
     And I should see patient first name appearing under search on Dashboard
     And I should see "0 days to anchor admission" appearing under search on "PROGRESS" "progress-column" Dashboard
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under search on "EPISODE DRG" "episode-column" Dashboard
-    And I should see "(HHH) Stamford Hospital" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard
+    And I should see "(HHH) Allentown" appearing under search on "ANCHOR FACILITY" "anchor_facility-column" Dashboard
     And I should see " " appearing under search on "CURRENT FACILITY" "current_facility-column" Dashboard
     And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see "0 days to anchor admission" appearing under progress on patient card
-    And I should see "(HHH) Inpatient" "Stamford - Stamford Hospital" appearing under current location on patient card
+    And I should see "(HHH) Inpatient" "St Luke's - Allentown, LONDON" appearing under current location on patient card
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under drg on patient card
-    And I should see "Stamford" Episode Initiator on Patient list page
-    And I should see "(HHH) Stamford Hospital" Anchor Facility on Patient list page
+    And I should see "St Luke's" Episode Initiator on Patient list page
+    And I should see "(HHH) Allentown" Anchor Facility on Patient list page

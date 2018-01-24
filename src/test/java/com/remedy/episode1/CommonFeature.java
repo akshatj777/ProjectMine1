@@ -29,7 +29,7 @@ public class CommonFeature extends BaseClass {
 	 DischargeCarlForm dischargecarl=new DischargeCarlForm(driver);
 	 String BaseURL=DriverScript.Config.getProperty("ECBaseUrl");
 	 public static String href_URL;
-	 public String Newdate;
+	 public static String Newdate;
 	public CommonFeature(WebDriver driver) {
 		super(driver);
 		}

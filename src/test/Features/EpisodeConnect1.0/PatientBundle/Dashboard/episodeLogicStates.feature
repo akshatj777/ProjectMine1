@@ -33,7 +33,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     Then I fill in "Admit" with logic "minus" with "5" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I select the "Admit" facility "Rhode Island Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "66" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -56,7 +56,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     Then I will wait to see onboarding status "Unknown"
     Then I verify DRG "(66) INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W/O CC/MCC" " " in transition "1" in transition modal
     Then I will verify Episode Marker Admit Date "-2" and "add" Discharge date "0" with "-2" to show end date and Episode Status "CANCELED"
-    Then I will wait to see "Stamford - Stamford Hospital -" Facility on Episode Marker
+    Then I will wait to see "LifeSpan - Rhode Island Hospital -" Facility on Episode Marker
     Then I will wait to see "INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W/O CC/MCC (66)" Facility on Episode Marker
 
   Scenario: Potential M3 ActiveBPCI DRG M3 in the HHH's PGP

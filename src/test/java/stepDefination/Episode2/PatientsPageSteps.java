@@ -1601,7 +1601,16 @@ public class PatientsPageSteps extends DriverScript {
     public void I_should_see_selected_eligibility(String text) throws Throwable {
     	patientsPage.iShouldSeeSelectedEligibility(text);
     }
+ 
+    @Then ("^I should see Not Eligible ESRD in Eligibility$")
+    public void I_should_see_Not_Eligible_ESRD_eligibility() throws Throwable {
+    	patientsPage.IshouldseeNotEligibleESRDeligibility();
+    }
     
+    @And ("^I wait for \"([^\"]*)\" to disappear in Eligibility$")
+    public void I_should_not_see_eligibility(String text) throws Throwable {
+    	patientsPage.Ishouldnotseeeligibility(text);
+    }
     @Then ("^I should see \"([^\"]*)\" in Onboarding Status$")
     public void I_should_see_selected_onboarding_status(String text) throws Throwable {
     	patientsPage.iShouldSeeSelectedOnboardingStatus(text);
