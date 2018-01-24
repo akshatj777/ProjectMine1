@@ -581,25 +581,13 @@ public class CreateUserSteps extends DriverScript {
 	public void deselectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
 	}
-	@Then("^I deselect \"([^\"]*)\" locations2$")
-	public void deselectLocations2(String locationList) throws Throwable {
-		createUser.selectLocations2(locationList);
-	}
+
 	@Then("^I select \"([^\"]*)\" locations$")
 	public void selectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
 	}
 	
-	@Then("^I select \"([^\"]*)\" locations2$")
-	public void selectLocations2(String locationList) throws Throwable {
-		createUser.selectLocations2(locationList);
-	}
-	
-	@Then("^I select \"([^\"]*)\" locations3$")
-	public void selectLocations3(String locationList) throws Throwable {
-		createUser.selectLocations3(locationList);
-	}
-	
+
 	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
 	public void clickAddOrgButton(String flag) throws Throwable {
 		createUser.clickAddHealthSystemButton(flag);

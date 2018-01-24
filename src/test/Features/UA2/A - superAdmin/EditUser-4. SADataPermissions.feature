@@ -21,15 +21,15 @@ Feature: Edit data permissions for SA
     And I search for health system with <Health System2>
     And I select a <Health System2>
     Then I select "<Programs2>" programs
-    Then I select "<Locations2>" locations2
+    Then I select "<Locations2>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 3000 milli seconds
     Then I verify "<Health System1>::<Programs1>:<Locations1>; <Health System2>::<Programs2>:<Locations2>" under Data Permissions in view user page
 
     Examples: 
-      | Description                             | user        | Role       | Email             | Health System1    | Programs1   | Locations1                  | Health System2 | Programs2   | Locations2                       |
-      | 1. External User-Edit from org1 to org2 | Super Admin | Remedy TCS | test.automatemail | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | TeamHealth     | BPCI-Model2 | 2070-g14--North Shore Med Center |
+      | Description                             | user        | Role    | Email             | Health System1    | Programs1   | Locations1                  | Health System2 | Programs2   | Locations2                                |
+      | 1. External User-Edit from org1 to org2 | Super Admin | Manager | test.automatemail | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | TeamHealth     | BPCI-Model2 | 2070-g14--Baptist Medical Center  Beaches |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -67,7 +67,7 @@ Feature: Edit data permissions for SA
     Then I select "Permissions" tab
     Then I click on "first" existing organisation
     Then I deselect "<RemovePrograms>" programs
-    Then I select "<Programs>" programs
+    Then I select "<Programs>" programs for existing organisation
     Then I select "<Locations>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
@@ -96,7 +96,7 @@ Feature: Edit data permissions for SA
     And I click on Edit button
     Then I select "Permissions" tab
     Then I click on "first" existing organisation
-    Then I select "<Programs>" programs
+    Then I select "<Programs>" programs for existing organisation
     Then I select "<Locations>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
@@ -105,10 +105,10 @@ Feature: Edit data permissions for SA
 
     Examples: 
       | Description                                                                                      | user        | Role         | Email             | Locations                                                               | Programs    | Health System | ProgramsVisible          |
-      | 12.External user-Edit from single program to multiple programs- All locations                    | Super Admin | Remedy TCS   | test.automatemail | all locations                                                           | BPCI-Model3 | HealthSystem1              | BPCI-Model2, BPCI-Model3 |
-      | 13.External user-Edit from single program to multiple programs - Multi locations                 | Super Admin | Manager      | test.automatemail | 3056-q91--The Medical Center At Franklin, 3056-q91--Rhea Medical Center | BPCI-Model3 |  HealthSystem1             | BPCI-Model2, BPCI-Model3 |
-      | 14.External user-Edit from single program to multiple programs - All locations for mod2 and mod3 | Super Admin | Case Manager | test.automatemail | all locations                                                           | BPCI-Model3 |  HealthSystem1             | BPCI-Model2, BPCI-Model3 |
-      | 15.External user-Select All locations - for Model-2 and Model-3                                  | Super Admin | Physicians   | test.automatemail | all locations                                                           |             |   HealthSystem1            | BPCI-Model2, BPCI-Model3 |
+      | 12.External user-Edit from single program to multiple programs- All locations                    | Super Admin | Remedy TCS   | test.automatemail | all locations                                                           | BPCI-Model3 | HealthSystem1 | BPCI-Model2, BPCI-Model3 |
+      | 13.External user-Edit from single program to multiple programs - Multi locations                 | Super Admin | Manager      | test.automatemail | 3056-q91--The Medical Center At Franklin, 3056-q91--Rhea Medical Center | BPCI-Model3 | HealthSystem1 | BPCI-Model2, BPCI-Model3 |
+      | 14.External user-Edit from single program to multiple programs - All locations for mod2 and mod3 | Super Admin | Case Manager | test.automatemail | all locations                                                           | BPCI-Model3 | HealthSystem1 | BPCI-Model2, BPCI-Model3 |
+      | 15.External user-Select All locations - for Model-2 and Model-3                                  | Super Admin | Physicians   | test.automatemail | all locations                                                           |             | HealthSystem1 | BPCI-Model2, BPCI-Model3 |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -125,7 +125,7 @@ Feature: Edit data permissions for SA
     And I search for health system with <Health System>
     And I select a <Health System>
     Then I select "<Programs>" programs
-    Then I select "<Locations>" locations2
+    Then I select "<Locations>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 3000 milli seconds
@@ -147,8 +147,8 @@ Feature: Edit data permissions for SA
     And I click on Edit button
     Then I select "Permissions" tab
     Then I click on "second" existing organisation
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations2
+    Then I select "<Programs>" programs for existing organisation
+    Then I select "<Locations>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 5000 milli seconds
@@ -156,7 +156,7 @@ Feature: Edit data permissions for SA
 
     Examples: 
       | Description                                                                               | user        | Role             | Email             | Locations                                                               | Programs    | Health System | ProgramsVisible          |
-      | 17.Internal User-Select Model 3 for Org2, Select multiple locations for Model-2 & Model-3 | Super Admin | Remedy Executive | test.automatemail | 3056-q91--The Medical Center At Franklin, 3056-q91--Rhea Medical Center | BPCI-Model3 |  HealthSystem2             | BPCI-Model2, BPCI-Model3 |
+      | 17.Internal User-Select Model 3 for Org2, Select multiple locations for Model-2 & Model-3 | Super Admin | Remedy Executive | test.automatemail | 3056-q91--The Medical Center At Franklin, 3056-q91--Rhea Medical Center | BPCI-Model3 | HealthSystem2 | BPCI-Model2, BPCI-Model3 |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -172,14 +172,14 @@ Feature: Edit data permissions for SA
     Then I click on "first" existing organisation
     Then I select "<Locations>" locations
     Then I click on "second" existing organisation
-    Then I select "<Locations>" locations2
+    Then I select "<Locations>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 5000 milli seconds
 
     Examples: 
-      | Description                                                                      | user        | Role             | Email             | Locations     | Programs | Health System1 |Health System2 | ProgramsVisible |
-      | 18.Internal User-Select All locations for Model-2 & Model-3 for both org1 & org2 | Super Admin | Remedy Executive | test.automatemail | all locations |          |  HealthSystem1             | HealthSystem2|                |
+      | Description                                                                      | user        | Role             | Email             | Locations     | Programs | Health System1 | Health System2 | ProgramsVisible |
+      | 18.Internal User-Select All locations for Model-2 & Model-3 for both org1 & org2 | Super Admin | Remedy Executive | test.automatemail | all locations |          | HealthSystem1  | HealthSystem2  |                 |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -196,7 +196,7 @@ Feature: Edit data permissions for SA
     Then I deselect "<DeselectLocations1>" locations
     Then I select "<Locations1>" locations
     Then I click on "second" existing organisation
-    Then I deselect "<DeselectLocations2>" locations2
+    Then I deselect "<DeselectLocations2>" locations
     Then I select "<Locations2>" locations2
     And I wait for 3000 milli seconds
     Then I click on Submit button
@@ -206,3 +206,59 @@ Feature: Edit data permissions for SA
     Examples: 
       | Description | user        | Role             | Email             | Health System1 | Health System2 | DeselectLocations1               | Locations1                                                                             | DeselectLocations2                        | Locations2                    | ProgramsVisible          |
       |         19. | Super Admin | Remedy Executive | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center | 2070-060--Carolinas Hospital System - Florence, 2070-060--East Orange General Hospital | 2070-g14--Baptist Medical Center  Beaches | 3056-q91--Rhea Medical Center | BPCI-Model2, BPCI-Model3 |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter "<Role>" in search box for "<user>-<Role>"
+    Then I select user with email "<Email>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on "first" existing organisation
+    Then I select "<Locations1>" locations
+    Then I click on "second" existing organisation
+    Then I select "<Locations2>" locations
+    And I wait for 3000 milli seconds
+    Then I click on Submit button
+    And I wait for 5000 milli seconds
+    Then I verify "<Health System1>::<ProgramsVisible1>:<Locations1>; <Health System2>::<ProgramsVisible2>:<Locations2>" under Data Permissions in view user page
+
+    Examples: 
+      | Description | user        | Role      | Email             | Health System1 | Health System2 | Locations1    | Locations2    | ProgramsVisible1      | ProgramsVisible2 |
+      |         20. | Super Admin | Remedy PM | test.automatemail | HealthSystem1  | HealthSystem2  | all locations | all locations | BPCI-Model2, BPCI-CJR | BPCI-Model3      |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter "<Role>" in search box for "<user>-<Role>"
+    Then I select user with email "<Email>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    #Then I click on "Add Another Organization" button on permissions tab
+    Then I click Add Organization button for "<HasHealthSystem3>" flag
+    And I search for health system with <Health System3>
+    And I select a <Health System3>
+    Then I select "<Programs3>" programs
+    Then I select "<Locations3>" locations
+    Then I click on "first" existing organisation
+    Then I deselect "<deselectLocations1>" locations
+    Then I select "<Locations1>" locations
+    Then I click on "second" existing organisation
+    Then I deselect "<deselectLocations2>" locations
+    Then I select "<Locations2>" locations
+    And I wait for 3000 milli seconds
+    Then I click on Submit button
+    And I wait for 5000 milli seconds
+    Then I verify "<Health System1>::<ProgramsVisible1>:<Locations1>; <Health System2>::<ProgramsVisible2>:<Locations2>; <Health System3>::<ProgramsVisible3>:<Locations3>" under Data Permissions in view user page
+
+    Examples: 
+      | Description | user        | Role    | Email             | Health System1 | Health System2 | deselectLocations1                                                                                                                                                                                  | Locations1             | deselectLocations2                       | Locations2                                     | ProgramsVisible1         | ProgramsVisible2         | Health System3 | Programs3                | HasHealthSystem3 | Locations3    | ProgramsVisible3         |
+      |         21. | Super Admin | Manager | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center, 3056-a08--Howard County General Hospital, 3056-a08--Saint Barnabas Medical Center, 3056-a08--East Orange General Hospital, 3056-a08--St. Michael's Medical Center | 2070-060--All 2070-060 | 3090-209--Uhs Twin Tier Home Health Inc. | 6005-197--All 6005-197, 6005-200--All 6005-200 | BPCI-Model2, BPCI-Model3 | BPCI-Model2, BPCI-Model3 | TeamHealth     | BPCI-Model2, BPCI-Model3 | Yes              | all locations | BPCI-Model2, BPCI-Model3 |

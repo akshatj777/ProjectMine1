@@ -167,4 +167,8 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifydataPermissionsField(String field){
 		editUser.iVerifydataPermissionsField(field);
 	}
+	@Then("^I select \"([^\"]*)\" programs for existing organisation$")
+	public void iSelectProgForExistingOrg(String programList) throws Throwable{
+		editUser.selectProgramsForExistingOrg(programList);
+	}
 }
