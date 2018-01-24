@@ -940,11 +940,11 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyInitiallyTop100PhysiciansLoaded(String text){
-    	isElementVisible(driver.findElement(By.xpath("//*[@id='performanceTableObjTable_info'][contains(text(),'"+text+"')]")));
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(@class,'pentaho-toggle-button-horizontal-first')]/button[text()='"+text+"']")));
     }
     
     public void iVerifyPhysicianCountUnderAttributedPhysicians(int count){
-    	verifyElementCount(("td.column0.string"), count);
+    	verifyElementCount(("td.column0"), count);
     }
     
     public void iVerifyDiffernetCountButtonsOnDashboardPhyisician(String text){
