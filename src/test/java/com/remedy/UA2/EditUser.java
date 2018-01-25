@@ -279,7 +279,7 @@ public class EditUser extends BaseClass {
 	   }
 	   public void iSearchLocByBPID(String bpid, String loc) throws InterruptedException{
 		   
-		   if (bpid.contains(",") && loc.contains(",")){
+		   if (bpid.contains(",")){
 		   StringTokenizer st1 = new StringTokenizer(bpid,",");
 		   StringTokenizer st2 = new StringTokenizer(loc,",");
 	       while (st1.hasMoreTokens()&&st2.hasMoreTokens()) {

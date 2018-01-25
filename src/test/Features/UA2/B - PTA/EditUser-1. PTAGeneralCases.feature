@@ -190,7 +190,7 @@ Feature: Edit user page for General cases
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on existing organisation
+    Then I click on "first" existing organisation
     Then I deselect "<RemovePrograms>" programs
     Then I deselect "<RemoveLocations>" locations
     Then I enter characters "<locations_invalid>" in location search
@@ -222,7 +222,7 @@ Feature: Edit user page for General cases
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on existing organisation
+    Then I click on "first" existing organisation
     Then I deselect "<RemovePrograms>" programs
     Then I select "<Programs>" programs
     Then I search location by "<BPID>" and select "<Locations>"
@@ -230,7 +230,7 @@ Feature: Edit user page for General cases
     And I wait for 5000 milli seconds
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on existing organisation
+    Then I click on "first" existing organisation
     Then I should see "<facilityKey>" for locations under data permissions
     And I click on the top user account link
     Then I click on "Log Out" button

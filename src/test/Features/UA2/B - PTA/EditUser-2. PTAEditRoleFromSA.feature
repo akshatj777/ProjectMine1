@@ -26,7 +26,7 @@ Feature: Edit General information/Role/Permissions and validate
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 3000 milli seconds
-    Then I verify "<Health System>" under Data Permissions
+    
     And I verify that "<Applications>" are "Enabled"
     And I verify that "<DisableApplications>" are "Disabled"
     And I click on the top user account link
@@ -121,7 +121,7 @@ Feature: Edit General information/Role/Permissions and validate
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 3000 milli seconds
-    Then I verify "<Health System1>, <Health System2>" under Data Permissions
+    
 
     Examples: 
       | user                            | Role       | Email             | Health System1    | Health System2   | Programs    |
@@ -341,7 +341,7 @@ Feature: Edit General information/Role/Permissions and validate
     And I verify Last Name <LastName> in user page
     And I verify Phone <Phone> in user page
     And I verify Role <Role> in user page
-    Then I verify "<Health System>" under Data Permissions
+    
 
     Examples: 
       | User                            | Role                          | FirstName       | LastName       | Email             | Phone        | Applications | Health System     |
