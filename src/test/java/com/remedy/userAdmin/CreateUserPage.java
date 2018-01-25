@@ -622,6 +622,7 @@ public class CreateUserPage extends BaseClass{
 		   String user = role.substring(role.indexOf("-")+1);
 		   if(user.equalsIgnoreCase("Remedy Technical Administrator")||user.equalsIgnoreCase("Partner Program Administrator")||user.equalsIgnoreCase("Remedy Program Administrator")
 				   ||user.equalsIgnoreCase("Partner Technical Administrator")){
+			   iWillWaitToSee(By.cssSelector(".col-sm-6.col-md-3"));
 			   Assert.assertTrue(driver.findElement(By.cssSelector(".col-sm-6.col-md-3")).isDisplayed());
 		   }
 		   else{
@@ -637,10 +638,22 @@ public class CreateUserPage extends BaseClass{
    public void iVerifyDetailsForUserOnRemedyUDashBoard(String details, String role){
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   if(application.contains("Lessons")){
-		   	String user = role.substring(role.indexOf("-")+1);
+		   
+		   String user = role.substring(role.indexOf("-")+1);
+		   if(user.equalsIgnoreCase("Remedy Technical Administrator")||user.equalsIgnoreCase("Partner Program Administrator")||user.equalsIgnoreCase("Remedy Program Administrator")
+				   ||user.equalsIgnoreCase("Partner Technical Administrator")){
+			   clickElement(driver.findElement(By.cssSelector("li[id='user_dropdown']")));
+			   iWillWaitToSee(By.xpath("//a[contains(text(),'My Profile & Settings')]"));
+			   clickElement(driver.findElement(By.xpath("//a[contains(text(),'My Profile & Settings')]")));
+			   String last = details.substring(details.indexOf(" ")+1);
+			   iWillWaitToSee(By.xpath("//td[text()='"+last+"']"));
+		   }
+		   else{
+//		   	String user = role.substring(role.indexOf("-")+1);
 			String actual = driver.findElement(By.cssSelector(".litmos-small-header.mt-0")).getText();
 			actual = actual.substring(actual.indexOf(",")+1).trim();
 			Assert.assertEquals(details, actual);
+		   }
 	   }
    }
    
@@ -651,11 +664,27 @@ public class CreateUserPage extends BaseClass{
 		   if(application.contains("Lessons")){
 			   if(pathway.contains(","))
 			   {
-				   StringTokenizer st = new StringTokenizer(pathway, ",");
-				   while(st.hasMoreTokens())
-				   {
-					   String a = st.nextToken().trim();
-					   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+a+"\")]")));
+				   String user = role.substring(role.indexOf("-")+1);
+				   if(user.equalsIgnoreCase("Remedy Technical Administrator")||user.equalsIgnoreCase("Partner Program Administrator")||user.equalsIgnoreCase("Remedy Program Administrator")
+						   ||user.equalsIgnoreCase("Partner Technical Administrator")){
+					   clickElement(driver.findElement(By.xpath("//span[text()='Courses']")));
+					   iWillWaitToSee(By.xpath("//h1[text()='Courses']"));
+					   clickElement(driver.findElement(By.xpath("//a[text()='Learning Paths']")));
+					   iWillWaitToSee(By.cssSelector(".active a[title='Learning Paths']"));
+					   StringTokenizer st = new StringTokenizer(pathway, ",");
+					   while(st.hasMoreTokens())
+					   {
+						   String a = st.nextToken().trim();
+						   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[contains(text(),\""+a+"\")]")));
+					   }
+				   }
+				   else{
+					   StringTokenizer st = new StringTokenizer(pathway, ",");
+					   while(st.hasMoreTokens())
+					   {
+						   String a = st.nextToken().trim();
+						   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+a+"\")]")));
+					   }
 				   }
 			   }
 			   else
@@ -1250,7 +1279,7 @@ public class CreateUserPage extends BaseClass{
 			{
 				if(!(role.substring((role.indexOf("-")+1)).equals("Remedy Sales Team") || role.substring((role.indexOf("-")+1)).equals("Prospective Partner Executive")))
 				   {
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@ng-href='https://jira.remedypartners.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")));
 			driver.get("https://cdn-qa.remedypartners.com/");
 			delay();
 				   }
@@ -1279,8 +1308,8 @@ public class CreateUserPage extends BaseClass{
 				   iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
 				      delay();
 				      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
-				      iWillWaitToSee(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']"));
-				      driver.findElement(By.xpath("//a[@ng-href='http://jira.remedysystems.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")).click();
+				      iWillWaitToSee(By.xpath("//a[@ng-href='https://jira.remedypartners.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']"));
+				      driver.findElement(By.xpath("//a[@ng-href='https://jira.remedypartners.com/servicedesk/customer/portal/2/user/login?destination=portal%2F2']")).click();
 				      delay();
 				      objLandingPage.iSwitchToNewWindow();
 			   }
