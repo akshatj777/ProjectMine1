@@ -69,7 +69,7 @@ Feature: Verification of physician report under dashboard
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-  Scenario Outline: Verify attributed physician appearing in performance scorecard page
+  Scenario Outline: Verify attributed physician appearing in performance evalution and scorecard page
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -85,13 +85,14 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     Then I wait for 3000 milli seconds
+    Then I verify Attributed Physician filter is appearing on physician dashboard page
+    And I verify search field is appearing below the count on performance evaluation by physician page
     When I click the first name under attributed physican column
     And I switch to new window
     Then I verify current page "Performance Scorecard Dashboard" title
     And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "Attributed Physician" is appearing under filter options in newly opened scorecard page
-    Then I verify "physician" filter is appearing under filter options under scorecard page
 
     Examples: 
       | email                         |

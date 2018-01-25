@@ -1732,4 +1732,14 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
     	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
     }
+    
+    @And("^I verify search field is appearing below the count on performance evaluation by physician page$")
+    public void i_verify_search_field_is_appearing_below_the_count_on_peformance_evaluation_by_physician_page() throws Throwable{
+    	reportHomePage.iVerifySeachFieldOnPerformanceEvaluationByPhysicianPage();
+    }
+    
+    @Then("^I verify Attributed Physician filter is appearing on physician dashboard page$")
+    public void i_verify_attributed_physician_filter_is_appearing_on_physician_dashboard_page() throws Throwable{
+    	reportHomePage.iVerifyAttributedPhysicianFilterOnPhysicianPage();
+    }
 }

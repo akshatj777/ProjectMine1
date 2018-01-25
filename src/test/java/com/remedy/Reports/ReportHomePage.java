@@ -1370,4 +1370,12 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeFAQListOnFAQPage(){
     	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
     }
+    
+    public void iVerifySeachFieldOnPerformanceEvaluationByPhysicianPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("#performanceTableObjTable_filter>label>input")));
+    }
+    
+    public void iVerifyAttributedPhysicianFilterOnPhysicianPage(){
+    	isElementVisible(driver.findElement(By.cssSelector("#physicianFilterObj")));
+    }
 }
