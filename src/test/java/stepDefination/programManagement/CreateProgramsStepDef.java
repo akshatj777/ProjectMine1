@@ -92,4 +92,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyFieldOnCreateContractsPage(text);
 	    }
 	
+	@And("^I click on checkbox for \"([^\"]*)\" Attribution rule$")
+	  public void i_Click_On_Checkboxe_For_Attribution_Rules_On_Create_Programs(String text) throws Throwable {
+		programs.iClickOnCheckboxeForAttributionRulesOnCreatePrograms(text);
+	    }
+	
 }

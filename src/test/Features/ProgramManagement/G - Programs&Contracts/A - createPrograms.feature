@@ -57,6 +57,8 @@ Feature: Create Programs organization under Payor Organization functionality tes
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
     Then I enter <Program_Name> in "Program Name" on create organization page
+    And I click on checkbox for "Attribute to the physician who admitted the patient" Attribution rule
+    And I click on checkbox for "Attribute to the triggering provider id on the triggering claim" Attribution rule
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create Programs" on Payor organization page
 
@@ -134,10 +136,10 @@ Feature: Create Programs organization under Payor Organization functionality tes
     Then I click on "Submit" button on "create" organization page
 
     Examples: 
-      | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_1                  |
-      | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 |
+      | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_2                  | Message                       |
+      | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | Contract Successfully Created |
 
-  Scenario Outline: Create Contracts with all multiple bundles
+  Scenario Outline: Create Contracts with multiple bundles
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
@@ -170,6 +172,9 @@ Feature: Create Programs organization under Payor Organization functionality tes
       |         21 |        5 |
       |         20 |        4 |
       |         19 |        6 |
+    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price2" for Contract "1" on "create" Contracts page
+    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price2" for Contract "1" on "create" Contracts page
+    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price2" for Contract "1" on "create" Contracts page
     Then I click on "Add Bundle" button on "create Contracts" organization page
     And I select Bundle1 "<Bundle_3>" for Contract "1" on "create" Contracts page
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
@@ -178,8 +183,11 @@ Feature: Create Programs organization under Payor Organization functionality tes
       |         18 |        7 |
       |         17 |        8 |
       |         16 |        9 |
+    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price3" for Contract "1" on "create" Contracts page
+    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price3" for Contract "1" on "create" Contracts page
+    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price3" for Contract "1" on "create" Contracts page
     Then I click on "Submit" button on "create" organization page
 
     Examples: 
-      | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_1                  | Bundle_2               |
-      | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | CBundle1pUWHJHZHlq1102 |
+      | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_1                  | Bundle_2               | Message                       |
+      | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | CBundle1pUWHJHZHlq1102 | Contract Successfully Created |

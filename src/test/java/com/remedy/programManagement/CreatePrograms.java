@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -93,7 +92,18 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iSelectBundle1OnCreateContratsPageUnderPayorOrganization(String text, int num, String field) {
-		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
+//		//iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']"));
+//		WebElement ele=driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("document.getElement(ele.click())");
+//		//iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
+//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".react-select-option-row.highlight>div")));
+		
+		WebElement element= driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
+
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
+		
 		clickSingleElementFromList((By.cssSelector(".react-select-option-row.highlight>div")), text);
 	}
 	
@@ -188,5 +198,11 @@ public class CreatePrograms extends BaseClass {
 	public void iVerifyFieldOnCreateContractsPage(String text){
 		verifyTextForElement(driver.findElement(By.cssSelector(".select-field-caption.required")), text);
 	}
+	
+	public void iClickOnCheckboxeForAttributionRulesOnCreatePrograms(String text){
+		clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
+	}
+
 }
+
 
