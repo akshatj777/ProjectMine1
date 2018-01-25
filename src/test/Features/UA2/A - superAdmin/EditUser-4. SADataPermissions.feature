@@ -197,7 +197,7 @@ Feature: Edit data permissions for SA
     Then I select "<Locations1>" locations
     Then I click on "second" existing organisation
     Then I deselect "<DeselectLocations2>" locations
-    Then I select "<Locations2>" locations2
+    Then I select "<Locations2>" locations
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 5000 milli seconds
@@ -262,3 +262,33 @@ Feature: Edit data permissions for SA
     Examples: 
       | Description | user        | Role    | Email             | Health System1 | Health System2 | deselectLocations1                                                                                                                                                                                  | Locations1             | deselectLocations2                       | Locations2                                     | ProgramsVisible1         | ProgramsVisible2         | Health System3 | Programs3                | HasHealthSystem3 | Locations3    | ProgramsVisible3         |
       |         21. | Super Admin | Manager | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center, 3056-a08--Howard County General Hospital, 3056-a08--Saint Barnabas Medical Center, 3056-a08--East Orange General Hospital, 3056-a08--St. Michael's Medical Center | 2070-060--All 2070-060 | 3090-209--Uhs Twin Tier Home Health Inc. | 6005-197--All 6005-197, 6005-200--All 6005-200 | BPCI-Model2, BPCI-Model3 | BPCI-Model2, BPCI-Model3 | TeamHealth     | BPCI-Model2, BPCI-Model3 | Yes              | all locations | BPCI-Model2, BPCI-Model3 |
+
+      Scenario Outline: <Description>
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I enter "<Role>" in search box for "<user>-<Role>"
+    Then I select user with email "<Email>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on "first" existing organisation
+    Then I deselect "<deselectLocations1>" locations
+    Then I select "<Locations1>" locations
+    Then I click on "second" existing organisation
+    Then I deselect "<deselectLocations2>" locations
+    Then I select "<Locations2>" locations
+    Then I click on "third" existing organisation
+    Then I deselect "<deselectLocations3>" locations
+    Then I select "<Locations3>" locations
+    And I wait for 3000 milli seconds
+    Then I click on Submit button
+    And I wait for 5000 milli seconds
+    Then I verify "<Health System1>::<ProgramsVisible1>:<Locations1>; <Health System2>::<ProgramsVisible2>:<Locations2>; <Health System3>::<ProgramsVisible3>:<Locations3>" under Data Permissions in view user page
+
+    Examples: 
+      | Description | user        | Role    | Email             | Health System1 | Health System2 | deselectLocations1                                                                                                                                                                                  | Locations1             | deselectLocations2                       | Locations2                                     | ProgramsVisible1         | ProgramsVisible2         | Health System3               | HasHealthSystem3 | Locations3    | ProgramsVisible3         |
+      |         22. | Super Admin | Manager | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center, 3056-a08--Howard County General Hospital, 3056-a08--Saint Barnabas Medical Center, 3056-a08--East Orange General Hospital, 3056-a08--St. Michael's Medical Center | 2070-060--All 2070-060 | 3090-209--Uhs Twin Tier Home Health Inc. | 6005-197--All 6005-197, 6005-200--All 6005-200 | BPCI-Model2, BPCI-Model3 | BPCI-Model2, BPCI-Model3 | HealthSystem3   | Yes              | | BPCI-Model2, BPCI-Model3 |
+      
