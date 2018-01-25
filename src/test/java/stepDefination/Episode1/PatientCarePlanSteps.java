@@ -362,4 +362,9 @@ public class PatientCarePlanSteps extends DriverScript
 	 public void verify_Form_Error(String message){
 		 patientcare.verifyFormError(message);
 	 }
+	 
+	 @Then ("^I verify the Expired Form error \"([^\"]*)\"$")
+	 public void verify_Expired_Form_Error(String message){
+		 patientcare.verifyExpiredFormError(message);
+	 }
 }

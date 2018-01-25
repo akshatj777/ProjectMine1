@@ -1,7 +1,8 @@
 @EC1Smoke
 Feature: Care Setting and Care Plan
-Background: Create Patient
-	Given I am on the login page
+
+  Background: Create Patient
+    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -29,95 +30,89 @@ Background: Create Patient
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
 
-Scenario Outline: Care Type validation for admitting facility for HHH, Expired, Other
-	When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+  Scenario Outline: Care Type validation for admitting facility for HHH, Expired, Other
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "<Care Setting>" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I click on the Create Transition Button to add a new transition 
+    Then I wait for 4000 milli seconds
+    Then I click on the Create Transition Button to add a new transition
     And I should see "Care type is required for the selected care setting" validation message on Transition modal
     Then I click on the Cancel Button on the New Transition on Add Patient page
-     
-      Examples:
+
+    Examples: 
       | Care Setting      |
       | HHH - Hospital    |
       | EXPIRED - Expired |
       | OTHER - Other     |
- 
- Scenario: Verifying the different Care Type options for different Care settings
+
+  Scenario: Verifying the different Care Type options for different Care settings
     And I will wait to see patient's name on patient summary page
-	When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I select the "Admit" "caresetting" "EXPIRED - Expired" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I click on "CareType" dropdown on Transition modal
     And I verify "Expired as Inpatient" under dropdown text on Transition modal
-    And I verify "Expired at Home" under dropdown text on Transition modal  
-    And I verify "Expired in a Medical Facility" under dropdown text on Transition modal  
+    And I verify "Expired at Home" under dropdown text on Transition modal
+    And I verify "Expired in a Medical Facility" under dropdown text on Transition modal
     And I verify "Expired at Unknown" under dropdown text on Transition modal
     Then I select the "Admit" "caresetting" "HOM - Home" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    And I should not see "CareType" dropdown on Transition modal  
+    And I should not see "CareType" dropdown on Transition modal
     Then I select the "Admit" "caresetting" "HHA - Home Health Agency" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    And I verify "Skilled services" under dropdown text on Transition modal  
+    And I verify "Skilled services" under dropdown text on Transition modal
     And I verify "Non skilled services" under dropdown text on Transition modal
-    
     Then I select the "Admit" "caresetting" "HPC - Hospice" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I should not see "CareType" dropdown on Transition modal
-    
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I click on "CareType" dropdown on Transition modal
     And I verify "Inpatient" under dropdown text on Transition modal
-    And I verify "Outpatient" under dropdown text on Transition modal  
-    And I verify "Emergency" under dropdown text on Transition modal  
+    And I verify "Outpatient" under dropdown text on Transition modal
+    And I verify "Emergency" under dropdown text on Transition modal
     And I verify "Scheduled" under dropdown text on Transition modal
     And I verify "Observation" under dropdown text on Transition modal
-    
     Then I select the "Admit" "caresetting" "IRF - Inpatient Rehabilitation" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I should not see "CareType" dropdown on Transition modal
-    
     Then I select the "Admit" "caresetting" "LTC - Long-Term Care Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I should not see "CareType" dropdown on Transition modal
-    
     Then I select the "Admit" "caresetting" "OTHER - Other" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I click on "CareType" dropdown on Transition modal
-    And I verify "Acute Care Hospital" under dropdown text on Transition modal  
-    And I verify "Admitted as an Inpatient to this Hospital" under dropdown text on Transition modal  
+    And I verify "Acute Care Hospital" under dropdown text on Transition modal
+    And I verify "Admitted as an Inpatient to this Hospital" under dropdown text on Transition modal
     And I verify "Another Institution" under dropdown text on Transition modal
     And I verify "Assisted Living" under dropdown text on Transition modal
-    And I verify "Critical Access Hospitalient" under dropdown text on Transition modal  
-    And I verify "Court/Law Enforcement" under dropdown text on Transition modal  
+    And I verify "Critical Access Hospital" under dropdown text on Transition modal
+    And I verify "Court/Law Enforcement" under dropdown text on Transition modal
     And I verify "Federal Hospital" under dropdown text on Transition modal
     And I verify "Hospice in Medical Facility" under dropdown text on Transition modal
-     And I verify "InHospital-Based Medicare Approved Swing Bedpatient" under dropdown text on Transition modal
-    And I verify "Hospice at Home" under dropdown text on Transition modal  
-    And I verify "Intermediate Care Facility" under dropdown text on Transition modal  
+    And I verify "Hospital-Based Medicare Approved Swing Bed" under dropdown text on Transition modal
+    And I verify "Hospice at Home" under dropdown text on Transition modal
+    And I verify "Intermediate Care Facility" under dropdown text on Transition modal
     And I verify "Left Against Medical Advice" under dropdown text on Transition modal
     And I verify "Medicaid Certified Nursing Facility" under dropdown text on Transition modal
     And I verify "Psychiatric Hospital/Unit" under dropdown text on Transition modal
-    And I verify "Shelter" under dropdown text on Transition modal  
-    And I verify "Still a Patient" under dropdown text on Transition modal  
-    
+    And I verify "Shelter" under dropdown text on Transition modal
+    And I verify "Still a Patient" under dropdown text on Transition modal
     Then I select the "Admit" "caresetting" "PGP - PGP" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    And I should not see "CareType" dropdown on Transition modal 
+    And I should not see "CareType" dropdown on Transition modal
     Then I select the "Admit" "caresetting" "REH - Rehabilitation" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I click on "CareType" dropdown on Transition modal
     And I verify "Inpatient" under dropdown text on Transition modal
-    And I verify "Outpatient" under dropdown text on Transition modal 
-    
+    And I verify "Outpatient" under dropdown text on Transition modal
     Then I select the "Admit" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     And I click on "CareType" dropdown on Transition modal
     And I verify "Skilled Nursing" under dropdown text on Transition modal
-    And I verify "Custodial Care" under dropdown text on Transition modal 
+    And I verify "Custodial Care" under dropdown text on Transition modal
     And I verify "TCU" under dropdown text on Transition modal
-    And I verify "Leave of Absence" under dropdown text on Transition modal 
-    
+    And I verify "Leave of Absence" under dropdown text on Transition modal
     Then I select the "Admit" "caresetting" "UNK - Unknown" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    And I should not see "CareType" dropdown on Transition modal    
+    And I should not see "CareType" dropdown on Transition modal
 
-Scenario: Patient overview status on deleting a transition
-   And I will wait to see patient's name on patient summary page
-	When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+  Scenario: Patient overview status on deleting a transition
+    And I will wait to see patient's name on patient summary page
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "3" days
-	Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     And I click on Create Transition button present on the patient overview page

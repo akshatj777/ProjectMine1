@@ -463,7 +463,8 @@ public class PatientClinicalDocuments extends BaseClass {
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
          iWillWaitToSee(By.cssSelector("#submitButton"));
          Actions actions = new Actions(driver);
-         actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).click().perform();
+         actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
+         clickElement(driver.findElement(By.cssSelector("#submitButton")));
 		 }
 	
 
@@ -849,6 +850,11 @@ public class PatientClinicalDocuments extends BaseClass {
 		public void IEnterInFieldOnTransitionModal(String text,String field) {
 			iWillWaitToSee(By.cssSelector("#bp_personbundle_bpadmissiontype_"+field));
 			iFillInText(driver.findElement(By.cssSelector("#bp_personbundle_bpadmissiontype_"+field)), text);
+		}
+
+		public void iclickongearonpatientoverview() {
+			iWillWaitToSee(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div"));
+			clickElement(driver.findElement(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div")));
 		}
 
 	

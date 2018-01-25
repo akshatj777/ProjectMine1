@@ -18,4 +18,4 @@ Feature: Create new clinician
     And I fill in "user_plain_password_confirm" with "Testing1" on register clinician page
     Then I press "Save" on the register clinician page
     And I will wait to see "The object was successfully saved." in "p" tag
-    And I will wait to see "You're editing Clinician : "TESTFIRSTNAME TESTLASTNAME""
+    And I will wait to see Clinician "TESTFIRSTNAME TESTLASTNAME"

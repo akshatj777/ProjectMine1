@@ -27,4 +27,4 @@ Feature: Discharge Location Mapping Text
     And I select "Inpatient" from "new_bpfacilityfreetext_mappedDischargeCareType"
     And I press "Save" on the new facility free text mapping page
     And I will wait to see "The object was successfully saved" in "p" tag
-    And I will wait to see "You're editing a Facility Free Text Mapping entry for "Hackensack University Medical Center""
+    And I will wait to see Facility Free Text "Hackensack University Medical Center"

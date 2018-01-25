@@ -1395,8 +1395,9 @@ public class PatientsPage extends BaseClass {
 	public void IshouldseeNotEligibleESRDeligibility() {
 		longDelay();
 		iWillWaitToSee(By.cssSelector("#eligibility_button"));
-		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).trim().replaceAll("-","");
-		Assert.assertEquals("Not Eligible ESRD", actual);
+		String actual = getTextForElement(driver.findElement(By.cssSelector("#eligibility_button"))).replaceAll("-","").trim();
+		System.out.println("Actual is"+actual);
+		Assert.assertEquals("Not Eligible – ESRD",actual);
 		
 	}
 	

@@ -1,5 +1,6 @@
 @EC1Smoke
 Feature: Activity List
+  
   Background: Episode Active - create anchor transition
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login

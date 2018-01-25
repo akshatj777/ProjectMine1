@@ -50,6 +50,16 @@ public class PatientCreationRulesSteps extends DriverScript {
 		patientrules.iWillWaitToSeeNewlyCreatedRule(text);
 	}
 	
+	@And("^I will wait to see Clinician \"(.*)\"$")
+	public void i_will_wait_to_see_Clinician(String text) throws Throwable{
+		patientrules.iWillWaitToSeeNewlyClinician(text);
+	}
+	
+	@And("^I will wait to see Facility Free Text \"(.*)\"$")
+	public void i_will_wait_to_see_Facility_Free_Text(String text) throws Throwable{
+		patientrules.iWillWaitToSeeFacilityFreeText(text);
+	}
+	
 	@And("I should see \"([^\"]*)\" label on \"([^\"]*)\" page")
 	public void i_should_see_label_on_page(String text,String page) throws Throwable{
 		patientrules.iVerifyLabelTextOnNewCreationPage(text, page);
@@ -73,6 +83,11 @@ public class PatientCreationRulesSteps extends DriverScript {
 	@And("^I fill in \"([^\"]*)\" with \"([^\"]*)\"$")
 	public void i_fill_in_with(String selector,String text) throws Throwable{
 		patientrules.iFillTextWith(selector, text);
+	}
+	
+	@And("^I fill in DRG with \"([^\"]*)\"")
+	public void i_fill_in_with_DRG(String text) throws Throwable{
+		patientrules.iFillTextWithDRG(text);
 	}
 	
 	@And("I select mapped discharge facility on New Facility Free Text Mapping page with \"([^\"]*)\"")
@@ -305,6 +320,11 @@ public class PatientCreationRulesSteps extends DriverScript {
 	@Then("I verify \"([^\"]*)\" is appearing in the drg list under facility")
 	public void i_verify_is_appearing_in_the_drg_list_under_facility(String text) throws Throwable{
 		patientrules.iVerifyDRGListInFacility(text);
+	}
+	
+	@Then("I verify \"([^\"]*)\" is not appearing in the drg list under facility")
+	public void i_verify_is_not_appearing_in_the_drg_list_under_facility(String text) throws Throwable{
+		patientrules.iVerifyDRGListNotInFacility(text);
 	}
 	
 	@Then("^I verify \"([^\"]*)\" tab is highlighted on the left navigation$")

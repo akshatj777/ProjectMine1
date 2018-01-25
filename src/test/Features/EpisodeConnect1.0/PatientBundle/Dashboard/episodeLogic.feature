@@ -302,7 +302,7 @@ Feature: Managing Various Episode States
     And I should see "0" appearing under search on "Readmission" "readmission-column" Dashboard
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see "0 days to anchor admission" appearing under progress on patient card
-    And I should see "(HHH) Inpatient" "St Luke's - Allentown, LONDON" appearing under current location on patient card
+    And I should see "(HHH) Inpatient" "St Luke's - Allentown" appearing under current location on patient card
     And I should see "(6) LIVER TRANSPLANT W/O MCC" appearing under drg on patient card
     And I should see "St Luke's" Episode Initiator on Patient list page
     And I should see "(HHH) Allentown" Anchor Facility on Patient list page

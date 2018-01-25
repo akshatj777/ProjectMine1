@@ -339,6 +339,9 @@ public class PatientCarePlan extends BaseClass {
 		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]"));
 		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
 		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
+		delay();
+		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
+		longDelay();
 		}
 
 	public void ieditedassignedform(String form, int n) {
@@ -396,6 +399,11 @@ public class PatientCarePlan extends BaseClass {
 		System.out.println("Date increase by one.."+convertedDate);
 
 		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",convertedDate);
+	}
+
+	public void verifyExpiredFormError(String message) {
+		iWillWaitToSee(By.xpath("//*[@id='newFormDisabled']"));
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='newFormDisabled']")),message);
 	}
    
 }

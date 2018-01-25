@@ -192,7 +192,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnOptionFromPatientslistPatientGearMenu(String option){
-//    	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+    	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
     	delay();
     	clickSingleElementFromList(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div/ul/li"), option);
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
@@ -202,8 +202,8 @@ public class PatientsListPage extends BaseClass {
     public void iClickOnFirstPatientGearMenu(){
 //    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
     	longDelay();
-    	iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
-    	driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(0).click();
+    	iWillWaitToSee(By.xpath("//*[@id='patientsList']/div/div/span/div[1]/div[2]/div[4]/a[1]"));
+    	clickElement(driver.findElement(By.xpath("//*[@id='patientsList']/div/div/span/div[1]/div[2]/div[4]/a[1]")));
     	delay();
     }
     
@@ -281,7 +281,7 @@ public class PatientsListPage extends BaseClass {
     public void iVerifyEligibilityOnPatientList(String text){
     	String actual = driver.findElements(By.cssSelector(".col-md-2.two-rows.ng-binding")).get(0).getText();
     	actual = actual.substring(actual.indexOf("Eligibility")+1).trim();
-    	Assert.assertEquals("text", actual);
+    	Assert.assertTrue(actual.contains(text));
     }
     
     public void iShouldSeeEpisodeInitiatorOnPatientListPage(String text){
@@ -354,6 +354,25 @@ public class PatientsListPage extends BaseClass {
 	public void iShouldSeeAnchorFacilityOnPatientListPage(String text1) {
 		String actual = driver.findElement(By.xpath("//div[contains(@ng-if,'element.facility')]")).getAttribute("outerText");
     	Assert.assertEquals(text1, actual);
+	}
+
+
+	public void iclickonNotEligibleESRDfrompatientslistpatientgearmenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@ng-if,'notEligibleESRD')]")));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+	}
+
+
+	public void iClickOnSendMessageFromPatientslistPatientGearMenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_message')]")));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+		
 	}
 	
 }

@@ -76,7 +76,7 @@ Feature: Episode eligibility status
   #And I wait for 4000 milli seconds
   #And I click on submit button present on the new filter modal
   #And I should see "Error" in Eligibility
-  
+ 
   Scenario: Verify Eligibility should Automatically run upon a patient admission to a SNF.
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
@@ -91,7 +91,7 @@ Feature: Episode eligibility status
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/overview"
-    And I should see "Unknown" in Eligibility
+    And I should see "Error" in Eligibility
 
   Scenario: Set ESRD from Eligibility modal
     Then I Expand to the patient summary page
@@ -103,39 +103,20 @@ Feature: Episode eligibility status
     When I click on eligibility set "Not Eligible – ESRD" option
     Then I will wait to see "Your changes have been successfully saved." in "p" tag
     And I wait for "Unknown" to disappear in Eligibility
-   # And I should see Not Eligible ESRD in Eligibility
+    And I should see Not Eligible ESRD in Eligibility
     And I am on "/secure/pn/patientslist"
     Then I click on "custom" filter tab present on the patients page
     And I enter patients fullname in the patient search box on the patient page
     Then I click on search button present on the patients page
     And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
-    And I click on first patient gear menu
-    When I click on "Set as Not Eligible - ESRD" from patients list patient gear menu
-    And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see "Attestation" in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    And I should see "NOT_ELIGIBLE_ESRD" in Eligibility
-    Then I click on "custom" filter tab present on the patients page
-    And I enter patients fullname in the patient search box on the patient page
-    Then I click on search button present on the patients page
-    And I click on first patient gear menu
-    When I click on "Set as Not Eligible - ESRD" from patients list patient gear menu
-    And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
-    Then I navigate to the "/secure/person/mongoID/overview"
-    And I will wait to see "Attestation" in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    And I should see "NOT_ELIGIBLE_ESRD" in Eligibility
+   
 
   Scenario: Set ESRD from Patient Card Actions
-    Then I click on "custom" filter tab present on the patients page
-    And I enter patients fullname in the patient search box on the patient page
-    Then I click on search button present on the patients page
     And I click on first patient gear menu
-    When I click on "Set as Not Eligible - ESRD" from patients list patient gear menu
-    And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
+    When I click on Not Eligible ESRD from patients list patient gear menu
+    And I verify "Eligibility NOT_ELIGIBLE_ESRD" Eligibility on patient list page
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-   # And I should see "NOT_ELIGIBLE_ESRD" in Eligibility
+    And I should see Not Eligible ESRD in Eligibility

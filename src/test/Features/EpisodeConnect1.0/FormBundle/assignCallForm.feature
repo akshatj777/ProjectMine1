@@ -120,7 +120,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     Then I fill in Due Date with logic "minus" with "0" days
     When I click "Assign" xpath element "//*[@id='submitButton']"
     And I should see text of "3" in assigned form counter
-    Then I verify "First Call assigned" in "Assigned Form list" "2"
+    Then I verify First Call in "3"
     Then I delete the assigned "First Call" "3"
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/overview"
@@ -128,6 +128,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
     Then I clear the "LOS value" xpath "//*[@id='bp_personbundle_bpadmissiontype_los']"
+    Then I remove the discharge date on the transition page
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
@@ -149,8 +150,7 @@ Feature: Assign new First Call Form (FCF), Subsequent Call Form (SCF), After Hou
     When I click "Add New+" xpath element "//*[@id='addNewForm']"
     Then I select "<formType>" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     Then I fill in Due Date with logic "minus" with "-2" days
-    When I click "Assign" xpath element "//*[@id='submitButton']"
-    Then I verify the Form error "<errorExpired>"
+    Then I verify the Expired Form error "<errorExpired>"
 
     Examples: 
       | formType   | errorMessage                                           | errorMessageNoAnchor                                          | errorMessageWithoutDischarge            | errorMessageWithFutureDischarge         | errorExpired                    |

@@ -114,7 +114,7 @@ Feature: Episode connect 1 edit Episode
     And I will wait to see patient's name on patient summary page
     And I click Episode initiator Edit
     And I will wait to see "Edit Episode Initiator" in "h4" tag
-    Then I select "Coosa valley health care - Coosa valley health care" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
+    Then I select "Envision Health Care - Stadion Inpatient Services" from "Episode Initiator" by xpath "//*[@id='episode_initiator_episodeInitiator']"
     When I click "Edit Episode Initiator" xpath element "//*[@id='episode_initiator_submitButton']"
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down

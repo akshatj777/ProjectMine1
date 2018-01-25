@@ -48,7 +48,7 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "-2" days
+    Then I fill in "Admit" with logic "minus" with "-4" days
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
@@ -147,11 +147,11 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "40" days
-    Then I fill in "Admit" with logic "minus" with "38" days
+    Then I fill in "Admit" with logic "minus" with "45" days
+    Then I fill in "Discharge" with logic "minus" with "43" days
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I click on update transition to add a new episode
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL EPISODE CANCELED" state
     Then I will wait to see onboarding status "Unknown"
-    Then I will verify Episode Marker Admit Date "40" and "add" Discharge date "0" with "-1" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will verify Episode Marker Admit Date "45" and "add" Discharge date "43" with "-29" to show end date and Episode Status "EXPIRED AS INPATIENT"

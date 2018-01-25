@@ -33,6 +33,7 @@ Feature: User can add appointment
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     When I click on "Add Appointment" from patients list patient gear menu
     Then I verify "New Appointment" header on popup

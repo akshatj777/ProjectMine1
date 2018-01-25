@@ -226,6 +226,11 @@ public class SummarySectionSteps extends DriverScript {
 		patientclinical.IShouldSeeOptionInGearMenuUnderTransitionOnPatientOverview(text);
 	}
 	
+	@Then ("^I click on gear menu on patient overview page$")
+	 public void i_click_on_gear_on_patient_overview(){
+		patientclinical.iclickongearonpatientoverview();
+	}
+	
 	@Then ("^I click on \"([^\"]*)\" in gear menu option under Transition$")
 	public void I_click_on_option_in_gear_menu_under_Transitions(String text) throws Throwable {
 		patientclinical.IClickOnOptionGearMenuUnderTransition(text);

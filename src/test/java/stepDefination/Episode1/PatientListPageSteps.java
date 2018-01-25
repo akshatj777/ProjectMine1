@@ -206,6 +206,16 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iClickOnOptionFromPatientslistPatientGearMenu(option);
     }
     
+    @Then("^I click on Not Eligible ESRD from patients list patient gear menu$")
+    public void i_click_on_NotEligibleESRD_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iclickonNotEligibleESRDfrompatientslistpatientgearmenu();
+    }
+    
+    @Then("^I click on Send message from patients list patient gear menu$")
+    public void i_click_SendMessage_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnSendMessageFromPatientslistPatientGearMenu();
+    }
+    
     @Then("^I verify \"([^\"]*)\" header on popup$")
     public void i_verify_header_on_popup(String text) throws Throwable {
     	patientsList.iVerifyHeaderTextOnPopUp(text);

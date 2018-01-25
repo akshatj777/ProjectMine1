@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.utils.StringUtil;
 import com.remedy.baseClass.BaseClass;
@@ -13,6 +15,7 @@ import com.remedy.baseClass.BaseClass;
 public class PatientCreationRules extends BaseClass{
 	
 	public static String Key_CreationName;
+	public static String Facility_Key;
     public PatientCreationRules(WebDriver driver) {
         super(driver);
     }
@@ -106,8 +109,8 @@ public class PatientCreationRules extends BaseClass{
     
     public void iFillFieldsOnFacilityCreationPage(String locator,String text){
     	if(text.contains("randomKey")){
-    		String key = text+RandomStringUtils.randomAlphabetic(5);
-    		iFillInText(driver.findElement(By.cssSelector("#new_bpfacility_"+locator+"")), key);
+    		Facility_Key = text+RandomStringUtils.randomAlphabetic(5);
+    		iFillInText(driver.findElement(By.cssSelector("#new_bpfacility_"+locator+"")), Facility_Key);
     	}
     	else{
     		iFillInText(driver.findElement(By.cssSelector("#new_bpfacility_"+locator+"")), text);
@@ -177,7 +180,7 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iEnterTextInFacilityFilterFields(String text,String locator){
-    	iFillInText(driver.findElement(By.cssSelector("#filters_bpfacility_"+locator+"")), text);
+    	iFillInText(driver.findElement(By.cssSelector("#filters_bpfacility_"+locator+"")), Facility_Key);
     	delay();
     }
     
@@ -284,4 +287,22 @@ public class PatientCreationRules extends BaseClass{
     	iWillWaitToSee(By.xpath("//span[text()='"+text+"']"));
     	clickElement(driver.findElement(By.xpath("//span[text()='"+text+"']")));
     }
+
+	public void iWillWaitToSeeNewlyClinician(String text) {
+		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing Clinician :"+ " " + "\"" + text + "\"");
+	}
+
+	public void iWillWaitToSeeFacilityFreeText(String text) {
+		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing a Facility Free Text Mapping entry for"+ " " + "\"" + text + "\"");
+		
+	}
+
+	public void iFillTextWithDRG(String text) {
+		iWillWaitToSee(By.xpath("//*[@id='s2id_add_drg_form_drgs']/ul/li/input"));
+		driver.findElement(By.xpath("//*[@id='s2id_add_drg_form_drgs']/ul/li/input")).sendKeys(text);
+		}
+
+	public void iVerifyDRGListNotInFacility(String text) {
+		new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//td[contains(text(),'"+text+"')]")));    
+	}
 }

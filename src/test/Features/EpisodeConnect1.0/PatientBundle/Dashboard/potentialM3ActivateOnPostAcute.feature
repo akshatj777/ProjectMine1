@@ -56,7 +56,7 @@ Feature: POT3 will get activated on post acute admission
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "29" to show end date and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
@@ -65,7 +65,7 @@ Feature: POT3 will get activated on post acute admission
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "29" to show end date and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
@@ -74,15 +74,15 @@ Feature: POT3 will get activated on post acute admission
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "15" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "CANCELED"
-    Then I will verify Episode Marker Admit Date "30" and "add" Discharge date "15" with "29" to show end date and Episode Status "POTENTIAL MODEL 3"
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "CANCELED"
+    Then I will verify Episode Marker Admit Date "30" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "POTENTIAL MODEL 3"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click anchor transition delete link "1"
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
-    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "29" to show end date and Episode Status "ACTIVE"
-    Then I will verify Episode Marker Admit Date "30" and "add" Discharge date "0" with "-1" to show end date and Episode Status "POTENTIAL EPISODE CANCELED"
+    Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "30" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "POTENTIAL EPISODE CANCELED"
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
     And I will wait to see patient's name on patient summary page
     Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
