@@ -216,6 +216,26 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iClickOnSendMessageFromPatientslistPatientGearMenu();
     }
     
+    @Then("^I click on Add Task from patients list patient gear menu$")
+    public void i_click_Add_Task_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnAddTaskFromPatientslistPatientGearMenu();
+    }
+    
+    @Then("^I click on Add Note from patients list patient gear menu$")
+    public void i_click_Add_Note_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnAddNoteFromPatientslistPatientGearMenu();
+    }
+    
+    @Then("^I click on Add New Clinician from patients list patient gear menu$")
+    public void i_click_Add_Clinician_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnAddClinicianFromPatientslistPatientGearMenu();
+    }
+    
+    @Then("^I click on Add Appointment from patients list patient gear menu$")
+    public void i_click_Add_Appointment_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnAddAppointmentFromPatientslistPatientGearMenu();
+    }
+    
     @Then("^I verify \"([^\"]*)\" header on popup$")
     public void i_verify_header_on_popup(String text) throws Throwable {
     	patientsList.iVerifyHeaderTextOnPopUp(text);
@@ -330,4 +350,10 @@ public class PatientListPageSteps extends DriverScript {
     public void i_should_see_Anchor_Facility_on_patient_list_page(String text1) throws Throwable {
     	patientsList.iShouldSeeAnchorFacilityOnPatientListPage(text1);
     }
+    
+    @Then("^I focus my element to \"([^\"]*)\" tab$")
+    public void focus_element(String text){
+    	patientsList.focuselement(text);
+    }
+    
 }

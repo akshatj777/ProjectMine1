@@ -95,7 +95,7 @@ Feature: Managing Various Episode States
     Then I will wait to see and click on "Diagnosis and DRG" followed by "a" tag
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Final" DRG type on the Diagnosis and DRG tab on add a new transition
-    Then I select the "3" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I select the "(3)" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down

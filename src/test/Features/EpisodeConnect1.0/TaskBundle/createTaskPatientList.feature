@@ -1,5 +1,6 @@
 @EC1Smoke
 Feature: Create task from patient list
+ 
  Background: Patient creation
  	Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -35,7 +36,7 @@ Feature: Create task from patient list
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
-    When I click on "Add task" from patients list patient gear menu
+    Then I click on Add Task from patients list patient gear menu
     Then I verify "New Task" header on popup
     When I fill in task Due Date with today date
     And I fill in Task description with "TaskTest" for patient list

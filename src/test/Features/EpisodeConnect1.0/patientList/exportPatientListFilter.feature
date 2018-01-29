@@ -45,7 +45,6 @@ Feature: Episode Connect export patient list
     And I switch to new window
     Then I should see Episode header text "Dashboard"
     And I am on "/secure/pn/patientslist"
-    Then I verify "Add Patient" text is present on the add patient page
     Then I should see patient list count info present on the patient list page
     Then I verify the patient count is "greater" than 1000 on the patient list page
     Then I verify export button is present on the patient list page
@@ -63,15 +62,9 @@ Feature: Episode Connect export patient list
     And I switch to new window
     Then I should see Episode header text "Dashboard"
     And I am on "/secure/pn/patientslist"
-    Then I verify "Add Patient" text is present on the add patient page
     Then I should see patient list count info present on the patient list page
     Then I verify the patient count is "greater" than 1000 on the patient list page
-    When I click "Add Filter" xpath element "//*[@id='filters-selector']"
-    And I search "SSN" from the list of Filter
-    Then I click on the "SSN" filter
-    Then I click on "Any" button for "SSN" filter
-    Then I search "123456987" in "SSN" filter
-    Then I should see patient list count info present on the patient list page
+    And I am on "/secure/pn/patientslist#/filterId=custom&ssn=123456789&"
     And I will wait to see "Showing 0 to 0 of 0 results" in "div" tag
     Then I verify export button is present on the patient list page
     Then I click on the export button present on the patient list page

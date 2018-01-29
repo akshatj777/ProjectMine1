@@ -32,7 +32,7 @@ Feature: Episode Initiator on Transition Table for Anchor Transition for New Pat
     And I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I fill in "Admit" with logic "minus" with "3" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
     Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
@@ -70,13 +70,10 @@ Feature: Episode Initiator on Transition Table for Anchor Transition for New Pat
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    And I should see "(HHH) Stamford - Stamford Hospital" in Episode Initiator
+    And I should see "Stamford - Stamford Hospital" in Episode Initiator
     Then I click on edit button present on the patient overview page
     Then I should see "Edit Episode Initiator" button is present on the Edit Episode Initiator modal
     Then I click on the "Cancel" button present on the Edit Episode Initiator modal
     And I will wait to see patient's name on patient summary page
-    And I am on "/secure/pn/patientslist"
-    Then I click on "custom" filter tab present on the patients page
-    And I enter patients fullname in the patient search box on the patient page
-    Then I click on search button present on the patients page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see "Stamford" Episode Initiator on Patient list page

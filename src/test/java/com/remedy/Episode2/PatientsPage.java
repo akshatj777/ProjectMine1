@@ -576,6 +576,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iVerifyTextIsPresentOnTheAddPatientPage(String text) {
+		delay();
 		iWillWaitToSee(By.xpath("//*[text()='" + text + "']"));
 		isElementVisible(driver.findElement(By.xpath("//*[text()='" + text + "']")));
 	}
@@ -990,6 +991,7 @@ public class PatientsPage extends BaseClass {
 
 	public void IclickontheCancelButtonontheNewTransitiononAddPatientpage() {
 		 longDelay();
+		 new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='ajax-modal-lg']/div/div/div[3]/div")));
 	     iWillWaitToSee(By.xpath("//button[contains(text(),'Cancel')]"));
 		 clickElement(driver.findElement(By.xpath("//button[contains(text(),'Cancel')]")));
 		 longDelay();

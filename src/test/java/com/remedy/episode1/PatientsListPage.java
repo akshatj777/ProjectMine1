@@ -185,10 +185,11 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iSearchTextInFilter(String text, String filter){
+    	delay();
     	iWillWaitToSee(By.xpath("//input[@placeholder='"+filter+"']"));
     	iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+filter+"']")), text);
-    	driver.findElement(By.xpath("//label[contains(text(),'SSN')]")).sendKeys(Keys.TAB);;
-    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+//    	driver.findElement(By.xpath("//label[contains(text(),'SSN')]")).sendKeys(Keys.TAB);;
+//    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
     }
     
     public void iClickOnOptionFromPatientslistPatientGearMenu(String option){
@@ -279,8 +280,10 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iVerifyEligibilityOnPatientList(String text){
+    	longDelay();
     	String actual = driver.findElements(By.cssSelector(".col-md-2.two-rows.ng-binding")).get(0).getText();
     	actual = actual.substring(actual.indexOf("Eligibility")+1).trim();
+    	System.out.println("Text is"+actual);
     	Assert.assertTrue(actual.contains(text));
     }
     
@@ -294,6 +297,7 @@ public class PatientsListPage extends BaseClass {
     }
     
     public void iClickOnFirstCheckboxOnClinicianModal(){
+    	longDelay();
     	iWillWaitToSee(By.cssSelector(".lpn-checkbox input"));
     	clickElement(driver.findElements(By.cssSelector(".lpn-checkbox input")).get(0));
     }
@@ -305,7 +309,8 @@ public class PatientsListPage extends BaseClass {
 		longDelay();
 		String patient_count=getTextForElement(driver.findElement(By.cssSelector("div.count_info")));
 		String[] sp = patient_count.split(" ");
-		int exact_count=Integer.parseInt(sp[5]);
+		String count_in_string=sp[5].replaceAll(",", "");
+	    int exact_count=Integer.parseInt(count_in_string);
 	    if(operand.equals("less")){
 		Assert.assertTrue(exact_count<1000);}
 		else if(operand.equals("greater")){
@@ -361,8 +366,6 @@ public class PatientsListPage extends BaseClass {
 		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
 		delay();
 	    clickElement(driver.findElement(By.xpath("//a[contains(@ng-if,'notEligibleESRD')]")));
-	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
-    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
 	}
 
 
@@ -370,6 +373,54 @@ public class PatientsListPage extends BaseClass {
 		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
 		delay();
 	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_message')]")));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+		
+	}
+
+
+	public void iClickOnAddTaskFromPatientslistPatientGearMenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'remedy_task_ectask_taskeditpatientlist')]")));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+		
+	}
+
+
+	public void focuselement(String text) {
+		  driver.findElement(By.xpath("//span[text()='"+text+"']")).sendKeys(Keys.TAB);
+		  waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+		  longDelay();
+		 }
+
+
+	public void iClickOnAddNoteFromPatientslistPatientGearMenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_note')]")));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+		
+	}
+
+
+	public void iClickOnAddClinicianFromPatientslistPatientGearMenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'patient_careteam_assign_clinician_popup')]")));
+	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+		
+		
+	}
+
+
+	public void iClickOnAddAppointmentFromPatientslistPatientGearMenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_appointment_form')]")));
 	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
 		

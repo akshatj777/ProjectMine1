@@ -127,7 +127,8 @@ Feature: Patient Details on Patient overview page
     And I should see "Attach Note" under transition gear icon on patient overview page
     And I should see "Start CARL Tool" under transition gear icon on patient overview page
     And I should see Pagination under Transition on patient overview
-    And I reload my page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     And I click on gear icon on patient overview page
     And I click on "Add New Clinician" option under patient overview gear icon

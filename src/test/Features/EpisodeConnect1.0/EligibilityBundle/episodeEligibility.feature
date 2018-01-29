@@ -104,10 +104,7 @@ Feature: Episode eligibility status
     Then I will wait to see "Your changes have been successfully saved." in "p" tag
     And I wait for "Unknown" to disappear in Eligibility
     And I should see Not Eligible ESRD in Eligibility
-    And I am on "/secure/pn/patientslist"
-    Then I click on "custom" filter tab present on the patients page
-    And I enter patients fullname in the patient search box on the patient page
-    Then I click on search button present on the patients page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
    
 

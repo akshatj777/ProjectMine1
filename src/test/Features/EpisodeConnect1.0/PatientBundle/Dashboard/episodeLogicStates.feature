@@ -154,4 +154,4 @@ Feature: Managing Various Episode States (Potential & Potential Cancelled)
     When I click on episode marker drop down
     Then I will wait to see "POTENTIAL EPISODE CANCELED" state
     Then I will wait to see onboarding status "Unknown"
-    Then I will verify Episode Marker Admit Date "45" and "add" Discharge date "43" with "-29" to show end date and Episode Status "EXPIRED AS INPATIENT"
+    Then I will verify Episode Marker Admit Date "45" and "add" Discharge date "0" with "-1" to show end date and Episode Status "POTENTIAL EPISODE CANCELED"

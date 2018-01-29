@@ -1,7 +1,8 @@
 @EC1Smoke
 Feature: Patient list action
- Background: Patient creation
- 	Given I am on the login page
+
+  Background: Patient creation
+    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -30,10 +31,10 @@ Feature: Patient list action
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
-	And I will wait to see "Attestation" in "span" tag
+    And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
- 
+
   Scenario: Verify Add Form(s) from Patient List
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
@@ -41,22 +42,22 @@ Feature: Patient list action
     Then I verify "Assign New Form" header on popup
     Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     And I click on "Assign" button
-    And I refresh the page 
+    And I refresh the page
     And I verify "Needs Onboarding" onboarding status on patient list page
     Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
     And I should see "Clinical Risk Assessment" in Assigned forms under Care Plan on Patient page
-    
+
   Scenario: Add New Clinician for specific patient from patient list
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
-    When I click on "Add New Clinician" from patients list patient gear menu
+    When I click on Add New Clinician from patients list patient gear menu
     Then I verify "Add New Clinician" header on popup
     And I click on first checkbox on Clinician modal
-    And I click on "Assign" button 
+    And I click on "Assign" button
     And I will wait to see "Clinicians assigned to patient correctly" in "p" tag
     Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/patient/mongoID/careteam"
-    And I should see Physician card under Physicians under Care Team on Patient page 
+    And I should see Physician card under Physicians under Care Team on Patient page
