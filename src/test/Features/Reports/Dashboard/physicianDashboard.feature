@@ -28,9 +28,10 @@ Feature: Verification of physician report under dashboard
     Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
 
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
+      | email                              | Role   | Facility |
+      | shutestaug231132a@yopmail.com      | RPFIN  | ACH      |
+      | reptestachmodel2opsfin@yopmail.com | OPSFIN | ACH      |
+      | shutestaug15252p@yopmail.com       | RPFIN  | PGP      |
 
   Scenario Outline: Verify top hundread,count,three sections and pagination on physicain dashboard report
     Given I am on the login page
@@ -66,8 +67,9 @@ Feature: Verification of physician report under dashboard
     Then I verify "Showing 1 to 20 of 100 entries" is appearing below physicians on dashboard physician report
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify attributed physician appearing in performance evalution and scorecard page
     Given I am on the login page
@@ -95,8 +97,9 @@ Feature: Verification of physician report under dashboard
     Then I verify "Attributed Physician" is appearing under filter options in newly opened scorecard page
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify spotlights is appearing in greeen,yellow and red on the physician dashboard page
     Given I am on the login page
@@ -118,8 +121,9 @@ Feature: Verification of physician report under dashboard
     Then I verify "yellow" spotlights is appearing beside the attributed physicians
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify table view under filter options and verify tables are appearing and check for drill through of physicians
     Given I am on the login page
@@ -135,11 +139,18 @@ Feature: Verification of physician report under dashboard
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 3000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     Then I click on "Table" button for view filter under filter options
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     And I should verify spotlights are not appearing on the physician dashboard page
+    And I verify "Attributed Physician" header name is center alligned on physician dashboard report
+    And I verify "Episodes (Eps)" header name is center alligned on physician dashboard report
+    And I verify "Avg Episode Cost" header name is center alligned on physician dashboard report
+    And I verify "% Disch to SNF" header name is center alligned on physician dashboard report
+    And I verify "SNF Days" header name is center alligned on physician dashboard report
+    And I verify "% Eps with Readmit" header name is center alligned on physician dashboard report
     Then I should verify "$" is appearing before the count under "Avg Episode Cost" column
     Then I should verify "%" is appearing before the count under "% Disch to SNF" column
     Then I should verify "%" is appearing before the count under "% Eps with Readmit" column
@@ -151,48 +162,20 @@ Feature: Verification of physician report under dashboard
     Then I verify scorecards appearing on performance scorecard dashboard page
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
-  Scenario Outline: Verify physician report under dashboard is appearing for RPFIN role user for medicare,emblem and multiple payer users
+  Scenario: Verify dashboard category is not appearing for model 3 pgp users
     Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Dashboards" under reports tile text
-    Then I verify current page "Reports" title
-    When I click on the Reports Tile with text "Dashboards"
-    When I click on "Physician" reports text for "Dashboards" report tile
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    Then I wait until loading icon disappears in physician dashboard report
-    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
-
-    Examples: 
-      | email                          |
-      #| Medicare                      |
-      | shutestaug231132a@yopmail.com  |
-      #| Emblem                        |
-      | emblemachrpfin@yopmail.com     |
-      #| Multiple Payer User           |
-      | multipayerachrpfin@yopmail.com |
-
-  Scenario Outline: Verify dashboard category is not appearing for model 3 users
-    Given I am on the login page
-    When I enter email field <email> for login
+    When I enter email field shutestauf171115a@yopmail.com for login
     And I enter password field Testing1 for Login
     Then I click Access button
     And I wait to see "Reports" tile
     When I click on the "Reports" tile
     And I wait to see "Patient ID" under reports tile text
     Then I verify current page "Reports" title
-    And I should not see Reports Tile text as "<Menu 1>"
-
-    Examples: 
-      | email                         | Menu 1     |
-      | shutestauf171115a@yopmail.com | Dashboards |
+    And I should not see Reports Tile text as "Dashboards"
 
   Scenario Outline: Verify user has the ability to scan the performance of particular attributed physician
     Given I am on the login page
@@ -706,8 +689,7 @@ Feature: Verification of physician report under dashboard
     And I verify "% Disch to SNF" header name is center alligned on physician dashboard report
     And I verify "SNF Days" header name is center alligned on physician dashboard report
     And I verify "% Eps with Readmit" header name is center alligned on physician dashboard report
-    
+
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-    
