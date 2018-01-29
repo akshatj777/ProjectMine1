@@ -286,17 +286,15 @@ public class EditUser extends BaseClass {
 	    	   String tokenBpid = st1.nextToken().trim();
 	    	   String tokenLoc = st2.nextToken().trim();
 	    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), tokenBpid);
+	    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), tokenBpid);
 	    	   if(tokenLoc.equals("all locations")){
 	    		   tokenLoc= "All "+bpid;
-	    		   iWillWaitToSee(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]"));
-		    	   
-		    	   driver.findElement(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]")).click();
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]")).click();
 	    	   }
 	    	   else{
-	    	   iWillWaitToSee(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]"));
-	    	   
-	    	   driver.findElement(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]")).click();
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]")).click();
 	    	   }
 	    	   Thread.sleep(3000);
 	       		}
@@ -307,16 +305,13 @@ public class EditUser extends BaseClass {
 	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), bpid);
 	    	   if(loc.equals("all locations")){
 	    		   loc= "All "+bpid;
-	    		   iWillWaitToSee(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]"));
-		    	   
-		    	   driver.findElement(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]")).click();
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]")).click();
 		    	 
 	    	   }
 	    	   else{
-	    	   iWillWaitToSee(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]"));
-	    	   
-	    	   driver.findElement(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]")).click();
-	    	   }
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]")).click();  }
 	    	   Thread.sleep(3000); 
 		   }
 }
@@ -331,7 +326,7 @@ public class EditUser extends BaseClass {
 			   }
 		   }
 		   else{
-		   iWillWaitToSee(By.xpath("//*[contains(text(),'-')]"));
+		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+key+"')]"));
 		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+key+"')]")));
 		   }
 	   }
