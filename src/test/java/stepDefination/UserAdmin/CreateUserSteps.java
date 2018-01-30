@@ -163,6 +163,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOrganizationalField();
 	}
 
+	@When("^I click the already selected Organizational Role Field$")
+	public void IClickAlreadySelectedOrganizationalRoleField() throws Throwable {
+		createUser.iClickAlreadySelectedOrganizationalField();
+	}
+	
 	@When("^I click the payer Field under data$")
 	public void IClickPayerFieldUnderData() throws Throwable {
 		createUser.iClickPayerField();

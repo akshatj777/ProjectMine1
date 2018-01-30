@@ -53,6 +53,11 @@ public class CreateUserPage extends BaseClass{
         iWillWaitToSee(By.xpath("//div[text()='Select Role']"));
     	clickElement(driver.findElement(By.xpath("//div[text()='Select Role']")));
     }
+    
+    public void iClickAlreadySelectedOrganizationalField() {
+        iWillWaitToSee(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']"));
+    	clickElement(driver.findElement(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']")));
+    }
 
     public void iTurnOffShareFile(){
    		if((isElementPresentOnPage(By.xpath("//div/label[@for='sharefile']")))){

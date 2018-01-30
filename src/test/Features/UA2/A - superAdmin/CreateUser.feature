@@ -558,7 +558,7 @@ Feature: Create User - Super Admin User
     Then I verify applications "<Applications1>" are unchecked
     Then I click on "General Information" tab on the left
     Then I verify the header "General Information"
-    When I click the Organizational Role Field
+    When I click the already selected Organizational Role Field
     Then I pick a Organizational <Role2>
     Then I click on Next button
     Then I verify the header "Applications"
