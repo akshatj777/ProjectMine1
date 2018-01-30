@@ -30,8 +30,8 @@ Feature: Edit user page for General cases
     And I verify No results found under Learning Pathway search box
 
     Examples: 
-      | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI |EnableApplications| Applications                                                | LearningPathwaySearchParameter |
-      | Super Admin | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI |Physician Connect| Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |
+      | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | EnableApplications | Applications                                                | LearningPathwaySearchParameter |
+      | Super Admin | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physician Connect  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |
 
   Scenario Outline: Edit General Information tab with invalid data and verify Error message
     Given I am on the login page
@@ -88,10 +88,10 @@ Feature: Edit user page for General cases
     And I verify that "<Applications>" are "Enabled"
 
     Examples: 
-      | user        | Email             | Role                           | DisableApplications                             | Applications                                                                  | LearningPathwayID  | LearningPathwaySearchParameter | Health System     | NPI |
-      | Super Admin | test.automatemail | Executive                      | Lessons, Episodes                               | Reports, Lessons, Episodes, Episodes 2.0                                       | NFdw0Kts2C01 | NFdw0Kts2C01                   | Stamford Hospital |     |
-    #  | Super Admin | test.automatemail | Remedy Technical Administrator | Physician Connect, Lessons, TCI, Administration | Reports, Lessons, Episodes, Episodes 2.0, Physician Connect, TCI, Administration|NFdw0Kts2C01 | Learning Pathway 2             | Stamford Hospital |     |
+      | user        | Email             | Role      | DisableApplications | Applications                             | LearningPathwayID | LearningPathwaySearchParameter | Health System     | NPI |
+      | Super Admin | test.automatemail | Executive | Lessons, Episodes   | Reports, Lessons, Episodes, Episodes 2.0 | NFdw0Kts2C01      | NFdw0Kts2C01                   | Stamford Hospital |     |
 
+  #  | Super Admin | test.automatemail | Remedy Technical Administrator | Physician Connect, Lessons, TCI, Administration | Reports, Lessons, Episodes, Episodes 2.0, Physician Connect, TCI, Administration|NFdw0Kts2C01 | Learning Pathway 2             | Stamford Hospital |     |
   Scenario Outline: Changing Role from <PreviousRole> to <Role> and hitting Cancel button
     Given I am on the login page
     When I log in as super user
@@ -116,7 +116,7 @@ Feature: Edit user page for General cases
 
     Examples: 
       | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | EnableApplications | Health System     | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | TCI          | Stamford Hospital | Learning Pathway 2             |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | TCI                | Stamford Hospital | Learning Pathway 2             |
 
   Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify, product list in Applications tab and search location by facility id
     Given I am on the login page
@@ -222,11 +222,10 @@ Feature: Edit user page for General cases
     Then I should see "<facilityKey>" for locations under data permissions
     Then I click on Submit button
     And I wait for 5000 milli seconds
-       
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | Email             | RemovePrograms | Programs                 | BPID               | Locations                                                                      | facilityKey    |
-      | Super Admin | Manager | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | 2070-g14 | Baptist Medical Center  Beaches| 100117 |
+      | User        | Role    | Email             | RemovePrograms | Programs                 | BPID     | Locations                       | facilityKey |
+      | Super Admin | Manager | test.automatemail | BPCI-Model3    | BPCI-Model2, BPCI-Model3 | 2070-g14 | Baptist Medical Center  Beaches |      100117 |
