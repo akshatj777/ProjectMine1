@@ -707,7 +707,7 @@ Feature: Verification Claims Report For Spending
     When I click on field-layout-icon button
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
-    Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
+    Then I remove "Current AtRisk" field filter under "Current AtRisk" filter field from default filters
     Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
     Then I remove "Attributed Physician" field filter under "Physician" filter field from default filters
     And I wait until refresh button is disappeared
