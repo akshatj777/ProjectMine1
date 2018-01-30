@@ -23,6 +23,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.programManagement.CreateManagingOrganization;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -1508,4 +1509,38 @@ public class CreateUserPage extends BaseClass{
 	 public void removeAlreadySelectedRole() throws Throwable {
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
+	 
+	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String locations){
+		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+locations+"']"))));
+			String actual = getTextForElement(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+locations+"']")));
+			Assert.assertEquals(locations,actual);
+	 }
+	 
+	 public void iSearchTheSelectedLocationsInTheSelectLocationsSection(String locationList){
+		 iFillInText(driver.findElement(By.xpath("//*[text()='Selected Locations:']//following::input")), locationList);
+		 Assert.assertTrue(isElementPresent(By.xpath("//*[text()='Selected Locations:']//following::input")));
+		  
+	 }
+	 
+	 public void iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection(){
+		 clickElement(driver.findElement(By.xpath("//div[@class='facility-select-container open']//i[@class='remove link icon']")));
+	 }
+	 
+	 public void iVerifySelectedLocationsSectionAfterClickOnRemoveLinkIcon(){
+		 isElementNotPresentOnPage(By.xpath("//*[text()='Selected Locations:']"));
+	 }
+	 
+	 public void iVerifyTextonpopupWindowAfterClickonRemovelinkIcon(){
+		 String actual=getTextForElement(driver.findElement(By.xpath("//span//h3[text()='Are you sure you want to remove']")));
+	     Assert.assertEquals("Are you sure you want to remove", actual);
+	 }
+	 
+	 public void iClickonCancelLinkPopUpWindow(String text){
+		 clickElement(driver.findElement(By.xpath("//div[@class='actions']//a[text()='Cancel']")));
+	 }
+	 
+	 public void iClickonRemoveButtonPopUpWindow(String text){
+		 clickElement(driver.findElement(By.xpath("//div[@class='actions']//button[text()='Remove']")));
+	 }
+	 
 }

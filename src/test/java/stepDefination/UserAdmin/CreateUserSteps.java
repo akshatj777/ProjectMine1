@@ -737,4 +737,45 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_remove_Already_Selected_Role() throws Throwable {
 		 createUser.removeAlreadySelectedRole();
 	 }
+	 
+	 @And("^I verify selected Location  \"([^\"]*)\" in the selected Locations section$")
+		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String locations) throws Throwable {
+			createUser.iVerifyTheSelectedLocationsInTheSelectLocationsSection(locations);
+		}
+	 
+	 @Then("^I search the \"([^\"]*)\" in the Selected Locations section$")
+		public void i_Search_The_Selected_Locations_In_The_selectLocations_Section(String locationList) throws Throwable {
+			createUser.iSearchTheSelectedLocationsInTheSelectLocationsSection(locationList);
+		}
+	 
+	 @And("^I click on remove link icon for selected Locations on selected Locations section$")
+		public void i_Click_On_Remove_Link_Icon_for_Selected_Locations_selectLocations_Section() throws Throwable {
+			createUser.iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection();
+		}
+	 
+	 @And("^I verify Selected Locations section after click on remove link icon$")
+		public void i_Verify_Selected_Locations_Section_After_click_on_remove_link_icon() throws Throwable {
+			createUser.iVerifySelectedLocationsSectionAfterClickOnRemoveLinkIcon();
+		}
+	 
+	 @And("^I click on remove link icon for selected Health system$")
+		public void i_Click_on_Remove_Link_Icon_For_Selected_Health_System() throws Throwable {
+		 createUser.iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection();
+	 }
+	 
+	 @And("^I verify text on pop up window after click on remove link icon$")
+		public void i_Verifytext_on_pop_up_Window_After_Click_on_Remove_link_Icon() throws Throwable {
+		 createUser.iVerifyTextonpopupWindowAfterClickonRemovelinkIcon();
+	 }
+	 
+	 @And("^I click \"([^\"]*)\" link on pop up window$")
+		public void i_Click_on_Cancel_Link_Pop_Up_Window(String text) throws Throwable {
+		 createUser.iClickonCancelLinkPopUpWindow(text);
+	 }
+	 
+	 @And("^I click \"([^\"]*)\" button on pop up window$")
+		public void i_Click_on_Remove_Button_Pop_Up_Window(String text) throws Throwable {
+		 createUser.iClickonRemoveButtonPopUpWindow(text);
+	 }
+	 		
 }
