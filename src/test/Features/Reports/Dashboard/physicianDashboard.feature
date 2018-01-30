@@ -191,6 +191,7 @@ Feature: Verification of physician report under dashboard
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 3000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     When I click the first name under attributed physican column
     And I switch to new window
@@ -207,7 +208,7 @@ Feature: Verification of physician report under dashboard
       | email                         |
       | shutestaug231132a@yopmail.com |
 
-  Scenario Outline: Verify user should see kpi boxes,tabular view and disposition graphs in performance scorecard dashboard page
+  Scenario Outline: Verify user should see kpi boxes,tabular view in performance scorecard dashboard page
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -221,6 +222,7 @@ Feature: Verification of physician report under dashboard
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 3000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     When I click the first name under attributed physican column
     And I switch to new window
@@ -233,12 +235,11 @@ Feature: Verification of physician report under dashboard
     And I verify "% Disch to SNF" KPI is appearing under performance scorecard
     And I verify "SNF Days" KPI is appearing under performance scorecard
     And I verify "% Eps w Readmit" KPI is appearing under performance scorecard
-    Then I verify "Top 5 Bundle Performance" section is appearing on the performance scorecard dashboard page
-    Then I verify "Top 5 Facility Performance" section is appearing on the performance scorecard dashboard page
-    Then I verify "Post-Acute Care Discharge Disposition" section is appearing on the performance scorecard dashboard page
+    Then I verify "Top 5 Bundles by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
+    Then I verify "Quarterly Performance (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
+    Then I verify "Top 5 SNFs by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
     And I verify Top 5 "Bundle" performance table is appearing on the performance scorecard dashboard page
-    And I verify Top 5 "Facility" performance table is appearing on the performance scorecard dashboard page
-    Then I verify bar containers appearing under post acute care discharge disposition on the performance scorecard dashboard page
+    And I verify Top 5 "SNF" performance table is appearing on the performance scorecard dashboard page
 
     Examples: 
       | email                         |
@@ -258,6 +259,7 @@ Feature: Verification of physician report under dashboard
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 6000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     When I click the first name under attributed physican column
     And I switch to new window

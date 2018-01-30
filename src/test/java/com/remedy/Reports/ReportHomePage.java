@@ -1004,7 +1004,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTop5PerformanceTableOnPerformanceScorecardDashbaord(String text){
-    	isElementVisible(driver.findElement(By.cssSelector("#key"+text+"TableObjTable")));
+    	isElementVisible(driver.findElement(By.cssSelector("#top5"+text+"TableObjTable")));
     }
     
     public void iVerifyBarContainersUnderPostAcuteCareDischargeDisposition(){
