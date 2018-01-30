@@ -38,7 +38,7 @@ Feature: Patient list action
   Scenario: Verify Add Form(s) from Patient List
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
-    When I click on "Add Form(s)" from patients list patient gear menu
+    When I click on Add Forms from patients list patient gear menu
     Then I verify "Assign New Form" header on popup
     Then I select "Clinical Risk Assessment" from "Form Type" by xpath "//*[@id='bp_personbundle_addnewformratype_formType']"
     And I click on "Assign" button

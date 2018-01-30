@@ -226,6 +226,11 @@ public class PatientListPageSteps extends DriverScript {
     	patientsList.iClickOnAddNoteFromPatientslistPatientGearMenu();
     }
     
+    @Then("^I click on Add Forms from patients list patient gear menu$")
+    public void i_click_Add_Forms_from_patients_list_patient_gear_menu() throws Throwable {
+    	patientsList.iClickOnAddFormsFromPatientslistPatientGearMenu();
+    }
+    
     @Then("^I click on Add New Clinician from patients list patient gear menu$")
     public void i_click_Add_Clinician_from_patients_list_patient_gear_menu() throws Throwable {
     	patientsList.iClickOnAddClinicianFromPatientslistPatientGearMenu();

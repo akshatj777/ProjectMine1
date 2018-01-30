@@ -43,6 +43,9 @@ Feature: User can add appointment
     Then I fill "9748563210" in "Contact phone" on Appointment form
     And I click on "Schedule Appointment" button
     And I will wait to see "New appointment created." in "p" tag
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowAppointments"
     And I verify "Office Visit" in Appointments under Care Plan on Patient page
 
