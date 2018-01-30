@@ -1,5 +1,6 @@
-Feature: Route ACl Page verification
 @EC1Smoke
+Feature: Route ACl Page verification
+
   Scenario: To verify the redirection of route acl under admin center
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login

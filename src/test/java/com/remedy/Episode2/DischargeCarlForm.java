@@ -39,7 +39,7 @@ public class DischargeCarlForm extends BaseClass {
 	public final static DateFormat df = new SimpleDateFormat("dd");
 	public final static Date timestamp = new Date();
 	public final static String time = df.format(timestamp);
-	private String CHAR_LIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private String CHAR_LIST = "PQRSTUVWXYZABCDEFGHIJKLMNO";
 	private static final int RANDOM_STRING_LENGTH = 5;
 	public static String firstname  = null;
 	public static String lastname  = null;
@@ -506,7 +506,7 @@ public class DischargeCarlForm extends BaseClass {
 
 	public void IenterrandomsocialsecuritynumberintheSSNtextboxfieldpresentontheAddPatientpage() {
     Random r = new Random( System.currentTimeMillis() );
-	String ssn_start="7842";
+	String ssn_start="7642";
 	int ssn_end=((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
 	final_ssn=ssn_start+Integer.toString(ssn_end);
 	System.out.println("$$$Final ssn is"+final_ssn);
