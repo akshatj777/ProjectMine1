@@ -38,8 +38,10 @@ public class CreateUserPage extends BaseClass{
 	public final static String time = df.format(timestamp);
 	String userRole = null;
 	String userApplications = null;
+	String userNPI = "";
 	public static HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
+	public static HashMap<String,HashMap<String,String>> usersNPIPerRole=new HashMap<String,HashMap<String,String>>();
 	WebDriverWait wait = new WebDriverWait(driver, 60); 
 	LandingPage objLandingPage = new LandingPage(driver);
 	
@@ -97,7 +99,8 @@ public class CreateUserPage extends BaseClass{
 			if(npi.equals("NPI"))
 			{
 				iWillWaitToSee(By.xpath("//input[@placeholder='NPI']"));
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")),RandomStringUtils.randomNumeric(10));
+				userNPI = RandomStringUtils.randomNumeric(10);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")),userNPI);
 			}
 			else
 			{
@@ -136,8 +139,11 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
-    	iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
-        iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
+    	if(!(text.equals("")))
+    	{
+    		iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
+            iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
+    	}
     }
 
     public void iEnterTheEmailToGeneratePassword(String text) {
@@ -536,7 +542,9 @@ public class CreateUserPage extends BaseClass{
 //			     scrollIntoViewByJS(driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")));
 //			     driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")).click();
 //			     Thread.sleep(2000);
-//			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+			   delay();
+			 driver.findElement(By.xpath("//button[@class='close']")).click();
 		   }   
 	   }   
    }
@@ -551,6 +559,32 @@ public class CreateUserPage extends BaseClass{
 			   driver.findElement(By.id("filterTab_custom")).click();
 			   waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.id("tblPatients_processing")));
 			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@ng-repeat='element in patientsList']")));
+		   } 
+	   }   
+   }
+   
+   public void iVerifyNPIOnEC1(String role){
+	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+	   StringTokenizer st = new StringTokenizer(application, ",");
+	   while(st.hasMoreTokens())
+	   {
+		   if(st.nextToken().trim().equals("Episodes")){
+			   if(role.substring((role.indexOf("-")+1)).equals("Physicians"))
+			   {
+				   scrollIntoViewByJS(driver.findElement(By.xpath("//span[text()='Admin Center']")));
+				   driver.findElement(By.xpath("//span[text()='Admin Center']")).click();
+				   delay();
+				   driver.findElement(By.xpath("//a[@href='/secure/admin/clinician/']")).click();
+				   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h1[text()='Clinicians List']"))));
+				   scrollIntoViewByJS(driver.findElement(By.id("filters_bpprovider_email")));
+				   String emailForEC1 = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+				   driver.findElement(By.id("filters_bpprovider_email")).sendKeys(emailForEC1.substring(emailForEC1.indexOf("+")+1));
+				   scrollIntoViewByJS(driver.findElement(By.xpath("//button[@class='btn btn-sm btn-primary']")));
+				   driver.findElement(By.xpath("//button[@class='btn btn-sm btn-primary']")).click();
+				   longDelay();
+				   String NPI = CreateUserPage.usersNPIPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+				   Assert.assertEquals(NPI, driver.findElement(By.xpath("//td[@class='td_string td_npi']")).getText().trim());
+			   }
 		   } 
 	   }   
    }
@@ -829,25 +863,28 @@ public class CreateUserPage extends BaseClass{
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 		HashMap<String,String> emailList = new HashMap<String,String>();
 		HashMap<String,String> applicationsList = new HashMap<String,String>();
+		HashMap<String,String> NPIList = new HashMap<String,String>();
 		emailList.put(userRole.trim(), MailCreateUser.email.trim());
 		applicationsList.put(userRole.trim(), userApplications);
+		NPIList.put(userRole.trim(), userNPI);
 		if(user.contains("Super Admin"))
 		{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
+			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
 		}
 		else if(user.contains("Remedy Technical Administrator"))
 		{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
+			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
 		}
 		else if(user.contains("Partner Technical Administrator"))
 		{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
+			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
 		}
-		System.out.println(usersEmailPerRole);
-		System.out.println(usersApplicationsPerRole);
 	}
    
    public void verifyAppUnchecked(String fieldName) throws Throwable {

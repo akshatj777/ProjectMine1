@@ -339,6 +339,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyPatientCardOnActivePatientPage(role);
 	}
 	
+	@And("^I verify NPI on ECI for \"([^\"]*)\" user$")
+	public void iVerifyNPIOnEC1(String role) throws Throwable {
+		createUser.iVerifyNPIOnEC1(role);
+	}
+	
 	@And("^I verify \"([^\"]*)\" facility on user profile for \"([^\"]*)\" user$")
 	public void iVerifyFacilityOnUserProfileForUser(String facility, String role) throws Throwable {
 		createUser.iVerifyFacilityAppearingOnUserProfile(facility, role);
