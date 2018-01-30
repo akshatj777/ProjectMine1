@@ -71,11 +71,14 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc) throws InterruptedException{
-    	WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
+    	if(!(desc.equals("")))
+    	{
+    		WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
         	scrollIntoViewByJS(element);
         	element.click();
         	userRole = desc;
-        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,"+"));	
+        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,"+"));
+    	}
     }
     
     public void selectPayerFromData(String desc){
@@ -521,32 +524,29 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iClickOnAddNoteAndVerifyRole(String userrole, String role) throws InterruptedException{
-	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   StringTokenizer st = new StringTokenizer(application, ",");
-	   while(st.hasMoreTokens())
+	   try
 	   {
-		   if(st.nextToken().trim().equals("Episodes")){
-			   iWillWaitToSee(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']"));
-			   longDelay();
-			   scrollIntoViewByJS(driver.findElement(By.xpath("html/body/div[4]/div[2]/div/div[2]/div[4]/div/div/span/div[1]/div[2]/div[4]/a[1]/i")));
-			   driver.findElement(By.xpath("html/body/div[4]/div[2]/div/div[2]/div[4]/div/div/span/div[1]/div[2]/div[4]/a[1]/i")).click();
-			   delay();
-			   scrollIntoViewByJS(driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0));
-			   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
-			   delay();
-//			   //waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
-//			   iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
-//			     driver.findElements(By.xpath("//a[@class='btn btn-default dropdown-toggle']/i[@class='fa fa-cog']")).get(0).click();
-//			     delay();
-//			     //driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
-//			     scrollIntoViewByJS(driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")));
-//			     driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")).click();
-//			     Thread.sleep(2000);
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
-			   delay();
-			 driver.findElement(By.xpath("//button[@class='close']")).click();
-		   }   
-	   }   
+		   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Episodes")){
+				   iWillWaitToSee(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']"));
+				   longDelay();
+				   driver.findElement(By.xpath("//div[@ng-repeat='element in patientsList'][1]//a[@class='btn btn-default dropdown-toggle']")).click();
+				   delay();
+				   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
+				   delay();
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+				   delay();
+				 driver.findElement(By.xpath("//button[@class='close']")).click();
+			   }   
+		   }  
+	   }
+	   catch(Exception e)
+	   {
+		   System.out.println(e.toString());
+	   }
    }
    
    public void iVerifyPatientCardOnActivePatientPage(String role){
