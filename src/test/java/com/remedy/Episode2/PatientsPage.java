@@ -681,6 +681,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnTheButtonPresentOnTheEditEpisodeInitiatorModal(String button) {
+		longDelay();
 		clickElement(driver.findElement(By.xpath("//button[text()='" + button + "']")));
 	}
 

@@ -33,7 +33,7 @@ Feature: POT3 will get activated on post acute admission
     Then I fill in "Admit" with logic "minus" with "30" days
     Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
     Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Emanuel County Hospital Authority" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I select the "Admit" facility "Central Maine Medical Center" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "177" DRG value on the Diagnosis and DRG tab on add a new transition
@@ -177,4 +177,5 @@ Feature: POT3 will get activated on post acute admission
     Then I navigate to the "/secure/person/mongoID/overview"
     When I click anchor transition delete link "1"
     And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
     Then I will verify Episode Marker Admit Date "15" and "add" Discharge date "15" with "89" to show end date and Episode Status "ACTIVE"

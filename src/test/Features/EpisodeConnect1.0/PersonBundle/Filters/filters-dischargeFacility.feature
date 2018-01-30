@@ -42,8 +42,7 @@ Feature: Filters - Anchor Facility
     Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
-    Then I wait for 5000 milli seconds
-    Then I click on the Cancel button on Episode present on the Add Patient page
+    Then I click on the Cancel Button on the New Transition on Add Patient page
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state

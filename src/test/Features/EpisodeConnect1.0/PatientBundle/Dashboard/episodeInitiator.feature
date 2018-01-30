@@ -71,6 +71,8 @@ Feature: Episode Initiator on Transition Table for Anchor Transition for New Pat
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     And I should see "Stamford - Stamford Hospital" in Episode Initiator
+    Then I navigate to the "/secure/person/mongoID/overview"
+    And I will wait to see patient's name on patient summary page
     Then I click on edit button present on the patient overview page
     Then I should see "Edit Episode Initiator" button is present on the Edit Episode Initiator modal
     Then I click on the "Cancel" button present on the Edit Episode Initiator modal

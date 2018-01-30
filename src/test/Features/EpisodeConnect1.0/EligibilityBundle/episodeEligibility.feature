@@ -111,7 +111,7 @@ Feature: Episode eligibility status
   Scenario: Set ESRD from Patient Card Actions
     And I click on first patient gear menu
     When I click on Not Eligible ESRD from patients list patient gear menu
-    And I verify "Eligibility NOT_ELIGIBLE_ESRD" Eligibility on patient list page
+    And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"

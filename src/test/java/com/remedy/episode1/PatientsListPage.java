@@ -283,7 +283,6 @@ public class PatientsListPage extends BaseClass {
     	longDelay();
     	String actual = driver.findElements(By.cssSelector(".col-md-2.two-rows.ng-binding")).get(0).getText();
     	actual = actual.substring(actual.indexOf("Eligibility")+1).trim();
-    	System.out.println("Text is"+actual);
     	Assert.assertTrue(actual.contains(text));
     }
     

@@ -119,5 +119,5 @@ Feature: Care Setting and Care Plan
     Then I click on Action symbol is appearing under transition table
     Then I click on delete to delete the transition
     Then I click on ok button
-    And I will wait to see "Admission is deleted successfully!" in "p" tag
-    And I reload my page
+    #And I will wait to see "Admission is deleted successfully!" in "p" tag
+    
