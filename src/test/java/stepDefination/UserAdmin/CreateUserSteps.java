@@ -12,13 +12,11 @@ import cucumber.api.java.en.When;
 /**
  * Created by salam on 7/29/15.
  */
-
 public class CreateUserSteps extends DriverScript {
 	LoginPage loginPage = new LoginPage(driver);
 	LandingPage landingPage = new LandingPage(driver);
 	UserAdminHomePage userAdminPage = new UserAdminHomePage(driver);
 	CreateUserPage createUser = new CreateUserPage(driver);
-
 
 	@When("^I log in as super user$")
 	public void ILoginWith() throws Throwable {
@@ -235,11 +233,15 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iclickAllAppsfortheRole();
 	}
 
-
 	@Then("^I unselect \"([^\"]*)\" product$")
 	@And("^I select \"([^\"]*)\" product$")
 	public void iSelectTileForTheRole(String appList) throws Throwable {
 		createUser.iSelectTileForTheRole(appList);
+	}
+	
+	@Then("^I verify \"([^\"]*)\" is not visible on Applications tab$")
+	public void verifyProductNotPresentOnApplicationsTab(String products) throws Throwable {
+		createUser.verifyProductNotPresentOnAppTab(products);
 	}
 
 	@And("^I turn off the share file application$")
@@ -297,7 +299,6 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOnEpisode1TileUnderSpecificUserLoginPage(role);
 	}
 	
-
 	@And("^I click on Gainsharing Physician Survey tile for \"([^\"]*)\" user$")
 	public void iClickOnPhysicianTileUnderSpecificUserLoginPage(String role) throws Throwable {
 		createUser.iClickOnPhysicianTileUnderSpecificUserLoginPage(role);
@@ -318,13 +319,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyNavigationOnUserAdminHomePage(role);
 	}
 	
-
 	@And("^I verify \"([^\"]*)\" after redirection to EC1 for \"([^\"]*)\" user$")
 	public void veifyDashboardOnEC1(String text, String role) throws Throwable {
 		createUser.verifyDashboardOnEC1(role);
 	}
 	
-
 	@And("^I click on username icon on right top corner \"([^\"]*)\" and open user profile on EC1$")
 	public void iClickOnUserNameIconOnEC1AndOpenUserProfile(String role) throws Throwable {
 		createUser.iClickOnUserNameIconOnEC1AndOpenUserProfile(role);
@@ -350,13 +349,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iVerifyPayerAppearingOnUserProfile(payer, role);
 	}
 	
-
 	@And("^I should not see \"([^\"]*)\" payer on user profile for \"([^\"]*)\" user$")
 	public void verifyEmblemNotAppearingOnUserProfileForUser(String payer, String role) throws Throwable {
 		createUser.verifyEmblemNotAppearingOnUserProfile(payer, role);
 	}
 	
-
 	@And("^I click on gear menu and then click on Add Note and verify user role \"([^\"]*)\" for \"([^\"]*)\" user$")
 	public void iClickOnAddNoteAndVerifyUserRoleForUser(String userrole, String role) throws Throwable {
 		createUser.iClickOnAddNoteAndVerifyRole(userrole, role);
@@ -368,8 +365,13 @@ public class CreateUserSteps extends DriverScript {
 	}
 	
 	@And("^I verify \"([^\"]*)\" user navigated to Institute homepage$")
-	public void iVerifuUserNavigatedToInstitute(String role) throws Throwable {
+	public void iVerifyUserNavigatedToInstitute(String role) throws Throwable {
 		createUser.iVerifyNavigationOnInstituteHomePage(role);
+	}
+	
+	@And("^I verify \"([^\"]*)\" on the reports main page for \"([^\"]*)\" user$")
+	public void iVerifyReportOnReportMainPage(String reportName, String role) throws Throwable {
+		createUser.iVerifyRepOnReportsMainPage(reportName, role);
 	}
 
 	@And("^I click on Reports tile for \"([^\"]*)\" user$")
@@ -391,7 +393,6 @@ public class CreateUserSteps extends DriverScript {
 	public void iVerifuUserNavigatedToRemedyU(String role) throws Throwable {
 		createUser.iVerifyNavigationOnRemedyUHomePage(role);
 	}
-
 	
 	@And("^I verify details \"([^\"]*)\" for \"([^\"]*)\" user on RemedyU dashboard$")
 	 public void i_Verify_Details_For_User_On_RemedyU_Dashboard(String details, String user){
@@ -402,7 +403,6 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_Verify_LearningPathWay_Appearing_For_User_On_RemedyU_Dashboard(String pathway, String user){
 		 createUser.iVerifyPathWayForUserOnRemedyUDashBoard(pathway, user);
 	 }
-
 
 	@And("^I click on Physican connect tile for \"([^\"]*)\" user$")
 	public void iClickOnPhysicanConnectTileUnderSpecificUserLoginPage(String role) throws Throwable {
@@ -446,7 +446,6 @@ public class CreateUserSteps extends DriverScript {
 
 	}
 
-
 	@Then("^I verify the availability of mandatory fields \"([^\"]*)\"$")
 	public void verifyMandatoryFields(String fieldName) throws Throwable {
 		createUser.verifyMandatoryFieldNames(fieldName);
@@ -456,7 +455,6 @@ public class CreateUserSteps extends DriverScript {
 	public void verifyRoles(String roleName) throws Throwable {
 		createUser.verifyRoleNames(roleName);
 	}
-
 
 	@Then("^I click on \"([^\"]*)\"$")
 	public void clickOnField(String fieldName) throws Throwable {
@@ -474,7 +472,6 @@ public class CreateUserSteps extends DriverScript {
 	}
 
 	@Then("^I click on Next button$")
-
 	public void click_Next_Button() throws Throwable {
 		createUser.clickNextButton();
 	}
@@ -493,7 +490,6 @@ public class CreateUserSteps extends DriverScript {
 	public void verifyHeader(String text) throws Throwable {
 		createUser.verifyHeader(text);
 	}
-
 
 	@Then("^I click on Select All Locations button$")
 	public void clickSelectAllLocationsButton() throws Throwable {
@@ -539,19 +535,16 @@ public class CreateUserSteps extends DriverScript {
 	public void clickLessonsSelectButton() throws Throwable {
 		createUser.clickLessonsSelectButton();
 	}
-
 	
 	@Then("^I click on Cancel button$")
 	public void clickCancelButton() throws Throwable {
 		createUser.clickCancelButton();
 	}
 
-
 	@Then("^I enter \"([^\"]*)\" in Learning Pathway search box$")
 	public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
 		createUser.enterTextLearningPathwaySearchBox(searchParam);
 	}
-
 
 	@Then("^I select \"([^\"]*)\" from the results$")
 	public void selectLearningPath(String searchParam) throws Throwable {
@@ -567,27 +560,17 @@ public class CreateUserSteps extends DriverScript {
 	public void verifyLoginButton() throws Throwable {
 		createUser.verifyLoginButton();
 	}
-	@Then("^I deselect \"([^\"]*)\" programs$")
-	public void deselectPrograms(String programList) throws Throwable {
-		createUser.deselectPrograms(programList);
-	}
-	
+
 	@Then("^I select \"([^\"]*)\" programs$")
 	public void selectPrograms(String programList) throws Throwable {
 		createUser.selectPrograms(programList);
 	}
 	
-	@Then("^I deselect \"([^\"]*)\" locations$")
-	public void deselectLocations(String locationList) throws Throwable {
-		createUser.selectLocations(locationList);
-	}
-
 	@Then("^I select \"([^\"]*)\" locations$")
 	public void selectLocations(String locationList) throws Throwable {
 		createUser.selectLocations(locationList);
 	}
 	
-
 	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
 	public void clickAddOrgButton(String flag) throws Throwable {
 		createUser.clickAddHealthSystemButton(flag);
@@ -624,7 +607,6 @@ public class CreateUserSteps extends DriverScript {
 	}
 
 	@Then("^I click on \"([^\"]*)\" button$")
-
 	public void click_LogOut_Button(String arg1) throws Throwable {
 		createUser.clickLogOutButton(arg1);
 	}
@@ -635,14 +617,11 @@ public class CreateUserSteps extends DriverScript {
 	}
 	
 	@Then("^I verify \"([^\"]*)\" product on SPOE page$")
-
 	public void verifyProductTiles(String products) throws Throwable {
 		createUser.verifyProductTiles(products);
 	}
 	
-
 	@Then("^I verify \"([^\"]*)\" product is not visible on SPOE page$")
-
 	public void verifyProductTilesNotPresent(String products) throws Throwable {
 		createUser.verifyProductTilesNotPresent(products);
 	}
@@ -652,9 +631,7 @@ public class CreateUserSteps extends DriverScript {
 		createUser.clickAddAnotherOrganization();
 	}
 
-
 	@Then("^I enter characters \"([^\"]*)\" in location search$")
-
 	public void enterCharacterInLocationSearch(String text) throws Throwable {
 		createUser.enterCharacterInLocationSearch(text);
 	}
@@ -705,7 +682,7 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search(){
 		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
 	 }
-
+	 
 	 @Then("^I click on the Reports Tile with text \"([^\"]*)\" for \"([^\"]*)\" user$")
 	 public void i_click_on_the_Reports_Tile_with_text_for_user(String text, String role) throws Throwable {
 	     createUser.iclickontheReportsTilewithtextforuser(text,role);
@@ -741,6 +718,11 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iclickoncancelbuttonfromfilterforuser(role);
 	 }
 	 
+	 @Then("^I click on Reports to navigate back to reports dashboard for \"([^\"]*)\" user$")
+	 public void i_click_on_Report_Button(String role) throws Throwable {
+		 createUser.iclickoncancelbuttonfromfilterforuser(role);
+	 }
+	 
 	 @Then("^I click on Cross button$")
 	 public void i_click_on_cross_button() throws Throwable {
 		 createUser.clickCrossButton();
@@ -750,5 +732,12 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_remove_Already_Selected_Role() throws Throwable {
 		 createUser.removeAlreadySelectedRole();
 	 }
-
+	 @Then("^I deselect \"([^\"]*)\" programs$")
+		public void deselectPrograms(String programList) throws Throwable {
+			createUser.deselectPrograms(programList);
+		}
+	 @Then("^I deselect \"([^\"]*)\" locations$")
+		public void deselectLocations(String locationList) throws Throwable {
+			createUser.selectLocations(locationList);
+		}
 }

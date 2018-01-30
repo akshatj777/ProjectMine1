@@ -101,6 +101,9 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnDeleteIconInMail() {
+		iWillWaitToSee(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']"));
+		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
+		delay();
 		boolean flag = driver.findElement(By.xpath("//div[@aria-label='Delete']")).isDisplayed();
 		if(flag==true)
 		{
