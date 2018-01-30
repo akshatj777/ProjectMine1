@@ -1,9 +1,13 @@
 package com.remedy.programManagement;
 
 import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class HomePagePM extends BaseClass {
@@ -19,8 +23,9 @@ public class HomePagePM extends BaseClass {
 	 }
 	
 	 public void iClickOnOrganizationalLinkOnProgramManagementPage() {
-		 clickElement(driver.findElement(By.cssSelector(".navLink.noselect")));
-		 waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		 WebElement element = driver.findElement(By.xpath("//a[text()='Organization']"));
+		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+		 executor.executeScript("arguments[0].click();", element);
 	 }
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {
