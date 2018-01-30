@@ -686,7 +686,6 @@ Feature: Verification Claims Report For Spending
     
     Examples: 
       | email                              |
-      | RPFINClaimsSNFHHATier1@yopmail.com |
       | OPSFINTier1_2@yopmail.com          |
       
   Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for spending claims report under overall program
