@@ -196,8 +196,15 @@ public class PatientsListPage extends BaseClass {
     	scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
     	delay();
     	clickSingleElementFromList(By.xpath("//*[@id='page-content-frame']/h3/span[2]/div/ul/li"), option);
-    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
-    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+    	if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed>span")).size()>0){
+        	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	}
+    	if(driver.findElements(By.cssSelector(".blockUI.blockMsg.blockElement")).size()>0){
+    		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+    	}
+    	else{
+    		longDelay();
+    	}
     }
     
     public void iClickOnFirstPatientGearMenu(){
@@ -402,6 +409,22 @@ public class PatientsListPage extends BaseClass {
 	    waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
     	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
 		
+	}
+	
+	public void iClickOnAddFormsFromPatientslistPatientGearMenu() {
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		delay();
+	    clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'_assign_ra_form')]")));
+	    
+	    if(driver.findElements(By.cssSelector(".loading-message.loading-message-boxed>span")).size()>0){
+	    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+	    }
+	    if(driver.findElements(By.cssSelector(".blockUI.blockMsg.blockElement")).size()>0){
+	    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".blockUI.blockMsg.blockElement"))));
+	    }
+	    else{
+	    	delay();
+	    }
 	}
 
 

@@ -25,6 +25,7 @@ Feature: Store Correct Admit Facilities
     And I will wait to see "New Transition" in "h4" tag
     Then I click on the Cancel Button on the New Transition on Add Patient page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
@@ -76,4 +77,3 @@ Feature: Store Correct Admit Facilities
     And I switch to new window
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I should see patient fullname appearing on patient card on patient search
-    And I will wait to see patient's name on patient summary page
