@@ -1513,4 +1513,36 @@ public class CreateUserPage extends BaseClass{
 	 public void removeAlreadySelectedRole() throws Throwable {
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
+	 
+	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String text){
+		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+text+"']"))));
+			String actual = getTextForElement(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+text+"']")));
+			Assert.assertEquals(text,actual);
+	 }
+	 
+	 public void iSearchTheSelectedLocationsInTheSelectLocationsSection(String locationList){
+		 iFillInText(driver.findElement(By.xpath("//*[text()='Selected Locations:']//following::input")), locationList);
+		 Assert.assertTrue(isElementPresent(By.xpath("//*[text()='Selected Locations:']//following::input")));
+		  
+	 }
+	 
+	 public void iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection(){
+		 clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
+	 }
+	 
+	 public void iVerifySelectedLocationsSectionAfterClickOnRemoveLinkIcon(){
+		 isElementNotPresentOnPage(By.xpath("//*[text()='Selected Locations:']"));
+	 }
+	 
+	 public void iVerifyTextonpopupWindowAfterClickonRemovelinkIcon(){
+		 verifyTextForElement(driver.findElement(By.xpath("//div[@class='content']//h3[text()='Are you sure you want to remove']")), "Are you sure you want to remove");
+	 }
+	 
+	 public void iClickonCancelLinkPopUpWindow(String text){
+		 clickElement(driver.findElement(By.xpath("//div[@class='actions']//a[text()='Cancel']")));
+	 }
+	 
+	 public void iClickonRemoveButtonPopUpWindow(String text){
+		 clickElement(driver.findElement(By.xpath("//div[@class='actions']//button[text()='Remove']")));
+	 }
 }
