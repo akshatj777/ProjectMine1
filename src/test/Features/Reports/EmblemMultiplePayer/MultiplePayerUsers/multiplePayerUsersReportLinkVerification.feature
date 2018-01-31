@@ -179,7 +179,7 @@ Feature: User only see reports tiles based on their role for multiple payer user
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
@@ -352,7 +352,7 @@ Feature: User only see reports tiles based on their role for multiple payer user
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
@@ -497,7 +497,7 @@ Feature: User only see reports tiles based on their role for multiple payer user
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
@@ -653,7 +653,7 @@ Feature: User only see reports tiles based on their role for multiple payer user
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
@@ -763,7 +763,7 @@ Feature: User only see reports tiles based on their role for multiple payer user
     When I click on "Next Site of Care Summary" reports text for "Next Site of Care" report tile
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see "Next Site of Care Summary" in the Next Site of Care Summary NSOC report page header
     And I navigate back
