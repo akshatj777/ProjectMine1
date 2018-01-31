@@ -232,6 +232,7 @@ public class EditUser extends BaseClass {
 		   else{
 			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+			   clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 		   }
 		   
 	   }
