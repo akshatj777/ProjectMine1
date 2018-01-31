@@ -225,10 +225,15 @@ public class EditUser extends BaseClass {
 	   }
 	   }
 	   public void iSeeNoResults(String text){
-		   if(text.equals("No results found.")){
+		   if(text.contains(".")){
+			   isElementVisible(driver.findElements(By.cssSelector(".header")).get(1));
+			   clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
+		   }
+		   else{
 			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 		   }
+		   
 	   }
 	   public void iVerifyDisabledNextButton(String text){
 		   WebElement el = driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]"));
@@ -285,7 +290,7 @@ public class EditUser extends BaseClass {
 	       while (st1.hasMoreTokens()&&st2.hasMoreTokens()) {
 	    	   String tokenBpid = st1.nextToken().trim();
 	    	   String tokenLoc = st2.nextToken().trim();
-	    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+	    	  // driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
 	    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), tokenBpid);
 	    	   if(tokenLoc.equals("all locations")){
 	    		   tokenLoc= "All "+bpid;
@@ -301,7 +306,7 @@ public class EditUser extends BaseClass {
 	       
 		   }
 		   else{
-			   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+			   //driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
 	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), bpid);
 	    	   if(loc.equals("all locations")){
 	    		   loc= "All "+bpid;
@@ -320,16 +325,20 @@ public class EditUser extends BaseClass {
 		   if (key.contains(",")){
 			   StringTokenizer st = new StringTokenizer(key,",");
 			   while (st.hasMoreTokens()){
-				   String token = st.nextToken().trim();
-				   iWillWaitToSee(By.xpath("//*[contains(text(),'-')]"));
+				   String tok = st.nextToken().trim();
+				   String token="("+tok+")";
+				   iWillWaitToSee(By.xpath("//*[contains(text(),'(')]"));
 				   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
 			   }
 		   }
 		   else{
-		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+key+"')]"));
-		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+key+"')]")));
+			   String token="("+key+")";
+			   iWillWaitToSee(By.xpath("//*[contains(text(),'(')]"));
+			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
 		   }
 	   }
+	  
+	  
 	   public void iSelectLocByFacilityKey(String key) throws InterruptedException{
 		   if (key.contains(",")){
 			   StringTokenizer st = new StringTokenizer(key,",");
@@ -337,8 +346,8 @@ public class EditUser extends BaseClass {
 		       while (st.hasMoreTokens()) {
 		    	   String token = st.nextToken().trim();
 		    	   String facToken="("+token+")";
-		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), token);
+		    	 
+		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), token);
 		    	   
 		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facToken+"')]"));
 		    	   
@@ -349,8 +358,8 @@ public class EditUser extends BaseClass {
 			   }
 			   else{
 				   String facilityKey="("+key+")";
-				   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), key);
+				  
+				   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), key);
 		    	   
 		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facilityKey+"')]"));
 		    	   

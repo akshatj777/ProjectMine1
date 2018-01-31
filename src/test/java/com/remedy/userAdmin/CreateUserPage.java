@@ -1199,8 +1199,8 @@ public class CreateUserPage extends BaseClass{
    
    public void enterCharacterInLocationSearch(String text) throws Throwable {
 	   if(!text.equalsIgnoreCase("All locations")){
-		   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), text);
-		   delay();
+		   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), text);
+		   //delay();
 	   }
    }
    

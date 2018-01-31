@@ -12,6 +12,7 @@ Feature: Edit data permissions for SA
     And I click on Edit button
     Then I select "Permissions" tab
     Then I click on delete organisation icon
+   
     And I click on "Remove" button on permissions tab
     And I search for health system with <Health System1>
     And I select a <Health System1>
@@ -25,11 +26,12 @@ Feature: Edit data permissions for SA
     And I wait for 3000 milli seconds
     Then I click on Submit button
     And I wait for 3000 milli seconds
-    Then I verify "<Health System1>::<Programs1>:<Locations1>; <Health System2>::<Programs2>:<Locations2>" under Data Permissions in view user page
+    
+    Then I verify "<Health System1>::<Programs1>:<facilityKey>; <Health System2>::<Programs2>:<Locations2>" under Data Permissions in view user page
 
     Examples: 
-      | Description                             | user        | Role    | Email             | Health System1    | Programs1   | Locations1                  | Health System2 | Programs2   | Locations2                                |
-      | 1. External User-Edit from org1 to org2 | Super Admin | Manager | test.automatemail | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | TeamHealth     | BPCI-Model2 | 2070-g14--Baptist Medical Center  Beaches |
+      | Description                             | user        | Role    | Email             | Health System1    | Programs1   | Locations1 | Health System2 | Programs2   | Locations2                      |
+      | 1. External User-Edit from org1 to org2 | Super Admin | Manager | test.automatemail | Stamford Hospital | BPCI-Model2 | tsh         | TeamHealth     | BPCI-Model2 | 2070-g14--Baptist Medical Center  Beaches | 
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -263,7 +265,7 @@ Feature: Edit data permissions for SA
       | Description | user        | Role    | Email             | Health System1 | Health System2 | deselectLocations1                                                                                                                                                                                  | Locations1             | deselectLocations2                       | Locations2                                     | ProgramsVisible1         | ProgramsVisible2         | Health System3 | Programs3                | HasHealthSystem3 | Locations3    | ProgramsVisible3         |
       |         21. | Super Admin | Manager | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center, 3056-a08--Howard County General Hospital, 3056-a08--Saint Barnabas Medical Center, 3056-a08--East Orange General Hospital, 3056-a08--St. Michael's Medical Center | 2070-060--All 2070-060 | 3090-209--Uhs Twin Tier Home Health Inc. | 6005-197--All 6005-197, 6005-200--All 6005-200 | BPCI-Model2, BPCI-Model3 | BPCI-Model2, BPCI-Model3 | TeamHealth     | BPCI-Model2, BPCI-Model3 | Yes              | all locations | BPCI-Model2, BPCI-Model3 |
 
-      Scenario Outline: <Description>
+  Scenario Outline: <Description>
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -289,6 +291,5 @@ Feature: Edit data permissions for SA
     Then I verify "<Health System1>::<ProgramsVisible1>:<Locations1>; <Health System2>::<ProgramsVisible2>:<Locations2>; <Health System3>::<ProgramsVisible3>:<Locations3>" under Data Permissions in view user page
 
     Examples: 
-      | Description | user        | Role    | Email             | Health System1 | Health System2 | deselectLocations1                                                                                                                                                                                  | Locations1             | deselectLocations2                       | Locations2                                     | ProgramsVisible1         | ProgramsVisible2         | Health System3               | HasHealthSystem3 | Locations3    | ProgramsVisible3         |
-      |         22. | Super Admin | Manager | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center, 3056-a08--Howard County General Hospital, 3056-a08--Saint Barnabas Medical Center, 3056-a08--East Orange General Hospital, 3056-a08--St. Michael's Medical Center | 2070-060--All 2070-060 | 3090-209--Uhs Twin Tier Home Health Inc. | 6005-197--All 6005-197, 6005-200--All 6005-200 | BPCI-Model2, BPCI-Model3 | BPCI-Model2, BPCI-Model3 | HealthSystem3   | Yes              | | BPCI-Model2, BPCI-Model3 |
-      
+      | Description | user        | Role    | Email             | Health System1 | Health System2 | deselectLocations1                                                                                                                                                                                  | Locations1             | deselectLocations2                       | Locations2                                     | ProgramsVisible1         | ProgramsVisible2         | Health System3 | HasHealthSystem3 | Locations3 | ProgramsVisible3         |
+      |         22. | Super Admin | Manager | test.automatemail | HealthSystem1  | HealthSystem2  | 3056-a08--Meritus Medical Center, 3056-a08--Howard County General Hospital, 3056-a08--Saint Barnabas Medical Center, 3056-a08--East Orange General Hospital, 3056-a08--St. Michael's Medical Center | 2070-060--All 2070-060 | 3090-209--Uhs Twin Tier Home Health Inc. | 6005-197--All 6005-197, 6005-200--All 6005-200 | BPCI-Model2, BPCI-Model3 | BPCI-Model2, BPCI-Model3 | HealthSystem3  | Yes              |            | BPCI-Model2, BPCI-Model3 |
