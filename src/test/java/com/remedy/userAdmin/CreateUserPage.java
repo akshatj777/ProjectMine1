@@ -1,7 +1,5 @@
 package com.remedy.userAdmin;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.sql.rowset.serial.SerialArray;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
@@ -19,13 +16,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
-
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 /**
  * Created by salam on 7/30/15.
@@ -1523,7 +1515,6 @@ public class CreateUserPage extends BaseClass{
 	 public void iSearchTheSelectedLocationsInTheSelectLocationsSection(String locationList){
 		 iFillInText(driver.findElement(By.xpath("//*[text()='Selected Locations:']//following::input")), locationList);
 		 Assert.assertTrue(isElementPresent(By.xpath("//*[text()='Selected Locations:']//following::input")));
-		  
 	 }
 	 
 	 public void iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection(){
