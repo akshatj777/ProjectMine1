@@ -1315,6 +1315,6 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeFAQListOnFAQPage(){
-    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    	isElementVisible(driver.findElement(By.cssSelector(".row.collapse>ul>li>a")));
     }
 }
