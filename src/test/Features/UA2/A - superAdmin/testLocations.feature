@@ -33,7 +33,7 @@ Feature: Create User - Super Admin User
     And I select a <Health System1>
     Then I select "<Programs1>" programs
     Then I select "<Locations1>" locations
-    And I verify selected Location  "<Locations1>" in the selected Locations section
+    And I verify selected Location "<Locations1>" in the selected Locations section
     Then I search the "<Locations1>" in the Selected Locations section
     And I click on remove link icon for selected Locations on selected Locations section
     And I verify Selected Locations section after click on remove link icon

@@ -163,6 +163,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOrganizationalField();
 	}
 
+	@When("^I click the already selected Organizational Role Field$")
+	public void IClickAlreadySelectedOrganizationalRoleField() throws Throwable {
+		createUser.iClickAlreadySelectedOrganizationalField();
+	}
+	
 	@When("^I click the payer Field under data$")
 	public void IClickPayerFieldUnderData() throws Throwable {
 		createUser.iClickPayerField();
@@ -738,9 +743,9 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.removeAlreadySelectedRole();
 	 }
 	 
-	 @And("^I verify selected Location  \"([^\"]*)\" in the selected Locations section$")
-		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String locations) throws Throwable {
-			createUser.iVerifyTheSelectedLocationsInTheSelectLocationsSection(locations);
+	 @And("^I verify selected Location \"([^\"]*)\" in the selected Locations section$")
+		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String text) throws Throwable {
+			createUser.iVerifyTheSelectedLocationsInTheSelectLocationsSection(text);
 		}
 	 
 	 @Then("^I search the \"([^\"]*)\" in the Selected Locations section$")
@@ -777,5 +782,4 @@ public class CreateUserSteps extends DriverScript {
 		public void i_Click_on_Remove_Button_Pop_Up_Window(String text) throws Throwable {
 		 createUser.iClickonRemoveButtonPopUpWindow(text);
 	 }
-	 		
 }

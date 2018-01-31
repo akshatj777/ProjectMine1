@@ -1,7 +1,5 @@
 package com.remedy.userAdmin;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.sql.rowset.serial.SerialArray;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
@@ -19,14 +16,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
-import com.remedy.programManagement.CreateManagingOrganization;
-
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 /**
  * Created by salam on 7/30/15.
@@ -54,6 +45,11 @@ public class CreateUserPage extends BaseClass{
         iWillWaitToSee(By.xpath("//div[text()='Select Role']"));
     	clickElement(driver.findElement(By.xpath("//div[text()='Select Role']")));
     }
+    
+    public void iClickAlreadySelectedOrganizationalField() {
+        iWillWaitToSee(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']"));
+    	clickElement(driver.findElement(By.xpath("//div[@class='ui fluid selection dropdown']/div[@class='text']")));
+    }
 
     public void iTurnOffShareFile(){
    		if((isElementPresentOnPage(By.xpath("//div/label[@for='sharefile']")))){
@@ -72,11 +68,14 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void selectOrganizationalRole(String desc) throws InterruptedException{
-    	WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
+    	if(!(desc.equals("")))
+    	{
+    		WebElement element = driver.findElement(By.xpath("//span[text()='"+desc+"']"));
         	scrollIntoViewByJS(element);
         	element.click();
         	userRole = desc;
-        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,"+"));	
+        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,"+"));
+    	}
     }
     
     public void selectPayerFromData(String desc){
@@ -522,32 +521,29 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iClickOnAddNoteAndVerifyRole(String userrole, String role) throws InterruptedException{
-	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
-	   StringTokenizer st = new StringTokenizer(application, ",");
-	   while(st.hasMoreTokens())
+	   try
 	   {
-		   if(st.nextToken().trim().equals("Episodes")){
-			   iWillWaitToSee(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']"));
-			   longDelay();
-			   scrollIntoViewByJS(driver.findElement(By.xpath("html/body/div[4]/div[2]/div/div[2]/div[4]/div/div/span/div[1]/div[2]/div[4]/a[1]/i")));
-			   driver.findElement(By.xpath("html/body/div[4]/div[2]/div/div[2]/div[4]/div/div/span/div[1]/div[2]/div[4]/a[1]/i")).click();
-			   delay();
-			   scrollIntoViewByJS(driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0));
-			   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
-			   delay();
-//			   //waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
-//			   iWillWaitToSee(By.xpath("//i[@class='fa fa-cog']"));
-//			     driver.findElements(By.xpath("//a[@class='btn btn-default dropdown-toggle']/i[@class='fa fa-cog']")).get(0).click();
-//			     delay();
-//			     //driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
-//			     scrollIntoViewByJS(driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")));
-//			     driver.findElement(By.xpath("//div[contains(@class,'center open')]//a[@symfony-routing='new_note']")).click();
-//			     Thread.sleep(2000);
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
-			   delay();
-			 driver.findElement(By.xpath("//button[@class='close']")).click();
-		   }   
-	   }   
+		   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
+		   StringTokenizer st = new StringTokenizer(application, ",");
+		   while(st.hasMoreTokens())
+		   {
+			   if(st.nextToken().trim().equals("Episodes")){
+				   iWillWaitToSee(By.xpath("//div[@class='row body']//a[@class='btn btn-default dropdown-toggle']"));
+				   longDelay();
+				   driver.findElement(By.xpath("//div[@ng-repeat='element in patientsList'][1]//a[@class='btn btn-default dropdown-toggle']")).click();
+				   delay();
+				   driver.findElements(By.xpath("//a[contains(text(),'Add Note')]")).get(0).click();
+				   delay();
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//textarea[contains(text(),'"+userrole+"')]")));
+				   delay();
+				 driver.findElement(By.xpath("//button[@class='close']")).click();
+			   }   
+		   }  
+	   }
+	   catch(Exception e)
+	   {
+		   System.out.println(e.toString());
+	   }
    }
    
    public void iVerifyPatientCardOnActivePatientPage(String role){
@@ -1510,20 +1506,19 @@ public class CreateUserPage extends BaseClass{
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
 	 
-	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String locations){
-		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+locations+"']"))));
-			String actual = getTextForElement(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+locations+"']")));
-			Assert.assertEquals(locations,actual);
+	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String text){
+		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+text+"']"))));
+			String actual = getTextForElement(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+text+"']")));
+			Assert.assertEquals(text,actual);
 	 }
 	 
 	 public void iSearchTheSelectedLocationsInTheSelectLocationsSection(String locationList){
 		 iFillInText(driver.findElement(By.xpath("//*[text()='Selected Locations:']//following::input")), locationList);
 		 Assert.assertTrue(isElementPresent(By.xpath("//*[text()='Selected Locations:']//following::input")));
-		  
 	 }
 	 
 	 public void iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection(){
-		 clickElement(driver.findElement(By.xpath("//div[@class='facility-select-container open']//i[@class='remove link icon']")));
+		 clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
 	 }
 	 
 	 public void iVerifySelectedLocationsSectionAfterClickOnRemoveLinkIcon(){
@@ -1531,8 +1526,7 @@ public class CreateUserPage extends BaseClass{
 	 }
 	 
 	 public void iVerifyTextonpopupWindowAfterClickonRemovelinkIcon(){
-		 String actual=getTextForElement(driver.findElement(By.xpath("//span//h3[text()='Are you sure you want to remove']")));
-	     Assert.assertEquals("Are you sure you want to remove", actual);
+		 verifyTextForElement(driver.findElement(By.xpath("//div[@class='content']//h3[text()='Are you sure you want to remove']")), "Are you sure you want to remove");
 	 }
 	 
 	 public void iClickonCancelLinkPopUpWindow(String text){
@@ -1542,5 +1536,4 @@ public class CreateUserPage extends BaseClass{
 	 public void iClickonRemoveButtonPopUpWindow(String text){
 		 clickElement(driver.findElement(By.xpath("//div[@class='actions']//button[text()='Remove']")));
 	 }
-	 
 }

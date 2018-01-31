@@ -89,4 +89,9 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	  public void i_Verify_Message_In_Has_Management_Organization_DropDown(String text) throws Throwable {
 		 createACH.iVerifyMessageInHasAManagementOrganization(text);
 	 }
+	 
+	 @And("^I click on \"([^\"]*)\" organization tab on under Managing Organization$")
+	  public void i_Click_On_Particular_Organization_Tab_on_Under_Managing_Organization(String text) throws Throwable {
+		 createACH.iClickOnParticularOrganizationTabOrganizationDashboard(text);
+	 }
 }
