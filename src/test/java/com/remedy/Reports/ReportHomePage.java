@@ -1317,4 +1317,8 @@ public class ReportHomePage extends BaseClass {
     public void iShouldSeeFAQListOnFAQPage(){
     	isElementVisible(driver.findElement(By.cssSelector(".row.collapse>ul>li>a")));
     }
+    
+    public void iWillWaitUntillLoadingMessageDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
+    }
 }

@@ -1671,4 +1671,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_be_able_to_see_FAQ_links_list_mentioned_in_the_FAQ_page() throws Throwable{
     	reportHomePage.iShouldSeeFAQListOnFAQPage();
     }
+    
+    @Then("^I wait untill page loading message disappears$")
+    public void i_wait_untill_page_loading_message_disappears() throws Throwable{
+    	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
+    }
 }
