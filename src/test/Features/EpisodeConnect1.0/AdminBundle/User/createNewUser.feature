@@ -1,5 +1,6 @@
 Feature: Create new User
-@EC1Smoke
+
+  @EC1Smoke
   Scenario: Create new user with success
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login

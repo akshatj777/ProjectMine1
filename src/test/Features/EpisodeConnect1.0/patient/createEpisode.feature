@@ -2,8 +2,7 @@
 Feature: Episode connect 1 Create Episode
 
   Scenario: User can navigate to patient and create a new episode
-  
-  	Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -43,4 +42,3 @@ Feature: Episode connect 1 Create Episode
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
     Then I will wait to see onboarding status "Needs Onboarding"
-  

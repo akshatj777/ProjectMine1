@@ -53,8 +53,6 @@ Feature: Patient Details on Patient overview page
 
   Scenario: Patient Details on Patient overview page+
     Then I verify patients fullname on patient overview page
-    #   And I should see details "01/05/1995" on patients overview page
-    #   And I should see details "Male" on patients overview page
     And I click on gear icon on patient overview page
     And I should see "Edit patient details" under patient overview gear icon
     And I should see "Send message" under patient overview gear icon
@@ -86,7 +84,6 @@ Feature: Patient Details on Patient overview page
     And I should see "user" icon on details on patients overview page
     And I should see "umbrella" icon on details on patients overview page
     And I should see "flash" icon on details on patients overview page
-    #   And I should see "alt" icon on details on patients overview page
     And I reload my page
     And I will wait to see patient's name on patient summary page
     And I select first text from tag drodown on patient overview page
@@ -133,4 +130,3 @@ Feature: Patient Details on Patient overview page
     And I click on gear icon on patient overview page
     And I click on "Add New Clinician" option under patient overview gear icon
     And I will wait to see "Add New Clinician" in "h4" tag
-#

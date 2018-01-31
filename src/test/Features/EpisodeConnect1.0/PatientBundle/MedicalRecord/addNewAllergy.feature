@@ -43,9 +43,9 @@ Feature: Add New Allergy
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
 
-Scenario: Add New Allergy successfully
-	Then I navigate to the "/secure/medical-record/mongoID"
-	And I click on "New Allergy" button under Medical Record on patient overview 
-	And I enter "Test Allergy" on "#BP_allergyType_allergy" field under "New Medication" in Medical Record
-	And I click on "Add Allergy" button for submit on "Medication" page
-	And I should see "Test Allergy" under "Allergies" on Medical Record
+  Scenario: Add New Allergy successfully
+    Then I navigate to the "/secure/medical-record/mongoID"
+    And I click on "New Allergy" button under Medical Record on patient overview
+    And I enter "Test Allergy" on "#BP_allergyType_allergy" field under "New Medication" in Medical Record
+    And I click on "Add Allergy" button for submit on "Medication" page
+    And I should see "Test Allergy" under "Allergies" on Medical Record

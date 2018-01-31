@@ -1,5 +1,6 @@
 Feature: Alert List Verification
-@EC1Smoke
+
+  @EC1Smoke
   Scenario: Verify redirection of alerts under admin center
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -11,4 +12,3 @@ Feature: Alert List Verification
     When I am on "/secure/admin/alerttemplate/"
     Then I will wait to see "Alert Templates" on alerts page
     Then I verify "Alert" list is appearing on the alert template page
-    

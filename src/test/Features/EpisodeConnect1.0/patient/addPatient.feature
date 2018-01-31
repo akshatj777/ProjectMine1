@@ -53,6 +53,5 @@ Feature: Episode Connect 1 Add Patient
     Then I will wait to see onboarding status "Needs Onboarding"
 
     Examples: 
-      | email                | password  |
+      | email                    | password  |
       | qa.adminuser@yopmail.com | Episode1! |
-

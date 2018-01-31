@@ -49,34 +49,6 @@ Feature: Episode eligibility status
     And I should see "Not Eligible" in Eligibility
     And I should see "Unknown" in Onboarding Status
 
-  #Scenario: Transition: Eligibility service is triggered on DRG BPCI update
-  #Then I navigate to the "/secure/person/mongoID/overview"
-  #And I will wait to see "Attestation" in "span" tag
-  #When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-  #And I will wait to see patient's name on patient summary page
-  #And I should see "Unknown" in Eligibility
-  #And I click on Eligibility dropdown
-  #And I select "Run Service" in Eligibility dropdown
-  #And I click on "Run" button
-  #And I click on "Cancel" button
-  #Then I navigate to the "/secure/person/mongoID/overview"
-  # And I should see "Error" in Eligibility
-  #And I click on Eligibility dropdown
-  #And I select "Unknown" in Eligibility dropdown
-  #And I should see "Unknown" in Onboarding Status
-  #Then I click on new transition button present on the patient overview page
-  #And I will wait to see "New Transition" in "h4" tag
-  #Then I click on the calender button present on the new tranition page
-  #And I select today's date as the admission date
-  #Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
-  #And I select "Inpatient" from admission care type drop down menu present on Add transition page
-  #When I click on Admitting Facility present on the Add transition page
-  #And I wait for 2000 milli seconds
-  #And I Select "Stamford Hospital" from the list of admitting facility present on the Add transition page
-  #And I wait for 4000 milli seconds
-  #And I click on submit button present on the new filter modal
-  #And I should see "Error" in Eligibility
- 
   Scenario: Verify Eligibility should Automatically run upon a patient admission to a SNF.
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
@@ -106,7 +78,6 @@ Feature: Episode eligibility status
     And I should see Not Eligible ESRD in Eligibility
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I verify "NOT_ELIGIBLE_ESRD" Eligibility on patient list page
-   
 
   Scenario: Set ESRD from Patient Card Actions
     And I click on first patient gear menu

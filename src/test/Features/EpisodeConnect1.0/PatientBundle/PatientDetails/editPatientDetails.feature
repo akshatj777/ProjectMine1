@@ -1,7 +1,7 @@
 @EC1Smoke
 Feature: Edit Patient Detail link from patient overview Gear icon
- 
- Background: Create a Patient
+
+  Background: Create a Patient
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -19,8 +19,6 @@ Feature: Edit Patient Detail link from patient overview Gear icon
     And I enter random social security number in the SSN text box field present on the Add Patient page
     When I click on Admitting Facility present on the Add Patient page
     And I Select "Stamford Hospital" from the list of admitting facility present on the Add Patient page
-   # And I Select "Home" from the list of address type present on the Add Patient page
-    # And I enter "Street" in "address_street" field on add Patient page
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
@@ -32,16 +30,14 @@ Feature: Edit Patient Detail link from patient overview Gear icon
     And I will wait to see patient's name on patient summary page
 
   Scenario: Edit Patient Detail and patient details UI verification
-  	Then I verify patients fullname on patient overview page
-  	And I click on gear icon on patient overview page
-  	Then I click on "Edit patient details" option under patient overview gear icon
-  	And I edit "dob" to "02/06/1995" under patient details
-  	And I click on "submit" button under patient details
-  	And I select "Female" on "gender" dropdown under edit patient details
-  	Then I click on "Cancel" button under patient details
-  	And I refresh the page
-  	And I will wait to see patient's name on patient summary page
-  	And I should see details "02/06/1995" on patients overview page
-   	And I should see details "Male" on patients overview page
-  	 
-  	 
+    Then I verify patients fullname on patient overview page
+    And I click on gear icon on patient overview page
+    Then I click on "Edit patient details" option under patient overview gear icon
+    And I edit "dob" to "02/06/1995" under patient details
+    And I click on "submit" button under patient details
+    And I select "Female" on "gender" dropdown under edit patient details
+    Then I click on "Cancel" button under patient details
+    And I refresh the page
+    And I will wait to see patient's name on patient summary page
+    And I should see details "02/06/1995" on patients overview page
+    And I should see details "Male" on patients overview page

@@ -1,6 +1,7 @@
 Feature: Create Episode from admin center
-@EC1Smoke
-Scenario: To verify user (admin) is able to register new Episode from Register Episode page.
+
+  @EC1Smoke
+  Scenario: To verify user (admin) is able to register new Episode from Register Episode page.
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login

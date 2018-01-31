@@ -1,8 +1,7 @@
 @EC1Smoke
-Feature: Verify visibility and functionality of Non Remedy Convener under EI 
+Feature: Verify visibility and functionality of Non Remedy Convener under EI
 
-Scenario: Create Active Patient and verify avaliablity of Non Remedy Convener under EI
-    
+  Scenario: Create Active Patient and verify avaliablity of Non Remedy Convener under EI
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -40,8 +39,6 @@ Scenario: Create Active Patient and verify avaliablity of Non Remedy Convener un
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-	
-	Then I click on edit button present on the patient overview page
-	Then I click on the Episode Initiator dropdown present on the Edit Episode Initiator modal
-	And I should see "Non-Remedy Convener" option is present on the Edit Episode Initiator modal
-	
+    Then I click on edit button present on the patient overview page
+    Then I click on the Episode Initiator dropdown present on the Edit Episode Initiator modal
+    And I should see "Non-Remedy Convener" option is present on the Edit Episode Initiator modal

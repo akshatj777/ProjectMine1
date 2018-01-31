@@ -2,7 +2,7 @@
 Feature: Messages on patient list
 
   Scenario: Send message on patients list with success
-   	Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -31,11 +31,10 @@ Feature: Messages on patient list
     And I click on "Send" button
     And I will wait to see "Message sent" in "p" tag
     And I refresh the page
-    Then I click on Message Icon on header navigation bar 
+    Then I click on Message Icon on header navigation bar
     And I click on see all messages under Message on header navigation bar
     And I click on "Sent" under Message tab on Dashboard
     And I click on date sorting under Message
     And I click on date sorting under Message
     And I click on first message under sent box under Message
     And I should see "Test Message Functionality" in message body under Message
-

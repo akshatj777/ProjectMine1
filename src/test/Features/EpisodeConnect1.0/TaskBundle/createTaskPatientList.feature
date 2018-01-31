@@ -1,8 +1,8 @@
 @EC1Smoke
 Feature: Create task from patient list
- 
- Background: Patient creation
- 	Given I am on the login page
+
+  Background: Patient creation
+    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
@@ -24,7 +24,7 @@ Feature: Create task from patient list
     Then I click on the next button present on the Primary Care Physician Information page
     And I will wait to see "New Transition" in "h4" tag
     Then I click on the Cancel Button on the New Transition on Add Patient page
- 
+
   Scenario: Verify user is able to create task from patinet list
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
@@ -46,5 +46,3 @@ Feature: Create task from patient list
     And I refresh the page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowTasks"
     And I verify "TaskTest" task description under Task in Care Plan
-    
-    

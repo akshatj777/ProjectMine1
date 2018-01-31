@@ -1,6 +1,7 @@
 Feature: Verification of care plan
-@EC1Smoke
-  Scenario: Verify new care plan added through add new care plan - By Issue 
+
+  @EC1Smoke
+  Scenario: Verify new care plan added through add new care plan - By Issue
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -21,7 +22,7 @@ Feature: Verification of care plan
     And I fill "goal_outcome" with "Outcome Test:" on care plan form
     Then I press Submit button on the care plan form
     Then I wait to see "Care plan "CarePlanByIssue Test" was successfully created."
-    
+
   Scenario: Verify new care plan added through add new care plan - By Bundle
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -39,10 +40,9 @@ Feature: Verification of care plan
     When I fill the "name" with "CarePlanByBundle Test" on care plan form
     And I select "by Bundle" from "type" on care plan form
     And I search and select "177" Drg on care plan form
-    And I search and select "472" Drg on care plan form   
+    And I search and select "472" Drg on care plan form
     When I fill "goal_name" with "Goal Test:" on care plan form
     And I fill "goal_intervention" with "Intervention Test:" on care plan form
     And I fill "goal_outcome" with "Outcome Test:" on care plan form
     Then I press Submit button on the care plan form
     Then I wait to see "Care plan "CarePlanByBundle Test" was successfully created."
-    

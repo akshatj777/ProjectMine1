@@ -1,7 +1,6 @@
 Feature: Patient Transition Delete
 
   Scenario Outline: Delete Patient Transition Details
-
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
@@ -28,8 +27,7 @@ Feature: Patient Transition Delete
     And I wait for 2000 milli seconds
     Then I click on ok button
     And I wait for 2000 milli seconds
-    
-    Examples:
 
-      | email                | password  |
+    Examples: 
+      | email                    | password  |
       | qa.adminuser@yopmail.com | Episode1! |

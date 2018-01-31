@@ -12,4 +12,3 @@ Feature: Route ACl Page verification
     When I am on "/secure/admin/aclroute/"
     Then I will wait to see "Routes ACL" on route acl page
     Then I verify "RouteAcl" list is appearing on the route acl page
-    

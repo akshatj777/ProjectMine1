@@ -44,10 +44,8 @@ Feature: Add New Problems
     And I will wait to see patient's name on patient summary page
 
   Scenario: Add New Problems successfully
-	Then I navigate to the "/secure/medical-record/mongoID"
-	And I click on "New Problem" button under Medical Record on patient overview 
-	And I enter "Test Problem" on "#BP_problemType_problem" field under "New Medication" in Medical Record
-	And I click on "Create problem" button for submit on "Medication" page
-	And I should see "Test Problem" under "Problems" on Medical Record
-	
-  
+    Then I navigate to the "/secure/medical-record/mongoID"
+    And I click on "New Problem" button under Medical Record on patient overview
+    And I enter "Test Problem" on "#BP_problemType_problem" field under "New Medication" in Medical Record
+    And I click on "Create problem" button for submit on "Medication" page
+    And I should see "Test Problem" under "Problems" on Medical Record

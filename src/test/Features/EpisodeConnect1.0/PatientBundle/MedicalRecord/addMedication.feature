@@ -42,15 +42,13 @@ Feature: Add Medication
     And I will wait to see patient's name on patient summary page
 
   Scenario: Add Medication successfully
-  	Then I navigate to the "/secure/medical-record/mongoID"
-	And I click on "Add Medication" button under Medical Record on patient overview 
-	And I enter "Test" on "#BP_medicationType_prescriberFullName" field under "New Medication" in Medical Record 
-	And I enter "Drug" on "#BP_medicationType_drugName" field under "New Medication" in Medical Record 
-	And I enter "12" on "#BP_medicationType_quantity" field under "New Medication" in Medical Record  
-	And I enter "Direct" on "#BP_medicationType_directions" field under "New Medication" in Medical Record
-	And I click on "Add Medication" button for submit on "Medication" page
-	And I will wait to see "Medication created." in "p" tag
-	And I click on "Drug" under Medical Record
-	And I should see "Test" Priscriber under Current Medication for Medical Record 
-	
-	
+    Then I navigate to the "/secure/medical-record/mongoID"
+    And I click on "Add Medication" button under Medical Record on patient overview
+    And I enter "Test" on "#BP_medicationType_prescriberFullName" field under "New Medication" in Medical Record
+    And I enter "Drug" on "#BP_medicationType_drugName" field under "New Medication" in Medical Record
+    And I enter "12" on "#BP_medicationType_quantity" field under "New Medication" in Medical Record
+    And I enter "Direct" on "#BP_medicationType_directions" field under "New Medication" in Medical Record
+    And I click on "Add Medication" button for submit on "Medication" page
+    And I will wait to see "Medication created." in "p" tag
+    And I click on "Drug" under Medical Record
+    And I should see "Test" Priscriber under Current Medication for Medical Record

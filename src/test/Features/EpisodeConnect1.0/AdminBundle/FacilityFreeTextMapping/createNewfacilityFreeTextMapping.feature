@@ -1,6 +1,6 @@
-@EC1Smoke
 Feature: Discharge Location Mapping Text
 
+  @EC1Smoke
   Scenario: Create new Facility Free Text Mapping with success
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login

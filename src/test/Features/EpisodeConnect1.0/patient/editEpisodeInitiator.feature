@@ -40,8 +40,8 @@ Feature: Episode connect 1 edit Episode
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    Then I click on edit button present on the patient overview page
-    And I wait for 5000 milli seconds
+    And I click Episode initiator Edit
+    And I will wait to see "Edit Episode Initiator" in "h4" tag
     Then I should see "Edit Episode Initiator" button is present on the Edit Episode Initiator modal
     Then I should see "Cancel Episode" button is present on the Edit Episode Initiator modal
     Then I should see "Cancel" button is present on the Edit Episode Initiator modal
@@ -52,10 +52,10 @@ Feature: Episode connect 1 edit Episode
     Then I click on the "Cancel" button present on the Edit Episode Initiator modal
 
     Examples: 
-      | email                | password  |
+      | email                    | password  |
       | qa.adminuser@yopmail.com | Episode1! |
 
-  Scenario: : Setting to Non-Remedy Convener - episode length updated to 90 days countdown 
+  Scenario: : Setting to Non-Remedy Convener - episode length updated to 90 days countdown
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login

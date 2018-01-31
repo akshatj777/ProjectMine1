@@ -44,7 +44,6 @@ Feature: POT3 will get activated on post acute admission
     Then I verify Episode Marker with Admit Date "30" is created without end date
 
   Scenario: POT3 will get activated on post acute admission, which its admit date is between HHH discharge to the POT3 episode end date.
-    
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"

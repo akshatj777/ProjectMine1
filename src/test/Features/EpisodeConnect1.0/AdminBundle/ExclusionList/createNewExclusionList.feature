@@ -1,5 +1,6 @@
 Feature: Create Exclusion List
-@EC1Smoke
+
+  @EC1Smoke
   Scenario: Create new Exclusion List
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login

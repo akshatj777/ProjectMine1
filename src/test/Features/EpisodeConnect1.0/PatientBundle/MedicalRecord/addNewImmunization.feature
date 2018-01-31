@@ -44,10 +44,8 @@ Feature: Add New Immunization
     And I will wait to see patient's name on patient summary page
 
   Scenario: Add New Immunization successfully
-	Then I navigate to the "/secure/medical-record/mongoID"
-	And I click on "New Immunization" button under Medical Record on patient overview 
-	And I enter "Test Immunization" on "#bp_immunization_type_immunization" field under "New Medication" in Medical Record
-	And I click on "Save immunization" button for submit on "Medication" page
-	And I should see "Test Immunization" under "Immunization" on Medical Record
-	
-  
+    Then I navigate to the "/secure/medical-record/mongoID"
+    And I click on "New Immunization" button under Medical Record on patient overview
+    And I enter "Test Immunization" on "#bp_immunization_type_immunization" field under "New Medication" in Medical Record
+    And I click on "Save immunization" button for submit on "Medication" page
+    And I should see "Test Immunization" under "Immunization" on Medical Record

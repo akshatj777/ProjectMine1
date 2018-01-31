@@ -2,16 +2,14 @@
 Feature: Patient Transition Update
 
   Scenario Outline: Update Patient Transition Details
-  
-  Given I am on the login page
+    Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window
-   And I am on "/secure/pn/patientslist"
+    And I am on "/secure/pn/patientslist"
     When I click on Add Patient button present on the ec1 patients page
     Then I verify "Add Patient" text is present on the add patient page
     Then I enter random Patient First Name in the first name text box field present on the Add Patient page
@@ -24,40 +22,43 @@ Feature: Patient Transition Update
     And I enter "WA784654785" in the Medicare ID present on the Add Patient page
     Then I click on the next button present on the Add Patient page
     Then I click on the next button present on the Primary Care Physician Information page
-    And I will wait to see "New Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "1" days
-    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
-    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
-    And I click on submit button present on the new filter modal
+    Then I click on the Cancel Button on the New Transition on Add Patient page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-    And I click on first gear menu under Transitions on patient overview
-    And I click on "Edit" in gear menu option under Transition
-	And I will wait to see "Edit Transition" in "h4" tag
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "3" days
-    And I wait for 2000 milli seconds
-    Then I select "HHH - Hospital" from the care setting dropdown present on the add transition page
-    And I select "Inpatient" from admission care type drop down menu present on Add transition page
-    And I wait for 4000 milli seconds
-    When I click on Diagnosis and DRG tab present on the patient overview page
-    Then I verify ICD is present in the Diagnosis and DRG tab
-    And I verify Predict DRG is present in the Diagnosis and DRG tab
-    And I verify Add a New DRG is present in the Diagnosis and DRG tab
-    When I click on DRG Type to Add a New DRG present on the patient overview page
-    Then I select Possible from the DRG type dropdown present on the patient overview page
-    Then I Click on DRG dropdown menu present on the patient overview page
-    And I wait for 4000 milli seconds
-    Then I Search DRG 177 on the search box on the DRG present on the patient overview page
-    And I wait for 4000 milli seconds
-    Then I select RESPIRATORY INFECTIONS & INFLAMATIONS from the DRG list present on the patient overview page
-    And I wait for 4000 milli seconds
-    Then I click on Update Transition button present on the patient overview page
-    And I wait for 3000 milli seconds
-    
-    Examples:
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "ACTIVE" state
+    Then I will wait to see onboarding status "Needs Onboarding"
+    Then I verify DRG "(63) ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC" "(BPCI)" in transition "1" in transition modal
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see patient's name on patient summary page
+    When I click first timing transition edit link "1"
+    And I will wait to see "Edit Transition" in "h4" tag
+    Then I will wait to see and click on "Diagnosis and DRG" followed by "a" tag
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Final" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "(3)" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on update transition to add a new episode
+    And I will wait to see patient's name on patient summary page
+    When I click on episode marker drop down
+    Then I will wait to see "CANCELED" state
+    Then I will verify Episode Marker Admit Date "1" and "minus" Discharge date "0" with "-1" to show end date and Episode Status "CANCELED"
+    Then I will wait to see onboarding status "Unknown"
 
-      | email                | password  |
+    Examples: 
+      | email                    | password  |
       | qa.adminuser@yopmail.com | Episode1! |
-    
