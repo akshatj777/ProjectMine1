@@ -377,7 +377,7 @@ Feature: Create User - Super Admin User
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
     When I enter email field qa.admin@yopmail.com for login
-    And I enter password field Testing1 for Login
+    And I enter password field Episode1! for Login
     And I click Access button
     And I click on Episode1 tile for "Super Admin-Physicians" user
     And I switch to new window
