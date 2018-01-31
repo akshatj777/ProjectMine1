@@ -333,9 +333,18 @@ public class EC1DashboardSteps extends DriverScript {
 	   ec1Dashboard.ifillindischargefacilityname(name);
    }
    
+   @When ("^I fill in Current Facility name with value \"([^\"]*)\"$")
+   public void i_fill_in_current_facility_name(String name){
+	   ec1Dashboard.ifillinCurrentfacilityname(name);
+   }
+   
    @When ("^I fill in DRG with value \"([^\"]*)\"$")
    public void i_fill_in_DRG(String value){
 	   ec1Dashboard.ifillinDRG(value);
    }
-
+   
+   @When ("^I click on \"([^\"]*)\" under Care Setting filter$")
+   public void i_Click_On_Option_Under_Care_Setting_Filter(String value){
+	   ec1Dashboard.iClickOnOptionUnderCareSettingFilter(value);
+   }
 }

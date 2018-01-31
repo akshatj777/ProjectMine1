@@ -4,6 +4,7 @@ import com.remedy.baseClass.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * Created by salam on 5/6/16.
@@ -289,10 +290,20 @@ public class Ec1DashboardPage extends BaseClass{
 		iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-anchor_dicharge_facility']/div/div/div/div/div/div/input")),name);
 		
 	}
+    
+    public void ifillinCurrentfacilityname(String name) {
+		iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-current_facility']/div/div/div/div/div/div/input")),name);
+	}
 
     public void ifillinDRG(String value) {
     	iWillWaitToSee(By.xpath("//*[@id='filter-selector-episode_drg']/div/div/div/div/div/div/input"));
     	iFillInText(driver.findElement(By.xpath("//*[@id='filter-selector-episode_drg']/div/div/div/div/div/div/input")),value);
 		longDelay();
+	}
+    
+    public void iClickOnOptionUnderCareSettingFilter(String value) {
+		iWillWaitToSee(By.cssSelector(".dropdown-list.available.scroller>label"));
+		clickSingleElementFromList(By.cssSelector(".dropdown-list.available.scroller>label"), value);
+		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
 	}
 }
