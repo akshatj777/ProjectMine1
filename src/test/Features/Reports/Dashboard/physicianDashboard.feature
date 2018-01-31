@@ -266,7 +266,7 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
     And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
-    And I verify "All" is appearing under "physician" filter field in performance scorecard dashboard page
+    #And I verify "All" is appearing under "physician" filter field in performance scorecard dashboard page
     And I verify "All" is appearing under "payer" filter field in performance scorecard dashboard page
     And I verify "All" is appearing under "participant" filter field in performance scorecard dashboard page
     And I verify "All" is appearing under "initiator" filter field in performance scorecard dashboard page

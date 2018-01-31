@@ -838,7 +838,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyParticipantFieldAfterApplyingFilter(String participant,String text) {
-    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#"+text+"FilterObj .selectorValue")),participant);
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-info-selected-items")),participant);
     }
     
     public void iClickOnApplyButtonForFilterInFilterOptions(){
