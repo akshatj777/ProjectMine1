@@ -79,7 +79,6 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 		viewACH.iVerifyDetailsOfOrgAssociatedWithMO(text,org);
 		}
 	
-	
 	@And("^I get the count of \"([^\"]*)\" organizations$")
 	  public void i_Get_Count_Of_Tab_Organizations(String org) throws Throwable {
 		viewACH.iGetCountOfAssociatedOrganization(org);

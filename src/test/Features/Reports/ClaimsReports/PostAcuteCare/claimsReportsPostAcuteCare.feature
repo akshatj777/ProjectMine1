@@ -789,7 +789,7 @@ Feature: Verification of Post Acute Care Claims Report
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
     Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-    Then I remove "Attributed Physician" field filter under "Physician" filter field from default filters
+    Then I remove "Post Acute Category" field filter under "Post Acute Category.Post Acute Type" filter field from default filters
     And I wait until refresh button is disappeared
     And I verify there are no default filters appearing after removing all the default filters
     When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
