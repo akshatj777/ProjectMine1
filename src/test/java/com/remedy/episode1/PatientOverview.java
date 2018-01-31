@@ -35,6 +35,7 @@ public class PatientOverview extends BaseClass {
 		for (WebElement webElement : element) {
 			if(webElement.getText().trim().contains(text)){
 				value=webElement.getText().trim();
+				System.out.println("The value is"+value);
 			}
 		}
 		Assert.assertTrue(value.contains(text));

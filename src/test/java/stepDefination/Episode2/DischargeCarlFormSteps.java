@@ -382,4 +382,14 @@ public class DischargeCarlFormSteps extends DriverScript {
     public void i_Enter_Duplicate_Firstname_And_LastName_On_Add_Patient_Modal(){
     	dischargecarlform.iEnterDuplicateNameInTextboxFieldPresentOnAddPatientModal();
     }
+    
+    @And ("^I verify \"([^\"]*)\" color with code \"([^\"]*)\" should be followed for \"([^\"]*)\" with xpath \"([^\"]*)\" on patient card$")
+    public void i_verify_color_code(String color,String code,String variable,String xpath){
+    	dischargecarlform.iverifycolorcode(code,xpath);
+    }
+    
+    @And ("^I verify \"([^\"]*)\" color with code \"([^\"]*)\" should be followed for onboarding status \"([^\"]*)\"$")
+    public void i_verify_color_in_needs_onboarding(String color,String code,String value){
+    	dischargecarlform.iverifycolorinneedsonboarding(color,code,value);
+    }
 }

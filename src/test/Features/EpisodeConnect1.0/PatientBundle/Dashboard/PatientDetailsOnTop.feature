@@ -40,7 +40,7 @@ Feature: Patient Details on Patient overview page
     Then I fill in "Discharge" with logic "minus" with "2" days
     Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
-    Then I select the "Discharge" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
+    Then I select the "Discharge" facility "(SNF) Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     And I store "Admit date" value appearing in "#bp_personbundle_bpadmissiontype_admitDate" field
     And I store "Discharge date" value appearing in "#bp_personbundle_bpadmissiontype_dischargeDate" field
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
@@ -68,7 +68,7 @@ Feature: Patient Details on Patient overview page
     And I verify patient DOB Age Gender on patient summary page
     And I should see details "STREET" on patients overview page
     And I should see details "SSN xxx-xx-0800" on patients overview page
-    And I should see details "Stamford - Stamford Hospital" on patients overview page
+    And I should see details "(SNF) Skilled Nursing" on patients overview page
     And I should see details "ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC (63)" on patients overview page
     And I should see details "Initiator: Stamford - Stamford Hospital" on patients overview page
     And I should see details "Account not activated" on patients overview page

@@ -30,4 +30,27 @@ Feature: Patient List - Tabs - Patient List Card View
     And I will wait to see patient's name on patient summary page
     And I verify patient DOB Age Gender on patient summary page
     And I verify SSN on patient summary page in EC1
-    
+    And I verify "Gray" color with code "#868686" should be followed for "High risk" with xpath "//span[contains(@class,'ra-label')]" on patient card
+    When I click "Onboarding status" xpath element "//*[@id='current_onboarding_status_container']"
+    And I verify "Blue" color with code "#4b8df8" should be followed for onboarding status "Needs Onboarding"
+    And I verify "Orange" color with code "#e87e04" should be followed for onboarding status "Not-Onboarded"
+    And I verify "Green" color with code "#35aa47" should be followed for onboarding status "Onboarded"
+    When I click "Onboarding status" xpath element "//*[@id='current_onboarding_status_container']"
+    And I verify "Grey" color with code "#eaeaea" should be followed for onboarding status "Unknown"
+    When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
+    And I will wait to see "New Transition" in "h4" tag
+    Then I fill in "Admit" with logic "minus" with "1" days
+    Then I select the "Admit" "caresetting" "HHH - Hospital" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
+    Then I select the "Admit" "caretype" "Inpatient" by "#bp_personbundle_bpadmissiontype_admitCareType" on add a new transition
+    Then I select the "Admit" facility "Stamford Hospital" by "#s2id_bp_personbundle_bpadmissiontype_admitFacility" on add a new transition
+    Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
+    Then I select the "Working" DRG type on the Diagnosis and DRG tab on add a new transition
+    Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
+    Then I click on the Create Transition Button to add a new transition
+    And I will wait to see patient's name on patient summary page
+    Then I will wait to see onboarding status "Needs Onboarding" 
+    And I should see details "Stamford - Stamford Hospital" on patients overview page
+    And I should see details "ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W/O CC/MCC (63)" on patients overview page
+    And I should see details "Initiator: Stamford - Stamford Hospital" on patients overview page
+    And I should see details "Account not activated" on patients overview page
+    And I should see details "Error" on patients overview page

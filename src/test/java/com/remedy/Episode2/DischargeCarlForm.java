@@ -587,6 +587,26 @@ public class DischargeCarlForm extends BaseClass {
 			iFillInText(driver.findElement(By.cssSelector("#Patient_Details_lastName")), lastname);
 	}
 
+	public void iverifycolorcode(String code, String xpath) {
+		iWillWaitToSee(By.xpath(xpath));
+		String actual_color=driver.findElement(By.xpath(xpath)).getCssValue("color");
+		String hex = Color.fromString(actual_color).asHex();
+		System.out.println("The risk color is"+hex);
+		Assert.assertEquals(code, hex);
+	}
+
+	public void iverifycolorinneedsonboarding(String color, String code,String value) {
+		String Value;
+		if(value.equals("Onboarded")){
+		iWillWaitToSee(By.xpath("//a[@data-onboarding-status='3']/span[contains(text(),'Onboarded')]"));
+		Value=driver.findElement(By.xpath("//a[@data-onboarding-status='3']/span[contains(text(),'Onboarded')]")).getCssValue("background-color");
+		}else{
+		iWillWaitToSee(By.xpath("//span[contains(text(),'"+value+"')]"));
+		Value=driver.findElement(By.xpath("//span[contains(text(),'"+value+"')]")).getCssValue("background-color");}
+		String hex = Color.fromString(Value).asHex();
+	    Assert.assertEquals(hex, code);
+	}
+
 	
 }
 	
