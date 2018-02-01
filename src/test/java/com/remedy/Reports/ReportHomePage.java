@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 60);
+	WebDriverWait wait = new WebDriverWait(driver, 120);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -1121,6 +1121,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeColumnAfterClickingAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//td[@title='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//td[@title='"+text+"']")));
     }
     
