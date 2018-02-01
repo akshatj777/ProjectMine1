@@ -272,6 +272,11 @@ public class PatientCreationRulesSteps extends DriverScript {
 		patientrules.iEnterTextInFacilityFilterFields(text, locator);
 	}
 	
+	@Then("^I enter \"([^\"]*)\" in the facilityKey textbox$")
+	public void i_enter_in_the_facilityKeytextbox(String text) throws Throwable{
+		patientrules.ienterinthefacilityKeytextbox(text);
+	}
+	
 	@And("^I click on filter option on the facilities under admin center$")
 	public void i_click_on_filter_option_on_the_facilities_under_admin_center() throws Throwable{
 		patientrules.iClickOnFilterOpationOnFacilities();
@@ -296,6 +301,12 @@ public class PatientCreationRulesSteps extends DriverScript {
 	public void i_Select_All_Checkbox_Option_On_drg_list_page_under_facility() throws Throwable{
 		patientrules.iSelectAllCheckboxOptionOnDRGListUnderFacilities();
 	}
+	
+	@Then ("^I wait untill i see \"([^\"]*)\" \"([^\"]*)\" under Add drg pop up$")
+	public void text_on_Add_drg_pop_up(String text,String hospital){
+		patientrules.textonAdddrgpopup(text,hospital);
+	}
+	
 	
 	@And("^I click on \"([^\"]*)\" option on the drg list page in the facility$")
 	public void i_click_on_option_on_the_drg_list_page_in_the_facility(String text) throws Throwable{
@@ -396,4 +407,64 @@ public class PatientCreationRulesSteps extends DriverScript {
 	public void i_search_select_drg_on_care_plan_form(String text) throws Throwable{
 		patientrules.iSearchAndSelectDrgOnCarePlanForm(text);
 	}
+	
+	@Then("^I delete the \"([^\"]*)\" drg$")
+	public void delete_drg(String drg){
+		patientrules.delete_drg(drg);
+	}
+	
+	@Then ("^I fill in the start date with logic \"([^\"]*)\" \"([^\"]*)\" days$") 
+	public void i_fill_start_date(String logic,int days){
+		patientrules.ifillstartdate(logic,days);
+	}
+	
+	@Then ("^I fill in the end date with logic \"([^\"]*)\" \"([^\"]*)\" days$")
+    public void i_fill_end_date(String logic,int days){
+		patientrules.ifillenddate(logic,days);
+	}
+	
+	@Then ("^I select the \"([^\"]*)\" Episode length$")
+	 public void i_select_episode_length(String value){
+		patientrules.iselectepisodelength(value);
+		}
+	    
+	@Then ("^I select the \"([^\"]*)\" model$")
+	public void i_select_model(String model){
+		patientrules.iselectmodel(model);
+	}
+	
+	@Then ("^I select the \"([^\"]*)\" payer$")
+     public void i_select_payer(String payer){
+		patientrules.iselectpayer(payer);
+	}
+	   
+	@Then ("^I click on the edit facility on the facilities under admin center$")
+	public void click_on_the_edit_facility(){
+		patientrules.clickontheeditfacility();
+	}
+	
+	@And ("^I will wait to see the edit facility text \"([^\"]*)\" \"([^\"]*)\"$")
+	public void wait_to_see_the_edit_facility_text(String object,String hospital){
+		patientrules.waittoseetheeditfacilitytext(object,hospital);	
+	}
+	
+    @Then ("^I will checkin the Episode initiator checkbox on the edit facility$")
+    public void check_in_episode_initiator_on_edit_facility(){
+    	patientrules.checkinepisodeinitiatoroneditfacility();
+    }
+    
+    @Then ("^I will checkin the Participating checkbox on the edit facility$")
+    public void check_in_Participating_on_edit_facility(){
+    	patientrules.checkinParticipatingoneditfacility();
+    }
+    
+    @Then ("^I will select the \"([^\"]*)\" Participating facility$")
+    public void select_Participating_on_edit_facility(String facility){
+    	patientrules.selectParticipatingoneditfacility(facility);
+    }
+    
+    @Then ("^I save the edited facility$")
+    public void I_save_the_edited_facility(){
+    	patientrules.Isavetheeditedfacility();
+    }
 }

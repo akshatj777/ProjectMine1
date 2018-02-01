@@ -1,11 +1,15 @@
 package com.remedy.episode1;
 
 
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -180,6 +184,7 @@ public class PatientCreationRules extends BaseClass{
     }
     
     public void iEnterTextInFacilityFilterFields(String text,String locator){
+    	delay();
     	iFillInText(driver.findElement(By.cssSelector("#filters_bpfacility_"+locator+"")), Facility_Key);
     	delay();
     }
@@ -304,5 +309,116 @@ public class PatientCreationRules extends BaseClass{
 
 	public void iVerifyDRGListNotInFacility(String text) {
 		new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//td[contains(text(),'"+text+"')]")));    
+	}
+
+	public void delete_drg(String drg) {
+		List<String> lists=getTextForElementfromList("td.td_drg_id");
+		System.out.println("list of"+lists);
+		int duplicate_count=Collections.frequency(lists, drg);
+		System.out.println("Duplicate Count is"+duplicate_count);
+		if(duplicate_count==0){
+			  	return;
+			}else{
+				while(duplicate_count!=0){
+					iWillWaitToSee(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[1]"));
+				//	scrollIntoViewByJS(driver.findElement(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[1]")));
+					delay();
+					clickElement(driver.findElement(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[1]")));
+					iWillWaitToSee(By.xpath("//h4[text()='Remove DRG']"));
+					clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
+					duplicate_count=duplicate_count-1;
+					System.out.println("New Duplicate Count is"+duplicate_count);
+					longDelay();
+				}
+			
+		}
+	}
+
+	public void ienterinthefacilityKeytextbox(String text) {
+		iWillWaitToSee(By.xpath("//*[@id='filters_bpfacility_facilityKey']"));
+		iFillInText(driver.findElement(By.xpath("//*[@id='filters_bpfacility_facilityKey']")),text);
+	}
+
+	public void ifillstartdate(String logic, int days) {
+		String date=currentdate(days,"MM/dd/yyyy");
+        delay();
+	    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_drg_form_period_startedAt']")),"value",date);
+		
+	}
+
+	public void ifillenddate(String logic, int days) {
+		String date=currentdate(days,"MM/dd/yyyy");
+        delay();
+	    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_drg_form_period_endedAt']")),"value",date);
+	}
+
+	public void iselectepisodelength(String value) {
+		selectDropdownVisibleElement("#add_drg_form_period_episodeLength",value);
+	}
+
+	public void iselectmodel(String model) {
+		selectDropdownVisibleElement("#add_drg_form_period_model",model);
+	}
+
+	public void iselectpayer(String payer) {
+		selectDropdownVisibleElement("#add_drg_form_period_payer",payer);
+	}
+
+	public void textonAdddrgpopup(String text, String hospital) {
+		String Newtext=text+hospital;
+		iWillWaitToSee(By.xpath("//h2[text()='"+Newtext+"']"));
+	}
+
+	public void clickontheeditfacility() {
+		iWillWaitToSee(By.xpath("//a[@data-title='Edit']"));
+		clickElement(driver.findElement(By.xpath("//a[@data-title='Edit']")));
+	}
+
+	public void waittoseetheeditfacilitytext(String object,String hospital) {
+		String text=object+" "+"\"" + hospital + "\"";
+		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),text);
+	}
+
+	public void checkinepisodeinitiatoroneditfacility() {
+            longDelay();  		
+		try{
+			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_episodeInitiator']/span[not(contains(@class,'checked'))]"));
+		//	scrollIntoViewByJS(driver.findElement(By.xpath("//*[@id='edit_bpfacility_episodeInitiator']")));
+			 longDelay();
+			clickElement(driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_episodeInitiator']")));
+		}catch(Exception e){
+			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_episodeInitiator']/span[contains(@class,'checked')]"));
+		}
+		
+	}
+
+	public void checkinParticipatingoneditfacility() {
+		try{
+			longDelay();
+			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_participating']/span[not(contains(@class,'checked'))]"));
+		//	scrollIntoViewByJS(driver.findElement(By.xpath("//*[@id='edit_bpfacility_participating']")));
+			longDelay();
+			clickElement(driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_participating']")));
+		}catch(Exception e){
+			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_participating']/span[contains(@class,'checked')]"));
+		}
+	}
+
+	public void selectParticipatingoneditfacility(String facility) {
+		List<String> lists=getTextForElementfromList("#edit_bpfacility_participatingFacilities_selected>li>a");
+		System.out.println("list of"+lists);
+		if(lists.contains(facility.trim())){
+			return;
+		}else{
+			scrollIntoViewByJS(driver.findElement(By.xpath("//a[normalize-space()='"+facility+"']")));
+			longDelay();
+			clickElement(driver.findElement(By.xpath("//a[normalize-space()='"+facility+"']")));
+			clickElement(driver.findElement(By.cssSelector("button.btn.btn-large.select>i")));
+		}
+	}
+
+	public void Isavetheeditedfacility() {
+		iWillWaitToSee(By.xpath("//button[@name='save']"));
+		clickElement(driver.findElement(By.xpath("//button[@name='save']")));
 	}
 }
