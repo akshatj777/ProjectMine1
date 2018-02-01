@@ -795,7 +795,5 @@ Feature: Readmission Model3 report verification
     Examples: 
       | email                                 | role     | facility    |
       | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
       | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
