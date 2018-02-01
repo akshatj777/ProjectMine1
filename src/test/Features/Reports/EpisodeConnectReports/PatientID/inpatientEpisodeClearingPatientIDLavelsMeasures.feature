@@ -128,7 +128,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
     Given I am on the login page
@@ -163,7 +163,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should not see fracture/non-fracture filters in the available fields in inpatient episode clearing issues report under patient id
     Given I am on the login page
@@ -271,7 +271,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I should see "Calculating Risk" in the filter value list
     And I should see "High" in the filter value list
     And I should see "Low" in the filter value list
-      
+
   Scenario Outline: User should be able to see patient risk and onboarding status under Episodes List in Inpatient Episode Clearing Report after clicking on any episode number link
     Given I am on the login page
     When I enter email field <email> for login
@@ -293,5 +293,5 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should verify "Onboarding Status" is appearing under Episodes table
 
     Examples: 
-      | email                          |
-      | shutestaug231132a@yopmail.com  |
+      | email                         |
+      | shutestaug231132a@yopmail.com |    

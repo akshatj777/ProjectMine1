@@ -1509,6 +1509,31 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iRemovePayerFieldFilterFromDefaultFilters(text);
     }
     
+    @And("^I verify there are no default filters appearing after removing all the default filters$")
+    public void i_verify_there_are_no_default_filters_appearing_after_removing_all_the_default_filters() throws Throwable{
+    	reportHomePage.iVerifyNoDeafultFiltersAfterRemovingFilters();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected post acute type filter$")
+    public void i_verify_is_appearing_under_selected_post_acute_type_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyPostAcuteTypeFilterTextInSelectedFilters(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected network tier filter$")
+    public void i_verify_is_appearing_under_selected_network_tier_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyNetworkTierTextInSelectedFilter(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is visible under \"([^\"]*)\" column in the report$")
+    public void i_verify_is_visible_under_column_in_the_report(String data,String column) throws Throwable{
+    	reportHomePage.iVerifyDataInTheColumnsInsideReports(data, column);
+    }
+    
+    @And("^I verify \"([^\"]*)\" field is appearing in the layout section after selecting add to report$")
+    public void i_verify_field_is_appearing_in_the_layout_section_after_selecting_add_to_report(String text) throws Throwable{
+    	reportHomePage.iVerifyFieldInTheLayoutSectionAfterAddToReport(text);
+    }
+    
     @And("^I should see \"([^\"]*)\" in the value list after selecting filter$")
     public void i_should_see_in_the_value_list_after_selecting_filter(String text) throws Throwable{
     	reportHomePage.iVerifyInFilterValueListAfterSelectingFilterOption(text);
