@@ -90,7 +90,7 @@ public class DriverScript {
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver");
 				break os;
-			case "win":				
+			case "win":	
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver.exe");
 				break os;
@@ -101,6 +101,7 @@ public class DriverScript {
 			ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");  
 			options.addArguments("--disable-extensions");
+			options.addArguments("disable-infobars");
             driver = new ChromeDriver(options);
 
 			break;			
