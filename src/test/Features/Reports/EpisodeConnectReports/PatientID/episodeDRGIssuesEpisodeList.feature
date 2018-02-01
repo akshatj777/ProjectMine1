@@ -58,7 +58,7 @@ Feature: Episode List Verification Under Episode DRG Issues Reports
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in episode drg issues report under patientid
     Given I am on the login page

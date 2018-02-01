@@ -36,9 +36,9 @@ Feature: CTool Reports Date Range Filters
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards |         2017 |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards |         2017 |
+      #| emblemachrpfin@yopmail.com     | Dashboards |         2017 |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards |         2017 |
+      #| multipayerachrpfin@yopmail.com | Dashboards |         2017 |
 
   Scenario Outline: User should click on date range filter more than four months for Claims reports
     Given I am on the login page
@@ -76,6 +76,6 @@ Feature: CTool Reports Date Range Filters
       #| Medicare Payer Users|
       | shutestaug231132a@yopmail.com  | Dashboards | 2016 |
       #| Emblem Payer Users  |
-      | emblemachrpfin@yopmail.com     | Dashboards | 2016 |
+      #| emblemachrpfin@yopmail.com     | Dashboards | 2016 |
       #| Multiple Payer Users|
-      | multipayerachrpfin@yopmail.com | Dashboards | 2016 |
+      #| multipayerachrpfin@yopmail.com | Dashboards | 2016 |

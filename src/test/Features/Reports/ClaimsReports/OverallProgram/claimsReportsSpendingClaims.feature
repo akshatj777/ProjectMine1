@@ -92,9 +92,9 @@ Feature: Verification Claims Report For Spending
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Remedy awardee convener whose BPID starting with 2070 with model2 and drg <DRG Code1> is able to see fracture/non fracture values when anchor admission quarter >= 2016Q4 in volume claims report under overall program
     Given I am on the login page
@@ -651,6 +651,126 @@ Feature: Verification Claims Report For Spending
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
+      
+  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for spending claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Spending (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Spending" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #CCN Drag and Drop
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "CCN" column is added to report after selecing add to report option
+    #Post Acute CCN Drag and Drop
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
+    
+    Examples: 
+      | email                              |
+      | OPSFINTier1_2@yopmail.com          |
+      
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for spending claims report under overall program
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Overall Program" under reports tile text
+    When I click on the Reports Tile with text "Overall Program"
+    Then I click on "Spending (Claims)" report text for Overall Program Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Spending" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
+    Then I remove "Current AtRisk" field filter under "Current AtRisk" filter field from default filters
+    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
+    Then I remove "Attributed Physician" field filter under "Physician" filter field from default filters
+    And I wait until refresh button is disappeared
+    And I verify there are no default filters appearing after removing all the default filters
+    When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute Type" in the header text of filter page
+    And I should see "<postacutetype1>" in the filter value list
+    And I should see "<postacutetype2>" in the filter value list
+    And I click on "<postacutetype1>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on "<postacutetype2>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Post Acute Type includes HHA and SNF" is appearing under selected post acute type filter
+    #Drag and Drop(Post Acute Type)
+    When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Post Acute Type" column is added to report after selecing add to report option
+    #Drag and Drop(Network tier)
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier" column is added to report after selecing add to report option
+    #Filtering
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I should see "<networktier1>" in the filter value list
+    And I should see "<networktier2>" in the filter value list
+    And I should see "<networktier3>" in the filter value list
+    #Filtering(Out Of Network)
+    And I click on "<networktier1>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes <networktier1>" is appearing under selected network tier filter
+    And I verify "<networktier1>" is visible under "Network Tier" column in the report
+    Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
+    #Filtering(Tier 1)
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I click on "<networktier2>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Tier 1" is appearing under selected network tier filter
+    And I verify "<networktier2>" is visible under "Network Tier" column in the report
+    Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
+    #Filtering(Tier 2)
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I click on "<networktier3>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Tier 2" is appearing under selected network tier filter
+    And I verify "<networktier3>" is visible under "Network Tier" column in the report
+
+    Examples: 
+      | email                              | postacutetype1 | postacutetype2 | networktier1   | networktier2 | networktier3 |
+      | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
+      | OPSFINTier1_2@yopmail.com          | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
