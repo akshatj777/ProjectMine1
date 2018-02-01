@@ -2,9 +2,7 @@ package stepDefination.Episode1;
 
 import com.remedy.episode1.PatientEligiblity;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class PatientEligiblitySteps extends DriverScript {

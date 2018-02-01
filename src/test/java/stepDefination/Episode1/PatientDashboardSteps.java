@@ -2,7 +2,6 @@ package stepDefination.Episode1;
 
 import com.remedy.episode1.PatientDashboard;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -244,8 +243,6 @@ public class PatientDashboardSteps extends DriverScript {
 	@And("^I click on date sorting under Message$")
     public void i_Click_On_Date_Sorting_Under_Message() throws Throwable {
 		dashboard.iClickOnDateSortingUnderMessage();
-    }
-
-
+	}
 
 }

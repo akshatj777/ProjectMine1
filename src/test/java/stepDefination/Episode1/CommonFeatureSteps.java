@@ -2,18 +2,16 @@ package stepDefination.Episode1;
 
 import java.text.ParseException;
 import java.util.List;
-
 import com.remedy.episode1.CommonFeature;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CommonFeatureSteps extends DriverScript {
 	CommonFeature common = new CommonFeature(driver);
-	EC1DashboardSteps ec=new EC1DashboardSteps();
-	
+	EC1DashboardSteps ec = new EC1DashboardSteps();
+
 	@When("^I click \"([^\"]*)\" element \"([^\"]*)\"$")
 	public void i_Click_Element(String text, String locator) throws Throwable {
 		common.iClickElement(locator);
@@ -37,7 +35,7 @@ public class CommonFeatureSteps extends DriverScript {
 	public void i_Wait_To_See(String text, String tag) {
 		common.i_Wait_To_See(text, tag);
 	}
-	
+
 	@Then("^I will wait for invisibility of \"([^\"]*)\" in \"([^\"]*)\" tag$")
 	public void i_Wait_For_Invisibility_Of(String text, String tag) {
 		common.i_Wait_For_Invisibility_Of(text, tag);
@@ -57,7 +55,7 @@ public class CommonFeatureSteps extends DriverScript {
 	public void i_Search_Filter(String Filter) {
 		common.iSearchFilter(Filter);
 	}
-	
+
 	@And("^I navigate to the filtered patient summary page \"([^\"]*)\"$")
 	public void i_navigate_to_the_patients_summary_page(String Url) {
 		common.inavigatetothepatientssummarypage(Url);
@@ -82,7 +80,7 @@ public class CommonFeatureSteps extends DriverScript {
 	public void i_Will_Wait_To_See_Facility_on_Episode_Marker(String facility) {
 		common.iWillWaitToSeeFacilityonEpisodeMarker(facility);
 	}
-	
+
 	@Then("^I should not see \"([^\"]*)\" in \"([^\"]*)\" tag$")
 	public void i_Should_not_see(String text, String tag) {
 		common.iShouldnotsee(text, tag);
@@ -109,14 +107,16 @@ public class CommonFeatureSteps extends DriverScript {
 	}
 
 	@And("^I will verify Episode Marker Admit Date \"([^\"]*)\" and Termination date \"([^\"]*)\" and Episode Status \"([^\"]*)\"$")
-	public void i_Verify_Episode_Marker_Admit_Terminate_date(int days, int terminate_date, String status) throws ParseException {
+	public void i_Verify_Episode_Marker_Admit_Terminate_date(int days, int terminate_date, String status)
+			throws ParseException {
 		common.iVerifyEpisodeMarkerAdmitTerminatedate(days, terminate_date, status);
 	}
 
 	@And("^I will verify Episode Marker Admit Date \"([^\"]*)\" and \"([^\"]*)\" Discharge date \"([^\"]*)\" with \"([^\"]*)\" to show end date and Episode Status \"([^\"]*)\"$")
-	public void i_Verify_Episode_Marker_Admit_Discharge_date(int days,String logic, int discharge_date,int terminate_date,String status) throws ParseException {
-		common.iVerifyEpisodeMarkerAdmitEnddate(days,discharge_date,logic, terminate_date, status);
+	public void i_Verify_Episode_Marker_Admit_Discharge_date(int days, String logic, int discharge_date,int terminate_date, String status) throws ParseException {
+		common.iVerifyEpisodeMarkerAdmitEnddate(days, discharge_date, logic, terminate_date, status);
 	}
+
 	@And("^I select \"([^\"]*)\" from \"([^\"]*)\" by xpath \"([^\"]*)\"$")
 	public void i_Select_value(String variable, String value, String xpath) throws ParseException {
 		common.i_Select_value(variable, value, xpath);
@@ -137,38 +137,38 @@ public class CommonFeatureSteps extends DriverScript {
 		common.iClickonthefilter(filter);
 	}
 
-	@Then ("^I will wait to see the \"([^\"]*)\" element xpath \"([^\"]*)\"$")
-	public void wait_To_See_xpath_element(String text,String xpath){
-		common.wait_To_See_xpath_element(text,xpath);
+	@Then("^I will wait to see the \"([^\"]*)\" element xpath \"([^\"]*)\"$")
+	public void wait_To_See_xpath_element(String text, String xpath) {
+		common.wait_To_See_xpath_element(text, xpath);
 	}
-	
-	@When ("^I select \"([^\"]*)\" patient list filter xpath \"([^\"]*)\" with \"([^\"]*)\"$")
-	public void i_Select_patient_list_filter(String variable,String xpath,int days){
-		common.iSelectpatientlistfilter(variable,xpath,days);
+
+	@When("^I select \"([^\"]*)\" patient list filter xpath \"([^\"]*)\" with \"([^\"]*)\"$")
+	public void i_Select_patient_list_filter(String variable, String xpath, int days) {
+		common.iSelectpatientlistfilter(variable, xpath, days);
 	}
-	
-	@When ("^I click Schedule Appointment$")
-	public void i_Click_Appointment(){
+
+	@When("^I click Schedule Appointment$")
+	public void i_Click_Appointment() {
 		common.i_Click_Appointment();
 	}
-	
-	@Then ("^I click \"([^\"]*)\" text in tag \"([^\"]*)\"$")
-	public void click_text(String text,String tag){
-		common.clicktext(text,tag);
+
+	@Then("^I click \"([^\"]*)\" text in tag \"([^\"]*)\"$")
+	public void click_text(String text, String tag) {
+		common.clicktext(text, tag);
 	}
-	
-	@Then ("^I will verify text \"([^\"]*)\" in xpath element \"([^\"]*)\"$")
-    public void i_will_verify_text_in_element(String text,String xpath){
-		common.iwillverifytextinelement(text,xpath);
+
+	@Then("^I will verify text \"([^\"]*)\" in xpath element \"([^\"]*)\"$")
+	public void i_will_verify_text_in_element(String text, String xpath) {
+		common.iwillverifytextinelement(text, xpath);
 	}
-	
-	@Then ("^I will verify the list of options in dropdown list \"([^\"]*)\" element xpath \"([^\"]*)\"$")
-	public void i_will_verify_list_of_options_in_dropdown(String element,String xpath,List<String> dropdownvalues){
-		common.iwillverifylistofoptionsindropdown(element,xpath,dropdownvalues);
+
+	@Then("^I will verify the list of options in dropdown list \"([^\"]*)\" element xpath \"([^\"]*)\"$")
+	public void i_will_verify_list_of_options_in_dropdown(String element, String xpath, List<String> dropdownvalues) {
+		common.iwillverifylistofoptionsindropdown(element, xpath, dropdownvalues);
 	}
-	
-	@Then ("^I clear the \"([^\"]*)\" xpath \"([^\"]*)\"$")
-	public void clear_Value(String text,String xpath){
-		common.clear_Value(text,xpath);
+
+	@Then("^I clear the \"([^\"]*)\" xpath \"([^\"]*)\"$")
+	public void clear_Value(String text, String xpath) {
+		common.clear_Value(text, xpath);
 	}
 }
