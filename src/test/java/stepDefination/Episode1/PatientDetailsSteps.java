@@ -1,11 +1,8 @@
 package stepDefination.Episode1;
 
 import org.openqa.selenium.By;
-
 import com.remedy.episode1.PatientDetails;
 import com.remedy.resources.DriverScript;
-//import com.thoughtworks.selenium.webdriven.commands.IsElementPresent;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -127,40 +124,44 @@ public class PatientDetailsSteps extends DriverScript {
 	public void i_click_on_to_add_zip(String text) throws Throwable {
 		details.iClickOn(text);
 	}
+
 	@Then("^I remove the \"([^\"]*)\" phone numbers under patient details$")
 	public void i_remove_the_phone_numbers_under_patient_details(String number) throws Throwable {
 		details.iRemoveThePhoneNumbers(number);
 	}
+
 	@And("^I verify Add new button is not visible after adding 10 numbers$")
-	public void i_verify_Add_new_button_is_not_visible_after_adding_10_numbers(){
+	public void i_verify_Add_new_button_is_not_visible_after_adding_10_numbers() {
 		details.isElementPresentOnPage(By.cssSelector("#BP_patientType_phones .add_to_collection"));
 	}
-	
-	@When ("^I edit date of death with \"([^\"]*)\"$")
-	public void edit_Date_Of_Death(int days){
+
+	@When("^I edit date of death with \"([^\"]*)\"$")
+	public void edit_Date_Of_Death(int days) {
 		details.editDateOfDeath(days);
 	}
-	
-	@Then ("^I verify error \"([^\"]*)\" in DOD field$")
-	public void verify_error_in_DOD(String error){
+
+	@Then("^I verify error \"([^\"]*)\" in DOD field$")
+	public void verify_error_in_DOD(String error) {
 		details.verifyerrorinDOD(error);
 	}
-	@And ("^I will clear the Date of death field on patient details page$")
-	public void clear_the_Date_of_death(){
+
+	@And("^I will clear the Date of death field on patient details page$")
+	public void clear_the_Date_of_death() {
 		details.cleartheDateofdeath();
 	}
+
 	@When("I edit medicare ID with \"([^\"]*)\"$")
-	public void edit_Medicare_Id(String Id){
+	public void edit_Medicare_Id(String Id) {
 		details.edit_Medicare_Id(Id);
 	}
-	
+
 	@When("I edit Primary Care Physician Name with \"([^\"]*)\"$")
-	public void edit_Primary_Care_Physician(String name){
+	public void edit_Primary_Care_Physician(String name) {
 		details.editPrimaryCarePhysician(name);
 	}
-	
+
 	@When("I edit Primary Care Physician Phone with \"([^\"]*)\"$")
-	public void edit_Primary_Care_Physician_phone(String phone){
+	public void edit_Primary_Care_Physician_phone(String phone) {
 		details.editPrimaryCarePhysician_phone(phone);
 	}
 }

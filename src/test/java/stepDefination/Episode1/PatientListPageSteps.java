@@ -12,10 +12,8 @@ public class PatientListPageSteps extends DriverScript {
 
     PatientsListPage patientsList = new PatientsListPage(driver);
 
-
     @Then("^I should see \"([^\"]*)\" on the patient list page$")
     public void iShouldSeeOnThePatientListPage(String text) throws Throwable {
-
         patientsList.iverifyPatientListPageheader(text);
     }
     
@@ -60,7 +58,6 @@ public class PatientListPageSteps extends DriverScript {
         patientsList.iClickOnAddPatientButtonPresentOnTheEcPatientsPage(ecVersion);
     }
               
-
     @Then("^I click on Load filter in \"([^\"]*)\" to load the patient list present on the patients dropdown$")
     public void i_click_on_Load_filter_in_to_load_the_patient_list_present_on_the_patients_dropdown(String text) throws Throwable {
     	patientsList.iClickOnLoadFilterInToLoadThePatientListPresentOnThePatientsDropdown(text);

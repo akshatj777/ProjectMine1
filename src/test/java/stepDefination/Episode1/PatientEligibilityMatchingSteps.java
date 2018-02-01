@@ -6,8 +6,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class PatientEligibilityMatchingSteps extends DriverScript {
-	PatientEligibilityMatching patienteligibility = new PatientEligibilityMatching(
-			driver);
+	
+	PatientEligibilityMatching patienteligibility = new PatientEligibilityMatching(driver);
 
 	@Then("^I should see \"([^\"]*)\" on next page$")
 	public void i_should_see_on_next_page(String text) throws Throwable {
@@ -25,15 +25,12 @@ public class PatientEligibilityMatchingSteps extends DriverScript {
 	}
 
 	@Then("^I click \"([^\"]*)\" filter tab present on the patients page$")
-	public void i_click_on_filters_tab_present_on_the_patients_page(
-			String filtertab) throws Throwable {
-		patienteligibility
-				.iClickOnFiltersTabPresentOnThePatientsPage(filtertab);
+	public void i_click_on_filters_tab_present_on_the_patients_page(String filtertab) throws Throwable {
+		patienteligibility.iClickOnFiltersTabPresentOnThePatientsPage(filtertab);
 	}
 
 	@Then("^I should see \"([^\"]*)\" under eligibility dropdown$")
-	public void i_should_see_under_eligiblity_dropdown(String eligibility)
-			throws Throwable {
+	public void i_should_see_under_eligiblity_dropdown(String eligibility) throws Throwable {
 		patienteligibility.iShouldSeeUnderEligiblityDropdown(eligibility);
 	}
 
@@ -53,8 +50,7 @@ public class PatientEligibilityMatchingSteps extends DriverScript {
 	}
 
 	@Then("^I verify \"([^\"]*)\" is present in episode dropdown$")
-	public void i_verify_is_present_in_episode_dropdown(String text)
-			throws Throwable {
+	public void i_verify_is_present_in_episode_dropdown(String text) throws Throwable {
 		patienteligibility.iVerifyIsPresentInEpisodeDropdown(text);
 	}
 

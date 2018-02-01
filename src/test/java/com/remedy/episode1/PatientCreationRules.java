@@ -1,25 +1,20 @@
 package com.remedy.episode1;
 
-
 import java.util.Collections;
 import java.util.List;
-
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.aventstack.extentreports.utils.StringUtil;
 import com.remedy.baseClass.BaseClass;
 
-public class PatientCreationRules extends BaseClass{
-	
+public class PatientCreationRules extends BaseClass {
+
 	public static String Key_CreationName;
 	public static String Facility_Key;
+
     public PatientCreationRules(WebDriver driver) {
         super(driver);
     }
@@ -125,15 +120,7 @@ public class PatientCreationRules extends BaseClass{
     	iFillInText(driver.findElement(By.cssSelector("#new_bpexclusionlist_"+locator+"")), text);
     }
     
-    public void iFillFieldsOnNewEpisodesPage(String locator,String text){
-    	if(text.contains("randomDrg")){
-    		String textRandom = RandomStringUtils.randomNumeric(6);
-    		iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_"+locator+"")), textRandom);
-    	}
-    	else{
-    		iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_"+locator+"")), text);
-    	}
-    }
+   
     
     public void iClickOnSaveButtonOnNewEpisodePage(){
     	clickElement(driver.findElement(By.cssSelector("button[name=save]")));
@@ -293,22 +280,78 @@ public class PatientCreationRules extends BaseClass{
     	clickElement(driver.findElement(By.xpath("//span[text()='"+text+"']")));
     }
 
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+	public void iFillFieldsOnNewEpisodesPage(String locator, String text) {
+		if (text.contains("randomDrg")) {
+			String textRandom = RandomStringUtils.randomNumeric(6);
+			iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_" + locator + "")), textRandom);
+		} else {
+			iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_" + locator + "")), text);
+		}
+	}
+
+
+
+
+
+
+
+
+	
+
+
+
+	
 	public void iWillWaitToSeeNewlyClinician(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing Clinician :"+ " " + "\"" + text + "\"");
+		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing Clinician :" + " " + "\"" + text + "\"");
 	}
 
 	public void iWillWaitToSeeFacilityFreeText(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing a Facility Free Text Mapping entry for"+ " " + "\"" + text + "\"");
-		
+		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing a Facility Free Text Mapping entry for" + " " + "\"" + text + "\"");
 	}
 
 	public void iFillTextWithDRG(String text) {
 		iWillWaitToSee(By.xpath("//*[@id='s2id_add_drg_form_drgs']/ul/li/input"));
 		driver.findElement(By.xpath("//*[@id='s2id_add_drg_form_drgs']/ul/li/input")).sendKeys(text);
-		}
+	}
 
 	public void iVerifyDRGListNotInFacility(String text) {
-		new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//td[contains(text(),'"+text+"')]")));    
+		new WebDriverWait(driver, 05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//td[contains(text(),'" + text + "')]")));
 	}
 
 	public void delete_drg(String drg) {

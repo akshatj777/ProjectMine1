@@ -2,13 +2,7 @@ package com.remedy.episode1;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,10 +13,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
-
-
-
-
 
 public class PatientCarePlan extends BaseClass {
 	public PatientCarePlan(WebDriver driver) {
@@ -73,8 +63,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iShouldSeeUnderThePlans(String text) throws Throwable {
-		isElementVisible(driver.findElement(
-				By.xpath("//*[@id='assignCarePlanModal']/div/div[2]/div/div[3]/div/div[2]/div/div/div[1]/h4")));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignCarePlanModal']/div/div[2]/div/div[3]/div/div[2]/div/div/div[1]/h4")));
 	}
 
 	public void iAssignWith(String text, String number) throws Throwable {
@@ -88,8 +77,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnSaveButton() throws Throwable {
-		clickElement(driver
-				.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space(.) = 'Save changes']")));
+		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space(.) = 'Save changes']")));
 	}
 
 	public void iClickOnAppointmentsUnderCarePlan() throws Throwable {
@@ -107,7 +95,7 @@ public class PatientCarePlan extends BaseClass {
 	public void iShouldSeePresentOnTheNewAppointmentPage(String text) throws Throwable {
 		iWillWaitToSee(By.cssSelector(".modal-title"));
 		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
-		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")), text);
 	}
 
 	public void iAssignUnderContact(String number) throws Throwable {
@@ -140,7 +128,7 @@ public class PatientCarePlan extends BaseClass {
 	public void iShouldSeePresentOnTheNewNotePage(String text) throws Throwable {
 		iWillWaitToSee(By.cssSelector(".modal-title"));
 		isElementVisible(driver.findElement(By.cssSelector(".modal-title")));
-		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")),text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".modal-title")), text);
 	}
 
 	public void iClickOnTopicDropdownUnderNewNote() throws Throwable {
@@ -157,13 +145,11 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnActionsColumnInNotes() throws Throwable {
-		clickElement(driver.findElement(
-				By.cssSelector(".table-scrollable>table>tbody>tr:nth-of-type(1)>td:nth-of-type(7)>div>a")));
+		clickElement(driver.findElement(By.cssSelector(".table-scrollable>table>tbody>tr:nth-of-type(1)>td:nth-of-type(7)>div>a")));
 	}
 
 	public void iClickOnDeleteInTheActionsColumn() throws Throwable {
-		clickElement(driver.findElement(By.cssSelector(
-				".table-scrollable>table>tbody>tr:nth-of-type(1)>td:nth-of-type(7)>div>ul:nth-of-type(1)>li:nth-of-type(2)")));
+		clickElement(driver.findElement(By.cssSelector(".table-scrollable>table>tbody>tr:nth-of-type(1)>td:nth-of-type(7)>div>ul:nth-of-type(1)>li:nth-of-type(2)")));
 	}
 
 	public void iShouldSeeAPopupForDeleteConfirmation() throws Throwable {
@@ -187,13 +173,11 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnGearIconUnderCareManagers() throws Throwable {
-		clickElement(driver.findElement(
-				By.xpath("//*[@id='tab_4_1']/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/a/i")));
+		clickElement(driver.findElement(By.xpath("//*[@id='tab_4_1']/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/a/i")));
 	}
 
 	public void iClickOnRemoveUnderTheGearIcon() throws Throwable {
-		clickElement(driver.findElement(
-				By.xpath("//*[@id='tab_4_1']/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/ul/li[4]")));
+		clickElement(driver.findElement(By.xpath("//*[@id='tab_4_1']/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/ul/li[4]")));
 	}
 
 	public void iShouldSeeOnTheRemovePopup(String text) throws Throwable {
@@ -205,17 +189,15 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iAcceptAttestation() {
-
 		try {
 			isElementVisible(driver.findElement(By.cssSelector("#submitButtonAdd")));
 			clickElement(driver.findElement(By.cssSelector("#submitButtonAdd")));
 		} catch (Exception e) {
-            return;    
+			return;
 		}
 	}
 
 	public void IclickonQAPRMonnavigationbaronEC1() {
-
 		clickElement(driver.findElement(By.cssSelector("li.dropdown.dropdown-user")));
 	}
 
@@ -228,9 +210,9 @@ public class PatientCarePlan extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//*[@id='edit_BPRAFormCRA']")));
 	}
 
-	public void i_Verify_Risk_Assessment(String text,String formlist,int n) {
-		iWillWaitToSee(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div"));
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")).getAttribute("innerText").trim(), ""+text+"");
+	public void i_Verify_Risk_Assessment(String text, String formlist, int n) {
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div/div[" + n + "]/div/div[2]/div[2]/div[1]/div/div/div/div"));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div/div[" + n + "]/div/div[2]/div[2]/div[1]/div/div/div/div")).getAttribute("innerText").trim(), "" + text + "");
 	}
 
 	public void assignCarePlanButtondisabled() {
@@ -239,50 +221,46 @@ public class PatientCarePlan extends BaseClass {
 
 	public void IwillcheckCareintheradiobutton(String text) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span"));
-		new Actions(driver).moveToElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
-		clickElement(driver.findElement(By.xpath("//h4[text()='"+text+"']/preceding-sibling::div/span")));
+		iWillWaitToSee(By.xpath("//h4[text()='" + text + "']/preceding-sibling::div/span"));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//h4[text()='" + text + "']/preceding-sibling::div/span")));
+		clickElement(driver.findElement(By.xpath("//h4[text()='" + text + "']/preceding-sibling::div/span")));
 	}
 
 	public void ifillinCarePlanSearch(String text) {
 		longDelay();
 		iWillWaitToSee(By.xpath("//input[@placeholder='Care Plan search']"));
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Care Plan search']")),text);
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Care Plan search']")), text);
 	}
 
 	public void iwillnotseeCarePlan(int index) {
-		WebDriverWait wait=waitTo();
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div["+index+"]/div/div/div[1]/h4")));
-		
+		WebDriverWait wait = waitTo();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[" + index + "]/div/div/div[1]/h4")));
 	}
 
 	public void iseeTextinassignedformcounter(String count) {
 		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span"));
-		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span")),count);
-		
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span")), count);
 	}
 
 	public void iWillWaitToSeeAssignedFormList() {
 		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span"));
 		isElementVisible(driver.findElement(By.xpath("//*[@id='formsList']/div[2]/div/div[1]/div[1]/span")));
-		
 	}
 
 	public void iFillinDueDate(int days) {
 		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']"));
-		String date=currentdate(days,"MM/dd/yyyy");
-		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",date);
+		String date = currentdate(days, "MM/dd/yyyy");
+		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")), "value",date);
 	}
 
 	public void iseeTextinactiveformcounter(String count) {
 		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[3]/div/div[1]/div[1]/span"));
-		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[3]/div/div[1]/div[1]/span")),count);
-		
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[3]/div/div[1]/div[1]/span")), count);
 	}
 
 	public void Isetpatientonboardingstatusto(String index) {
-		iWillWaitToSee(By.xpath("//a[@data-onboarding-status="+index+"]"));
-		clickElement(driver.findElement(By.xpath("//a[@data-onboarding-status="+index+"]")));
+		iWillWaitToSee(By.xpath("//a[@data-onboarding-status=" + index + "]"));
+		clickElement(driver.findElement(By.xpath("//a[@data-onboarding-status=" + index + "]")));
 		longDelay();
 	}
 
@@ -295,8 +273,7 @@ public class PatientCarePlan extends BaseClass {
 
 	public void iseeTextinarchivedformcounter(String count) {
 		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span"));
-		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span")),count);
-		
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='formsList']/div[4]/div/div[1]/div[1]/span")), count);
 	}
 
 	public void iwillwaittoseeCARLtool() {
@@ -306,18 +283,18 @@ public class PatientCarePlan extends BaseClass {
 
 	public void iwillwaittoseeproposal(String proposal) {
 		iWillWaitToSee(By.xpath("//*[@id='bp_nsoc_form_type_recommendation']"));
-		String value=driver.findElement(By.xpath("//*[@id='bp_nsoc_form_type_recommendation']")).getAttribute("value");
+		String value = driver.findElement(By.xpath("//*[@id='bp_nsoc_form_type_recommendation']")).getAttribute("value");
 		Assert.assertEquals(value, proposal);
 	}
 
 	public void iwillwaittoseeCARLToolonactivestate(int index) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[3]/div/div[2]/div[2]/div/div["+index+"]/div/div/div/div"));
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div[3]/div/div[2]/div[2]/div/div["+index+"]/div/div/div/div")).getAttribute("innerText"),"CARL Tool");
+		iWillWaitToSee(By.xpath("//*[@id='formsList']/div[3]/div/div[2]/div[2]/div/div[" + index + "]/div/div/div/div"));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='formsList']/div[3]/div/div[2]/div[2]/div/div[" + index + "]/div/div/div/div")).getAttribute("innerText"), "CARL Tool");
 	}
 
 	public void assignCarePlanButtonenabled() {
-		new WebDriverWait(driver,5).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@ng-click='assignCarePlan()' and contains(@class,'btn-disabled')]")));
+		new WebDriverWait(driver, 5).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//a[@ng-click='assignCarePlan()' and contains(@class,'btn-disabled')]")));
 	}
 
 	public void isubmitCRA() {
@@ -328,82 +305,77 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iVerifyRiskAssessmentnotinlist(String text, String formlist, int n) {
-		new WebDriverWait(driver,05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='formsList']/div/div["+n+"]/div/div[2]/div[2]/div[1]/div/div/div/div")));
+		new WebDriverWait(driver, 05).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='formsList']/div/div[" + n + "]/div/div[2]/div[2]/div[1]/div/div/div/div")));
 	}
 
 	public void verifyFormTypeError(String message) {
-		verifyTextForElement(driver.findElement(By.cssSelector("span.help-block-error")),message);
-		}
+		verifyTextForElement(driver.findElement(By.cssSelector("span.help-block-error")), message);
+	}
 
-	public void ideleteassignedform(String form,int n) {
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]"));
-		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
-		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
+	public void ideleteassignedform(String form, int n) {
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[" + n	+ "]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]"));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n+ "]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
+		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n+ "]/div/div/div[1]/div[2]/a[starts-with(@ng-click,'deleteForm')]")));
 		delay();
 		clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
 		longDelay();
-		}
+	}
 
 	public void ieditedassignedform(String form, int n) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']"));
-		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']")));
-		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']")));
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']"));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']")));
+		clickElement(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]/div[2]/*[@id='edit_BPFirstCallForm']")));
 	}
 
 	public void verifyFormError(String message) {
-		isElementVisible(driver.findElement(By.xpath("//p[contains(text(),'"+message+"')]")));
-		
+		isElementVisible(driver.findElement(By.xpath("//p[contains(text(),'" + message + "')]")));
 	}
 
 	public void iVerifyFirstCallassignedlist(int n) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "First Call assigned");
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")).getAttribute("innerText").trim(), "First Call assigned");
 	}
 
 	public void iVerifySubsequentCallassignedlist(int n) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "Subsequent Call assigned");
-		
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")).getAttribute("innerText").trim(), "Subsequent Call assigned");
 	}
 
 	public void iVerifyAfterHourCallassignedlist(int n) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "After Hour Call assigned");
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")).getAttribute("innerText").trim(), "After Hour Call assigned");
 	}
 
 	public void iVerifyCARLformassignedlist(int n) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]"));
-		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")));
-		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div["+n+"]/div/div/div[1]")).getAttribute("innerText").trim(), "CARL Tool assigned");
-		
+		iWillWaitToSee(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]"));
+		isElementVisible(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")));
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id='assignedForms']/div[" + n + "]/div/div/div[1]")).getAttribute("innerText").trim(), "CARL Tool assigned");
 	}
 
 	public void iFillinDueDatewithenddate(int days) throws ParseException {
 		iWillWaitToSee(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']"));
-		CommonFeature common=new CommonFeature(driver); 
-		String date=common.Newdate.replaceAll("-","");
-		 System.out.println("The End date is"+date);
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");   
-		Calendar cal = Calendar.getInstance();    
-		cal.setTime( dateFormat.parse(date));    
-		cal.add( Calendar.DATE, days );    
-		String convertedDate=dateFormat.format(cal.getTime());    
-		System.out.println("Date increase by one.."+convertedDate);
-
-		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")),"value",convertedDate);
+		CommonFeature common = new CommonFeature(driver);
+		String date = common.Newdate.replaceAll("-", "");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateFormat.parse(date));
+		cal.add(Calendar.DATE, days);
+		String convertedDate = dateFormat.format(cal.getTime());
+		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")), "value",
+				convertedDate);
 	}
 
 	public void verifyExpiredFormError(String message) {
 		iWillWaitToSee(By.xpath("//*[@id='newFormDisabled']"));
-		verifyTextForElement(driver.findElement(By.xpath("//*[@id='newFormDisabled']")),message);
+		verifyTextForElement(driver.findElement(By.xpath("//*[@id='newFormDisabled']")), message);
 	}
-   
+
 }
