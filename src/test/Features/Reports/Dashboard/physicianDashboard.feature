@@ -205,8 +205,9 @@ Feature: Verification of physician report under dashboard
     Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user should see kpi boxes,tabular view in performance scorecard dashboard page
     Given I am on the login page
@@ -242,8 +243,9 @@ Feature: Verification of physician report under dashboard
     And I verify Top 5 "SNF" performance table is appearing on the performance scorecard dashboard page
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify filters are preselected on the performance scorecard page
     Given I am on the login page
@@ -266,7 +268,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
     And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
-    #And I verify "All" is appearing under "physician" filter field in performance scorecard dashboard page
     And I verify "All" is appearing under "payer" filter field in performance scorecard dashboard page
     And I verify "All" is appearing under "participant" filter field in performance scorecard dashboard page
     And I verify "All" is appearing under "initiator" filter field in performance scorecard dashboard page
@@ -274,8 +275,9 @@ Feature: Verification of physician report under dashboard
     And I verify "All" is appearing under "bundle" filter field in performance scorecard dashboard page
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user should be able to drill through of kpi boxes in performance scorecard dashboard page
     Given I am on the login page
@@ -331,10 +333,11 @@ Feature: Verification of physician report under dashboard
     And I switch back to old window
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
-  Scenario Outline: Verify user should be able to drill through top 5 bundle performance values
+  Scenario Outline: Verify user should be able to drill through top 5 bundles by episodes volume
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -353,7 +356,7 @@ Feature: Verification of physician report under dashboard
     And I switch to new window
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
-    Then I verify "Top 5 Bundle Performance" section is appearing on the performance scorecard dashboard page
+    Then I verify "Top 5 Bundles by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
     And I click on a row under top 5 "Bundle" performance table
     And I switch to new window
     Then I wait until loading message disappears in the new window after clicking on element
@@ -362,10 +365,11 @@ Feature: Verification of physician report under dashboard
     And I switch back to old window
 
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
-
-  Scenario Outline: Verify user should be able to drill through top 5 bundle performance values
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+      
+  Scenario Outline: Verify attributed physician filter is preselected in the physician scorecard page
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -383,18 +387,12 @@ Feature: Verification of physician report under dashboard
     When I click the first name under attributed physican column
     And I switch to new window
     Then I wait until loading icon disappears in physician dashboard report
-    Then I verify current page "Performance Scorecard Dashboard" title
-    Then I verify "Top 5 Facility Performance" section is appearing on the performance scorecard dashboard page
-    And I click on a row under top 5 "Facility" performance table
-    And I switch to new window
-    Then I wait until loading message disappears in the new window after clicking on element
-    Then I verify current page "Spending" title
-    Then I will wait to see "Spending" is appearing in the new window
-    And I switch back to old window
-
+    And I verify "physician" filter is not having "All" in the filter
+    
     Examples: 
-      | email                         |
-      | shutestaug231132a@yopmail.com |
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user should be able to drill through post acute care discharge disposition graphs
     Given I am on the login page

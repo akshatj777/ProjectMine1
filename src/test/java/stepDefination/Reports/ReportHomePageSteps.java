@@ -1742,4 +1742,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_attributed_physician_filter_is_appearing_on_physician_dashboard_page() throws Throwable{
     	reportHomePage.iVerifyAttributedPhysicianFilterOnPhysicianPage();
     }
+    
+    @And("^I verify \"([^\"]*)\" filter is not having \"([^\"]*)\" in the filter$")
+    public void i_verify_attributed_filter_is_not_having_in_the_filter(String filter,String text) throws Throwable{
+    	reportHomePage.iVerifyFilterNotHavingTheTextOnScoreCardPage(filter, text);
+    }
 }

@@ -21,7 +21,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 60);
+	WebDriverWait wait = new WebDriverWait(driver, 120);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -1016,7 +1016,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnTop5TableUnderPerformanceScorecardDashboard(String text){
-    	clickElement(driver.findElement(By.cssSelector("#key"+text+"TableObjTable>tbody>tr:nth-child(1)")));
+    	clickElement(driver.findElement(By.cssSelector("#top5"+text+"TableObjTable>tbody>tr:nth-child(1)")));
     }
     
     public void iClickOnBarGraphUnderPostAcuteDischargeDispositionSection(){
@@ -1350,13 +1350,11 @@ public class ReportHomePage extends BaseClass {
     }
 
 	public void ichooseremovereportoptionfromselectoptionoffilterfield() {
-		clickElement(driver.findElement(By.xpath("//*[@id='PM:removeAttr_text']")));
-		
+		clickElement(driver.findElement(By.xpath("//*[@id='PM:removeAttr_text']")));	
 	}
 
 	public void isearchforthefieldfromavailablefield(String text) {
 		iFillInText(driver.findElement(By.cssSelector("#searchField")),text);
-		
 	}
 
 	public void iclickfilterfieldinlayoutsection(String filterTitle,String filterField) {
@@ -1377,5 +1375,9 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyAttributedPhysicianFilterOnPhysicianPage(){
     	isElementVisible(driver.findElement(By.cssSelector("#physicianFilterObj")));
+    }
+    
+    public void iVerifyFilterNotHavingTheTextOnScoreCardPage(String filter,String text){
+    	verifyTextNotPresentForElementFromList("#"+filter+"FilterObj .filter-root-info-selected-item",text);
     }
 }
