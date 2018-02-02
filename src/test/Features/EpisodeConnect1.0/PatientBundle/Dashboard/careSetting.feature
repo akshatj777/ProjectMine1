@@ -29,13 +29,12 @@ Feature: Care Setting and Care Plan
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page
-
+@Fix
   Scenario Outline: Care Type validation for admitting facility for HHH, Expired, Other
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days
     Then I select the "Admit" "caresetting" "<Care Setting>" by "#bp_personbundle_bpadmissiontype_admitFacilityCategory" on add a new transition
-    Then I wait for 4000 milli seconds
     Then I click on the Create Transition Button to add a new transition
     And I should see "Care type is required for the selected care setting" validation message on Transition modal
     Then I click on the Cancel Button on the New Transition on Add Patient page

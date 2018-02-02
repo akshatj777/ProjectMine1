@@ -20,6 +20,7 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnUnderPatientListPage() throws Throwable {
+		iWillWaitToSee(By.xpath("//*[@id='patientsList']/div/div/span/div[1]/a/div/div[1]"));
 		clickElement(driver.findElement(By.xpath("//*[@id='patientsList']/div/div/span/div[1]/a/div/div[1]")));
 	}
 
@@ -157,7 +158,9 @@ public class PatientCarePlan extends BaseClass {
 	}
 
 	public void iClickOnOkButton() throws Throwable {
+		iWillWaitToSee(By.xpath("//button[@class='btn btn-primary'][normalize-space(.) = 'OK']"));
 		clickElement(driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space(.) = 'OK']")));
+		delay();
 	}
 
 	public void iShouldSeeOnPopup(String text) throws Throwable {

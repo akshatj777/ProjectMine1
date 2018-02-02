@@ -5,7 +5,6 @@ Feature: Dashboard Search for Patient
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
-    And I wait for 1000 milli seconds
     Then I should see Tile text <Episode1>
     And I click on the "Episodes" tile
     And I switch to new window

@@ -1,6 +1,7 @@
 Feature: Verification of care plan
 
   @EC1Smoke
+  @Fix
   Scenario: Verify new care plan added through add new care plan - By Issue
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -12,7 +13,6 @@ Feature: Verification of care plan
     When I am on "/secure/admin/care-plan"
     Then I will wait to see "Care Plans" on care plan page
     And I should see "Add new Care Plan" button on care plan page
-    Then I wait for 10000 milli seconds
     When I click on "Add new Care Plan" button on care plan page
     Then I will wait to see "Care Plan Form" on new care plan window
     When I fill the "name" with "CarePlanByIssue Test" on care plan form
@@ -23,6 +23,7 @@ Feature: Verification of care plan
     Then I press Submit button on the care plan form
     Then I wait to see "Care plan "CarePlanByIssue Test" was successfully created."
 
+@Fix
   Scenario: Verify new care plan added through add new care plan - By Bundle
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -34,7 +35,6 @@ Feature: Verification of care plan
     When I am on "/secure/admin/care-plan"
     Then I will wait to see "Care Plans" on care plan page
     And I should see "Add new Care Plan" button on care plan page
-    Then I wait for 10000 milli seconds
     When I click on "Add new Care Plan" button on care plan page
     Then I will wait to see "Care Plan Form" on new care plan window
     When I fill the "name" with "CarePlanByBundle Test" on care plan form

@@ -143,6 +143,7 @@ public class PatientCreationRules extends BaseClass {
     }
     
     public void iClickOnButtonOnCarePlanButton(String text){
+    	iWillWaitToSee((By.xpath(".//*[@id='adminContentContainer']/div/div/div[2]/div[2]/a")));
     	clickElement(driver.findElement(By.xpath(".//*[@id='adminContentContainer']/div/div/div[2]/div[2]/a")));
     }
     

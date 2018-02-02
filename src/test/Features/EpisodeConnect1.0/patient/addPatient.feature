@@ -1,12 +1,11 @@
 @EC1Smoke
 Feature: Episode Connect 1 Add Patient
-
+@Fix
   Scenario Outline: User can see ec1 patients page and add a patient
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field <password> for Login
     Then I click Access button
-    And I wait for 2000 milli seconds
     Then I should see Tile text Episodes
     And I click on the "Episodes" tile
     And I switch to new window

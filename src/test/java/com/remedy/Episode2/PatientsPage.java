@@ -515,6 +515,8 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iSelecteOptionFromDropdownListPresentOnTheAddPatientPage(String detailFileds, String patientDetails) {
+		longDelay();
+		iWillWaitToSee(By.cssSelector("#Patient_Details_" + detailFileds + ""));
 		clickElement(driver.findElement(By.cssSelector("#Patient_Details_" + detailFileds + "")));
 		selectDropdownVisibleElement("#Patient_Details_" + detailFileds + "", patientDetails);
 		delay();
@@ -525,9 +527,10 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iSelectFromTheListOfAdmittingFacilityPresentOnTheAddPatientPage(String facility) {
+		delay();
+		iWillWaitToSee(By.cssSelector("div.select2-search>input.select2-input"));
 		iFillInText(driver.findElement(By.cssSelector("div.select2-search>input.select2-input")), facility);
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".select2-searching"))));
-//		clickElement(driver.findElement(By.cssSelector("ul.select2-results>li>div#select2-result-label-3")));
 		driver.findElements(By.xpath("//div[@id='select2-drop']//ul/li")).get(0).click();
 	}
 	
@@ -608,6 +611,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnAttestationButtonPresentOnThePatientCard() {
+		delay();
 		try{
 		clickElement(driver.findElement(By.xpath("//*[@id='submitButtonAdd']")));
 		}catch(Exception e)
@@ -617,10 +621,13 @@ public class PatientsPage extends BaseClass {
 		}
 
 	public void iClickOnFilterTabPresentOnThePatientsPage(String filtertab) {
+		delay();
+		iWillWaitToSee(By.cssSelector("#filterTab_" + filtertab + ""));
 		clickElement(driver.findElement(By.cssSelector("#filterTab_" + filtertab + "")));
 	}
 
 	public void iClickOnThePatientNamePresentOnThePatientList() {
+		iWillWaitToSee(By.cssSelector("div.ng-scope div.patient-list div.element-title"));
 		clickElement(driver.findElement(By.cssSelector("div.ng-scope div.patient-list div.element-title")));
 	}
 
@@ -1041,6 +1048,7 @@ public class PatientsPage extends BaseClass {
 	}
 
 	public void iClickOnActionsSymbol() {
+		iWillWaitToSee(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div"));
 		clickElement(driver.findElement(By.xpath("//*[@id='ui-transitions-table']/tbody/tr[1]/td[10]/div")));
 	}
 
@@ -1358,6 +1366,7 @@ public class PatientsPage extends BaseClass {
 	}
 	
 	public void iEnterMedicalRecordNumberOnAddPatientPage(String text){
+		delay();
 		iFillInText(driver.findElement(By.cssSelector("#Patient_Details_medicalRecordNumber")), text);
 	}
 	

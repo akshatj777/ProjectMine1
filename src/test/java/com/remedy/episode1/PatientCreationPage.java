@@ -61,6 +61,7 @@ public class PatientCreationPage extends BaseClass {
 	}
 
 	public void iClickOnTabOnPatientPage(String text) {
+		iWillWaitToSee(By.linkText(text));
 		clickElement(driver.findElement(By.linkText(text)));
 	}
 
@@ -77,6 +78,7 @@ public class PatientCreationPage extends BaseClass {
 	}
 
 	public void iClickOnVariousTabOnPatientActivity(String text) {
+		iWillWaitToSee(By.id(text));
 		clickElement(driver.findElement(By.id(text)));
 	}
 }

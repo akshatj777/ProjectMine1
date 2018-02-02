@@ -1,6 +1,6 @@
 @EC1Smoke
 Feature: Patient Matching Test Plan
-
+@Fix
   Scenario Outline: Patient Matching - First Phase - SSN, Medicare ID, Second Phase - LastnameMP, FirstnameMP, Gender
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -45,13 +45,10 @@ Feature: Patient Matching Test Plan
     Then I verify "Add Patient" text is present on the add patient page
     Then I enter duplicate firstname and lastname on Add Patient modal
     And I enter date of birth "11/06/2011" present on the Add Patient Page
-    And I wait for 4000 milli seconds
     And I selected "Male" from the gender drop down list present on the Add Patient page
     And I enter duplicate social security number in the SSN text box field present on Add Patient page
     When I click on Admitting Facility present on the Add Patient page
-    And I wait for 2000 milli seconds
     And I Select "<facility>" from the list of admitting facility present on the Add Patient page
-    And I wait for 4000 milli seconds
     And I enter "23456789" in Medical Record number on Add Patient page
     Then I select "Work" in Address Type on Add Patient page
     And I enter "Street1" in street on Add Patient page
