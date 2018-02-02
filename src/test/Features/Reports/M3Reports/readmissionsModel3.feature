@@ -163,7 +163,7 @@ Feature: Readmission Model3 report verification
     Examples: 
       | email                         | facility | model  |
       | shutestauf171115a@yopmail.com | PGP      | Model3 |
-      
+
   Scenario Outline: User with <model> and having <facility> facility should not see Readmissions Model3 report under nsoc
     Given I am on the login page
     When I enter email field <email> for login
@@ -756,3 +756,48 @@ Feature: Readmission Model3 report verification
       | OPSFINM3SNFSaberHealth@yopmail.com | OPSFIN | SNF         |
       | OPSFINM3HHAVisiting@yopmail.com    | OPSFIN | HHA         |
       | RPFINM3HHASNFVisitQA@yopmail.com   | RPFIN  | SNF and HHA |
+
+  Scenario Outline: User should be able to see eligibilty field in available fields and check the filter values and apply filter in readmissions model3 report under readmissions
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Readmissions" under reports tile text
+    When I click on the Reports Tile with text "Readmissions"
+    Then I click on "Readmissions [Model 3]" report text for Readmissions Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Readmissions EC [Model 3]" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Eligibility" field is appearing in the layout section after selecting add to report
+    Then I verify "Eligibility" column is added to report after selecting add to report option
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Eligibility" in the header text of filter page
+    Then I verify there are no duplicate values in the eligibility filter field list
+    And I should see "<eligibility1>" in the filter value list
+    And I should see "<eligibility2>" in the filter value list
+    And I should see "<eligibility3>" in the filter value list
+    And I should see "<eligibility4>" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
+
+    Examples: 
+      | email                              | role   | facility    | eligibility1 | eligilibilty2 | eligilibilty3 | eligilibilty4 |
+      | RPFINM3SNFSaberHealth@yopmail.com  | RPFIN  | SNF         | ELIGIBLE     | ERROR         | EXPIRED       | NOT_ELIGIBLE  |
+      | RPFINM3HHAVisitingQA@yopmail.com   | RPFIN  | HHA         | ELIGIBLE     | ERROR         | EXPIRED       |               |
+      | OPSFINM3SNFSaberHealth@yopmail.com | OPSFIN | SNF         | ELIGIBLE     | ERROR         | EXPIRED       | NOT_ELIGIBLE  |
+      | OPSFINM3HHAVisiting@yopmail.com    | OPSFIN | HHA         | ELIGIBLE     | ERROR         | EXPIRED       |               |
+      | RPFINM3HHASNFVisitQA@yopmail.com   | RPFIN  | SNF and HHA | ELIGIBLE     | ERROR         | EXPIRED       | NOT_ELIGIBLE  |

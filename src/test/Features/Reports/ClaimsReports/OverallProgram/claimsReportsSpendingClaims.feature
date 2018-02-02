@@ -135,7 +135,7 @@ Feature: Verification Claims Report For Spending
     When I click to "DRG" field filter under "DRG" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
+    Then I verify "DRG" column is added to report after selecting add to report option
     And I verify "<DRG>" is appearing in the drg column rows
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
@@ -676,13 +676,13 @@ Feature: Verification Claims Report For Spending
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "CCN" column is added to report after selecing add to report option
+    Then I verify "CCN" column is added to report after selecting add to report option
     #Post Acute CCN Drag and Drop
     When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Post Acute CCN" column is added to report after selecing add to report option
+    Then I verify "Post Acute CCN" column is added to report after selecting add to report option
     
     Examples: 
       | email                              |
@@ -727,12 +727,12 @@ Feature: Verification Claims Report For Spending
     When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "Post Acute Type" column is added to report after selecing add to report option
+    Then I verify "Post Acute Type" column is added to report after selecting add to report option
     #Drag and Drop(Network tier)
     When I click to "Network Tier" field filter under "Network Tier" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier" column is added to report after selecing add to report option
+    Then I verify "Network Tier" column is added to report after selecting add to report option
     #Filtering
     When I click to "Network Tier" field filter under "Network Tier" filter field
     And I choose "Filter" option from select options of filter field

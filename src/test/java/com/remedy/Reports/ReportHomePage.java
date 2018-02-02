@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.ParseException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 /**
@@ -16,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 60);
+	WebDriverWait wait = new WebDriverWait(driver, 120);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -1119,6 +1121,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeColumnAfterClickingAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//td[@title='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//td[@title='"+text+"']")));
     }
     
@@ -1236,5 +1240,24 @@ public class ReportHomePage extends BaseClass {
     	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']")));
     	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']/div")));
+    }
+    
+    public void iVerifyNoDuplicateValuesInEligilityFilterFieldList(){
+    	int count=getElementCount("#FT_valueList div");
+    	Set list = new HashSet();
+    	for(int i=1;i<=count;i++)
+    	{
+    		String eligible=getTextForElement(driver.findElement(By.cssSelector("#FT_valueList>div:nth-of-type("+i+")")));
+   		    list.add(eligible);
+    	}
+    	Assert.assertEquals(count,list.size());
+    }
+    
+    public void iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]']/span")),text);
+    }
+    
+    public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
     }
 }
