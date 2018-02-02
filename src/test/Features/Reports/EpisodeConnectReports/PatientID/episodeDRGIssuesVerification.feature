@@ -377,7 +377,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
     Then I verify "Patient Risk" column is added to report after selecting add to report option
-    #Onboarding Sttaus Drag and Drop
+    #Onboarding Status Drag and Drop
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared

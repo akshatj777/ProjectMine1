@@ -183,13 +183,8 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
-<<<<<<< HEAD
-    And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
-=======
     And I click on "1st Post Acute Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
->>>>>>> 10073c183b73b64eea42c783d33596dff11b1290
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
@@ -346,13 +341,8 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
-<<<<<<< HEAD
-    Then I enter "1st Post Acute CCN" in the search field textbox for filters
-    And I verify "1st Post Acute CCN" is appearing in the available fields under next site of care summary report
-=======
     Then I enter "Anchor Hospital Discharge Facility CCN" in the search field textbox for filters
     And I verify "Anchor Hospital Discharge Facility CCN" is appearing in the available fields under next site of care summary report
->>>>>>> 10073c183b73b64eea42c783d33596dff11b1290
     And I click on clear search field element
     And I wait until refresh button is disappeared
     #Drag and Drop(Anchor Hospital Discharge Facility CCN)
@@ -535,7 +525,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
     Then I verify "Patient Risk" column is added to report after selecting add to report option
-    #Onboarding Sttaus Drag and Drop
+    #Onboarding Status Drag and Drop
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
