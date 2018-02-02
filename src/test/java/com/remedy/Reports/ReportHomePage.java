@@ -1204,6 +1204,54 @@ public class ReportHomePage extends BaseClass {
     	isElementVisible(driver.findElement(By.xpath("//div[@class='gem dojoDndItem']/div[text()='"+text+"']")));
     }
     
+    public void iClickOnAvatarSymbolToClickOnMenu(){
+    	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-profile")));
+    }
+    
+    public void iShouldNotSeeTextInListAfterClickingOnAvatar(String text){
+    	verifyTextNotPresentForElementFromList("a.btn.btn-flyout-nav[type='submit']",text);
+    }
+    
+    public void iClickOnTabUnderAvatar(String text){
+    	clickElement(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")));
+    }
+    
+    public void iVerifyTextInTheAvatarList(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")),text);
+    }
+    
+    public void iWillWaitToSeeAfterClickingHelpCenter(String text){
+    	iWillWaitToSee(By.xpath("//h1[text()='"+text+"']"));
+    }
+    
+    public void iShouldNotSeeLoginWidget(){
+    	isElementNotPresentOnPage(".auth0-lock-widget-container");
+    }
+    
+    public void iVerifyTabIsAppearingInTheReportingHomePage(String text){
+    	verifyTextForElementfromList(".navigation.clearfix>li>a",text);
+    }
+    
+    public void iClickOnTabOnReportingHelpCenter(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@class='navigation-wrapper nocontent'] //li/a[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTextUnderFieldsInReportingHelpCenter(String reportsTab,String text){
+        verifyTextForElementFromListByXpath("//div[@id='contentBody'] //li[a[text()='"+reportsTab+"']]/ul/li/a", text);
+    }
+    
+    public void iVerifyTextOnTheGlossaryPage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>p:nth-of-type(1)")),text);
+    }
+    
+    public void iShouldSeeTermsAndConditionsListOnGlossaryPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    }
+    
+    public void iVerifyTitleOnTheReportingHelpCenterPage(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector(".row.collapse>h1")),text);
+    }
+    
     public void iVerifyInFilterValueListAfterSelectingFilterOption(String text){
     	StringTokenizer st = new StringTokenizer(text,",");
     	while(st.hasMoreTokens()){
@@ -1259,5 +1307,17 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
     	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
+    }
+    
+    public void iVerifyTextOnTheFAQPage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>h1:nth-of-type(1)")),text);
+    }
+    
+    public void iShouldSeeFAQListOnFAQPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".row.collapse>ul>li>a")));
+    }
+    
+    public void iWillWaitUntillLoadingMessageDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
     }
 }
