@@ -98,10 +98,15 @@ Feature: Super Admin Landing page verification
     And I verify "Users Count" on landing page
     And I verify rows allignment on landing page when the count of users is not a multiple of three
     And I verify "Long email, first name and last name" on landing page
-    And I verify "Name, Role, Email, Creation Date, Account Status" value for users on landing page
+    And I verify "Name" value for users on landing page
+    And I verify "Role" value for users on landing page
+    And I verify "Email" value for users on landing page
+    And I verify "Creation Date" value for users on landing page
+    And I verify "Account Status" value for users on landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
     Then I am navigated to user creation page
+    Then I should see "Add New User" on the user creation page
     Then I click on close icon from user creation page
     Then I select any user
     And I verify that I am navigated to view user page
@@ -133,7 +138,7 @@ Feature: Super Admin Landing page verification
       | Super Admin | Executive | test.automatemail |       1768789 | FirstNameFirstNameFirstNameFirstNameFirst, LastNameLastNameLastNameLastNameLastName | First Name, Last Name |
       | Super Admin | Executive | test.automatemail |       1768789 | Executive                                                                           | First Name, Last Name |
       | Super Admin | Executive | test.automatemail |       1768789 | test.automatemail+mMDqWhjZ@gmail.com                                                | First Name, Last Name |
-      #| Super Admin | Manager   | test.automatemail |               | FirstNameFirstNameFirstNameFirstNameFirst, LastNameLastNameLastNameLastNameLastName | First Name, Last Name |
+      | Super Admin | Manager   | test.automatemail |               | FirstNameFirstNameFirstNameFirstNameFirst, LastNameLastNameLastNameLastNameLastName | First Name, Last Name |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user and cancel unlock
     Given I am on the login page

@@ -35,8 +35,9 @@ public class SuperUserLandingPage extends BaseClass {
 			isElementVisible(driver.findElement(By.cssSelector("th#logicalRoleId")));
 		else if (text.contains("User Email"))
 			isElementVisible(driver.findElement(By.cssSelector("th#email")));
-		else if (text.contains("Date"))
-			isElementVisible(driver.findElement(By.cssSelector("th#insertedDate")));
+		else if (text.contains("Creation Date Column"))
+			//isElementVisible(driver.findElement(By.cssSelector("th#insertedDate")));
+			isElementPresent(By.cssSelector("th#insertedDate"));
 		else if (text.contains("Pagination")) {
 			iWillWaitToSee(By.cssSelector("div.paginator-text"));
 			isElementVisible(driver.findElement(By.cssSelector("div.paginator-text")));
@@ -151,33 +152,35 @@ public class SuperUserLandingPage extends BaseClass {
 		iWillWaitToSee(By.cssSelector("td.five.wide"));
 		do {
 			int size = driver.findElements(By.cssSelector(".five.wide")).size();
-
 			for (int i = 0; i < size; i++) {
-
-				if (text.contains("Account")) {
+				if (text.contains("Account Status")) 
+				{
 					isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(i));
 					//System.out.println("Account status validated for  " + i);
 				}
-				if (text.contains("Email")) {
+				if (text.contains("Email")) 
+				{
 					isElementVisible(driver.findElement(By.cssSelector("td.five.wide")));
 					//System.out.println("email validated for " + i);
 				}
 			}
-
 			int size1 = driver.findElements(By.cssSelector("td.four.wide")).size();
-
-			for (int n = 0; n < size1; n++) {
-				if (text.contains("Name")) {
+			for (int n = 0; n < size1; n++) 
+			{
+				if (text.contains("Name")) 
+				{
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
 					//System.out.println("Name validated for " + n);
 				}
 				n = n + 1;
-				if (text.contains("Role")) {
+				if (text.contains("Role")) 
+				{
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
 					//System.out.println("Role validated for " + (n - 1));
 				}
 				n = n + 1;
-				if (text.contains("Date")) {
+				if (text.contains("Date")) 
+				{
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
 					//System.out.println("Date validated for " + (n - 2));
 				}
@@ -373,8 +376,10 @@ public void iSelectAUser(){
 	
 }
 public void iVerifyViewUserPage(){
+	delay();
 	iWillWaitToSee(By.cssSelector(".two.column.row"));
-	isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
+	//isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
+	isElementPresent(By.cssSelector(".two.column.row"));
 }
 public void iShouldNotSeeErrorMsgOnUsersPage(String text){
 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
