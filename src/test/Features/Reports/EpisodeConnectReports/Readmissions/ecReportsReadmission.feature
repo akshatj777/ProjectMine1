@@ -471,6 +471,7 @@ Feature: Verification of Readmissions EC report
     And I should see "ERROR" in the filter value list
     And I should see "EXPIRED" in the filter value list
     And I should see "NOT_ELIGIBLE" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared

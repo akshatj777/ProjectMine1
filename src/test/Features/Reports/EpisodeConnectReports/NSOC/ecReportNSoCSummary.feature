@@ -22,17 +22,17 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
-    Then I should see "1st Post Acute CCN" for Nsoc Summary under "level" field
+    Then I should see "Anchor Hospital Discharge Facility CCN" for Nsoc Summary under "level" field
     Then I should see "1st Post Acute Facility" for Nsoc Summary under "level" field
     Then I should see "1st Post Acute Type" for Nsoc Summary under "level" field
     Then I should see "Anchor Discharge Care Type" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
     Then I should see "Anchor Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
     Then I should see "DRG Code" appearing under "level" field
@@ -61,12 +61,12 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
-      | email                          |
+      | email                         |
       #| Medicare Payer Users          |
-      | shutestaug231132a@yopmail.com  |
-      #| Multiple Payer Users          |
-      #| multipayerachrpfin@yopmail.com |
+      | shutestaug231132a@yopmail.com |
 
+  #| Multiple Payer Users          |
+  #| multipayerachrpfin@yopmail.com |
   Scenario Outline: Verify user can search for network tier under nsoc summary report
     Given I am on the login page
     When I enter email field <email> for login
@@ -183,14 +183,19 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
+<<<<<<< HEAD
     And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
     And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
+=======
+    And I click on "1st Post Acute Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
+>>>>>>> 10073c183b73b64eea42c783d33596dff11b1290
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Anchor Hospital Facility Type" is appearing under Episodes table
     Then I should verify "1st Post Acute Facility" is appearing under Episodes table
-    Then I should verify "1st Post Acute CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
 
     Examples: 
       | email                         |
@@ -249,7 +254,6 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                           | patientrisk1     | patientrisk2 | patientrisk3 |
       | rmexeallonboradvale@yopmail.com | Calculating Risk | Low          | High         |
 
-
   Scenario Outline: User should see patient risk and onboarding status fields in the patient drill through in next site of care summary report under next site of care
     Given I am on the login page
     When I enter email field <email> for login
@@ -282,7 +286,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
+
   Scenario Outline: User should be able to see eligibilty field in available fields and check the filter values and apply filter in next site of care summary report under NSOC
     Given I am on the login page
     When I enter email field <email> for login
@@ -312,17 +316,18 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I should see "ERROR" in the filter value list
     And I should see "EXPIRED" in the filter value list
     And I should see "NOT_ELIGIBLE" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
-    
+
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      
-  Scenario Outline: User should be able to see 1st post acute ccn and network tier(anchor discharge) and filter the values for network tier(anchor discharge)
+
+  Scenario Outline: User should be able to see Anchor Hospital Discharge Facility CCN and network tier(anchor hospital discharge) and filter the values for network tier(anchor discharge)
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -341,29 +346,34 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
+<<<<<<< HEAD
     Then I enter "1st Post Acute CCN" in the search field textbox for filters
     And I verify "1st Post Acute CCN" is appearing in the available fields under next site of care summary report
+=======
+    Then I enter "Anchor Hospital Discharge Facility CCN" in the search field textbox for filters
+    And I verify "Anchor Hospital Discharge Facility CCN" is appearing in the available fields under next site of care summary report
+>>>>>>> 10073c183b73b64eea42c783d33596dff11b1290
     And I click on clear search field element
     And I wait until refresh button is disappeared
-    #Drag and Drop(1st Post Acute CCN)
-    When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
+    #Drag and Drop(Anchor Hospital Discharge Facility CCN)
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "1st Post Acute CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "1st Post Acute CCN" column is added to report after selecting add to report option
-    #Filtering(1st Post Acute CCN)
-    When I click to "1st Post Acute CCN" field filter under "Anchor Discharge Facility" filter field
+    And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Facility CCN" column is added to report after selecting add to report option
+    #Filtering(Anchor Hospital Discharge Facility CCN)
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "1st Post Acute CCN" in the header text of filter page
-    And I should see "<1stpostacuteccn filter>" in the filter value list
-    And I click on "<1stpostacuteccn filter>" in the filter value list
+    And I should see "Anchor Hospital Discharge Facility CCN" in the header text of filter page
+    And I should see "<dischargefacilityccn filter>" in the filter value list
+    And I click on "<dischargefacilityccn filter>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     #Anchor Discharge Care Setting(SNF and HHA Filtering)
-    When I click to "Anchor Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Discharge Care Setting" in the header text of filter page
+    And I should see "Anchor Hospital Discharge Care Setting" in the header text of filter page
     And I should see "HHA" in the filter value list
     And I should see "SNF" in the filter value list
     And I click on "HHA" in the filter value list
@@ -374,11 +384,11 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     Then I verify "Anchor Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
     #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
-    When I click to "Anchor Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    And I verify "Anchor Discharge Care Setting" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Discharge Care Setting" column is added to report after selecting add to report option
+    And I verify "Anchor Hospital Discharge Care Setting" field is appearing in the layout section after selecting add to report
+    Then I verify "Anchor Hospital Discharge Care Setting" column is added to report after selecting add to report option
     #Network Tier(Anchor Discharge - Tier Unknown)
     When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
@@ -394,11 +404,11 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I verify "Network Tier (Anchor Hospital Discharge) includes Tier Unknown" is appearing under selected network tier anchor discharge filter
 
     Examples: 
-      | email                              | 1stpostacuteccn filter |
-      | shutestaug231132a@yopmail.com      | Not Available          |
-      | reptestachmodel2opsfin@yopmail.com | Not Available          |
-      | shutestaug231132a@yopmail.com      | 0                      |
-      | reptestachmodel2opsfin@yopmail.com | 0                      |
+      | email                              | dischargefacilityccn filter |
+      | shutestaug231132a@yopmail.com      | Not Available               |
+      | reptestachmodel2opsfin@yopmail.com | Not Available               |
+      | shutestaug231132a@yopmail.com      |                           0 |
+      | reptestachmodel2opsfin@yopmail.com |                           0 |
 
   Scenario Outline: User should be able to filter the values for Tier One,Tier Two and Out Of Network under network tier(anchor discharge) filter field
     Given I am on the login page
@@ -463,7 +473,7 @@ Feature: Verification of Next Site of Care Summary EC Report
       | RPFIN2User2@yopmail.com   | Out of Network | Tier 1       | Tier 2       |
       | OPSFINTier1_2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
 
-  Scenario Outline: Verify drag and drop functionality for ccn and network tier(post acute admission) to the report
+  Scenario Outline: Verify drag and drop functionality for ccn to the report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -485,12 +495,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
-    #Drag and Drop(Network Tier Post Acute Admission)
-    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecting add to report option
 
     Examples: 
       | email                   |

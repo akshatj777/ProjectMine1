@@ -17,5 +17,4 @@ public class CreatePGPOrganizationStepDef extends DriverScript {
 	  public void i_Select_Market_On_OrganizationPage(String text, String field) throws Throwable {
 		createPGP.iSelectMarketOnOrganizationPage(text,field);
 	    }
-	
 }
