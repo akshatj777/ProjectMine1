@@ -581,6 +581,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocations(locationList);
 	}
 	
+	@Then("^I select \"([^\"]*)\" locations for PTA user$")
+	public void selectLocationsForPTAUser(String locationList) throws Throwable {
+		createUser.selectLocationsForPTAUser(locationList);
+	}
+	
 	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
 	public void clickAddOrgButton(String flag) throws Throwable {
 		createUser.clickAddHealthSystemButton(flag);
