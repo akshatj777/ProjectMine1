@@ -142,6 +142,7 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iEnterThePatientSearchBoxPresentOnThePatientPage(String patientName) {
+		iWillWaitToSee(By.cssSelector("input#form_search_search"));
 		iFillInText(driver.findElement(By.cssSelector("input#form_search_search")), patientName);
 	}
 

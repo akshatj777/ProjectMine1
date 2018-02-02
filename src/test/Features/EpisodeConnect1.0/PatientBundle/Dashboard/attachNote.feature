@@ -27,7 +27,7 @@ Feature: Attach Note to the Transition
     Then I Expand to the patient summary page
     And I will wait to see "Attestation" in "span" tag
     And I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-
+@Fix
   Scenario: Attach note to the transition
     Then I will wait to see patient's name on patient summary page
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
@@ -41,7 +41,6 @@ Feature: Attach Note to the Transition
     Then I select the "63" DRG value on the Diagnosis and DRG tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    And I wait for 20000 milli seconds
     And I click on first gear menu under Transitions on patient overview
     And I click on "Attach Note" in gear menu option under Transition
     Then I should see "New Note" present on the new note page

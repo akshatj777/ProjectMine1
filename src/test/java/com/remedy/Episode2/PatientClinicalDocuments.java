@@ -461,6 +461,7 @@ public class PatientClinicalDocuments extends BaseClass {
 	}
 
 	public void IclickontheCreateTransitionButtontoaddanewtransition() {
+		 longDelay();
          iWillWaitToSee(By.cssSelector("#submitButton"));
          Actions actions = new Actions(driver);
          actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
@@ -797,6 +798,7 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		
 		public void IClickOnFirstGearMenuUnderTransition() throws InterruptedException {
+			longDelay();
 			iWillWaitToSee(By.xpath("//tbody//i[@class='fa fa-cog']"));
 			longDelay();
 			driver.findElements(By.xpath("//i[@class='fa fa-cog']")).get(1).click();
