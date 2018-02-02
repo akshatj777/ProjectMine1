@@ -30,8 +30,8 @@ Feature: Edit user page for General cases
     And I verify No results found under Learning Pathway search box
 
     Examples: 
-      | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | EnableApplications | Applications                                                | LearningPathwaySearchParameter |
-      | Super Admin | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physician Connect  | Episodes, Episodes 2.0, Reports, Lessons, Physician Connect | rty                            |
+      | User        | PreviousRole | Role       | FirstName       | LastName       | Email             | Phone        | NPI | EnableApplications | Applications                                  | LearningPathwaySearchParameter |
+      | Super Admin | Manager      | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physician Connect  | Episodes, Reports, Lessons, Physician Connect | rty                            |
 
   Scenario Outline: Edit General Information tab with invalid data and verify Error message
     Given I am on the login page
@@ -83,7 +83,7 @@ Feature: Edit user page for General cases
 
     Examples: 
       | User        | UserName                               | Password | Email             | NPI | PreviousRole | Role       | EnableApplications | LearningPathwaySearchParameter |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | Episodes 2.0       |                                |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Executive    | Remedy TCS | Episodes 2.0, TCI  |                                |
 
   Scenario Outline: Changing Role from Physicians to <Role> then back to Physicians and verify, product list in Applications tab and search location by facility id
     Given I am on the login page
@@ -124,8 +124,8 @@ Feature: Edit user page for General cases
     And I verify that "NPI" is "present" on page
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2         | Applications                         |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        4 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes | Physician Connect, Episodes, Reports |
+      | User        | UserName                               | Password | Email             | NPI_previousRole | PreviousRole | PreviousRoleProductCount | NPI | Role              | RoleProductCount | EnableApplications1 | EnableApplications2         | Applications                                  |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail | NPI              | Physicians   |                        4 |     | Remedy Sales Team |                3 | TCI                 | Physician Connect, Episodes | Episodes, Reports, Physician Connect, Lessons |
 
   Scenario Outline: Search location by facility key and bpid and verify results
     Given I am on the login page
@@ -153,12 +153,9 @@ Feature: Edit user page for General cases
     Then I select location by "<facilityKey>"
     Then I search location by "<BPID>" and select "<Locations>"
     Then I click on Submit button
-    And I wait for 5000 milli seconds
-    And I click on Edit button
-    Then I select "Permissions" tab
-    Then I click on "first" existing organisation
-    Then I should see "<facilityKey>" for locations under data permissions
+    And I wait for 3000 milli seconds
+
 
     Examples: 
-      | User        | Role       | Email             | Health System    | Programs    | BPID     | Locations | facilityKey | Health System_invalid | locations_invalid |
-      | Super Admin | Remedy LPN | test.automatemail | Blanchard Valley | BPCI-Model3 | 3056-k60 | Birchaven |      365860 | abc                   | abc               |
+      | User        | Role         | Email             | Health System                                                          | Programs    | BPID     | Locations | facilityKey | Health System_invalid | locations_invalid |
+      | Super Admin | Case Manager | test.automatemail | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | BPCI-Model2 | 2070-023 | Allentown |      390035 | abc                   | abc               |

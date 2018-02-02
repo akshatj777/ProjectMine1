@@ -1072,7 +1072,7 @@ public class CreateUserPage extends BaseClass{
     	   }
     	   
 	   	    }	
-	   }
+	   }else{return;}
    }
    
    public void clickAddHealthSystemButton(String flag) throws Throwable {

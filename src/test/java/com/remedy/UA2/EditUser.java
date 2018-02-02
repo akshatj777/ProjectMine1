@@ -233,6 +233,7 @@ public class EditUser extends BaseClass {
 			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 			   clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
+			   delay();
 		   }
 		   
 	   }
@@ -328,13 +329,13 @@ public class EditUser extends BaseClass {
 			   while (st.hasMoreTokens()){
 				   String tok = st.nextToken().trim();
 				   String token="("+tok+")";
-				   iWillWaitToSee(By.xpath("//*[contains(text(),'(')]"));
+				   iWillWaitToSee(By.xpath("//*[contains(text(),'"+token+"')]"));
 				   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
 			   }
 		   }
 		   else{
 			   String token="("+key+")";
-			   iWillWaitToSee(By.xpath("//*[contains(text(),'(')]"));
+			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+token+"')]"));
 			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
 		   }
 	   }
@@ -347,7 +348,7 @@ public class EditUser extends BaseClass {
 		       while (st.hasMoreTokens()) {
 		    	   String token = st.nextToken().trim();
 		    	   String facToken="("+token+")";
-		    	 
+		    	   delay();
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), token);
 		    	   
 		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facToken+"')]"));
@@ -359,7 +360,7 @@ public class EditUser extends BaseClass {
 			   }
 			   else{
 				   String facilityKey="("+key+")";
-				  
+				   delay();
 				   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), key);
 		    	   
 		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facilityKey+"')]"));
