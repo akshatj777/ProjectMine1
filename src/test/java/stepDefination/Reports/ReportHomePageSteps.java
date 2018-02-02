@@ -1439,7 +1439,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iShouldNotSeeElementInTheFilterValueList(text);
     }
     
-    @Then("^I verify \"([^\"]*)\" column is added to report after selecing add to report option$")
+    @Then("^I verify \"([^\"]*)\" column is added to report after selecting add to report option$")
     public void i_velrify_column_is_added_to_report_after_selecting_add_to_report_option(String text) throws Throwable{
     	reportHomePage.iShouldSeeColumnAfterClickingAddToReport(text);
     }
@@ -1534,6 +1534,89 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyFieldInTheLayoutSectionAfterAddToReport(text);
     }
     
+    @Then("^I click on avatar symbol to see the menu$")
+    public void i_click_on_avatar_symbol_to_see_the_menu() throws Throwable{
+    	reportHomePage.iClickOnAvatarSymbolToClickOnMenu();
+    }
+    
+    @And("^I should not see \"([^\"]*)\" is present in the list after clicking on avatar$")
+    public void i_should_not_see_is_present_in_the_list_after_clicking_on_avatar(String text) throws Throwable{
+    	reportHomePage.iShouldNotSeeTextInListAfterClickingOnAvatar(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" tab after clicking on avatar symbol to redirect to reporting help center page$")
+    public void i_click_on_tab_after_clicking_on_avatar_symbol_to_redirect_to_reporting_help_center_page(String text) throws Throwable{
+    	reportHomePage.iClickOnTabUnderAvatar(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing in the list after clicking on avatar$")
+    public void i_verify_is_appearing_in_the_list_after_clicking_on_avatar(String text) throws Throwable{
+    	reportHomePage.iVerifyTextInTheAvatarList(text);
+    }
+    
+    @Then("^I wait to see \"([^\"]*)\" in the new tab after clicking on help center$")
+    public void i_wait_to_see_in_the_new_tab_after_clicking_on_help_center(String text) throws Throwable{
+    	reportHomePage.iWillWaitToSeeAfterClickingHelpCenter(text);
+    }
+    
+    @And("^I should not see login widget after switching to a new tab$")
+    public void i_should_not_see_login_widget_after_switching_to_a_new_tab() throws Throwable{
+    	reportHomePage.iShouldNotSeeLoginWidget();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" tab is appearing in the reporting help center page$")
+    public void i_verify_tab_is_appearing_in_the_reporting_help_center_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTabIsAppearingInTheReportingHomePage(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" tab on the reporting help center page$")
+    public void i_click_on_tab_on_the_reporting_help_center_page(String text) throws Throwable{
+    	reportHomePage.iClickOnTabOnReportingHelpCenter(text);
+    }
+    
+    @Then("^I should see following text under using reports section in reporting help center page$")
+    public void i_should_see_following_text_under_using_reports_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+        for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Using Reports", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I should see following text under reports by category section in reporting help center page$")
+    public void i_should_see_following_text_under_reports_by_category_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+    	for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Reports by Category", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I should see following text under reports by title section in reporting help center page$")
+    public void i_should_see_following_text_under_reports_by_title_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+    	for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Reports by Title", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I should see following text under report insights section in reporting help center page$")
+    public void i_should_see_following_text_under_reports_insights_section_in_reporting_help_center_page(List<String> textlinks) throws Throwable {
+    	for (int i=0; i<textlinks.size(); i++) {
+            reportHomePage.iVerifyTextUnderFieldsInReportingHelpCenter("Report Insights", textlinks.get(i));
+        }
+    }
+    
+    @Then("^I verify \"([^\"]*)\" text is appearing in the glossary page$")
+    public void i_verify_text_is_appearing_in_the_glossary_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTextOnTheGlossaryPage(text);
+    }
+    
+    @And("^I should be able to see terms and conditions list mentioned in the glossary page$")
+    public void i_should_be_able_to_see_terms_and_conditions_list_mentioned_in_the_glossary_page() throws Throwable {
+    	reportHomePage.iShouldSeeTermsAndConditionsListOnGlossaryPage();
+    }
+    
+    @Then("^I should see \"([^\"]*)\" text is appearing on the help center page$")
+    public void i_should_see_text_is_appearing_on_the_help_center_page(String text) throws Throwable {
+    	reportHomePage.iVerifyTitleOnTheReportingHelpCenterPage(text);
+    }
+    
     @And("^I should see \"([^\"]*)\" in the value list after selecting filter$")
     public void i_should_see_in_the_value_list_after_selecting_filter(String text) throws Throwable{
     	reportHomePage.iVerifyInFilterValueListAfterSelectingFilterOption(text);
@@ -1562,5 +1645,35 @@ public class ReportHomePageSteps extends DriverScript {
     @When("^I click on \"([^\"]*)\" field which is listed under \"([^\"]*)\" filter from available fields$")
     public void i_click_to_value_in_the_available_fields(String text,String filter) throws Throwable{
     	reportHomePage.iClickOnFieldUnderAvailableFieldsInReports(text,filter);
+    }
+    
+    @Then("^I verify there are no duplicate values in the eligibility filter field list$")
+    public void i_verify_there_are_no_duplicate_values_in_the_eligility_filter_field_list() throws Throwable{
+    	reportHomePage.iVerifyNoDuplicateValuesInEligilityFilterFieldList();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected anchor discharge care setting filter$")
+    public void i_verify_is_appearing_under_selected_anchor_discharge_care_setting_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected network tier anchor discharge filter$")
+    public void i_verify_is_appearing_under_selected_network_tier_anchor_discharge_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" text is appearing in the FAQ page$")
+    public void i_verify_text_is_appearing_in_the_FAQ_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTextOnTheFAQPage(text);
+    }
+    
+    @And("^I should be able to see FAQ links list mentioned in the FAQ page$")
+    public void i_should_be_able_to_see_FAQ_links_list_mentioned_in_the_FAQ_page() throws Throwable{
+    	reportHomePage.iShouldSeeFAQListOnFAQPage();
+    }
+    
+    @Then("^I wait untill page loading message disappears$")
+    public void i_wait_untill_page_loading_message_disappears() throws Throwable{
+    	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
     }
 }
