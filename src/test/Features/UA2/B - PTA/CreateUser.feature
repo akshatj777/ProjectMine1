@@ -167,13 +167,13 @@ Feature: Create User - PTA User
     And I click on submit button to set new password
 
     Examples: 
-      | Description | User | FirstName | LastName | Email | Phone | Role | Applications | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System1 | Programs1 | Locations1 | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Description                                                                                         | User                            | FirstName                                 | LastName                                 | Email             | Phone      | Role                      | Applications                         | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                                                                                                                               | Health System1 | Programs1   | Locations1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Login with Partner Technical Administrator User and create user with Executive role                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Executive                 | Episodes                             | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Manager role                   | Partner Technical Administrator | FirstName                                 | lastnamelastnamelastnamelastnamelastname | test.automatemail |            | Manager                   | Episodes, Reports                    | Episodes 2.0, Administration, Physician Connect, TCI |     | 5HDc3E6aK_E1, p11D0Vl2FSg1, qfy2xp8zSFc1, 18h7phZr1h81, n9yn5n0Qa581                                                                                                         | Covenant       | BPCI-Model3 | 3056-808--Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Case Manager role              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | test.automatemail |            | Case Manager              | Episodes, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, qfy2xp8zSFc1, 18h7phZr1h81, n9yn5n0Qa581                                                        | Covenant       | BPCI-Model3 | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-811--Buena Vista Care Center, 3056-812--Gilroy Healthcare And Rehabilitation Center, 3056-813--Eagle Point Nursing & Rehabilitation Center, 3056-814--Cedar Ridge Health Rehab Center, 3056-815--Ennoble Skilled Nursing And Rehabilitation Center, 3056-816--Friendship Skilled Nursing & Rehabilitation Center, 3056-817--Covington Manor Health And  Rehabilitation Center, 3056-818--Clinton House Health And Rehab Center, 3056-819--Edgewood Manor Nursing Center, 3056-820--Fairview Skilled Nursing And Rehabilitation Center |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Physicians role                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Physicians                | Episodes, Reports, Physician Connect | Episodes 2.0, Administration, TCI                    | NPI | 5HDc3E6aK_E1, p11D0Vl2FSg1, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University                                                  | Covenant       | BPCI-Model3 | 3056-i37--Pacific Coast Manor, 3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, 3056-i39--Pyramid Point Post-acute Rehabilitation Center, 3056-i40--Hilltop Skilled Nursing, 3056-i41--Mccormick's Creek                                                                                                                                                                                                                                                                                                                                                                                                           |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Transitional Case Manager role | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | test.automatemail | 9988776655 | Transitional Case Manager | Reports                              | Episodes 2.0,Administration, Physician Connect, TCI  |     | 5HDc3E6aK_E1, Remedy University                                                                                                                                              | Covenant       | BPCI-Model3 | 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown, 3056-i45--Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                  |                |           |            |                  |                |           |            |
 
-  #| Login with Partner Technical Administrator User and create user with Executive role                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Executive                 | Episodes                             | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Manager role                   | Partner Technical Administrator | FirstName                                 | lastnamelastnamelastnamelastnamelastname | test.automatemail |            | Manager                   | Episodes, Reports                    | Episodes 2.0, Administration, Physician Connect, TCI |     | 5HDc3E6aK_E1, p11D0Vl2FSg1, qfy2xp8zSFc1, 18h7phZr1h81, n9yn5n0Qa581                                                                                                         | Covenant       | BPCI-Model3 | 3056-808--Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Case Manager role              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | test.automatemail |            | Case Manager              | Episodes, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, qfy2xp8zSFc1, 18h7phZr1h81, n9yn5n0Qa581                                                        | Covenant       | BPCI-Model3 | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-811--Buena Vista Care Center, 3056-812--Gilroy Healthcare And Rehabilitation Center, 3056-813--Eagle Point Nursing & Rehabilitation Center, 3056-814--Cedar Ridge Health Rehab Center, 3056-815--Ennoble Skilled Nursing And Rehabilitation Center, 3056-816--Friendship Skilled Nursing & Rehabilitation Center, 3056-817--Covington Manor Health And  Rehabilitation Center, 3056-818--Clinton House Health And Rehab Center, 3056-819--Edgewood Manor Nursing Center, 3056-820--Fairview Skilled Nursing And Rehabilitation Center |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Physicians role                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Physicians                | Episodes, Reports, Physician Connect | Episodes 2.0, Administration, TCI                    | NPI | 5HDc3E6aK_E1, p11D0Vl2FSg1, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University                                                  | Covenant       | BPCI-Model3 | 3056-i37--Pacific Coast Manor, 3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, 3056-i39--Pyramid Point Post-acute Rehabilitation Center, 3056-i40--Hilltop Skilled Nursing, 3056-i41--Mccormick's Creek                                                                                                                                                                                                                                                                                                                                                                                                           |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Transitional Case Manager role | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | test.automatemail | 9988776655 | Transitional Case Manager | Reports                              | Episodes 2.0,Administration, Physician Connect, TCI  |     | 5HDc3E6aK_E1, Remedy University                                                                                                                                              | Covenant       | BPCI-Model3 | 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown, 3056-i45--Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                  |                |           |            |                  |                |           |            |
   Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
@@ -239,13 +239,13 @@ Feature: Create User - PTA User
     And I should see Log in widget
 
     Examples: 
-      | Description | User | FirstName | LastName | Role | Applications | ApplicationsNotVisible | Roletext | ReportCategory | ReportName | BPID | LearningPathway | Facilities |
+      | Description                                                                          | User                            | FirstName                                 | LastName                                 | Role                      | Applications                              | ApplicationsNotVisible                                             | Roletext       | ReportCategory | ReportName                   | BPID | LearningPathway                                                                                                                                                              | Facilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, TCI                             | Episodes 2.0, Reports, Lessons, Administration, Physician Connect  | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Catered Manor Nursing Center, Downey Care Center, Encinitas Nursing and Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI                    | Episodes 2.0, Administration, Physician Connect, Lessons           | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, TCI                             | Episodes 2.0, Administration, Physician Connect, Reports           | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Courtyard Health Care Center, Emerald Gardens Nursing Center, Buena Vista Care Center, Gilroy Healthcare and Rehabilitation Center, Eagle Point Nursing & Rehabilitation Center, Cedar Ridge Health Rehab Center, Ennoble Skilled Nursing and Rehabilitation Center, Friendship Skilled Nursing & Rehabilitation Center, Covington Manor Health and  Rehabilitation Center, Clinton House Health and Rehab Center, Edgewood Manor Nursing Center, Fairview Skilled Nursing and Rehabilitation Center |
+      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, Physician Connect, TCI | Episodes 2.0, Administration, Lessons                              | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek                                                                                                                                                                                                                                                                                                                                     |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Reports, TCI                              | Episodes, Episodes 2.0, Administration, Physician Connect, Lessons | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Remedy University                                                                                                                                | Palo Alto Sub-Acute, Meadow Manor, Villa Georgetown, Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-  #| Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, TCI                             | Episodes 2.0, Reports, Lessons, Administration, Physician Connect  | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Catered Manor Nursing Center, Downey Care Center, Encinitas Nursing and Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                        |
-  #| Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI                    | Episodes 2.0, Administration, Physician Connect, Lessons           | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-  #| Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, TCI                             | Episodes 2.0, Administration, Physician Connect, Reports           | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Courtyard Health Care Center, Emerald Gardens Nursing Center, Buena Vista Care Center, Gilroy Healthcare and Rehabilitation Center, Eagle Point Nursing & Rehabilitation Center, Cedar Ridge Health Rehab Center, Ennoble Skilled Nursing and Rehabilitation Center, Friendship Skilled Nursing & Rehabilitation Center, Covington Manor Health and  Rehabilitation Center, Clinton House Health and Rehab Center, Edgewood Manor Nursing Center, Fairview Skilled Nursing and Rehabilitation Center |
-  #| Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, Physician Connect, TCI | Episodes 2.0, Administration, Lessons                              | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek                                                                                                                                                                                                                                                                                                                                     |
-  #| Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Reports, TCI                              | Episodes, Episodes 2.0, Administration, Physician Connect, Lessons | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Remedy University                                                                                                                                | Palo Alto Sub-Acute, Meadow Manor, Villa Georgetown, Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                 |
   Scenario Outline: <Description>
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account
@@ -328,13 +328,13 @@ Feature: Create User - PTA User
     And I click on submit button to set new password
 
     Examples: 
-      | Description | User | FirstName | LastName | Email | Phone | Role | Applications | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter | Health System1 | Programs1 | Locations1 | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Description                                                                                         | User                            | FirstName                                 | LastName                                 | Email             | Phone      | Role                      | Applications                                  | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                                                                     | Health System1 | Programs1   | Locations1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Login with Partner Technical Administrator User and create user with Executive role                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Executive                 | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Manager role                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | test.automatemail |            | Manager                   | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | p11D0Vl2FSg1, qfy2xp8zSFc1, 18h7phZr1h81, n9yn5n0Qa581                                                             | Covenant       | BPCI-Model3 | 3056-808--Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Case Manager role              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | test.automatemail |            | Case Manager              | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External                                                                                         | Covenant       | BPCI-Model3 | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-811--Buena Vista Care Center, 3056-812--Gilroy Healthcare And Rehabilitation Center, 3056-813--Eagle Point Nursing & Rehabilitation Center, 3056-814--Cedar Ridge Health Rehab Center, 3056-815--Ennoble Skilled Nursing And Rehabilitation Center, 3056-816--Friendship Skilled Nursing & Rehabilitation Center, 3056-817--Covington Manor Health And  Rehabilitation Center, 3056-818--Clinton House Health And Rehab Center, 3056-819--Edgewood Manor Nursing Center, 3056-820--Fairview Skilled Nursing And Rehabilitation Center |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Physicians role                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Physicians                | Episodes, Reports, Physician Connect, Lessons | Episodes 2.0, Administration, TCI                    | NPI | p11D0Vl2FSg1, Executive Acute Care Hospital Model 2                                                                | Covenant       | BPCI-Model3 | 3056-i37--Pacific Coast Manor, 3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, 3056-i39--Pyramid Point Post-acute Rehabilitation Center, 3056-i40--Hilltop Skilled Nursing, 3056-i41--Mccormick's Creek                                                                                                                                                                                                                                                                                                                                                                                                           |                  |                |           |            |                  |                |           |            |
+      | Login with Partner Technical Administrator User and create user with Transitional Case Manager role | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | test.automatemail | 9988776655 | Transitional Case Manager | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | 5HDc3E6aK_E1, p11D0Vl2FSg1, qfy2xp8zSFc1, 18h7phZr1h81                                                             | Covenant       | BPCI-Model3 | 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown, 3056-i45--Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                  |                |           |            |                  |                |           |            |
 
-  #| Login with Partner Technical Administrator User and create user with Executive role                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Executive                 | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Manager role                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | test.automatemail |            | Manager                   | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | p11D0Vl2FSg1, qfy2xp8zSFc1, 18h7phZr1h81, n9yn5n0Qa581                                                             | Covenant       | BPCI-Model3 | 3056-808--Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Case Manager role              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | test.automatemail |            | Case Manager              | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External                                                                                         | Covenant       | BPCI-Model3 | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-811--Buena Vista Care Center, 3056-812--Gilroy Healthcare And Rehabilitation Center, 3056-813--Eagle Point Nursing & Rehabilitation Center, 3056-814--Cedar Ridge Health Rehab Center, 3056-815--Ennoble Skilled Nursing And Rehabilitation Center, 3056-816--Friendship Skilled Nursing & Rehabilitation Center, 3056-817--Covington Manor Health And  Rehabilitation Center, 3056-818--Clinton House Health And Rehab Center, 3056-819--Edgewood Manor Nursing Center, 3056-820--Fairview Skilled Nursing And Rehabilitation Center |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Physicians role                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Physicians                | Episodes, Reports, Physician Connect, Lessons | Episodes 2.0, Administration, TCI                    | NPI | p11D0Vl2FSg1, Executive Acute Care Hospital Model 2                                                                | Covenant       | BPCI-Model3 | 3056-i37--Pacific Coast Manor, 3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, 3056-i39--Pyramid Point Post-acute Rehabilitation Center, 3056-i40--Hilltop Skilled Nursing, 3056-i41--Mccormick's Creek                                                                                                                                                                                                                                                                                                                                                                                                           |                  |                |           |            |                  |                |           |            |
-  #| Login with Partner Technical Administrator User and create user with Transitional Case Manager role | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | test.automatemail | 9988776655 | Transitional Case Manager | Episodes, Reports, Lessons                    | Episodes 2.0, Administration, Physician Connect, TCI |     | 5HDc3E6aK_E1, p11D0Vl2FSg1, qfy2xp8zSFc1, 18h7phZr1h81                                                             | Covenant       | BPCI-Model3 | 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown, 3056-i45--Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                  |                |           |            |                  |                |           |            |
   Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
@@ -400,203 +400,206 @@ Feature: Create User - PTA User
     And I should see Log in widget
 
     Examples: 
-      | Description | User | FirstName | LastName | Role | Applications | ApplicationsNotVisible | Roletext | ReportCategory | ReportName | BPID | LearningPathway | Facilities |
+      | Description                                                                          | User                            | FirstName                                 | LastName                                 | Role                      | Applications                                       | ApplicationsNotVisible                          | Roletext       | ReportCategory | ReportName                   | BPID | LearningPathway                                                                                                                                           | Facilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                        | Catered Manor Nursing Center, Downey Care Center, Encinitas Nursing and Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          | Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External                                                                                                                                | Courtyard Health Care Center, Emerald Gardens Nursing Center, Buena Vista Care Center, Gilroy Healthcare and Rehabilitation Center, Eagle Point Nursing & Rehabilitation Center, Cedar Ridge Health Rehab Center, Ennoble Skilled Nursing and Rehabilitation Center, Friendship Skilled Nursing & Rehabilitation Center, Covington Manor Health and  Rehabilitation Center, Clinton House Health and Rehab Center, Edgewood Manor Nursing Center, Fairview Skilled Nursing and Rehabilitation Center |
+      | Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, Physician Connect, TCI, Lessons | Episodes 2.0, Administration                    | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                                                    | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek                                                                                                                                                                                                                                                                                                                                     |
+      | Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | Palo Alto Sub-Acute, Meadow Manor, Villa Georgetown, Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-  #| Login with Executive and verify Product Tiles and their redirections                 | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Executive                 | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                        | Catered Manor Nursing Center, Downey Care Center, Encinitas Nursing and Rehabilitation Center                                                                                                                                                                                                                                                                                                                                                                                                        |
-  #| Login with Manager and verify Product Tiles and their redirections                   | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | Manager                   | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_PRM       | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          | Arbor Nursing Center                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-  #| Login with Case Manager and verify Product Tiles and their redirections              | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastName                                 | Case Manager              | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External                                                                                                                                | Courtyard Health Care Center, Emerald Gardens Nursing Center, Buena Vista Care Center, Gilroy Healthcare and Rehabilitation Center, Eagle Point Nursing & Rehabilitation Center, Cedar Ridge Health Rehab Center, Ennoble Skilled Nursing and Rehabilitation Center, Friendship Skilled Nursing & Rehabilitation Center, Covington Manor Health and  Rehabilitation Center, Clinton House Health and Rehab Center, Edgewood Manor Nursing Center, Fairview Skilled Nursing and Rehabilitation Center |
-  #| Login with Physicians and verify Product Tiles and their redirections                | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName      | LastNameLastNameLastNameLastNameLastName | Physicians                | Episodes, Reports, Physician Connect, TCI, Lessons | Episodes 2.0, Administration                    | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2                                                                    | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek                                                                                                                                                                                                                                                                                                                                     |
-  #| Login with Transitional Case Manager and verify Product Tiles and their redirections | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | Transitional Case Manager | Episodes, Reports, TCI, Lessons                    | Episodes 2.0, Administration, Physician Connect | ROLE_TCS       | Patient ID     | Episode DRG Issues [Model 3] |      | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | Palo Alto Sub-Acute, Meadow Manor, Villa Georgetown, Highland Health                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-  #Scenario: Verify NPI on the EC1 tile
-  #Given I am on the login page
-  #When I enter email field qa.admin@yopmail.com for login
-  #And I enter password field Episode1! for Login
-  #And I click Access button
-  #And I click on Episode1 tile for "Partner Technical Administrator-Physicians" user
-  #And I switch to new window
-  #And I verify "Dashboard" after redirection to EC1 for "Partner Technical Administrator-Physicians" user
-  #And I verify NPI on ECI for "Partner Technical Administrator-Physicians" user
-  #Scenario Outline: <Description>
-  #Given I am on the login page
-  #Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
-  #Then I enter newuser password for login to Remedy
-  #Then I click Access button
-  #Then I should see Tile text User Admin
-  #And I click on the "User Admin" tile
-  #Then I should see header text "Users"
-  #When I click on Add User button
-  #Then I should see "Add New User" on the user creation page
-  #Then I verify the header "General Information"
-  #And I fill in First Name with "<FirstName>"
-  #Then I fill in Last Name with <LastName>
-  #And I enter Email "<Email>" to Create user
-  #And I enter Phone field with <Phone>
-  #When I click the Organizational Role Field
-  #Then I pick a Organizational <Role>
-  #Then I enter NPI field with "<NPI>" for role "<Role>"
-  #And I switch the focus to Next button
-  #Then I verify the validation message "<ValidationMsg>" on Create User Page
-  #
-  #Examples:
-  #| Description                                           | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
-  #| Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required |
-  #| Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required  |
-  #| Verify validation message for blank Email             | First Name | Last Name |                   | 9874563210 | Executive  |            | Email is required      |
-  #| Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required       |
-  #| Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
-  #| Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Email is required      |
-  #| Verify validation message for invalid Phone           | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Phone is required      |
-  #| Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
-  #| Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
-  #| Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
-  #
-  #Scenario Outline: Verify validation message for invalid lesson name in search box
-  #Given I am on the login page
-  #Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
-  #Then I enter newuser password for login to Remedy
-  #Then I click Access button
-  #Then I should see Tile text User Admin
-  #And I click on the "User Admin" tile
-  #Then I should see header text "Users"
-  #When I click on Add User button
-  #Then I should see "Add New User" on the user creation page
-  #Then I verify the header "General Information"
-  #And I fill in First Name with "First Name"
-  #Then I fill in Last Name with Last Name
-  #And I enter Email "test.automatemail" to Create user
-  #When I click the Organizational Role Field
-  #Then I pick a Organizational <Role>
-  #Then I click on Next button
-  #Then I verify the header "Applications"
-  #Then I verify Learning Pathway search box is not available
-  #Then I select "<Applications>" product
-  #Then I click on Select button
-  #Then I verify Learning Pathway search box is available
-  #Then I enter "<LearningPathwayName>" in Learning Pathway search box
-  #And I verify No results found under Learning Pathway search box
-  #
-  #Examples:
-  #| Role      | Applications               | LearningPathwayName |
-  #| Executive | Episodes, Reports, Lessons | Test123             |
-  #
-  #Scenario Outline: Verify auto selected programs in Organizations
-  #Given I am on the login page
-  #Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
-  #Then I enter newuser password for login to Remedy
-  #Then I click Access button
-  #Then I should see Tile text User Admin
-  #And I click on the "User Admin" tile
-  #Then I should see header text "Users"
-  #When I click on Add User button
-  #Then I should see "Add New User" on the user creation page
-  #Then I verify the header "General Information"
-  #And I fill in First Name with "FirstName"
-  #Then I fill in Last Name with LastName
-  #And I enter Email "test.automatemail" to Create user
-  #When I click the Organizational Role Field
-  #Then I pick a Organizational <Role>
-  #Then I click on Next button
-  #Then I verify the header "Applications"
-  #Then I select "<Applications>" product
-  #Then I click on Next button
-  #Then I verify the header "Permissions"
-  #Then I verify default program "BPCI-Model3" associated with organization
-  #
-  #Examples:
-  #| Role      | Applications               | Health System |
-  #| Executive | Episodes, Reports, Lessons | Covenant      |
-  #
-  #Scenario: Verify the functionality of back/Cancel button and tabs on the left on create user page
-  #Given I am on the login page
-  #Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
-  #Then I enter newuser password for login to Remedy
-  #Then I click Access button
-  #Then I should see Tile text User Admin
-  #And I click on the "User Admin" tile
-  #Then I should see header text "Users"
-  #When I click on Add User button
-  #Then I should see "Add New User" on the user creation page
-  #Then I verify the header "General Information"
-  #And I fill in First Name with "First Name"
-  #Then I fill in Last Name with LastName
-  #And I enter Email "test.automatemail" to Create user
-  #When I click the Organizational Role Field
-  #Then I pick a Organizational Executive
-  #Then I click on Next button
-  #Then I verify the header "Applications"
-  #Then I click on "General Information" tab on the left
-  #Then I verify the header "General Information"
-  #Then I click on "Applications" tab on the left
-  #Then I verify the header "Applications"
-  #Then I select "Episodes, Reports" product
-  #Then I click on Next button
-  #Then I verify the header "Permissions"
-  #Then I click on Back button
-  #Then I verify the header "Applications"
-  #Then I click on Next button
-  #Then I verify the header "Permissions"
-  #Then I click on "General Information" tab on the left
-  #Then I verify the header "General Information"
-  #Then I click on "Applications" tab on the left
-  #Then I verify the header "Applications"
-  #Then I click on "Permissions" tab on the left
-  #Then I verify the header "Permissions"
-  #Then I click on Select All Locations button
-  #Then I click on Cancel button
-  #Then I should see header text "Users"
-  #
-  #Scenario: Verify the functionality of Cross button on Permissions Tab on Create User page
-  #Given I am on the login page
-  #Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
-  #Then I enter newuser password for login to Remedy
-  #Then I click Access button
-  #Then I should see Tile text User Admin
-  #And I click on the "User Admin" tile
-  #Then I should see header text "Users"
-  #When I click on Add User button
-  #Then I should see "Add New User" on the user creation page
-  #And I fill in First Name with "First Name"
-  #Then I fill in Last Name with LastName
-  #And I enter Email "test.automatemail" to Create user
-  #When I click the Organizational Role Field
-  #Then I pick a Organizational Executive
-  #Then I click on Next button
-  #Then I verify the header "Applications"
-  #Then I select "Episodes, Reports" product
-  #Then I click on Next button
-  #Then I click on Cross button
-  #Then I should see header text "Users"
-  #Scenario Outline: Verify removal of role and changing of the role to see the impact in the available applications
-  #Given I am on the login page
-  #Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
-  #Then I enter newuser password for login to Remedy
-  #Then I click Access button
-  #Then I should see Tile text User Admin
-  #And I click on the "User Admin" tile
-  #Then I should see header text "Users"
-  #When I click on Add User button
-  #Then I should see "Add New User" on the user creation page
-  #Then I verify the header "General Information"
-  #And I fill in First Name with "FirstName"
-  #Then I fill in Last Name with LastName
-  #And I enter Email "test.automatemail" to Create user
-  #When I click the Organizational Role Field
-  #Then I pick a Organizational <Role1>
-  #Then I click on Next button
-  #Then I verify the header "Applications"
-  #Then I verify applications "<Applications1>" are unchecked
-  #Then I click on "General Information" tab on the left
-  #Then I verify the header "General Information"
-  #When I click the already selected Organizational Role Field
-  #Then I pick a Organizational <Role2>
-  #Then I enter NPI field with "<NPI>" for role "<Role2>"
-  #Then I click on Next button
-  #Then I verify the header "Applications"
-  #Then I verify applications "<Applications2>" are unchecked
-  #
-  #Examples:
-  #| Role1     | Applications1              | Role2      | Applications2                                 | NPI |
-  #| Executive | Episodes, Reports, Lessons | Physicians | Episodes, Reports, Physician Connect, Lessons | NPI |
+  Scenario: Verify NPI on the EC1 tile
+    Given I am on the login page
+    When I enter email field qa.admin@yopmail.com for login
+    And I enter password field Episode1! for Login
+    And I click Access button
+    And I click on Episode1 tile for "Partner Technical Administrator-Physicians" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "Partner Technical Administrator-Physicians" user
+    And I verify NPI on ECI for "Partner Technical Administrator-Physicians" user
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    And I enter Phone field with <Phone>
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    And I switch the focus to Next button
+    Then I verify the validation message "<ValidationMsg>" on Create User Page
+
+    Examples: 
+      | Description                                           | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
+      | Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required |
+      | Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required  |
+      | Verify validation message for blank Email             | First Name | Last Name |                   | 9874563210 | Executive  |            | Email is required      |
+      | Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required       |
+      | Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
+      | Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Email is required      |
+      | Verify validation message for invalid Phone           | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Phone is required      |
+      | Verify validation message for NPI less than 10 digits | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
+      | Verify validation message for NPI as alphabets        | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
+      | Verify validation message for NPI as alphanumeric     | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
+
+  Scenario Outline: Verify validation message for invalid lesson name in search box
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "First Name"
+    Then I fill in Last Name with Last Name
+    And I enter Email "test.automatemail" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I click on Select button
+    Then I verify Learning Pathway search box is available
+    Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    And I verify No results found under Learning Pathway search box
+
+    Examples: 
+      | Role      | Applications               | LearningPathwayName |
+      | Executive | Episodes, Reports, Lessons | Test123             |
+
+  Scenario Outline: Verify auto selected programs in Organizations
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "FirstName"
+    Then I fill in Last Name with LastName
+    And I enter Email "test.automatemail" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I select "<Applications>" product
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I verify default program "BPCI-Model3" associated with organization
+
+    Examples: 
+      | Role      | Applications               | Health System |
+      | Executive | Episodes, Reports, Lessons | Covenant      |
+
+  Scenario: Verify the functionality of back/Cancel button and tabs on the left on create user page
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "First Name"
+    Then I fill in Last Name with LastName
+    And I enter Email "test.automatemail" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational Executive
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    Then I click on "Applications" tab on the left
+    Then I verify the header "Applications"
+    Then I select "Episodes, Reports" product
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I click on Back button
+    Then I verify the header "Applications"
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    Then I click on "Applications" tab on the left
+    Then I verify the header "Applications"
+    Then I click on "Permissions" tab on the left
+    Then I verify the header "Permissions"
+    Then I click on Select All Locations button
+    Then I click on Cancel button
+    Then I should see header text "Users"
+
+  Scenario: Verify the functionality of Cross button on Permissions Tab on Create User page
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    And I fill in First Name with "First Name"
+    Then I fill in Last Name with LastName
+    And I enter Email "test.automatemail" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational Executive
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I select "Episodes, Reports" product
+    Then I click on Next button
+    Then I click on Cross button
+    Then I should see header text "Users"
+
+  Scenario Outline: Verify removal of role and changing of the role to see the impact in the available applications
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "FirstName"
+    Then I fill in Last Name with LastName
+    And I enter Email "test.automatemail" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role1>
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications1>" are unchecked
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    When I click the already selected Organizational Role Field
+    Then I pick a Organizational <Role2>
+    Then I enter NPI field with "<NPI>" for role "<Role2>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications2>" are unchecked
+
+    Examples: 
+      | Role1     | Applications1              | Role2      | Applications2                                 | NPI |
+      | Executive | Episodes, Reports, Lessons | Physicians | Episodes, Reports, Physician Connect, Lessons | NPI |
+
   Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
