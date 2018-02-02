@@ -215,6 +215,8 @@ public class PatientCreationRules extends BaseClass {
     
     public void iClickOnAddButtonOnDRGPopUp(){
     	clickElement(driver.findElement(By.cssSelector("#submitButton")));
+    	waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
+    	delay();
     }
     
     public void iVerifyDRGListInFacility(String text){
@@ -281,42 +283,7 @@ public class PatientCreationRules extends BaseClass {
     }
 
 
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-	
-	public void iFillFieldsOnNewEpisodesPage(String locator, String text) {
+   public void iFillFieldsOnNewEpisodesPage(String locator, String text) {
 		if (text.contains("randomDrg")) {
 			String textRandom = RandomStringUtils.randomNumeric(6);
 			iFillInText(driver.findElement(By.cssSelector("#new_bpdrg_" + locator + "")), textRandom);
@@ -325,19 +292,7 @@ public class PatientCreationRules extends BaseClass {
 		}
 	}
 
-
-
-
-
-
-
-
-	
-
-
-
-	
-	public void iWillWaitToSeeNewlyClinician(String text) {
+   public void iWillWaitToSeeNewlyClinician(String text) {
 		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),"You're editing Clinician :" + " " + "\"" + text + "\"");
 	}
 
@@ -356,40 +311,44 @@ public class PatientCreationRules extends BaseClass {
 
 	public void delete_drg(String drg) {
 		List<String> lists=getTextForElementfromList("td.td_drg_id");
-		System.out.println("list of"+lists);
 		int duplicate_count=Collections.frequency(lists, drg);
-		System.out.println("Duplicate Count is"+duplicate_count);
-		if(duplicate_count==0){
+	    if(duplicate_count==0){
 			  	return;
 			}else{
 				while(duplicate_count!=0){
 					iWillWaitToSee(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[1]"));
-				//	scrollIntoViewByJS(driver.findElement(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[1]")));
-					delay();
+				    delay();
 					clickElement(driver.findElement(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[1]")));
 					iWillWaitToSee(By.xpath("//h4[text()='Remove DRG']"));
 					clickElement(driver.findElement(By.xpath("//button[text()='OK']")));
 					duplicate_count=duplicate_count-1;
-					System.out.println("New Duplicate Count is"+duplicate_count);
 					longDelay();
-				}
-			
-		}
-	}
+				}}
+	 }
 
 	public void ienterinthefacilityKeytextbox(String text) {
+		delay();
 		iWillWaitToSee(By.xpath("//*[@id='filters_bpfacility_facilityKey']"));
 		iFillInText(driver.findElement(By.xpath("//*[@id='filters_bpfacility_facilityKey']")),text);
 	}
 
 	public void ifillstartdate(String logic, int days) {
+		if(logic.equals("minus month") || logic.equals("plus month")){
+			String date=currentdatefrommonth(days,"MM/dd/yyyy");
+	        delay();
+	        setAttributevalue(driver.findElement(By.xpath("//*[@id='add_drg_form_period_startedAt']")),"value",date);;
+		}
 		String date=currentdate(days,"MM/dd/yyyy");
         delay();
 	    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_drg_form_period_startedAt']")),"value",date);
-		
 	}
 
 	public void ifillenddate(String logic, int days) {
+		if(logic.equals("minus month") || logic.equals("plus month")){
+			String date=currentdatefrommonth(days,"MM/dd/yyyy");
+	        delay();
+	        setAttributevalue(driver.findElement(By.xpath("//*[@id='add_drg_form_period_endedAt']")),"value",date);
+		}
 		String date=currentdate(days,"MM/dd/yyyy");
         delay();
 	    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_drg_form_period_endedAt']")),"value",date);
@@ -426,8 +385,7 @@ public class PatientCreationRules extends BaseClass {
             longDelay();  		
 		try{
 			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_episodeInitiator']/span[not(contains(@class,'checked'))]"));
-		//	scrollIntoViewByJS(driver.findElement(By.xpath("//*[@id='edit_bpfacility_episodeInitiator']")));
-			 longDelay();
+		    longDelay();
 			clickElement(driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_episodeInitiator']")));
 		}catch(Exception e){
 			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_episodeInitiator']/span[contains(@class,'checked')]"));
@@ -439,8 +397,7 @@ public class PatientCreationRules extends BaseClass {
 		try{
 			longDelay();
 			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_participating']/span[not(contains(@class,'checked'))]"));
-		//	scrollIntoViewByJS(driver.findElement(By.xpath("//*[@id='edit_bpfacility_participating']")));
-			longDelay();
+            longDelay();
 			clickElement(driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_participating']")));
 		}catch(Exception e){
 			driver.findElement(By.xpath("//*[@id='uniform-edit_bpfacility_participating']/span[contains(@class,'checked')]"));
@@ -453,8 +410,7 @@ public class PatientCreationRules extends BaseClass {
 		if(lists.contains(facility.trim())){
 			return;
 		}else{
-			scrollIntoViewByJS(driver.findElement(By.xpath("//a[normalize-space()='"+facility+"']")));
-			longDelay();
+	        longDelay();
 			clickElement(driver.findElement(By.xpath("//a[normalize-space()='"+facility+"']")));
 			clickElement(driver.findElement(By.cssSelector("button.btn.btn-large.select>i")));
 		}
@@ -463,5 +419,46 @@ public class PatientCreationRules extends BaseClass {
 	public void Isavetheeditedfacility() {
 		iWillWaitToSee(By.xpath("//button[@name='save']"));
 		clickElement(driver.findElement(By.xpath("//button[@name='save']")));
+	}
+
+	public void add_drg(String drg) {
+		clickElement(driver.findElement(By.xpath("//*[@id='drgs']/tbody/tr/td[2][text()='"+drg+"']/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/following-sibling::td[1]/a[2]")));
+		iWillWaitToSee(By.xpath("//h2[contains(text(),'Add New BPCI Period')]"));
+		
+	}
+	
+	public void ifillperiodstartdate(String logic, int days) {
+		if(logic.equals("minus month") || logic.equals("plus month")){
+			String date=currentdatefrommonth(days,"MM/dd/yyyy");
+	        delay();
+		    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_period_from_type_startedAt']")),"value",date);
+		}
+		String date=currentdate(days,"MM/dd/yyyy");
+        delay();
+	    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_period_from_type_startedAt']")),"value",date);
+		
+	}
+
+	public void ifillperiodenddate(String logic, int days) {
+		if(logic.equals("minus month") || logic.equals("plus month")){
+			String date=currentdatefrommonth(days,"MM/dd/yyyy");
+	        delay();
+	        setAttributevalue(driver.findElement(By.xpath("//*[@id='add_period_from_type_endedAt']")),"value",date);
+		}
+		String date=currentdate(days,"MM/dd/yyyy");
+        delay();
+	    setAttributevalue(driver.findElement(By.xpath("//*[@id='add_period_from_type_endedAt']")),"value",date);
+	}
+
+	public void iselectperiodepisodelength(String value) {
+		selectDropdownVisibleElement("#add_period_from_type_episodeLength",value);
+	}
+
+	public void iselectperiodmodel(String model) {
+		selectDropdownVisibleElement("#add_period_from_type_model",model);
+	}
+
+	public void iselectperiodpayer(String payer) {
+		selectDropdownVisibleElement("#add_period_from_type_payer",payer);
 	}
 }

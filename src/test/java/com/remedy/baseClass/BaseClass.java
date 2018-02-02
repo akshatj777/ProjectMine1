@@ -503,6 +503,14 @@ public class BaseClass {
 		return date;
 	}
 	
+	public static String currentdatefrommonth(int months,String format) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
+		LocalDate localDate = LocalDate.now();
+		LocalDate b = localDate.minus(Period.ofMonths(months));
+		String date = dtf.format(b);
+		return date;
+	}
+	
 	public void setAttributevalue(WebElement element, String attName, String attValue) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", 

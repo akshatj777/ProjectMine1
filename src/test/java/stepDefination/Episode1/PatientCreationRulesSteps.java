@@ -465,4 +465,35 @@ public class PatientCreationRulesSteps extends DriverScript {
     public void I_save_the_edited_facility(){
     	patientrules.Isavetheeditedfacility();
     }
+    
+    @Then("^I add the \"([^\"]*)\" drg$")
+	public void add_drg(String drg){
+		patientrules.add_drg(drg);
+	}
+    
+    @Then ("^I fill in the period start date with logic \"([^\"]*)\" \"([^\"]*)\" days$") 
+	public void i_fill_periodstart_date(String logic,int days){
+		patientrules.ifillperiodstartdate(logic,days);
+	}
+	
+	@Then ("^I fill in the period end date with logic \"([^\"]*)\" \"([^\"]*)\" days$")
+    public void i_fill_periodend_date(String logic,int days){
+		patientrules.ifillperiodenddate(logic,days);
+	}
+	
+	@Then ("^I select the period \"([^\"]*)\" Episode length$")
+	 public void i_select_periodepisode_length(String value){
+		patientrules.iselectperiodepisodelength(value);
+		}
+	    
+	@Then ("^I select the period \"([^\"]*)\" model$")
+	public void i_select_periodmodel(String model){
+		patientrules.iselectperiodmodel(model);
+	}
+	
+	@Then ("^I select the period \"([^\"]*)\" payer$")
+     public void i_select_periodpayer(String payer){
+		patientrules.iselectperiodpayer(payer);
+	}
+    
 }
