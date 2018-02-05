@@ -111,7 +111,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"
     And I will wait to see "Edit Transition" in "h4" tag
-    Then I fill in "Admit" with logic "minus" with "-54" days
+    Then I fill in "Admit" with logic "minus" with "-65" days
     Then I select the "1" LOS days on Discharge date on Add Transition
     Then I click on update transition to add a new episode
     And I will wait to see patient's name on patient summary page
@@ -126,7 +126,7 @@ Feature: Same DRG (PGP, HHH, SNF scenarios)
     And I will wait to see patient's name on patient summary page
     When I click on episode marker drop down
     Then I will wait to see "ACTIVE" state
-    Then I will verify Episode Marker Admit Date "-54" and "add" Discharge date "-55" with "89" to show end date and Episode Status "ACTIVE"
+    Then I will verify Episode Marker Admit Date "-65" and "add" Discharge date "-66" with "89" to show end date and Episode Status "ACTIVE"
     Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see patient's name on patient summary page
     When I click first timing transition edit link "1"

@@ -462,4 +462,12 @@ public class PatientCreationRules extends BaseClass {
 	public void iselectperiodpayer(String payer) {
 		selectDropdownVisibleElement("#add_period_from_type_payer",payer);
 	}
+
+	public void iFillgroupOnFacilityCreationPage(String text) {
+		iFillInText(driver.findElement(By.cssSelector("#filters_bpfacility_group")), text);
+	}
+
+	public void iFillNameOnFacilityCreationPage(String text) {
+		iFillInText(driver.findElement(By.cssSelector("#filters_bpfacility_name")), text);
+	}
 }

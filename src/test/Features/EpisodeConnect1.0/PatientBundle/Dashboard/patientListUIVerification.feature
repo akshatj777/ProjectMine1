@@ -36,7 +36,7 @@ Feature: Patient List - Tabs - Patient List Card View
     And I verify "Orange" color with code "#e87e04" should be followed for onboarding status "Not-Onboarded"
     And I verify "Green" color with code "#35aa47" should be followed for onboarding status "Onboarded"
     When I click "Onboarding status" xpath element "//*[@id='current_onboarding_status_container']"
-    And I verify "Grey" color with code "#eaeaea" should be followed for onboarding status "Unknown"
+    And I verify "Grey" color with code "#bfbfbf" should be followed for onboarding status "Unknown"
     When I click "Add Transition" xpath element "//*[@id='btnNewTransition']"
     And I will wait to see "New Transition" in "h4" tag
     Then I fill in "Admit" with logic "minus" with "1" days

@@ -151,6 +151,16 @@ public class PatientCreationRulesSteps extends DriverScript {
 		patientrules.iFillFieldsOnFacilityCreationPage(locator, text);
 	}
 
+	@And("^I fill in group with \"([^\"]*)\" on facility creation page$")
+	public void i_fill_in_group_with_on_facility_creation_page(String text) throws Throwable {
+		patientrules.iFillgroupOnFacilityCreationPage(text);
+	}
+	
+	@And("^I fill in name with \"([^\"]*)\" on facility creation page$")
+	public void i_fill_in_Name_with_on_facility_creation_page(String text) throws Throwable {
+		patientrules.iFillNameOnFacilityCreationPage(text);
+	}
+	
 	@Then("^I press \"([^\"]*)\" on the facility creation page$")
 	public void i_press_on_the_facility_creation_page(String text) throws Throwable {
 		patientrules.iClickOnSaveButtonOnPatientRuleCreationPage(text);

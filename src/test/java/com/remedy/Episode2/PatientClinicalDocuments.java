@@ -466,6 +466,7 @@ public class PatientClinicalDocuments extends BaseClass {
          Actions actions = new Actions(driver);
          actions.moveToElement(driver.findElement(By.cssSelector("#submitButton"))).build().perform();
          clickElement(driver.findElement(By.cssSelector("#submitButton")));
+         waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));
 		 }
 	
 
