@@ -54,10 +54,6 @@ public class CommonFeature extends BaseClass {
 		clickElement(driver.findElement(By.linkText(link)));
 	}
 
-	public void assertNotPageAddress(String page) {
-
-	}
-
 	public void iAmLoggedInAs(String email) {
 		driver.navigate().to("https://cdn-qa.remedypartners.com/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -80,11 +76,6 @@ public class CommonFeature extends BaseClass {
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"))));
 	}
 
-	public void iPress(String text) {
-		// iWillWaitToSee(By.);
-
-	}
-
 	public void iAmOn(String uRL) {
 		driver.navigate().to(BaseURL + uRL);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -99,9 +90,6 @@ public class CommonFeature extends BaseClass {
 		driver.navigate().to(URL);
 	}
 
-	public void patientshouldhaveopenedepisode() {
-
-	}
 
 	public void iclickOnEpisodeMarker() {
 		iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']"));
@@ -217,8 +205,7 @@ public class CommonFeature extends BaseClass {
 		driver.findElement(By.xpath(xpath)).clear();
 	}
 
-	public void iVerifyEpisodeMarkerAdmitEnddate(int days, int discharge_date, String logic, int terminate_date,
-			String status) {
+	public void iVerifyEpisodeMarkerAdmitEnddate(int days, int discharge_date, String logic, int terminate_date, String status) {
 		String date = currentdate(days, "MM/dd/yyyy");
 		String discharge_date1 = currentdate(discharge_date, "MM/dd/yyyy");
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -229,7 +216,6 @@ public class CommonFeature extends BaseClass {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
 		// Number of Days to add
 		c.add(Calendar.DAY_OF_MONTH, terminate_date);
 		// Date after adding the days to the given date
@@ -246,7 +232,6 @@ public class CommonFeature extends BaseClass {
 		delay();
 		iWillWaitToSee(By.xpath("//*[@id='s2id_episodeSelectionBox']/a/span"));
 		isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'" + facility + "')]")));
-
 	}
 
 }
