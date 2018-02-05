@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 
 public class PatientCarePlan extends BaseClass {
@@ -372,8 +371,7 @@ public class PatientCarePlan extends BaseClass {
 		cal.setTime(dateFormat.parse(date));
 		cal.add(Calendar.DATE, days);
 		String convertedDate = dateFormat.format(cal.getTime());
-		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")), "value",
-				convertedDate);
+		setAttributevalue(driver.findElement(By.xpath("//*[@id='bp_personbundle_addnewformratype_dueDate']")), "value", convertedDate);
 	}
 
 	public void verifyExpiredFormError(String message) {

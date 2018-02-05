@@ -61,11 +61,6 @@ public class CommonFeatureSteps extends DriverScript {
 		common.inavigatetothepatientssummarypage(Url);
 	}
 
-	@Then("^Patient should have opened episode$")
-	public void patient_should_have_opened_episode() {
-		common.patientshouldhaveopenedepisode();
-	}
-
 	@When("^I click on episode marker drop down$")
 	public void i_click_On_Episode_Marker() {
 		common.iclickOnEpisodeMarker();
