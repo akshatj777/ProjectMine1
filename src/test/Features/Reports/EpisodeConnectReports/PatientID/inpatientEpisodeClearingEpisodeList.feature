@@ -57,7 +57,7 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
       
   Scenario Outline: User should see patient risk and onboarding status fields in the selected columns popup as checked in the inpatient episode clearing report
     Given I am on the login page

@@ -13,7 +13,7 @@ Feature: Nsoc next site of care summary
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     Then I should see Next site of care summary reports column Tile text as "Participant"
     Then I should see Next site of care summary reports column Tile text as "Episode Initiator"
