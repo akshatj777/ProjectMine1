@@ -1380,4 +1380,20 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyFilterNotHavingTheTextOnScoreCardPage(String filter,String text){
     	verifyTextNotPresentForElementFromList("#"+filter+"FilterObj .filter-root-info-selected-item",text);
     }
+    
+    public void iClickOnAttributedPhyisicanCorrespondingToColor(String color){
+    	clickElement(driver.findElement(By.xpath("(//div[@class='circle "+color+"']/../../preceding-sibling::td[contains(@class, 'linkToScorecard')])[1]")));
+    }
+    
+    public void iVerifyTextColorOnScorecardsOnPerformanceScorecardPage(String color){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='var "+color+"']")));
+    }
+    
+    public void iVerifyMessageAsPerColorOnScorecards(String message,String color){
+    	verifyTextForElementFromListByXpath("//div[@class='var "+color+"']/following-sibling::div[text()='"+message+"']",message);
+    }
+    
+    public void iVerifyTextBesideTheSearchBoxOnPhysicianDashboardReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//label/span[text()='"+text+"']")));
+    }
 }

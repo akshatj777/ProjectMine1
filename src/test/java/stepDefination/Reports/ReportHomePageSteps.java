@@ -1747,4 +1747,24 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_attributed_filter_is_not_having_in_the_filter(String filter,String text) throws Throwable{
     	reportHomePage.iVerifyFilterNotHavingTheTextOnScoreCardPage(filter, text);
     }
+    
+    @And("I click on the attributed physician having \"([^\"]*)\" dot in the chart of physician dashboard report")
+    public void i_click_on_the_attributed_physician_having_dot_in_the_chart_of_physician_dashboard_report(String color) throws Throwable{
+    	reportHomePage.iClickOnAttributedPhyisicanCorrespondingToColor(color);
+    }
+    
+    @And("^I verify text with \"([^\"]*)\" is appearing inside the scorecards on performance scorecard page$")
+    public void i_verify_text_with_is_appearing_inside_the_scorecards_on_performance_scorecard_page(String color) throws Throwable{
+    	reportHomePage.iVerifyTextColorOnScorecardsOnPerformanceScorecardPage(color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the scorecard corresponding to the \"([^\"]*)\" color$")
+    public void i_verify_is_appearing_on_the_scorecard_corresonding_to_the_color(String message,String color) throws Throwable{
+    	reportHomePage.iVerifyMessageAsPerColorOnScorecards(message, color);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" text is appearing beside the search field on physician dashboard report$")
+    public void i_verify_text_is_appearing_beside_the_search_field_on_physician_dashboard_report(String text) throws Throwable{
+    	reportHomePage.iVerifyTextBesideTheSearchBoxOnPhysicianDashboardReport(text);
+    }
 }
