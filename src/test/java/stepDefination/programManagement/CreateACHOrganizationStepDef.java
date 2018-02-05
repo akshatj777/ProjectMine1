@@ -51,9 +51,9 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 		 createACH.iEnterCityForLocationOnACHOrg(text,num);
 	    }
 	 
-	 @And("^I select market ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
-	  public void i_Enter_Market_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
-		 createACH.iEnterMarketForLocationOnACHOrg(text,num);
+	 @And("^I select market ([^\"]*) for region \"([^\"]*)\" for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_Market_For_Locations_On_OrganizationPage(String market, String region, int num, String field) throws Throwable {
+		 createACH.iEnterMarketForLocationOnACHOrg(market,region,num);
 	    }
 	 
 	 @And("^I select state ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
@@ -88,5 +88,10 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	 @And("^I verify \"([^\"]*)\" in Has a Management Organization dropdown$")
 	  public void i_Verify_Message_In_Has_Management_Organization_DropDown(String text) throws Throwable {
 		 createACH.iVerifyMessageInHasAManagementOrganization(text);
+	 }
+	 
+	 @And("^I click on \"([^\"]*)\" organization tab on under Managing Organization$")
+	  public void i_Click_On_Particular_Organization_Tab_on_Under_Managing_Organization(String text) throws Throwable {
+		 createACH.iClickOnParticularOrganizationTabOrganizationDashboard(text);
 	 }
 }

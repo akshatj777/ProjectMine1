@@ -25,7 +25,7 @@ Feature: Performance claims Overall Program
     And I should see "Payer" in the header text of filter page
     And I should see "<payer1>" in the filter value list
     And I click on "<payer1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<payer1>" result in "Payer" field column for "Episode Initiator" filter field
@@ -36,7 +36,7 @@ Feature: Performance claims Overall Program
     And I should see "Participant" in the header text of filter page
     And I should see "<participant>" in the filter value list
     And I click on "<participant>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<participant>" result in "Participant" field column for "Episode Initiator" filter field
@@ -46,7 +46,7 @@ Feature: Performance claims Overall Program
     And I should see "<anchorFacility1>" in the filter value list
     And I should see "<anchorFacility2>" in the filter value list
     And I click on "<anchorFacility2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<anchorFacility2>" result in "Anchor Facility" field column for "Anchor Facility" filter field
@@ -55,7 +55,7 @@ Feature: Performance claims Overall Program
     And I should see "Episode Initiator" in the header text of filter page
     And I should see "<episodeInitiator1>" in the filter value list
     And I click on "<episodeInitiator1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<episodeInitiator1>" result in "Episode Initiator" field column for "Episode Initiator" filter field
@@ -64,7 +64,7 @@ Feature: Performance claims Overall Program
     And I should see "CCN" in the header text of filter page
     And I should see "<ccn1>" in the filter value list
     And I click on "<ccn1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<ccn1>" result in "CCN" field column for "Anchor Facility" filter field
@@ -73,7 +73,7 @@ Feature: Performance claims Overall Program
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -83,7 +83,7 @@ Feature: Performance claims Overall Program
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<anchor admission quarter1>" result in "Anchor Admission Quarter" field column for "Anchor Begin Date" filter field

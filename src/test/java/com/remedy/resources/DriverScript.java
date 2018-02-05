@@ -96,7 +96,7 @@ public class DriverScript {
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver");
 				break os;
-			case "win":				
+			case "win":	
 				System.setProperty("webdriver.chrome.driver",
 						chromDrvrPath + "chromedriver_" + os + File.separator + "chromedriver.exe");
 				break os;
@@ -105,12 +105,11 @@ public class DriverScript {
 			}
 			
 			ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
-            options.addArguments("--disable-extensions");
-            options.setExperimentalOption("prefs", chromePrefs);
-            DesiredCapabilities cap = DesiredCapabilities.chrome();
-            cap.setCapability(ChromeOptions.CAPABILITY, options);
-            driver = new ChromeDriver(cap);
+
+            options.addArguments("--start-maximized");  
+			options.addArguments("--disable-extensions");
+			options.addArguments("disable-infobars");
+            driver = new ChromeDriver(options);
 
 			break;			
 		case "ie":
@@ -152,9 +151,26 @@ public class DriverScript {
 			driver = new PhantomJSDriver(dCaps);
 			
 			break;			
-		default:			
+
+		default:
+			String geckoDrvrPath;
+			geckoDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
+			os: switch (os) {
+			case "linux32":
+			case "linux64":
+			case "mac":    
+			System.setProperty("webdriver.gecko.driver",
+			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver");
+			break os;
+			case "win":    
+			System.setProperty("webdriver.gecko.driver",
+			geckoDrvrPath + "geckodriver_" + os + File.separator + "geckodriver.exe");
+			break os;
+			default:
+			throw new IllegalStateException("Invalid OS paramter, expected values 'linux32||linux64||mac||win'");    
+			   }
 			driver = new FirefoxDriver();
-		}
+			}
 		
 	}
 

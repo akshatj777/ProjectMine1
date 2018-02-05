@@ -58,7 +58,7 @@ Feature: Episode List Verification Under Episode DRG Issues Reports
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in episode drg issues report under patientid
     Given I am on the login page
@@ -122,7 +122,7 @@ Feature: Episode List Verification Under Episode DRG Issues Reports
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
+
   Scenario Outline: Verify last working bundle filter doesnot show duplicates in episode drg issues report under patientid
     Given I am on the login page
     When I enter email field <email> for login
@@ -223,8 +223,8 @@ Feature: Episode List Verification Under Episode DRG Issues Reports
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
-      
-Scenario Outline: Verify risk score filter doesnot show duplicates in episode drg issues report under patientid
+
+  Scenario Outline: Verify risk score filter doesnot show duplicates in episode drg issues report under patientid
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login

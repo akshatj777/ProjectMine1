@@ -17,7 +17,7 @@ public class EditManagingOrganizationStepDef extends DriverScript{
 		editManagingOrg.iClickOnButtonOnParticularOrganization(button);
 	    }
 	
-	@And("^I edit \"([^\"]*)\" field to ([^\"]*) for organization$")
+	@And("^I edit \"([^\"]*)\" field to \"([^\"]*)\" for organization$")
 	  public void i_Edit_All_Fields_Of_Organization(String field1, String field2) throws Throwable {
 			editManagingOrg.iEditAllFieldsOFOrganization(field1,field2);
 	 }

@@ -1,16 +1,11 @@
 package stepDefination.programManagement;
 
-import java.util.HashMap;
-
-import com.remedy.programManagement.CreateACHOrganization;
 import com.remedy.programManagement.ViewACHOrganization;
 import com.remedy.resources.DriverScript;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 public class ViewACHOrganizationStepDef extends DriverScript {
-	public static HashMap<String, String> tempAchOrg = new HashMap<String, String>();
 	
 	ViewACHOrganization viewACH= new ViewACHOrganization(driver);
 	
@@ -63,6 +58,7 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 	  public void user_should_get_redirected_to_the_managing_organization_tab_page(String text) throws Throwable {
 		viewACH.userShouldGetRedirectedToTheOrganizationTabPage(text);
 		}
+	
 	@And("^I verify \"([^\"]*)\" on view profile of \"([^\"]*)\" Organization$")
 	  public void I_Verify_ManagingOrganization_on_view_profile_of_organization(String text, String org) throws Throwable {
 		viewACH.iVerifyManagingOrganizationOnViewProfileOfOrganizationPage(text,org);
@@ -83,7 +79,6 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 		viewACH.iVerifyDetailsOfOrgAssociatedWithMO(text,org);
 		}
 	
-	
 	@And("^I get the count of \"([^\"]*)\" organizations$")
 	  public void i_Get_Count_Of_Tab_Organizations(String org) throws Throwable {
 		viewACH.iGetCountOfAssociatedOrganization(org);
@@ -93,5 +88,4 @@ public class ViewACHOrganizationStepDef extends DriverScript {
 	  public void i_Verify_Count_Tab_Organizations_Increased1(String org) throws Throwable {
 		viewACH.iVerifyCountOfAssociatedOrgIncreasedBy1(org);
 		}
-	
 }

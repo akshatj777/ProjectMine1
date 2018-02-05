@@ -19,9 +19,14 @@ public class LandingPageSteps extends DriverScript{
         landingPage.iClickOnApplicateTile(tile);
     }
 
+    @And("^I click on the top user account link on remedy connect page$")
+    public void IClickTopUserAccountLinkOnRemedyConnectPage() throws Throwable {
+        landingPage.iClickOnTheTopUserAccountIconOnRemedyConnectPage();
+    }
+
     @And("^I click on the top user account link$")
     public void IClickTopUserAccountLink() throws Throwable {
-        landingPage.iClickOnTheTopUserAccountIcon();
+        landingPage.IClickTopUserAccountLink();
     }
     
     @And("^I click on the top user account link and click on \"([^\"]*)\" button$")
@@ -54,7 +59,7 @@ public class LandingPageSteps extends DriverScript{
         landingPage.iVerifyTextNotForTiles(tileName);
     }
     
-    @Then("^I click on Hamburgur menu on top right of homepage$")
+    @Then("^I click on Hamburger menu on top left of homepage$")
     public void iClickOnHamburgurMenu()throws Throwable {
     	landingPage.iClickOnHamburgurMenuOnTop();
     }

@@ -2,18 +2,20 @@ package com.remedy.programManagement;
 
 import java.util.HashMap;
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.remedy.baseClass.BaseClass;
 
 public class CreateACHOrganization extends BaseClass{
 	public static HashMap<String, String> tempAchOrg = new HashMap<String, String>();
 	public static HashMap<String, String> achOrg = new HashMap<String, String>();
 	public static HashMap<String, String> achOrg_noMO = new HashMap<String, String>();
+	public static String oldACH_WithoutMO;
+	public static String oldACH_WithMO;
 
 	public CreateACHOrganization(WebDriver driver) {
 		super(driver);
@@ -35,38 +37,157 @@ public class CreateACHOrganization extends BaseClass{
 	}
 	
 	public void iEnterCNNorNPIorEINIdOnCreateOrganizationPage(String id, String field) throws InterruptedException {
-		if(id.equalsIgnoreCase("CCN")){
-			tempAchOrg.put("CCN", createRandomNumber(10));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+		if (id.contains("ACH")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
+				tempAchOrg.put("CCN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
+				tempAchOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
+				tempAchOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_CCN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("NPI"));
+			}
+			else if(id.contains("lessThan6")){
+				String value = createRandomNumber(5);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else {
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
 		}
-		else if(id.equalsIgnoreCase("EIN")){
-			tempAchOrg.put("EIN", createRandomNumber(10));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("EIN"));
+		if (id.contains("PGP")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
+				CreatePGPOrganization.tempPGPOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
+				CreatePGPOrganization.tempPGPOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.tempPGPOrg.get("NPI"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePGPOrganization.pgpOrg.get("NPI"));
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else {
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
 		}
-		else if(id.equalsIgnoreCase("NPI")){
-			tempAchOrg.put("NPI", createRandomNumber(10));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempAchOrg.get("NPI"));
+		if (id.contains("Payor"))
+		{
+			if((id.substring(id.indexOf("-")+1).trim()).equals("EIN"))
+			{
+				CreatePayorOrganization.tempPayorOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.tempPayorOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN"))
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePayorOrganization.payorOrg.get("EIN"));
+			}
+			else if(id.contains("greaterThan10"))
+			{
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else 
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
 		}
-		else if(id.equalsIgnoreCase("DUPLICATE_CCN")){
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("CCN"));
+		if (id.contains("SNF")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
+				CreateSNFOrganization.tempSNFOrg.put("CCN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
+				CreateSNFOrganization.tempSNFOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
+				CreateSNFOrganization.tempSNFOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.tempSNFOrg.get("NPI"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_CCN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateSNFOrganization.SNFOrg.get("NPI"));
+			}
+			else if(id.contains("lessThan6")){
+				String value = createRandomNumber(5);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else 
+			{
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
 		}
-		else if(id.equalsIgnoreCase("DUPLICATE_EIN")){
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("EIN"));
-		}
-		else if(id.equalsIgnoreCase("DUPLICATE_NPI")){
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), achOrg.get("NPI"));
-		}
-		else if(id.equalsIgnoreCase("lessThan6")){
-			String value = createRandomNumber(5);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
-		}
-		else if(id.equalsIgnoreCase("greaterThan10")){
-			String value = createRandomNumber(11);
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
-		}
-		else {
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id);
-			delay();
+		if (id.contains("HHA")){
+			if((id.substring(id.indexOf("-")+1).trim()).equals("CCN")){
+				CreateHHAOrganization.tempHHAOrg.put("CCN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("EIN")){
+				CreateHHAOrganization.tempHHAOrg.put("EIN", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("NPI")){
+				CreateHHAOrganization.tempHHAOrg.put("NPI", createRandomNumber(10));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("NPI"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_CCN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg_noMO.get("CCN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_EIN")){
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg_noMO.get("EIN"));
+			}
+			else if((id.substring(id.indexOf("-")+1).trim()).equals("DUPLICATE_NPI")){
+					iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg_noMO.get("NPI"));
+			}
+			else if(id.contains("lessThan6")){
+				String value = createRandomNumber(5);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else if(id.contains("greaterThan10")){
+				String value = createRandomNumber(11);
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
+			}
+			else {
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
+				delay();
+			}
 		}
 	}
 	
@@ -95,7 +216,8 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iEnterRegionForLocationOnACHOrg(String text, int num) {
-    	if(!text.isEmpty()){
+    	if(!text.isEmpty())
+    	{
     		num = num-1;
     	    driver.findElements(By.xpath("//div[text()='Region']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
@@ -107,17 +229,20 @@ public class CreateACHOrganization extends BaseClass{
     	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.city']")), text);
     }
     
-    public void iEnterMarketForLocationOnACHOrg(String text, int num) {
-    	if(!text.isEmpty()){
-    		num = num-1;
-    	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-    	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    public void iEnterMarketForLocationOnACHOrg(String market, String region, int num) {
+    	if(!region.isEmpty())
+    	{
+    		if(!market.isEmpty())
+    		{
+        		num = num-1;
+        	    driver.findElements(By.xpath("//div[text()='Market']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(market);
+        	    clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+market+"']")));
+        	}	
     	}
     }
     
     public void iEnterStateForLocationOnACHOrg(String text, int num) {
-    	num = num-1;
-    	driver.findElement(By.xpath("//div//input[@name='locations["+num+"].address.stateSelection']/following-sibling::div//input[@role='combobox']")).sendKeys(text);
+    	driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
     	if(!text.isEmpty()){
     	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
     	}
@@ -129,25 +254,30 @@ public class CreateACHOrganization extends BaseClass{
     }
 
 	public void iSelectRadioButtonForManagingOrganization(String text) { 
-		if(text.equalsIgnoreCase("YES")) {
+		if(text.equalsIgnoreCase("YES"))
+		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='true']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='true']")));
 		}
-		else if (text.equalsIgnoreCase("NO")){
+		else if (text.equalsIgnoreCase("NO"))
+		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='false']")));
 			clickElement(driver.findElement(By.cssSelector(".radio-button->input[value='false']")));
 		}
 	}
 	
 	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String managingOrg, String text) {
-		if(text.equalsIgnoreCase("YES")){
-			if(managingOrg.equalsIgnoreCase("BLANK")){
+		if(text.equalsIgnoreCase("YES"))
+		{
+			if(managingOrg.equalsIgnoreCase("BLANK"))
+			{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), "");	
 			}
 			else if (managingOrg.contains("Invalid")){
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);	
 			}
-			else {
+			else 
+			{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
 				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 			}
@@ -174,5 +304,4 @@ public class CreateACHOrganization extends BaseClass{
     public void iVerifyMessageInHasAManagementOrganization(String text) {
     	verifyTextForElement(driver.findElement(By.cssSelector(".Select-noresults")), text);
     }
-
 }

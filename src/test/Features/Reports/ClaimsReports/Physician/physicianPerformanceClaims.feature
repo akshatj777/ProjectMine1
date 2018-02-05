@@ -22,9 +22,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see default measures for performance claims report under physician
     Given I am on the login page
@@ -67,9 +67,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to see levels fields for performance claims report under physician
     Given I am on the login page
@@ -157,9 +157,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       #| Medicare Payer Users         |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users           |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users         |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove the default filters for performance claims report under physician
     Given I am on the login page
@@ -183,9 +183,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Emblem Payer Users            |
-      | emblemachrpfin@yopmail.com     |
+      #| emblemachrpfin@yopmail.com     |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify initial snf los is appearing and not initial snf los (adj hist) in performance report under physician in measures available fields
     Given I am on the login page
@@ -232,9 +232,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -243,14 +243,14 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
     When I click to "DRG" field filter under "DRG" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    Then I verify "DRG" column is added to report after selecing add to report option
+    Then I verify "DRG" column is added to report after selecting add to report option
     And I verify "<DRG>" is appearing in the drg column rows
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
     And I choose "Filter" option from select options of filter field
@@ -258,13 +258,13 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -304,9 +304,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -316,9 +316,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -328,13 +328,13 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -372,9 +372,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -383,7 +383,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "DRG Code" in the header text of filter page
     And I should see "<DRG Code1>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -393,10 +393,10 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -436,9 +436,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<BPID1>" in the filter value list
     And I should see "<BPID2>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<BPID2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -448,9 +448,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -460,7 +460,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -497,7 +497,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -507,13 +507,13 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "DRG Code" field filter under "DRG" filter field
@@ -522,9 +522,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -562,7 +562,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "BPID" in the header text of filter page
     And I should see "<BPID1>" in the filter value list
     And I click on "<BPID1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<BPID1>" result in "BPID" field column for "Episode Initiator" filter field
@@ -572,9 +572,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -584,13 +584,13 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     When I click on select from list option on the filter page
     And I should see "<anchor admission quarter1>" in the filter value list
     And I click on "<anchor admission quarter1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter2>" in the filter value list
     And I click on "<anchor admission quarter2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I should see "<anchor admission quarter3>" in the filter value list
     And I click on "<anchor admission quarter3>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Fracture/Non-Fracture" field filter under "Fracture/Non-Fracture" filter field
@@ -628,9 +628,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "<DRG Code1>" in the filter value list
     And I should see "<DRG Code2>" in the filter value list
     And I click on "<DRG Code1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "<DRG Code2>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<DRG Code1>" result in "DRG Code" field column for "DRG" filter field
@@ -641,9 +641,9 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     And I should see "Non-Fracture" in the filter value list
     And I should see "Not Applicable" in the filter value list
     And I click on "Fracture" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on "Non-Fracture" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Admission Quarter" field filter under "Anchor Begin Date" filter field
@@ -658,7 +658,7 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
       | email                         | DRG Code1 | DRG Code2 |
       | shutestaug231132a@yopmail.com |       469 |       470 |
       | shutestaug221130a@yopmail.com |       469 |       470 |
-      
+
   Scenario Outline: User should not see patient risk and onboarding status level fields in the availble fields in performance claims report under physician
     Given I am on the login page
     When I enter email field <email> for login
@@ -760,3 +760,119 @@ Feature: Verification of multiple scenarios for Performance(Claims) under physic
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+  Scenario Outline: User should be able to search and drag drop for ccn and post acute ccn fields for performance claims report under physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Performance (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    #CCN Drag and Drop
+    When I click to "CCN" field filter under "Anchor Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "CCN" column is added to report after selecting add to report option
+    #Post Acute CCN Drag and Drop
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
+    Then I verify "Post Acute CCN" column is added to report after selecting add to report option
+    
+    Examples: 
+      | email                              |
+      | RPFINClaimsSNFHHATier1@yopmail.com |
+      
+  Scenario Outline: User should be able to verify Tier1,Tier2 and Out of Network when user is having post acute type as snf and hha for performance claims report under physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Physician" under reports tile text
+    When I click on the Reports Tile with text "Physician"
+    Then I click on "Performance (Claims)" report text for Physician Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Physician Performance" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
+    And I wait until refresh button is disappeared
+    And I verify there are no default filters appearing after removing all the default filters
+    When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute Type" in the header text of filter page
+    And I should see "<postacutetype1>" in the filter value list
+    And I should see "<postacutetype2>" in the filter value list
+    And I click on "<postacutetype1>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on "<postacutetype2>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Post Acute Type includes HHA and SNF" is appearing under selected post acute type filter
+    #Drag and Drop(Post Acute Type)
+    When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Post Acute Type" column is added to report after selecting add to report option
+    #Drag and Drop(Network tier)
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier" column is added to report after selecting add to report option
+    #Filtering
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I should see "<networktier1>" in the filter value list
+    And I should see "<networktier2>" in the filter value list
+    And I should see "<networktier3>" in the filter value list
+    #Filtering(Out Of Network)
+    And I click on "<networktier1>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes <networktier1>" is appearing under selected network tier filter
+    And I verify "<networktier1>" is visible under "Network Tier" column in the report
+    Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
+    #Filtering(Tier 1)
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I click on "<networktier2>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Tier 1" is appearing under selected network tier filter
+    And I verify "<networktier2>" is visible under "Network Tier" column in the report
+    Then I remove "Network Tier" field filter under "Network Tier" filter field from default filters
+    #Filtering(Tier 2)
+    When I click to "Network Tier" field filter under "Network Tier" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Network Tier" in the header text of filter page
+    And I click on "<networktier3>" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    Then I verify "Network Tier includes Tier 2" is appearing under selected network tier filter
+    And I verify "<networktier3>" is visible under "Network Tier" column in the report
+
+    Examples: 
+      | email                              | postacutetype1 | postacutetype2 | networktier1   | networktier2 | networktier3 |
+      | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |

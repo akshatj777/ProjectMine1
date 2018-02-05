@@ -12,7 +12,7 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Next Site of Care Summary" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
@@ -27,7 +27,7 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     When I click on select from list option on the filter page
     And I should see "<admission month1>" in the filter value list
     And I click on "<admission month1>" in the filter value list
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<admission month1>" result in "Anchor Admission Month" field column for "Anchor Begin Date" filter field
@@ -36,7 +36,7 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     And I should see "Anchor Facility" in the header text of filter page
     And I should see "<anchorFacility1>" in the filter value list
     And I click on "<anchorFacility1>" in the filter value list for anchor facility
-    And I click on add selected in the filter modal
+    And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I should see "<anchorFacility1>" result in "Anchor Facility" field column for "Anchor Facility" filter field
@@ -46,5 +46,5 @@ Feature: Verification of anchor facility filter in next site of care summary rep
     Then I verify current page "Reports" title
 
     Examples: 
-      | email                              | admission month1 | anchorFacility1        |
-      | reportsautomation18aug@yopmail.com | 2017-02          | Mt. Carmel - St. Ann's |
+      | email                | admission month1 | anchorFacility1        |
+      | exe20jun@Yopmail.com | 2017-02          | Mt. Carmel - St. Ann's |
