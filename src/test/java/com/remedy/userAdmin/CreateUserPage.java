@@ -597,7 +597,7 @@ public class CreateUserPage extends BaseClass{
    public void iVerifyNavigationOnInstituteHomePage(String role){
 //	   iWillWaitToSee(By.cssSelector(".navbar-header"));
 //	   iWillWaitToSee(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']"));
-	   driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
+	   driver.manage().timeouts().pageLoadTimeout(240, TimeUnit.SECONDS);
 //	   new WebDriverWait(driver, 180).until(
 //		          webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
 //	   new WebDriverWait(driver, 180).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
