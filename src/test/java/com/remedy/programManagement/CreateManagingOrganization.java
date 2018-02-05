@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,11 +47,15 @@ public class CreateManagingOrganization extends BaseClass {
 	}
 	
 	public void iClickOnButtonOnCreateOrganizationPage(String text) {
+//		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+//		scrollIntoViewByJS(element);
+//		delay();
+//		clickElement(element);
+//		delay();
+		
 		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
-		scrollIntoViewByJS(element);
-		delay();
-		clickElement(element);
-		delay();
+		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+		 executor.executeScript("arguments[0].click();", element);
 	}
 
 	public void iVerifyOnButtonOnCreateOrganizationPage(String text) {
