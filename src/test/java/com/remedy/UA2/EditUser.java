@@ -166,7 +166,13 @@ public class EditUser extends BaseClass {
 		clickElement(driver.findElement(By.cssSelector(".component-participant-title")));
 		}
 	}
-
+	public void iClickOnExisitingOrganisationByName(String text) {
+		
+		iWillWaitToSee(By.cssSelector(".component-participant-title"));
+			   clickElement(driver.findElements(By.xpath("//*[contains(text(),'"+text+"')]")).get(1));
+			}
+		
+	
 	
 	   public void clickAllLocationsButton(String arg) throws Throwable {
 		   

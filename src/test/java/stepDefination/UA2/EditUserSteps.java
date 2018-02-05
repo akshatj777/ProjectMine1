@@ -83,6 +83,13 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iClickOnExistingOrganisation(String text) throws Throwable {
 	   editUser.iClickOnExisitingOrganisation(text);
 	}
+	
+	@Then("^I click on existing organisation \"([^\"]*)\"$")
+	public void iClickOnExistingOrganisationByName(String text) throws Throwable {
+	   editUser.iClickOnExisitingOrganisationByName(text);
+	}
+
+	
 	@Then("^I click on \"([^\"]*)\" button on permissions tab$")
 		public void iClickOnAddAnotherOrganisation(String text){
 			editUser.iClickOnAddAnotherOrganisation(text);
