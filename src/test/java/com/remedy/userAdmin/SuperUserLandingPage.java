@@ -377,9 +377,9 @@ public void iSelectAUser(){
 }
 public void iVerifyViewUserPage(){
 	delay();
-	iWillWaitToSee(By.cssSelector(".two.column.row"));
+	iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation>a"));
 	//isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
-	isElementPresent(By.cssSelector(".two.column.row"));
+	isElementPresent(By.cssSelector(".six.wide.column.header-navigation>a"));
 }
 public void iShouldNotSeeErrorMsgOnUsersPage(String text){
 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
