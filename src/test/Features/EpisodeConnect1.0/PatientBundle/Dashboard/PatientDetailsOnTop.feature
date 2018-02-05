@@ -40,7 +40,7 @@ Feature: Patient Details on Patient overview page
     Then I fill in "Discharge" with logic "minus" with "2" days
     Then I select the "Discharge" "caresetting" "SNF - Skilled Nursing Facility" by "#bp_personbundle_bpadmissiontype_dischargeFacilityCategory" on add a new transition
     Then I select the "Discharge" "caretype" "Skilled Nursing" by "#bp_personbundle_bpadmissiontype_dischargeCareType" on add a new transition
-    Then I select the "Discharge" facility "(SNF) Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
+    Then I select the "Discharge" facility "Coosa valley health care" by "#s2id_bp_personbundle_bpadmissiontype_dischargeFacility" on add a new transition
     And I store "Admit date" value appearing in "#bp_personbundle_bpadmissiontype_admitDate" field
     And I store "Discharge date" value appearing in "#bp_personbundle_bpadmissiontype_dischargeDate" field
     Then I click on the Diagnosis and DRG tab on add a new transition to select the DRG
@@ -112,7 +112,7 @@ Feature: Patient Details on Patient overview page
     And I verify "Stamford - Stamford Hospital" appearing under "Episode Initiator" for "1" tranisition on patient overview
     And I verify "(HHH) Stamford - Stamford Hospital" appearing under "facility-column" for "1" tranisition on patient overview
     And I verify "Inpatient" appearing under "type-column" for "1" tranisition on patient overview
-    And I verify "(SNF) Stamford Hospital Snf" appearing under "discharge_location-column" for "1" tranisition on patient overview
+    And I verify "(SNF) Coosa valley health care" appearing under "discharge_location-column" for "1" tranisition on patient overview
     And I verify "Test" appearing under "admit_reason-column" for "1" tranisition on patient overview
     And I verify "admit date" appearing in transition on patient overview
     And I verify "discharge date" appearing in transition on patient overview
