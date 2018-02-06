@@ -105,11 +105,12 @@ public class DriverScript {
 			}
 			
 			ChromeOptions options = new ChromeOptions();
-
-            options.addArguments("--start-maximized");  
-			options.addArguments("--disable-extensions");
-			options.addArguments("disable-infobars");
-            driver = new ChromeDriver(options);
+			options.addArguments("--start-maximized");            
+			options.addArguments("--disable-extensions");            
+			options.setExperimentalOption("prefs", chromePrefs);           
+			DesiredCapabilities cap = DesiredCapabilities.chrome();            
+			cap.setCapability(ChromeOptions.CAPABILITY, options);          
+			driver = new ChromeDriver(cap);
 
 			break;			
 		case "ie":

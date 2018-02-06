@@ -621,10 +621,10 @@ public class CreateUserSteps extends DriverScript {
 		createUser.verifyAvailabilityOrganizationDropDown();
 	}
 
-	@Then("^I click on \"([^\"]*)\" button$")
-	public void click_LogOut_Button(String arg1) throws Throwable {
-		createUser.clickLogOutButton(arg1);
-	}
+//	@Then("^I click on \"([^\"]*)\" button$")
+//	public void click_LogOut_Button(String arg1) throws Throwable {
+//		createUser.clickLogOutButton(arg1);
+//	}
 
 	@Then("^I click on \"([^\"]*)\" button again$")
 	public void click_LogOut_ButtonAgain(String arg1) throws Throwable {
