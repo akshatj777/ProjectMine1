@@ -189,8 +189,6 @@ Feature: Super Admin Landing page verification
     And I should see Log in widget
     Given I am on the login page
     Then I click on "Log Out" button again
-    Given I am on mail login page
-    And I should see Log in widget
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
