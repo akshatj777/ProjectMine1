@@ -62,8 +62,8 @@ Feature: Edit user page for General cases
       | User                            | UserName          | Password | FirstName | LastName | Email             | Phone      | NPI       | Role       |
       | Partner Technical Administrator | chloe@yopmail.com | Testing1 |         1 |        2 | test.automatemail | abc3479074 | 123456789 | Physicians |
 
-  # | Partner Technical Administrator | chloe@yopmail.com | Testing1 |        56 | 1Last    | test.automatemail | as34       | asbcf12345 | Physicians |
-  #| Partner Technical Administrator | Partner Technical Administrator | Testing1 | 1First    |      456 | test.automatemail | as34!      | qawsedrftg | Physicians |
+  | Partner Technical Administrator | chloe@yopmail.com | Testing1 |        56 | 1Last    | test.automatemail | as34       | asbcf12345 | Physicians |
+  | Partner Technical Administrator | Partner Technical Administrator | Testing1 | 1First    |      456 | test.automatemail | as34!      | qawsedrftg | Physicians |
   Scenario Outline: verify enable/disable application functionality for <Role>
     Given I am on the login page
     When I enter email field <UserName> for login

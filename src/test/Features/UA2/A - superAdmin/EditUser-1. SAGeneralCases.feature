@@ -10,6 +10,7 @@ Feature: Edit user page for General cases
     Then I select user with email "<Email>"
     And I verify that I am navigated to user page
     And I click on Edit button
+    Then I verify the header "General Information"
     Then I verify the availability of fields "First Name"
     Then I verify the availability of fields "Last Name"
     Then I verify the availability of fields "Email"
@@ -23,6 +24,7 @@ Feature: Edit user page for General cases
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
+    Then I verify the header "Applications"
     Then I verify that "Next" button is disabled when no application is selected
     Then I select "<EnableApplications>" product
     Then I click on Select button
@@ -43,6 +45,7 @@ Feature: Edit user page for General cases
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
+    Then I verify the header "General Information"
     And I fill in First Name with "<FirstName>"
     Then I fill in Last Name with <LastName>
     And I fill in Phone with <Phone>
@@ -69,6 +72,7 @@ Feature: Edit user page for General cases
     Then I select user with email "<Email>"
     And I verify that I am navigated to user page
     And I click on Edit button
+    Then I verify the header "General Information"
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role>
     Then I enter NPI field with "<NPI>" for role "<Role>"
@@ -106,7 +110,7 @@ Feature: Edit user page for General cases
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     And I verify Role <Role> in user page
     And I verify that "NPI" is "not present" on page
@@ -133,7 +137,7 @@ Feature: Edit user page for General cases
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter "<Role>" in search box for "<user>-<Role>"
+    Then I enter "<Email>" in search box for "<user>-<Role>"
     Then I select user with email "<Email>"
     And I verify that I am navigated to user page
     And I click on Edit button
@@ -152,9 +156,9 @@ Feature: Edit user page for General cases
     Then I should see text "No Results Found"
     Then I select location by "<facilityKey>"
     Then I search location by "<BPID>" and select "<Locations>"
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
-
+Then I verify "<Health System>::<Programs>:<Locations>:<facilityKey>" under Data Permissions in view user page
 
     Examples: 
       | User        | Role         | Email             | Health System                                                          | Programs    | BPID     | Locations | facilityKey | Health System_invalid | locations_invalid |

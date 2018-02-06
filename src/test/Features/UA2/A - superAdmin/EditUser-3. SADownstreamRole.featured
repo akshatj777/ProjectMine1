@@ -18,7 +18,7 @@ Feature: Edit page for Downstream provider
     Then I verify unavailability of organization drop down
     Then I verify text "Which location(s) does this user have access to?" is "Present" in Permission tab
     Then I select "<Locations>" locations
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     And I click on the top user account link
@@ -35,7 +35,7 @@ Feature: Edit page for Downstream provider
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter "Downstream Provider" in search box for "<user>-<PreviousRole>"
+    Then I enter "<Email>" in search box for "<user>-<PreviousRole>"
     Then I select user with email "test.automatemail"
     And I verify that I am navigated to user page
     And I click on Edit button
@@ -56,7 +56,7 @@ Feature: Edit page for Downstream provider
     And I select a <Health System>
     Then I click on Select All Locations button
     And I wait for 3000 milli seconds
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     And I verify that "<Applications>" are "Enabled"
     And I verify that "<ApplicationsNotVisible>" are "Disabled"
