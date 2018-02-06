@@ -34,6 +34,11 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnCloseIconFromAddUserPage();
 	}
 
+	@Then("^I click on Last Page Icon on landing page$")
+	public void clickLastPageOnLandingPage() throws Throwable {
+	   ua2LandingPage.clickLastPageIconOnLandingPage();
+	}
+	
 	@Then("^I verify \"([^\"]*)\" on landing page$")
 	public void i_verify_on_landing_page(String text) throws Throwable {
 	   ua2LandingPage.iVerifyLandingPageUI(text);
@@ -54,9 +59,14 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
 
-	@Then("^I \"([^\"]*)\" user \"([^\"]*)\"$")
-	public void iLockUnlockUser(String status, String role) throws Throwable {
-		ua2LandingPage.iLockUnlockUser(status, role);
+	@Then("^I \"([^\"]*)\" user$")
+	public void iLockUnlockUser() throws Throwable {
+		ua2LandingPage.iLockUnlockUser();
+	}
+	
+	@Then("^I verify user is \"([^\"]*)\"$")
+	public void verifyLockedUser(String action) throws Throwable {
+		ua2LandingPage.verifyLockedUser(action);
 	}
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
@@ -75,20 +85,25 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 
-   @Then ("^I enter invalid data \"([^\"]*)\" in search box$")
-   public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
-	   ua2LandingPage.SearchUserWithText(text);
-   }
+//   @Then ("^I enter invalid data \"([^\"]*)\" in search box$")
+//   public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
+//	   ua2LandingPage.SearchUserWithText(text);
+//   }
 
-   @Then ("^I enter \"([^\"]*)\" in search box$")
-   public void i_enter_text_in_search_box_in_landing_page(String text) throws Throwable {
-	   ua2LandingPage.SearchUserWithText(text);
+   @Then ("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
+   public void enterTextInSearchBox(String text, String userRole) throws Throwable {
+	   ua2LandingPage.SearchUserWithText(text,userRole);
    }
-	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
-		ua2LandingPage.SearchUserWithEmail(text, userRole);
-
-	}
+   
+   @Then ("^I verify availability of \"([^\"]*)\" for \"([^\"]*)\"$")
+   public void verifySearchParameter(String searchParam, String userRole) throws Throwable {
+	   ua2LandingPage.verifySearch(searchParam, userRole);
+   }
+//	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
+//	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
+//		ua2LandingPage.SearchUserWithEmail(text, userRole);
+//
+//	}
 	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result$")
 	public void iVerifySeachedElement(String result, String searchBy) throws Throwable {
 		ua2LandingPage.iVerifySearchResult(result, searchBy, "");
@@ -98,9 +113,9 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
 	}
 
-	@Then("^I should not be able to login$")
-	public void iShouldNotBeAbleToLogin() throws Throwable {
-		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
+	@Then("^I should see User is Blocked$")
+	public void verifyUserBlockedMessage() throws Throwable {
+		ua2LandingPage.verifyUserBlockedMessageOnLandingPage();
 	}
 
 	@Then("^I should not see search results")
@@ -111,6 +126,12 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	public void iSeeCrossIconForSearch(){
 		ua2LandingPage.iSeeCrossIconForSearch();
 	}
+	
+	@Then("^I verify No Results Found is displayed$")
+	public void VerifyNoResultFound(){
+		ua2LandingPage.verifyNoResultFoundOnLandingPage();
+	}
+	
 	@Then("^I click on cross icon$")
 	public void iClickCrossIconForSearch(){
 		ua2LandingPage.iClickCrossIconForSearch();
