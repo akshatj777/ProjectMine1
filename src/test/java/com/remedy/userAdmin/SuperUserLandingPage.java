@@ -226,62 +226,8 @@ public class SuperUserLandingPage extends BaseClass {
 
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
-//public void SearchUserWithEmail(String emailID, String role){
-//	iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-//	if (emailID.contains(",")) {
-//		StringTokenizer st = new StringTokenizer(emailID, ",");
-//
-//		while (st.hasMoreTokens()) {
-//			String text = st.nextToken().trim();
-//			System.out.println("token -- " + text);
-//if (text.equalsIgnoreCase(mail)) {
-//	String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
-//	System.out.println("Email "+email);
-//				iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
-//				iVerifySearchResult(text, "", role);
-//		}
-//else{
-//	SearchUserWithText(text);
-//	}
-//}
-//		}
-//	else{
-//		if (emailID.equalsIgnoreCase(mail)) {
-//			String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
-//			System.out.println("Email "+email);
-//			iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), email);
-//			}
-//			else 
-//			{
-//				SearchUserWithText(emailID);
-//			}
-//	}
-//	delay();
-//}
+
 	public void SearchUserWithText(String searchParam, String userRole) {
-//		if(searchList.isEmpty()==false){
-//		iWillWaitToSee(By.cssSelector("input[placeholder='Search']"));
-//		
-//	
-//		if (searchList.contains(",")) {
-//			StringTokenizer st = new StringTokenizer(searchList, ",");
-//
-//			while (st.hasMoreTokens()) {
-//				String text = st.nextToken().trim();
-//				System.out.println("token -- " + text);
-//				iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), text);
-//				iVerifySearchResult(text, "Name", "");
-//			}
-//			
-//		} else 
-//			{
-//				iFillInText(driver.findElement(By.cssSelector("input[placeholder='Search']")), searchList);
-//			}
-//		delay();}
-//		else
-//		{
-//			return;
-//		}
 		if(searchParam.equals("FetchFromHM"))
 		{
 			String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
@@ -490,6 +436,11 @@ public void iVerifyThatEmailIsDisplayedInSameCase(String role){
 
 public void iVerifyProductListInTopNavigationBarIsClosed(){
 	Assert.assertTrue(isElementNotPresentOnPage(".ui.active.visible.dropdown.remedy-connect-title"));
+}
+
+public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
+	String emailVal = CreateUserPage.usersEmailPerRole.get(text).get(text.substring((text.indexOf("-")+1)).trim());
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal+"']")));
 }
 }
 
