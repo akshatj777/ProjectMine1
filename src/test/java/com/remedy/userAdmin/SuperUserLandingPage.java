@@ -50,7 +50,6 @@ public class SuperUserLandingPage extends BaseClass {
 		}
 		else if(text.equals("EmailOnTopRight"))
 		{
-			//String email = CreateUserPage.usersEmailPerRole.get("Super Admin-Executive").get("Super Admin-Executive".substring(("Super Admin-Executive".indexOf("-")+1)).trim());
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='lbarinstein+qaadmin@remedypartners.com']")));
 		}
 		else if(text.equals("Next Page Icon"))
@@ -157,7 +156,6 @@ public class SuperUserLandingPage extends BaseClass {
 					for (int j = 0; j < size; j++) {
 						String mail = driver.findElements(By.cssSelector("td.five.wide")).get(j).getText();
 						Assert.assertTrue(mail.contains("@")&&mail.contains(".com"));
-						// System.out.println("email validated" + j);
 					}
 				} else {
 					int size = driver.findElements(By.cssSelector(".five.wide")).size();
@@ -169,7 +167,6 @@ public class SuperUserLandingPage extends BaseClass {
 					for (int j = 0; j < size; j++) {
 						String mail = driver.findElements(By.cssSelector("td.five.wide")).get(j).getText();
 						Assert.assertTrue(mail.contains(".com"));
-						// System.out.println("email validated" + j);
 					}
 				}
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.left")));
@@ -186,12 +183,10 @@ public class SuperUserLandingPage extends BaseClass {
 				if (text.contains("Account Status")) 
 				{
 					isElementVisible(driver.findElements(By.cssSelector("td.center.aligned.one.wide")).get(i));
-					//System.out.println("Account status validated for  " + i);
 				}
 				if (text.contains("Email")) 
 				{
 					isElementVisible(driver.findElement(By.cssSelector("td.five.wide")));
-					//System.out.println("email validated for " + i);
 				}
 			}
 			int size1 = driver.findElements(By.cssSelector("td.four.wide")).size();
@@ -200,33 +195,31 @@ public class SuperUserLandingPage extends BaseClass {
 				if (text.contains("Name")) 
 				{
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
-					//System.out.println("Name validated for " + n);
 				}
 				n = n + 1;
 				if (text.contains("Role")) 
 				{
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
-					//System.out.println("Role validated for " + (n - 1));
 				}
 				n = n + 1;
 				if (text.contains("Date")) 
 				{
 					isElementVisible(driver.findElements(By.cssSelector("td.four.wide")).get(n));
-					//System.out.println("Date validated for " + (n - 2));
 				}
 			}
 			if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 				clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
 				iWillWaitToSee(By.cssSelector("div.chevron-group"));
-				//System.out.println("next page^^^^^^^^^^^^^");
-
 			} else
 				break;
 		}
 
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> b74696ea08e2aebd23ddb1a2e8ff9af25d884fa6
 	public void SearchUserWithText(String searchParam, String userRole) {
 		if(searchParam.equals("FetchFromHM"))
 		{
@@ -264,8 +257,6 @@ public class SuperUserLandingPage extends BaseClass {
 			if (driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result))
 				Assert.assertTrue(
 						driver.findElements(By.cssSelector("td.four.wide")).get(0).getText().contains(result));
-			// verifyTextForElement(driver.findElements(By.cssSelector("td.four.wide")).get(0),
-			// result);
 		} else if (searchBy.equalsIgnoreCase("Email")) {
 			if(result.equals(mail)){
 			String email = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
@@ -359,7 +350,6 @@ public class SuperUserLandingPage extends BaseClass {
 		verifyElementCount(".five.wide", 0);
 	}
 	public void iSeeCrossIconForSearch(){
-		//iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		isElementVisible(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
 	
@@ -367,7 +357,6 @@ public class SuperUserLandingPage extends BaseClass {
 		Assert.assertTrue(isElementPresentOnPage(By.xpath("//h3[text()=' No Results Found ']")));
 	}
 	public void iClickCrossIconForSearch(){
-		//iWillWaitToSee(By.cssSelector(".remove.link.icon.remove-icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
 	}
 public void iSeeUsersBackOnClosingSearch(){
@@ -392,7 +381,6 @@ public void iSelectAUser(){
 public void iVerifyViewUserPage(){
 	delay();
 	iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation>a"));
-	//isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
 	isElementPresent(By.cssSelector(".six.wide.column.header-navigation>a"));
 }
 public void iShouldNotSeeErrorMsgOnUsersPage(String text){
@@ -400,8 +388,6 @@ public void iShouldNotSeeErrorMsgOnUsersPage(String text){
 }
 public void verifyRowsAlignmentWhenCountIsNotMultipleOfThree(){
 	if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
-		
-	
 		clickElement(driver.findElement(By.cssSelector(".icon.chevron.right")));
 		iWillWaitToSee(By.cssSelector("div.chevron-group"));
 		
@@ -443,4 +429,3 @@ public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
 	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal+"']")));
 }
 }
-
