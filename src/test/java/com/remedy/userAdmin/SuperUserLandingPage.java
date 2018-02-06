@@ -27,6 +27,12 @@ public class SuperUserLandingPage extends BaseClass {
 		iWillWaitToSee(By.xpath("//div[@class='double-chevron right']"));
 		driver.findElement(By.xpath("//div[@class='double-chevron right']")).click();
 	}
+	
+	public void clickFirstPageIconOnLandingPage() 
+	{
+		iWillWaitToSee(By.xpath("//div[@class='double-chevron left']"));
+		driver.findElement(By.xpath("//div[@class='double-chevron left']")).click();
+	}
 
 	public void iVerifyLandingPageUI(String text) {
 		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
@@ -109,22 +115,9 @@ public class SuperUserLandingPage extends BaseClass {
 		}
 
 		else if (text.contains("Users Count")) {
-			
-				if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 					verifyElementCount(".five.wide", 30);
-					clickElement(driver.findElement(By.cssSelector("div.double-chevron.right")));
-					iWillWaitToSee(By.cssSelector("div.chevron-group"));
-					// System.out.println("count of 30");
-				} else {
-					int size = driver.findElements(By.cssSelector(".five.wide")).size();
-					// System.out.println("size--" + size);
-					verifyElementCount(".five.wide", size);
-
 				}
-
-			
-
-		} else if (text.contains("rows allignment")) {
+		 else if (text.contains("rows allignment")) {
 			
 				if (isElementPresentOnPage(By.cssSelector("div.double-chevron.right")) == true) {
 					verifyElementCount("tr.component-user-table-row", 30);
@@ -349,7 +342,8 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iLockUnlockUser() {
-		clickElement(driver.findElements(By.cssSelector(".SVGInline-svg.SVGInline--cleaned-svg.component-remedy-icons-svg")).get(1));
+		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg']")));
+		longDelay();
 	}
 	
 	public void verifyLockedUser(String action) {

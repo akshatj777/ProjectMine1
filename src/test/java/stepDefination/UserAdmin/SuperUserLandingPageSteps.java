@@ -39,6 +39,11 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	   ua2LandingPage.clickLastPageIconOnLandingPage();
 	}
 	
+	@Then("^I click on First Page Icon on landing page$")
+	public void clickFirstPageOnLandingPage() throws Throwable {
+	   ua2LandingPage.clickFirstPageIconOnLandingPage();
+	}
+	
 	@Then("^I verify \"([^\"]*)\" on landing page$")
 	public void i_verify_on_landing_page(String text) throws Throwable {
 	   ua2LandingPage.iVerifyLandingPageUI(text);
@@ -60,7 +65,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	}
 
 	@Then("^I \"([^\"]*)\" user$")
-	public void iLockUnlockUser() throws Throwable {
+	public void iLockUnlockUser(String action) throws Throwable {
 		ua2LandingPage.iLockUnlockUser();
 	}
 	

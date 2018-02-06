@@ -106,29 +106,29 @@ Feature: Super Admin Landing page verification
     And I click on Last Page Icon on landing page
     And I verify "Previous Page Icon" on landing page
     And I verify "First Page Icon" on landing page
+    And I click on First Page Icon on landing page
     And I verify "Users Count" on landing page
     And I should see "Add User" Button in landing page
     Then I click on "Add User" Button
     Then I am navigated to user creation page
     Then I should see "Add New User" on the user creation page
     Then I click on close icon from user creation page
+    Then I verify "1" text on landing page
+    And I click on "icon chevron right" on landing page
+    Then I verify "2" text on landing page
+    Then I click on "Add User" Button
+    Then I am navigated to user creation page
+    Then I should see "Add New User" on the user creation page
+    Then I click on close icon from user creation page
+    Then I verify "2" text on landing page
+    And I click on "icon chevron left" on landing page
+    Then I verify "1" text on landing page
     Then I select any user
     And I verify that I am navigated to view user page
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
 
-  #And I verify "previous and next icons functions" on landing page
-  #And I verify "Pagination functionality" on landing page
-  #And I verify "Pagination retention" on landing page
-  #And I verify "Users rows allignment" on landing page
-  #And I verify rows allignment on landing page when the count of users is not a multiple of three
-  #And I verify "Long email, first name and last name" on landing page
-  #And I verify "Name" value for users on landing page
-  #And I verify "Role" value for users on landing page
-  #And I verify "Email" value for users on landing page
-  #And I verify "Creation Date" value for users on landing page
-  #And I verify "Account Status" value for users on landing page
   Scenario Outline: <Description>
     Given I am on the login page
     When I log in as super user
@@ -160,9 +160,6 @@ Feature: Super Admin Landing page verification
     Then I verify availability of "<SearchParameter>" for "<user>-<Role>"
     Then I "lock" user
     Then I verify user is "Locked"
-    #Then I "unlock" user "<user>-<Role>"
-    #Then I should see an alert with "Are you sure you want to unlock"
-    #Then I click on "Cancel" button from the unlock alert
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
@@ -190,11 +187,15 @@ Feature: Super Admin Landing page verification
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
     And I should see Log in widget
+    Given I am on the login page
+    Then I click on "Log Out" button again
+    Given I am on mail login page
+    And I should see Log in widget
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
-    Then I should see header text "Users"
+    Then I verify "<Applications>" product on SPOE page
 
     Examples: 
-      | user        | Role      | Email             | SearchParameter |
-      | Super Admin | Executive | test.automatemail | FetchFromHM     |
+      | user        | Role      | Email             | SearchParameter | Applications               |
+      | Super Admin | Executive | test.automatemail | FetchFromHM     | Episodes, Reports, Lessons |
