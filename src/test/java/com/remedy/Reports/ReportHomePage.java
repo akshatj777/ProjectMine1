@@ -1396,4 +1396,12 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyTextBesideTheSearchBoxOnPhysicianDashboardReport(String text){
     	isElementVisible(driver.findElement(By.xpath("//label/span[text()='"+text+"']")));
     }
+    
+    public void iVerifyTextNotAppearingUnderPhysicianScoreCard(String text){
+    	verifyTextNotPresentForElementFromList("", text);
+    }
+    
+    public void iVerifyTextNotPresentInFilterSections(String text){
+    	verifyTextNotPresentForElementFromList("", text);
+    }
 }

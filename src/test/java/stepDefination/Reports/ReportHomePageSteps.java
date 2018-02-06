@@ -1767,4 +1767,19 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_text_is_appearing_beside_the_search_field_on_physician_dashboard_report(String text) throws Throwable{
     	reportHomePage.iVerifyTextBesideTheSearchBoxOnPhysicianDashboardReport(text);
     }
+    
+    @When("^I should not see \"([^\"]*)\" report after clicking on dashboard$")
+    public void i_should_not_see_report_after_clicking_on_dashboard(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" section is not appearing on the performance scorecard page$")
+    public void i_verify_section_not_appearing_on_the_performance_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyTextNotAppearingUnderPhysicianScoreCard(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" filter is not appearing in the filters section$")
+    public void i_verify_filter_is_not_appearing_in_the_filter_section(String text) throws Throwable{
+    	reportHomePage.iVerifyTextNotPresentInFilterSections(text);
+    }
 }

@@ -1,5 +1,46 @@
 Feature: Verification of physician report under dashboard
 
+  Scenario Outline: User should see physician dashboard report for the role user RPFIN,RPNOFIN and OPSFIN
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    Then I should see following Reports text for Dashboards reports
+      | Physician |
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+
+    Examples: 
+      | email                              | Role    |
+      | shutestaug231132a@yopmail.com      | RPFIN   |
+      | shutestaug221130a@yopmail.com      | RPNOFIN |
+      | reptestachmodel2opsfin@yopmail.com | OPSFIN  |
+
+  Scenario Outline: User should not see physician dashboard report for external role users except OPSFIN
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    And I should not see Reports Tile text as "Dashboards"
+
+    Examples: 
+      | email                         | Role     |
+      | shutestaug15240p@yopmail.com  | OPSNOFIN |
+      | shutestaug221145a@yopmail.com | OPSSPEND |
+      | repopsnofintest@yopmail.com   | ECREPORT |
+
   Scenario Outline: User should be able to verify physician report appearing under dashboard and clicking on attributed physician name is opening scorecard dashboard and verify drill through
     Given I am on the login page
     When I enter email field <email> for login
@@ -463,3 +504,32 @@ Feature: Verification of physician report under dashboard
       | reptestachmodel2opsfin@yopmail.com | facility    | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
       | shutestaug231132a@yopmail.com      | bundle      | Amputation                       | Amputation                       |
       | reptestachmodel2opsfin@yopmail.com | bundle      | Amputation                       | Amputation                       |
+
+Scenario Outline: Verify the fields are no longer availble on the performance scorecard page
+Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "Top 5 Facility Performance" section is not appearing on the performance scorecard page
+    Then I verify "Post Acute Discharge Disposition" section is not appearing on the performance scorecard page
+    And I verify "Date Range" filter is not appearing in the filters section
+    Then I verify "Top 5 Bundles by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
+    
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
