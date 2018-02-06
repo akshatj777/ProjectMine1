@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
-
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
@@ -567,15 +567,15 @@ public class CreateUserPage extends BaseClass{
 		   if(st.nextToken().trim().equals("Episodes")){
 			   if(role.substring((role.indexOf("-")+1)).equals("Physicians"))
 			   {
-				   scrollIntoViewByJS(driver.findElement(By.xpath("//span[text()='Admin Center']")));
+//				   scrollIntoViewByJS(driver.findElement(By.xpath("//span[text()='Admin Center']")));
 				   driver.findElement(By.xpath("//span[text()='Admin Center']")).click();
 				   delay();
 				   driver.findElement(By.xpath("//a[@href='/secure/admin/clinician/']")).click();
 				   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h1[text()='Clinicians List']"))));
-				   scrollIntoViewByJS(driver.findElement(By.id("filters_bpprovider_email")));
+//				   scrollIntoViewByJS(driver.findElement(By.id("filters_bpprovider_email")));
 				   String emailForEC1 = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 				   driver.findElement(By.id("filters_bpprovider_email")).sendKeys(emailForEC1.substring(emailForEC1.indexOf("+")+1));
-				   scrollIntoViewByJS(driver.findElement(By.xpath("//button[@class='btn btn-sm btn-primary']")));
+//				   scrollIntoViewByJS(driver.findElement(By.xpath("//button[@class='btn btn-sm btn-primary']")));
 				   driver.findElement(By.xpath("//button[@class='btn btn-sm btn-primary']")).click();
 				   longDelay();
 				   String NPI = CreateUserPage.usersNPIPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
@@ -594,11 +594,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyNavigationOnInstituteHomePage(String role){
-//	   iWillWaitToSee(By.cssSelector(".navbar-header"));
-//	   iWillWaitToSee(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']"));
-	   new WebDriverWait(driver, 180).until(
-		          webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-	   new WebDriverWait(driver, 180).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
    }
    
@@ -1084,12 +1080,120 @@ public class CreateUserPage extends BaseClass{
 	   }
    }
    
+   public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
+	   if(!(locationList.equals("")))
+	   	{
+		   StringTokenizer st = new StringTokenizer(locationList,",");
+	       while (st.hasMoreTokens()) {
+	    	   String token = st.nextToken().trim();
+	    		   delay();
+	    		   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+		    	   {
+		    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+		    	   }
+		    	   delay();
+		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), token);
+		    	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]"));
+		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]")).click();
+		    	   Thread.sleep(3000); 
+	   	}
+	   	}
+   }
+   
+   public void selectLocationsForPTAUser(String locationList) throws Throwable {
+	   if(!(locationList.equals("")))
+	   	{
+		   if(locationList.equalsIgnoreCase("All Locations")){
+			   clickElement(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[text()='All Locations']")));
+			   delay();
+		   }
+		   else if (locationList.contains(","))
+		   {
+			   StringTokenizer st = new StringTokenizer(locationList,",");
+		       while (st.hasMoreTokens()) {
+		    	   String token = st.nextToken().trim();
+		    	   String location = token.substring(token.indexOf("--")+2, token.length());
+		    	   String BPID = token.substring(0, token.indexOf("--"));
+		    	   if(location.contains(BPID))
+		    	   {
+		    		   delay();
+			    	   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+			    	   {
+			    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+			    	   }
+			    	   delay();
+			    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), BPID);
+			    	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+			    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+			    	   Thread.sleep(3000);
+		    	   }
+		    	   else
+		    	   {
+		    		   delay();
+		    		   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+			    	   {
+			    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+			    	   }
+			    	   delay();
+			    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), location);
+			    	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+			    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+			    	   Thread.sleep(3000); 
+		    	   }
+		       }   
+		   }
+		   else if(locationList.contains("--"))
+		   {
+			   String token = locationList;
+	    	   String location = token.substring(token.indexOf("--")+2, token.length());
+	    	   String BPID = token.substring(0, token.indexOf("--"));
+	    	   if(location.contains(BPID))
+	    	   {
+	    		   delay();
+	    		   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+		    	   {
+		    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+		    	   }
+	        	   delay();
+	        	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), BPID);
+	        	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+	        	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+	        	   Thread.sleep(3000);
+	    	   }
+	    	   else
+	    	   {
+	    		   delay();
+	    		   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+		    	   {
+		    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+		    	   }
+	        	   delay();
+	        	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), location);
+	        	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+	        	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
+	        	   Thread.sleep(3000);   
+	    	   }
+		   	    }	
+	   	}
+	   	}
+	   
+	   	
+   
    public void clickAddHealthSystemButton(String flag) throws Throwable {
        if(flag.equals("Yes"))
        {
     	   scrollIntoViewByJS(driver.findElement(By.xpath("//button[text()='Add Another Organization']")));
     	   iWillWaitToSee(By.xpath("//button[text()='Add Another Organization']"));
     	   driver.findElement(By.xpath("//button[text()='Add Another Organization']")).click();
+       }
+   }
+   
+   public void clickAddHealthSystemButtonForDownstremProvider(String flag) throws Throwable {
+       if(flag.equals("Yes"))
+       {
+    	   scrollIntoViewByJS(driver.findElement(By.xpath("//button[text()='Add Model 3 Organization(s)']")));
+    	   iWillWaitToSee(By.xpath("//button[text()='Add Model 3 Organization(s)']"));
+    	   driver.findElement(By.xpath("//button[text()='Add Model 3 Organization(s)']")).click();
        }
    }
    
@@ -1506,8 +1610,8 @@ public class CreateUserPage extends BaseClass{
 	 }
 	 
 	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String text){
-		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+text+"']"))));
-			String actual = getTextForElement(driver.findElement(By.xpath("//*[text()='Selected Locations:']//preceding::*[text()='"+text+"']")));
+		 	wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]"))));
+			String actual = getTextForElement(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
 			Assert.assertEquals(text,actual);
 	 }
 	 

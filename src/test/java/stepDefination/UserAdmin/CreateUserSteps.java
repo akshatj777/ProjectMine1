@@ -581,9 +581,24 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocations(locationList);
 	}
 	
+	@Then("^I select \"([^\"]*)\" locations for Downstream Provider role$")
+	public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
+		createUser.selectLocationsForDownstreamProvider(locationList);
+	}
+	
+	@Then("^I select \"([^\"]*)\" locations for PTA user$")
+	public void selectLocationsForPTAUser(String locationList) throws Throwable {
+		createUser.selectLocationsForPTAUser(locationList);
+	}
+	
 	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
 	public void clickAddOrgButton(String flag) throws Throwable {
 		createUser.clickAddHealthSystemButton(flag);
+	}
+	
+	@Then("^I click Add Model3 Organization button for \"([^\"]*)\" flag for Downstream Provider role$")
+	public void clickAddOrgButtonForDownstreamProvider(String flag) throws Throwable {
+		createUser.clickAddHealthSystemButtonForDownstremProvider(flag);
 	}
 
 	@Then("^I verify default program \"([^\"]*)\" associated with organization$")
