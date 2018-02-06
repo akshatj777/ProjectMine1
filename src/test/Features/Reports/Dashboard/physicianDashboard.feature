@@ -426,3 +426,40 @@ Feature: Verification of physician report under dashboard
       | reptestachmodel2opsfin@yopmail.com | green  | Below the benchmark  |
       | shutestaug231132a@yopmail.com      | yellow | Within the benchmark |
       | reptestachmodel2opsfin@yopmail.com | yellow | Within the benchmark |
+
+  Scenario Outline: Verify filters should not be clickable without selecting any value in the filter
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I uncheck All option under "<filtername>" filter in the filter options
+    And I verify apply button is not clickable in the filters
+    Then I enter <filtertext> under the "<filtername>" field searchbox
+    Then I click the <filtertext> appearing under "<filtername>" field filter under filter options
+    And I click on apply button under the filter in filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "<selectedfilter>" is appearing under "<filtername>" filter field after applying filter
+
+    Examples: 
+      | email                              | filtername  | filtertext                       | selectedfilter                   |
+      | shutestaug231132a@yopmail.com      | payer       | Medicare                         | All                              |
+      | reptestachmodel2opsfin@yopmail.com | payer       | Medicare                         | All                              |
+      | shutestaug231132a@yopmail.com      | participant | Penn                             | All                              |
+      | reptestachmodel2opsfin@yopmail.com | participant | Penn                             | All                              |
+      | shutestaug231132a@yopmail.com      | initiator   | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
+      | reptestachmodel2opsfin@yopmail.com | initiator   | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
+      | shutestaug231132a@yopmail.com      | facility    | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
+      | reptestachmodel2opsfin@yopmail.com | facility    | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
+      | shutestaug231132a@yopmail.com      | bundle      | Amputation                       | Amputation                       |
+      | reptestachmodel2opsfin@yopmail.com | bundle      | Amputation                       | Amputation                       |
