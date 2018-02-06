@@ -89,12 +89,6 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnUsersLink();
 	}
 
-
-//   @Then ("^I enter invalid data \"([^\"]*)\" in search box$")
-//   public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
-//	   ua2LandingPage.SearchUserWithText(text);
-//   }
-
    @Then ("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
    public void enterTextInSearchBox(String text, String userRole) throws Throwable {
 	   ua2LandingPage.SearchUserWithText(text,userRole);
@@ -104,11 +98,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
    public void verifySearchParameter(String searchParam, String userRole) throws Throwable {
 	   ua2LandingPage.verifySearch(searchParam, userRole);
    }
-//	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
-//	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
-//		ua2LandingPage.SearchUserWithEmail(text, userRole);
-//
-//	}
+   
 	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result$")
 	public void iVerifySeachedElement(String result, String searchBy) throws Throwable {
 		ua2LandingPage.iVerifySearchResult(result, searchBy, "");
