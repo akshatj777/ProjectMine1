@@ -548,7 +548,7 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     And I should see "Onboarding Status" is added in layout section after clicking on add to report
     Then I verify "Onboarding Status" field is appearing in the report table after clicking on add to report
-    #Filtering	
+    #Filtering
     When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
@@ -562,12 +562,12 @@ Feature: M3 EC Next site of care summary report verification.
     And I should see "<onboardingstatus1>" result in "Onboarding Status" field column for "Onboarding Status" filter field
 
     Examples: 
-      | email                               | role   | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
-      | RPFINM3SNFSaberHealth@yopmail.com   | RPFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | RPFINM3HHAVisitingQA@yopmail.com    | RPFIN  | HHA         | Unknown           |                   |                   |
-      | OPSFINM3SNFSaberHealth@yopmail.com  | OPSFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
-      | OPSFINM3HHAVisiting@yopmail.com     | OPSFIN | HHA         | Unknown           |                   |                   |
-      | RPFINM3HHASNFVisitQA@yopmail.com    | RPFIN  | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
+      | email                              | role   | facility    | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 |
+      | RPFINM3SNFSaberHealth@yopmail.com  | RPFIN  | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | RPFINM3HHAVisitingQA@yopmail.com   | RPFIN  | HHA         | Unknown           |                   |                   |
+      | OPSFINM3SNFSaberHealth@yopmail.com | OPSFIN | SNF         | Needs Onboarding  | Onboarded         | Unknown           |
+      | OPSFINM3HHAVisiting@yopmail.com    | OPSFIN | HHA         | Unknown           |                   |                   |
+      | RPFINM3HHASNFVisitQA@yopmail.com   | RPFIN  | SNF and HHA | Needs Onboarding  | Onboarded         | Unknown           |
 
   Scenario Outline: Validate the patient risk field values on the NSOC  [Model 3] report and filters for user with <role> role for <facility> facility
     Given I am on the login page
@@ -712,6 +712,9 @@ Feature: M3 EC Next site of care summary report verification.
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field from default filters
+    Then I remove "isAnchorAdmission" field filter under "isAnchorAdmission" filter field from default filters
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -721,19 +724,20 @@ Feature: M3 EC Next site of care summary report verification.
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
     Then I verify there are no duplicate values in the eligibility filter field list
-    And I should see "ELIGIBLE" in the filter value list
-    And I should see "ERROR" in the filter value list
-    And I should see "EXPIRED" in the filter value list
-    And I should see "NOT_ELIGIBLE" in the filter value list
+    And I should see "<eligibility1>" in the filter value list
+    And I should see "<eligibility2>" in the filter value list
+    And I should see "<eligibility3>" in the filter value list
+    And I should see "<eligibility4>" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
     And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
-    
+
     Examples: 
-      | email                                 | role     | facility    |
-      | RPFINM3SNFSaberHealth@yopmail.com     | RPFIN    | SNF         |
-      | RPFINM3HHAVisitingQA@yopmail.com      | RPFIN    | HHA         |
-      | OPSFINM3SNFSaberHealth@yopmail.com    | OPSFIN   | SNF         |
-      | OPSFINM3HHAVisiting@yopmail.com       | OPSFIN   | HHA         |
-      | RPFINM3HHASNFVisitQA@yopmail.com      | RPFIN    | SNF and HHA |
+      | email                              | role   | facility    | eligibility1 | eligilibilty2 | eligilibilty3 | eligilibilty4 |
+      | RPFINM3SNFSaberHealth@yopmail.com  | RPFIN  | SNF         | ELIGIBLE     | ERROR         | EXPIRED       | NOT_ELIGIBLE  |
+      | RPFINM3HHAVisitingQA@yopmail.com   | RPFIN  | HHA         | ELIGIBLE     | ERROR         | EXPIRED       |               |
+      | OPSFINM3SNFSaberHealth@yopmail.com | OPSFIN | SNF         | ELIGIBLE     | ERROR         | EXPIRED       | NOT_ELIGIBLE  |
+      | OPSFINM3HHAVisiting@yopmail.com    | OPSFIN | HHA         | ELIGIBLE     | ERROR         | EXPIRED       |               |
+      | RPFINM3HHASNFVisitQA@yopmail.com   | RPFIN  | SNF and HHA | ELIGIBLE     | ERROR         | EXPIRED       | NOT_ELIGIBLE  |
