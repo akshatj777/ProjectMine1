@@ -68,7 +68,15 @@ public class MailCreateUser extends BaseClass{
 		{
 			iWillWaitToSee(By.xpath("//input[@type='password']"));
 			driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
-			clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+			if(driver.findElements(By.xpath("//span[text()='Next']")).size()>0)
+			{
+				clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+			}
+			else
+			{
+				clickElement(driver.findElement(By.xpath("//span[text()='Sign in']")));
+			}
+			
 		}
 		
 	}
@@ -143,11 +151,12 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
-		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]"))));
+		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span/b[contains(text(),'Verify your account')]"))));
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]")));
+		iWillWaitToSee(By.xpath("//span/b[contains(text(),'Verify your account')]"));
+		clickElement(driver.findElement(By.xpath("//span/b[contains(text(),'Verify your account')]")));
 	}
 	
 	public void iVerifyLinkInMailContentInInboxInMyAccount(String text) {
