@@ -1,16 +1,13 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-
 import org.junit.Assert;
-import org.openqa.jetty.html.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 60);
+	WebDriverWait wait = new WebDriverWait(driver, 120);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -1354,6 +1351,10 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeFAQListOnFAQPage(){
-    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    	isElementVisible(driver.findElement(By.cssSelector(".row.collapse>ul>li>a")));
+    }
+    
+    public void iWillWaitUntillLoadingMessageDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
     }
 }

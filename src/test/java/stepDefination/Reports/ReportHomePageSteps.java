@@ -1717,4 +1717,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
     	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
     }
+
+    @Then("^I wait untill page loading message disappears$")
+    public void i_wait_untill_page_loading_message_disappears() throws Throwable{
+    	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
+    }
 }
