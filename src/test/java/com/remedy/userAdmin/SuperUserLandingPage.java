@@ -216,10 +216,7 @@ public class SuperUserLandingPage extends BaseClass {
 
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> b74696ea08e2aebd23ddb1a2e8ff9af25d884fa6
 	public void SearchUserWithText(String searchParam, String userRole) {
 		if(searchParam.equals("FetchFromHM"))
 		{
