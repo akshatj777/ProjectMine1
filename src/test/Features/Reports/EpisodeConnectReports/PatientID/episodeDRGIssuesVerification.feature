@@ -332,6 +332,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I should see "ERROR" in the filter value list
     And I should see "EXPIRED" in the filter value list
     And I should see "NOT_ELIGIBLE" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -908,6 +909,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I should not see "potentialM3" in the filter value list
 
     Examples: 
-      | email                        |
-      | shutestaug15252p@yopmail.com |
-      | shutestaug26212p@yopmail.com |
+      | email                              |
+      | shutestaug15252p@yopmail.com       |
+      | shutestaug26212p@yopmail.com       |
+      | reptestachmodel2opsfin@yopmail.com |

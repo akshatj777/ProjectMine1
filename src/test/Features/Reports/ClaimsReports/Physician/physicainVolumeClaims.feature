@@ -767,10 +767,7 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     When I click on show all filters icon button
-    Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "Bundle Risk" field filter under "Bundle Risk" filter field from default filters
-    Then I remove "Bundle Code" field filter under "Bundle" filter field from default filters
-    Then I remove "Attributed Physician" field filter under "Physician" filter field from default filters
     And I wait until refresh button is disappeared
     And I verify there are no default filters appearing after removing all the default filters
     When I click to "Post Acute Type" field filter under "Post Acute Category.Post Acute Type" filter field
@@ -835,57 +832,3 @@ Feature: Verification of multiple scenarios for Volume(Claims) under physician
     Examples: 
       | email                              | postacutetype1 | postacutetype2 | networktier1   | networktier2 | networktier3 |
       | RPFINClaimsSNFHHATier1@yopmail.com | HHA            | SNF            | Out of Network | Tier 1       | Tier 2       |
-
-  Scenario Outline: User should be able to drag and drop the fields Dashboard-Anchor CCN,BPID,Bundle Code,Bundle Risk and Episode Initiator through add to report in volume claims report under physician
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Physician" under reports tile text
-    When I click on the Reports Tile with text "Physician"
-    Then I click on "Volume (Claims)" report text for Physician Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Physician Volume" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #Drag and Drop(Dashboard-Anchor CCN)
-    When I click to "Dashboard-Anchor CCN" filter field under available fields
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Dashboard - Anchor CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Dashboard - Anchor CCN" column is added to report after selecting add to report option
-    #BPID Drag and Drop
-    When I click to "BPID" field filter under "Episode Initiator" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecting add to report option
-    #Bundle Code Drag and Drop
-    When I click to "Bundle Code" field filter under "Bundle" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Bundle Code" field is appearing in the layout section after selecting add to report
-    Then I verify "Bundle Code" column is added to report after selecting add to report option
-    #Bundle Risk Drag and Drop
-    When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Bundle Risk" column is added to report after selecting add to report option
-    #Episode Initiator Drag and Drop
-    When I click on "Episode Initiator" field in the layout section to open the list
-    Then I click on remove from report option in the list
-    And I verify "Episode Initiator" column is not present in the reports
-    When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Episode Initiator" field is appearing in the layout section after selecting add to report
-    Then I verify "Episode Initiator" column is added to report after selecting add to report option
-
-    Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
