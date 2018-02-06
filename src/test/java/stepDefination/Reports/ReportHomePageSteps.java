@@ -1732,7 +1732,7 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
     	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
     }
-    
+
     @And("^I verify search field is appearing below the count on performance evaluation by physician page$")
     public void i_verify_search_field_is_appearing_below_the_count_on_peformance_evaluation_by_physician_page() throws Throwable{
     	reportHomePage.iVerifySeachFieldOnPerformanceEvaluationByPhysicianPage();
@@ -1782,4 +1782,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_filter_is_not_appearing_in_the_filter_section(String text) throws Throwable{
     	reportHomePage.iVerifyTextNotPresentInFilterSections(text);
     }
+
+    @Then("^I wait untill page loading message disappears$")
+    public void i_wait_untill_page_loading_message_disappears() throws Throwable{
+    	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
+    }
 }
+

@@ -2,7 +2,6 @@ package stepDefination.UserAdmin;
 
 import com.remedy.resources.DriverScript;
 import com.remedy.userAdmin.MailCreateUser;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -45,14 +44,14 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iClickOnDeleteIconInMail();
 	}
 	
-	@Then("^I signout form mail account$") 
+	@Then("^I signout from mail account$") 
 	public void i_SignOut_From_Mail_Account() throws Throwable {
 		mailcreateuser.iSignOutFromMailAccount();
 	}
 	
-	@Then("^I enter Email to Create user$") 
-	public void i_Enter_Email_To_CreateUser() throws Throwable {
-		mailcreateuser.iEnterEmailToCreateUser();
+	@Given("^I enter Email \"([^\"]*)\" to Create user$") 
+	public void i_Enter_Email_To_CreateUser(String email) throws Throwable {
+		mailcreateuser.iEnterEmailToCreateUser(email);			
 	}
 	
 	@Then("^I verify Account Verification in Inbox in my account$") 
@@ -115,9 +114,9 @@ public class MailCreateUserSteps extends DriverScript {
 		mailcreateuser.iClickOnSendEmailButton();
 	}
 	
-    @Then("^I enter newuser email for login to Remedy$") 
-		public void i_Enter_NewUser_EMail_For_Login_To_Remedy() throws Throwable {
-			mailcreateuser.iEnterNewUserEmailForLoginToRemedy();
+    @Then("^I enter newuser email for \"([^\"]*)\" login to Remedy$") 
+		public void i_Enter_NewUser_EMail_For_Login_To_Remedy(String email) throws Throwable {
+			mailcreateuser.iEnterNewUserEmailForLoginToRemedy(email);
 	}   
 	
     @Then("^I enter newuser password for login to Remedy$") 
@@ -125,7 +124,7 @@ public class MailCreateUserSteps extends DriverScript {
 			mailcreateuser.iEnterNewPasswordForLoginToRemedy();
 	}     
 	
-    @Then("^I open new tab and close the last tab$") 
+    @Then("^I clear the browser history$") 
 	public void i_Open_NewTab_And_Close_The_Last_Tab() throws Throwable {
 		mailcreateuser.iOpenNewTabAndCloseLastTab();
 }

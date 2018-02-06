@@ -1,16 +1,13 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
-
 import org.junit.Assert;
-import org.openqa.jetty.html.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
@@ -1366,7 +1363,11 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeFAQListOnFAQPage(){
-    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    	isElementVisible(driver.findElement(By.cssSelector(".row.collapse>ul>li>a")));
+    }
+    
+    public void iWillWaitUntillLoadingMessageDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
     }
     
     public void iVerifySeachFieldOnPerformanceEvaluationByPhysicianPage(){
