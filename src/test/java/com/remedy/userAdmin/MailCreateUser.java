@@ -1,6 +1,8 @@
 package com.remedy.userAdmin;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -9,11 +11,15 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
+import com.remedy.resources.DriverScript;
 
 public class MailCreateUser extends BaseClass{
 
@@ -27,20 +33,52 @@ public class MailCreateUser extends BaseClass{
 		super(driver);
 	}
 	
-	public void iAmOnMailLoginPage() throws InterruptedException {
-        driver.navigate().to("https://accounts.google.com");
+	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
+//		driver.get("chrome://settings/");
+//		Thread.sleep(5000);
+//		scrollIntoViewByJS(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
+//		driver.findElement(By.cssSelector("* /deep/ #zoomLevel")).click();
+//		delay();
+//		Select oSelect = new Select(driver.findElement(By.cssSelector("* /deep/ #zoomLevel")));
+//		oSelect.selectByValue("0.9");
+		driver.navigate().to("https://accounts.google.com");
+        if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+        {
+        	driver.manage().window().maximize();
+        }
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {
+		iWillWaitToSee(By.xpath("//input[@type='email']"));
 		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(username);
 		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
-		delay();
 	}
 	
-	public void iEnterPasswordToLoginMailAccount(String password) {	
-		iWillWaitToSee(By.xpath("//input[@type='password']"));
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
-		clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+	public void iEnterPasswordToLoginMailAccount(String password) throws InterruptedException {	
+		Thread.sleep(4000);
+		if(driver.findElement(By.xpath("//input[@type='email']")).isDisplayed())
+		{
+			driver.findElement(By.xpath("//input[@type='email']")).sendKeys("test.automatemail");
+			clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+			iWillWaitToSee(By.xpath("//input[@type='password']"));
+			driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
+			clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+		}
+		else
+		{
+			iWillWaitToSee(By.xpath("//input[@type='password']"));
+			driver.findElement(By.xpath("//input[@type='password']")).sendKeys(password);
+			if(driver.findElements(By.xpath("//span[text()='Next']")).size()>0)
+			{
+				clickElement(driver.findElement(By.xpath("//span[text()='Next']")));
+			}
+			else
+			{
+				clickElement(driver.findElement(By.xpath("//span[text()='Sign in']")));
+			}
+			
+		}
+		
 	}
 	
 	public void iClickOnMailIconOnMyAccount() {	
@@ -48,33 +86,32 @@ public class MailCreateUser extends BaseClass{
 		clickElement(driver.findElement(By.xpath("//a[@aria-label='Mail']")));
 	}
 	
-	public void iClickOnInboxUnderMail() {
+	public void iClickOnInboxUnderMail() throws InterruptedException {
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
-		delay();
-		for(int i=0;i<5;i++){
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
-		}
+		Thread.sleep(4000);
+		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 	}
 	
 	public void iClickOnSelectAllCheckBoxInMail() {
-		delay();
+		iWillWaitToSee(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']"));
 		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
 	}
 	
 	public void iClickOnDeleteIconInMail() {
-		boolean value = driver.findElement(By.xpath("//div[@aria-label='Delete']")).isDisplayed();
-		if(value == true)
+		iWillWaitToSee(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']"));
+		clickElement(driver.findElement(By.xpath("//div[@class='T-Jo-auh' and @role='presentation']")));
+		delay();
+		boolean flag = driver.findElement(By.xpath("//div[@aria-label='Delete']")).isDisplayed();
+		if(flag==true)
 		{
 			clickElement(driver.findElement(By.xpath("//div[@aria-label='Delete']")));
-			//iWillWaitToSee(By.cssSelector(".bofITb"));
-			//System.out.println(driver.findElement(By.cssSelector(".bofITb")).getText());
 		}
 	}
 	
 	public void iSignOutFromMailAccount() {
 		try
 		{
-			delay();
 			iWillWaitToSee(By.cssSelector("div>div>a[role=button]>span"));
 			clickElement(driver.findElement(By.cssSelector("div>div>a[role=button]>span")));
 			delay();
@@ -89,30 +126,37 @@ public class MailCreateUser extends BaseClass{
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e.toString());
+			System.out.println(e.toString());
 		}
-		
 	}
 	
 	public void iEnterEmailToCreateUser(String emailName) {
 		if(emailName.equalsIgnoreCase("test.automatemail"))
 			{
 			email = emailName+"+"+RandomStringUtils.randomAlphabetic(8)+"@gmail.com";
-				driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
+			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
 			}
+		else if(emailName.equals("EqualsTo76Char"))
+		{
+			email = "test.automatemail"+"+"+RandomStringUtils.randomAlphabetic(48)+"@gmail.com";
+			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
+		}
 		else
 			{
+			iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(emailName);
 			}
-		
 	}
 	
 	public void iVerifyAccountVerificationMailInInboxInMyAccount() throws InterruptedException {
-		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]"))));
+		Assert.assertTrue(isElementPresentOnPage((By.xpath("//span/b[contains(text(),'Verify your account')]"))));
 	}
 	
 	public void iClickOnAccountVerificationMailInInboxInMyAccount() {
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Welcome to Remedy Connect')]")));
+		iWillWaitToSee(By.xpath("//span/b[contains(text(),'Verify your account')]"));
+		clickElement(driver.findElement(By.xpath("//span/b[contains(text(),'Verify your account')]")));
 	}
 	
 	public void iVerifyLinkInMailContentInInboxInMyAccount(String text) {
@@ -126,32 +170,18 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iEnterEmailToGeneratePasswordLink() {
-		try
-		{
-			iWillWaitToSee(By.xpath("//input[@name='email']"));
-			//iWillWaitToSee(By.xpath("//input[@name='hllo']"));
-			driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
-		}
-		catch(Exception e)
-		{
-			driver.switchTo().window(parentWindow);
-		}
+		iWillWaitToSee(By.xpath("//input[@name='email']"));
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
 	}
 	
 	public void iClickOnSendEmailButton() {
-		try
-		{
-			iWillWaitToSee(By.xpath("//button[@type='submit']"));
-			clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
-		}
-		catch(Exception e)
-		{
-			driver.switchTo().window(parentWindow);
-		}
+		iWillWaitToSee(By.xpath("//button[@type='submit']"));
+		clickElement(driver.findElement(By.xpath("//button[@type='submit']")));
 	}
 	
 	public void i_Verify_The_Unread_Mail_In_Inbox_In_My_Account(){
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox (')]"));
+		isElementPresentOnPage(By.xpath("//a[contains(text(),'Inbox (')]"));
 	}
 	
 	public void iVerifyChangePasswordMailinInboxInMyAccount() {
@@ -160,49 +190,39 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
+		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
 		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
-		try
-		{
-			iWillWaitToSee(By.name("password"));
-			iFillInText(driver.findElement(By.name("password")), text);
-		}
-		catch(Exception e)
-		{
-			driver.switchTo().window(parentWindow);
-		}
-		
+		iWillWaitToSee(By.name("password"));
+		iFillInText(driver.findElement(By.name("password")), text);
 	}
 	
 	public void iEnterConfirmNewPasswordToSetNewPassword(String text) {
-		try
-		{
-			iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
-		}
-		catch(Exception e)
-		{
-			driver.switchTo().window(parentWindow);
-		}
+		iWillWaitToSee(By.xpath("//input[@placeholder='confirm your new password']"));
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='confirm your new password']")), text);
 	}
 	
 	public void iEnterNewUserEmailForLoginToRemedy(String role) {
 		String emailVal = CreateUserPage.usersEmailPerRole.get(role).get(role.substring((role.indexOf("-")+1)).trim());
-		System.out.println("Enter Email for singh in "+emailVal);
 		iWillWaitToSee(By.xpath("//input[@name='email']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='email']")), emailVal);
 	}
 	
 	public void iEnterNewPasswordForLoginToRemedy() {
+		iWillWaitToSee(By.xpath("//input[@name='password']"));
 		iFillInText(driver.findElement(By.xpath("//input[@name='password']")), "Testing1");
 	}
 	
 	public void iOpenNewTabAndCloseLastTab() throws AWTException, InterruptedException, IOException {		
-	    driver.get("chrome://settings/clearBrowserData");
-	    Thread.sleep(10000);
-	    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
-	    Thread.sleep(10000);
+	    if(DriverScript.Config.getProperty("Browser").equals("chrome"))
+	    {
+	    	driver.get("chrome://settings/clearBrowserData");
+		    Thread.sleep(10000);
+		    driver.findElement(By.cssSelector("* /deep/ #clearBrowsingDataConfirm")).click();
+		    Thread.sleep(10000);
+	    }
+		
 	}
 }

@@ -19,11 +19,16 @@ public class LandingPageSteps extends DriverScript{
         landingPage.iClickOnApplicateTile(tile);
     }
 
-    @And("^I click on the top user account link$")
-    public void IClickTopUserAccountLink() throws Throwable {
-        landingPage.iClickOnTheTopUserAccountIcon();
+    @And("^I click on the top user account link on remedy connect page$")
+    public void IClickTopUserAccountLinkOnRemedyConnectPage() throws Throwable {
+        landingPage.iClickOnTheTopUserAccountIconOnRemedyConnectPage();
     }
 
+    @And("^I click on the top user account link$")
+    public void IClickTopUserAccountLink() throws Throwable {
+        landingPage.IClickTopUserAccountLink();
+    }
+    
     @And("^I select ([^\"]*) option from the dropdown$")
     public void ISelectLogoutOption(String link) throws Throwable {
         landingPage.iSelectFromTopUserAccountDropDown(link);

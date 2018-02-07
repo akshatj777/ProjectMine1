@@ -9,13 +9,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.ParseException;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * Created by salam on 5/6/16.
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 60);
+	WebDriverWait wait = new WebDriverWait(driver, 120);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -72,8 +75,9 @@ public class ReportHomePage extends BaseClass {
     }
 
     public void iMoveToElementAndPerformRightClick(String filterField, String filterTitle){
+    	WebElement element = driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']"));
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']")));
-    	delay();
     	clickElement(driver.findElement(By.xpath(".//*[@id='fieldListTreeContent']//div[@formula='["+filterTitle+"].["+filterField+"]']/div")));
     }
 
@@ -91,7 +95,9 @@ public class ReportHomePage extends BaseClass {
 
     public void iVerifyFilterValueListModalText(String text){
     	iWillWaitToSee(By.xpath("//div[@id[starts-with(.,'FT_AVA_')]]"));
+    	if (!text.isEmpty()){
         verifyTextForElementfromList("#FT_valueList div", text);
+    	}
     }
     
     public void iSeeFilterValueListText(String text){
@@ -1115,6 +1121,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iShouldSeeColumnAfterClickingAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//td[@title='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//td[@title='"+text+"']")));
     }
     
@@ -1158,6 +1166,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyColumnAfterClikingOnAddToReport(String text){
+    	WebElement element = driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
     	isElementVisible(driver.findElement(By.xpath("//table[@class='ZONE_rowAttributes rowLabelHeaders']//div[text()='"+text+"']")));
     }
     
@@ -1172,5 +1182,142 @@ public class ReportHomePage extends BaseClass {
     public void iRemovePayerFieldFilterFromDefaultFilters(String text){
     	clickElement(driver.findElement(By.xpath("//div[@formula='[Episode Initiator].[Payer]']//i[@title='Remove filter']")));
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#progressTooltipDiv")));
+    }
+    
+    public void iVerifyNoDeafultFiltersAfterRemovingFilters(){
+    	isElementNotPresentOnPage(".filters.dojoDndItem>div");
+    }
+    
+    public void iVerifyPostAcuteTypeFilterTextInSelectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Post Acute Category.Post Acute Type].[Post Acute Type]']/span")),text);
+    }
+    
+    public void iVerifyNetworkTierTextInSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier].[Network Tier]']/span")),text);
+    }
+    
+    public void iVerifyDataInTheColumnsInsideReports(String data,String column){
+    	verifyTextForElementFromListByXpath(("//td[@member='["+column+"].["+data+"]']/div"),data);
+    }
+    
+    public void iVerifyFieldInTheLayoutSectionAfterAddToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[@class='gem dojoDndItem']/div[text()='"+text+"']")));
+    }
+    
+    public void iClickOnAvatarSymbolToClickOnMenu(){
+    	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-profile")));
+    }
+    
+    public void iShouldNotSeeTextInListAfterClickingOnAvatar(String text){
+    	verifyTextNotPresentForElementFromList("a.btn.btn-flyout-nav[type='submit']",text);
+    }
+    
+    public void iClickOnTabUnderAvatar(String text){
+    	clickElement(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")));
+    }
+    
+    public void iVerifyTextInTheAvatarList(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//a[@class='btn btn-flyout-nav'][contains(text(),'"+text+"')]")),text);
+    }
+    
+    public void iWillWaitToSeeAfterClickingHelpCenter(String text){
+    	iWillWaitToSee(By.xpath("//h1[text()='"+text+"']"));
+    }
+    
+    public void iShouldNotSeeLoginWidget(){
+    	isElementNotPresentOnPage(".auth0-lock-widget-container");
+    }
+    
+    public void iVerifyTabIsAppearingInTheReportingHomePage(String text){
+    	verifyTextForElementfromList(".navigation.clearfix>li>a",text);
+    }
+    
+    public void iClickOnTabOnReportingHelpCenter(String text){
+    	clickElement(driver.findElement(By.xpath("//div[@class='navigation-wrapper nocontent'] //li/a[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTextUnderFieldsInReportingHelpCenter(String reportsTab,String text){
+        verifyTextForElementFromListByXpath("//div[@id='contentBody'] //li[a[text()='"+reportsTab+"']]/ul/li/a", text);
+    }
+    
+    public void iVerifyTextOnTheGlossaryPage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>p:nth-of-type(1)")),text);
+    }
+    
+    public void iShouldSeeTermsAndConditionsListOnGlossaryPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".GlossaryPageLink")));
+    }
+    
+    public void iVerifyTitleOnTheReportingHelpCenterPage(String text){
+    	verifyTextForElement(driver.findElement(By.cssSelector(".row.collapse>h1")),text);
+    }
+    
+    public void iVerifyInFilterValueListAfterSelectingFilterOption(String text){
+    	StringTokenizer st = new StringTokenizer(text,",");
+    	while(st.hasMoreTokens()){
+    		String verify=st.nextToken();
+			verifyTextForElementfromList("#FT_valueList div", verify);
+    	}		
+    }
+    
+    public void iVerifyFieldUnderLayoutAfterAddingToReport(String text){
+    	isElementVisible(driver.findElement(By.xpath(".//*[@class='gem-label'][text()='"+text+"']")));
+    }
+    
+    public void iClickOnNumberUnderEpisodesColumnToVerifyDrillThrough(){
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    }
+    
+    public void iVerifyTheEpisodeCountWithDrillThrough(){
+    	String count=getTextForElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    	clickElement(driver.findElement(By.xpath("(//tbody/tr/td[1]/div/a)[1]")));
+    	switchToNewWindow();
+    	iWillWaitToSee(By.cssSelector(".x-grid3-header-inner"));
+    	String number=getTextForElement(driver.findElement(By.cssSelector(".x-paging-info")));
+    	number=number.substring(number.indexOf("of")+2).trim();
+    	Assert.assertEquals(number, count);
+    }
+    
+    public void iVerifyAnchorDischargeMonthFormat(String format) throws ParseException{
+    	String Anchormonth=getTextForElement(driver.findElement(By.xpath("(//*[@class='pivotTableRowLabelSection']//*[@formula='[Anchor Post Acute Discharge Date].[Anchor Post Acute Discharge Month]']/div)[1]")));
+    	validateDateFormat(format,Anchormonth);
+    }
+    
+    public void iClickOnFieldUnderAvailableFieldsInReports(String text,String filter){
+    	WebElement element = driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']")));
+    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'field attribute dojoDndItem uncommon') and text() = '"+text+"']/div")));
+    }
+    
+    public void iVerifyNoDuplicateValuesInEligilityFilterFieldList(){
+    	int count=getElementCount("#FT_valueList div");
+    	Set list = new HashSet();
+    	for(int i=1;i<=count;i++)
+    	{
+    		String eligible=getTextForElement(driver.findElement(By.cssSelector("#FT_valueList>div:nth-of-type("+i+")")));
+   		    list.add(eligible);
+    	}
+    	Assert.assertEquals(count,list.size());
+    }
+    
+    public void iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]']/span")),text);
+    }
+    
+    public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
+    }
+    
+    public void iVerifyTextOnTheFAQPage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector(".row.collapse>h1:nth-of-type(1)")),text);
+    }
+    
+    public void iShouldSeeFAQListOnFAQPage(){
+    	isElementVisible(driver.findElement(By.cssSelector(".row.collapse>ul>li>a")));
+    }
+    
+    public void iWillWaitUntillLoadingMessageDisappears(){
+    	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#pageLoadingMessage")));
     }
 }

@@ -57,7 +57,7 @@ public class BaseClass {
 	}
 	public WebDriverWait waitTo()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, 120);
 		return wait;
 	}
 
@@ -443,6 +443,7 @@ public class BaseClass {
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
+			System.out.println(item.getText());
 			  if (item.getText().trim().equals(text)) {
 				  value=item.getText().trim();  
 			  } 
