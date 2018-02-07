@@ -47,6 +47,10 @@ public class CreatePrograms extends BaseClass {
 				}
 				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			}
+			else if(org.contains("Contracts")){
+				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>div"));
+				verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>div")), msg);
+			}
 		}
 		else 
 		   {
@@ -64,7 +68,11 @@ public class CreatePrograms extends BaseClass {
 
 	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) 
 	{
-		clickElement(driver.findElement(By.xpath("//div[text()='Select a Program']")));
+		WebElement element = driver.findElement(By.xpath("//div[text()='Select a Program']"));
+		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+		 executor.executeScript("arguments[0].click();", element);
+		
+		//clickElement(driver.findElement(By.xpath("//div[text()='Select a Program']")));
 		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
 	}
 	
@@ -80,14 +88,25 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
+		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Search Name or CCN']")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")));
 		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".org-name")));
-		clickSingleElementFromList((By.cssSelector(".org-name")), text);
+		//clickSingleElementFromList((By.cssSelector(".org-name")), text);
+		for(int i=0; i<=2;i++){
+			  try{
+			     //driver.findElement(By.xpath("xpath here")).click();
+				  clickSingleElementFromList((By.cssSelector(".org-name")), text);
+			     break;
+			  }
+			  catch(Exception e){
+			     System.out.println(e.getMessage());
+			  }
+			}
 	}
 	
 	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) 
 	{
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Enter the price for the bundle']")), text);
+		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Price of bundle']")), text);
 
 	}
 	
@@ -100,7 +119,6 @@ public class CreatePrograms extends BaseClass {
 //		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".react-select-option-row.highlight>div")));
 		
 		WebElement element= driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
-
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
 		
@@ -130,17 +148,17 @@ public class CreatePrograms extends BaseClass {
 	public void iInsertdays1(List<Map<String,Integer>> data) throws ParseException {
 		List<WebElement> startelemnts = null;
 		List<WebElement> endelemnts = null;
-		for(int i=0;i<data.size();i++){
+		for(int i=0;i<data.size();i++)
+		{
 			startelemnts=driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='Enter the start date']"));
 			endelemnts=driver.findElements(By.xpath("//label[@class='date-picker-input-label' and text()='YYYY/MM/DD']"));
 		}
-		for(int i=0;i<data.size();i++){
-			
-				scrollIntoViewByJS(startelemnts.get(i));
-				handleDatepicker(data.get(i).get("Start Date"),startelemnts.get(i));
-				handleDatepicker(data.get(i).get("End Date"),endelemnts.get(i));
+		for(int i=0;i<data.size();i++)
+		{
+			scrollIntoViewByJS(startelemnts.get(i));
+			handleDatepicker(data.get(i).get("Start Date"),startelemnts.get(i));
+			//handleDatepicker(data.get(i).get("End Date"),endelemnts.get(i));
 		}
-			
 	}			
 
 	public void handleDatepicker(int date1,WebElement element) throws ParseException {
@@ -151,19 +169,21 @@ public class CreatePrograms extends BaseClass {
 		System.out.println(date3);
 		String year=getLastnCharacters(date3,4);
 		String date6=date3.substring(4,7);
-	    System.out.println("Stting is"+year);
+	    System.out.println("String is"+year);
 	    System.out.println("month is"+date6);
 	    element.click();
 	    WebElement midtext = driver.findElement(By.cssSelector("div.react-datepicker__current-month")); 
 	     
 	    String yeartext=midtext.getText();
 	    String date44=getLastnCharacters(newDate,2);
-	    if(year.equals(getLastnCharacters(yeartext,4)) && date6.equals(yeartext.substring(0, 3))){
-	    	
+	    if(year.equals(getLastnCharacters(yeartext,4)) && date6.equals(yeartext.substring(0, 3)))
+	    {
 	    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__month')]/div[contains(@class,'react-datepicker__week')]/div[contains(@class,'react-datepicker__day') and not(contains(@class,'react-datepicker__day--outside')) and text()='"+date44+"']")));
 	         delay();
-	    }else{
-	    	driver.findElement(By.cssSelector("a.react-datepicker__navigation--previous")).click();
+	    }
+	    else
+	    {
+	    	driver.findElement(By.cssSelector(".react-datepicker__navigation.react-datepicker__navigation--previous")).click();
 	    	delay();
 	    	clickElement(driver.findElement(By.xpath("//div[contains(@class,'react-datepicker__month')]/div[contains(@class,'react-datepicker__week')]/div[contains(@class,'react-datepicker__day') and not(contains(@class,'react-datepicker__day--outside')) and text()='"+date44+"']")));
 	    }
