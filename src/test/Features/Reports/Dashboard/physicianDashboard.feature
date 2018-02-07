@@ -482,9 +482,10 @@ Feature: Verification of physician report under dashboard
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     Then I uncheck All option under "<filtername>" filter in the filter options
-    And I verify apply button is not clickable in the filters
+    And I verify apply button is not clickable in the filters after unchecking all option
     Then I enter <filtertext> under the "<filtername>" field searchbox
     Then I click the <filtertext> appearing under "<filtername>" field filter under filter options
     And I click on apply button under the filter in filter options
@@ -505,8 +506,8 @@ Feature: Verification of physician report under dashboard
       | shutestaug231132a@yopmail.com      | bundle      | Amputation                       | Amputation                       |
       | reptestachmodel2opsfin@yopmail.com | bundle      | Amputation                       | Amputation                       |
 
-Scenario Outline: Verify the fields are no longer availble on the performance scorecard page
-Given I am on the login page
+  Scenario Outline: Verify the fields are no longer availble on the performance scorecard page
+    Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
     Then I click Access button
@@ -519,6 +520,7 @@ Given I am on the login page
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     When I click the first name under attributed physican column
     And I switch to new window
@@ -526,10 +528,109 @@ Given I am on the login page
     Then I verify current page "Performance Scorecard Dashboard" title
     Then I verify "Top 5 Facility Performance" section is not appearing on the performance scorecard page
     Then I verify "Post Acute Discharge Disposition" section is not appearing on the performance scorecard page
-    And I verify "Date Range" filter is not appearing in the filters section
+    And I verify "Date Range" filter is not appearing in the filters section on scorecard page
     Then I verify "Top 5 Bundles by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
-    
+    And I click on "LMJ Bundle Details" link on the performance scorecard page
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I verify past four quarters data is appearing on lmj page
+
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: Verify user can change physician from the scorecard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I click on "physician" filter in the filter options
+    And I select a "physician" name in filter and verify the same name is appearing on scorecard page
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: Verify Avg Episode Cost and Avg NPRA per episode values
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "Avg Episode Cost" toggle button is appearing beside cost metric
+    And I verify "Avg Episode Cost" header name is center alligned on physician dashboard report
+    Then I verify "Avg NPRA per Episode" toggle button is appearing beside cost metric
+    And I click on "Avg NPRA per Episode" radio button beside cost metric
+    Then I wait for 20000 milli seconds
+    And I verify "Avg NPRA per Episode" header name is center alligned on physician dashboard report
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I click on "Avg Episode Cost" radio button beside cost metric
+    Then I wait for 20000 milli seconds
+    Then I verify "Avg Episode Cost" toggle button is appearing beside cost metric
+    Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
+    Then I wait for 20000 milli seconds
+    And I verify column name "Episodes (Eps)" is appearing on the scorecard page
+    And I verify column name "% Disch to Home" is appearing on the scorecard page
+    And I verify column name "% Disch to HHA" is appearing on the scorecard page
+    And I verify column name "% Disch to SNF" is appearing on the scorecard page
+    And I verify column name "% Disch to IRF" is appearing on the scorecard page
+    And I verify column name "% Eps w Readmit" is appearing on the scorecard page
+    And I verify column name "Initial SNF LOS" is appearing on the scorecard page
+    And I verify column name "SNF Days" is appearing on the scorecard page
+    And I verify column name "SNF PN Utilization" is appearing on the scorecard page
+    And I verify column name "Avg Episode Cost" is appearing on the scorecard page
+    And I click on "Avg NPRA per Episode" radio button beside cost metric
+    Then I verify "Avg NPRA per Episode" toggle button is appearing beside cost metric
+    Then I verify "Avg NPRA per Episode" scorecard is appearing under performance scorecard
+    And I verify column name "Episodes (Eps)" is appearing on the scorecard page
+    And I verify column name "% Disch to Home" is appearing on the scorecard page
+    And I verify column name "% Disch to HHA" is appearing on the scorecard page
+    And I verify column name "% Disch to SNF" is appearing on the scorecard page
+    And I verify column name "% Disch to IRF" is appearing on the scorecard page
+    And I verify column name "% Eps w Readmit" is appearing on the scorecard page
+    And I verify column name "Initial SNF LOS" is appearing on the scorecard page
+    And I verify column name "SNF Days" is appearing on the scorecard page
+    And I verify column name "SNF PN Utilization" is appearing on the scorecard page
+    And I verify column name "Avg NPRA per Episode" is appearing on the scorecard page
+    And I click on "Avg NPRA per Episode" is kpi box on the performance scorecard dashboard page
+    And I switch to new window
+    Then I wait until loading message disappears in the new window after clicking on element
+    Then I verify current page "Financial Performance" title
+    Then I will wait to see "Financial Performance" is appearing in the new window
+    And I switch back to old window
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      #| reptestachmodel2opsfin@yopmail.com |

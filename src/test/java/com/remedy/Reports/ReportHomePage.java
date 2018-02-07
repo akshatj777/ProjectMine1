@@ -545,9 +545,9 @@ public class ReportHomePage extends BaseClass {
     	Assert.assertEquals(getTheCurrentUrl(), "https://cdn-qa.remedypartners.com/reports/index.html#/reports/dashboards/program-overview" );
     }
     
-    public void iSelectFilterInFilterOptions(String text){
-    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header.all-selected")));
-    	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-selection-label")));
+    public void iSelectFilterInFilterOptions(String filter){
+    	clickElement(driver.findElement(By.cssSelector("#"+filter+"FilterObj .filter-root-header.all-selected")));
+    	clickElement(driver.findElement(By.cssSelector("#"+filter+"FilterObj .filter-root-selection-label")));
     }
     
     public void iClickOnDateRangeFilter(){
@@ -851,6 +851,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFilterUnderFilterOptions(String text){
+    	WebElement element = driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header-label"));
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.cssSelector("#"+text+"FilterObj .filter-root-header-label")));
     }
     
@@ -1399,10 +1401,47 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTextNotAppearingUnderPhysicianScoreCard(String text){
-    	verifyTextNotPresentForElementFromList("", text);
+    	isElementNotPresentOnPage(By.xpath("//*[text()='"+text+"']"));
     }
     
     public void iVerifyTextNotPresentInFilterSections(String text){
-    	verifyTextNotPresentForElementFromList("", text);
+    	isElementNotPresentOnPage(By.xpath("//*[text()='"+text+"']"));
+    }
+    
+    public void iVerifyApPlyButtonIsNotClickableAfterDesectingAll(){
+    	driver.findElement(By.cssSelector("#payerFilterObj .filter-btn-apply.pristine")).isEnabled();
+    }
+    
+    public void iSelectNameInFilterAndVerifySmeNameOnScoreCardPage(String text){
+    	String physician=getTextForElement(driver.findElement(By.xpath("(//div[@id='"+text+"FilterObj'] //div[@class='filter-item-label'])[1]")));
+    	clickElement(driver.findElement(By.xpath("(//div[@id='"+text+"FilterObj'] //div[@class='filter-item-label'])[1]")));
+    	delay();
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath(".//*[@id='tableTitleObj']")), "Performance Scorecard : "+physician+" 2016Q4 - 2017Q3");
+    }
+    
+    public void iClickOnLinkUnderPerformanceScoreCardPage(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iVerifyPastFourQuartersData(){
+    	isElementVisible(driver.findElement(By.xpath("//th[text()='2016Q4']")));
+    	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q1']")));
+    	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q2']")));
+    	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q3']")));
+    }
+    
+    public void iVerifyToggleButtonBesideCostMetric(String text){
+    	isElementVisible(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    	driver.findElement(By.xpath("//button[text()='"+text+"']")).isSelected();
+    }
+    
+    public void iClickOnRadioButtonBesideCostMetric(String text){
+    	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+    }
+    
+    public void iVerifyColumnNameOnScoreCardPage(String text){
+    	WebElement element = driver.findElement(By.xpath("//td[contains(@class,'string')][text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//td[contains(@class,'string')][text()='"+text+"']")),text);
     }
 }

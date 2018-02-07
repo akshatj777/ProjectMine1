@@ -1778,7 +1778,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyTextNotAppearingUnderPhysicianScoreCard(text);
     }
     
-    @Then("^I verify \"([^\"]*)\" filter is not appearing in the filters section$")
+    @Then("^I verify \"([^\"]*)\" filter is not appearing in the filters section on scorecard page$")
     public void i_verify_filter_is_not_appearing_in_the_filter_section(String text) throws Throwable{
     	reportHomePage.iVerifyTextNotPresentInFilterSections(text);
     }
@@ -1786,6 +1786,41 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I wait untill page loading message disappears$")
     public void i_wait_untill_page_loading_message_disappears() throws Throwable{
     	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
+    }
+    
+    @And("^I verify apply button is not clickable in the filters after unchecking all option$")
+    public void i_verify_apply_button_is_not_clickable_in_the_filters_after_unchecking_all_option() throws Throwable{
+    	reportHomePage.iVerifyApPlyButtonIsNotClickableAfterDesectingAll();
+    }
+    
+    @And("^I select a \"([^\"]*)\" name in filter and verify the same name is appearing on scorecard page$")
+    public void i_select_a_name_in_filter_and_verify_the_same_name_is_appearing_on_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iSelectNameInFilterAndVerifySmeNameOnScoreCardPage(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" link on the performance scorecard page$")
+    public void i_click_on_link_on_the_performance_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iClickOnLinkUnderPerformanceScoreCardPage(text);
+    }
+    
+    @And("^I verify past four quarters data is appearing on lmj page$")
+    public void i_verify_past_four_quarters_data_is_appearing_on_lmj_page() throws Throwable{
+    	reportHomePage.iVerifyPastFourQuartersData();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" toggle button is appearing beside cost metric$")
+    public void i_verify_toggle_button_is_appearing_beside_cost_metric(String text) throws Throwable{
+    	reportHomePage.iVerifyToggleButtonBesideCostMetric(text);
+    }
+    
+    @And("^I click on \"([^\"]*)\" radio button beside cost metric$")
+    public void i_click_on_radio_button_beside_cost_metric(String text) throws Throwable{
+    	reportHomePage.iClickOnRadioButtonBesideCostMetric(text);
+    }
+    
+    @And("^I verify column name \"([^\"]*)\" is appearing on the scorecard page$")
+    public void i_verify_column_name_is_appearing_on_the_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnNameOnScoreCardPage(text);
     }
 }
 
