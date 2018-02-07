@@ -67,45 +67,47 @@ Feature: Create Programs organization under Payor Organization functionality tes
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
 
   Scenario Outline: Edit Programs under Payor Organization
-  When I search with "<Payor_Name>" on organization in search box
-  And I click "<Payor_Name>" field in search list on organization page
-  And I verify "<Payor_Name>" name on the header of view profile
-  And I verify "Programs" as default tab selected on view profile of Payor Organization
-  Then I search with "<Program_Name>" on organization in search box
-  And I verify "<Program_Name>" field in search list on organization page
-  And I click "<Program_Name>" field in search list on organization page
-  And I verify "Edit Program" header text on edit organization page
-  And I edit "Program Name" field to "<Edited_Program_Name>" for organization
-  Then I click on "Submit" button on "edit" organization page
-  Then I verify "<Message>" after submitting the "edit Programs" on Payor organization page
-  
-  Examples:
-  | Description                            | Payor_Name | Program_Name | Edited_Program_Name | Message                      |
-  | Edit Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | PROGRAMNAME         | Program Successfully Updated |
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Programs" as default tab selected on view profile of Payor Organization
+    Then I search with "<Program_Name>" on organization in search box
+    And I verify "<Program_Name>" field in search list on organization page
+    And I click "<Program_Name>" field in search list on organization page
+    And I verify "Edit Program" header text on edit organization page
+    And I edit "Program Name" field to "<Edited_Program_Name>" for organization
+    Then I click on "Submit" button on "edit" organization page
+    Then I verify "<Message>" after submitting the "edit Programs" on Payor organization page
+
+    Examples: 
+      | Description                            | Payor_Name | Program_Name | Edited_Program_Name | Message                      |
+      | Edit Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | PROGRAMNAME         | Program Successfully Updated |
+
   Scenario Outline: Verification of details on Programs under Payor Organization
-  When I search with "<Payor_Name>" on organization in search box
-  And I click "<Payor_Name>" field in search list on organization page
-  And I verify "<Payor_Name>" name on the header of view profile
-  And I verify "Contracts" tab present under Payor Organization
-  And I click on "Contracts" tab on view profile of payor Organization
-  And I verify the "Create New Contract" button on view profile of payor Organization
-  And I verify "Program " header label under "Payor" view profile page
-  And I verify "Contract ID " header label under "Payor" view profile page
-  And I verify "Organization Name " header label under "Payor" view profile page
-  And I verify "Type " header label under "Payor" view profile page
-  And I verify "Address " header label under "Payor" view profile page
-  Then I click on "Create New Contract" button on "create" organization page
-  And I verify "Create Contract" header text on create Contracts page
-  And I verify "*Program" field on create Contracts page
-  And I verify "Contract 1 " on "Create Contract" page under Payor Organization
-  And I verify "Contract Id" field on create Contracts page
-  And I verify "*Start Date" field for Contract "1" on Create Contracts page
-  And I verify "Submit" button on create organization page
-  And I verify "Cancel" button on create organization page
-  
-  Examples:
-  | Description                                                   | Payor_Name | Program_Name |
-  | Verification of details on Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  |
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under Payor Organization
+    And I click on "Contracts" tab on view profile of payor Organization
+    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Program " header label under "Payor" view profile page
+    And I verify "Contract ID " header label under "Payor" view profile page
+    And I verify "Organization Name " header label under "Payor" view profile page
+    And I verify "Type " header label under "Payor" view profile page
+    And I verify "Address " header label under "Payor" view profile page
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create Contracts page
+    And I verify "*Program" field on create Contracts page
+    And I verify "Contract 1 " on "Create Contract" page under Payor Organization
+    And I verify "Contract Id" field on create Contracts page
+    And I verify "*Start Date" field for Contract "1" on Create Contracts page
+    And I verify "Submit" button on create organization page
+    And I verify "Cancel" button on create organization page
+
+    Examples: 
+      | Description                                                   | Payor_Name | Program_Name |
+      | Verification of details on Contracts under Payor Organization | PAYORNAME  | PROGRAMNAME  |
+
   Scenario Outline: Create Contracts with all available fields
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
@@ -138,6 +140,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     Examples: 
       | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name                           | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_2                  | Message                       |
       | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | createHospOrgForContractToDelkJoiUzJEIp4504 | mB1JIadXaQOHI4507 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | Contract Successfully Created |
+
   Scenario Outline: Create Contracts with multiple bundles
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
