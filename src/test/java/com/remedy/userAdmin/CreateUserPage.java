@@ -595,12 +595,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyNavigationOnInstituteHomePage(String role){
-//	   iWillWaitToSee(By.cssSelector(".navbar-header"));
-//	   iWillWaitToSee(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']"));
-	   driver.manage().timeouts().pageLoadTimeout(180, TimeUnit.SECONDS);
-//	   new WebDriverWait(driver, 180).until(
-//		          webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-//	   new WebDriverWait(driver, 180).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@href='http://02-wpress-qa-ue1a.remedypartners.com/index.php/contact-us/']")));
    }
    
@@ -1086,6 +1081,26 @@ public class CreateUserPage extends BaseClass{
 	   }
    }
    
+   public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
+	   if(!(locationList.equals("")))
+	   	{
+		   StringTokenizer st = new StringTokenizer(locationList,",");
+	       while (st.hasMoreTokens()) {
+	    	   String token = st.nextToken().trim();
+	    		   delay();
+	    		   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+		    	   {
+		    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+		    	   }
+		    	   delay();
+		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), token);
+		    	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]"));
+		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]")).click();
+		    	   Thread.sleep(3000); 
+	   	}
+	   	}
+   }
+   
    public void selectLocationsForPTAUser(String locationList) throws Throwable {
 	   if(!(locationList.equals("")))
 	   	{
@@ -1171,6 +1186,15 @@ public class CreateUserPage extends BaseClass{
     	   scrollIntoViewByJS(driver.findElement(By.xpath("//button[text()='Add Another Organization']")));
     	   iWillWaitToSee(By.xpath("//button[text()='Add Another Organization']"));
     	   driver.findElement(By.xpath("//button[text()='Add Another Organization']")).click();
+       }
+   }
+   
+   public void clickAddHealthSystemButtonForDownstremProvider(String flag) throws Throwable {
+       if(flag.equals("Yes"))
+       {
+    	   scrollIntoViewByJS(driver.findElement(By.xpath("//button[text()='Add Model 3 Organization(s)']")));
+    	   iWillWaitToSee(By.xpath("//button[text()='Add Model 3 Organization(s)']"));
+    	   driver.findElement(By.xpath("//button[text()='Add Model 3 Organization(s)']")).click();
        }
    }
    
