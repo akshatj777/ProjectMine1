@@ -29,14 +29,9 @@ public class ViewUserSteps extends DriverScript{
 		objViewUserPage.verifyEditIcon();
 	}
 	
-	@Then("^I verify Health System search box$")
-	public void i_verify_HealthSystemSearchBox() throws Throwable {
-		objViewUserPage.verifyHealthSystemSearchBox();
-	}
-	
-	@Then("^I verify Unlock Icon$")
-	public void i_verify_UnlockIcon() throws Throwable {
-		objViewUserPage.verifyUnlockIcon();
+	@Then("^I verify Lock/Unlock Icon$")
+	public void i_verify_LockUnlockIcon() throws Throwable {
+		objViewUserPage.verifyLockUnlockIcon();
 	}
 	
 	@Then("^I verify first name \"([^\"]*)\"$")
@@ -54,7 +49,7 @@ public class ViewUserSteps extends DriverScript{
 		objViewUserPage.verifyRole(field);
 	}
 	
-	@Then("^I verify email \"([^\"]*)\"$")
+	@Then("^I verify email \"([^\"]*)\" for \"([^\"]*)\"$")
 	public void i_verify_Email(String field) throws Throwable {
 		objViewUserPage.verifyEmail(field);
 	}
@@ -79,33 +74,23 @@ public class ViewUserSteps extends DriverScript{
 		objViewUserPage.verifyPrograms(field);
 	}
 	
-	@Then("^I verify BPID \"([^\"]*)\"$")
-	public void i_verify_BPID(String field) throws Throwable {
-		objViewUserPage.verifyBPID(field);
-	}
-	
-	@Then("^I verify health system location \"([^\"]*)\"$")
-	public void i_verify_HealthSystemLocation(String field) throws Throwable {
-		objViewUserPage.verifyHealthSystemLocation(field);
+	@Then("^I verify location \"([^\"]*)\" for health system \"([^\"]*)\"$")
+	public void i_verify_HealthSystemLocation(String locations, String healthSystem) throws Throwable {
+		objViewUserPage.verifyHealthSystemLocation(locations, healthSystem);
 	}
 	
 	@Then("^I verify enabled \"([^\"]*)\"$")
 	public void i_verify_enabled(String applicationsEnabled) throws Throwable {
 		objViewUserPage.verifyEnabledApplications(applicationsEnabled);
 	}
+	
+	@Then("^I verify learning pathway \"([^\"]*)\"$")
+	public void verifyLearningPathway(String learningPathway) throws Throwable {
+		objViewUserPage.verifyLearningPathway(learningPathway);
+	}
 
 	@Then("^I verify disabled \"([^\"]*)\"$")
 	public void i_verify_disabled(String applicationsDisabled) throws Throwable {
 		objViewUserPage.verifyDisabledApplications(applicationsDisabled);
-	}
-	
-	@Then("^I click on \"([^\"]*)\" drop down$")
-	public void i_Click_HealthSytemDropdown(String field) throws Throwable {
-		objViewUserPage.ClickHealthSytemDropdown(field);
-	}
-	
-	@Then("^I enter \"([^\"]*)\" in Health System search box$")
-	public void i_Enter_Text_In_HealthSytemSerchBox(String field) throws Throwable {
-		objViewUserPage.EnterTextInHealthSytemSerchBox(field);
 	}
 }
