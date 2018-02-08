@@ -216,15 +216,18 @@ public class SuperUserLandingPage extends BaseClass {
 
 		while (isElementPresentOnPage(By.cssSelector("div.chevron-group")) == true);
 	}
+
 	public void SearchUserWithText(String searchParam, String userRole) {
 		if(searchParam.equals("FetchFromHM"))
 		{
 			String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 			driver.findElement(By.xpath("//input[@placeholder='Search']")).sendKeys(email);
+			longDelay();
 		}
 		else
 		{
 			driver.findElement(By.xpath("//input[@placeholder='Search']")).sendKeys(searchParam);
+			longDelay();
 		}
 	}
 	
@@ -418,5 +421,10 @@ public void iVerifyThatEmailIsDisplayedInSameCase(String role){
 
 public void iVerifyProductListInTopNavigationBarIsClosed(){
 	Assert.assertTrue(isElementNotPresentOnPage(".ui.active.visible.dropdown.remedy-connect-title"));
+}
+
+public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
+	String emailVal = CreateUserPage.usersEmailPerRole.get(Role).get(Role.substring((Role.indexOf("-")+1)).trim());
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
 }
 }
