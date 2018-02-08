@@ -1430,12 +1430,12 @@ public class ReportHomePage extends BaseClass {
     	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q3']")));
     }
     
-    public void iVerifyToggleButtonBesideCostMetric(String text){
+    public void iVerifyToggleButtonOnPhysicianDashboard(String text,String value){
     	isElementVisible(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     	driver.findElement(By.xpath("//button[text()='"+text+"']")).isSelected();
     }
     
-    public void iClickOnRadioButtonBesideCostMetric(String text){
+    public void iClickOnRadioButtonOnPhysicianDashboard(String text,String value){
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     }
     
@@ -1443,5 +1443,21 @@ public class ReportHomePage extends BaseClass {
     	WebElement element = driver.findElement(By.xpath("//td[contains(@class,'string')][text()='"+text+"']"));
     	scrollIntoViewByJS(element);
     	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//td[contains(@class,'string')][text()='"+text+"']")),text);
+    }
+    
+    public void iVerifyColumnAppearingUnderQuaterlyPerformanceTable(String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='qtrPerfTableObjTable']//th[text()='"+text+"']")));
+    }
+    
+    public void iverifyColumnNameAppearingUnderEpisodesVolume(String text){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='dummyTableObjTable']//th[text()='"+text+"']")));
+    }
+    
+    public void iVerifyColumnNotPresentOnThePerformanceScoreCardPage(String text){
+    	isElementNotPresentOnPage(By.xpath("//th[text()='"+text+"']"));
+    }
+    
+    public void iVerifyColumnUnderTableOnScoreCardPage(String text,String table){
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='"+table+"ObjTable'] //th[text()='"+text+"']")));
     }
 }

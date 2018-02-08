@@ -1808,19 +1808,39 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iVerifyPastFourQuartersData();
     }
     
-    @Then("^I verify \"([^\"]*)\" toggle button is appearing beside cost metric$")
-    public void i_verify_toggle_button_is_appearing_beside_cost_metric(String text) throws Throwable{
-    	reportHomePage.iVerifyToggleButtonBesideCostMetric(text);
+    @Then("^I verify \"([^\"]*)\" toggle button is appearing beside \"([^\"]*)\"$")
+    public void i_verify_toggle_button_is_appearing_beside(String text,String value) throws Throwable{
+    	reportHomePage.iVerifyToggleButtonOnPhysicianDashboard(text,value);
     }
     
-    @And("^I click on \"([^\"]*)\" radio button beside cost metric$")
-    public void i_click_on_radio_button_beside_cost_metric(String text) throws Throwable{
-    	reportHomePage.iClickOnRadioButtonBesideCostMetric(text);
+    @And("^I click on \"([^\"]*)\" radio button beside \"([^\"]*)\"$")
+    public void i_click_on_radio_button_beside_cost_metric(String text,String value) throws Throwable{
+    	reportHomePage.iClickOnRadioButtonOnPhysicianDashboard(text,value);
     }
     
     @And("^I verify column name \"([^\"]*)\" is appearing on the scorecard page$")
     public void i_verify_column_name_is_appearing_on_the_scorecard_page(String text) throws Throwable{
     	reportHomePage.iVerifyColumnNameOnScoreCardPage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" column name is appearing under quaterly performance table$")
+    public void i_verify_column_name_is_appearing_under_quaterly_performance_table(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAppearingUnderQuaterlyPerformanceTable(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" column name is appearing under episodes volume table$")
+    public void i_verify_column_name_is_appearing_under_episodes_volume_table(String text) throws Throwable{
+    	reportHomePage.iverifyColumnNameAppearingUnderEpisodesVolume(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" column is not appearing on performance scorecard page$")
+    public void i_verify_column_is_not_appearing_on_performance_scorecard_page(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnNotPresentOnThePerformanceScoreCardPage(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" column is appearing under \"([^\"]*)\" column on scorecard page$")
+    public void i_verify_column_is_appearing_under_columns_on_scorecard(String text,String table) throws Throwable{
+    	reportHomePage.iVerifyColumnUnderTableOnScoreCardPage(text, table);
     }
 }
 

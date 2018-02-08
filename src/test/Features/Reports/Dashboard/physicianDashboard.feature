@@ -585,19 +585,19 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I wait for 40000 milli seconds
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
-    Then I verify "Avg Episode Cost" toggle button is appearing beside cost metric
+    Then I verify "Avg Episode Cost" toggle button is appearing beside "cost metric"
     And I verify "Avg Episode Cost" header name is center alligned on physician dashboard report
-    Then I verify "Avg NPRA per Episode" toggle button is appearing beside cost metric
-    And I click on "Avg NPRA per Episode" radio button beside cost metric
+    And I click on "Avg NPRA per Episode" radio button beside "cost metric"
+    Then I verify "Avg NPRA per Episode" toggle button is appearing beside "cost metric"
     Then I wait for 20000 milli seconds
     And I verify "Avg NPRA per Episode" header name is center alligned on physician dashboard report
     When I click the first name under attributed physican column
     And I switch to new window
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
-    And I click on "Avg Episode Cost" radio button beside cost metric
+    And I click on "Avg Episode Cost" radio button beside "cost metric"
     Then I wait for 20000 milli seconds
-    Then I verify "Avg Episode Cost" toggle button is appearing beside cost metric
+    Then I verify "Avg Episode Cost" toggle button is appearing beside "cost metric"
     Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
     Then I wait for 20000 milli seconds
     And I verify column name "Episodes (Eps)" is appearing on the scorecard page
@@ -610,8 +610,8 @@ Feature: Verification of physician report under dashboard
     And I verify column name "SNF Days" is appearing on the scorecard page
     And I verify column name "SNF PN Utilization" is appearing on the scorecard page
     And I verify column name "Avg Episode Cost" is appearing on the scorecard page
-    And I click on "Avg NPRA per Episode" radio button beside cost metric
-    Then I verify "Avg NPRA per Episode" toggle button is appearing beside cost metric
+    And I click on "Avg NPRA per Episode" radio button beside "cost metric"
+    Then I verify "Avg NPRA per Episode" toggle button is appearing beside "cost metric"
     Then I verify "Avg NPRA per Episode" scorecard is appearing under performance scorecard
     And I verify column name "Episodes (Eps)" is appearing on the scorecard page
     And I verify column name "% Disch to Home" is appearing on the scorecard page
@@ -633,4 +633,77 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      #| reptestachmodel2opsfin@yopmail.com |
+      | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: Verify  system and adj historic radio buttons beside benchmark
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "Adj Historic" toggle button is appearing beside "Benchmark"
+    And I click on "System" radio button beside "cost metric"
+    Then I wait for 20000 milli seconds
+    Then I verify "System" toggle button is appearing beside "Benchmark"
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I click on "Adj Historic" radio button beside "Benchmark"
+    Then I wait for 20000 milli seconds
+    Then I verify "Adj Historic" column name is appearing under quaterly performance table
+    And I verify "Adj Historic" column name is appearing under episodes volume table
+    Then I verify "System" column is not appearing on performance scorecard page
+    And I click on "System" radio button beside "Benchmark"
+    Then I wait for 20000 milli seconds
+    Then I verify "System" column name is appearing under quaterly performance table
+    And I verify "System" column name is appearing under episodes volume table
+    Then I verify "Adj Historic" column is not appearing on performance scorecard page
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: Verify top 5 snf table values under physician scorecard page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "Top 5 SNFs by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
+    And I verify "PAC CCN" column is appearing under "top5SNFTable" column on scorecard page
+    And I verify "Post Acute Facility" column is appearing under "top5SNFTable" column on scorecard page
+    And I verify "Network Tier" column is appearing under "top5SNFTable" column on scorecard page
+    And I verify "Episodes (Eps)" column is appearing under "top5SNFTable" column on scorecard page
+    And I verify "SNF Days" column is appearing under "top5SNFTable" column on scorecard page
+    And I verify "% Eps w Readmit" column is appearing under "top5SNFTable" column on scorecard page
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
