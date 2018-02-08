@@ -223,6 +223,21 @@ public class CreatePrograms extends BaseClass {
 		clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
 	}
 
+	public void iVerifyPGPOrganizationNameOnNetworkContractPage(String text, String page){
+		isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.moOrg.get("MONAME")+"'"));
+	}
+	
+	public void iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(String text, String page){
+		isElementPresent(By.xpath("//div[text()='Search Name or CCN']"));
+	}
+	
+	public void iVerifyDateFieldOnNetworkContractPage(String field, String page){
+		isElementPresentOnPage(By.xpath("//label[contains(text(),'"+field+"')]"));
+	}
+	
+	public void iVerifyDefaultNetworkContractStartDateShouldBeTodayDate(){
+		isElementPresent(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']//div[@class='react-datepicker__input-container']"));
+	}
 }
 
 

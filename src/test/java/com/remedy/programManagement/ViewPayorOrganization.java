@@ -11,20 +11,20 @@ public class ViewPayorOrganization extends BaseClass {
 		super(driver);
 	}
 	
-	public void iVerifyProgramsTabOnViewProfileOfPayorOrganization(String tab) {
+	public void iVerifyProgramsTabOnViewProfileOfPayorOrganization(String tab, String org) {
 		iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect.activeNavLink"), tab);	
 	}
 	
-	public void iVerifyContractsTabOnViewProfileOfPayorOrganization(String tab) {
+	public void iVerifyContractsTabOnViewProfileOfPayorOrganization(String tab, String org) {
 		iVerifyTextFromListOfElement(By.cssSelector(".navLink.noselect"), tab);	
 	}
 	
-	public void iVerifybuttonOnViewProfileOfPayorOrganization(String text) {
+	public void iVerifybuttonOnViewProfileOfPayorOrganization(String text, String org) {
 		iWillWaitToSee(By.xpath("//button[text()='"+text+"']"));
 		iVerifyTextFromListOfElement(By.xpath("//button[text()='"+text+"']"), text);
 	}
 	
-	public void iClickOnTabOnViewProfileOfPayorOrganization(String tab) {
+	public void iClickOnTabOnViewProfileOfPayorOrganization(String tab, String org) {
 		clickElement(driver.findElement(By.xpath("//a[text()='Contracts']")));
 	}
 }

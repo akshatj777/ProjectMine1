@@ -34,8 +34,8 @@ Feature: Create Network Contracts functionality tests
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Programs" as default tab selected on view profile of Payor Organization
-    And I verify the "Create New Program" button on view profile of payor Organization
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
+    And I verify the "Create New Program" button on view profile of "Payor" Organization
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
     Then I enter <Program_Name> in "Program Name" on create organization page
@@ -52,9 +52,9 @@ Feature: Create Network Contracts functionality tests
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
@@ -80,3 +80,22 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name                           | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_2                  | Message                       |
       | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | PGP               | createHospOrgForContractToDelkJoiUzJEIp4504 | mB1JIadXaQOHI4507 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | Contract Successfully Created |
+
+  Scenario Outline: Create Network Contracts with all available fields
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I verify the "PGP Organization Name" on "Create" Netwotk Conntract page
+    And I verify Search box for Hospital Organization on "Create" Netwotk Conntract page
+    And I verify "" field on "Create" Netwotk Conntract page
+    And I verify Default Network Contract Start date should be today's date
+    And I verify "" field on "Create" Netwotk Conntract page
+    And I verify "Submit" button on create organization page
+    And I verify "Cancel" button on create organization page

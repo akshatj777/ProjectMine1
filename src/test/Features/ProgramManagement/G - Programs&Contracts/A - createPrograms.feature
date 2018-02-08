@@ -34,10 +34,10 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Programs" as default tab selected on view profile of Payor Organization
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
     And I verify "ID" header label under "Payor" view profile page
     And I verify "Program Name" header label under "Payor" view profile page
-    And I verify the "Create New Program" button on view profile of payor Organization
+    And I verify the "Create New Program" button on view profile of "Payor" Organization
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
     And I verify "*Program Name" field on create organization page
@@ -52,8 +52,8 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Programs" as default tab selected on view profile of Payor Organization
-    And I verify the "Create New Program" button on view profile of payor Organization
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
+    And I verify the "Create New Program" button on view profile of "Payor" Organization
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
     Then I enter <Program_Name> in "Program Name" on create organization page
@@ -70,7 +70,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Programs" as default tab selected on view profile of Payor Organization
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
     Then I search with "<Program_Name>" on organization in search box
     And I verify "<Program_Name>" field in search list on organization page
     And I click "<Program_Name>" field in search list on organization page
@@ -87,9 +87,9 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
     And I verify "Program " header label under "Payor" view profile page
     And I verify "Contract ID " header label under "Payor" view profile page
     And I verify "Organization Name " header label under "Payor" view profile page
@@ -112,9 +112,9 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
@@ -145,9 +145,9 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I verify "Contract 1 " on "Create Contract" page under Payor Organization

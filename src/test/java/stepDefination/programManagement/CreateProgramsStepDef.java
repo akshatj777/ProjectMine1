@@ -97,4 +97,24 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iClickOnCheckboxeForAttributionRulesOnCreatePrograms(text);
 	    }
 	
+	@And("^I verify the \"([^\"]*)\" on \"([^\"]*)\" Netwotk Conntract page$")
+	  public void i_Verify_PGP_Organization_Name_On_Network_Contract_Page(String text, String page) throws Throwable {
+		programs.iVerifyPGPOrganizationNameOnNetworkContractPage(text, page);
+	    }
+	
+	@And("^I verify Search box for Hospital Organization on \"([^\"]*)\" Netwotk Conntract page$")
+	  public void i_Verify_Search_Box_For_Hospital_Organization_On_Network_Contract_Page(String text, String page) throws Throwable {
+		programs.iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(text, page);
+	    }
+	
+	@And("^I verify \"([^\"]*)\" field on \"([^\"]*)\" Netwotk Conntract page$")
+	  public void i_Verify_Date_Field_On_Network_Contract_Page(String field, String page) throws Throwable {
+		programs.iVerifyDateFieldOnNetworkContractPage(field, page);
+	    }
+	
+	@And("^I verify Default Network Contract Start date should be today's date$")
+	  public void i_Verify_Default_Network_Contract_Start_Date_Should_Be_Today_Date() throws Throwable {
+		programs.iVerifyDefaultNetworkContractStartDateShouldBeTodayDate();
+	    }
+	
 }
