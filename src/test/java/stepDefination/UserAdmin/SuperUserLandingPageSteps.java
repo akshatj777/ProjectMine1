@@ -1,7 +1,8 @@
-package stepDefination.UA2;
+package stepDefination.UserAdmin;
 
-import com.remedy.UA2.SuperUserLandingPage;
+
 import com.remedy.resources.DriverScript;
+import com.remedy.userAdmin.SuperUserLandingPage;
 
 import cucumber.api.java.en.Then;
 
@@ -33,12 +34,20 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iClickOnCloseIconFromAddUserPage();
 	}
 
+	@Then("^I click on Last Page Icon on landing page$")
+	public void clickLastPageOnLandingPage() throws Throwable {
+	   ua2LandingPage.clickLastPageIconOnLandingPage();
+	}
+	
+	@Then("^I click on First Page Icon on landing page$")
+	public void clickFirstPageOnLandingPage() throws Throwable {
+	   ua2LandingPage.clickFirstPageIconOnLandingPage();
+	}
+	
 	@Then("^I verify \"([^\"]*)\" on landing page$")
 	public void i_verify_on_landing_page(String text) throws Throwable {
 	   ua2LandingPage.iVerifyLandingPageUI(text);
 	}
-
-
 
 	@Then("^I verify \"([^\"]*)\" value for users on landing page$")
 	public void i_verify_for_all_users_on_landing_page(String arg1) throws Throwable {
@@ -55,54 +64,41 @@ public class SuperUserLandingPageSteps extends DriverScript {
 		ua2LandingPage.iSelectOptionFromDropdown(text);
 	}
 
-
-
-
-	
-
-
-	@Then("^I \"([^\"]*)\" user \"([^\"]*)\"$")
-	public void iLockUnlockUser(String status, String role) throws Throwable {
-		ua2LandingPage.iLockUnlockUser(status, role);
+	@Then("^I \"([^\"]*)\" user$")
+	public void iLockUnlockUser(String action) throws Throwable {
+		ua2LandingPage.iLockUnlockUser();
 	}
-
 	
+	@Then("^I verify user is \"([^\"]*)\"$")
+	public void verifyLockedUser(String action) throws Throwable {
+		ua2LandingPage.verifyLockedUser(action);
+	}
 
 	@Then("^I should see an alert with \"([^\"]*)\"$")
 	public void i_should_see_an_alert_with(String text) throws Throwable {
 		ua2LandingPage.iVerifyTextfromUnlockPopup(text);
 	}
-
 	
-
 	@Then("^I click on \"([^\"]*)\" button from the unlock alert$")
 	public void i_click_on_button_from_the_alert(String arg1) throws Throwable {
 		ua2LandingPage.iClickOnButtonFromPopup(arg1);
 	}
-
-
 
 	@Then("^I click on \"([^\"]*)\" link$")
 	public void i_click_on_link(String arg1) throws Throwable {
 		ua2LandingPage.iClickOnUsersLink();
 	}
 
+   @Then ("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
+   public void enterTextInSearchBox(String text, String userRole) throws Throwable {
+	   ua2LandingPage.SearchUserWithText(text,userRole);
+   }
+   
+   @Then ("^I verify availability of \"([^\"]*)\" for \"([^\"]*)\"$")
+   public void verifySearchParameter(String searchParam, String userRole) throws Throwable {
+	   ua2LandingPage.verifySearch(searchParam, userRole);
+   }
 
-@Then ("^I enter invalid data \"([^\"]*)\" in search box$")
-public void i_enter_search_box_in_landing_page_withInvalidData(String text) throws Throwable {
-	ua2LandingPage.SearchUserWithText(text);
-}
-
-
-@Then ("^I enter \"([^\"]*)\" in search box$")
-public void i_enter_text_in_search_box_in_landing_page(String text) throws Throwable {
-	ua2LandingPage.SearchUserWithText(text);
-}
-	@Then("^I enter \"([^\"]*)\" in search box for \"([^\"]*)\"$")
-	public void i_enter_search_box_in_landing_page_with(String text, String userRole) throws Throwable {
-		ua2LandingPage.SearchUserWithEmail(text, userRole);
-
-	}
 	@Then("^I should see \"([^\"]*)\" as \"([^\"]*)\" in search result$")
 	public void iVerifySeachedElement(String result, String searchBy) throws Throwable {
 		ua2LandingPage.iVerifySearchResult(result, searchBy, "");
@@ -112,9 +108,9 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 		ua2LandingPage.iVerifySearchResult(result, searchBy, role);
 	}
 
-	@Then("^I should not be able to login$")
-	public void iShouldNotBeAbleToLogin() throws Throwable {
-		ua2LandingPage.iVerifythatIamNavigatedBackToBaseURL();
+	@Then("^I should see User is Blocked$")
+	public void verifyUserBlockedMessage() throws Throwable {
+		ua2LandingPage.verifyUserBlockedMessageOnLandingPage();
 	}
 
 	@Then("^I should not see search results")
@@ -125,6 +121,12 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 	public void iSeeCrossIconForSearch(){
 		ua2LandingPage.iSeeCrossIconForSearch();
 	}
+	
+	@Then("^I verify No Results Found is displayed$")
+	public void VerifyNoResultFound(){
+		ua2LandingPage.verifyNoResultFoundOnLandingPage();
+	}
+	
 	@Then("^I click on cross icon$")
 	public void iClickCrossIconForSearch(){
 		ua2LandingPage.iClickCrossIconForSearch();
@@ -165,4 +167,11 @@ public void i_enter_text_in_search_box_in_landing_page(String text) throws Throw
 	public void iVerifyProductListInTopNavigationBarIsClosed(){
 		ua2LandingPage.iVerifyProductListInTopNavigationBarIsClosed();
 	}
+	
+	@Then("^I verify \"([^\"]*)\" on landing page for \"([^\"]*)\"$")
+	public void i_Verify_Email_For_PTA_Executive_Role(String text, String Role){
+		ua2LandingPage.iVerifyEmailForPTAExecutiveRole(text, Role);
+	}
 }
+
+

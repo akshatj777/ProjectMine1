@@ -163,6 +163,11 @@ public class CreateUserSteps extends DriverScript {
 		createUser.iClickOrganizationalField();
 	}
 
+	@When("^I click the already selected Organizational Role Field$")
+	public void IClickAlreadySelectedOrganizationalRoleField() throws Throwable {
+		createUser.iClickAlreadySelectedOrganizationalField();
+	}
+	
 	@When("^I click the payer Field under data$")
 	public void IClickPayerFieldUnderData() throws Throwable {
 		createUser.iClickPayerField();
@@ -337,6 +342,11 @@ public class CreateUserSteps extends DriverScript {
 	@And("^I verify Patient card appearing on Active Patients page for \"([^\"]*)\" user$")
 	public void iVerifyPatientCardAppearingOnActivePatientPage(String role) throws Throwable {
 		createUser.iVerifyPatientCardOnActivePatientPage(role);
+	}
+	
+	@And("^I verify NPI on ECI for \"([^\"]*)\" user$")
+	public void iVerifyNPIOnEC1(String role) throws Throwable {
+		createUser.iVerifyNPIOnEC1(role);
 	}
 	
 	@And("^I verify \"([^\"]*)\" facility on user profile for \"([^\"]*)\" user$")
@@ -571,9 +581,24 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocations(locationList);
 	}
 	
+	@Then("^I select \"([^\"]*)\" locations for Downstream Provider role$")
+	public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
+		createUser.selectLocationsForDownstreamProvider(locationList);
+	}
+	
+	@Then("^I select \"([^\"]*)\" locations for PTA user$")
+	public void selectLocationsForPTAUser(String locationList) throws Throwable {
+		createUser.selectLocationsForPTAUser(locationList);
+	}
+	
 	@Then("^I click Add Organization button for \"([^\"]*)\" flag$")
 	public void clickAddOrgButton(String flag) throws Throwable {
 		createUser.clickAddHealthSystemButton(flag);
+	}
+	
+	@Then("^I click Add Model3 Organization button for \"([^\"]*)\" flag for Downstream Provider role$")
+	public void clickAddOrgButtonForDownstreamProvider(String flag) throws Throwable {
+		createUser.clickAddHealthSystemButtonForDownstremProvider(flag);
 	}
 
 	@Then("^I verify default program \"([^\"]*)\" associated with organization$")
@@ -732,6 +757,7 @@ public class CreateUserSteps extends DriverScript {
 	 public void i_remove_Already_Selected_Role() throws Throwable {
 		 createUser.removeAlreadySelectedRole();
 	 }
+
 	 @Then("^I deselect \"([^\"]*)\" programs$")
 		public void deselectPrograms(String programList) throws Throwable {
 			createUser.deselectPrograms(programList);
@@ -740,4 +766,57 @@ public class CreateUserSteps extends DriverScript {
 		public void deselectLocations(String locationList) throws Throwable {
 			createUser.selectLocations(locationList);
 		}
+
+
+	 
+	 @And("^I verify selected Location \"([^\"]*)\" in the selected Locations section$")
+		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String text) throws Throwable {
+			createUser.iVerifyTheSelectedLocationsInTheSelectLocationsSection(text);
+		}
+	 
+	 @Then("^I search the \"([^\"]*)\" in the Selected Locations section$")
+		public void i_Search_The_Selected_Locations_In_The_selectLocations_Section(String locationList) throws Throwable {
+			createUser.iSearchTheSelectedLocationsInTheSelectLocationsSection(locationList);
+		}
+	 
+	 @And("^I click on remove link icon for selected Locations on selected Locations section$")
+		public void i_Click_On_Remove_Link_Icon_for_Selected_Locations_selectLocations_Section() throws Throwable {
+			createUser.iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection();
+		}
+	 
+	 @And("^I verify Selected Locations section after click on remove link icon$")
+		public void i_Verify_Selected_Locations_Section_After_click_on_remove_link_icon() throws Throwable {
+			createUser.iVerifySelectedLocationsSectionAfterClickOnRemoveLinkIcon();
+		}
+	 
+	 @And("^I click on remove link icon for selected Health system$")
+		public void i_Click_on_Remove_Link_Icon_For_Selected_Health_System() throws Throwable {
+		 createUser.iClickOnRemoveLinkIconforSelectedLocationsSelectLocationsSection();
+	 }
+	 
+	 @And("^I verify text on pop up window after click on remove link icon$")
+		public void i_Verifytext_on_pop_up_Window_After_Click_on_Remove_link_Icon() throws Throwable {
+		 createUser.iVerifyTextonpopupWindowAfterClickonRemovelinkIcon();
+	 }
+	 
+	 @And("^I click \"([^\"]*)\" link on pop up window$")
+		public void i_Click_on_Cancel_Link_Pop_Up_Window(String text) throws Throwable {
+		 createUser.iClickonCancelLinkPopUpWindow(text);
+	 }
+	 
+	 @And("^I click \"([^\"]*)\" button on pop up window$")
+		public void i_Click_on_Remove_Button_Pop_Up_Window(String text) throws Throwable {
+		 createUser.iClickonRemoveButtonPopUpWindow(text);
+	 }
+	 
+	 @Then("^I verify \"([^\"]*)\" text on landing page$")
+		public void i_Verify_Page_text_On_Landing_Page(String text) throws Throwable {
+		 createUser.iVerifyPagetextOnLandingPage(text);
+	 }
+	 
+	 @And("^I click on \"([^\"]*)\" on landing page$")
+		public void i_Click_on_Arrow_Buttons_on_Landing_Page(String text) throws Throwable {
+		 createUser.iClickonArrowButtonsonLandingPage(text);
+	 }
 }
+

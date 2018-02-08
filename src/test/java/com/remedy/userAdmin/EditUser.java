@@ -1,4 +1,4 @@
-package com.remedy.UA2;
+package com.remedy.userAdmin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,11 +35,7 @@ public class EditUser extends BaseClass {
 		}
 	}
 
-	public void iverifyuserpage() {
-		iWillWaitToSee(By.cssSelector(".two.column.row"));
-		isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
 
-	}
 
 	public void iClickOnEditButton() {
 		iWillWaitToSee(By.cssSelector(".edit-controls"));
@@ -55,41 +51,8 @@ public class EditUser extends BaseClass {
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Phone']")), number);
 	
 	}
-	public void iVerifyFirstNameInUserPage(String field) {
-
-		iWillWaitToSee(By.cssSelector("span.user-name-text"));
-		Assert.assertTrue(
-				driver.findElements(By.cssSelector("span.user-name-text>span")).get(1).getText().contains(field));
-		// verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(1),
-		// field);
-
-	}
-	public void iVerifyLastNameInUserPage(String field) {
-		
-		iWillWaitToSee(By.cssSelector("span.user-name-text"));
-		Assert.assertTrue(
-				driver.findElements(By.cssSelector("span.user-name-text>span")).get(0).getText().contains(field));
-		// verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0),
-		// field);
-		}
-	public void iVerifyRoleInUserPage(String field) {
-		String text = "Role:" + " " + field;
-		iWillWaitToSee(By.xpath("//*[contains(text(), 'Role')]"));
-		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Role')]")), text);
-
-	}
-
-	public void iVerifyPhoneInUserPage(String num) {
-		
-		String text = "Phone:" + " " + num;
-		iWillWaitToSee(By.cssSelector(".info-row>span"));
-		// System.out.println("text: "+text);
-		// System.out.println("phone:
-		// "+driver.findElement(By.xpath("//*[contains(text(),
-		// 'Phone')]")).getText());
-		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Phone')]")), text);
 	
-	}
+	
 	public void iVerifyThatEmailIsNonEditable() {
 		iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 		// driver.findElement(By.xpath("//input[@placeholder='Email']"));

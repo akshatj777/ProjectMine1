@@ -132,7 +132,7 @@ Feature: Verification of CARL EC Report
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: Verify user should be able to search exact values in the availbale filter fields
     Given I am on the login page
@@ -520,3 +520,43 @@ Scenario Outline: Verify risk score filter doesnot show duplicates in carl repor
     Examples: 
       | email                          |
       | shutestaug231132a@yopmail.com  |
+      
+  Scenario Outline: User should be able to see eligibilty field in available fields and check the filter values and apply filter in carl report under NSOC
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Next Site of Care" under reports tile text
+    When I click on the Reports Tile with text "Next Site of Care"
+    Then I click on "CARL" report text for NSoC Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "CARL" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Eligibility" field is appearing in the layout section after selecting add to report
+    Then I verify "Eligibility" column is added to report after selecting add to report option
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Eligibility" in the header text of filter page
+    Then I verify there are no duplicate values in the eligibility filter field list
+    And I should see "ELIGIBLE" in the filter value list
+    And I should see "ERROR" in the filter value list
+    And I should see "EXPIRED" in the filter value list
+    And I should see "NOT_ELIGIBLE" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
+    
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |

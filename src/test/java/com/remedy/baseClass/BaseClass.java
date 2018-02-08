@@ -51,12 +51,13 @@ public class BaseClass {
 	static InputStream inPropFile = null;
 	FileInputStream fisCache;
 	OutputStream outPropFile;
+	public static String parentWindow = null;
 	public BaseClass(final WebDriver driver) {
 		this.driver = driver;
 	}
 	public WebDriverWait waitTo()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, 120);
 		return wait;
 	}
 
@@ -259,11 +260,11 @@ public class BaseClass {
     public void switchBacktoOldWindow() {
     	try
     	{
-    		String parentWindow = driver.getWindowHandle();
+    		String parentWindow1 = driver.getWindowHandle();
             Set<String> handles = driver.getWindowHandles();
             driver.close();
             for (String windowHandle : handles) {
-                if (!windowHandle.equals(parentWindow)) {
+                if (!windowHandle.equals(parentWindow1)) {
                     driver.switchTo().window(windowHandle);
                 }
             }
@@ -271,7 +272,7 @@ public class BaseClass {
     	}
     	catch(Exception e)
     	{
-    		System.out.println(e.toString());
+    		//driver.switchTo().window(parentWindow);
     	}
     	
     }
@@ -307,7 +308,8 @@ public class BaseClass {
 	public void switchToNewWindow() {
 		try
 		{
-			String parentWindow = driver.getWindowHandle();
+			parentWindow = driver.getWindowHandle();
+			System.out.println(parentWindow);
 			Set<String> handles = driver.getWindowHandles();
 			for (String windowHandle : handles) {
 				if (!windowHandle.equals(parentWindow)) {
@@ -317,7 +319,7 @@ public class BaseClass {
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.toString());
+			driver.switchTo().window(parentWindow);
 		}
 		
 	}
