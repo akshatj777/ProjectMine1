@@ -270,10 +270,10 @@ Feature: Edit data permissions for SA
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on "first" existing organisation
+    
     Then I click on existing organisation "<Health System1>"
     Then I select "<Locations1>" locations
-    Then I click on "second" existing organisation
+    
     Then I click on existing organisation "<Health System2>"
     Then I select "<Locations2>" locations
     Then I click on existing organisation "<Health System3>"

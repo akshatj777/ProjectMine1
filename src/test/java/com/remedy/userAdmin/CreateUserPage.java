@@ -108,14 +108,19 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterFirstName(String text){
+    	if(!(text.isEmpty())){
     	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
     }
+    }
 
     public void iEnterLasttName(String text) {
+    	if(!(text.isEmpty())){
         iWillWaitToSee(By.xpath("//input[@placeholder='Last Name']"));
     	iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
-    }
+   
+    	}
+    	}
 
     public final static String iGenerateEmail(String text) {
         final String mail = text + time;
@@ -136,8 +141,10 @@ public class CreateUserPage extends BaseClass{
     }
 
     public void iEnterPhone(String text) {
+    	if(!(text.isEmpty())){
     	iWillWaitToSee(By.xpath("//input[@placeholder='Phone']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='Phone']")), text);
+    }
     }
 
     public void iEnterTheEmailToGeneratePassword(String text) {
@@ -760,6 +767,7 @@ public class CreateUserPage extends BaseClass{
    }
    public void verifyFieldNames(String fieldName)
    {
+	   iWillWaitToSee(By.xpath("//label[text()='"+fieldName+"']"));
 	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//label[text()='"+fieldName+"']")));
    }
    

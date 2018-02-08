@@ -50,10 +50,11 @@ public class EditUser extends BaseClass {
 	
 
 	public void iEnterPhone(String number) {
+		iWillWaitToSee(By.cssSelector("input[placeholder='Phone']"));
 		driver.findElement(By.cssSelector("input[placeholder='Phone']")).clear();
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Phone']")), number);
+	
 	}
-
 	public void iVerifyFirstNameInUserPage(String field) {
 
 		iWillWaitToSee(By.cssSelector("span.user-name-text"));
