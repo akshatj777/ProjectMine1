@@ -30,7 +30,7 @@ public class CreateUserPage extends BaseClass{
 	public final static String time = df.format(timestamp);
 	String userRole = null;
 	String userApplications = null;
-	String userNPI = "";
+	static String userNPI = "";
 	public static HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersNPIPerRole=new HashMap<String,HashMap<String,String>>();

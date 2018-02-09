@@ -329,8 +329,8 @@ Feature: Edit user page for SA
     Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+    Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -420,8 +420,8 @@ Feature: Edit user page for SA
     Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+    Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -507,8 +507,8 @@ Feature: Edit user page for SA
     Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+   Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -577,7 +577,7 @@ Feature: Edit user page for SA
     Examples: 
       | Description                                              | user        | Role      | Email             | Locations                                                                   | Health System    | Facilities                                              |
       | External User-Edit single location to multiple locations | Super Admin | Executive | test.automatemail | 6005-059--Presence Saint Joseph Medical Center, 6005-059--Evanston Hospital | Sound Physicians | Presence Saint Joseph Medical Center, Evanston Hospital |
-      | External User-Edit multiple locations to All Locations   | Super Admin | Executive | test.automatemail | all locations                                                               | Sound Physicians |                                                         |
+     # | External User-Edit multiple locations to All Locations   | Super Admin | Executive | test.automatemail | all locations                                                               | Sound Physicians |                                                         |
       | External User-Edit All locations to single location      | Super Admin | Executive | test.automatemail | 6005-080--Winchester Medical Center - Rehab Unit                            | Sound Physicians | Winchester Medical Center - Rehab Unit                  |
 
   Scenario Outline: Edit programs- <Description>
@@ -599,8 +599,8 @@ Feature: Edit user page for SA
     Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+    Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -668,9 +668,9 @@ Feature: Edit user page for SA
 
     Examples: 
       | Description                                                                   | user        | Role       | Email             | Locations                                        | RemovePrograms | Programs    | Health System    | ProgramsVisible | Facilities                             |
-      | 5. External user-Edit user from Model-2 to Model-3 and select single location | Super Admin | Executive  | test.automatemail | 3056-b75--Warren Memorial Hospital               | BPCI-Model2    | BPCI-Model3 | Sound Physicians | BPCI-Model3     | Warren Memorial Hospital               |
-      | 8. External user-Edit user from Model-3 to Model-2 and select single location | Super Admin | Executive  | test.automatemail | 6005-080--Winchester Medical Center - Rehab Unit | BPCI-Model3    | BPCI-Model2 | Sound Physicians | BPCI-Model2     | Winchester Medical Center - Rehab Unit |
-      | 11.External user-Edit user from multiple programs to single program           | Super Admin | Physicians | test.automatemail |                                                  | BPCI-Model3    |             | TeamHealth       | BPCI-Model2     | North Shore Med Center                 |
+      | External user-Edit user from Model-2 to Model-3 and select single location | Super Admin | Executive  | test.automatemail | 3056-b75--Warren Memorial Hospital               | BPCI-Model2    | BPCI-Model3 | Sound Physicians | BPCI-Model3     | Warren Memorial Hospital               |
+      | External user-Edit user from Model-3 to Model-2 and select single location | Super Admin | Executive  | test.automatemail | 6005-080--Winchester Medical Center - Rehab Unit | BPCI-Model3    | BPCI-Model2 | Sound Physicians | BPCI-Model2     | Winchester Medical Center - Rehab Unit |
+      | External user-Edit user from multiple programs to single program           | Super Admin | Physicians | test.automatemail |                                                  | BPCI-Model3    |             | TeamHealth       | BPCI-Model2     | North Shore Med Center                 |
 
   Scenario Outline: Changing General information, Role from <PreviousRole> to <Role> and Remove existing org and add new org
     Given I am on the login page
@@ -707,8 +707,8 @@ Feature: Edit user page for SA
     Then I verify phone "<Phone>"
     Then I verify enabled "<EnableApplications>"
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+    Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -811,8 +811,8 @@ Feature: Edit user page for SA
     Then I verify enabled "<EnableApplications>"
     Then I verify disabled "<RemoveApplications>"
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+    Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -911,8 +911,8 @@ Feature: Edit user page for SA
     Then I verify phone "<Phone>"
     Then I verify enabled "<EnableApplications>"
     Then I verify health system "<Health System2>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System2>"
+   Then I verify programs "<Health System2>--<Programs>"
+    Then I verify location "<Health System2>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -1008,8 +1008,8 @@ Feature: Edit user page for SA
     Then I verify phone "<Phone>"
     Then I verify enabled "<EnableApplications>"
     Then I verify health system "<Health System>"
-    Then I verify programs "<Programs>"
-    Then I verify location "<Locations>" for health system "<Health System>"
+    Then I verify programs "<Health System>--<Programs>"
+    Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget

@@ -42,21 +42,24 @@ public class ViewUserPage extends BaseClass {
 	}
 	
 	public void verifyRole(String field) throws Throwable {
-		
+		if(!(field.equals("")))
+		{
+			if(field.equals("NPI"))
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[text()[contains(.,'"+CreateUserPage.userNPI+"')]]")));
+			}
+			else
+			{
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[text()[contains(.,'"+field+"')]]")));
+			}
+		}
 	}
 	
-	public void verifyEmail(String field) throws Throwable {
-		isElementPresentOnPage(By.xpath("//span[@title='"+field+"']"));
+	public void verifyEmail(String email, String userRole) throws Throwable {
+		String emailUser = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[@title='"+emailUser+"']")));
 	}
 
-	public void verifyPhone(String field) throws Throwable {
-		
-	}
-	
-	public void verifyNPI(String field) throws Throwable {
-		
-	}
-	
 	public void verifyHealthSystem(String healthSystem) throws Throwable {
 		if(!(healthSystem.equals("")))
 		{
@@ -98,7 +101,7 @@ public class ViewUserPage extends BaseClass {
 		}
 	}
 	
-	public void verifyHealthSystemLocation(String locations, String healthSystem) throws Throwable {
+	public void verifyHealthSystemLocation(String locations) throws Throwable {
 		if(!(locations.equals("")))
 		{
 			if(locations.contains(","))
@@ -107,27 +110,36 @@ public class ViewUserPage extends BaseClass {
 				while(st.hasMoreTokens())
 				{
 					String token = st.nextToken().trim();
-					String BPID = token.substring(0, token.indexOf("--"));
-					String location = token.substring(token.indexOf("--")+2, token.length());
+					String healthSystem = token.substring(0, token.indexOf("--"));
+					String BPID = token.substring(token.indexOf("--")+2, token.lastIndexOf("--"));
+					String location = token.substring(token.lastIndexOf("--")+2, token.length());
 			    	driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
+			    	Thread.sleep(3000);
 			    	if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
 			    	{
 			    		driver.findElement(By.xpath("//div[@class='content active']//input")).sendKeys(location);
+			    		Thread.sleep(3000);
 			    		iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
 			    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
+			    		Thread.sleep(3000);
+			    		driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 			    	}
 				}
 			}
 			else
 			{
-				String BPID = locations.substring(0, locations.indexOf("--"));
-				String location = locations.substring(locations.indexOf("--")+2, locations.length());
+				String healthSystem = locations.substring(0, locations.indexOf("--"));
+				String BPID = locations.substring(locations.indexOf("--")+2, locations.lastIndexOf("--"));
+				String location = locations.substring(locations.lastIndexOf("--")+2, locations.length());
 				driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
-		    	if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
+				Thread.sleep(3000);
+				if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
 		    	{
 		    		driver.findElement(By.xpath("//div[@class='content active']//input")).sendKeys(location);
+		    		Thread.sleep(3000);
 		    		iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
 		    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
+		    		Thread.sleep(3000);
 		    	}
 			}
 		}
@@ -135,6 +147,26 @@ public class ViewUserPage extends BaseClass {
 	
 	public void verifyEditIcon() throws Throwable {
 		Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[@class='edit-controls']")));
+	}
+	
+	public void verifyDeleteUserButton() throws Throwable {
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[text()='Delete User']")));
+	}
+	
+	public void clickCrossButton() throws Throwable {
+		driver.findElement(By.xpath("//i[@class='close icon']")).click();
+	}
+	
+	public void clickEditIcon() throws Throwable {
+		driver.findElement(By.xpath("//a[@class='edit-controls']")).click();
+	}
+	
+	public void verifyAllUsersButton() throws Throwable {
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[text()='All Users /']")));
+	}
+	
+	public void clickAllUserButton() {
+		driver.findElement(By.xpath("//a[text()='All Users /']")).click();
 	}
 	
 	public void verifyLockUnlockIcon() throws Throwable {
@@ -146,8 +178,7 @@ public class ViewUserPage extends BaseClass {
 		{
 			if(applicationsEnabled.contains(","))
 			{
-				String applicationEnabled = CreateUserPage.usersApplicationsPerRole.get(applicationsEnabled).get(applicationsEnabled.substring((applicationsEnabled.indexOf("-")+1)));
-				   StringTokenizer st = new StringTokenizer(applicationEnabled, ",");
+				   StringTokenizer st = new StringTokenizer(applicationsEnabled, ",");
 				   while(st.hasMoreTokens())
 				   {
 					   isElementPresentOnPage(By.xpath("//tr/td[text()='"+st.nextToken().trim()+"']/parent::tr/td[text()='Enabled']"));   
@@ -170,12 +201,12 @@ public class ViewUserPage extends BaseClass {
 				StringTokenizer st = new StringTokenizer(learningPathway, ",");
 				   while(st.hasMoreTokens())
 				   {
-					   isElementPresentOnPage(By.xpath("//li[text()='"+st.nextToken().trim()+"']"));   
+					   Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[text()='"+st.nextToken().trim()+"']")));   
 				   }
 			}
 			else
 			{
-				isElementPresentOnPage(By.xpath("//li[text()='"+learningPathway+"']"));
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//li[text()='"+learningPathway+"']")));
 			}
 		}
 	}
