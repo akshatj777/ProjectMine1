@@ -29,6 +29,31 @@ public class ViewUserSteps extends DriverScript{
 		objViewUserPage.verifyEditIcon();
 	}
 	
+	@Then("^I click on Edit Icon$")
+	public void clickEditIcon() throws Throwable {
+		objViewUserPage.clickEditIcon();
+	}
+	
+	@Then("^I verify Delete User button$")
+	public void verifyDeleteUserButton() throws Throwable {
+		objViewUserPage.verifyDeleteUserButton();
+	}
+	
+	@Then("^I click on cross button on Edit User Page$")
+	public void clickCrossButton() throws Throwable {
+		objViewUserPage.clickCrossButton();
+	}
+	
+	@Then("^I verify All Users button$")
+	public void verifyAllUsersButton() throws Throwable {
+		objViewUserPage.verifyAllUsersButton();
+	}
+	
+	@Then("^I click on All Users button$")
+	public void clickAllUsersButton() throws Throwable {
+		objViewUserPage.clickAllUserButton();
+	}
+	
 	@Then("^I verify Lock/Unlock Icon$")
 	public void i_verify_LockUnlockIcon() throws Throwable {
 		objViewUserPage.verifyLockUnlockIcon();
@@ -50,18 +75,18 @@ public class ViewUserSteps extends DriverScript{
 	}
 	
 	@Then("^I verify email \"([^\"]*)\" for \"([^\"]*)\"$")
-	public void i_verify_Email(String field) throws Throwable {
-		objViewUserPage.verifyEmail(field);
+	public void i_verify_Email(String email, String userRole) throws Throwable {
+		objViewUserPage.verifyEmail(email, userRole);
 	}
 
 	@Then("^I verify phone \"([^\"]*)\"$")
 	public void i_verify_Phone(String field) throws Throwable {
-		objViewUserPage.verifyPhone(field);
+		objViewUserPage.verifyRole(field);
 	}
 	
 	@Then("^I verify NPI \"([^\"]*)\"$")
 	public void i_verify_NPI(String field) throws Throwable {
-		objViewUserPage.verifyNPI(field);
+		objViewUserPage.verifyRole(field);
 	}
 	
 	@Then("^I verify health system \"([^\"]*)\"$")
@@ -74,9 +99,9 @@ public class ViewUserSteps extends DriverScript{
 		objViewUserPage.verifyPrograms(field);
 	}
 	
-	@Then("^I verify location \"([^\"]*)\" for health system \"([^\"]*)\"$")
-	public void i_verify_HealthSystemLocation(String locations, String healthSystem) throws Throwable {
-		objViewUserPage.verifyHealthSystemLocation(locations, healthSystem);
+	@Then("^I verify location \"([^\"]*)\"$")
+	public void i_verify_HealthSystemLocation(String locations) throws Throwable {
+		objViewUserPage.verifyHealthSystemLocation(locations);
 	}
 	
 	@Then("^I verify enabled \"([^\"]*)\"$")
