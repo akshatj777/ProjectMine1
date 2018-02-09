@@ -411,7 +411,7 @@ Feature: Edit user page for SA
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on "Add Another Organization" button on permissions tab
+    Then I click Add Organization button for "<HasHealthSystem2>" flag
     And I search for health system with <Health System>
     And I select a <Health System>
     Then I select "<Programs>" programs
@@ -488,8 +488,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description  | user        | Role                          | Email             | Locations                        | Programs    | Health System | Facilities             |
-      | Add new org2 | Super Admin | Partner Program Administrator | test.automatemail | 2070-g14--North Shore Med Center | BPCI-Model2 | TeamHealth    | North Shore Med Center |
+      | Description  | user        | Role                          | Email             | Locations                        | Programs    | HasHealthSystem2 | Health System | Facilities             |
+      | Add new org2 | Super Admin | Partner Program Administrator | test.automatemail | 2070-g14--North Shore Med Center | BPCI-Model2 | Yes              | TeamHealth    | North Shore Med Center |
 
   Scenario Outline: Editing locations -<Description>
     Given I am on the login page
