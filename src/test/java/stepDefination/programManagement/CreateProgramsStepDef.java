@@ -56,6 +56,11 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iEnterPriceOnCreateContractsPage(text,num,field);
 	    }
 	
+	@And("^I enter date \"([^\"]*)\" in \"([^\"]*)\" field$")
+	  public void enterDateInContractPage(String date, String field) throws Throwable {
+		programs.enterDate(date,field);
+	    }
+	
 	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1, int num, String field2) throws Throwable {
 		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1, field2);
@@ -115,6 +120,11 @@ public class CreateProgramsStepDef extends DriverScript{
 	@And("^I verify Default Network Contract Start date should be today's date$")
 	  public void i_Verify_Default_Network_Contract_Start_Date_Should_Be_Today_Date() throws Throwable {
 		programs.iVerifyDefaultNetworkContractStartDateShouldBeTodayDate();
+	    }
+	
+	@And("^I verify \"([^\"]*)\" on Create Netwotk Contract page$")
+	  public void i_Verify_Program_On_Create_Network_Contract_Page(String text) throws Throwable {
+		programs.iVerifyProgramOnCreateNetworkContractPage(text);
 	    }
 	
 }
