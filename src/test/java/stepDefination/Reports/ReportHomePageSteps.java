@@ -1842,5 +1842,15 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_column_is_appearing_under_columns_on_scorecard(String text,String table) throws Throwable{
     	reportHomePage.iVerifyColumnUnderTableOnScoreCardPage(text, table);
     }
+    
+    @And("^I verify \"([^\"]*)\" is appearing on clicking on lmj link$")
+    public void i_verify_is_appearing_on_clicking_on_lmj_link(String text) throws Throwable{
+    	reportHomePage.iVerifyElementOnNewWindowOnClickingLMJLink(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" section is appearing on overall performance page$")
+    public void i_verify_section_is_appearing_on_overall_performance_page(String text) throws Throwable{
+    	reportHomePage.iVerifySectionOnOverallPerformancePage(text);
+    }
 }
 

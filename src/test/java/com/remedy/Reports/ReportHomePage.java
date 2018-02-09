@@ -1460,4 +1460,12 @@ public class ReportHomePage extends BaseClass {
     public void iVerifyColumnUnderTableOnScoreCardPage(String text,String table){
     	isElementVisible(driver.findElement(By.xpath("//table[@id='"+table+"ObjTable'] //th[text()='"+text+"']")));
     }
+    
+    public void iVerifyElementOnNewWindowOnClickingLMJLink(String text){
+    	isElementVisible(driver.findElement(By.xpath("//div[contains(text(),'"+text+"')]")));
+    }
+    
+    public void iVerifySectionOnOverallPerformancePage(String text){
+    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#qtrPerfTitleColumn")),text);
+    }
 }

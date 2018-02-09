@@ -534,6 +534,8 @@ Feature: Verification of physician report under dashboard
     And I switch to new window
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
+    And I verify "Performance Scorecard" is appearing on clicking on lmj link
+    Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
     And I verify past four quarters data is appearing on lmj page
 
     Examples: 
