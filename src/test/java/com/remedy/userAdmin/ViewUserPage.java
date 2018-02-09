@@ -61,6 +61,7 @@ public class ViewUserPage extends BaseClass {
 	}
 
 	public void verifyHealthSystem(String healthSystem) throws Throwable {
+		
 		if(!(healthSystem.equals("")))
 		{
 			if(healthSystem.contains(","))
@@ -68,11 +69,14 @@ public class ViewUserPage extends BaseClass {
 				StringTokenizer st = new StringTokenizer(healthSystem, ",");
 				while(st.hasMoreTokens())
 				{
+					
+					iWillWaitToSee(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]"));
 					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]")));
 				}
 			}
 			else
 			{
+				iWillWaitToSee(By.xpath("//span[contains(text(),'"+healthSystem+"')]"));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+healthSystem+"')]")));
 			}
 		}
@@ -89,6 +93,7 @@ public class ViewUserPage extends BaseClass {
 					String token = st.nextToken().trim();
 			    	String program = token.substring(token.indexOf("--")+2, token.length());
 			    	String healthSystem = token.substring(0, token.indexOf("--"));
+			    	iWillWaitToSee(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]"));
 			    	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]")));
 				}
 			}
@@ -96,6 +101,7 @@ public class ViewUserPage extends BaseClass {
 			{
 				String program = programs.substring(programs.indexOf("--")+2, programs.length());
 		    	String healthSystem = programs.substring(0, programs.indexOf("--"));
+		    	iWillWaitToSee(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]"));
 		    	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]")));
 			}
 		}

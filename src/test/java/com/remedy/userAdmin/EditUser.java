@@ -131,14 +131,12 @@ public class EditUser extends BaseClass {
 		}
 	}
 	public void iClickOnExisitingOrganisationByName(String text) {
-		
+	
 		iWillWaitToSee(By.cssSelector(".component-participant-title"));
-		if(isElementVisible(driver.findElements(By.xpath("//*[contains(text(),'"+text+"')]")).get(1))==true){
-			   clickElement(driver.findElements(By.xpath("//*[contains(text(),'"+text+"')]")).get(1));
-		}
-		else{
-			clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
-		}
+		
+			   clickElement(driver.findElement(By.xpath("//span[contains(@class, 'component-participant-title') and contains(text(),'"+text+"')]")));
+		
+		
 			}
 		
 	

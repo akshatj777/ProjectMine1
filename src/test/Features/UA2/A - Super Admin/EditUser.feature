@@ -304,9 +304,9 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | User        | Role         | FirstName       | LastName       | Email             | Phone        | DisableApplications | Applications               | ApplicationsNotVisible            | Roletext | ReportCategory | ReportName         | BPID |
-      | Super Admin | Case Manager | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Reports             | Episodes                   | Administration, Physician Connect | ROLE_TCS | Patient ID     | Episode DRG Issues |      |
-      | Super Admin | Remedy PM    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Reports, Episodes   | Episodes 2.0, TCI, Lessons | Administration, Physician Connect | ROLE_PM  | Patient ID     | Episode DRG Issues |      |
+      | User        | Role         | FirstName       | LastName       | Email             | Phone        | DisableApplications | Applications               | ApplicationsNotVisible            | Roletext | ReportCategory | ReportName                   | BPID |
+      | Super Admin | Case Manager | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Reports             | Episodes                   | Administration, Physician Connect | ROLE_TCS | Patient ID     | Episode DRG Issues           |      |
+      | Super Admin | Remedy RN    | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | Reports, Episodes   | Episodes 2.0, TCI, Lessons | Administration, Physician Connect | ROLE_RN  | Patient ID     | Episode DRG Issues [Model 3] |      |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -488,8 +488,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description  | user        | Role                          | Email             | Locations                        | Programs    | HasHealthSystem2 | Health System | Facilities             |
-      | Add new org2 | Super Admin | Partner Program Administrator | test.automatemail | 2070-g14--North Shore Med Center | BPCI-Model2 | Yes              | TeamHealth    | North Shore Med Center |
+      | Description  | user        | Role                            | Email             | Locations                        | Programs    | HasHealthSystem2 | Health System | Facilities             |
+      | Add new org2 | Super Admin | Partner Technical Administrator | test.automatemail | 2070-g14--North Shore Med Center | BPCI-Model2 | Yes              | TeamHealth    | North Shore Med Center |
 
   Scenario Outline: Editing locations -<Description>
     Given I am on the login page
@@ -497,17 +497,17 @@ Feature: Edit user page for SA
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter "<Email>" in search box for "<user>-<Role>"
+    #Then I enter "<Email>" in search box for "<user>-<Role>"
     Then I select user with email "<Email>"
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I select "Permissions" tab
-    Then I click on "first" existing organisation
+    Then I click on existing organisation "<Health System>"
     Then I select "<Locations>" locations
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
-   Then I verify programs "<Health System>--<Programs>"
+    Then I verify programs "<Health System>--<Programs>"
     Then I verify location "<Health System>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
@@ -575,11 +575,11 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description                                              | user        | Role      | Email             | Locations                                                                   | Health System    | Facilities                                              |
-      | External User-Edit single location to multiple locations | Super Admin | Executive | test.automatemail | 6005-059--Presence Saint Joseph Medical Center, 6005-059--Evanston Hospital | Sound Physicians | Presence Saint Joseph Medical Center, Evanston Hospital |
-     # | External User-Edit multiple locations to All Locations   | Super Admin | Executive | test.automatemail | all locations                                                               | Sound Physicians |                                                         |
-      | External User-Edit All locations to single location      | Super Admin | Executive | test.automatemail | 6005-080--Winchester Medical Center - Rehab Unit                            | Sound Physicians | Winchester Medical Center - Rehab Unit                  |
+      | Description                                              | user        | Role       | Email             | Locations                                                                     | Programs    | Health System | Facilities                                                |
+      | External User-Edit single location to multiple locations | Super Admin | Remedy TCS | test.automatemail | 3056-m04--Altercare Post-acute Rehab Center, 3056-m05--Altercare - Big Rapids | BPCI-Model3 | Altercare     | Altercare Post-acute Rehab Center, Altercare - Big Rapids |
 
+  # | External User-Edit to All Locations                      | Super Admin | Remedy LPN | test.automatemail | all locations                                                            |BPCI-Model2     | Penn          | Upenn - Hospital Of The Univ. Of Pennsylvania, Upenn - Penn Presbyterian Hospital, Upenn - Pennsylvania Hospital |
+  # | External User-Edit All locations to single location      | Super Admin | Remedy LPN | test.automatemail | 2070-020--Upenn - Hospital Of The Univ. Of Pennsylvania                  |BPCI-Model2     | Penn          | Upenn - Hospital Of The Univ. Of Pennsylvania                                                                    |
   Scenario Outline: Edit programs- <Description>
     Given I am on the login page
     When I log in as super user
@@ -667,7 +667,7 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description                                                                   | user        | Role       | Email             | Locations                                        | RemovePrograms | Programs    | Health System    | ProgramsVisible | Facilities                             |
+      | Description                                                                | user        | Role       | Email             | Locations                                        | RemovePrograms | Programs    | Health System    | ProgramsVisible | Facilities                             |
       | External user-Edit user from Model-2 to Model-3 and select single location | Super Admin | Executive  | test.automatemail | 3056-b75--Warren Memorial Hospital               | BPCI-Model2    | BPCI-Model3 | Sound Physicians | BPCI-Model3     | Warren Memorial Hospital               |
       | External user-Edit user from Model-3 to Model-2 and select single location | Super Admin | Executive  | test.automatemail | 6005-080--Winchester Medical Center - Rehab Unit | BPCI-Model3    | BPCI-Model2 | Sound Physicians | BPCI-Model2     | Winchester Medical Center - Rehab Unit |
       | External user-Edit user from multiple programs to single program           | Super Admin | Physicians | test.automatemail |                                                  | BPCI-Model3    |             | TeamHealth       | BPCI-Model2     | North Shore Med Center                 |
@@ -911,7 +911,7 @@ Feature: Edit user page for SA
     Then I verify phone "<Phone>"
     Then I verify enabled "<EnableApplications>"
     Then I verify health system "<Health System2>"
-   Then I verify programs "<Health System2>--<Programs>"
+    Then I verify programs "<Health System2>--<Programs>"
     Then I verify location "<Health System2>--<Locations>"
     And I click on the top user account link
     Then I click on "Log Out" button
@@ -1076,5 +1076,5 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | user        | PreviousRole | Role                           | NPI | EnableApplications                                   | Applications                                                                     | Email             | Health System                                        | Programs                 | DisableLocations                                                                         | EnableLocations                    | Locations                                                                                                                                                                                                                                | Roletext   | ReportCategory | ReportName         | BPID | Facilities                                                                                                                                                                   |
-      | Super Admin | Remedy PM    | Remedy Technical Administrator |     | Physician Connect, Administration, Episodes, Reports | Episodes, Episodes 2.0, Reports, Physician Connect, Administration, TCI, Lessons | test.automatemail | Cardiovascular Associates of The Delaware Valley,p A | BPCI-Model2, BPCI-Model3 | 2070-060--Carolinas Hospital System - Florence, 3056-a08--Howard County General Hospital | 2070-060--Florida Hospital Orlando | 2070-060--Florida Hospital Orlando, 3056-a08--East Orange General Hospital, 3056-a08--Meritus Medical Center, 3056-a08--North Shore University Hospital, 3056-a08--St. Michael's Medical Center, 3056-a08--Saint Barnabas Medical Center | ROLE_ADMIN | Patient ID     | Episode DRG Issues |      | Florida Hospital Orlando, East Orange General Hospital, Meritus Medical Center, North Shore University Hospital, St. Michael's Medical Center, Saint Barnabas Medical Center |
+      | user        | PreviousRole | Role                           | NPI | EnableApplications                | Applications                                                                     | Email             | Health System                                        | Programs                 | DisableLocations                                                                         | EnableLocations                    | Locations                                                                                                                                                                                                                                | Roletext   | ReportCategory | ReportName         | BPID | Facilities                                                                                                                                                                   |
+      | Super Admin | Remedy PM    | Remedy Technical Administrator |     | Physician Connect, Administration | Episodes, Episodes 2.0, Reports, Physician Connect, Administration, TCI, Lessons | test.automatemail | Cardiovascular Associates of The Delaware Valley,p A | BPCI-Model2, BPCI-Model3 | 2070-060--Carolinas Hospital System - Florence, 3056-a08--Howard County General Hospital | 2070-060--Florida Hospital Orlando | 2070-060--Florida Hospital Orlando, 3056-a08--East Orange General Hospital, 3056-a08--Meritus Medical Center, 3056-a08--North Shore University Hospital, 3056-a08--St. Michael's Medical Center, 3056-a08--Saint Barnabas Medical Center | ROLE_ADMIN | Patient ID     | Episode DRG Issues |      | Florida Hospital Orlando, East Orange General Hospital, Meritus Medical Center, North Shore University Hospital, St. Michael's Medical Center, Saint Barnabas Medical Center |
