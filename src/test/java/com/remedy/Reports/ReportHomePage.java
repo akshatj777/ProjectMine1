@@ -1422,14 +1422,7 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnLinkUnderPerformanceScoreCardPage(String text){
     	clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     }
-    
-    public void iVerifyPastFourQuartersData(){
-    	isElementVisible(driver.findElement(By.xpath("//th[text()='2016Q4']")));
-    	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q1']")));
-    	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q2']")));
-    	isElementVisible(driver.findElement(By.xpath("//th[text()='2017Q3']")));
-    }
-    
+     
     public void iVerifyToggleButtonOnPhysicianDashboard(String text,String value){
     	isElementVisible(driver.findElement(By.xpath("//button[text()='"+text+"']")));
     	driver.findElement(By.xpath("//button[text()='"+text+"']")).isSelected();
@@ -1440,9 +1433,9 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyColumnNameOnScoreCardPage(String text){
-    	WebElement element = driver.findElement(By.xpath("//td[contains(@class,'string')][text()='"+text+"']"));
+    	WebElement element = driver.findElement(By.xpath("//td[text()='"+text+"']"));
     	scrollIntoViewByJS(element);
-    	verifyTextForElementWithMultipleSpaces(driver.findElement(By.xpath("//td[contains(@class,'string')][text()='"+text+"']")),text);
+    	verifyTextForElementFromListByXpath("//td[text()='"+text+"']",text);
     }
     
     public void iVerifyColumnAppearingUnderQuaterlyPerformanceTable(String text){
@@ -1467,5 +1460,31 @@ public class ReportHomePage extends BaseClass {
     
     public void iVerifySectionOnOverallPerformancePage(String text){
     	verifyTextForElementWithMultipleSpaces(driver.findElement(By.cssSelector("#qtrPerfTitleColumn")),text);
+    }
+    
+    public void iVerifyIsAppearingOnOverallPerformancePage(String text){
+    	isElementVisible(driver.findElement(By.xpath("//th[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTextInPerformanceComaprisonTable(String text,String drg){
+    	verifyTextForElementFromListByXpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']",text);
+    }
+    
+    public void iVerifyNamesOnPerformanceComparisonTable(String text,String drg){
+    	WebElement element = driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //td[text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	isElementVisible(driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //td[text()='"+text+"']")));
+    }
+    
+    public void iVerifyTheNamesInsideTheComaprisonTables(String text,String drg){
+    	WebElement element = driver.findElement(By.xpath("//div[@id='qtrPerf"+drg+"Column'] //th[text()='"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	isElementVisible(driver.findElement(By.xpath("//div[@id='qtrPerf"+drg+"Column'] //th[text()='"+text+"']")));
+    }
+    
+    public void iVerifyCurrentAndSystemInsidePerformanceComparison(String text,String drg){
+    	WebElement element = driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']]"));
+    	scrollIntoViewByJS(element);
+    	verifyTextForElementFromListByXpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']]",text);
     }
 }

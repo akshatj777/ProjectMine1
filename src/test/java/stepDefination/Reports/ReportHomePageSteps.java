@@ -1251,6 +1251,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @Then("^I verify \"([^\"]*)\" is appearing under filter options in newly opened scorecard page$")
+    @And("^I verify \"([^\"]*)\" is appearing under filter options in newly opened overall performance page$")
     public void i_verify_is_appearing_under_filter_options_in_newly_opened_scorecard_page(String text) throws Throwable{
     	reportHomePage.iVerifyFilternameAppearingInScorecardPage(text);
     }
@@ -1803,11 +1804,6 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnLinkUnderPerformanceScoreCardPage(text);
     }
     
-    @And("^I verify past four quarters data is appearing on lmj page$")
-    public void i_verify_past_four_quarters_data_is_appearing_on_lmj_page() throws Throwable{
-    	reportHomePage.iVerifyPastFourQuartersData();
-    }
-    
     @Then("^I verify \"([^\"]*)\" toggle button is appearing beside \"([^\"]*)\"$")
     public void i_verify_toggle_button_is_appearing_beside(String text,String value) throws Throwable{
     	reportHomePage.iVerifyToggleButtonOnPhysicianDashboard(text,value);
@@ -1819,6 +1815,7 @@ public class ReportHomePageSteps extends DriverScript {
     }
     
     @And("^I verify column name \"([^\"]*)\" is appearing on the scorecard page$")
+    @Then("^I verify column name \"([^\"]*)\" is appearing on the overall performance page$")
     public void i_verify_column_name_is_appearing_on_the_scorecard_page(String text) throws Throwable{
     	reportHomePage.iVerifyColumnNameOnScoreCardPage(text);
     }
@@ -1851,6 +1848,36 @@ public class ReportHomePageSteps extends DriverScript {
     @Then("^I verify \"([^\"]*)\" section is appearing on overall performance page$")
     public void i_verify_section_is_appearing_on_overall_performance_page(String text) throws Throwable{
     	reportHomePage.iVerifySectionOnOverallPerformancePage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing on the overall performance page$")
+    public void i_verify_is_appearing_on_the_overall_performance_page(String text) throws Throwable{
+    	reportHomePage.iVerifyIsAppearingOnOverallPerformancePage(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" column name is appearing under major joint replacement of the lower extremity table$")
+    public void i_verify_column_name_is_appearing_under_major_joint_replacement_of_lower_extremity(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAppearingUnderQuaterlyPerformanceTable(text);
+    }
+    
+    @And("^I verify \"([^\"]*)\" column name is appearing under performance comparison DRG \"([^\"]*)\" table$")
+    public void i_verify_column_name_is_appearing_under_performance_comparison_table(String text,String drg) throws Throwable{
+    	reportHomePage.iVerifyTextInPerformanceComaprisonTable(text,drg);
+    }
+    
+    @Then("^I verify column name \"([^\"]*)\" is appearing in performance comparison drg \"([^\"]*)\" table$")
+    public void i_verify_column_name_is_appearing_in_performance_comparison_drg_table(String text,String drg) throws Throwable{
+    	reportHomePage.iVerifyNamesOnPerformanceComparisonTable(text,drg);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing inside the performance comparison drg \"([^\"]*)\" table$")
+    public void i_verify_is_appearing_inside_the_performance_comaprison_drg_table(String text,String drg) throws Throwable{
+    	reportHomePage.iVerifyTheNamesInsideTheComaprisonTables(text, drg);
+    }
+    
+    @And("^I verify \"([^\"]*)\" is appearing inside drg \"([^\"]*)\" performance comparison table$")
+    public void i_verify_is_appearing_inside_drg_performance_comparison_table(String text,String drg) throws Throwable{
+    	reportHomePage.iVerifyCurrentAndSystemInsidePerformanceComparison(text, drg);
     }
 }
 

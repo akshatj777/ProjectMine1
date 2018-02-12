@@ -530,13 +530,6 @@ Feature: Verification of physician report under dashboard
     Then I verify "Post Acute Discharge Disposition" section is not appearing on the performance scorecard page
     And I verify "Date Range" filter is not appearing in the filters section on scorecard page
     Then I verify "Top 5 Bundles by Episode Volume (2016Q4 - 2017Q3)" section is appearing on the performance scorecard dashboard page
-    And I click on "LMJ Bundle Details" link on the performance scorecard page
-    And I switch to new window
-    Then I wait until loading icon disappears in physician dashboard report
-    Then I verify current page "Performance Scorecard Dashboard" title
-    And I verify "Performance Scorecard" is appearing on clicking on lmj link
-    Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
-    And I verify past four quarters data is appearing on lmj page
 
     Examples: 
       | email                              |
@@ -709,3 +702,142 @@ Feature: Verification of physician report under dashboard
       | email                              |
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
+
+  Scenario Outline: Verify the overall performance page on clicking LMJ bundle link
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I click on "LMJ Bundle Details" link on the performance scorecard page
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I verify "Performance Scorecard" is appearing on clicking on lmj link
+    Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
+    Then I verify "Attributed Physician" is appearing under filter options in newly opened overall performance page
+    And I verify "physician" filter is not having "All" in the filter
+    Then I verify "Avg Episode Cost" toggle button is appearing beside "cost metric"
+    Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
+    Then I wait for 20000 milli seconds
+    And I verify column name "Episodes (Eps)" is appearing on the overall performance page
+    And I verify column name "% Disch to Home" is appearing on the overall performance page
+    And I verify column name "% Disch to HHA" is appearing on the overall performance page
+    And I verify column name "% Disch to SNF" is appearing on the overall performance page
+    And I verify column name "% Disch to IRF" is appearing on the overall performance page
+    And I verify column name "% Eps w Readmit" is appearing on the overall performance page
+    And I verify column name "Initial SNF LOS" is appearing on the overall performance page
+    And I verify column name "SNF Days" is appearing on the overall performance page
+    And I verify column name "SNF PN Utilization" is appearing on the overall performance page
+    And I verify column name "Avg Episode Cost" is appearing on the overall performance page
+    And I click on "Avg NPRA per Episode" radio button beside "cost metric"
+    Then I verify "Avg NPRA per Episode" toggle button is appearing beside "cost metric"
+    Then I verify "Avg NPRA per Episode" scorecard is appearing under performance scorecard
+    And I verify column name "Episodes (Eps)" is appearing on the overall performance page
+    And I verify column name "% Disch to Home" is appearing on the overall performance page
+    And I verify column name "% Disch to HHA" is appearing on the overall performance page
+    And I verify column name "% Disch to SNF" is appearing on the overall performance page
+    And I verify column name "% Disch to IRF" is appearing on the overall performance page
+    And I verify column name "% Eps w Readmit" is appearing on the overall performance page
+    And I verify column name "Initial SNF LOS" is appearing on the overall performance page
+    And I verify column name "SNF Days" is appearing on the overall performance page
+    And I verify column name "SNF PN Utilization" is appearing on the overall performance page
+    And I verify column name "Avg NPRA per Episode" is appearing on the overall performance page
+    And I click on "Avg Episode Cost" radio button beside "cost metric"
+    Then I wait for 20000 milli seconds
+    Then I verify "<fourth most recent quarter>" is appearing on the overall performance page
+    Then I verify "<third most recent quarter>" is appearing on the overall performance page
+    Then I verify "<second most recent quarter>" is appearing on the overall performance page
+    Then I verify "<most recent quarter>" is appearing on the overall performance page
+    Then I verify "Overall Perf (2016Q4-2017Q3)" is appearing on the overall performance page
+    Then I verify "Adj Historic" toggle button is appearing beside "Benchmark"
+    Then I verify "Adj Historic" column name is appearing under major joint replacement of the lower extremity table
+    And I verify "Adj Historic" column name is appearing under performance comparison DRG "469" table
+    And I verify "Adj Historic" column name is appearing under performance comparison DRG "470" table
+    Then I verify "System" column is not appearing on performance scorecard page
+    And I click on "System" radio button beside "cost metric"
+    Then I wait for 20000 milli seconds
+    Then I verify "System" toggle button is appearing beside "Benchmark"
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    Then I verify "System" column name is appearing under major joint replacement of the lower extremity table
+    And I verify "System" column name is appearing under performance comparison DRG "469" table
+    And I verify "System" column name is appearing under performance comparison DRG "470" table
+    Then I verify "Adj Historic" column is not appearing on performance scorecard page
+    And I verify column name "Episodes (Eps)" is appearing in performance comparison drg "469" table
+    And I verify column name "% Disch to Home" is appearing in performance comparison drg "469" table
+    And I verify column name "% Disch to HHA" is appearing in performance comparison drg "469" table
+    And I verify column name "% Disch to SNF" is appearing in performance comparison drg "469" table
+    And I verify column name "% Disch to IRF" is appearing in performance comparison drg "469" table
+    And I verify column name "% Eps w Readmit" is appearing in performance comparison drg "469" table
+    And I verify column name "Initial SNF LOS" is appearing in performance comparison drg "469" table
+    And I verify column name "SNF Days" is appearing in performance comparison drg "469" table
+    And I verify column name "SNF PN Utilization" is appearing in performance comparison drg "469" table
+    And I verify column name "Avg Episode Cost" is appearing in performance comparison drg "469" table
+    And I verify column name "Episodes (Eps)" is appearing in performance comparison drg "470" table
+    And I verify column name "% Disch to Home" is appearing in performance comparison drg "470" table
+    And I verify column name "% Disch to HHA" is appearing in performance comparison drg "470" table
+    And I verify column name "% Disch to SNF" is appearing in performance comparison drg "470" table
+    And I verify column name "% Disch to IRF" is appearing in performance comparison drg "470" table
+    And I verify column name "% Eps w Readmit" is appearing in performance comparison drg "470" table
+    And I verify column name "Initial SNF LOS" is appearing in performance comparison drg "470" table
+    And I verify column name "SNF Days" is appearing in performance comparison drg "470" table
+    And I verify column name "SNF PN Utilization" is appearing in performance comparison drg "470" table
+    And I verify column name "Avg Episode Cost" is appearing in performance comparison drg "470" table
+    Then I verify "Non Fracture" is appearing inside the performance comparison drg "469" table
+    Then I verify "Fracture" is appearing inside the performance comparison drg "469" table
+    Then I verify "Not Applicable" is appearing inside the performance comparison drg "469" table
+    Then I verify "Non Fracture" is appearing inside the performance comparison drg "470" table
+    Then I verify "Fracture" is appearing inside the performance comparison drg "470" table
+    Then I verify "Not Applicable" is appearing inside the performance comparison drg "470" table
+    And I verify "Current" is appearing inside drg "469" performance comparison table
+    And I verify "System" is appearing inside drg "469" performance comparison table
+    And I verify "Current" is appearing inside drg "470" performance comparison table
+    And I verify "System" is appearing inside drg "470" performance comparison table
+
+    Examples: 
+      | email                              | fourth most recent quarter | third most recent quarter | second most recent quarter | most recent quarter |
+      | shutestaug231132a@yopmail.com      | 2016Q4                     | 2017Q1                    | 2017Q2                     | 2017Q3              |
+      | reptestachmodel2opsfin@yopmail.com | 2016Q4                     | 2017Q2                    | 2017Q2                     | 2017Q3              |
+
+  Scenario Outline: User should see only not applicable when logged in with non remedy award convener user
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I click on "LMJ Bundle Details" link on the performance scorecard page
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I verify "Performance Scorecard" is appearing on clicking on lmj link
+    Then I verify "Not Applicable" is appearing inside the performance comparison drg "469" table
+    Then I verify "Not Applicable" is appearing inside the performance comparison drg "470" table
