@@ -132,4 +132,14 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyTheDetailsAfterSelectingContractNameOnCreateNetworkContractPage(text,field);
 	    }
 	
+	@And("^I verify Default Network Contract Start Date should be Bundled payment Contract's Start Date$")
+	  public void I_Verify_Default_Network_Contract_Start_Date_Should_be_of_Bundled_Payment_Contract_Start_Date(){
+		programs.iVerifyDefaultNetworkContractStartDateShouldBeOfBundledPaymentContractStartDate();
+	    }
+	
+	@And("^I verify Default Network Contract End Date should be Bundled payment Contract's End Date$")
+	  public void i_Verify_Default_Network_Contract_End_Date_Should_Be_of_Bundled_Payment_Contract_End_Date(){
+		programs.iVerifyDefaultNetworkContractEndDateShouldBeofBundledPaymentContractEndDate();
+	    }
+	
 }

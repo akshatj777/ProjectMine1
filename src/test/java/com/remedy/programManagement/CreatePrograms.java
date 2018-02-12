@@ -326,6 +326,14 @@ public class CreatePrograms extends BaseClass {
 			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
 		}
 	}
+	
+	public void iVerifyDefaultNetworkContractStartDateShouldBeOfBundledPaymentContractStartDate(){
+		isElementPresent(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker ']//label[@class='date-picker-input-label']"));
+	}
+	
+	public void iVerifyDefaultNetworkContractEndDateShouldBeofBundledPaymentContractEndDate(){
+		isElementPresent(By.xpath("//div[@class='react-datepicker-input-field-container end-date-picker ']//label[@class='date-picker-input-label']"));
+	}
 }
 
 

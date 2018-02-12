@@ -118,10 +118,30 @@ Feature: Create Network Contracts functionality tests
     And I verify "<Contract_ID>" in "Contract Id" after selecting Contract Name
     And I verify "<Start_Date>" in "Start Date" after selecting Contract Name
     And I verify "<End_Date>" in "End Date" after selecting Contract Name
-    And I verify Default Network Contract Start date should be today's date
+    And I verify Default Network Contract Start Date should be Bundled payment Contract's Start Date
+    And I verify Default Network Contract End Date should be Bundled payment Contract's End Date
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
 
     Examples: 
       | Description                                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
       | Verify after selecting Contract(Program) with Start Date and End Date on create Network Contract page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
+
+  Scenario Outline: Create Network contract with all the available fields
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organiztion name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    Then I click on "Submit" button on "create" organization page
+
+    Examples: 
+      | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name                           |
+      | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | createHospOrgForContractToDelkJoiUzJEIp4504 |
