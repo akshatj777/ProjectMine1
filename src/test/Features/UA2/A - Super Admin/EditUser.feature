@@ -516,7 +516,7 @@ Feature: Edit user page for SA
     Then I select "Permissions" tab
     Then I click on existing organisation "<Health System>"
     Then I select "<Locations>" locations
-    Then I click on Submit button
+    Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
     Then I verify programs "<ProgramsValidation>"
