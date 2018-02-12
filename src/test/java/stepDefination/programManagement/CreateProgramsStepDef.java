@@ -127,4 +127,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyProgramOnCreateNetworkContractPage(text);
 	    }
 	
+	@And("^I verify \"([^\"]*)\" in \"([^\"]*)\" after selecting Contract Name$")
+	  public void i_Verify_The_Details_After_Selecting_Contract_Name(String text, String field){
+		programs.iVerifyTheDetailsAfterSelectingContractNameOnCreateNetworkContractPage(text,field);
+	    }
+	
 }

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -304,6 +305,26 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iVerifyProgramOnCreateNetworkContractPage(String text){
 		isElementPresent(By.xpath("//div[contains(text(),'*')]"));
+	}
+	
+	public void iVerifyTheDetailsAfterSelectingContractNameOnCreateNetworkContractPage(String text, String field){
+		String result= null;
+		if(field.contains("Contract_ID"))
+		{
+			result = getTextForElement(driver.findElement(By.xpath("//div[@class='contract-id']")));
+			result = result.substring(result.indexOf(":")+1);
+			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
+		}
+		else if(field.contains("Start Date")){
+			result = getTextForElement(driver.findElement(By.xpath("//div[@class='start-date']")));
+			result = result.substring(result.indexOf(":")+1);
+			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
+		}
+		else if(field.contains("End Date")){
+			result = getTextForElement(driver.findElement(By.xpath("//div[@class='end-date']")));
+			result = result.substring(result.indexOf(":")+1);
+			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
+		}
 	}
 }
 

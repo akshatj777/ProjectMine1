@@ -115,10 +115,13 @@ Feature: Create Network Contracts functionality tests
     And I verify "Create Network Contract" header text on create organization page
     And I verify the "<PGP_Organization_Name>" on "Create" Netwotk Conntract page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I verify "<Contract_ID>" in "Contract Id" after selecting Contract Name
+    And I verify "<Start_Date>" in "Start Date" after selecting Contract Name
+    And I verify "<End_Date>" in "End Date" after selecting Contract Name
     And I verify Default Network Contract Start date should be today's date
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
 
     Examples: 
-      | Description                                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name |
-      | Verify after selecting Contract(Program) with Start Date and End Date on create Network Contract page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |
+      | Description                                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
+      | Verify after selecting Contract(Program) with Start Date and End Date on create Network Contract page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
