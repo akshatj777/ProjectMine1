@@ -72,7 +72,7 @@ public class ViewProfileManagingOrganization extends BaseClass{
 			String text = getTextForElement(driver.findElement(By.cssSelector(".participant-id")));
 		    String query = "SELECT participant_id from program_management.organization where name = '"+CreatePayorOrganization.payorOrg.get("PAYORNAME")+"'";
 		    String pID = fetchParticipantID(query);
-			Assert.assertEquals("Participant Id: "+pID+"|", text);
+			Assert.assertEquals("Participant Id: "+pID+" |", text);
 		}
 	}
 	
