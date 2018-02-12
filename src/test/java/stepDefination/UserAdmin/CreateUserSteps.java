@@ -585,6 +585,10 @@ public class CreateUserSteps extends DriverScript {
 	public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
 		createUser.selectLocationsForDownstreamProvider(locationList);
 	}
+	@Then("^I deselect \"([^\"]*)\" locations for Downstream Provider role$")
+	public void deselectLocationsForDownstreamProvider(String locationList) throws Throwable {
+		createUser.selectLocationsForDownstreamProvider(locationList);
+	}
 	
 	@Then("^I select \"([^\"]*)\" locations for PTA user$")
 	public void selectLocationsForPTAUser(String locationList) throws Throwable {
