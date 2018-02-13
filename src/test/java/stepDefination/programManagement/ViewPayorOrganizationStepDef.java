@@ -28,7 +28,4 @@ public class ViewPayorOrganizationStepDef extends DriverScript{
 	  public void i_Click_on_Contracts_Tab_on_View_profile_of_Payor_Organization(String tab) throws Throwable {
 		viewPayor.iClickOnTabOnViewProfileOfPayorOrganization(tab);
 		}
-	
-	
-	
 }

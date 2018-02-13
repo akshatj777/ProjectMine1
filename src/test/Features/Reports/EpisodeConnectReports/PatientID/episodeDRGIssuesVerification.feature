@@ -125,7 +125,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should be able to remove default filters from Inpatient Episode Clearing Report and add Anchor Discharge Month Filter
     Given I am on the login page
@@ -157,7 +157,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       #| Medicare Payer Users          |
       | shutestaug231132a@yopmail.com  |
       #| Multiple Payer Users          |
-      | multipayerachrpfin@yopmail.com |
+      #| multipayerachrpfin@yopmail.com |
 
   Scenario Outline: User should not see fracture/non-fracture filters in the available fields in episode drg issues report under patient id
     Given I am on the login page
@@ -302,3 +302,43 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Examples: 
       | email                         |
       | shutestaug231132a@yopmail.com |
+      
+  Scenario Outline: User should be able to see eligibilty field in available fields and check the filter values and apply filter in episode drg issues report under patient id
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Patient ID" under reports tile text
+    When I click on the Reports Tile with text "Patient ID"
+    Then I click on "Episode DRG Issues" report text for Patient ID Reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify "Eligibility" field is appearing in the layout section after selecting add to report
+    Then I verify "Eligibility" column is added to report after selecting add to report option
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Eligibility" in the header text of filter page
+    Then I verify there are no duplicate values in the eligibility filter field list
+    And I should see "ELIGIBLE" in the filter value list
+    And I should see "ERROR" in the filter value list
+    And I should see "EXPIRED" in the filter value list
+    And I should see "NOT_ELIGIBLE" in the filter value list
+    And I click on "ELIGIBLE" in the filter value list
+    And I click on add selected in the filter model
+    And I click on ok button from filter
+    And I wait until refresh button is disappeared
+    And I verify "ELIGIBLE" is visible under "Eligibility" column in the report
+
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      | reptestachmodel2opsfin@yopmail.com |
