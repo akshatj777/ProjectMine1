@@ -1,6 +1,5 @@
 Feature: Create User - Super Admin User
 
-  
   Scenario Outline: <Description>
     Given I am on mail login page
     Then I enter username "test.automatemail" to login mail account

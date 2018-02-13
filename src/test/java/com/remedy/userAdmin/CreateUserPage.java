@@ -871,6 +871,9 @@ public class CreateUserPage extends BaseClass{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
+			System.out.println(usersEmailPerRole.toString());
+			System.out.println(usersApplicationsPerRole.toString());
+			System.out.println(usersNPIPerRole.toString());
 		}
 		else if(user.contains("Remedy Technical Administrator"))
 		{
@@ -1292,9 +1295,11 @@ public class CreateUserPage extends BaseClass{
     	   {
     		   token = newToken;   
     	   }
+    	   iWillWaitToSee(By.xpath("//p[text()='"+token.trim()+"']"));
     	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='"+token.trim()+"']")));
        } 
-	   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
+	   iWillWaitToSee(By.xpath("//p[text()='Institute']"));
+       Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[text()='Institute']")));
    }
    
    public void verifyProductTilesNotPresent(String products) throws Throwable {

@@ -46,10 +46,12 @@ public class ViewUserPage extends BaseClass {
 		{
 			if(field.equals("NPI"))
 			{
+				iWillWaitToSee(By.xpath("//*[text()[contains(.,'"+CreateUserPage.userNPI+"')]]"));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[text()[contains(.,'"+CreateUserPage.userNPI+"')]]")));
 			}
 			else
 			{
+				iWillWaitToSee(By.xpath("//*[text()[contains(.,'"+field+"')]]"));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[text()[contains(.,'"+field+"')]]")));
 			}
 		}
