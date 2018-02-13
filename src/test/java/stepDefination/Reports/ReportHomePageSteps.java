@@ -1879,5 +1879,25 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_is_appearing_inside_drg_performance_comparison_table(String text,String drg) throws Throwable{
     	reportHomePage.iVerifyCurrentAndSystemInsidePerformanceComparison(text, drg);
     }
+    
+    @Then("^I verify the data under fracture and non fracture is only \"([^\"]*)\" in the rows under drg table \"([^\"]*)\"$")
+    public void i_verify_the_data_under_fracture_and_non_fracture_is_only_blank_under_drg_tables(String text,String drg) throws Throwable{
+    	reportHomePage.iVerifyDataUnderFractureAndNonFractureColumns(text,drg);
+    }
+    
+    @And("^I fetch the value of episodes present beside first physician$")
+    public void i_fetch_the_value_of_episodes_present_beside_first_physician() throws Throwable{
+    	reportHomePage.iFetchValueOfEpisodesFromFirstPhysician();
+    }
+    
+    @And("^I verify fetched episodes data is appearing inside the kpi box of episodes$")
+    public void i_verify_fetched_episodes_data_is_appearing_inside_the_kpi_box_of_episodes() throws Throwable{
+    	reportHomePage.iVerifyFetchedEpisodeIsSameInEpisodesKPIBox();
+    }
+    
+    @Then("^I verify same episodes data is appearing under overall performance column in quaterly performance table$")
+    public void i_verify_same_episodes_data_is_appearing_under_overall_performance_column_in_quaterly_performance_table() throws Throwable{
+    	reportHomePage.iVerifySameEpisodesDataIsAppearingUnderOverallPerformanceInQuaterlyPerformanceTable();
+    }
 }
 

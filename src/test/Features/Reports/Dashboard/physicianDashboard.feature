@@ -492,6 +492,11 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
     Then I verify "<selectedfilter>" is appearing under "<filtername>" filter field after applying filter
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
 
     Examples: 
       | email                              | filtername  | filtertext                       | selectedfilter                   |
@@ -841,3 +846,112 @@ Feature: Verification of physician report under dashboard
     And I verify "Performance Scorecard" is appearing on clicking on lmj link
     Then I verify "Not Applicable" is appearing inside the performance comparison drg "469" table
     Then I verify "Not Applicable" is appearing inside the performance comparison drg "470" table
+    Then I verify the data under fracture and non fracture is only "-" in the rows under drg table "469"
+    Then I verify the data under fracture and non fracture is only "-" in the rows under drg table "470"
+
+    Examples: 
+      | email                              |
+      | RPFINnonremedywardy469@yopmail.com |
+
+  Scenario Outline: Verify the same episodes column should be available on all the places for particular physician
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 40000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    And I fetch the value of episodes present beside first physician
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I verify fetched episodes data is appearing inside the kpi box of episodes
+    Then I verify same episodes data is appearing under overall performance column in quaterly performance table
+
+    Examples: 
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify the metrics are changes when changed the filters on evalution,scorecard and overall performance pages
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I wait for 6000 milli seconds
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I click the first name under attributed physican column
+    And I switch to new window
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I verify current page "Performance Scorecard Dashboard" title
+    And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
+    
+    Then I uncheck All option under "payer" filter in the filter options
+    Then I enter Medicare under the "payer" field searchbox
+    Then I click the Medicare appearing under "payer" field filter under filter options
+    And I click on apply button under the filter in filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "All" is appearing under "payer" filter field after applying filter
+    
+    Then I uncheck All option under "participant" filter in the filter options
+    Then I enter Penn under the "participant" field searchbox
+    Then I click the Penn appearing under "participant" field filter under filter options
+    And I click on apply button under the filter in filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "All" is appearing under "participant" filter field after applying filter
+    
+    Then I uncheck All option under "initiator" filter in the filter options
+    Then I enter Penn Presbyterian Medical Center under the "initiator" field searchbox
+    Then I click the Penn Presbyterian Medical Center appearing under "initiator" field filter under filter options
+    And I click on apply button under the filter in filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "Penn Presbyterian Medical Center" is appearing under "initiator" filter field after applying filter
+    
+    Then I uncheck All option under "facility" filter in the filter options
+    Then I enter Penn Presbyterian Medical Center under the "facility" field searchbox
+    Then I click the Penn Presbyterian Medical Center appearing under "facility" field filter under filter options
+    And I click on apply button under the filter in filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "Penn Presbyterian Medical Center" is appearing under "facility" filter field after applying filter
+    
+    Then I uncheck All option under "bundle" filter in the filter options
+    Then I enter Amputation under the "bundle" field searchbox
+    Then I click the Amputation appearing under "bundle" field filter under filter options
+    And I click on apply button under the filter in filter options
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    Then I verify "Amputation" is appearing under "bundle" filter field after applying filter
+    
+    Then I verify scorecards appearing on performance scorecard dashboard page
+    Then I verify "Episodes (Eps)" scorecard is appearing under performance scorecard
+    Then I verify "Avg Episode Cost" scorecard is appearing under performance scorecard
+    Then I verify "% Disch to SNF" scorecard is appearing under performance scorecard
+    Then I verify "SNF Days" scorecard is appearing under performance scorecard
+    Then I verify "% Eps w Readmit" scorecard is appearing under performance scorecard
+    And I click on "Episodes (Eps)" is kpi box on the performance scorecard dashboard page
+    
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
+      

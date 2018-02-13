@@ -18,6 +18,8 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
+	public static String episodes;
+	
 	WebDriverWait wait = new WebDriverWait(driver, 120);
 
     public ReportHomePage(WebDriver driver){
@@ -1486,5 +1488,25 @@ public class ReportHomePage extends BaseClass {
     	WebElement element = driver.findElement(By.xpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']]"));
     	scrollIntoViewByJS(element);
     	verifyTextForElementFromListByXpath("//table[@id='qtrPerf"+drg+"TableObjTable'] //th[text()='"+text+"']]",text);
+    }
+    
+    public void iVerifyDataUnderFractureAndNonFractureColumns(String text,String drg){
+    	for(int i=1;i<=10;i++){
+    		for(int j=2;j<=5;j++){
+    			verifyTextForElementFromListByXpath(".//*[@id='qtrPerf"+drg+"TableObjTable']/tbody/tr["+i+"]/td["+j+"]",text);
+    		}
+    	}
+    }
+    
+    public void iFetchValueOfEpisodesFromFirstPhysician(){
+    	episodes=getTextForElement(driver.findElement(By.xpath("(//td[contains(@class,'numeric')])[1]")));
+    }
+    
+    public void iVerifyFetchedEpisodeIsSameInEpisodesKPIBox(){
+    	verifyTextForElementFromListByXpath("//div[text()=' Episodes (Eps) ']/following-sibling::div[@class='value']",episodes);
+    }
+    
+    public void iVerifySameEpisodesDataIsAppearingUnderOverallPerformanceInQuaterlyPerformanceTable(){
+    	verifyTextForElementFromListByXpath("//td[text()='Episodes (Eps)']/following-sibling::td[contains(@class,'column5')]",episodes);
     }
 }
