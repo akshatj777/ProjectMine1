@@ -82,7 +82,7 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")), text);
+			verifyTextForElement(driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")), text);
 	}
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
@@ -126,7 +126,7 @@ public class CreatePrograms extends BaseClass {
 			int iMonth = cal.get(Calendar.MONTH);
 			String month = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH);
 			int day = cal.get(Calendar.DAY_OF_MONTH);
-			driver.findElement(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker requireViolation ']/div")).click();
+			driver.findElement(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker requireViolation']/div")).click();
 			
 			
 			String displayYear = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
@@ -284,7 +284,11 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iClickOnCheckboxeForAttributionRulesOnCreatePrograms(String text){
-		clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
+		//clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
+		
+		WebElement element= driver.findElement(By.xpath("//li[text()='"+text+"']/child::input"));
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
 	}
 
 	public void iVerifyPGPOrganizationNameOnNetworkContractPage(String text, String page){
