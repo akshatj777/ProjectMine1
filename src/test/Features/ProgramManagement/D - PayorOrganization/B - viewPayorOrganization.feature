@@ -6,7 +6,7 @@ Feature: View Payor Organization functionality tests
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
-    Then I verify "Welcome to Program Management" header on the page
+    #Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
     When I click on "Payor" organization tab on organization dashboard
 
@@ -49,11 +49,9 @@ Feature: View Payor Organization functionality tests
     And I verify <Contact_Phone> in "contact-phone" on view profile of "Payor" Organization
     And I verify <Contact_Email> in "contact-email" on view profile of "Payor" Organization
     And I Verify the "Edit" button on View page
-    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
-    And I verify the "Create New Program" button on view profile of "payor" Organization
-    And I verify "Contracts" tab present under "Payor" Organization
-    And I click on "Contracts" tab on view profile of "payor" Organization
-    And I verify the "Create New Contract" button on view profile of "payor" Organization
+    And I verify "Programs" as default tab selected on view profile of Payor Organization
+    And I verify the "Create New Program" button on view profile of payor Organization
+    And I verify "Contracts" tab present under Payor Organization
 
     Examples: 
       | Description                       | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | StateInitials | Organization Type |
