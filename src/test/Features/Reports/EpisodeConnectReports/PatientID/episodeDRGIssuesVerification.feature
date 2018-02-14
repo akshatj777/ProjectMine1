@@ -361,7 +361,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     When I click on show all filters icon button
     #Default Filters
     Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor hospital admission year filter
-    Then I verify "anchor Discharge Date Key includes 1" is appearing under preselected filters for anchor Discharge Date Key
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Default Dimensions
@@ -429,7 +428,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
