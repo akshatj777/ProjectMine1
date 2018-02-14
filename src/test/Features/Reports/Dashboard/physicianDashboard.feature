@@ -19,10 +19,9 @@ Feature: Verification of physician report under dashboard
     Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
 
     Examples: 
-      | email                              | Role    |
-      | shutestaug231132a@yopmail.com      | RPFIN   |
-      | shutestaug221130a@yopmail.com      | RPNOFIN |
-      | reptestachmodel2opsfin@yopmail.com | OPSFIN  |
+      | email                         | Role    |
+      | shutestaug231132a@yopmail.com | RPFIN   |
+      | shutestaug221130a@yopmail.com | RPNOFIN |
 
   Scenario Outline: User should not see physician dashboard report for external role users except OPSFIN
     Given I am on the login page
@@ -36,10 +35,11 @@ Feature: Verification of physician report under dashboard
     And I should not see Reports Tile text as "Dashboards"
 
     Examples: 
-      | email                         | Role     |
-      | shutestaug15240p@yopmail.com  | OPSNOFIN |
-      | shutestaug221145a@yopmail.com | OPSSPEND |
-      | repopsnofintest@yopmail.com   | ECREPORT |
+      | email                              | Role     |
+      | reptestachmodel2opsfin@yopmail.com | OPSFIN   |
+      | shutestaug15240p@yopmail.com       | OPSNOFIN |
+      | shutestaug221145a@yopmail.com      | OPSSPEND |
+      | repopsnofintest@yopmail.com        | ECREPORT |
 
   Scenario Outline: User should be able to verify physician report appearing under dashboard and clicking on attributed physician name is opening scorecard dashboard and verify drill through
     Given I am on the login page
@@ -110,7 +110,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify attributed physician appearing in performance evalution and scorecard page
     Given I am on the login page
@@ -141,7 +140,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify spotlights is appearing in greeen,yellow and red on the physician dashboard page
     Given I am on the login page
@@ -165,7 +163,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify table view under filter options and verify tables are appearing and check for drill through of physicians
     Given I am on the login page
@@ -206,7 +203,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario: Verify dashboard category is not appearing for model 3 pgp users
     Given I am on the login page
@@ -249,7 +245,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user should see kpi boxes,tabular view in performance scorecard dashboard page
     Given I am on the login page
@@ -287,7 +282,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify filters are preselected on the performance scorecard page
     Given I am on the login page
@@ -319,7 +313,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user should be able to drill through of kpi boxes in performance scorecard dashboard page
     Given I am on the login page
@@ -377,7 +370,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user should be able to drill through top 5 bundles by episodes volume
     Given I am on the login page
@@ -409,7 +401,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify attributed physician filter is preselected in the physician scorecard page
     Given I am on the login page
@@ -434,7 +425,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify the <color> and click on corresponding <color> physician and verify <message> on scorecards as per the color
     Given I am on the login page
@@ -462,11 +452,8 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              | color  | messsage             |
       | shutestaug231132a@yopmail.com      | red    | Above the benchmark  |
-      | reptestachmodel2opsfin@yopmail.com | red    | Above the benchmark  |
       | shutestaug231132a@yopmail.com      | green  | Below the benchmark  |
-      | reptestachmodel2opsfin@yopmail.com | green  | Below the benchmark  |
       | shutestaug231132a@yopmail.com      | yellow | Within the benchmark |
-      | reptestachmodel2opsfin@yopmail.com | yellow | Within the benchmark |
 
   Scenario Outline: Verify filters should not be clickable without selecting any value in the filter
     Given I am on the login page
@@ -501,15 +488,10 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              | filtername  | filtertext                       | selectedfilter                   |
       | shutestaug231132a@yopmail.com      | payer       | Medicare                         | All                              |
-      | reptestachmodel2opsfin@yopmail.com | payer       | Medicare                         | All                              |
       | shutestaug231132a@yopmail.com      | participant | Penn                             | All                              |
-      | reptestachmodel2opsfin@yopmail.com | participant | Penn                             | All                              |
       | shutestaug231132a@yopmail.com      | initiator   | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
-      | reptestachmodel2opsfin@yopmail.com | initiator   | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
       | shutestaug231132a@yopmail.com      | facility    | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
-      | reptestachmodel2opsfin@yopmail.com | facility    | Penn Presbyterian Medical Center | Penn Presbyterian Medical Center |
       | shutestaug231132a@yopmail.com      | bundle      | Amputation                       | Amputation                       |
-      | reptestachmodel2opsfin@yopmail.com | bundle      | Amputation                       | Amputation                       |
 
   Scenario Outline: Verify the fields are no longer availble on the performance scorecard page
     Given I am on the login page
@@ -539,7 +521,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify user can change physician from the scorecard page
     Given I am on the login page
@@ -567,7 +548,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify Avg Episode Cost and Avg NPRA per episode values
     Given I am on the login page
@@ -633,7 +613,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify  system and adj historic radio buttons beside benchmark
     Given I am on the login page
@@ -673,7 +652,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify top 5 snf table values under physician scorecard page
     Given I am on the login page
@@ -706,7 +684,6 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
 
   Scenario Outline: Verify the overall performance page on clicking LMJ bundle link
     Given I am on the login page
@@ -902,7 +879,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
     And I will wait to see "Performance Scorecard" in the newly opened tab after clicking attributed physician
-    
     Then I uncheck All option under "payer" filter in the filter options
     Then I enter Medicare under the "payer" field searchbox
     Then I click the Medicare appearing under "payer" field filter under filter options
@@ -910,7 +886,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "All" is appearing under "payer" filter field after applying filter
-    
     Then I uncheck All option under "participant" filter in the filter options
     Then I enter Penn under the "participant" field searchbox
     Then I click the Penn appearing under "participant" field filter under filter options
@@ -918,7 +893,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "All" is appearing under "participant" filter field after applying filter
-    
     Then I uncheck All option under "initiator" filter in the filter options
     Then I enter Penn Presbyterian Medical Center under the "initiator" field searchbox
     Then I click the Penn Presbyterian Medical Center appearing under "initiator" field filter under filter options
@@ -926,7 +900,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "Penn Presbyterian Medical Center" is appearing under "initiator" filter field after applying filter
-    
     Then I uncheck All option under "facility" filter in the filter options
     Then I enter Penn Presbyterian Medical Center under the "facility" field searchbox
     Then I click the Penn Presbyterian Medical Center appearing under "facility" field filter under filter options
@@ -934,7 +907,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "Penn Presbyterian Medical Center" is appearing under "facility" filter field after applying filter
-    
     Then I uncheck All option under "bundle" filter in the filter options
     Then I enter Amputation under the "bundle" field searchbox
     Then I click the Amputation appearing under "bundle" field filter under filter options
@@ -942,11 +914,11 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify scorecards appearing on performance scorecard dashboard page
     Then I verify "Amputation" is appearing under "bundle" filter field after applying filter
-     
+
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
   Scenario Outline: Verify the metrics are changes when changed the filters in the newly opened tab after clicking lmj bundle link
     Given I am on the login page
     When I enter email field <email> for login
@@ -973,7 +945,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify current page "Performance Scorecard Dashboard" title
     And I verify "Performance Scorecard" is appearing on clicking on lmj link
-    
     Then I uncheck All option under "payer" filter in the filter options
     Then I enter Medicare under the "payer" field searchbox
     Then I click the Medicare appearing under "payer" field filter under filter options
@@ -981,7 +952,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
     Then I verify "All" is appearing under "payer" filter field after applying filter
-    
     Then I uncheck All option under "participant" filter in the filter options
     Then I enter Penn under the "participant" field searchbox
     Then I click the Penn appearing under "participant" field filter under filter options
@@ -989,7 +959,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
     Then I verify "All" is appearing under "participant" filter field after applying filter
-    
     Then I uncheck All option under "initiator" filter in the filter options
     Then I enter Penn Presbyterian Medical Center under the "initiator" field searchbox
     Then I click the Penn Presbyterian Medical Center appearing under "initiator" field filter under filter options
@@ -997,7 +966,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
     Then I verify "Penn Presbyterian Medical Center" is appearing under "initiator" filter field after applying filter
-    
     Then I uncheck All option under "facility" filter in the filter options
     Then I enter Penn Presbyterian Medical Center under the "facility" field searchbox
     Then I click the Penn Presbyterian Medical Center appearing under "facility" field filter under filter options
@@ -1005,7 +973,6 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
     Then I verify "Penn Presbyterian Medical Center" is appearing under "facility" filter field after applying filter
-    
     Then I uncheck All option under "bundle" filter in the filter options
     Then I enter Amputation under the "bundle" field searchbox
     Then I click the Amputation appearing under "bundle" field filter under filter options
@@ -1013,7 +980,35 @@ Feature: Verification of physician report under dashboard
     Then I wait until loading icon disappears in physician dashboard report
     Then I verify "Major Joint Replacement of the Lower Extremity" section is appearing on overall performance page
     Then I verify "Amputation" is appearing under "bundle" filter field after applying filter
-     
+
     Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
+      | email                         |
+      | shutestaug231132a@yopmail.com |
+
+  Scenario Outline: Verify the global filters are appearing on the physician dashboard report page
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "Dashboards" under reports tile text
+    Then I verify current page "Reports" title
+    When I click on the Reports Tile with text "Dashboards"
+    When I click on "Physician" reports text for "Dashboards" report tile
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    Then I wait until loading icon disappears in physician dashboard report
+    Then I should see "Performance Evaluation by Physician" appearing under physician dashboard reports
+    When I switch to default window from iframe
+    When I see "0" filters applied under global filters applied count
+    Then I click on Show Summary button to unhide the available global filters
+    Then I verify "Payer" filter is appearing under global filters
+    Then I verify "Participant" filter is appearing under global filters
+    Then I verify "Episode Initiator" filter is appearing under global filters
+    Then I verify "Anchor Facility" filter is appearing under global filters
+    And I verify apply button is appearing under global filters
+
+    Examples: 
+      | email                         | payer    | participant |
+      | shutestaug231132a@yopmail.com | Medicare | Penn        |
