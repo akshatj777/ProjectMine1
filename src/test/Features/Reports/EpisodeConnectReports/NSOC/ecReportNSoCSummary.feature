@@ -495,60 +495,8 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                   |
       | RPFIN2User2@yopmail.com |
       | OPSFINTier1@yopmail.com |
-      
-  Scenario Outline: User should be able to drag and drop the fields in to reports in nsoc summary report under nsoc
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Next Site of Care" under reports tile text
-    When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for NSoC Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #CCN Drag and Drop
-    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
-    #BPID Drag and Drop
-    When I click to "BPID" field filter under "Episode Initiator" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecting add to report option
-    #Patient Risk Drag and Drop
-    When I click to "Patient Risk" field filter under "Patient" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Patient Risk" column is added to report after selecting add to report option
-    #Onboarding Sttaus Drag and Drop
-    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Onboarding Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Onboarding Status" column is added to report after selecting add to report option
-    #Risk Score Drag and Drop
-    When I click to "Risk Score" field filter under "Patient" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Risk Score" field is appearing in the layout section after selecting add to report
-    Then I verify "Risk Score" column is added to report after selecting add to report option
 
-    Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
-      
-    Scenario Outline: Verification of Next site of care summary report with pgp model3 users
+  Scenario Outline: Verification of Next site of care summary report with pgp model3 users
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -577,10 +525,8 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Anchor Hospital Discharge Care Setting" under "dimensions" field
     Then I should see "Anchor Hospital Discharge Care Type" under "dimensions" field
     Then I should see "Anchor Hospital Admission Month" under "dimensions" field
-   
     #Default Measures
     Then I should see "# Episodes" under "measures" field
-    
     #Default Fields Verification in reports
     And I verify "Participant" column is already present on the reports
     And I verify "Episode Initiator" column is already present on the reports
@@ -588,26 +534,22 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I verify "Anchor Hospital Discharge Care Setting" column is already present on the reports
     And I verify "# Episodes" column is already present on the reports
     And I verify "Anchor Hospital Admission Month" column is already present on the reports
-  
-   #Dimension Fields(Drag and Drop)
+    #Dimension Fields(Drag and Drop)
     When I click to "Anchor Hospital Facility" field filter under "Anchor Hospital Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Facility" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Facility" column is added to report after selecting add to report option
-   
     When I click to "Anchor Post Acute Provider" field filter under "Anchor Post Acute Provider" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Provider" column is added to report after selecting add to report option
-  
     When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "BPID" field is appearing in the layout section after selecting add to report
     Then I verify "BPID" column is added to report after selecting add to report option
-    
     When I click to "Final DRG Status" field filter under "Final DRG Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -618,7 +560,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Working DRG Status" field is appearing in the layout section after selecting add to report
     Then I verify "Working DRG Status" column is added to report after selecting add to report option
- 
     When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -627,7 +568,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click to "Anchor Post Acute Provider CCN" field filter under "Anchor Post Acute Provider" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
-    
     And I verify "Anchor Post Acute Provider CCN" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Provider CCN" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Discharge Facility" field filter under "Anchor Hospital Discharge Facility" filter field
@@ -779,21 +719,21 @@ Feature: Verification of Next Site of Care Summary EC Report
     #measures field drag and drop
     When I click to "# Episodes" field filter under "Measures" filter field in layout section
     And I choose remove report option from select options of filter field
-    Then I search for the field "#" from the available fields 
-    When I click to "# Episodes" field filter under "Measures" filter field 
+    Then I search for the field "#" from the available fields
+    When I click to "# Episodes" field filter under "Measures" filter field
     And I verify "# Episodes" field is appearing in the layout section after selecting add to report
     Then I verify "# Episodes" column is added to report after selecting add to report option
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "# Episodes" field is appearing in the layout section after selecting add to report
     Then I verify "# Episodes" column is added to report after selecting add to report option
-   
+
     Examples: 
       | email                         |
       | shutestauf171115a@yopmail.com |
       | shutestagu22945am@yopmail.com |
-      
-   Scenario Outline: Verify the drill patient drill through values in Next site of care summary report for model3 pgp user
+
+  Scenario Outline: Verify the drill patient drill through values in Next site of care summary report for model3 pgp user
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -912,7 +852,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
-    #When I click on show all filters icon button
+    When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
@@ -941,7 +881,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    #When I click on show all filters icon button
+    When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
     Then I verify dashboard anchor ccn filter is selected with <ccn1> under selected filters
@@ -951,7 +891,7 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                         | participant1     | episode initiator1                             | anchor facility1                     | participantid1 | bpid1    | ccn1   | payer1   |
       | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
       | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
-     
+
   Scenario Outline: User should be able to verify episode status having potential M3 for Model3 users in Next Site Of Care Summary report
     Given I am on the login page
     When I enter email field <email> for login
@@ -1045,4 +985,4 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                        |
       | shutestaug15252p@yopmail.com |
-      | shutestaug26212p@yopmail.com |      
+      | shutestaug26212p@yopmail.com |
