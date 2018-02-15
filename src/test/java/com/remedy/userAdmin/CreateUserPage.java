@@ -304,6 +304,7 @@ public class CreateUserPage extends BaseClass{
     }
     
     public void iSelectTileForTheRole(String appList){
+    	String apps = "";
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
@@ -316,7 +317,16 @@ public class CreateUserPage extends BaseClass{
     		iWillWaitToSee(By.xpath("//label[.='"+appList+"']"));
     		clickElement(driver.findElement(By.xpath("//label[.='"+appList+"']")));
     	}
-    	userApplications = appList;
+    	for(int i=1; i<=(driver.findElements(By.xpath("//div[@class='column padding']")).size());i++)
+    	{
+    		if(driver.findElements(By.xpath("//div[@class='column padding']["+i+"]/div[@class='ui checked checkbox']")).size()>0)
+    		{
+    			apps = apps.concat(driver.findElement(By.xpath("//div[@class='column padding']["+i+"]/div[@class='ui checked checkbox']/label")).getText());
+    			apps = apps.concat(",");
+    		}
+    	}
+    	apps = apps.substring(0, apps.length()-1);
+    	userApplications = apps;
     }
 
     public void iClickOnContinueToDashboardMessage() {
@@ -852,8 +862,72 @@ public class CreateUserPage extends BaseClass{
 	   clickElement(driver.findElement(By.xpath("//label[.='All Locations']")));   
    }
 
-   public void clickSubmitButton() throws Throwable {
-	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+   public void clickSubmitButtonForEdit(String user) throws Throwable {
+	   iWillWaitToSee(By.xpath("//button[.='Submit']"));
+		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
+		HashMap<String,String> emailList = new HashMap<String,String>();
+		HashMap<String,String> applicationsList = new HashMap<String,String>();
+		HashMap<String,String> NPIList = new HashMap<String,String>();
+		if(user.contains("--"))
+		{
+			String newRole = user.substring(user.indexOf("-")+1, user.lastIndexOf("-")-1);
+			String oldRole = user.substring(user.lastIndexOf("-")+1,user.length());
+			String userL = user.substring(0,user.indexOf("-")); 
+			emailList.put(newRole, CreateUserPage.usersEmailPerRole.get(userL+"-"+oldRole).get(oldRole).trim());
+			applicationsList.put(newRole, userApplications);
+			NPIList.put(newRole, CreateUserPage.usersNPIPerRole.get(userL+"-"+oldRole).get(oldRole).trim());
+			
+			if(user.contains("Super Admin"))
+			{
+				usersEmailPerRole.put(userL+"-"+newRole, emailList);
+				usersApplicationsPerRole.put(userL+"-"+newRole, applicationsList);
+				usersNPIPerRole.put(userL+"-"+newRole, NPIList);
+				System.out.println(usersEmailPerRole.toString());
+				System.out.println(usersApplicationsPerRole.toString());
+				System.out.println(usersNPIPerRole.toString());
+			}
+			else if(user.contains("Remedy Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+			else if(user.contains("Partner Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+		}
+		else
+		{
+			emailList.put(user.substring(user.indexOf("-")+1), CreateUserPage.usersEmailPerRole.get(user).get(user.substring((user.indexOf("-")+1)).trim()));
+			applicationsList.put(user.substring(user.indexOf("-")+1), userApplications);
+			NPIList.put(user.substring(user.indexOf("-")+1), CreateUserPage.usersNPIPerRole.get(user).get(user.substring((user.indexOf("-")+1))));
+			
+			if(user.contains("Super Admin"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+				System.out.println(usersEmailPerRole.toString());
+				System.out.println(usersApplicationsPerRole.toString());
+				System.out.println(usersNPIPerRole.toString());
+			}
+			else if(user.contains("Remedy Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+			else if(user.contains("Partner Technical Administrator"))
+			{
+				usersEmailPerRole.put(user.trim(), emailList);
+				usersApplicationsPerRole.put(user.trim(), applicationsList);
+				usersNPIPerRole.put(user.trim(), NPIList);
+			}
+		}
    }
    
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
@@ -1334,7 +1408,6 @@ public class CreateUserPage extends BaseClass{
    
    public void verifyProductNotPresentOnAppTab(String products) throws Throwable {
 	   StringTokenizer st = new StringTokenizer(products,",");
-	   String token = null;
        while (st.hasMoreTokens()) 
        {
     	   String newToken = st.nextToken().trim();

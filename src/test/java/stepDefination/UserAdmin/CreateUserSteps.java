@@ -506,9 +506,9 @@ public class CreateUserSteps extends DriverScript {
 		createUser.clickSelectAllLocationsButton();
 	}
 
-	@Then("^I click on Submit button$")
-	public void clickSubmitButton() throws Throwable {
-		createUser.clickSubmitButton();
+	@Then("^I click on Submit button while edit for \"([^\"]*)\"$")
+	public void clickSubmitButtonForEdit(String user) throws Throwable {
+		createUser.clickSubmitButtonForEdit(user);
 	}
 	
 	@Then("^I click on Submit button for \"([^\"]*)\"$")

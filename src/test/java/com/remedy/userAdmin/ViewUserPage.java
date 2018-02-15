@@ -18,14 +18,17 @@ public class ViewUserPage extends BaseClass {
 
 	public void searchForUserRole(String userRole) throws Throwable {
 		iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']"));
+		Thread.sleep(3000);
 		String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), email);
+		Thread.sleep(3000);
 	}
 
 	public void selectUserRole(String userRole) throws Throwable {
 		String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 		iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']"));
 		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']")));
+		Thread.sleep(3000);
 	}
 
 	public void verifyNavigationToViewUserPage() throws Throwable {
