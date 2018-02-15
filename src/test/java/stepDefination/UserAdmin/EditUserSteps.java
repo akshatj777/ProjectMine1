@@ -25,6 +25,12 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	}
 
 	
+	@Then("^I verify the availability of field NPI for \"([^\"]*)\"$")
+	public void i_verify_the_availability_of_fields_for_Physicians(String role) throws Throwable {
+		editUser.VerifyNPIFieldForPhysicians(role);
+	}
+	
+	
 	@And("^I fill in Phone with([^\"]*)$")
 	public void iFillInPhone(String number) throws Throwable {
 		editUser.iEnterPhone(number);
@@ -145,10 +151,7 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 		editUser.iVerifyPTAProvisionedRoleOnEditPage();
 	}
 	
-	@Then("^I verify \"([^\"]*)\" under Data Permissions in view user page$")
-	public void i_verify_under_Data_Permissions_in_view_user_page(String arg1) throws Throwable {
-		editUser.iVerifyDataPermissions(arg1);
-	}
+	
 	@Then("^I should see \"([^\"]*)\" under data permissions$")
 	public void iVerifydataPermissionsField(String field){
 		editUser.iVerifydataPermissionsField(field);
