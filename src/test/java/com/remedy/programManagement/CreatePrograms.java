@@ -220,7 +220,10 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iClickOnCheckboxeForAttributionRulesOnCreatePrograms(String text){
-		clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
+		//clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
+		WebElement element= driver.findElement(By.xpath("//li[text()='"+text+"']/child::input"));
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
 	}
 
 }
