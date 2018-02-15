@@ -126,7 +126,7 @@ public class CreatePrograms extends BaseClass {
 			int iMonth = cal.get(Calendar.MONTH);
 			String month = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH);
 			int day = cal.get(Calendar.DAY_OF_MONTH);
-			driver.findElement(By.xpath("//div[@class='react-datepicker-input-field-container start-date-picker requireViolation']/div")).click();
+			driver.findElement(By.xpath("//div[@class='start-date-end-date-block col-sm-8']//div[@class='react-datepicker-input-field-container start-date-picker']//label[1]")).click();
 			
 			
 			String displayYear = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
