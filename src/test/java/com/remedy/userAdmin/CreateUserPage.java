@@ -309,8 +309,10 @@ public class CreateUserPage extends BaseClass{
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
+    		
+    		iWillWaitToSee(By.cssSelector(".ui.checkbox"));
             while (st.hasMoreTokens()) { 
-            	iWillWaitToSee(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
+            	
             	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
             }
     	}
@@ -330,7 +332,7 @@ public class CreateUserPage extends BaseClass{
     	apps = apps.substring(0, apps.length()-1);
     	userApplications = apps;
     }
-
+    
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
     }
