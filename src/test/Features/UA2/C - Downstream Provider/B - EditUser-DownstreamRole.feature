@@ -85,14 +85,14 @@ Feature: Edit page for Downstream provider
       | Description                                                     | User        | UserName                               | Password | FirstName                                 | LastName                                 | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                            | Health System1    | Programs1   | Locations1                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Super Admin User and create user with Executive role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2, Remedy University | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | No               |                |           |            | No               |                |           |            |
 
-  Scenario Outline: Changing Role from <PreviousRole> to <Role> and verify permissions tab
+  Scenario Outline: Changing Role from <PreviousRole> to <Role> and Edit permissions tab
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter "<Email>" in search box for "<user>-<PreviousRole>"
-    Then I select user with email "<Email>"
+    Then I search for user with role "<User>-<PreviousRole>"
+    Then I select user with role "<User>-<PreviousRole>"
     And I verify that I am navigated to user page
     And I click on Edit button
     When I click the Organizational Role Field to edit
@@ -108,7 +108,7 @@ Feature: Edit page for Downstream provider
     And I search for health system with <Health System1>
     And I select a <Health System1>
     Then I select "<Locations1>" locations
-    Then I click on Submit button for "<user>"
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify role "<Role>"
@@ -116,6 +116,7 @@ Feature: Edit page for Downstream provider
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
+    #include downstream view page validation
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -144,30 +145,10 @@ Feature: Edit page for Downstream provider
     And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
-    And I click on Reports tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Reports homepage
-    And I click on the Reports Tile with text "<ReportCategory>" for "<User>-<Role>" user
-    Then I click on "<ReportName>" report text for Overall Program Reports for "<User>-<Role>" user
-    Then I verify "<ReportName>" on the reports main page for "<User>-<Role>" user
-    #When I click on field-panel-icon button for "<User>-<Role>" user
-    #When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
-    #And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
-    #And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
-    #And I click on cancel button from filter for "<User>-<Role>" user
     And I redirect to Remedy connect page
     And I click on Episodes 2 tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
     And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
-    And I click on RemedyU tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to RemedyU homepage
-    And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
-    And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
-    And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
-    And I click on User Admin tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
     And I click on the top user account link on remedy connect page
     And I verify "Support" in dropdown on profile icon for "<User>-<Role>" user
@@ -182,8 +163,8 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | PreviousRole | Role                | EnableApplications | Applications           | Locations                        | HasHealthSystem1 | Health System1 | Programs1   | Locations1                                                           | HealthSystemValidation             | ProgramsValidation                                                                 | LocationsValidation                                                                                                                                                      | Roletext | ReportCategory | ReportName                   | LearningPathway | BPID | Facilities                                                                         |
-      | Super Admin | test.automatemail | Executive    | Downstream Provider | Episodes 2.0       | Episodes, Episodes 2.0 | Baptist Hospital Of Roane County | Yes              | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | Healthsystem - Downstream Provider | Healthsystem - Downstream Provider--Downstream Organization, Covenant--BPCI-Model3 | Healthsystem - Downstream Provider--DOWN-ORG--Baptist Hospital Of Roane County, Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] |                 |      | Baptist Hospital Of Roane County, Catered Manor Nursing Center, Downey Care Center |
+      | user        | Email             | FirstName                                 | LastName                                 | PreviousRole | Role                | EnableApplications | Applications           | ApplicationsNotVisible                              | Locations                        | HasHealthSystem1 | Health System1 | Programs1   | Locations1                                                           | HealthSystemValidation                       | ProgramsValidation     | ProgramsValidationDP                                        | LocationsValidation                                                                      | LocationsValidationDP                                                          | Roletext | ReportCategory | ReportName                   | LearningPathway                        | BPID | Facilities                                                                         |
+      | Super Admin | test.automatemail | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | Executive    | Downstream Provider | Episodes 2.0       | Episodes, Episodes 2.0 | Administration, Physician Connect, Reports, Lessons | Baptist Hospital Of Roane County | Yes              | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | Healthsystem - Downstream Provider, Covenant | Covenant--BPCI Model 3 | Healthsystem - Downstream Provider--Downstream Organization | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center | Healthsystem - Downstream Provider--DOWN-ORG--Baptist Hospital Of Roane County | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2 |      | Baptist Hospital Of Roane County, Catered Manor Nursing Center, Downey Care Center |
 
   Scenario Outline: Edit downstream provider general details, applications and data permissions
     Given I am on the login page
@@ -191,8 +172,8 @@ Feature: Edit page for Downstream provider
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter "<Email>" in search box for "<user>-<Role>"
-    Then I select user with email "<Email>"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I verify the header "General Information"
@@ -215,7 +196,7 @@ Feature: Edit page for Downstream provider
     Then I click on existing organisation "<Health System1>"
     Then I deselect "<DisableLocations1>" locations
     Then I select "<EnableLocations1>" locations
-    Then I click on Submit button for "<user>"
+    Then I click on Submit button while edit for "<User>-<Role>"
     And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify first name "<FirstName>"
@@ -253,30 +234,10 @@ Feature: Edit page for Downstream provider
     And I switch to new window
     And I verify "<User>-<Role>" user navigated to Institute homepage
     And I switch back to old window
-    And I click on Reports tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Reports homepage
-    And I click on the Reports Tile with text "<ReportCategory>" for "<User>-<Role>" user
-    Then I click on "<ReportName>" report text for Overall Program Reports for "<User>-<Role>" user
-    Then I verify "<ReportName>" on the reports main page for "<User>-<Role>" user
-    #When I click on field-panel-icon button for "<User>-<Role>" user
-    #When I click to "BPID" field filter under "Episode Initiator" filter field for "<User>-<Role>" user
-    #And I choose "Filter" option from select options of filter field for "<User>-<Role>" user
-    #And I should see "<BPID>" in the filter value list for "<User>-<Role>" user
-    #And I click on cancel button from filter for "<User>-<Role>" user
     And I redirect to Remedy connect page
     And I click on Episodes 2 tile for "<User>-<Role>" user
     And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
     And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
-    And I click on RemedyU tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to RemedyU homepage
-    And I verify details "<FirstName> <LastName>" for "<User>-<Role>" user on RemedyU dashboard
-    And I verify learning pathway "<LearningPathway>" appearing for "<User>-<Role>" user on RemedyU dashboard
-    And I redirect to Remedy connect page
-    And I click on Gainsharing Physician Survey tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to Gainsharing Physician Survey homepage
-    And I redirect to Remedy connect page
-    And I click on User Admin tile for "<User>-<Role>" user
-    And I verify "<User>-<Role>" user navigated to User Admin homepage
     And I redirect to Remedy connect page
     And I click on the top user account link on remedy connect page
     And I verify "Support" in dropdown on profile icon for "<User>-<Role>" user
@@ -388,5 +349,5 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI | PreviousRole        | Role      | EnableApplications | Applications               | ApplicationsNotVisible            | Roletext | Health System     | Programs    | Locations                   | ReportCategory | ReportName         | BPID | Facilities        |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Downstream Provider | Executive | Reports, Lessons   | Episodes, Reports, Lessons | Administration, Physician Connect | ROLE_PRM | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Patient ID     | Episode DRG Issues |      | Stamford Hospital |
+      | User        | UserName                               | Password | Email             | NPI | PreviousRole        | Role      | EnableApplications | Applications               | ApplicationsNotVisible            | LearningPathwaySearchParameter         | Roletext | Health System     | Programs    | Locations                   | ReportCategory | ReportName         | BPID | Facilities        | LearningPathway                        |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Downstream Provider | Executive | Reports, Lessons   | Episodes, Reports, Lessons | Administration, Physician Connect | i am learning path, Learning Pathway 2 | ROLE_PRM | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Patient ID     | Episode DRG Issues |      | Stamford Hospital | i am learning path, Learning Pathway 2 |

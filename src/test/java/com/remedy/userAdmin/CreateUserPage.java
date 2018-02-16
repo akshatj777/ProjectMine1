@@ -305,10 +305,12 @@ public class CreateUserPage extends BaseClass{
     
     public void iSelectTileForTheRole(String appList){
     	String apps = "";
+    	
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
-            while (st.hasMoreTokens()) {  
+            while (st.hasMoreTokens()) { 
+            	iWillWaitToSee(By.xpath("//label[.='"+st.nextToken().trim()+"']"));
             	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
             }
     	}
