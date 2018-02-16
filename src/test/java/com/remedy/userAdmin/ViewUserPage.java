@@ -227,8 +227,8 @@ public class ViewUserPage extends BaseClass {
 		{
 			if(applicationsDisabled.contains(","))
 			{
-				String applicationDisabled = CreateUserPage.usersApplicationsPerRole.get(applicationsDisabled).get(applicationsDisabled.substring((applicationsDisabled.indexOf("-")+1)));
-				   StringTokenizer st = new StringTokenizer(applicationDisabled, ",");
+				//String applicationDisabled = CreateUserPage.usersApplicationsPerRole.get(applicationsDisabled).get(applicationsDisabled.substring((applicationsDisabled.indexOf("-")+1)));
+				   StringTokenizer st = new StringTokenizer(applicationsDisabled, ",");
 				   while(st.hasMoreTokens())
 				   {
 					   isElementPresentOnPage(By.xpath("//tr/td[text()='"+st.nextToken().trim()+"']/parent::tr/td[text()='Disabled']"));   
