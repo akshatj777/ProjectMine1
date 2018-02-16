@@ -736,7 +736,7 @@ Feature: Edit user page for SA
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
     #And I wait for 3000 milli seconds
-    Then I click on Submit button while edit for "<User>-<Role>"
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
@@ -842,7 +842,7 @@ Feature: Edit user page for SA
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
     #And I wait for 3000 milli seconds
-    Then I click on Submit button while edit for "<User>-<Role>"
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
     Then I verify last name "<LastName>"
     Then I verify phone "<Phone>"
@@ -946,7 +946,7 @@ Feature: Edit user page for SA
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
     #And I wait for 3000 milli seconds
-    Then I click on Submit button while edit for "<User>-<Role>"
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
     Then I verify phone "<PhoneValidation>"
     Then I verify enabled "<EnableApplications>"
@@ -1045,7 +1045,7 @@ Feature: Edit user page for SA
     Then I select "<DisableLocations>" locations
     Then I select "<EnableLocations>" locations
     #And I wait for 3000 milli seconds
-    Then I click on Submit button while edit for "<User>-<Role>"
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
     Then I verify phone "<PhoneValidation>"
     Then I verify enabled "<EnableApplications>"
