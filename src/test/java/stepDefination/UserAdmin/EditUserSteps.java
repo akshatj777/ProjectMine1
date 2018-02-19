@@ -160,4 +160,8 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iSelectProgForExistingOrg(String programList) throws Throwable{
 		editUser.selectProgramsForExistingOrg(programList);
 	}
+	@Then("^I remove health system \"([^\"]*)\"$")
+	public void iRemoveHealthSystemByName(String org){
+		editUser.iRemoveHealthSystemByName(org);
+	}
 }

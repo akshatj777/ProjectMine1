@@ -139,7 +139,10 @@ public class EditUser extends BaseClass {
 		
 			}
 		
-	
+	public void iRemoveHealthSystemByName(String org){
+		iWillWaitToSee(By.xpath("//span[contains(@class, 'component-participant-title') and contains(text(),'"+org+"')]/i[contains(@class,'remove link icon')]"));
+		clickElement(driver.findElement(By.xpath("//span[contains(@class, 'component-participant-title') and contains(text(),'"+org+"')]/i[contains(@class,'remove link icon')]")));
+	}
 	
 	   public void clickAllLocationsButton(String arg) throws Throwable {
 		   

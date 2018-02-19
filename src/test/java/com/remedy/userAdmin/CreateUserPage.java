@@ -331,7 +331,7 @@ public class CreateUserPage extends BaseClass{
     	apps = apps.substring(0, apps.length()-1);
     	userApplications = apps;
     }
-
+    
     public void iClickOnContinueToDashboardMessage() {
         clickElement(driver.findElement(By.xpath("//button[text()='Continue to my dashboard']")));
     }

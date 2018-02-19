@@ -236,7 +236,7 @@ Feature: Edit user page for SA
     Then I select "Applications" tab
     Then I unselect "<DisableApplications>" product
     Then I select "Permissions" tab
-    Then I click on delete organisation icon
+    Then I remove health system "<Remove HealthSystem>"
     And I click on "Remove" button on permissions tab
     And I search for health system with <Health System>
     And I select a <Health System>
@@ -316,8 +316,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description                          | User        | Role      | Email             | DisableApplications | Applications           | ApplicationsNotVisible                                   | Health System    | Programs    | Locations                                        | Facilities                             | ProgramsValidation             | LocationsValidation                                                | LearningPathway                                           | FirstName                                 | LastName                                 | Roletext | ReportCategory | ReportName         |
-      | Remove Existing org and add new org1 | Super Admin | Executive | test.automatemail | Reports             | Episodes, TCI, Lessons | Reports, Episodes 2.0, Administration, Physician Connect | Sound Physicians | BPCI-Model2 | 6005-080--Winchester Medical Center - Rehab Unit | Winchester Medical Center - Rehab Unit | Sound Physicians--BPCI Model 2 | Sound Physicians--6005-080--Winchester Medical Center - Rehab Unit | i am learning path, Learning Pathway 2, Remedy University | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | ROLE_PRM | Patient ID     | Episode DRG Issues |
+      | Description                          | User        | Role      | Email             | DisableApplications | Applications           | ApplicationsNotVisible                                   | Remove HealthSystem | Health System    | Programs    | Locations                                        | Facilities                             | ProgramsValidation             | LocationsValidation                                                | LearningPathway                                           | FirstName                                 | LastName                                 | Roletext | ReportCategory | ReportName         |
+      | Remove Existing org and add new org1 | Super Admin | Executive | test.automatemail | Reports             | Episodes, TCI, Lessons | Reports, Episodes 2.0, Administration, Physician Connect | Stamford Hospital   | Sound Physicians | BPCI-Model2 | 6005-080--Winchester Medical Center - Rehab Unit | Winchester Medical Center - Rehab Unit | Sound Physicians--BPCI Model 2 | Sound Physicians--6005-080--Winchester Medical Center - Rehab Unit | i am learning path, Learning Pathway 2, Remedy University | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | ROLE_PRM | Patient ID     | Episode DRG Issues |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -626,7 +626,7 @@ Feature: Edit user page for SA
     #Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     #Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
-    Then I click on delete organisation icon
+    Then I remove health system "<Remove HealthSystem>"
     And I click on "Remove" button on permissions tab
     And I search for health system with <Health System>
     And I wait for 3000 milli seconds
