@@ -85,7 +85,7 @@ Feature: Edit page for Downstream provider
       | Description                                                     | User        | UserName                               | Password | FirstName                                 | LastName                                 | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                            | Health System1    | Programs1   | Locations1                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Super Admin User and create user with Executive role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2, Remedy University | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | No               |                |           |            | No               |                |           |            |
 
-  Scenario Outline: Changing Role from <PreviousRole> to <Role> and Edit permissions tab
+  Scenario Outline: Change Role from <PreviousRole> to <Role> and Edit details
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
@@ -112,7 +112,7 @@ Feature: Edit page for Downstream provider
     And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify role "<Role>"
-    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify enabled "<EnableApplications>"
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
@@ -163,8 +163,8 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | FirstName                                 | LastName                                 | PreviousRole | Role                | EnableApplications | Applications           | ApplicationsNotVisible                              | Locations                        | HasHealthSystem1 | Health System1 | Programs1   | Locations1                                                           | HealthSystemValidation                       | ProgramsValidation     | ProgramsValidationDP                                        | LocationsValidation                                                                      | LocationsValidationDP                                                          | Roletext | ReportCategory | ReportName                   | LearningPathway                        | BPID | Facilities                                                                         |
-      | Super Admin | test.automatemail | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | Executive    | Downstream Provider | Episodes 2.0       | Episodes, Episodes 2.0 | Administration, Physician Connect, Reports, Lessons | Baptist Hospital Of Roane County | Yes              | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | Healthsystem - Downstream Provider, Covenant | Covenant--BPCI Model 3 | Healthsystem - Downstream Provider--Downstream Organization | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center | Healthsystem - Downstream Provider--DOWN-ORG--Baptist Hospital Of Roane County | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2 |      | Baptist Hospital Of Roane County, Catered Manor Nursing Center, Downey Care Center |
+      | user        | Email             | FirstName                                 | LastName                                 | PreviousRole | Role                | EnableApplications | Applications           | ApplicationsNotVisible                              | Locations                        | HasHealthSystem1 | Health System1 | Locations1                                                           | HealthSystemValidation                       | ProgramsValidation     | ProgramsValidationDP                                        | LocationsValidation                                                                      | LocationsValidationDP                                                          | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                         |
+      | Super Admin | test.automatemail | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | Executive    | Downstream Provider | Episodes 2.0       | Episodes, Episodes 2.0 | Administration, Physician Connect, Reports, Lessons | Baptist Hospital Of Roane County | Yes              | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | Healthsystem - Downstream Provider, Covenant | Covenant--BPCI Model 3 | Healthsystem - Downstream Provider--Downstream Organization | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center | Healthsystem - Downstream Provider--DOWN-ORG--Baptist Hospital Of Roane County | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | Baptist Hospital Of Roane County, Catered Manor Nursing Center, Downey Care Center |
 
   Scenario Outline: Edit downstream provider general details, applications and data permissions
     Given I am on the login page
@@ -188,7 +188,6 @@ Feature: Edit page for Downstream provider
     Then I verify the availability of fields "Role"
     Then I click on Next button
     Then I unselect "<DisableApplications>" product
-    Then I select "<EnableApplications>" product
     Then I click on Next button
     Then I verify the header "Permissions"
     Then I deselect "<DeselectLocations>" locations for Downstream Provider role
@@ -202,10 +201,12 @@ Feature: Edit page for Downstream provider
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
     Then I verify role "<Role>"
-    Then I verify enabled "<EnableApplications>"
+    Then I verify enabled "<Applications>"
+    Then I verify disabled "<DisableApplications>"
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
+    #include downstream view page validation
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -252,17 +253,99 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | Role                | FirstName       | LastName       | Phone        | DisableApplications    | EnableApplications | Applications | DeselectLocations                | Locations                                                                 | Health System1 | DisableLocations1                                                    | EnableLocations1                                                                 | HealthSystemValidation                       | ProgramsValidation                                                                 | LocationsValidation                                                                                                                                                                                                                                                                                                       | Roletext | ReportCategory | ReportName                   | LearningPathway | BPID | Facilities                                                                                                                              |
-      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes, Episodes 2.0 | Episodes 2.0       | Episodes 2.0 | Baptist Hospital Of Roane County | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center | Healthsystem - Downstream Provider, Covenant | Healthsystem - Downstream Provider--Downstream Organization, Covenant--BPCI-Model3 | Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] |                 |      | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Courtyard Health Care Center, Emerald Gardens Nursing Center |
+      | user        | Email             | Role                | FirstName       | LastName       | Phone        | DisableApplications | Applications | ApplicationsNotVisible                                             | DeselectLocations                | Locations                                                                 | Health System1 | DisableLocations1                                                    | EnableLocations1                                                                 | HealthSystemValidation                       | ProgramsValidationDP                                        | ProgramsValidation     | LocationsValidationDP                                                                                                                                                                                               | LocationsValidation                                                                                  | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                                                              |
+      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes            | Episodes 2.0 | Episodes, Administration, Physician Connect, TCI, Reports, Lessons | Baptist Hospital Of Roane County | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center | Healthsystem - Downstream Provider, Covenant | Healthsystem - Downstream Provider--Downstream Organization | Covenant--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health | Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Courtyard Health Care Center, Emerald Gardens Nursing Center |
 
-  Scenario Outline: Changing Role from <PreviousRole> to <Role>
+  Scenario Outline: Remove exiting health System and new org
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I enter "<Email>" in search box for "<user>-<PreviousRole>"
-    Then I select user with email "test.automatemail"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I fill in Phone with <Phone>
+    Then I select "Permissions" tab
+    Then I remove health system "<Remove HealthSystem>"
+    And I click on "Remove" button on permissions tab
+    Then I click Add Model3 Organization button for "<HasHealthSystem1>" flag for Downstream Provider role
+    And I search for health system with <Health System1>
+    And I select a <Health System1>
+    Then I select "<Locations1>" locations
+    Then I click on Submit button while edit for "<User>-<Role>"
+    And I wait for 3000 milli seconds
+    And I verify that I am navigated to user page
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify enabled "<Applications>"
+    Then I verify disabled "<DisableApplications>"
+    Then I verify health system "<HealthSystemValidation>"
+    Then I verify programs "<ProgramsValidation>"
+    Then I verify location "<LocationsValidation>"
+    #include downstream view page validation
+    And I click on the top user account link
+    Then I click on "Log Out" button
+    And I should see Log in widget
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
+    Then I verify "<Applications>" product on SPOE page
+    Then I verify "<ApplicationsNotVisible>" product is not visible on SPOE page
+    Then I click on Hamburger menu on top left of homepage
+    And I verify "<Applications>" in product menu dropdown
+    And I verify "<ApplicationsNotVisible>" is not present in product menu dropdown
+    And I redirect to Remedy connect page
+    And I click on Episode1 tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "Dashboard" after redirection to EC1 for "<User>-<Role>" user
+    And I click on username icon on right top corner "<User>-<Role>" and open user profile on EC1
+    And I verify "<Facilities>" facility on user profile for "<User>-<Role>" user
+    And I verify "Not Associated" payer on user profile for "<User>-<Role>" user
+    And I verify "Medicare" payer on user profile for "<User>-<Role>" user
+    And I should not see "Emblem" payer on user profile for "<User>-<Role>" user
+    And I click on PatientList on SideMenu bar Episode1 for "<User>-<Role>" user
+    And I verify Patient card appearing on Active Patients page for "<User>-<Role>" user
+    And I click on gear menu and then click on Add Note and verify user role "<Roletext>" for "<User>-<Role>" user
+    And I switch back to old window
+    And I click on Institute tile for "<User>-<Role>" user
+    And I switch to new window
+    And I verify "<User>-<Role>" user navigated to Institute homepage
+    And I switch back to old window
+    And I redirect to Remedy connect page
+    And I click on Episodes 2 tile for "<User>-<Role>" user
+    And I verify "<User>-<Role>" user navigated to Episodes 2 homepage
+    And I verify patient card appearing on Episode 2 for "<User>-<Role>" user
+    And I redirect to Remedy connect page
+    And I click on the top user account link on remedy connect page
+    And I verify "Support" in dropdown on profile icon for "<User>-<Role>" user
+    And I verify "Reset Password" in dropdown on profile icon for "<Role>" user
+    And I verify "Log Out" in dropdown on profile icon for "<Role>" user
+    And I click on "Support" in dropdown on profile icon for "<User>-<Role>" user
+    And I verify page header "Login" for "Support" on Remedy Connect for "<User>-<Role>" user
+    Then I select Reset Password option from the dropdown
+    And I should see text popup for reset password "We have sent you an e-mail with a link to reset your password."
+    And I click Okay button for reset password popup
+    Then I select Log Out option from the dropdown
+    And I should see Log in widget
+
+    Examples: 
+      | user        | Email             | Role                | FirstName       | LastName       | Phone        | Applications | ApplicationsNotVisible                                             | Remove HealthSystem | HasHealthSystem1 | Health System1 | Locations1                         | HealthSystemValidation                            | ProgramsValidationDP                                        | ProgramsValidation          | LocationsValidationDP                                                                                                                                                                                               | LocationsValidation                               | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                          |
+      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes 2.0 | Episodes, Administration, Physician Connect, TCI, Reports, Lessons | Covenant            | Yes              | Adcare Health  | 3056-343--Coosa Valley Health Care | Healthsystem - Downstream Provider, Adcare Health | Healthsystem - Downstream Provider--Downstream Organization | Adcare Health--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health | Adcare Health--3056-343--Coosa Valley Health Care | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Coosa Valley Health Care |
+
+  Scenario Outline: Change Role from <PreviousRole> to <Role>, edit details and verify
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<PreviousRole>"
+    Then I select user with role "<User>-<PreviousRole>"
     And I verify that I am navigated to user page
     And I click on Edit button
     When I click the Organizational Role Field to edit
@@ -279,10 +362,15 @@ Feature: Edit page for Downstream provider
     And I select a <Health System>
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
-    And I verify that "<Applications>" are "Enabled"
-    And I verify that "<ApplicationsNotVisible>" are "Disabled"
+    And I wait for 3000 milli seconds
+    And I verify that I am navigated to user page
+    Then I verify role "<Role>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify health system "<Health System>"
+    Then I verify programs "<ProgramsValidation>"
+    Then I verify location "<LocationsValidation>"
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
@@ -349,5 +437,5 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | Email             | NPI | PreviousRole        | Role      | EnableApplications | Applications               | ApplicationsNotVisible            | LearningPathwaySearchParameter         | Roletext | Health System     | Programs    | Locations                   | ReportCategory | ReportName         | BPID | Facilities        | LearningPathway                        |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |     | Downstream Provider | Executive | Reports, Lessons   | Episodes, Reports, Lessons | Administration, Physician Connect | i am learning path, Learning Pathway 2 | ROLE_PRM | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Patient ID     | Episode DRG Issues |      | Stamford Hospital | i am learning path, Learning Pathway 2 |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | NPI | PreviousRole        | Role      | EnableApplications | Applications               | ApplicationsNotVisible                          | LearningPathwaySearchParameter         | Roletext | Health System     | Programs    | Locations                   | ReportCategory | ReportName         | BPID | Facilities        | LearningPathway                        | ProgramsValidation              | LocationsValidation                           |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail |     | Downstream Provider | Executive | Reports, Lessons   | Episodes, Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | i am learning path, Learning Pathway 2 | ROLE_PRM | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Patient ID     | Episode DRG Issues |      | Stamford Hospital | i am learning path, Learning Pathway 2 | Stamford Hospital--BPCI Model 2 | Stamford Hospital--2070-015--Stamford Hospita |
