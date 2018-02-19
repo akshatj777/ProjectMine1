@@ -445,7 +445,7 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Discharge) includes Out of Network" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Discharge) includes Out Of Network" is appearing under selected network tier anchor discharge filter
     And I verify "<networktier1>" is visible under "Network Tier (Anchor Discharge)" column in the report
     Then I remove "Network Tier (Anchor Discharge)" field filter under "Network Tier (Anchor Discharge)" filter field from default filters
     #Filtering(Tier 1)
