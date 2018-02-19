@@ -1,6 +1,6 @@
-package stepDefination.UA2;
+package stepDefination.UserAdmin;
 
-import com.remedy.UA2.EditUser;
+import com.remedy.userAdmin.EditUser;
 import com.remedy.resources.DriverScript;
 import com.remedy.userAdmin.CreateUserPage;
 
@@ -17,10 +17,7 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	 editUser.iClickOnUser(email);
 	}
 
-	@Then("^I verify that I am navigated to user page$")
-	public void i_verify_that_I_am_navigated_to_user_page() throws Throwable {
-	   editUser.iverifyuserpage();
-	}
+	
 
 	@Then("^I click on Edit button$")
 	public void i_click_on_Edit_button() throws Throwable {
@@ -28,30 +25,18 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	}
 
 	
+	@Then("^I verify the availability of field NPI for \"([^\"]*)\"$")
+	public void i_verify_the_availability_of_fields_for_Physicians(String role) throws Throwable {
+		editUser.VerifyNPIFieldForPhysicians(role);
+	}
+	
+	
 	@And("^I fill in Phone with([^\"]*)$")
 	public void iFillInPhone(String number) throws Throwable {
 		editUser.iEnterPhone(number);
 	}
 	
-	@Then("^I verify First Name ([^\"]*) in user page$")
-	public void i_verify_First_Name_First_Name_in_user_page(String text) throws Throwable {
-		editUser.iVerifyFirstNameInUserPage(text);
-	}
-
-	@Then("^I verify Last Name ([^\"]*) in user page$")
-	public void i_verify_Last_Name_Last_Name_in_user_page(String text) throws Throwable {
-		editUser.iVerifyLastNameInUserPage(text);
-	}
-
-	@Then("^I verify Phone ([^\"]*) in user page$")
-	public void i_verify_Phone_in_user_page(String text) throws Throwable {
-		editUser.iVerifyPhoneInUserPage(text);
-	}
-
-	@Then("^I verify Role ([^\"]*) in user page$")
-	public void i_verify_Role_Manager_in_user_page(String text) throws Throwable {
-		editUser.iVerifyRoleInUserPage(text);
-	}
+	
 	@When ("^I click the Organizational Role Field to edit$")
 	public void iClickOnRoleFieldToEdit(){
 		editUser.iClickOnRoleFieldToEdit();
@@ -79,19 +64,23 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	   editUser.iVerifyThatEmailIsNonEditable();
 	}
 	
-	@Then("^I click on existing organisation$")
-	public void iClickOnExistingOrganisation() throws Throwable {
-	   editUser.iClickOnExisitingOrganisation();
+	@Then("^I click on \"([^\"]*)\" existing organisation$")
+	public void iClickOnExistingOrganisation(String text) throws Throwable {
+	   editUser.iClickOnExisitingOrganisation(text);
 	}
+	
+	@Then("^I click on existing organisation \"([^\"]*)\"$")
+	public void iClickOnExistingOrganisationByName(String text) throws Throwable {
+	   editUser.iClickOnExisitingOrganisationByName(text);
+	}
+
+	
 	@Then("^I click on \"([^\"]*)\" button on permissions tab$")
 		public void iClickOnAddAnotherOrganisation(String text){
 			editUser.iClickOnAddAnotherOrganisation(text);
 		}
 	
-	@Then("^I verify \"([^\"]*)\" under Data Permissions$")
-	public void i_verify_under_Data_Permissions(String arg1) throws Throwable {
-	    editUser.iVerifyDataPermission(arg1);
-	}
+
 	@Then("^I click on Select All Locations button for \"([^\"]*)\" Organisation$")
 	public void i_click_on_Select_All_Locations_button_for_Organisation(String arg1) throws Throwable {
 		editUser.clickAllLocationsButton(arg1);
@@ -160,5 +149,19 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	@Then("^I verify that provisioned roles of PTA are present on edit page$")
 	public void iVerifyPTAProvisionedRoleOnEditPage(){
 		editUser.iVerifyPTAProvisionedRoleOnEditPage();
+	}
+	
+	
+	@Then("^I should see \"([^\"]*)\" under data permissions$")
+	public void iVerifydataPermissionsField(String field){
+		editUser.iVerifydataPermissionsField(field);
+	}
+	@Then("^I select \"([^\"]*)\" programs for existing organisation$")
+	public void iSelectProgForExistingOrg(String programList) throws Throwable{
+		editUser.selectProgramsForExistingOrg(programList);
+	}
+	@Then("^I remove health system \"([^\"]*)\"$")
+	public void iRemoveHealthSystemByName(String org){
+		editUser.iRemoveHealthSystemByName(org);
 	}
 }

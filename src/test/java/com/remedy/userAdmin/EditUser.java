@@ -1,4 +1,4 @@
-package com.remedy.UA2;
+package com.remedy.userAdmin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,11 +35,7 @@ public class EditUser extends BaseClass {
 		}
 	}
 
-	public void iverifyuserpage() {
-		iWillWaitToSee(By.cssSelector(".two.column.row"));
-		isElementVisible(driver.findElement(By.cssSelector(".two.column.row")));
 
-	}
 
 	public void iClickOnEditButton() {
 		iWillWaitToSee(By.cssSelector(".edit-controls"));
@@ -50,45 +46,13 @@ public class EditUser extends BaseClass {
 	
 
 	public void iEnterPhone(String number) {
+		iWillWaitToSee(By.cssSelector("input[placeholder='Phone']"));
 		driver.findElement(By.cssSelector("input[placeholder='Phone']")).clear();
 		iFillInText(driver.findElement(By.cssSelector("input[placeholder='Phone']")), number);
-	}
-
-	public void iVerifyFirstNameInUserPage(String field) {
-
-		iWillWaitToSee(By.cssSelector("span.user-name-text"));
-		Assert.assertTrue(
-				driver.findElements(By.cssSelector("span.user-name-text>span")).get(1).getText().contains(field));
-		// verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(1),
-		// field);
-
-	}
-	public void iVerifyLastNameInUserPage(String field) {
-		
-		iWillWaitToSee(By.cssSelector("span.user-name-text"));
-		Assert.assertTrue(
-				driver.findElements(By.cssSelector("span.user-name-text>span")).get(0).getText().contains(field));
-		// verifyTextForElement(driver.findElements(By.cssSelector("span.user-name-text>span")).get(0),
-		// field);
-		}
-	public void iVerifyRoleInUserPage(String field) {
-		String text = "Role:" + " " + field;
-		iWillWaitToSee(By.xpath("//*[contains(text(), 'Role')]"));
-		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Role')]")), text);
-
-	}
-
-	public void iVerifyPhoneInUserPage(String num) {
-		
-		String text = "Phone:" + " " + num;
-		iWillWaitToSee(By.cssSelector(".info-row>span"));
-		// System.out.println("text: "+text);
-		// System.out.println("phone:
-		// "+driver.findElement(By.xpath("//*[contains(text(),
-		// 'Phone')]")).getText());
-		verifyTextForElement(driver.findElement(By.xpath("//*[contains(text(), 'Phone')]")), text);
 	
 	}
+	
+	
 	public void iVerifyThatEmailIsNonEditable() {
 		iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 		// driver.findElement(By.xpath("//input[@placeholder='Email']"));
@@ -147,25 +111,39 @@ public class EditUser extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".remove.link.icon"));
 		clickElement(driver.findElement(By.cssSelector(".remove.link.icon")));
 	}
-	public void iClickOnExisitingOrganisation() {
+	public void iClickOnExisitingOrganisation(String text) {
+		if (getElementCount(".component-participant-title")>1){
+			if(text.contains("first")){
+				iWillWaitToSee(By.cssSelector(".component-participant-title"));
+				clickElement(driver.findElements(By.cssSelector(".component-participant-title")).get(0));
+			}
+			else if(text.contains("second")){
+				iWillWaitToSee(By.cssSelector(".component-participant-title"));
+				clickElement(driver.findElements(By.cssSelector(".component-participant-title")).get(1));
+			}
+			else if(text.contains("third")){
+				iWillWaitToSee(By.cssSelector(".component-participant-title"));
+				clickElement(driver.findElements(By.cssSelector(".component-participant-title")).get(2));
+			}
+		}else{
 		iWillWaitToSee(By.cssSelector(".component-participant-title"));
 		clickElement(driver.findElement(By.cssSelector(".component-participant-title")));
-	}
-	public void iVerifyDataPermission(String arg){
-		longDelay();
-		iWillWaitToSee(By.xpath("//*[contains(text(),'Data Permissions')]"));
-		if (arg.contains(",")) {
-			
-			String[] org = arg.split(",\\s+");
-
-			for (int i = 0; i < org.length; i++) {
-				isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+org[i]+"')]")));
-			}
-	}
-		else{
-			isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+arg+"')]")));
 		}
 	}
+	public void iClickOnExisitingOrganisationByName(String text) {
+	
+		iWillWaitToSee(By.cssSelector(".component-participant-title"));
+		
+			   clickElement(driver.findElement(By.xpath("//span[contains(@class, 'component-participant-title') and contains(text(),'"+text+"')]")));
+		
+		
+			}
+		
+	public void iRemoveHealthSystemByName(String org){
+		iWillWaitToSee(By.xpath("//span[contains(@class, 'component-participant-title') and contains(text(),'"+org+"')]/i[contains(@class,'remove link icon')]"));
+		clickElement(driver.findElement(By.xpath("//span[contains(@class, 'component-participant-title') and contains(text(),'"+org+"')]/i[contains(@class,'remove link icon')]")));
+	}
+	
 	   public void clickAllLocationsButton(String arg) throws Throwable {
 		   
 		   if(arg.equals("Second")){
@@ -223,10 +201,17 @@ public class EditUser extends BaseClass {
 	   }
 	   }
 	   public void iSeeNoResults(String text){
-		   if(text.equals("No results found.")){
+		   if(text.contains(".")){
+			   isElementVisible(driver.findElements(By.cssSelector(".header")).get(1));
+			   clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
+		   }
+		   else{
 			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+			   clickElement(driver.findElement(By.cssSelector(".remove.link.icon.remove-icon")));
+			   delay();
 		   }
+		   
 	   }
 	   public void iVerifyDisabledNextButton(String text){
 		   WebElement el = driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]"));
@@ -271,51 +256,67 @@ public class EditUser extends BaseClass {
 	   }
 	   
 	   public void iClickOnAddAnotherOrganisation(String text){
-		   iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   //iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+		   if(isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")))==true)
 		   clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
 	   }
 	   public void iSearchLocByBPID(String bpid, String loc) throws InterruptedException{
 		   
-		   if (bpid.contains(",") && loc.contains(",")){
+		   if (bpid.contains(",")){
 		   StringTokenizer st1 = new StringTokenizer(bpid,",");
 		   StringTokenizer st2 = new StringTokenizer(loc,",");
 	       while (st1.hasMoreTokens()&&st2.hasMoreTokens()) {
 	    	   String tokenBpid = st1.nextToken().trim();
 	    	   String tokenLoc = st2.nextToken().trim();
-	    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), tokenBpid);
-	    	   
-	    	   iWillWaitToSee(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]"));
-	    	   
-	    	   driver.findElement(By.xpath("//th[text()='"+tokenBpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+tokenLoc+"\")]")).click();
+	    	  // driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+	    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), tokenBpid);
+	    	   if(tokenLoc.equals("all locations")){
+	    		   tokenLoc= "All "+bpid;
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]")).click();
+	    	   }
+	    	   else{
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+tokenBpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+tokenLoc+"\")]")).click();
+	    	   }
 	    	   Thread.sleep(3000);
 	       		}
 	       
 		   }
 		   else{
-			   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
+			   //driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
 	    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), bpid);
-	    	   
-	    	   iWillWaitToSee(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]"));
-	    	   
-	    	   driver.findElement(By.xpath("//th[text()='"+bpid+"']/parent::tr/parent::thead/parent::table//label[contains(text(),\""+loc+"\")]")).click();
+	    	   if(loc.equals("all locations")){
+	    		   loc= "All "+bpid;
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]")).click();
+		    	 
+	    	   }
+	    	   else{
+	    		   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]"));
+		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+bpid+"\")]/../../following-sibling::tbody//label[contains(text(),\""+loc+"\")]")).click();  }
 	    	   Thread.sleep(3000); 
 		   }
 }
+	   
 	   public void iVerifyFacilityKey(String key){
 		   if (key.contains(",")){
 			   StringTokenizer st = new StringTokenizer(key,",");
 			   while (st.hasMoreTokens()){
-				   String token = st.nextToken().trim();
-				   iWillWaitToSee(By.xpath("//*[contains(text(),'-')]"));
+				   String tok = st.nextToken().trim();
+				   String token="("+tok+")";
+				   iWillWaitToSee(By.xpath("//*[contains(text(),'"+token+"')]"));
 				   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
 			   }
 		   }
 		   else{
-		   iWillWaitToSee(By.xpath("//*[contains(text(),'-')]"));
-		   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+key+"')]")));
+			   String token="("+key+")";
+			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+token+"')]"));
+			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
 		   }
 	   }
+	  
+	  
 	   public void iSelectLocByFacilityKey(String key) throws InterruptedException{
 		   if (key.contains(",")){
 			   StringTokenizer st = new StringTokenizer(key,",");
@@ -323,8 +324,8 @@ public class EditUser extends BaseClass {
 		       while (st.hasMoreTokens()) {
 		    	   String token = st.nextToken().trim();
 		    	   String facToken="("+token+")";
-		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), token);
+		    	   delay();
+		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), token);
 		    	   
 		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facToken+"')]"));
 		    	   
@@ -335,8 +336,8 @@ public class EditUser extends BaseClass {
 			   }
 			   else{
 				   String facilityKey="("+key+")";
-				   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")).clear();
-		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']/..//input[@placeholder='Search']")), key);
+				   delay();
+				   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), key);
 		    	   
 		    	   iWillWaitToSee(By.xpath("//*[contains(text(),'"+facilityKey+"')]"));
 		    	   
@@ -361,4 +362,69 @@ public class EditUser extends BaseClass {
 		   createUserPage.selectLearningPath(searchParam);
 	   }
 
+	
+		public void iVerifydataPermissionsField(String field){
+			 if (field.contains(",")){
+				   StringTokenizer st = new StringTokenizer(field,",");
+				   while (st.hasMoreTokens()){
+					   String token = st.nextToken().trim();
+					   iWillWaitToSee(By.xpath("//*[contains(text(),'"+token+"')]"));
+					   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+token+"')]")));
+				   }
+			   }
+			   else{
+			   iWillWaitToSee(By.xpath("//*[contains(text(),'"+field+"')]"));
+			   isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+field+"')]")));
+			   }
+		}
+		public void selectProgramsForExistingOrg(String programList) throws Throwable {
+			if (!(programList.equals(""))) {
+				longDelay();
+				if (!(driver.findElements(By.xpath("//div[text()='Select']")).size() > 0)) {
+					longDelay();
+					if (programList.contains(",")) {
+						StringTokenizer st = new StringTokenizer(programList, ",");
+						driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+						while (st.hasMoreTokens()) {
+							String programs = st.nextToken().trim();
+							iWillWaitToSee(By.xpath("//label[text()='" + programs + "']"));
+							driver.findElement(By.xpath("//label[text()='" + programs + "']")).click();
+							Thread.sleep(2000);
+						}
+					} else {
+
+						longDelay();
+						driver.findElement(By.cssSelector(".ui.selection.dropdown")).click();
+						longDelay();
+						driver.findElement(By.xpath("//label[text()='" + programList + "']")).click();
+						longDelay();
+
+					}
+					longDelay();
+				}else{
+				if (programList.contains(",")) {
+					StringTokenizer st = new StringTokenizer(programList, ",");
+					driver.findElement(By.xpath("//div[text()='Select']")).click();
+					while (st.hasMoreTokens()) {
+						String programs = st.nextToken().trim();
+						iWillWaitToSee(By.xpath("//label[text()='" + programs + "']"));
+						driver.findElement(By.xpath("//label[text()='" + programs + "']")).click();
+						Thread.sleep(2000);
+					}
+				} else {
+
+					longDelay();
+					driver.findElement(By.xpath("//div[text()='Select']")).click();
+					longDelay();
+					driver.findElement(By.xpath("//label[text()='" + programList + "']")).click();
+					longDelay();
+
+				}
+			}
+		}
+		}
+		public void VerifyNPIFieldForPhysicians(String role){
+			if(role.equals("Physicians"))
+			Assert.assertTrue(isElementVisible(driver.findElement(By.cssSelector("input[placeholder='NPI']"))));
+		}
 }
