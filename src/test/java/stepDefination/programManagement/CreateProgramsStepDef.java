@@ -56,9 +56,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iEnterPriceOnCreateContractsPage(text,num,field);
 	    }
 	
-	@And("^I enter date \"([^\"]*)\" in \"([^\"]*)\" field$")
-	  public void enterDateInContractPage(String date, String field) throws Throwable {
-		programs.enterDate(date,field);
+	@And("^I enter date \"([^\"]*)\" in \"([^\"]*)\" field for index \"([^\"]*)\"$")
+	  public void enterDateInContractPage(String date, String field, int index) throws Throwable {
+		programs.enterDate(date,field, index);
 	    }
 	
 	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
