@@ -55,7 +55,6 @@ Feature: Create User - Super Admin User
     And I click on the top user account link
     Then I click on "Log Out" button
     And I should see Log in widget
-
     Given I am on the login page
     Then I click on "Log Out" button again
     Given I am on mail login page
@@ -655,4 +654,3 @@ Feature: Create User - Super Admin User
     Examples: 
       | Description                                         | User        | UserName                               | Password | FirstName | LastName | Email             | Phone      | Role         | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter         | Health System1                                                         | Programs1   | Locations1                                                   | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Verify successful removal of selected health system | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | 9988776655 | Case Manager | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2 | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | BPCI-Model2 | 2070-023--Allentown, 2070-023--Bethlehem, 2070-025--Anderson | No               |                |           |            | No               |                |           |            |
-
