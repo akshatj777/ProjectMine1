@@ -127,7 +127,6 @@ Feature: Edit user page for PTA
     Then I click on Submit button for "<User>"
     And I click on the top user account link
     Then I click on "Log Out" button
-    And I should see Log in widget
     Given I am on the login page
     Then I click on "Log Out" button again
     Given I am on mail login page
