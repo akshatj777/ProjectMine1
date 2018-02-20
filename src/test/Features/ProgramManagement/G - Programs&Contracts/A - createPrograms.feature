@@ -36,7 +36,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I verify "Programs" as default tab selected on view profile of Payor Organization
     And I verify "ID" header label under "Payor" view profile page
     And I verify "Program Name" header label under "Payor" view profile page
-    And I verify the "Create New Program" button on view profile of payor Organization
+    And I verify the "Create New Program" button on view profile of "payor" Organization
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
     And I verify "*Program Name" field on create organization page
@@ -52,7 +52,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
     And I verify "Programs" as default tab selected on view profile of Payor Organization
-    And I verify the "Create New Program" button on view profile of payor Organization
+    And I verify the "Create New Program" button on view profile of "payor" Organization
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
     Then I enter <Program_Name> in "Program Name" on create organization page
@@ -86,9 +86,9 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "payor" Organization
+    And I verify the "Create New Contract" button on view profile of "payor" Organization
     And I verify "Program " header label under "Payor" view profile page
     And I verify "Contract ID " header label under "Payor" view profile page
     And I verify "Organization Name " header label under "Payor" view profile page
@@ -111,80 +111,28 @@ Feature: Create Programs organization under Payor Organization functionality tes
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I verify "Contract 1 " on "Create Contract" page under Payor Organization
     And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
     And I select Bundle1 "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
-    Then I select the date from date picker with logic "minus" days from current date
-      | Start Date | End Date |
-      |         10 |        1 |
-      |          9 |        2 |
-      |          8 |        3 |
-      |          7 |        4 |
-    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price1" for Contract "1" on "create" Contracts page
-    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price1" for Contract "1" on "create" Contracts page
-    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price1" for Contract "1" on "create" Contracts page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate>" in "PriceEndDate" field for index "5"
+    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price1" for Contract "1"
+    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price1" for Contract "1"
+    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price1" for Contract "1"
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name                           | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_2                  | Message                       |
-      | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | createHospOrgForContractToDelkJoiUzJEIp4504 | mB1JIadXaQOHI4507 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | Contract Successfully Created |
-
-  Scenario Outline: Create Contracts with multiple bundles
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Contracts" tab present under Payor Organization
-    And I click on "Contracts" tab on view profile of payor Organization
-    And I verify the "Create New Contract" button on view profile of payor Organization
-    Then I click on "Create New Contract" button on "create" organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I verify "Contract 1 " on "Create Contract" page under Payor Organization
-    And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
-    And I select Bundle1 "<Bundle_1>" for Contract "1" on "create" Contracts page
-    And I enter price "<Price>" for Contract "1" on "create" Contracts page
-    Then I select the date from date picker with logic "minus" days from current date
-      | Start Date | End Date |
-      |         25 |        1 |
-      |         24 |        2 |
-      |         23 |        3 |
-      |         22 |        4 |
-    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price1" for Contract "1" on "create" Contracts page
-    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price1" for Contract "1" on "create" Contracts page
-    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price1" for Contract "1" on "create" Contracts page
-    Then I click on "Add Bundle" button on "create Contracts" organization page
-    And I select Bundle1 "<Bundle_2>" for Contract "1" on "create" Contracts page
-    And I enter price "<Price>" for Contract "1" on "create" Contracts page
-    Then I select the date from date picker with logic "minus" days from current date
-      | Start Date | End Date |
-      |         21 |        5 |
-      |         20 |        4 |
-      |         19 |        6 |
-    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price2" for Contract "1" on "create" Contracts page
-    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price2" for Contract "1" on "create" Contracts page
-    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price2" for Contract "1" on "create" Contracts page
-    Then I click on "Add Bundle" button on "create Contracts" organization page
-    And I select Bundle1 "<Bundle_3>" for Contract "1" on "create" Contracts page
-    And I enter price "<Price>" for Contract "1" on "create" Contracts page
-    Then I select the date from date picker with logic "minus" days from current date
-      | Start Date | End Date |
-      |         18 |        7 |
-      |         17 |        8 |
-      |         16 |        9 |
-    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price3" for Contract "1" on "create" Contracts page
-    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price3" for Contract "1" on "create" Contracts page
-    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price3" for Contract "1" on "create" Contracts page
-    Then I click on "Submit" button on "create" organization page
-
-    Examples: 
-      | Description                                | Payor_Name | Program_Name | Organization_Type | Organization_Name | Bundle_1                 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Bundle_1                  | Bundle_2               | Message                       |
-      | Create Contracts with all available fields | PAYORNAME  | PROGRAMNAME  | ACH               | ACHNAMEEBBjZCzy   | GCtBundle1qujtNJtLAc1057 |   123 |          121 |         135 |         106 | GGCtBundle2LvERLGiEDx1057 | CBundle1pUWHJHZHlq1102 | Contract Successfully Created |
+      | Description                                | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | Program_Name | Organization_Type | Organization_Name                           | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields | PAYORNAME  | 2018/02/01        | 2018/02/28      | 2018/02/02      | 2018/02/27    | 2018/02/03     | 2018/02/26   | PROGRAMNAME  | PGP               | createHospOrgForContractToDelEStLKlLhBH5653 | mB1JIadXaQOHI4507 |   123 |          121 |         135 |         106 | Contract Successfully Created |

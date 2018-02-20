@@ -6,7 +6,6 @@ Feature: Verification of Managing Organization details with no ACH/PGP/HHA/SNF a
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
-    #Then I verify "Welcome to Program Management" header on the page
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page

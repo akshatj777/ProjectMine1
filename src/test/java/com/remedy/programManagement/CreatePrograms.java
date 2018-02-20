@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -69,10 +71,8 @@ public class CreatePrograms extends BaseClass {
 	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) 
 	{
 		WebElement element = driver.findElement(By.xpath("//div[text()='Select a Program']"));
-		 JavascriptExecutor executor = (JavascriptExecutor)driver;
-		 executor.executeScript("arguments[0].click();", element);
-		
-		//clickElement(driver.findElement(By.xpath("//div[text()='Select a Program']")));
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
 		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
 	}
 	
@@ -82,26 +82,33 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
-		    clickElement(driver.findElement(By.cssSelector(".Select-value")));
-			clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+		clickElement(driver.findElement(By.cssSelector(".Select-value")));
+		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
 	}
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
 		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Search Name or CCN']")));
 		clickElement(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")));
-		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".org-name")));
-		//clickSingleElementFromList((By.cssSelector(".org-name")), text);
-		for(int i=0; i<=2;i++){
-			  try{
-			     //driver.findElement(By.xpath("xpath here")).click();
-				  clickSingleElementFromList((By.cssSelector(".org-name")), text);
-			     break;
-			  }
-			  catch(Exception e){
-			     System.out.println(e.getMessage());
-			  }
-			}
+		delay();
+//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".org-name")));
+//		for(int i=0; i<=2;i++)
+//		{
+//			  try
+//			  {
+//				 clickSingleElementFromList((By.cssSelector(".org-name")), text);
+//			     break;
+//			  }
+//			  catch(Exception e)
+//			  {
+//			     System.out.println(e.getMessage());
+//			  }
+//		}
+//		longDelay();
+		iFillInText(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")), text);
+		delay();
+		clickElement(driver.findElement(By.cssSelector(".org-name")));
+		
 	}
 	
 	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) 
@@ -110,22 +117,28 @@ public class CreatePrograms extends BaseClass {
 
 	}
 	
-	public void iSelectBundle1OnCreateContratsPageUnderPayorOrganization(String text, int num, String field) {
-//		//iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']"));
-//		WebElement ele=driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("document.getElement(ele.click())");
-//		//iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
-//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".react-select-option-row.highlight>div")));
-		
-		WebElement element= driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click();", element);
-		
-		clickSingleElementFromList((By.cssSelector(".react-select-option-row.highlight>div")), text);
+	public void iSelectBundle1OnCreateContratsPageUnderPayorOrganization(String text, int num, String field)
+	{
+//		WebElement element= driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
+//		JavascriptExecutor executor = (JavascriptExecutor) driver;
+//		executor.executeScript("arguments[0].click();", element);
+	//	scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/../..//span[@class='Select-arrow']")));
+	//	clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']/../..//span[@class='Select-arrow']")));
+//		delay();
+//		new Actions(driver).moveToElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']"))).build().perform();
+//		delay();
+//		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
+//		longDelay();
+//		clickSingleElementFromList((By.cssSelector(".react-select-option-row.highlight>div")), text);
+//		longDelay();
+		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
+		delay();
+		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Bundle']")), text);
+		delay();
+		clickElement(driver.findElement(By.cssSelector(".react-select-option-row.highlight>div")));
 	}
 	
-	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1, String field2) 
+	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1) 
 	{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
 	}
@@ -157,7 +170,7 @@ public class CreatePrograms extends BaseClass {
 		{
 			scrollIntoViewByJS(startelemnts.get(i));
 			handleDatepicker(data.get(i).get("Start Date"),startelemnts.get(i));
-			//handleDatepicker(data.get(i).get("End Date"),endelemnts.get(i));
+			handleDatepicker(data.get(i).get("End Date"),endelemnts.get(i));
 		}
 	}			
 
@@ -225,7 +238,101 @@ public class CreatePrograms extends BaseClass {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
 	}
-
+	
+	public void enterDate(String date, String field, int index) throws ParseException 
+	{
+		if(!(date.equals("")))
+		{
+			String[] arrMonth = new String[]{"January","February","March","April","May","June","July","August","September","October","November","December"};
+			Date date1=new SimpleDateFormat("yyyy/MM/dd").parse(date); 
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(date1);
+			int year = cal.get(Calendar.YEAR);
+			int iMonth = cal.get(Calendar.MONTH);
+			String month = arrMonth[iMonth];
+			iMonth = iMonth + 1;
+			int day = cal.get(Calendar.DAY_OF_MONTH);
+			List<WebElement> startDate = driver.findElements(By.xpath("//label[@class='date-picker-input-label']"));
+			startDate.get(index).click();
+			String displayYear = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
+			String displayMonth = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
+			String m = displayMonth.substring(displayMonth.indexOf(" ")+1);
+			if(displayYear.contains(Integer.toString(year)))
+			{
+				if(displayMonth.contains(month))
+				{
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+					}
+				}
+				else if((Arrays.asList(arrMonth).indexOf(m)+1)>iMonth)
+				{
+					while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month))
+					{
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--previous']")).click();
+					}
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+					}
+				}
+				else if((Arrays.asList(arrMonth).indexOf(m)+1)<iMonth)
+				{
+					while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month))
+					{
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']']")).click();
+					}
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+					}
+				}
+			}
+			else if(Integer.parseInt(displayYear)>year)
+			{
+				while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(Integer.toString(year)))
+				{
+					driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--previous']")).click();
+				}
+				if(day<23)
+				{
+					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+				}
+				else
+				{
+					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+				}
+			}
+			else if(Integer.parseInt(displayYear)<year)
+			{
+				while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(Integer.toString(year)))
+				{
+					driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']']")).click();
+				}
+				if(day<23)
+				{
+					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+				}
+				else
+				{
+					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+				}
+			}
+		}
+	}
 }
 
 
