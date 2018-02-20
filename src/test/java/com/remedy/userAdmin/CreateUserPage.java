@@ -1030,10 +1030,11 @@ public class CreateUserPage extends BaseClass{
         			   scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")));
         			   driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")).clear();
         			   String a = st.nextToken().trim();
-        			   delay();
+        			   Thread.sleep(3000);
         			   iFillInText(driver.findElement(By.xpath("//div[@class='select-checkbox-dropdown-menu menu']//input[@placeholder='Search']")), a);
+        			   Thread.sleep(3000);
         			   clickElement(driver.findElement(By.xpath("//label[contains(text(),\""+a+"\")]")));
-        			   delay();
+        			   Thread.sleep(3000);
         		   }
         		   driver.findElement(By.xpath("//a[contains(text(),'Applications')]")).click();
         	   }
