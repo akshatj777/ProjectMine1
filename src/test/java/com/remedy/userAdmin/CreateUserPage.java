@@ -309,11 +309,10 @@ public class CreateUserPage extends BaseClass{
     	if(appList.contains(","))
     	{
     		StringTokenizer st = new StringTokenizer(appList,",");
-    		
-    		iWillWaitToSee(By.cssSelector(".ui.checkbox"));
-            while (st.hasMoreTokens()) { 
-            	
-            	clickElement(driver.findElement(By.xpath("//label[.='"+st.nextToken().trim()+"']")));
+            while (st.hasMoreTokens()) {
+            	String a = st.nextToken().trim();
+            	iWillWaitToSee(By.xpath("//label[.='"+a+"']"));
+            	clickElement(driver.findElement(By.xpath("//label[.='"+a+"']")));
             }
     	}
     	else
@@ -566,6 +565,7 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void iVerifyPatientCardOnActivePatientPage(String role){
+	   driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 	   String application = CreateUserPage.usersApplicationsPerRole.get(role).get(role.substring((role.indexOf("-")+1)));
 	   StringTokenizer st = new StringTokenizer(application, ",");
 	   while(st.hasMoreTokens())
@@ -729,6 +729,7 @@ public class CreateUserPage extends BaseClass{
 					   while(st.hasMoreTokens())
 					   {
 						   String a = st.nextToken().trim();
+						   iWillWaitToSee(By.xpath("//p[contains(text(),\""+a+"\")]"));
 						   Assert.assertTrue(isElementPresentOnPage(By.xpath("//p[contains(text(),\""+a+"\")]")));
 					   }
 				   }
