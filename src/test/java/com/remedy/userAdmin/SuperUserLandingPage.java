@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.remedy.baseClass.BaseClass;
 import com.remedy.userAdmin.CreateUserPage;
@@ -12,7 +14,7 @@ import com.remedy.userAdmin.CreateUserPage;
 public class SuperUserLandingPage extends BaseClass {
 	static String mail = "test.automatemail";
 	static String email = null;
-
+	WebDriverWait wait = new WebDriverWait(driver, 60);
 	public SuperUserLandingPage(WebDriver driver) {
 
 		super(driver);
@@ -427,4 +429,33 @@ public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
 	String emailVal = CreateUserPage.usersEmailPerRole.get(Role).get(Role.substring((Role.indexOf("-")+1)).trim());
 	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
 }
+public void iVerifyDeleteUserLink(String text){
+	iWillWaitToSee(By.cssSelector(".header-controls"));
+	isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void iClickOnDeleteUser(String text){
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void iVerifyTextWhileDeletingUser(String text){
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+}
+public void iVerifyCancelButtonWhileDeletingUser(String text){
+	iWillWaitToSee(By.xpath("//a[contains(text(),'"+text+"')]"));
+	isElementVisible(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+}
+public void iClickCancelButtonWhileDeletingUser(String text){
+	clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+text+"')]")));
+}
+public void iVerifyDeleteButtonWhileDeletingUser(String text){
+	iWillWaitToSee(By.xpath("//button[contains(text(),'"+text+"')]"));
+	isElementVisible(driver.findElement(By.xpath("//button[contains(text(),'"+text+"')]")));
+}
+public void iClickDeleteButtonToDeleteUser(String text){
+	iWillWaitToSee(By.xpath("//button[contains(text(),'"+text+"')]"));
+	clickElement(driver.findElement(By.xpath("//button[contains(text(),'"+text+"')]")));
+	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
+}
+
 }
