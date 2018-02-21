@@ -8,3 +8,4 @@ newec.iml
 Remedy2Application.iml
 debug.log
 /src/test/java/com/remedy/resources/config.properties
+/bin/

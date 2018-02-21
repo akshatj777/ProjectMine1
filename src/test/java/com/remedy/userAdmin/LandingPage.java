@@ -110,6 +110,16 @@ public class LandingPage extends BaseClass{
     	}
     }
 
+
+    public void iClickOnTheTopUserAccountIcon (){
+    	delay();
+    	if (driver.findElements(By.xpath("//div[@class='ui dropdown menu-profile-btn']")).size()>0){
+    		clickElement(driver.findElement(By.xpath("//div[@class='ui dropdown menu-profile-btn']")));
+    	}
+    	else{
+        	clickElement(driver.findElement(By.xpath("//menu-dropdown[contains(@class,'flex-item item-dropdown-right')]")));
+    	}
+    }
     public void iClickOnTheTopUserAccountIconOnRemedyConnectPage (){
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
 		clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")));
@@ -118,6 +128,7 @@ public class LandingPage extends BaseClass{
     public void IClickTopUserAccountLink() {
     	iWillWaitToSee(By.xpath("//div[contains(text(),'.com')]/parent::div/i[@class='dropdown icon']"));
 		clickElement(driver.findElement(By.xpath("//div[contains(text(),'.com')]/parent::div/i[@class='dropdown icon']")));
+
     }
 
     public void iSelectFromTopUserAccountDropDown(String link){
@@ -151,5 +162,7 @@ public class LandingPage extends BaseClass{
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']"));
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
+    
+
 }
 
