@@ -590,6 +590,7 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocationsForDownstreamProvider(locationList);
 	}
 	
+	@When("^I deselect \"([^\"]*)\" locations for PTA user$")
 	@Then("^I select \"([^\"]*)\" locations for PTA user$")
 	public void selectLocationsForPTAUser(String locationList) throws Throwable {
 		createUser.selectLocationsForPTAUser(locationList);

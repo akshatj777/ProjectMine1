@@ -869,7 +869,8 @@ public class CreateUserPage extends BaseClass{
 
    public void clickSubmitButtonForEdit(String user) throws Throwable {
 	   iWillWaitToSee(By.xpath("//button[.='Submit']"));
-		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+		waitTo().until(ExpectedConditions.elementToBeClickable(By.xpath("//button[.='Submit']")));
+	   clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 		HashMap<String,String> emailList = new HashMap<String,String>();
 		HashMap<String,String> applicationsList = new HashMap<String,String>();
@@ -965,6 +966,9 @@ public class CreateUserPage extends BaseClass{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
+			System.out.println(usersEmailPerRole.toString());
+			System.out.println(usersApplicationsPerRole.toString());
+			System.out.println(usersNPIPerRole.toString());
 		}
 	}
    
