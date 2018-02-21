@@ -57,7 +57,6 @@ public class CreateUserPage extends BaseClass{
    		}else{
    			return;
    		}
-    	
     }
 
     public void iClickPayerField() {
@@ -951,9 +950,6 @@ public class CreateUserPage extends BaseClass{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
-			System.out.println(usersEmailPerRole.toString());
-			System.out.println(usersApplicationsPerRole.toString());
-			System.out.println(usersNPIPerRole.toString());
 		}
 		else if(user.contains("Remedy Technical Administrator"))
 		{
@@ -966,9 +962,6 @@ public class CreateUserPage extends BaseClass{
 			usersEmailPerRole.put(user.trim()+"-"+userRole.trim(), emailList);
 			usersApplicationsPerRole.put(user.trim()+"-"+userRole.trim(), applicationsList);
 			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
-			System.out.println(usersEmailPerRole.toString());
-			System.out.println(usersApplicationsPerRole.toString());
-			System.out.println(usersNPIPerRole.toString());
 		}
 	}
    
@@ -976,7 +969,6 @@ public class CreateUserPage extends BaseClass{
 	   StringTokenizer st = new StringTokenizer(fieldName,",");
        while (st.hasMoreTokens()) {  
     	   Assert.assertTrue(isElementPresent(By.xpath("//label[text()='"+st.nextToken().trim()+"']/parent::div[@class='ui checkbox']")));
-
        } 
    }
    public void verifyAppChecked(String fieldName) throws Throwable {
