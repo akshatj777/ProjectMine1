@@ -70,9 +70,7 @@ public class CreatePrograms extends BaseClass {
 
 	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) 
 	{
-		WebElement element = driver.findElement(By.xpath("//div[text()='Select a Program']"));
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
-		executor.executeScript("arguments[0].click();", element);
+		driver.findElement(By.xpath("//div[text()='Select a Program']")).click();
 		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
 	}
 	
@@ -82,60 +80,39 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
-		clickElement(driver.findElement(By.cssSelector(".Select-value")));
-		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+		//clickElement(driver.findElement(By.cssSelector(".Select-value")));
+		driver.findElement(By.cssSelector(".Select-value")).click();
+//		//driver.findElement(By.xpath("//*[@id='programManagement']/div/form/div/div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/span[2]")).click();
+//		delay();
+//		//clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
+//		driver.findElement(By.xpath("//span[@class='Select-value-label']")).sendKeys(text);
+//		driver.findElement(By.xpath(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")).click();
+		
+		selectElementByTextDescByXpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/div", text);
 	}
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
-		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Search Name or CCN']")));
-		clickElement(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")));
+		driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 		delay();
-//		waitTo().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".org-name")));
-//		for(int i=0; i<=2;i++)
-//		{
-//			  try
-//			  {
-//				 clickSingleElementFromList((By.cssSelector(".org-name")), text);
-//			     break;
-//			  }
-//			  catch(Exception e)
-//			  {
-//			     System.out.println(e.getMessage());
-//			  }
-//		}
-//		longDelay();
-		iFillInText(driver.findElement(By.xpath("//div[text()='Search Name or CCN']")), text);
+		driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
 		delay();
-		clickElement(driver.findElement(By.cssSelector(".org-name")));
-		
+		driver.findElement(By.cssSelector(".org-name")).click();
 	}
 	
 	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) 
 	{
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Price of bundle']")), text);
-
 	}
 	
-	public void iSelectBundle1OnCreateContratsPageUnderPayorOrganization(String text, int num, String field)
+	public void iSelectBundleOnCreateContractsPageUnderPayorOrganization(String text, int num, String field)
 	{
-//		WebElement element= driver.findElement(By.xpath("//div[text()='Select a Bundle']"));
-//		JavascriptExecutor executor = (JavascriptExecutor) driver;
-//		executor.executeScript("arguments[0].click();", element);
-	//	scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/../..//span[@class='Select-arrow']")));
-	//	clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']/../..//span[@class='Select-arrow']")));
-//		delay();
-//		new Actions(driver).moveToElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']"))).build().perform();
-//		delay();
-//		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
-//		longDelay();
-//		clickSingleElementFromList((By.cssSelector(".react-select-option-row.highlight>div")), text);
-//		longDelay();
-		clickElement(driver.findElement(By.xpath("//div[text()='Select a Bundle']")));
+		driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 		delay();
-		iFillInText(driver.findElement(By.xpath("//div[text()='Select a Bundle']")), text);
+		driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(text);
 		delay();
-		clickElement(driver.findElement(By.cssSelector(".react-select-option-row.highlight>div")));
+		driver.findElement(By.cssSelector(".react-select-option-row.highlight>div")).click();
+		delay();
 	}
 	
 	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1) 
@@ -174,7 +151,8 @@ public class CreatePrograms extends BaseClass {
 		}
 	}			
 
-	public void handleDatepicker(int date1,WebElement element) throws ParseException {
+	public void handleDatepicker(int date1,WebElement element) throws ParseException 
+	{
 		System.out.println(date1);
 		String newDate=currentdate(date1,"yyyy/MM/dd");
 		Date convertedDate=covertStringtoInt(newDate);
@@ -186,7 +164,6 @@ public class CreatePrograms extends BaseClass {
 	    System.out.println("month is"+date6);
 	    element.click();
 	    WebElement midtext = driver.findElement(By.cssSelector("div.react-datepicker__current-month")); 
-	     
 	    String yeartext=midtext.getText();
 	    String date44=getLastnCharacters(newDate,2);
 	    if(year.equals(getLastnCharacters(yeartext,4)) && date6.equals(yeartext.substring(0, 3)))
@@ -250,13 +227,15 @@ public class CreatePrograms extends BaseClass {
 			int year = cal.get(Calendar.YEAR);
 			int iMonth = cal.get(Calendar.MONTH);
 			String month = arrMonth[iMonth];
-			iMonth = iMonth + 1;
+			//iMonth = iMonth + 1;
 			int day = cal.get(Calendar.DAY_OF_MONTH);
 			List<WebElement> startDate = driver.findElements(By.xpath("//label[@class='date-picker-input-label']"));
+			scrollIntoViewByJS(startDate.get(index));
 			startDate.get(index).click();
 			String displayYear = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
 			String displayMonth = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
-			String m = displayMonth.substring(displayMonth.indexOf(" ")+1);
+			String m = displayMonth.substring(0,displayMonth.indexOf(" ")).trim();
+			String y = displayMonth.substring(displayMonth.indexOf(" ")).trim();
 			if(displayYear.contains(Integer.toString(year)))
 			{
 				if(displayMonth.contains(month))
@@ -267,12 +246,19 @@ public class CreatePrograms extends BaseClass {
 					}
 					else
 					{
-						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
 					}
 				}
-				else if((Arrays.asList(arrMonth).indexOf(m)+1)>iMonth)
+				else if((Arrays.asList(arrMonth).indexOf(m))>iMonth)
 				{
-					while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month))
+					while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month)))
 					{
 						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--previous']")).click();
 					}
@@ -282,14 +268,21 @@ public class CreatePrograms extends BaseClass {
 					}
 					else
 					{
-						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
 					}
 				}
-				else if((Arrays.asList(arrMonth).indexOf(m)+1)<iMonth)
+				else if((Arrays.asList(arrMonth).indexOf(m))<iMonth)
 				{
-					while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month))
+					while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month)))
 					{
-						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']']")).click();
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']")).click();
 					}
 					if(day<23)
 					{
@@ -297,38 +290,161 @@ public class CreatePrograms extends BaseClass {
 					}
 					else
 					{
-						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
 					}
 				}
 			}
-			else if(Integer.parseInt(displayYear)>year)
+			else if(Integer.parseInt(y)>year)
 			{
-				while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(Integer.toString(year)))
+				while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(Integer.toString(year))))
 				{
 					driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--previous']")).click();
 				}
-				if(day<23)
+				displayYear = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
+				displayMonth = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
+				m = displayMonth.substring(0,displayMonth.indexOf(" ")).trim();
+				y = displayMonth.substring(displayMonth.indexOf(" ")).trim();
+				if(displayMonth.contains(month))
 				{
-					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
+					}
 				}
-				else
+				else if((Arrays.asList(arrMonth).indexOf(m))>iMonth)
 				{
-					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+					while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month)))
+					{
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--previous']")).click();
+					}
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
+					}
+				}
+				else if((Arrays.asList(arrMonth).indexOf(m))<iMonth)
+				{
+					while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month)))
+					{
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']")).click();
+					}
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
+					}
 				}
 			}
-			else if(Integer.parseInt(displayYear)<year)
+			else if(Integer.parseInt(y)<year)
 			{
-				while(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(Integer.toString(year)))
+				while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(Integer.toString(year))))
 				{
-					driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']']")).click();
+					driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']")).click();
 				}
-				if(day<23)
+				displayYear = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
+				displayMonth = driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText();
+				m = displayMonth.substring(0,displayMonth.indexOf(" ")).trim();
+				y = displayMonth.substring(displayMonth.indexOf(" ")).trim();
+				if(displayMonth.contains(month))
 				{
-					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
+					}
 				}
-				else
+				else if((Arrays.asList(arrMonth).indexOf(m))>iMonth)
 				{
-					driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+					while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month)))
+					{
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--previous']")).click();
+					}
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
+					}
+				}
+				else if((Arrays.asList(arrMonth).indexOf(m))<iMonth)
+				{
+					while(!(driver.findElement(By.xpath("//div[@class='react-datepicker__current-month']")).getText().contains(month)))
+					{
+						driver.findElement(By.xpath("//a[@class='react-datepicker__navigation react-datepicker__navigation--next']")).click();
+					}
+					if(day<23)
+					{
+						driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+					}
+					else
+					{
+						if(driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).size()>1)
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(1).click();
+						}
+						else
+						{
+							driver.findElements(By.xpath("//div[@class='react-datepicker__month']/div/div[text()='"+day+"']")).get(0).click();
+						}
+					}
 				}
 			}
 		}
