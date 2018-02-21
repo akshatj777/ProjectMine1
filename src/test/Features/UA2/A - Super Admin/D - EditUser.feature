@@ -242,7 +242,7 @@ Feature: Edit user page for SA
     And I select a <Health System>
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
-    #And I wait for 3000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on Submit button while edit for "<User>-<Role>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
@@ -430,7 +430,7 @@ Feature: Edit user page for SA
     Then I click on existing organisation "<Health System>"
     Then I deselect "<RemoveLocations>" locations
     Then I select "<Locations>" locations
-    #And I wait for 3000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on Submit button while edit for "<User>-<Role>"
     And I wait for 3000 milli seconds
     Then I verify health system "<Health System>"
@@ -741,7 +741,7 @@ Feature: Edit user page for SA
     Then I deselect "<RemovePrograms>" programs
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
-    #And I wait for 3000 milli seconds
+    And I wait for 3000 milli seconds
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I wait for 3000 milli seconds
     Then I verify last name "<LastName>"

@@ -82,8 +82,8 @@ Feature: Edit page for Downstream provider
     And I click on submit button to set new password
 
     Examples: 
-      | Description                                                     | User        | UserName                               | Password | FirstName                                 | LastName                                 | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                            | Health System1    | Programs1   | Locations1                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
-      | Login with Super Admin User and create user with Executive role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2, Remedy University | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | No               |                |           |            | No               |                |           |            |
+      | Description                                                      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone | Role       | Applications                                  | ApplicationsNotVisible            | NPI | LearningPathwaySearchParameter                                                                                | Health System1    | Programs1   | Locations1                  | HasHealthSystem2 | Health System2 | Programs2   | Locations2                     | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Login with Super Admin User and create user with Remedy TCS role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail |       | Remedy TCS | Episodes, Episodes 2.0, Reports, TCI, Lessons | Administration, Physician Connect |     | Learning Pathway 2, jusUV22erpk1, Clinical Operations Acute Care Hospital Model 2, n9yn5n0Qa581, 18h7phZr1h81 | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Yes              | Altercare      | BPCI-Model3 | 3056-m03--Altercare - Alliance | No               |                |           |            |
 
   Scenario Outline: Change Role from <PreviousRole> to <Role> and Edit details
     Given I am on the login page
@@ -116,9 +116,10 @@ Feature: Edit page for Downstream provider
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
-    #include downstream view page validation
     And I click on the top user account link
     Then I click on "Log Out" button
+    Given I am on the login page
+    Then I click on "Log Out" button again
     And I should see Log in widget
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
@@ -163,8 +164,8 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | FirstName                                 | LastName                                 | PreviousRole | Role                | EnableApplications | Applications           | ApplicationsNotVisible                              | Locations                        | HasHealthSystem1 | Health System1 | Locations1                                                           | HealthSystemValidation                       | ProgramsValidation     | ProgramsValidationDP                                        | LocationsValidation                                                                      | LocationsValidationDP                                                          | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                         |
-      | Super Admin | test.automatemail | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | Executive    | Downstream Provider | Episodes 2.0       | Episodes, Episodes 2.0 | Administration, Physician Connect, Reports, Lessons | Baptist Hospital Of Roane County | Yes              | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | Healthsystem - Downstream Provider, Covenant | Covenant--BPCI Model 3 | Healthsystem - Downstream Provider--Downstream Organization | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center | Healthsystem - Downstream Provider--DOWN-ORG--Baptist Hospital Of Roane County | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | Baptist Hospital Of Roane County, Catered Manor Nursing Center, Downey Care Center |
+      | User        | Email             | FirstName                                 | LastName                                 | PreviousRole | Role                | EnableApplications         | Applications           | ApplicationsNotVisible                              | Locations                                                                                                                   | HasHealthSystem1 | Health System1 | Locations1                                                           | HealthSystemValidation                       | ProgramsValidation                                                                  | LocationsValidation                                                                                                                                                                                                                                                                                                                                                                                           | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                                                                                                    |
+      | Super Admin | test.automatemail | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | Remedy TCS   | Downstream Provider | Episodes 2.0, Episodes 2.0 | Episodes, Episodes 2.0 | Administration, Physician Connect, Reports, Lessons | Stamford Memorial Hospital, Stamford Memorial Hospital Home Health Care, Stamford Medical Clinic Llc, Stamford Hospital Snf | Yes              | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | Healthsystem - Downstream Provider, Covenant | Covenant--BPCI Model 3, Healthsystem - Downstream Provider--Downstream Organization | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital Home Health Care, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Medical Clinic Llc, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Hospital Snf | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | Catered Manor Nursing Center, Downey Care Center, Stamford Memorial Hospital, Stamford Memorial Hospital Home Health Care, Stamford Medical Clinic Llc, Stamford Hospital Snf |
 
   Scenario Outline: Edit downstream provider general details, applications and data permissions
     Given I am on the login page
@@ -190,6 +191,7 @@ Feature: Edit page for Downstream provider
     Then I unselect "<DisableApplications>" product
     Then I click on Next button
     Then I verify the header "Permissions"
+    Then I click on existing organisation "<Health System>"
     Then I deselect "<DeselectLocations>" locations for Downstream Provider role
     Then I select "<Locations>" locations for Downstream Provider role
     Then I click on existing organisation "<Health System1>"
@@ -206,9 +208,10 @@ Feature: Edit page for Downstream provider
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
-    #include downstream view page validation
     And I click on the top user account link
     Then I click on "Log Out" button
+    Given I am on the login page
+    Then I click on "Log Out" button again
     And I should see Log in widget
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
@@ -253,8 +256,8 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | Role                | FirstName       | LastName       | Phone        | DisableApplications | Applications | ApplicationsNotVisible                                             | DeselectLocations                | Locations                                                                 | Health System1 | DisableLocations1                                                    | EnableLocations1                                                                 | HealthSystemValidation                       | ProgramsValidationDP                                        | ProgramsValidation     | LocationsValidationDP                                                                                                                                                                                               | LocationsValidation                                                                                  | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                                                              |
-      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes            | Episodes 2.0 | Episodes, Administration, Physician Connect, TCI, Reports, Lessons | Baptist Hospital Of Roane County | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center | Healthsystem - Downstream Provider, Covenant | Healthsystem - Downstream Provider--Downstream Organization | Covenant--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health | Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Courtyard Health Care Center, Emerald Gardens Nursing Center |
+      | User        | Email             | Role                | FirstName       | LastName       | Phone        | DisableApplications | Applications | ApplicationsNotVisible                                        | DeselectLocations          | Locations                                                                 | Health System       | Health System1 | DisableLocations1                                                    | EnableLocations1                                                                 | HealthSystemValidation                       | ProgramsValidation                                                                  | LocationsValidation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                                                                                                                                                               |
+      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes            | Episodes 2.0 | Episodes, Administration, Physician Connect, Reports, Lessons | Stamford Memorial Hospital | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health | Downstream Provider | Covenant       | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center | Healthsystem - Downstream Provider, Covenant | Covenant--BPCI Model 3, Healthsystem - Downstream Provider--Downstream Organization | Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital Home Health Care, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Medical Clinic Llc, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Hospital Snf | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | Courtyard Health Care Center, Emerald Gardens Nursing Center, litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Stamford Memorial Hospital Home Health Care, Stamford Medical Clinic Llc, Stamford Hospital Snf |
 
   Scenario Outline: Remove exiting health System and new org
     Given I am on the login page
@@ -270,6 +273,8 @@ Feature: Edit page for Downstream provider
     And I fill in First Name with "<FirstName>"
     Then I fill in Last Name with <LastName>
     And I fill in Phone with <Phone>
+    Then I click on Next button
+    Then I unselect "<EnableApplication>" product
     Then I select "Permissions" tab
     Then I remove health system "<Remove HealthSystem>"
     And I click on "Remove" button on permissions tab
@@ -291,6 +296,8 @@ Feature: Edit page for Downstream provider
     #include downstream view page validation
     And I click on the top user account link
     Then I click on "Log Out" button
+    Given I am on the login page
+    Then I click on "Log Out" button again
     And I should see Log in widget
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
@@ -335,8 +342,8 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | user        | Email             | Role                | FirstName       | LastName       | Phone        | Applications | ApplicationsNotVisible                                             | Remove HealthSystem | HasHealthSystem1 | Health System1 | Locations1                         | HealthSystemValidation                            | ProgramsValidationDP                                        | ProgramsValidation          | LocationsValidationDP                                                                                                                                                                                               | LocationsValidation                               | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                          |
-      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes 2.0 | Episodes, Administration, Physician Connect, TCI, Reports, Lessons | Covenant            | Yes              | Adcare Health  | 3056-343--Coosa Valley Health Care | Healthsystem - Downstream Provider, Adcare Health | Healthsystem - Downstream Provider--Downstream Organization | Adcare Health--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health | Adcare Health--3056-343--Coosa Valley Health Care | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Coosa Valley Health Care |
+      | User        | Email             | Role                | FirstName       | LastName       | Phone        | EnableApplication | Applications           | ApplicationsNotVisible                              | Remove HealthSystem | HasHealthSystem1 | Health System1 | Locations1                         | HealthSystemValidation                            | ProgramsValidation                                                                       | LocationsValidation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Roletext | ReportCategory | ReportName                   | LearningPathway                                           | BPID | Facilities                                                                                                                                                                                           |
+      | Super Admin | test.automatemail | Downstream Provider | FirstNameEdited | LastNameEdited | 996-385-2451 | Episodes          | Episodes, Episodes 2.0 | Administration, Physician Connect, Reports, Lessons | Covenant            | Yes              | Adcare Health  | 3056-343--Coosa Valley Health Care | Healthsystem - Downstream Provider, Adcare Health | Adcare Health--BPCI Model 3, Healthsystem - Downstream Provider--Downstream Organization | Adcare Health--3056-343--Coosa Valley Health Care, Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital Home Health Care, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Medical Clinic Llc, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Hospital Snf | ROLE_SNF | Patient ID     | Episode DRG Issues [Model 3] | i am learning path, Learning Pathway 2, Remedy University |      | Coosa valley health care, litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Stamford Memorial Hospital Home Health Care, Stamford Medical Clinic Llc, Stamford Hospital Snf |
 
   Scenario Outline: Change Role from <PreviousRole> to <Role>, edit details and verify
     Given I am on the login page
@@ -353,7 +360,7 @@ Feature: Edit page for Downstream provider
     Then I click on Next button
     Then I select "<EnableApplications>" product
     Then I click on Select button
-    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
+    Then I verify Learning Pathway search box is available
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I verify text "Which location(s) does this user have access to?" is "Not Present" in Permission tab
@@ -373,6 +380,8 @@ Feature: Edit page for Downstream provider
     Then I verify location "<LocationsValidation>"
     And I click on the top user account link
     Then I click on "Log Out" button
+    Given I am on the login page
+    Then I click on "Log Out" button again
     And I should see Log in widget
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
