@@ -1,4 +1,4 @@
-Feature: Downstream Provider
+Feature: Create Downstream Provider user from Super Admin and Validate the user profile page
 
   Scenario Outline: <Description>
     Given I am on mail login page
@@ -78,6 +78,44 @@ Feature: Downstream Provider
     Examples: 
       | Description                                                               | User        | UserName                               | Password | FirstName                                 | LastName | Email             | Phone      | Role                | Applications | ApplicationsNotVisible                                   | NPI | LearningPathwaySearchParameter                                          | Locations                                                                                              | HasHealthSystem1 | Health System1 | Programs1 | Locations1 | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Super Admin User and create user with Downstream Provider role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | test.automatemail | 9988776655 | Downstream Provider | Episodes     | Administration, Physician Connect, TCI, Reports, Lessons |     | HZhmTBQzHtU1, NFdw0Kts2C01, 3hSOHNAnvjc1, max-test-052417, n9yn5n0Qa581 | woodruff Community Hospital, litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health | No               |                |           |            | No               |                |           |            | No               |                |           |            |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem                       | Programs                                                    | Locations                                                                                                                                                                                                                                                                                      |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes            | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Healthsystem - Downstream Provider | Healthsystem - Downstream Provider--Downstream Organization | Healthsystem - Downstream Provider--DOWN-ORG--woodruff Community Hospital, Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -208,6 +246,44 @@ Feature: Downstream Provider
 
   Scenario Outline: <Description>
     Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem                       | Programs                                                    | Locations                                                                                                                                                                                                                                                                                                           |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes 2.0        | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Healthsystem - Downstream Provider | Healthsystem - Downstream Provider--Downstream Organization | Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital Home Health Care, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Medical Clinic Llc, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Hospital Snf |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
@@ -332,6 +408,44 @@ Feature: Downstream Provider
     Examples: 
       | Description                                                               | User        | UserName                               | Password | FirstName                                 | LastName | Email             | Phone      | Role                | Applications           | ApplicationsNotVisible                                   | NPI | LearningPathwaySearchParameter                                          | Locations                                                                                                                   | HasHealthSystem1 | Health System1 | Programs1 | Locations1 | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Super Admin User and create user with Downstream Provider role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | test.automatemail | 9988776655 | Downstream Provider | Episodes, Episodes 2.0 | Administration, Physician Connect, TCI, Reports, Lessons |     | HZhmTBQzHtU1, NFdw0Kts2C01, 3hSOHNAnvjc1, max-test-052417, n9yn5n0Qa581 | Stamford Memorial Hospital, Stamford Memorial Hospital Home Health Care, Stamford Medical Clinic Llc, Stamford Hospital Snf | No               |                |           |            | No               |                |           |            | No               |                |           |            |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled    | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem                       | Programs                                                    | Locations                                                                                                                                                                                                                                                                                                           |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes, Episodes 2.0 | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Healthsystem - Downstream Provider | Healthsystem - Downstream Provider--Downstream Organization | Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Memorial Hospital Home Health Care, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Medical Clinic Llc, Healthsystem - Downstream Provider--DOWN-ORG--Stamford Hospital Snf |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -462,6 +576,44 @@ Feature: Downstream Provider
 
   Scenario Outline: <Description>
     Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem               | Programs                                               | Locations                                                                                                                                                                                                                                                                                                                                                                                        |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes            | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Covenant, Blanchard Valley | Covenant--BPCI Model 3, Blanchard Valley--BPCI Model 3 | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Covenant--3056-806--Encinitas Nursing And Rehabilitation Center, Covenant--3056-808--Arbor Nursing Center, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Blanchard Valley--3056-k60--Birchaven, Blanchard Valley--3056-k61--Independence House |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
@@ -586,6 +738,44 @@ Feature: Downstream Provider
     Examples: 
       | Description                                                               | User        | UserName                               | Password | FirstName                                 | LastName | Email             | Phone      | Role                | Applications | ApplicationsNotVisible                                   | NPI | LearningPathwaySearchParameter                                          | Locations | HasHealthSystem1 | Health System1 | Programs1   | Locations1                                                                                                                                                                                                                                    | HasHealthSystem2 | Health System2   | Programs2   | Locations2                                        | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Super Admin User and create user with Downstream Provider role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | test.automatemail | 9988776655 | Downstream Provider | Episodes 2.0 | Administration, Physician Connect, TCI, Reports, Lessons |     | HZhmTBQzHtU1, NFdw0Kts2C01, 3hSOHNAnvjc1, max-test-052417, n9yn5n0Qa581 |           | Yes              | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center, 3056-808--Arbor Nursing Center, 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center | Yes              | Blanchard Valley | BPCI-Model3 | 3056-k60--Birchaven, 3056-k61--Independence House | No               |                |           |            |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem               | Programs                                               | Locations                                                                                                                                                                                                                                                                                                                                                                                        |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes 2.0        | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Covenant, Blanchard Valley | Covenant--BPCI Model 3, Blanchard Valley--BPCI Model 3 | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Covenant--3056-806--Encinitas Nursing And Rehabilitation Center, Covenant--3056-808--Arbor Nursing Center, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Blanchard Valley--3056-k60--Birchaven, Blanchard Valley--3056-k61--Independence House |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -716,6 +906,44 @@ Feature: Downstream Provider
 
   Scenario Outline: <Description>
     Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled    | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem               | Programs                                               | Locations                                                                                                                                                                                                                                                                                                                                                                                        |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes, Episodes 2.0 | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Covenant, Blanchard Valley | Covenant--BPCI Model 3, Blanchard Valley--BPCI Model 3 | Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Covenant--3056-806--Encinitas Nursing And Rehabilitation Center, Covenant--3056-808--Arbor Nursing Center, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Blanchard Valley--3056-k60--Birchaven, Blanchard Valley--3056-k61--Independence House |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
@@ -840,6 +1068,44 @@ Feature: Downstream Provider
     Examples: 
       | Description                                                               | User        | UserName                               | Password | FirstName                                 | LastName | Email             | Phone      | Role                | Applications | ApplicationsNotVisible                                   | NPI | LearningPathwaySearchParameter                                          | Locations                                                                                                                    | HasHealthSystem1 | Health System1 | Programs1   | Locations1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | HasHealthSystem2 | Health System2   | Programs2   | Locations2                                        | HasHealthSystem3 | Health System3       | Programs3   | Locations3             |
       | Login with Super Admin User and create user with Downstream Provider role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | test.automatemail | 9988776655 | Downstream Provider | Episodes     | Administration, Physician Connect, TCI, Reports, Lessons |     | HZhmTBQzHtU1, NFdw0Kts2C01, 3hSOHNAnvjc1, max-test-052417, n9yn5n0Qa581 | woodruff Community Hospital, litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Aa Advanced Care Inc | Yes              | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center, 3056-808--Arbor Nursing Center, 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-811--Buena Vista Care Center, 3056-812--Gilroy Healthcare And Rehabilitation Center, 3056-813--Eagle Point Nursing & Rehabilitation Center, 3056-814--Cedar Ridge Health Rehab Center, 3056-815--Ennoble Skilled Nursing And Rehabilitation Center, 3056-816--Friendship Skilled Nursing & Rehabilitation Center, 3056-817--Covington Manor Health And  Rehabilitation Center, 3056-818--Clinton House Health And Rehab Center, 3056-819--Edgewood Manor Nursing Center, 3056-820--Fairview Skilled Nursing And Rehabilitation Center, 3056-i37--Pacific Coast Manor, 3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, 3056-i39--Pyramid Point Post-acute Rehabilitation Center, 3056-i40--Hilltop Skilled Nursing, 3056-i41--Mccormick's Creek, 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown, 3056-i45--Highland Health | Yes              | Blanchard Valley | BPCI-Model3 | 3056-k60--Birchaven, 3056-k61--Independence House | Yes              | WK Orthopedic Clinic | BPCI-Model3 | 3056-a53--All 3056-a53 |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem                                                                         | Programs                                                                                                                                                | Locations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes            | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Healthsystem - Downstream Provider, Covenant, Blanchard Valley, WK Orthopedic Clinic | Healthsystem - Downstream Provider--Downstream Organization, Covenant--BPCI Model 3, Blanchard Valley--BPCI Model 3, WK Orthopedic Clinic--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--woodruff Community Hospital, Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health, Healthsystem - Downstream Provider--DOWN-ORG--Aa Advanced Care Inc, Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Covenant--3056-806--Encinitas Nursing And Rehabilitation Center, Covenant--3056-808--Arbor Nursing Center, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Covenant--3056-811--Buena Vista Care Center, Covenant--3056-812--Gilroy Healthcare And Rehabilitation Center, Covenant--3056-813--Eagle Point Nursing & Rehabilitation Center, Covenant--3056-814--Cedar Ridge Health Rehab Center, Covenant--3056-815--Ennoble Skilled Nursing And Rehabilitation Center, Covenant--3056-816--Friendship Skilled Nursing & Rehabilitation Center, Covenant--3056-817--Covington Manor Health And  Rehabilitation Center, Covenant--3056-818--Clinton House Health And Rehab Center, Covenant--3056-819--Edgewood Manor Nursing Center, Covenant--3056-820--Fairview Skilled Nursing And Rehabilitation Center, Covenant--3056-i37--Pacific Coast Manor, Covenant--3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, Covenant--3056-i39--Pyramid Point Post-acute Rehabilitation Center, Covenant--3056-i40--Hilltop Skilled Nursing, Covenant--3056-i41--Mccormick's Creek, Covenant--3056-i42--Palo Alto Sub-acute, Covenant--3056-i43--Meadow Manor, Covenant--3056-i44--Villa Georgetown, Covenant--3056-i45--Highland Health, Blanchard Valley--3056-k60--Birchaven, Blanchard Valley--3056-k61--Independence House, WK Orthopedic Clinic--3056-a53--Munroe Regional, WK Orthopedic Clinic--3056-a53--Uf Health Shands Hospital, WK Orthopedic Clinic--3056-a53--North Okaloosa Medical Center, WK Orthopedic Clinic--3056-a53--Kendall Medical Center, WK Orthopedic Clinic--3056-a53--Fort Walton Beach Medical Center, WK Orthopedic Clinic--3056-a53--Highland Medical Center - Christus, WK Orthopedic Clinic--3056-a53--B R F Hospital Holdings, WK Orthopedic Clinic--3056-a53--Willis Knighton Medical Center, WK Orthopedic Clinic--3056-a53--Willis Knighton Bossier Health Center, WK Orthopedic Clinic--3056-a53--Aroostook Medical Center |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -970,6 +1236,44 @@ Feature: Downstream Provider
 
   Scenario Outline: <Description>
     Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem                                                                         | Programs                                                                                                                                                | Locations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes 2.0        | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Healthsystem - Downstream Provider, Covenant, Blanchard Valley, WK Orthopedic Clinic | Healthsystem - Downstream Provider--Downstream Organization, Covenant--BPCI Model 3, Blanchard Valley--BPCI Model 3, WK Orthopedic Clinic--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--woodruff Community Hospital, Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health, Healthsystem - Downstream Provider--DOWN-ORG--Aa Advanced Care Inc, Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Covenant--3056-806--Encinitas Nursing And Rehabilitation Center, Covenant--3056-808--Arbor Nursing Center, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Covenant--3056-811--Buena Vista Care Center, Covenant--3056-812--Gilroy Healthcare And Rehabilitation Center, Covenant--3056-813--Eagle Point Nursing & Rehabilitation Center, Covenant--3056-814--Cedar Ridge Health Rehab Center, Covenant--3056-815--Ennoble Skilled Nursing And Rehabilitation Center, Covenant--3056-816--Friendship Skilled Nursing & Rehabilitation Center, Covenant--3056-817--Covington Manor Health And  Rehabilitation Center, Covenant--3056-818--Clinton House Health And Rehab Center, Covenant--3056-819--Edgewood Manor Nursing Center, Covenant--3056-820--Fairview Skilled Nursing And Rehabilitation Center, Covenant--3056-i37--Pacific Coast Manor, Covenant--3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, Covenant--3056-i39--Pyramid Point Post-acute Rehabilitation Center, Covenant--3056-i40--Hilltop Skilled Nursing, Covenant--3056-i41--Mccormick's Creek, Covenant--3056-i42--Palo Alto Sub-acute, Covenant--3056-i43--Meadow Manor, Covenant--3056-i44--Villa Georgetown, Covenant--3056-i45--Highland Health, Blanchard Valley--3056-k60--Birchaven, Blanchard Valley--3056-k61--Independence House, WK Orthopedic Clinic--3056-a53--Munroe Regional, WK Orthopedic Clinic--3056-a53--Uf Health Shands Hospital, WK Orthopedic Clinic--3056-a53--North Okaloosa Medical Center, WK Orthopedic Clinic--3056-a53--Kendall Medical Center, WK Orthopedic Clinic--3056-a53--Fort Walton Beach Medical Center, WK Orthopedic Clinic--3056-a53--Highland Medical Center - Christus, WK Orthopedic Clinic--3056-a53--B R F Hospital Holdings, WK Orthopedic Clinic--3056-a53--Willis Knighton Medical Center, WK Orthopedic Clinic--3056-a53--Willis Knighton Bossier Health Center, WK Orthopedic Clinic--3056-a53--Aroostook Medical Center |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
     Then I enter newuser email for "<User>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
@@ -1094,6 +1398,44 @@ Feature: Downstream Provider
     Examples: 
       | Description                                                               | User        | UserName                               | Password | FirstName                                 | LastName | Email             | Phone      | Role                | Applications           | ApplicationsNotVisible                                   | NPI | LearningPathwaySearchParameter                                          | Locations                                                                                                                    | HasHealthSystem1 | Health System1 | Programs1   | Locations1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | HasHealthSystem2 | Health System2   | Programs2   | Locations2                                        | HasHealthSystem3 | Health System3       | Programs3   | Locations3             |
       | Login with Super Admin User and create user with Downstream Provider role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | test.automatemail | 9988776655 | Downstream Provider | Episodes, Episodes 2.0 | Administration, Physician Connect, TCI, Reports, Lessons |     | HZhmTBQzHtU1, NFdw0Kts2C01, 3hSOHNAnvjc1, max-test-052417, n9yn5n0Qa581 | woodruff Community Hospital, litchford Falls Healthcare Re, 5 Star Home Care Llc, 3 Angels Home Health, Aa Advanced Care Inc | Yes              | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center, 3056-808--Arbor Nursing Center, 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-811--Buena Vista Care Center, 3056-812--Gilroy Healthcare And Rehabilitation Center, 3056-813--Eagle Point Nursing & Rehabilitation Center, 3056-814--Cedar Ridge Health Rehab Center, 3056-815--Ennoble Skilled Nursing And Rehabilitation Center, 3056-816--Friendship Skilled Nursing & Rehabilitation Center, 3056-817--Covington Manor Health And  Rehabilitation Center, 3056-818--Clinton House Health And Rehab Center, 3056-819--Edgewood Manor Nursing Center, 3056-820--Fairview Skilled Nursing And Rehabilitation Center, 3056-i37--Pacific Coast Manor, 3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, 3056-i39--Pyramid Point Post-acute Rehabilitation Center, 3056-i40--Hilltop Skilled Nursing, 3056-i41--Mccormick's Creek, 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown, 3056-i45--Highland Health | Yes              | Blanchard Valley | BPCI-Model3 | 3056-k60--Birchaven, 3056-k61--Independence House | Yes              | WK Orthopedic Clinic | BPCI-Model3 | 3056-a53--All 3056-a53 |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify All Users button
+    Then I click on All Users button
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    Then I verify Edit Icon
+    Then I click on Edit Icon
+    Then I verify Delete User button
+    Then I click on cross button on Edit User Page
+    Then I verify Lock/Unlock Icon
+    Then I verify first name "<FirstName>"
+    Then I verify last name "<LastName>"
+    Then I verify role "<Role>"
+    Then I verify email "<Email>" for "<User>-<Role>"
+    Then I verify phone "<Phone>"
+    Then I verify NPI "<NPI>"
+    Then I verify enabled "<ApplicationsEnabled>"
+    Then I verify learning pathway "<LearningPathway>"
+    Then I verify health system "<HealthSystem>"
+    Then I verify programs "<Programs>"
+    Then I verify location "<Locations>"
+
+    Examples: 
+      | Description                                                 | User        | UserName                               | Password | FirstName                                 | LastName | Phone        | Role                | ApplicationsEnabled    | ApplicationsNotVisible                                   | NPI | LearningPathway | HealthSystem                                                                         | Programs                                                                                                                                                | Locations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | View Downstream Provider user created from Super Admin user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastName | 998-877-6655 | Downstream Provider | Episodes, Episodes 2.0 | Administration, Physician Connect, TCI, Reports, Lessons |     |                 | Healthsystem - Downstream Provider, Covenant, Blanchard Valley, WK Orthopedic Clinic | Healthsystem - Downstream Provider--Downstream Organization, Covenant--BPCI Model 3, Blanchard Valley--BPCI Model 3, WK Orthopedic Clinic--BPCI Model 3 | Healthsystem - Downstream Provider--DOWN-ORG--woodruff Community Hospital, Healthsystem - Downstream Provider--DOWN-ORG--litchford Falls Healthcare Re, Healthsystem - Downstream Provider--DOWN-ORG--5 Star Home Care Llc, Healthsystem - Downstream Provider--DOWN-ORG--3 Angels Home Health, Healthsystem - Downstream Provider--DOWN-ORG--Aa Advanced Care Inc, Covenant--3056-804--Catered Manor Nursing Center, Covenant--3056-805--Downey Care Center, Covenant--3056-806--Encinitas Nursing And Rehabilitation Center, Covenant--3056-808--Arbor Nursing Center, Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Covenant--3056-811--Buena Vista Care Center, Covenant--3056-812--Gilroy Healthcare And Rehabilitation Center, Covenant--3056-813--Eagle Point Nursing & Rehabilitation Center, Covenant--3056-814--Cedar Ridge Health Rehab Center, Covenant--3056-815--Ennoble Skilled Nursing And Rehabilitation Center, Covenant--3056-816--Friendship Skilled Nursing & Rehabilitation Center, Covenant--3056-817--Covington Manor Health And  Rehabilitation Center, Covenant--3056-818--Clinton House Health And Rehab Center, Covenant--3056-819--Edgewood Manor Nursing Center, Covenant--3056-820--Fairview Skilled Nursing And Rehabilitation Center, Covenant--3056-i37--Pacific Coast Manor, Covenant--3056-i38--Sunrise Skilled Nursing & Rehabilitation Center, Covenant--3056-i39--Pyramid Point Post-acute Rehabilitation Center, Covenant--3056-i40--Hilltop Skilled Nursing, Covenant--3056-i41--Mccormick's Creek, Covenant--3056-i42--Palo Alto Sub-acute, Covenant--3056-i43--Meadow Manor, Covenant--3056-i44--Villa Georgetown, Covenant--3056-i45--Highland Health, Blanchard Valley--3056-k60--Birchaven, Blanchard Valley--3056-k61--Independence House, WK Orthopedic Clinic--3056-a53--Munroe Regional, WK Orthopedic Clinic--3056-a53--Uf Health Shands Hospital, WK Orthopedic Clinic--3056-a53--North Okaloosa Medical Center, WK Orthopedic Clinic--3056-a53--Kendall Medical Center, WK Orthopedic Clinic--3056-a53--Fort Walton Beach Medical Center, WK Orthopedic Clinic--3056-a53--Highland Medical Center - Christus, WK Orthopedic Clinic--3056-a53--B R F Hospital Holdings, WK Orthopedic Clinic--3056-a53--Willis Knighton Medical Center, WK Orthopedic Clinic--3056-a53--Willis Knighton Bossier Health Center, WK Orthopedic Clinic--3056-a53--Aroostook Medical Center |
 
   Scenario Outline: <Description>
     Given I am on the login page
