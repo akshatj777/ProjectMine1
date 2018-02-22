@@ -937,21 +937,12 @@ public class CreateUserPage extends BaseClass{
 				usersEmailPerRole.put(userL+"-"+newRole, emailList);
 				usersApplicationsPerRole.put(userL+"-"+newRole, applicationsList);
 				usersNPIPerRole.put(userL+"-"+newRole, NPIList);
-				System.out.println(usersEmailPerRole.toString());
-				System.out.println(usersApplicationsPerRole.toString());
-				System.out.println(usersNPIPerRole.toString());
-			}
-			else if(user.contains("Remedy Technical Administrator"))
-			{
-				usersEmailPerRole.put(user.trim(), emailList);
-				usersApplicationsPerRole.put(user.trim(), applicationsList);
-				usersNPIPerRole.put(user.trim(), NPIList);
 			}
 			else if(user.contains("Partner Technical Administrator"))
 			{
-				usersEmailPerRole.put(user.trim(), emailList);
-				usersApplicationsPerRole.put(user.trim(), applicationsList);
-				usersNPIPerRole.put(user.trim(), NPIList);
+				usersEmailPerRole.put(userL+"-"+newRole, emailList);
+				usersApplicationsPerRole.put(userL+"-"+newRole, applicationsList);
+				usersNPIPerRole.put(userL+"-"+newRole, NPIList);
 			}
 		}
 		else
@@ -961,15 +952,6 @@ public class CreateUserPage extends BaseClass{
 			NPIList.put(user.substring(user.indexOf("-")+1), CreateUserPage.usersNPIPerRole.get(user).get(user.substring((user.indexOf("-")+1))));
 			
 			if(user.contains("Super Admin"))
-			{
-				usersEmailPerRole.put(user.trim(), emailList);
-				usersApplicationsPerRole.put(user.trim(), applicationsList);
-				usersNPIPerRole.put(user.trim(), NPIList);
-				System.out.println(usersEmailPerRole.toString());
-				System.out.println(usersApplicationsPerRole.toString());
-				System.out.println(usersNPIPerRole.toString());
-			}
-			else if(user.contains("Remedy Technical Administrator"))
 			{
 				usersEmailPerRole.put(user.trim(), emailList);
 				usersApplicationsPerRole.put(user.trim(), applicationsList);
