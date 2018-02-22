@@ -108,7 +108,15 @@ Feature: Delete a user from SA
     Then I should see header text "Users"
     Then I search for user with role "<User>-<Role>"
     Then I verify No Results Found is displayed
-
+    And I click on the top user account link
+    Then I click on "Log Out" button
+    Given I am on the login page
+    Then I click on "Log Out" button again
+    And I should see Log in widget
+    Then I enter newuser email for "<User>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
+    Then I should see User is Blocked
     Examples: 
       | User        | Role         |
       | Super Admin | Case Manager |
