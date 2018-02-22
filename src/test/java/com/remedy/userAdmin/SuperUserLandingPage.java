@@ -312,6 +312,7 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnUsersLink() {
+		iWillWaitToSee(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']"));
 		clickElement(driver.findElement(By.xpath("//a[@href='https://user-admin-dev.remedypartners.com']")));
 		longDelay();
 	}
