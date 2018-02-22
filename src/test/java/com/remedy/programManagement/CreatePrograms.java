@@ -1,5 +1,6 @@
 package com.remedy.programManagement;
 
+import java.sql.DriverAction;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -72,6 +73,7 @@ public class CreatePrograms extends BaseClass {
 	{
 		driver.findElement(By.xpath("//div[text()='Select a Program']")).click();
 		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get("PROGRAMNAME"));
+		delay();
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
@@ -80,24 +82,43 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
-		//clickElement(driver.findElement(By.cssSelector(".Select-value")));
-		driver.findElement(By.cssSelector(".Select-value")).click();
-//		//driver.findElement(By.xpath("//*[@id='programManagement']/div/form/div/div[4]/div/div[1]/div[2]/div[1]/div[1]/div[1]/div/span[2]")).click();
-//		delay();
-//		//clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), text);
-//		driver.findElement(By.xpath("//span[@class='Select-value-label']")).sendKeys(text);
-//		driver.findElement(By.xpath(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")).click();
 		
-		selectElementByTextDescByXpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/div", text);
+		driver.findElement(By.xpath("//*[contains(@name,'orgType')]/../div")).click();
+		iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption"));
+//		clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"), text);
+//		selectElementByTextDescByXpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/div", text);
+		clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+		delay();
 	}
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
 		driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 		delay();
-		driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
-		delay();
-		driver.findElement(By.cssSelector(".org-name")).click();
+		if(text.contains("ACHNAME"))
+		{
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+			delay();
+			driver.findElement(By.cssSelector(".org-name")).click();
+		}
+		else if(text.contains("PGPNAME"))
+		{
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
+			delay();
+			driver.findElement(By.cssSelector(".org-name")).click();
+		}
+		else if(text.contains("SNFNAME"))
+		{
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
+			delay();
+			driver.findElement(By.cssSelector(".org-name")).click();
+		}
+		else if(text.contains("PGPNAME"))
+		{
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg_noMO.get("HHANAME"));
+			delay();
+			driver.findElement(By.cssSelector(".org-name")).click();
+		}
 	}
 	
 	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) 
@@ -107,10 +128,13 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectBundleOnCreateContractsPageUnderPayorOrganization(String text, int num, String field)
 	{
+		delay();
 		driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-		delay();
+//		delay();
+		iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
 		driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(text);
-		delay();
+//		delay();
+		iWillWaitToSee(By.cssSelector(".react-select-option-row.highlight>div"));
 		driver.findElement(By.cssSelector(".react-select-option-row.highlight>div")).click();
 		delay();
 	}
@@ -210,7 +234,6 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iClickOnCheckboxeForAttributionRulesOnCreatePrograms(String text){
-		//clickElement(driver.findElement(By.xpath("//li[text()='"+text+"']/child::input")));
 		WebElement element= driver.findElement(By.xpath("//li[text()='"+text+"']/child::input"));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);

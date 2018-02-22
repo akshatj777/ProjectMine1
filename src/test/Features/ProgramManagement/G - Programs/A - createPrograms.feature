@@ -39,7 +39,7 @@ Feature: Create Programs organization under Payor Organization functionality tes
     And I verify the "Create New Program" button on view profile of "payor" Organization
     Then I click on "Create New Program" button on "create" organization page
     And I verify "Create Program" header text on create organization page
-    And I verify "*Program Name" field on create organization page
+    And I verify "*" field on create organization page
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
 

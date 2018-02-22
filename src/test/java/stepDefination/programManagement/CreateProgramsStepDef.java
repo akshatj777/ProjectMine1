@@ -67,11 +67,6 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iInsertdays1(data);
        }
 	
-	@Then ("^i navigate to the \"([^\"]*)\"$")
-	public void i_navigate_to_the(String url){
-		programs.i_navigate_to_the(url);
-	}
-	
 	@Then ("^I Click on \"([^\"]*)\" button$")
 	public void i_Click_on_Addbundle_Button(String text){
 		createMO.iClickOnButtonOnCreateOrganizationPage(text);
@@ -101,6 +96,4 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void enterDateInContractPage(String date, String field, int index) throws Throwable {
 		programs.enterDate(date,field, index);
 	    }
-
-	
 }
