@@ -39,8 +39,8 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Examples: 
       | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
       | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
-      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
 
+  #| Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
     Then I click on "+" button on "PGP" organization page
@@ -64,8 +64,8 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Examples: 
       | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
       | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
-      | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
 
+  #| Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
     Then I click on "+" button on "SNF" organization page
@@ -97,8 +97,8 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Examples: 
       | Description                                                        | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
       | Create SNF Organization with all the available fields - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-      | Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
 
+  #| Create SNF Organization with all the available fields - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | SNF Organization Successfully Created. |
   Scenario Outline: <Description>
     When I click on "HHA" organization tab on organization dashboard
     Then I click on "+" button on "HHA" organization page
@@ -123,8 +123,8 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Examples: 
       | Description                                                        | Has_MO | Managing_Org | HHA_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Region  | Market  | CCN | EIN | NPI | Message                                |
       | Create HHA Organization with all the available fields - Without MO | NO     |              | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
-      | Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
 
+  #| Create HHA Organization with all the available fields - With MO    | YES    | MONAME       | HHANAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Midwest | Chicago | CCN | EIN | NPI | HHA Organization Successfully Created. |
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     Then I click on "+" button on "Payor" organization page
@@ -202,8 +202,8 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organiztion type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organiztion name "<Organization_Name>" for Contract "1" on "create" Contracts page
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -211,7 +211,9 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
     Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
     Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "4"
-    Then I enter date "<PriceEndDate>" in "PriceEndDate" field for index "5"
+    Then I enter date "<PriceEndDate>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate>" in "BaselineEndDate" field for index "7"
     And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price1" for Contract "1"
     And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price1" for Contract "1"
     And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price1" for Contract "1"
@@ -219,8 +221,97 @@ Feature: Create Bundled Payment Contracts under Payor Organization functionality
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1                          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | PROGRAMNAME  | ACH               | ACHNAME           | CBundle2ttTyIYdppE0100            |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization      | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | PROGRAMNAME  | SNF               | SNFNAME           | CBundle2FYlGIztSgH0152            |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization      | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | PROGRAMNAME  | HHA               | HHANAME           | CBundle1ykOiPLQGfp3039            |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1                          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CBundle2ttTyIYdppE0100            |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization      | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | CBundle2FYlGIztSgH0152            |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization      | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | CBundle1ykOiPLQGfp3039            |   123 |          121 |         135 |         106 | Contract Successfully Created |
+
+  Scenario Outline: Create contract with 1 Bundle having multiple Price
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter price "<Price1>" for Contract "1" on "create" Contracts page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor1>" in "Trend Factor" for "Bundle Price1" for Contract "1"
+    And I enter "<Upper_Bound1>" in "Upper Bound" for "Bundle Price1" for Contract "1"
+    And I enter "<Lower_Bound1>" in "Lower Bound" for "Bundle Price1" for Contract "1"
+    Then I click on "Add Price" button on "create" organization page
+    And I enter price "<Price2>" for Contract "1" on "create" Contracts page
+    Then I enter date "<PriceStartDate2>" in "PriceStartDate" field for index "8"
+    Then I enter date "<PriceEndDate2>" in "Baseline Date" field for index "9"
+    Then I enter date "<BaselineStartDate2>" in "BaselineStartDate" field for index "10"
+    Then I enter date "<BaselineEndDate2>" in "BaselineEndDate" field for index "11"
+    And I enter "<Trend_Factor>" in "Trend Factor" for "Bundle Price1" for Contract "1"
+    And I enter "<Upper_Bound>" in "Upper Bound" for "Bundle Price1" for Contract "1"
+    And I enter "<Lower_Bound>" in "Lower Bound" for "Bundle Price1" for Contract "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                         | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | PriceStartDate2 | PriceEndDate2 | BaselineStartDate2 | BaselineEndDate2 | Program_Name | Organization_Type | Organization_Name | Bundle_1               | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create contract with 1 Bundle having multiple Price | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2018/01/01      | 2019/06/30    | 2018/03/03      | 2018/05/04    | 2018/03/09         | 2018/05/01       | 2018/06/01      | 2018/07/07    | 2018/04/28         | 2018/05/28       | PROGRAMNAME  | ACH               | ACHNAME           | CBundle2FYlGIztSgH0152 |    123 |    124 |          121 |         135 |         106 | Contract Successfully Created |
+
+  Scenario Outline: Create contract with multiple Bundles
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter price "<Price1>" for Contract "1" on "create" Contracts page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor1>" in "Trend Factor" for "Bundle Price1" for Contract "1"
+    And I enter "<Upper_Bound1>" in "Upper Bound" for "Bundle Price1" for Contract "1"
+    And I enter "<Lower_Bound1>" in "Lower Bound" for "Bundle Price1" for Contract "1"
+    Then I click on "Add Bundle" button on "create" organization page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter price "<Price1>" for Contract "1" on "create" Contracts page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
+    Then I enter date "<BundleEndDate>" in "BundleEndDate" field for index "3"
+    Then I enter date "<PriceStartDate1>" in "PriceStartDate" field for index "4"
+    Then I enter date "<PriceEndDate1>" in "Baseline Date" field for index "5"
+    Then I enter date "<BaselineStartDate1>" in "BaselineStartDate" field for index "6"
+    Then I enter date "<BaselineEndDate1>" in "BaselineEndDate" field for index "7"
+    And I enter "<Trend_Factor1>" in "Trend Factor" for "Bundle Price1" for Contract "1"
+    And I enter "<Upper_Bound1>" in "Upper Bound" for "Bundle Price1" for Contract "1"
+    And I enter "<Lower_Bound1>" in "Lower Bound" for "Bundle Price1" for Contract "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                                            | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | PriceStartDate2 | PriceEndDate2 | BaselineStartDate2 | BaselineEndDate2 | Program_Name | Organization_Type | Organization_Name | Bundle_1               | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2018/01/01      | 2019/06/30    | 2018/03/03      | 2018/05/04    | 2018/03/09         | 2018/05/01       | 2018/06/01      | 2018/07/07    | 2018/04/28         | 2018/05/28       | PROGRAMNAME  | ACH               | ACHNAME           | CBundle2FYlGIztSgH0152 |    123 |    124 |          121 |         135 |         106 | Contract Successfully Created |

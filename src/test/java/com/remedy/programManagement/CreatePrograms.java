@@ -113,7 +113,7 @@ public class CreatePrograms extends BaseClass {
 			delay();
 			driver.findElement(By.cssSelector(".org-name")).click();
 		}
-		else if(text.contains("PGPNAME"))
+		else if(text.contains("HHANAME"))
 		{
 			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg_noMO.get("HHANAME"));
 			delay();

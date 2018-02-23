@@ -36,12 +36,12 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(text);
 	    }
 	
-	@And("^I select Organiztion type \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	@And("^I select Organization type \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Select_OrganizationType_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
 		programs.iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(text, num, field);
 	    }
 	
-	@And("^I select Organiztion name \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	@And("^I select Organization name \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Select_Organization_Name_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
 		programs.iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(text, num, field);
 	    }
