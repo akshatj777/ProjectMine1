@@ -174,7 +174,6 @@ Feature: Delete a user from SA
     Then I select "<Programs3>" programs
     Then I select "<Locations3>" locations
     Then I click on Submit button for "<User>"
-    
     And I wait for 3000 milli seconds
     Then I search for user with role "<User>-<Role>"
     Then I select user with role "<User>-<Role>"
