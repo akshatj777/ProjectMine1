@@ -1,6 +1,7 @@
-Feature: Add test data
+@AECTestData
+Feature: Configure Test Data for EC smoke automation.
 
-  Scenario: 63 (Stamford Start date should be one year back) (M2 90 days)
+   Scenario: 63 (Stamford Start date should be one year back) (M2 90 days)
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -9,14 +10,17 @@ Feature: Add test data
     And I click on the "Episodes" tile
     And I switch to new window
     When I am on "/secure/admin/facility"
-    Then I enter "TMH" in the facilityKey textbox
+    Then I enter "TSH" in the facilityKey textbox
+    And I fill in group with "Stamford" on facility creation page
+    And I fill in name with "Stamford Hospital" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
+    And I will wait to see "TSH" in "td" tag
     And I click on "DRG" appearing beside the facility
     Then I delete the "63" drg
     Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
     And I click on "ADD NEW DRG" option on the drg list page in the facility
-    Then I wait untill i see "Add DRG to " "The Miriam Hospital" under Add drg pop up
+    Then I wait untill i see "Add DRG to " "Stamford Hospital" under Add drg pop up
     And I fill in DRG with "(63)"
     And I click on searched result in the drgs
     Then I fill in the start date with logic "minus" "440" days
@@ -27,7 +31,7 @@ Feature: Add test data
     When I click on Add button after selecting the drg
     Then I verify "63" is appearing in the drg list under facility
 
-  Scenario: 6 (BPCI Allentown) (M2 90 days)
+    Scenario: 6 (BPCI Allentown) (M2 90 days)
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
@@ -41,6 +45,7 @@ Feature: Add test data
     And I fill in name with "Allentown" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
+    And I will wait to see "A" in "td" tag
     And I click on "DRG" appearing beside the facility
     Then I delete the "6" drg
     Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
@@ -66,10 +71,14 @@ Feature: Add test data
     And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "RIH" in the facilityKey textbox
+    And I fill in group with "LifeSpan" on facility creation page
+    And I fill in name with "Rhode Island Hospital" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
+    And I will wait to see "RIH" in "td" tag
     And I click on "DRG" appearing beside the facility
     Then I delete the "66" drg
+    Then I scroll the page to bottom by "-600"
     Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
     And I click on "ADD NEW DRG" option on the drg list page in the facility
     Then I wait untill i see "Add DRG to " "Rhode Island Hospital" under Add drg pop up
@@ -95,8 +104,10 @@ Feature: Add test data
     Then I enter "110109" in the facilityKey textbox
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
+    And I will wait to see "110109" in "td" tag
     Then I click on the edit facility on the facilities under admin center
     And I will wait to see the edit facility text "You're editing the object" "Emanuel County Hospital Authority"
+    When I fill in "Group" xpath "//*[@id='edit_bpfacility_group']" with "110109"
     Then I scroll the page to bottom by "600"
     Then I will checkin the Participating checkbox on the edit facility
     Then I save the edited facility
@@ -111,7 +122,7 @@ Feature: Add test data
     Then I scroll the page to bottom by "600"
     Then I will checkin the Episode initiator checkbox on the edit facility
     Then I will checkin the Participating checkbox on the edit facility
-    Then I will select the "110109 - Emanuel County Hospital Authority" Participating facility
+    Then I will select the "Emanuel County Hospital Authority" Participating facility
     Then I save the edited facility
     And I will wait to see "The object was successfully saved." in "p" tag
     When I am on "/secure/admin/facility"
@@ -168,7 +179,7 @@ Feature: Add test data
     Then I scroll the page to bottom by "600"
     Then I will checkin the Episode initiator checkbox on the edit facility
     Then I will checkin the Participating checkbox on the edit facility
-    Then I will select the "110109 - Emanuel County Hospital Authority" Participating facility
+    Then I will select the "Emanuel County Hospital Authority" Participating facility
     Then I save the edited facility
     And I will wait to see "The object was successfully saved." in "p" tag
     When I am on "/secure/admin/facility"
@@ -228,8 +239,10 @@ Feature: Add test data
     Then I enter "200024" in the facilityKey textbox
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
+    And I will wait to see "200024" in "td" tag
     Then I click on the edit facility on the facilities under admin center
     And I will wait to see the edit facility text "You're editing the object" "Central Maine Medical Center"
+    When I fill in "Group" xpath "//*[@id='edit_bpfacility_group']" with "200024"
     Then I scroll the page to bottom by "600"
     Then I will checkin the Participating checkbox on the edit facility
     Then I save the edited facility
@@ -244,7 +257,7 @@ Feature: Add test data
     Then I scroll the page to bottom by "600"
     Then I will checkin the Episode initiator checkbox on the edit facility
     Then I will checkin the Participating checkbox on the edit facility
-    Then I will select the "200024 - Central Maine Medical Center" Participating facility
+    Then I will select the "Central Maine Medical Center" Participating facility
     Then I save the edited facility
     And I will wait to see "The object was successfully saved." in "p" tag
     When I am on "/secure/admin/facility"
@@ -252,6 +265,7 @@ Feature: Add test data
     And I click on "DRG" appearing beside the facility
     Then I delete the "177" drg
     Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
+    Then I scroll the page to bottom by "-600"
     And I click on "ADD NEW DRG" option on the drg list page in the facility
     Then I wait untill i see "Add DRG to " "Ramsey Inpatient Physicians" under Add drg pop up
     And I fill in DRG with "(177)"

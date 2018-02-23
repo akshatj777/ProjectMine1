@@ -106,7 +106,8 @@ public class DriverScript {
 			
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--start-maximized");            
-			options.addArguments("--disable-extensions");            
+			options.addArguments("--disable-extensions");   
+			options.addArguments("--disable-browser-side-navigation"); 
 			options.setExperimentalOption("prefs", chromePrefs);           
 			DesiredCapabilities cap = DesiredCapabilities.chrome();            
 			cap.setCapability(ChromeOptions.CAPABILITY, options);          

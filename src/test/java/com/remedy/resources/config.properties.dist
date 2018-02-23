@@ -12,3 +12,4 @@ DBPassword = Password
 MySQLServerName = My_SQL_Server_URL
 MySQLDBUserName = My_SQL_UserName
 MySQLPassword = My_SQL_Password
+ECBaseUrl=https://qa.remedypartners.com

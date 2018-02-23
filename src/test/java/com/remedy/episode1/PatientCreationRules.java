@@ -2,10 +2,13 @@ package com.remedy.episode1;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.remedy.baseClass.BaseClass;
@@ -183,9 +186,11 @@ public class PatientCreationRules extends BaseClass {
     
     public void iWaitToSeeListOfFacilities(){
     	iWillWaitToSee(By.cssSelector(".list_trow"));
+    	longDelay();
     }
     
     public void iClickOnDRGOnFaciltiesPage(String text){
+    	longDelay();
     	clickElement(driver.findElement(By.xpath("//a[text()='"+text+"']")));
     }
     
@@ -221,6 +226,7 @@ public class PatientCreationRules extends BaseClass {
     }
     
     public void iVerifyDRGListInFacility(String text){
+    	longDelay();
     	verifyTextForElementfromList(".td_string.td_drg_id",text);
     }
     
@@ -311,7 +317,9 @@ public class PatientCreationRules extends BaseClass {
 	}
 
 	public void delete_drg(String drg) {
-		List<String> lists=getTextForElementfromList("td.td_drg_id");
+		driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
+		int c=getElementCount("#drgs>tbody>tr");
+	    List<String> lists=getTextForElementfromList("td.td_drg_id");
 		int duplicate_count=Collections.frequency(lists, drg);
 	    if(duplicate_count==0){
 			  	return;
@@ -368,16 +376,22 @@ public class PatientCreationRules extends BaseClass {
 	}
 
 	public void textonAdddrgpopup(String text, String hospital) {
+		longDelay();
 		String Newtext=text+hospital;
 		iWillWaitToSee(By.xpath("//h2[text()='"+Newtext+"']"));
 	}
 
 	public void clickontheeditfacility() {
+		longDelay();
 		iWillWaitToSee(By.xpath("//a[@data-title='Edit']"));
+		new Actions(driver).moveToElement(driver.findElement(By.xpath("//a[@data-title='Edit']"))).build().perform();
 		clickElement(driver.findElement(By.xpath("//a[@data-title='Edit']")));
+		new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='generic_actions']")));
 	}
 
 	public void waittoseetheeditfacilitytext(String object,String hospital) {
+		longDelay();
+		iWillWaitToSee(By.cssSelector("#adminContentContainer>header>h1"));
 		String text=object+" "+"\"" + hospital + "\"";
 		verifyTextForElement(driver.findElement(By.cssSelector("#adminContentContainer>header>h1")),text);
 	}
@@ -406,16 +420,15 @@ public class PatientCreationRules extends BaseClass {
 	}
 
 	public void selectParticipatingoneditfacility(String facility) {
-		List<String> lists=getTextForElementfromList("#edit_bpfacility_participatingFacilities_selected>li>a");
-		System.out.println("list of"+lists);
-		if(lists.contains(facility.trim())){
-			return;
-		}else{
-	        longDelay();
-			clickElement(driver.findElement(By.xpath("//a[normalize-space()='"+facility+"']")));
-			clickElement(driver.findElement(By.cssSelector("button.btn.btn-large.select>i")));
-		}
-	}
+		  List<String> lists=getTextForElementfromList("#edit_bpfacility_participatingFacilities_selected>li>a");
+			 if(lists.contains(facility.trim())){
+			   return;
+			  }else{
+			         longDelay();
+			   clickElement(driver.findElement(By.xpath("//a[contains(text(),'"+facility+"')]")));
+			   clickElement(driver.findElement(By.cssSelector("button.btn.btn-large.select>i")));
+			  }}
+	
 
 	public void Isavetheeditedfacility() {
 		iWillWaitToSee(By.xpath("//button[@name='save']"));
