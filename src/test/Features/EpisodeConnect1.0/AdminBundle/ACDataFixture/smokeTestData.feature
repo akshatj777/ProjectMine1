@@ -102,6 +102,8 @@ Feature: Configure Test Data for EC smoke automation.
     And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "110109" in the facilityKey textbox
+    And I fill in group with "110109" on facility creation page
+    And I fill in name with "Emanuel County Hospital Authority" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
     And I will wait to see "110109" in "td" tag
@@ -114,6 +116,8 @@ Feature: Configure Test Data for EC smoke automation.
     And I will wait to see "The object was successfully saved." in "p" tag
     When I am on "/secure/admin/facility"
     Then I enter "264770638" in the facilityKey textbox
+    And I fill in group with "Envision Health Care" on facility creation page
+    And I fill in name with "Kemwall Inpatient Services" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
     And I will wait to see "264770638" in "td" tag
@@ -171,6 +175,8 @@ Feature: Configure Test Data for EC smoke automation.
     Then I wait untill i see "ADD NEW DRG" option on the drg list page under facility
     When I am on "/secure/admin/facility"
     Then I enter "262348219" in the facilityKey textbox
+    And I fill in group with "Saber Health" on facility creation page
+    And I fill in name with "Broomall Healthcare Group, Inc." on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
     And I will wait to see "262348219" in "td" tag
@@ -237,6 +243,8 @@ Feature: Configure Test Data for EC smoke automation.
     And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "200024" in the facilityKey textbox
+    And I fill in group with "200024" on facility creation page
+    And I fill in name with "Central Maine Medical Center" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
     And I will wait to see "200024" in "td" tag
@@ -249,6 +257,8 @@ Feature: Configure Test Data for EC smoke automation.
     And I will wait to see "The object was successfully saved." in "p" tag
     When I am on "/secure/admin/facility"
     Then I enter "611433919" in the facilityKey textbox
+    And I fill in group with "Envision Health Care" on facility creation page
+    And I fill in name with "Ramsey Inpatient Physicians" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
     And I will wait to see "611433919" in "td" tag

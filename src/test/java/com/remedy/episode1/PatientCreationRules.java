@@ -386,7 +386,7 @@ public class PatientCreationRules extends BaseClass {
 		iWillWaitToSee(By.xpath("//a[@data-title='Edit']"));
 		new Actions(driver).moveToElement(driver.findElement(By.xpath("//a[@data-title='Edit']"))).build().perform();
 		clickElement(driver.findElement(By.xpath("//a[@data-title='Edit']")));
-		new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='generic_actions']")));
+		new WebDriverWait(driver,10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//h1[text()='Facilities']")));
 	}
 
 	public void waittoseetheeditfacilitytext(String object,String hospital) {
