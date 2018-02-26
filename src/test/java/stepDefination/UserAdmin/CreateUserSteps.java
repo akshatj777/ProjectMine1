@@ -555,7 +555,10 @@ public class CreateUserSteps extends DriverScript {
 	public void enterTextLearningPathwaySearchBox(String searchParam) throws Throwable {
 		createUser.enterTextLearningPathwaySearchBox(searchParam);
 	}
-
+	@Then("^I remove \"([^\"]*)\" from the results$")
+	public void removeLearningPath(String searchParam) throws Throwable {
+		createUser.selectLearningPath(searchParam);
+	}
 	@Then("^I select \"([^\"]*)\" from the results$")
 	public void selectLearningPath(String searchParam) throws Throwable {
 		createUser.selectLearningPath(searchParam);
@@ -590,6 +593,7 @@ public class CreateUserSteps extends DriverScript {
 		createUser.selectLocationsForDownstreamProvider(locationList);
 	}
 	
+	@When("^I deselect \"([^\"]*)\" locations for PTA user$")
 	@Then("^I select \"([^\"]*)\" locations for PTA user$")
 	public void selectLocationsForPTAUser(String locationList) throws Throwable {
 		createUser.selectLocationsForPTAUser(locationList);
@@ -762,6 +766,7 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.removeAlreadySelectedRole();
 	 }
 
+
 	 @Then("^I deselect \"([^\"]*)\" programs$")
 		public void deselectPrograms(String programList) throws Throwable {
 			createUser.deselectPrograms(programList);
@@ -770,6 +775,7 @@ public class CreateUserSteps extends DriverScript {
 		public void deselectLocations(String locationList) throws Throwable {
 			createUser.selectLocations(locationList);
 		}
+
 
 
 	 
@@ -822,5 +828,6 @@ public class CreateUserSteps extends DriverScript {
 		public void i_Click_on_Arrow_Buttons_on_Landing_Page(String text) throws Throwable {
 		 createUser.iClickonArrowButtonsonLandingPage(text);
 	 }
+
 }
 

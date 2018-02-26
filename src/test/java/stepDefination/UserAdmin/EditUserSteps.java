@@ -164,4 +164,8 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iRemoveHealthSystemByName(String org){
 		editUser.iRemoveHealthSystemByName(org);
 	}
+	@Then("^I click on learning pathway dropdown$")
+	public void iClickOnLearningPathwayDropdown(){
+		editUser.iClickOnLearningPathwayDropdown();
+	}
 }

@@ -358,9 +358,17 @@ Feature: Edit page for Downstream provider
     When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role>
     Then I click on Next button
+    Then I verify Learning Pathway search box is not available
+    Then I unselect "<DisableApplications>" product
+    Then I verify that "Next" button is disabled when no application is selected
     Then I select "<EnableApplications>" product
     Then I click on Select button
     Then I verify Learning Pathway search box is available
+    Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    And I verify No results found under Learning Pathway search box
+    Then I click on Select button
+    Then I click on Select button
+    Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I verify text "Which location(s) does this user have access to?" is "Not Present" in Permission tab
@@ -446,5 +454,5 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | NPI | PreviousRole        | Role      | EnableApplications | Applications               | ApplicationsNotVisible                          | LearningPathwaySearchParameter         | Roletext | Health System     | Programs    | Locations                   | ReportCategory | ReportName         | BPID | Facilities        | LearningPathway                        | ProgramsValidation              | LocationsValidation                           |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail |     | Downstream Provider | Executive | Reports, Lessons   | Episodes, Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | i am learning path, Learning Pathway 2 | ROLE_PRM | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Patient ID     | Episode DRG Issues |      | Stamford Hospital | i am learning path, Learning Pathway 2 | Stamford Hospital--BPCI Model 2 | Stamford Hospital--2070-015--Stamford Hospita |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | NPI | PreviousRole        | Role      | DisableApplications | EnableApplications | Applications     | ApplicationsNotVisible                          | LearningPathwayName | LearningPathwaySearchParameter         | Roletext | Health System     | Programs    | Locations                   | ReportCategory | ReportName         | BPID | Facilities        | LearningPathway                        | ProgramsValidation              | LocationsValidation                           |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail |     | Downstream Provider | Executive | Episodes            | Reports, Lessons   | Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | Test123             | i am learning path, Learning Pathway 2 | ROLE_PRM | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Patient ID     | Episode DRG Issues |      | Stamford Hospital | i am learning path, Learning Pathway 2 | Stamford Hospital--BPCI Model 2 | Stamford Hospital--2070-015--Stamford Hospita |

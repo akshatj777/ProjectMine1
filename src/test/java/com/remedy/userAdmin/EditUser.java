@@ -215,7 +215,7 @@ public class EditUser extends BaseClass {
 	   }
 	   public void iVerifyDisabledNextButton(String text){
 		   WebElement el = driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]"));
-		   Assert.assertTrue(el.isDisplayed ());
+		   Assert.assertFalse(el.isEnabled());
 		   
 	   }
 	   public void iVerifyErrorMessage(String text){
@@ -426,5 +426,9 @@ public class EditUser extends BaseClass {
 		public void VerifyNPIFieldForPhysicians(String role){
 			if(role.equals("Physicians"))
 			Assert.assertTrue(isElementVisible(driver.findElement(By.cssSelector("input[placeholder='NPI']"))));
+		}
+		public void iClickOnLearningPathwayDropdown(){
+			iWillWaitToSee(By.cssSelector(".ui.label"));
+			clickElement(driver.findElement(By.cssSelector(".ui.label")));
 		}
 }
