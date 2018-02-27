@@ -1,5 +1,6 @@
 Feature: Edit user page for PTA
 
+ 
   Scenario Outline: Change General information and edit apps
     Given I am on the login page
     Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
@@ -116,6 +117,70 @@ Feature: Edit user page for PTA
     And I verify "Dashboard" after redirection to EC1 for "Partner Technical Administrator-Physicians" user
     And I verify NPI on ECI for "Partner Technical Administrator-Physicians" user
 
+   Scenario Outline: Verify the functionality of back/Cancel button
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I verify the header "General Information"
+    And I fill in First Name with "First Name"
+    Then I fill in Last Name with LastName
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    Then I click on "Applications" tab on the left
+    Then I verify the header "Applications"
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I click on Back button
+    Then I verify the header "Applications"
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    Then I click on "Applications" tab on the left
+    Then I verify the header "Applications"
+    Then I click on "Permissions" tab on the left
+    Then I verify the header "Permissions"
+    Then I click on Cancel button
+    And I verify that I am navigated to user page
+
+    Examples: 
+      | User                            | Role      |
+      | Partner Technical Administrator | Executive |
+
+  Scenario Outline: Verify applications on changing role
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<PreviousRole>"
+    Then I select user with role "<User>-<PreviousRole>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I verify the header "General Information"
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<ApplicationsUnchecked>" are unchecked
+    Then I verify applications "<ApplicationsChecked>" are checked
+
+    Examples: 
+      | User                            | PreviousRole | Role       | ApplicationsChecked        | ApplicationsUnchecked |
+      | Partner Technical Administrator | Executive    | Physicians | Reports, Episodes, Lessons | Physician Connect     |
+  
   Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy

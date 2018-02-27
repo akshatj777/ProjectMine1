@@ -241,8 +241,6 @@ Feature: Edit user page for SA
     Then I select user with role "<User>-<Role>"
     And I verify that I am navigated to user page
     And I click on Edit button
-    Then I select "Applications" tab
-    Then I unselect "<DisableApplications>" product
     Then I select "Permissions" tab
     Then I remove health system "<Remove HealthSystem>"
     And I click on "Remove" button on permissions tab
@@ -322,8 +320,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description                          | User        | Role      | Email             | DisableApplications | Applications           | ApplicationsNotVisible                                   | Remove HealthSystem | Health System    | Programs    | Locations                                        | Facilities                             | ProgramsValidation             | LocationsValidation                                                | LearningPathway                                           | FirstName                                 | LastName                                 | Roletext | ReportCategory | ReportName         |
-      | Remove Existing org and add new org1 | Super Admin | Executive | test.automatemail | Reports             | Episodes, TCI, Lessons | Reports, Episodes 2.0, Administration, Physician Connect | Stamford Hospital   | Sound Physicians | BPCI-Model2 | 6005-080--Winchester Medical Center - Rehab Unit | Winchester Medical Center - Rehab Unit | Sound Physicians--BPCI Model 2 | Sound Physicians--6005-080--Winchester Medical Center - Rehab Unit | i am learning path, Learning Pathway 2, Remedy University | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | ROLE_PRM | Patient ID     | Episode DRG Issues |
+      | Description                          | User        | Role      | Email             | Applications                    | ApplicationsNotVisible                          | Remove HealthSystem | Health System    | Programs    | Locations                                        | Facilities                             | ProgramsValidation             | LocationsValidation                                                | LearningPathway                                           | FirstName                                 | LastName                                 | Roletext | ReportCategory | ReportName         |
+      | Remove Existing org and add new org1 | Super Admin | Executive | test.automatemail | Reports, Episodes, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | Stamford Hospital   | Sound Physicians | BPCI-Model2 | 6005-080--Winchester Medical Center - Rehab Unit | Winchester Medical Center - Rehab Unit | Sound Physicians--BPCI Model 2 | Sound Physicians--6005-080--Winchester Medical Center - Rehab Unit | i am learning path, Learning Pathway 2, Remedy University | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | ROLE_PRM | Patient ID     | Episode DRG Issues |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -1043,3 +1041,92 @@ Feature: Edit user page for SA
       | Verify validation message for NPI less than 10 digits | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
       | Verify validation message for NPI as alphabets        | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
       | Verify validation message for NPI as alphanumeric     | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
+
+  Scenario Outline: Verify auto selected programs in Organizations
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I verify the header "Permissions"
+    Then I click Add Organization button for "<HasHealthSystem2>" flag
+    And I search for health system with <Health System2>
+    And I select a <Health System2>
+    Then I verify default program "BPCI-Model2" associated with organization
+
+    Examples: 
+      | User        | Role      | HasHealthSystem2 | Health System2    |
+      | Super Admin | Executive | Yes              | Stamford Hospital |
+
+  Scenario Outline: Verify the functionality of back/Cancel button
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I verify the header "General Information"
+    And I fill in First Name with "First Name"
+    Then I fill in Last Name with LastName
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    Then I click on "Applications" tab on the left
+    Then I verify the header "Applications"
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I click on Back button
+    Then I verify the header "Applications"
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    Then I click on "Applications" tab on the left
+    Then I verify the header "Applications"
+    Then I click on "Permissions" tab on the left
+    Then I verify the header "Permissions"
+    Then I click Add Organization button for "<HasHealthSystem2>" flag
+    And I search for health system with Stamford Hospital
+    And I select a Stamford Hospital
+    Then I click on Select All Locations button
+    Then I click on Cancel button
+    And I verify that I am navigated to user page
+
+    Examples: 
+      | User        | Role      | HasHealthSystem2 |
+      | Super Admin | Executive | Yes              |
+
+  Scenario Outline: Verify applications on changing role
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<PreviousRole>"
+    Then I select user with role "<User>-<PreviousRole>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I verify the header "General Information"
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<ApplicationsUnchecked>" are unchecked
+    Then I verify applications "<ApplicationsChecked>" are checked
+
+    Examples: 
+      | User        | PreviousRole | Role                           | ApplicationsChecked        | ApplicationsUnchecked                                |
+      | Super Admin | Executive    | Remedy Technical Administrator | Reports, Episodes, Lessons | Episodes 2.0, Physician Connect, Administration, TCI |
