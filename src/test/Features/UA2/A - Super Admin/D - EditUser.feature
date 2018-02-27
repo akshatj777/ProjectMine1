@@ -1084,7 +1084,7 @@ Feature: Edit user page for SA
     Then I verify the header "General Information"
     Then I click on "Applications" tab on the left
     Then I verify the header "Applications"
-    Then I click on Next button
+    Then I click on "Permissions" tab on the left
     Then I verify the header "Permissions"
     Then I click on Back button
     Then I verify the header "Applications"
@@ -1092,9 +1092,11 @@ Feature: Edit user page for SA
     Then I verify the header "Permissions"
     Then I click on "General Information" tab on the left
     Then I verify the header "General Information"
+    When I click the Organizational Role Field
+    Then I pick a Organizational Manager
     Then I click on "Applications" tab on the left
     Then I verify the header "Applications"
-    Then I click on "Permissions" tab on the left
+    Then I click on Next button
     Then I verify the header "Permissions"
     Then I click Add Organization button for "<HasHealthSystem2>" flag
     And I search for health system with Stamford Hospital
@@ -1102,6 +1104,7 @@ Feature: Edit user page for SA
     Then I click on Select All Locations button
     Then I click on Cancel button
     And I verify that I am navigated to user page
+    Then I verify role "<Role>"
 
     Examples: 
       | User        | Role      | HasHealthSystem2 |
@@ -1121,12 +1124,20 @@ Feature: Edit user page for SA
     And I click on Edit button
     Then I verify the header "General Information"
     When I click the Organizational Role Field
-    Then I pick a Organizational <Role>
+    Then I pick a Organizational <Role1>
     Then I click on Next button
     Then I verify the header "Applications"
-    Then I verify applications "<ApplicationsUnchecked>" are unchecked
-    Then I verify applications "<ApplicationsChecked>" are checked
+    Then I verify applications "<ApplicationsUnchecked1>" are unchecked
+    Then I verify applications "<ApplicationsChecked1>" are checked
+    Then I click on "General Information" tab on the left
+    Then I verify the header "General Information"
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role2>
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<ApplicationsUnchecked2>" are unchecked
+    Then I verify applications "<ApplicationsChecked2>" are checked
 
     Examples: 
-      | User        | PreviousRole | Role                           | ApplicationsChecked        | ApplicationsUnchecked                                |
-      | Super Admin | Executive    | Remedy Technical Administrator | Reports, Episodes, Lessons | Episodes 2.0, Physician Connect, Administration, TCI |
+      | User        | PreviousRole | Role1                          | ApplicationsChecked1       | ApplicationsUnchecked1                               | Role2             | ApplicationsChecked2 | ApplicationsUnchecked2 |
+      | Super Admin | Executive    | Remedy Technical Administrator | Reports, Episodes, Lessons | Episodes 2.0, Physician Connect, Administration, TCI | Remedy Sales Team | Lessons, Reports     | TCI                    |
