@@ -18,14 +18,17 @@ public class ViewUserPage extends BaseClass {
 
 	public void searchForUserRole(String userRole) throws Throwable {
 		iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']"));
+		Thread.sleep(3000);
 		String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 		iFillInText(driver.findElement(By.xpath("//input[@placeholder='Search']")), email);
+		Thread.sleep(3000);
 	}
 
 	public void selectUserRole(String userRole) throws Throwable {
 		String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 		iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']"));
 		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']")));
+		Thread.sleep(3000);
 	}
 
 	public void verifyNavigationToViewUserPage() throws Throwable {
@@ -46,10 +49,12 @@ public class ViewUserPage extends BaseClass {
 		{
 			if(field.equals("NPI"))
 			{
+				iWillWaitToSee(By.xpath("//*[text()[contains(.,'"+CreateUserPage.userNPI+"')]]"));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[text()[contains(.,'"+CreateUserPage.userNPI+"')]]")));
 			}
 			else
 			{
+				iWillWaitToSee(By.xpath("//*[text()[contains(.,'"+field+"')]]"));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[text()[contains(.,'"+field+"')]]")));
 			}
 		}
@@ -61,6 +66,7 @@ public class ViewUserPage extends BaseClass {
 	}
 
 	public void verifyHealthSystem(String healthSystem) throws Throwable {
+		
 		if(!(healthSystem.equals("")))
 		{
 			if(healthSystem.contains(","))
@@ -68,11 +74,14 @@ public class ViewUserPage extends BaseClass {
 				StringTokenizer st = new StringTokenizer(healthSystem, ",");
 				while(st.hasMoreTokens())
 				{
+					
+					iWillWaitToSee(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]"));
 					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]")));
 				}
 			}
 			else
 			{
+				iWillWaitToSee(By.xpath("//span[contains(text(),'"+healthSystem+"')]"));
 				Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+healthSystem+"')]")));
 			}
 		}
@@ -89,6 +98,7 @@ public class ViewUserPage extends BaseClass {
 					String token = st.nextToken().trim();
 			    	String program = token.substring(token.indexOf("--")+2, token.length());
 			    	String healthSystem = token.substring(0, token.indexOf("--"));
+			    	iWillWaitToSee(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]"));
 			    	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]")));
 				}
 			}
@@ -96,6 +106,7 @@ public class ViewUserPage extends BaseClass {
 			{
 				String program = programs.substring(programs.indexOf("--")+2, programs.length());
 		    	String healthSystem = programs.substring(0, programs.indexOf("--"));
+		    	iWillWaitToSee(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]"));
 		    	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='title accordion-title']//span[contains(text(),'"+healthSystem+"')]//span[contains(text(),'"+program+"')]")));
 			}
 		}
@@ -216,8 +227,8 @@ public class ViewUserPage extends BaseClass {
 		{
 			if(applicationsDisabled.contains(","))
 			{
-				String applicationDisabled = CreateUserPage.usersApplicationsPerRole.get(applicationsDisabled).get(applicationsDisabled.substring((applicationsDisabled.indexOf("-")+1)));
-				   StringTokenizer st = new StringTokenizer(applicationDisabled, ",");
+				//String applicationDisabled = CreateUserPage.usersApplicationsPerRole.get(applicationsDisabled).get(applicationsDisabled.substring((applicationsDisabled.indexOf("-")+1)));
+				   StringTokenizer st = new StringTokenizer(applicationsDisabled, ",");
 				   while(st.hasMoreTokens())
 				   {
 					   isElementPresentOnPage(By.xpath("//tr/td[text()='"+st.nextToken().trim()+"']/parent::tr/td[text()='Disabled']"));   

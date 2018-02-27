@@ -275,6 +275,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 				else if(org.contains("Payor"))
 				{
+					scrollIntoViewByJS(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")));
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 					if(!CreatePayorOrganization.tempPayorOrg.isEmpty())

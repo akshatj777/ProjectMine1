@@ -6,7 +6,6 @@ Feature: View SNF organization functionality tests
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
-    #Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
@@ -176,5 +175,5 @@ Feature: View SNF organization functionality tests
     And I verify the "Create New SNF Organization" link under No matches
 
     Examples: 
-      | Description | MO_Name | SNF_Name |
+      | Description                                                             | MO_Name | SNF_Name         |
       | Searching invalid details on Managing Organization Profile Page for SNF | MONAME  | NoMatchesSNFNAME |

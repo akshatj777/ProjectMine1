@@ -6,7 +6,6 @@ Feature: Search the Payor organization functionality test
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
-    #Then I verify "Welcome to Program Management" header on the page
     When I click on Organization link on Program Management page
     When I click on "Payor" organization tab on organization dashboard
 
@@ -27,7 +26,7 @@ Feature: Search the Payor organization functionality test
     Then I verify "<Message>" after submitting the "create Payor" organization page
 
     Examples: 
-      | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                           |
+      | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                  |
       | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
 
   Scenario Outline: <Description>

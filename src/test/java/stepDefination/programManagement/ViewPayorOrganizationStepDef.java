@@ -21,7 +21,7 @@ public class ViewPayorOrganizationStepDef extends DriverScript{
 	
 	@And("^I verify the \"([^\"]*)\" button on view profile of \"([^\"]*)\" Organization$")
 	  public void i_Verify_buttons_on_View_profile_of_Payor_Organization(String text, String org) throws Throwable {
-		viewPayor.iVerifybuttonOnViewProfileOfPayorOrganization(text, org);
+		viewPayor.iVerifybuttonOnViewProfileOfPayorOrganization(text,org);
 		}
 	
 	@And("^I click on \"([^\"]*)\" tab on view profile of \"([^\"]*)\" Organization$")

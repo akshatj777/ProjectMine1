@@ -36,19 +36,19 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(text);
 	    }
 	
-	@And("^I select Organiztion type \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	@And("^I select Organization type \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Select_OrganizationType_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
 		programs.iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(text, num, field);
 	    }
 	
-	@And("^I select Organiztion name \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	@And("^I select Organization name \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Select_Organization_Name_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
 		programs.iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(text, num, field);
 	    }
 	
-	@And("^I select Bundle1 \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
+	@And("^I select Bundle \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
 	  public void i_Select_Bundle1_on_Create_Contracts_Page(String text, int num, String field) throws Throwable {
-		programs.iSelectBundle1OnCreateContratsPageUnderPayorOrganization(text,num,field);
+		programs.iSelectBundleOnCreateContractsPageUnderPayorOrganization(text,num,field);
 	    }
 	
 	@And("^I enter price \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
@@ -56,14 +56,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iEnterPriceOnCreateContractsPage(text,num,field);
 	    }
 	
-	@And("^I enter date \"([^\"]*)\" in \"([^\"]*)\" field for index \"([^\"]*)\"$")
-	  public void enterDateInContractPage(String date, String field, int index) throws Throwable {
-		programs.enterDate(date,field, index);
-	    }
-	
-	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1, int num, String field2) throws Throwable {
-		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1, field2);
+	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\"$")
+	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1, int num) throws Throwable {
+		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1);
 	    }
 	
 	@Then ("^I select the date from date picker with logic \"([^\"]*)\" days from current date$")
@@ -71,11 +66,6 @@ public class CreateProgramsStepDef extends DriverScript{
 		List<Map<String,Integer>> data = dates.asMaps(String.class,Integer.class);
 		programs.iInsertdays1(data);
        }
-	
-	@Then ("^i navigate to the \"([^\"]*)\"$")
-	public void i_navigate_to_the(String url){
-		programs.i_navigate_to_the(url);
-	}
 	
 	@Then ("^I Click on \"([^\"]*)\" button$")
 	public void i_Click_on_Addbundle_Button(String text){
@@ -142,4 +132,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iVerifyDefaultNetworkContractEndDateShouldBeofBundledPaymentContractEndDate();
 	    }
 	
+	@And("^I enter date \"([^\"]*)\" in \"([^\"]*)\" field for index \"([^\"]*)\"$")
+	  public void enterDateInContractPage(String date, String field, int index) throws Throwable {
+		programs.enterDate(date,field, index);
+	    }
+
 }

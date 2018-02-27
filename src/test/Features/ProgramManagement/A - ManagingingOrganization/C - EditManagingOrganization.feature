@@ -6,7 +6,6 @@ Feature: Edit the Managing organization functionality test
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
-    #Then I verify "Welcome to Program Management" header on the page
 
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page

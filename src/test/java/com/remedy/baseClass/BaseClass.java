@@ -203,6 +203,7 @@ public class BaseClass {
 			return;
 		}
 		obj.clear();
+		
 		if ("".equals(text)) {
 			return;
 		}
@@ -379,7 +380,6 @@ public class BaseClass {
 		String attr = element.getAttribute(attribute);
 		Assert.assertTrue(attr.contains(contains));
 	}
-
 	public boolean isElementPresentOnPage(By locatorKey) {
 		boolean value = true;
 		try {
@@ -440,6 +440,7 @@ public class BaseClass {
 	}
 	
 	public void iVerifyTextFromListOfElement(By locator, String text) {
+		
 		List<WebElement> listItems = driver.findElements(locator);
 		String value = null;
 		for (WebElement item : listItems) {
@@ -452,6 +453,7 @@ public class BaseClass {
 	}	
 	
 	public void clickSingleElementFromList(By locator, String text) {
+		
 	    List <WebElement> element = driver.findElements(locator);
 	    for(WebElement ele: element) {
 	    	if (ele.getText().trim().equals(text)) {
@@ -474,7 +476,18 @@ public class BaseClass {
     	String allignment=ele.getCssValue(property);
     	Assert.assertEquals("center", allignment);
 	}
+
+
+	public void isSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals(true, flag);
+	}
 	
+	public void isNotSelected(WebElement element){
+		boolean flag = element.isSelected();
+    	Assert.assertEquals(false, flag);
+	}
+
 	public String createRandomName(String name){
 		return name+RandomStringUtils.randomAlphabetic(8);
 	}
@@ -482,7 +495,6 @@ public class BaseClass {
 	public String createRandomNumber(int num){
 		return RandomStringUtils.randomNumeric(num);
 	}
-	
 	
 	public String fetchParticipantID(String query) throws ClassNotFoundException, SQLException  {
 		HashMap<String, HashMap<String, String>> row = new HashMap<String,HashMap<String,String>>();

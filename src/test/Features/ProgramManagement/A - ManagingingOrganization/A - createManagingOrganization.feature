@@ -6,8 +6,7 @@ Feature: Create Managing organization functionality tests
     Then I should see Tile text Program Management
     And I click on the "Program Management" tile
     And I switch to new window
-   #Then I verify "Welcome to Program Management" header on the page
-  
+
   Scenario: Verification of availability of all the fields on Create Managing Organization page
     When I click on Organization link on Program Management page
     Then I verify "+" button under "Managing" organization page
