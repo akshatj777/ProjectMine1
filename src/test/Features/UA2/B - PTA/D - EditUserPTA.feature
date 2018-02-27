@@ -30,7 +30,6 @@ Feature: Edit user page for PTA
     Then I remove "<RemoveLearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I click on Submit button while edit for "<User>-<Role>"
-    And I wait for 3000 milli seconds
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
     Then I verify phone "<Phone>"
@@ -165,7 +164,6 @@ Feature: Edit user page for PTA
     When I deselect "<RemoveLocations>" locations for PTA user
     Then I select "<AddLocations>" locations for PTA user
     Then I click on Submit button while edit for "<User>-<Role>"
-    And I wait for 3000 milli seconds
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
@@ -264,7 +262,6 @@ Feature: Edit user page for PTA
     When I deselect "<RemoveLocations>" locations for PTA user
     Then I select "<AddLocations>" locations for PTA user
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
-    And I wait for 3000 milli seconds
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
     Then I verify phone "<Phone>"

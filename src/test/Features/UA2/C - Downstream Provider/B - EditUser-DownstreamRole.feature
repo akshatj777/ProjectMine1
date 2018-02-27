@@ -109,7 +109,6 @@ Feature: Edit page for Downstream provider
     And I select a <Health System1>
     Then I select "<Locations1>" locations
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
-    And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify role "<Role>"
     Then I verify enabled "<EnableApplications>"
@@ -198,7 +197,6 @@ Feature: Edit page for Downstream provider
     Then I deselect "<DisableLocations1>" locations
     Then I select "<EnableLocations1>" locations
     Then I click on Submit button while edit for "<User>-<Role>"
-    And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
@@ -283,7 +281,6 @@ Feature: Edit page for Downstream provider
     And I select a <Health System1>
     Then I select "<Locations1>" locations
     Then I click on Submit button while edit for "<User>-<Role>"
-    And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
@@ -373,13 +370,10 @@ Feature: Edit page for Downstream provider
     Then I click on Next button
     Then I verify text "Which location(s) does this user have access to?" is "Not Present" in Permission tab
     And I search for health system with <Health System>
-    And I wait for 3000 milli seconds
     And I select a <Health System>
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
-    And I wait for 3000 milli seconds
-    And I wait for 3000 milli seconds
     And I verify that I am navigated to user page
     Then I verify role "<Role>"
     Then I verify enabled "<ApplicationsEnabled>"
