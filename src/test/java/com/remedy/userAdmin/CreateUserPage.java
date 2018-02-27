@@ -124,21 +124,14 @@ public class CreateUserPage extends BaseClass{
 
     public void iEnterFirstName(String text)
     {
-    	if(!(text.isEmpty()))
-    	{
     	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
         iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
-    	}
     }
 
     public void iEnterLasttName(String text) 
     {
-    	if(!(text.isEmpty()))
-    	{
         iWillWaitToSee(By.xpath("//input[@placeholder='Last Name']"));
     	iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
-   
-    	}
     }
 
     public final static String iGenerateEmail(String text) 
@@ -739,8 +732,10 @@ public class CreateUserPage extends BaseClass{
 			   clickElement(driver.findElement(By.cssSelector("li[id='user_dropdown']")));
 			   iWillWaitToSee(By.xpath("//a[contains(text(),'My Profile & Settings')]"));
 			   clickElement(driver.findElement(By.xpath("//a[contains(text(),'My Profile & Settings')]")));
+			   iWillWaitToSee(By.xpath("//li[contains(text(),'My Profile & Settings')]"));
 			   String last = details.substring(details.indexOf(" ")+1);
 			   iWillWaitToSee(By.xpath("//td[text()='"+last+"']"));
+			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//td[text()='"+last+"']")));
 		   }
 		   else{
 //		   	String user = role.substring(role.indexOf("-")+1);

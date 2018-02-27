@@ -39,10 +39,6 @@ public class MailCreateUser extends BaseClass{
 
 	public void iAmOnMailLoginPage() throws InterruptedException, AWTException {
 		driver.navigate().to("https://accounts.google.com");
-        if(DriverScript.Config.getProperty("Browser").equals("chrome"))
-        {
-        	driver.manage().window().maximize();
-        }
 	}
 	
 	public void iEnterUserNameToLoginMailAccount(String username) {

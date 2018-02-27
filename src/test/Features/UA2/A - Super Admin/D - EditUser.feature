@@ -149,7 +149,7 @@ Feature: Edit user page for SA
     Then I click on Submit button while edit for "<User>-<Role>"
     And I wait for 3000 milli seconds
     Then I verify role "<Role>"
-    Then I verify enabled "<EnableApplications>"
+    Then I verify enabled "<Applications>"
     Then I verify disabled "<DisableApplications>"
     And I click on the top user account link
     Then I click on "Log Out" button
