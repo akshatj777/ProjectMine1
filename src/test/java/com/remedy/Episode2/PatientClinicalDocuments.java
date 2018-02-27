@@ -840,7 +840,9 @@ public class PatientClinicalDocuments extends BaseClass {
 		}
 		
 		public void IShouldSeeTopicUnderNotes(String text) {
-			iVerifyTextFromListOfElement(By.cssSelector(".sorting_1"), text);
+			delay();
+			iWillWaitToSee(By.cssSelector(".sorting_1"));
+			verifyTextForElement(driver.findElement(By.cssSelector(".sorting_1")), text);
 		}
 		
 		public void IClickOnTabOnTransitionModal(String tab) {

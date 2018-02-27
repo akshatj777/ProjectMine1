@@ -26,7 +26,6 @@ Feature: Filters pinned to dashboard
     Then I click on the Cancel Button on the New Transition on Add Patient page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
-    Then I navigate to the "/secure/person/mongoID/overview"
     And I will wait to see "Attestation" in "span" tag
     When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
     And I will wait to see patient's name on patient summary page

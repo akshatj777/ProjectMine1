@@ -102,7 +102,6 @@ Feature: Configure Test Data for EC smoke automation.
     And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "110109" in the facilityKey textbox
-    And I fill in group with "110109" on facility creation page
     And I fill in name with "Emanuel County Hospital Authority" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching
@@ -243,7 +242,6 @@ Feature: Configure Test Data for EC smoke automation.
     And I switch to new window
     When I am on "/secure/admin/facility"
     Then I enter "200024" in the facilityKey textbox
-    And I fill in group with "200024" on facility creation page
     And I fill in name with "Central Maine Medical Center" on facility creation page
     And I click on filter option on the facilities under admin center
     Then I wait untill i see list of facilities after searching

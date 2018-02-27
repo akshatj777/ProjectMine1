@@ -77,7 +77,7 @@
    Scenario: Verify functionality of dismiss all alerts
   	Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
-    #And I will wait to see "Assigned to Care Team successfully." in "p" tag
+    And I will wait to see "Assigned to Care Team successfully." in "p" tag
     Then I click on Alert Icon on header navigation bar
     And I click on "Dismiss All" button
     And I should not see any count appearing on Alert Icon      

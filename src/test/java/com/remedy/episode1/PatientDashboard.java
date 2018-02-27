@@ -222,8 +222,8 @@ public class PatientDashboard extends BaseClass {
 
 	public void iClickOnAlertIconOnHeaderNavigationBar() {
 		longDelay();
-		iWillWaitToSee(By.cssSelector(".fa.fa-bell-o"));
-		clickElement(driver.findElement(By.cssSelector(".fa.fa-bell-o")));
+		iWillWaitToSee(By.cssSelector("#header_notification_bar"));
+		clickElement(driver.findElement(By.cssSelector("#header_notification_bar")));
 	}
 
 	public void iClickOnFirstAlertMessageUnderAlert() {

@@ -73,7 +73,7 @@ public class CommonFeature extends BaseClass {
 	}
 
 	public void i_Wait_For_Invisibility_Of(String text, String tag) {
-		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"))));
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));
 	}
 
 	public void iAmOn(String uRL) {
