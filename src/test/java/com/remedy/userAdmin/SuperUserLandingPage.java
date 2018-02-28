@@ -431,8 +431,8 @@ public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
 	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
 }
 public void iVerifyDeleteUserLink(String text){
-	iWillWaitToSee(By.cssSelector(".header-controls"));
-	isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
 }
 public void iClickOnDeleteUser(String text){
 	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
