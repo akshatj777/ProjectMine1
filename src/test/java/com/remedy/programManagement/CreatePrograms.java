@@ -526,6 +526,53 @@ public class CreatePrograms extends BaseClass {
 			}
 		}
 	}
+	
+	public void iClickOnReactDatePickerCloseIconForDate(String field){
+		if(field.contains("Start Date"))
+		{
+			clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
+		}
+		else
+		{
+			clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']")));
+		}
+	}
+	
+	public void iSearchWithSearchListOptionsOnDropdownBox(String searchParam, String org)
+	{
+		String value = searchParam;
+		if (value.equals("ACHNAME - YES")){
+//			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
+//			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+//			  value = CreateACHOrganization.achOrg.get("ACHNAME");
+//			  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+		}
+		  else if (value.equals("ACHNAME - NO"))
+		  {
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+			delay();
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+			delay();
+			value = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
+		    Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+		  }
+		  else if (value.equals("CCN - YES"))
+		  {
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("CCN"));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  value = CreateACHOrganization.achOrg.get("CCN");
+			  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+		  }
+		  else if (value.equals("CCN - NO"))
+		  {
+			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+			  delay();
+			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("CCN"));
+			  delay();
+			  value = CreateACHOrganization.achOrg_noMO.get("CCN");
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+		  }
+	}
 }
 
 

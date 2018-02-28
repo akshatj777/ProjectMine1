@@ -137,4 +137,13 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.enterDate(date,field, index);
 	    }
 
+	@And("^I click on react date picker close icon for \"([^\"]*)\"$")
+	  public void i_Click_On_React_Date_Picker_Close_Icon_For_Date(String field) {
+		programs.iClickOnReactDatePickerCloseIconForDate(field);
+	    }
+	
+	@And("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" dropdown box$")
+	  public void i_Search_With_Search_List_Options_On_Dropdown_Box(String searchParam, String org) throws Throwable {
+		programs.iSearchWithSearchListOptionsOnDropdownBox(searchParam, org);
+	    }
 }
