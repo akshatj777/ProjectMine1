@@ -9,6 +9,64 @@ Feature: Create Network Contracts functionality tests
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    Then I click on "+" button on "Hospital" organization page
+    And I verify "Create Hospital Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <Hosp_Name> in "Hospital Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "ACH - <CCN>" in "CCN" on create organization page
+    And I provide unique "ACH - <EIN>" in "EIN" on create organization page
+    And I provide unique "ACH - <NPI>" in "NPI" on create organization page
+    And I enter location name <Loc_Name> for Location "1" on "create" organization page
+    And I enter address1 <Loc_Address1> for Location "1" on "create" organization page
+    And I select location type <Loc_Type> for Location "1" on "create" organization page
+    And I enter address2 <Loc_Address2> for Location "1" on "create" organization page
+    And I select region <Loc_Region> for Location "1" on "create" organization page
+    And I enter city <Loc_City> for Location "1" on "create" organization page
+    And I select market <Loc_Market> for region "<Loc_Region>" for Location "1" on "create" organization page
+    And I select state <Loc_State> for Location "1" on "create" organization page
+    And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                             | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
+      | Create Hospital Organization with all the available fields - Without MO | NO     |              | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+      | Create Hospital Organization with all the available fields - With MO    | YES    | MONAME       | ACHNAME   | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Inpatient | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | CCN | EIN | NPI | Hospital Organization Successfully Created. |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    Then I click on "+" button on "PGP" organization page
+    And I verify "Create PGP Organization" header text on create organization page
+    And I select "<Has_MO>" radio button for managing organization
+    Then I select "<Managing_Org>" managing organization name in "<Has_MO>" Has a Management Organization drop down
+    Then I enter <PGP_Name> in "PGP Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Short_Name> in "Short Name" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I select region "<Region>" in "create PGP" organization page
+    And I select market "<Market>" in "create PGP" organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    And I provide unique "PGP - <EIN>" in "EIN" on create organization page
+    And I provide unique "PGP - <NPI>" in "NPI" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create PGP - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Managing_Org | PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | EIN | NPI | Message                                |
+      | Create PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+      | Create PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | EIN | NPI | PGP Organization Successfully Created. |
+
+  Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     Then I click on "+" button on "Payor" organization page
     And I verify "Create Payor Organization" header text on create organization page
@@ -130,25 +188,6 @@ Feature: Create Network Contracts functionality tests
       | Description                                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
       | Verify after selecting Contract(Program) with Start Date and End Date on create Network Contract page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
 
-  Scenario Outline: Create Network contract with all the available fields
-    When I click on "PGP" organization tab on organization dashboard
-    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
-    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
-    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
-    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Network Contracts" tab present under "PGP" Organization
-    And I click on "Network Contracts" tab on view profile of "PGP" Organization
-    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
-    Then I click on "Submit" button on "create" organization page
-
-    Examples: 
-      | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name |
-      | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | Hospitalsmoke16   |
-
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
     When I search with "<PGP_Name> - <Has_MO>" on organization in search box
@@ -220,3 +259,47 @@ Feature: Create Network Contracts functionality tests
       | Description                                                      | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | SearchParam |
       | Search for a Hospital organization by CCN                        | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | CCN         |
       | Search for a Hospital organization by Hospital Organization Name | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME     |
+
+  Scenario Outline: Create Network contract with all the available fields
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | Message                              |
+      | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | NetworkContract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
+      | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
