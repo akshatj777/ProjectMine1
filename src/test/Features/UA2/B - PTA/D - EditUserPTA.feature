@@ -25,6 +25,8 @@ Feature: Edit user page for PTA
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I unselect "<RemoveApplications>" product
+    Then I verify that "Next" button is disabled when no application is selected
+    Then I select "<EnableApplications>" product
     Then I click on learning pathway dropdown
     Then I enter "<RemoveLearningPathwaySearchParameter>" in Learning Pathway search box
     Then I remove "<RemoveLearningPathwaySearchParameter>" from the results
@@ -103,8 +105,8 @@ Feature: Edit user page for PTA
     And I should see Log in widget
 
     Examples: 
-      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | Role       | RemoveApplications | Applications                         | ApplicationsNotVisible                | RemoveLearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                       |
-      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports            | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1                         | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Executive Acute Care Hospital Model 2 |
+      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | Role       | RemoveApplications                            | EnableApplications                   | Applications                         | ApplicationsNotVisible                | RemoveLearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                       |
+      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports, Episodes, Physician Connect, Lessons | Episodes, Physician Connect, Lessons | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1                         | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Executive Acute Care Hospital Model 2 |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
