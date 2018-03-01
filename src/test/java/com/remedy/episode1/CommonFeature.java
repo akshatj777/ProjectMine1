@@ -67,9 +67,16 @@ public class CommonFeature extends BaseClass {
 
 	public void i_Wait_To_See(String text, String tag) {
 		longDelay();
-		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
+		if(text.contains("The object was successfully")){
+			longDelay();
+			longDelay();
+			iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
+			 isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));
+				delay();	
+		}else{
+	    iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));
-		delay();
+		delay();}
 	}
 
 	public void i_Wait_For_Invisibility_Of(String text, String tag) {

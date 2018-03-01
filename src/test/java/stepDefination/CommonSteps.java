@@ -43,6 +43,7 @@ public class CommonSteps extends DriverScript {
         driver.navigate().to(Config.getProperty("BaseUrl"));
         driver.manage().timeouts().pageLoadTimeout(240, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         if(DriverScript.Config.getProperty("Browser").equals("chrome"))
         {
         	driver.manage().window().maximize();

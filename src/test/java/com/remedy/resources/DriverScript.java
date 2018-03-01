@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
@@ -157,6 +159,15 @@ public class DriverScript {
 		default:
 			String geckoDrvrPath;
 			geckoDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
+			String importDir1= System.getProperty("user.dir");
+			String downloadFilepath1 = importDir1 + File.separator + "src" + File.separator + "test" + File.separator + "Imports" + File.separator + "Downloads" ;
+			FirefoxProfile profile = new FirefoxProfile();
+		    profile.setPreference("browser.download.folderList",2); 
+			profile.setPreference("browser.download.dir", downloadFilepath1);
+			profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf"); 
+			profile.setPreference("pdfjs.disabled", true);  
+			FirefoxOptions options1 = new FirefoxOptions();
+			options1.setProfile(profile);
 			os: switch (os) {
 			case "linux32":
 			case "linux64":
@@ -171,7 +182,8 @@ public class DriverScript {
 			default:
 			throw new IllegalStateException("Invalid OS paramter, expected values 'linux32||linux64||mac||win'");    
 			   }
-			driver = new FirefoxDriver();
+			
+			driver = new FirefoxDriver(options1);
 			}
 		
 	}

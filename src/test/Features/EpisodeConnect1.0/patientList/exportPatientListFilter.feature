@@ -3,7 +3,7 @@ Feature: Episode Connect export patient list
 
   Scenario: User can load a system filter and export patient list
     Given I am on the login page
-    When I enter email field qa.adminuser@yopmail.com  for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -37,7 +37,7 @@ Feature: Episode Connect export patient list
 
   Scenario: Validation pop up(Cannot Export List - Lists with more than 1,000 patients cannot be exported).
     Given I am on the login page
-    When I enter email field qa.adminuser@yopmail.com  for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
@@ -54,7 +54,7 @@ Feature: Episode Connect export patient list
 
   Scenario: Message should be displayed when there are no patient on patient list and user try to export.
     Given I am on the login page
-    When I enter email field qa.adminuser@yopmail.com  for login
+    When I enter email field qa.adminuser@yopmail.com for login
     And I enter password field Episode1! for Login
     Then I click Access button
     Then I should see Tile text Episodes
