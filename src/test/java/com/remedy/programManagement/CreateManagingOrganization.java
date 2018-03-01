@@ -218,10 +218,11 @@ public class CreateManagingOrganization extends BaseClass {
 	
 	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
 				
-		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
-		{
-				if(org.contains("MO"))
+//		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
+//		{
+			if(org.contains("MO"))
 				{
+				iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 					moOrg.clear();
 					moOrg.putAll(tempMoOrg);
@@ -344,7 +345,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 					waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 				}
-			}
+			//}
 	    	else 
 	    	{
 	    		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
