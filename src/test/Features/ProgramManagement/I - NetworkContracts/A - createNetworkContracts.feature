@@ -105,6 +105,8 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                              | Payor_Name | Program_Name | Message                      |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
+      | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME1 | Program Successfully Created |
+      | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME2 | Program Successfully Created |
 
   Scenario Outline: Create Contracts with all available fields
     When I click on "Payor" organization tab on organization dashboard
@@ -118,7 +120,7 @@ Feature: Create Network Contracts functionality tests
     And I verify "Create Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
-    And I select Organization name "<Organization_Name>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter price "<Price>" for Contract "1" on "create" Contracts page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
@@ -136,8 +138,9 @@ Feature: Create Network Contracts functionality tests
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                       | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1                          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1                          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: Verify available fields on create network contract page
     When I click on "PGP" organization tab on organization dashboard
@@ -292,7 +295,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     And I click on react date picker close icon for "End Date"
@@ -303,3 +306,4 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
       | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
+      | Create Network contract with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
