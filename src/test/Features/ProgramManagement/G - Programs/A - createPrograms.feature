@@ -29,23 +29,23 @@ Feature: Create Programs organization under Payor Organization functionality tes
       | Description                                         | Payor_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | EIN | Message                                  |
       | Create Payor Organization with all available fields | PAYORNAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | EIN | Payor Organization Successfully Created. |
 
-  Scenario Outline: Verification of details on Programs under Payor Organization
-    When I search with "<Payor_Name>" on organization in search box
-    And I click "<Payor_Name>" field in search list on organization page
-    And I verify "<Payor_Name>" name on the header of view profile
-    And I verify "Programs" as default tab selected on view profile of Payor Organization
-    And I verify "ID" header label under "Payor" view profile page
-    And I verify "Program Name" header label under "Payor" view profile page
-    And I verify the "Create New Program" button on view profile of "payor" Organization
-    Then I click on "Create New Program" button on "create" organization page
-    And I verify "Create Program" header text on create organization page
-    And I verify "*" field on create organization page
-    And I verify "Submit" button on create organization page
-    And I verify "Cancel" button on create organization page
-
-    Examples: 
-      | Description                                                  | Payor_Name |
-      | Verification of details on Programs under Payor Organization | PAYORNAME  |
+  #Scenario Outline: Verification of details on Programs under Payor Organization
+    #When I search with "<Payor_Name>" on organization in search box
+    #And I click "<Payor_Name>" field in search list on organization page
+    #And I verify "<Payor_Name>" name on the header of view profile
+    #And I verify "Programs" as default tab selected on view profile of Payor Organization
+    #And I verify "ID" header label under "Payor" view profile page
+    #And I verify "Program Name" header label under "Payor" view profile page
+    #And I verify the "Create New Program" button on view profile of "payor" Organization
+    #Then I click on "Create New Program" button on "create" organization page
+    #And I verify "Create Program" header text on create organization page
+    #And I verify "*" field on create organization page
+    #And I verify "Submit" button on create organization page
+    #And I verify "Cancel" button on create organization page
+#
+    #Examples: 
+      #| Description                                                  | Payor_Name |
+      #| Verification of details on Programs under Payor Organization | PAYORNAME  |
 
   Scenario Outline: Create Programs under Payor Organization
     When I search with "<Payor_Name>" on organization in search box

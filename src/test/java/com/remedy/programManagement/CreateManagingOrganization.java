@@ -135,8 +135,19 @@ public class CreateManagingOrganization extends BaseClass {
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.HHAOrg.get("HHANAME"));
 		}
 		else if(text.equals("PROGRAMNAME")) {
-			CreatePrograms.tempPrograms.put("PROGRAMNAME", createRandomName(text));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get("PROGRAMNAME"));
+			CreatePrograms.tempPrograms.put(1, createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(1));
+			
+		}
+		else if(text.equals("PROGRAMNAME1")) {
+			CreatePrograms.tempPrograms.put(2, createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(2));
+			
+		}
+		else if(text.equals("PROGRAMNAME2")) {
+			CreatePrograms.tempPrograms.put(3, createRandomName(text));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(3));
+			
 		}
 		else if(text.equals("equalsTo75Characters")){
 			if(field.contains("Managing"))
@@ -276,7 +287,7 @@ public class CreateManagingOrganization extends BaseClass {
 					}
 				else if(org.contains("Payor"))
 				{
-					scrollIntoViewByJS(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")));
+					
 					iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-success>a"));
 					verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-success>a")), msg);
 					if(!CreatePayorOrganization.tempPayorOrg.isEmpty())
@@ -358,4 +369,6 @@ public class CreateManagingOrganization extends BaseClass {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 		delay();
 	}
+	
+	
 }

@@ -69,7 +69,7 @@ public class EditManagingOrganization extends BaseClass {
 		}
 		else if(field.contains("PROGRAMNAME"))
 		{
-			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get("PROGRAMNAME")+"']")));
+			clickElement(driver.findElement(By.xpath("//div[text()='"+CreatePrograms.programs.get(1)+"']")));
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		}
 		else
@@ -168,10 +168,10 @@ public class EditManagingOrganization extends BaseClass {
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateSNFOrganization.SNFOrg.get("SNFNAME"));
 		}
 		else if(field2.contains("PROGRAMNAME")){
-			CreatePrograms.programName = CreatePrograms.programs.get("PROGRAMNAME");
-			CreatePrograms.tempPrograms.put("PROGRAMNAME",createRandomName(field2));
+			CreatePrograms.programName = CreatePrograms.programs.get(1);
+			CreatePrograms.tempPrograms.put(1,createRandomName(field2));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).clear();
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePrograms.tempPrograms.get("PROGRAMNAME"));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePrograms.tempPrograms.get(1));
 		}
 		else if(field2.equalsIgnoreCase("equalsTo75Characters - NO")){
 			if(field1.contains("Managing"))
