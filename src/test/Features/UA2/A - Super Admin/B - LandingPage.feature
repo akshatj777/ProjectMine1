@@ -149,7 +149,7 @@ Feature: Super Admin Landing page verification
       | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | SearchLastName  |
       | Search a user using Email      | Super Admin | Executive | test.automatemail |                1768789 | FetchFromHM     |
 
-  Scenario Outline: Verify ability of Super Admin user to lock a user and cancel unlock
+  Scenario Outline: Verify ability of Super Admin user to lock a user
     Given I am on the login page
     When I log in as super user
     Then I should see Tile text User Adming
@@ -159,6 +159,10 @@ Feature: Super Admin Landing page verification
     Then I enter "<SearchParameter>" in search box for "<user>-<Role>"
     Then I verify availability of "<SearchParameter>" for "<user>-<Role>"
     Then I "lock" user
+    Then I verify user is "Locked"
+    Then I "unlock" user
+    Then I should see an alert with "Are you sure you want to unlock"
+    Then I click on "Cancel" button from the unlock alert
     Then I verify user is "Locked"
     And I click on the top user link
     Then I select "Log Out" option from the dropdown list
@@ -192,8 +196,23 @@ Feature: Super Admin Landing page verification
     Then I enter newuser email for "<user>-<Role>" login to Remedy
     Then I enter newuser password for login to Remedy
     And I click Access button
+    Then I should see header text "Users"
     Then I verify "<Applications>" product on SPOE page
 
     Examples: 
       | user        | Role      | Email             | SearchParameter | Applications               |
       | Super Admin | Executive | test.automatemail | FetchFromHM     | Episodes, Reports, Lessons |
+
+  Scenario: User should not get error message when he goes back to User Admin page from top navigation Menu
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text Episodes 2.0
+    And I click on the "Episodes 2.0" tile
+    Then I verify current page "Remedy Partners" title
+    And I click on "User Admin" tile from menu
+    Then I should see header text "Users"
+    Then I click on "Reports" from Management dropdown
+    And I switch to new window
+    Then I verify current page "Reports" title
+    And I click on "User Admin" tile from menu
+    Then I should see header text "Users"

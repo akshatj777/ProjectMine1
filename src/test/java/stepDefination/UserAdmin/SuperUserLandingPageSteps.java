@@ -201,6 +201,16 @@ public class SuperUserLandingPageSteps extends DriverScript {
 	public void iClickDeleteButtonToDeleteUser(String text){
 		ua2LandingPage.iClickDeleteButtonToDeleteUser(text);
 	}
+	
+	
+	@Then("^I click on \"([^\"]*)\" tile from menu$")
+	public void iClickOnTileFromEC(String text){
+		ua2LandingPage.iClickOnTileFromEC(text);
+	}
+	@Then("^I click on \"([^\"]*)\" from Management dropdown$")
+	public void iSelectTileFromManagementDropDown(String text){
+		ua2LandingPage.iSelectTileFromManagementDropDown(text);
+	}
 }
 
 

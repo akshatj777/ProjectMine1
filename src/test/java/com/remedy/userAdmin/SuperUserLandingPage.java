@@ -1,6 +1,7 @@
 package com.remedy.userAdmin;
 
 import java.util.StringTokenizer;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -458,5 +459,26 @@ public void iClickDeleteButtonToDeleteUser(String text){
 	clickElement(driver.findElement(By.xpath("//button[contains(text(),'"+text+"')]")));
 	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 }
+public void iClickOnTileFromEC(String text){
+	//delay();
+	iWillWaitToSee(By.cssSelector(".btn.btn-menu.valentino-icon-spoe"));
+	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
+	try {
+	clickSingleElementFromList(By.xpath("//li"), text);
+	}catch(org.openqa.selenium.StaleElementReferenceException ex)
+	{
+		clickSingleElementFromList(By.xpath("//li"), text);
+	}
+	
+}
+public void iSelectTileFromManagementDropDown(String text){
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+
+		clickSingleElementFromList(By.xpath("//a"), text);
+		
+}
+		
+		
 
 }
