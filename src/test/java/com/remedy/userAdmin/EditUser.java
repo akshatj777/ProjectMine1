@@ -428,7 +428,7 @@ public class EditUser extends BaseClass {
 			Assert.assertTrue(isElementVisible(driver.findElement(By.cssSelector("input[placeholder='NPI']"))));
 		}
 		public void iClickOnLearningPathwayDropdown(){
-			iWillWaitToSee(By.cssSelector(".ui.selection.dropdown"));
-			clickElement(driver.findElement(By.cssSelector(".ui.selection.dropdown")));
+			iWillWaitToSee(By.xpath("//div[@class='ui label']/../following-sibling::i[@class='dropdown icon']"));
+			clickElement(driver.findElement(By.xpath("//div[@class='ui label']/../following-sibling::i[@class='dropdown icon']")));
 		}
 }

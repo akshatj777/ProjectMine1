@@ -356,9 +356,8 @@ Feature: Edit page for Downstream provider
     Then I pick a Organizational <Role>
     Then I click on Next button
     Then I verify Learning Pathway search box is not available
-    Then I unselect "<DisableApplications>" product
-    Then I verify that "Next" button is disabled when no application is selected
     Then I select "<EnableApplications>" product
+    Then I unselect "<DisableApplications>" product
     Then I click on Select button
     Then I verify Learning Pathway search box is available
     Then I enter "<LearningPathwayName>" in Learning Pathway search box

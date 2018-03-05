@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import stepDefination.Hooks.InitialSetup;
@@ -99,20 +101,25 @@ public class DriverScript {
 			}
 			
 			ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");  
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-browser-side-navigation");
 			options.addArguments("--disable-extensions");
 			options.addArguments("disable-infobars");
             driver = new ChromeDriver(options);
+            driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 
 			break;			
 		case "ie":
 			String IEDrvrPath;
 			IEDrvrPath = directory.getCanonicalPath() + File.separator + "lib" + File.separator;
 			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-			caps.setCapability("nativeEvents", false);
-			caps.setCapability("nativeEvents", true);
-			caps.setCapability("ignoreZoomSetting", true);
-			caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			//caps.setCapability("nativeEvents", false);
+//			caps.setCapability("nativeEvents", true);
+//			caps.setCapability("ignoreZoomSetting", true);
+//			caps.setCapability("enablePersistentHover", false);
+//			caps.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
+//			caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			caps.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 			System.setProperty("webdriver.ie.driver",
 					IEDrvrPath + "IEDriverServer_Win32" + File.separator + "IEDriverServer.exe");
 			driver = new InternetExplorerDriver(caps);

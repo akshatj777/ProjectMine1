@@ -17,6 +17,7 @@ public class ViewUserPage extends BaseClass {
 	}
 
 	public void searchForUserRole(String userRole) throws Throwable {
+		driver.navigate().refresh();
 		iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']"));
 		Thread.sleep(3000);
 		String email = CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
@@ -74,9 +75,9 @@ public class ViewUserPage extends BaseClass {
 				StringTokenizer st = new StringTokenizer(healthSystem, ",");
 				while(st.hasMoreTokens())
 				{
-					
-					iWillWaitToSee(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]"));
-					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]")));
+					String app = st.nextToken().trim();
+					iWillWaitToSee(By.xpath("//span[contains(text(),'"+app+"')]"));
+					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+app+"')]")));
 				}
 			}
 			else

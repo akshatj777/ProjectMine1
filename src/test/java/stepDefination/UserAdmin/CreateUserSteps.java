@@ -500,6 +500,11 @@ public class CreateUserSteps extends DriverScript {
 	public void verifyHeader(String text) throws Throwable {
 		createUser.verifyHeader(text);
 	}
+	
+	@Then("^I select already selected \"([^\"]*)\"$")
+	public void selectAlreadySelectedHealthSystem(String text) throws Throwable {
+		createUser.clickAlreadySelectedHealthSystem(text);
+	}
 
 	@Then("^I click on Select All Locations button$")
 	public void clickSelectAllLocationsButton() throws Throwable {
@@ -712,7 +717,7 @@ public class CreateUserSteps extends DriverScript {
 	 }
 	 
 	 @And("^I verify No results found under Learning Pathway search box$")
-	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search(){
+	 public void i_Verify_NoResultsfound_Under_LearningPathway_Search() throws InterruptedException{
 		 createUser.iVerifyNoResultsFoundUnderLearningPathWaySearch();
 	 }
 	 

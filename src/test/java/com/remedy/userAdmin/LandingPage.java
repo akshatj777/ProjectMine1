@@ -69,6 +69,16 @@ public class LandingPage extends BaseClass{
 					System.out.println("After Switching Window Handle : "+driver.getWindowHandle());
 				}
 			}
+			else if(DriverScript.Config.getProperty("Browser").equals("ie"))
+			{
+				Thread.sleep(5000);
+				String parentWindow = driver.getWindowHandle();
+				Set<String> handles = driver.getWindowHandles();
+				if(!((String)handles.toArray()[handles.size()-1]).equals(parentWindow))
+				{
+					driver.switchTo().window((String)handles.toArray()[handles.size()-1]);
+				}
+			}
     		
 		}
 		catch(Exception e)
@@ -102,7 +112,16 @@ public class LandingPage extends BaseClass{
     			}
                 delay();
     		}
-    		
+    		else if(DriverScript.Config.getProperty("Browser").equals("ie"))
+    		{
+    			String parentWindow = driver.getWindowHandle();
+                Set<String> handles = driver.getWindowHandles();
+                if(!((String)handles.toArray()[0]).equals(parentWindow))
+    			{
+    				driver.switchTo().window((String)handles.toArray()[0]);
+    			}
+                delay();
+    		}
     	}
     	catch(Exception e)
     	{
@@ -131,11 +150,12 @@ public class LandingPage extends BaseClass{
 
     }
 
-    public void iSelectFromTopUserAccountDropDown(String link){
+    public void iSelectFromTopUserAccountDropDown(String link) throws InterruptedException{
     	driver.navigate().refresh();
+    	Thread.sleep(3000);
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']"));
 	      driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-profile']")).click();
-	      delay();
+	      Thread.sleep(3000);
 	      if(link.equals("Log Out"))
 	      {
 	    	  driver.findElement(By.xpath("//a[@ng-click='user.logout()']")).click(); 

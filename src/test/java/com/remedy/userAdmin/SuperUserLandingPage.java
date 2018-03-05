@@ -432,8 +432,8 @@ public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
 	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
 }
 public void iVerifyDeleteUserLink(String text){
-	iWillWaitToSee(By.cssSelector(".header-controls"));
-	isElementVisible(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
 }
 public void iClickOnDeleteUser(String text){
 	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
@@ -460,7 +460,7 @@ public void iClickDeleteButtonToDeleteUser(String text){
 	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 }
 public void iClickOnTileFromEC(String text){
-	//delay();
+	delay();
 	iWillWaitToSee(By.cssSelector(".btn.btn-menu.valentino-icon-spoe"));
 	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
 	try {
@@ -472,8 +472,9 @@ public void iClickOnTileFromEC(String text){
 	
 }
 public void iSelectTileFromManagementDropDown(String text){
-	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
-	clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+	iWillWaitToSee(By.xpath("//div[contains(text(),'Management')]"));
+	
+	clickElement(driver.findElement(By.xpath("//div[contains(text(),'Management')]")));
 
 		clickSingleElementFromList(By.xpath("//a"), text);
 		
