@@ -23,6 +23,7 @@ Feature: Edit user page for SA
     Then I verify the availability of field NPI for "<Role>"
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
+    Then I select "<Applications>" product
     Then I click on learning pathway dropdown
     Then I enter "<RemoveLearningPathwaySearchParameter>" in Learning Pathway search box
     Then I remove "<RemoveLearningPathwaySearchParameter>" from the results
@@ -37,8 +38,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | FirstName       | LastName       | Email             | Phone        | NPI | RemoveLearningPathwaySearchParameter |
-      | Super Admin | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | i am learning path, 18h7phZr1h81     |
+      | User        | Role       | FirstName       | LastName       | Email             | Phone        | NPI | RemoveLearningPathwaySearchParameter | Applications       |
+      | Super Admin | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | i am learning path, 18h7phZr1h81     | Episodes, Episodes |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -1033,14 +1034,14 @@ Feature: Edit user page for SA
     Then I verify the validation message "<ValidationMsg>" on Create User Page
 
     Examples: 
-      | Description                                           | User        | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
-      | Verify validation message for blank First name        | Super Admin |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required |
-      | Verify validation message for blank Last name         | Super Admin | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required  |
-      | Verify validation message for blank NPI               | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
-      | Verify validation message for invalid Phone           | Super Admin | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Phone is required      |
-      | Verify validation message for NPI less than 10 digits | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
-      | Verify validation message for NPI as alphabets        | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
-      | Verify validation message for NPI as alphanumeric     | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
+      | Description                                           | User        | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg                     |
+      | Verify validation message for blank First name        | Super Admin |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required            |
+      | Verify validation message for blank Last name         | Super Admin | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required             |
+      | Verify validation message for blank NPI               | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required                   |
+      | Verify validation message for invalid Phone           | Super Admin | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Please enter a valid phone number |
+      | Verify validation message for NPI less than 10 digits | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | Please enter a valid NPI          |
+      | Verify validation message for NPI as alphabets        | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | Please enter a valid NPI          |
+      | Verify validation message for NPI as alphanumeric     | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | Please enter a valid NPI          |
 
   Scenario Outline: Verify auto selected programs in Organizations
     Given I am on the login page
@@ -1056,9 +1057,7 @@ Feature: Edit user page for SA
     And I click on Edit button
     Then I select "Permissions" tab
     Then I verify the header "Permissions"
-    Then I click Add Organization button for "<HasHealthSystem2>" flag
-    And I search for health system with <Health System2>
-    And I select a <Health System2>
+    Then I select already selected "<Health System2>"
     Then I verify default program "BPCI-Model2" associated with organization
 
     Examples: 
@@ -1092,16 +1091,15 @@ Feature: Edit user page for SA
     Then I verify the header "Permissions"
     Then I click on "General Information" tab on the left
     Then I verify the header "General Information"
-    When I click the Organizational Role Field
+    When I click the Organizational Role Field to edit
     Then I pick a Organizational Manager
     Then I click on "Applications" tab on the left
     Then I verify the header "Applications"
     Then I click on Next button
     Then I verify the header "Permissions"
     Then I click Add Organization button for "<HasHealthSystem2>" flag
-    And I search for health system with Stamford Hospital
-    And I select a Stamford Hospital
-    Then I click on Select All Locations button
+    And I search for health system with TeamHealth
+    And I select a TeamHealth
     Then I click on Cancel button
     And I verify that I am navigated to user page
     Then I verify role "<Role>"
@@ -1123,7 +1121,7 @@ Feature: Edit user page for SA
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I verify the header "General Information"
-    When I click the Organizational Role Field
+    When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role1>
     Then I click on Next button
     Then I verify the header "Applications"
@@ -1131,7 +1129,7 @@ Feature: Edit user page for SA
     Then I verify applications "<ApplicationsChecked1>" are checked
     Then I click on "General Information" tab on the left
     Then I verify the header "General Information"
-    When I click the Organizational Role Field
+    When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role2>
     Then I click on Next button
     Then I verify the header "Applications"

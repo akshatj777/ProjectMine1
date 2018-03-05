@@ -75,9 +75,9 @@ public class ViewUserPage extends BaseClass {
 				StringTokenizer st = new StringTokenizer(healthSystem, ",");
 				while(st.hasMoreTokens())
 				{
-					
-					iWillWaitToSee(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]"));
-					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+st.nextToken().trim()+"')]")));
+					String app = st.nextToken().trim();
+					iWillWaitToSee(By.xpath("//span[contains(text(),'"+app+"')]"));
+					Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[contains(text(),'"+app+"')]")));
 				}
 			}
 			else

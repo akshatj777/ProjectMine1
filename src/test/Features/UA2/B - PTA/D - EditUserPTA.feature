@@ -7,6 +7,7 @@ Feature: Edit user page for PTA
     Then I click Access button
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
+    Then I should see header text "Users"
     Then I search for user with role "<User>-<Role>"
     Then I select user with role "<User>-<Role>"
     And I verify that I am navigated to user page
@@ -25,8 +26,6 @@ Feature: Edit user page for PTA
     Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I unselect "<RemoveApplications>" product
-    Then I verify that "Next" button is disabled when no application is selected
-    Then I select "<EnableApplications>" product
     Then I click on learning pathway dropdown
     Then I enter "<RemoveLearningPathwaySearchParameter>" in Learning Pathway search box
     Then I remove "<RemoveLearningPathwaySearchParameter>" from the results
@@ -105,8 +104,8 @@ Feature: Edit user page for PTA
     And I should see Log in widget
 
     Examples: 
-      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | Role       | RemoveApplications                            | EnableApplications                   | Applications                         | ApplicationsNotVisible                | RemoveLearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                       |
-      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports, Episodes, Physician Connect, Lessons | Episodes, Physician Connect, Lessons | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1                         | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Executive Acute Care Hospital Model 2 |
+      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | Role       | RemoveApplications | Applications                         | ApplicationsNotVisible                | RemoveLearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                       |
+      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports            | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1                         | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Executive Acute Care Hospital Model 2 |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -166,8 +165,8 @@ Feature: Edit user page for PTA
     Then I should see Tile text User Admin
     And I click on the "User Admin" tile
     Then I should see header text "Users"
-    Then I search for user with role "<User>-<PreviousRole>"
-    Then I select user with role "<User>-<PreviousRole>"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I click on "Applications" tab on the left
@@ -194,8 +193,9 @@ Feature: Edit user page for PTA
     And I verify that I am navigated to user page
     And I click on Edit button
     Then I verify the header "General Information"
-    When I click the Organizational Role Field
+    When I click the Organizational Role Field to edit
     Then I pick a Organizational <Role1>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
     Then I click on Next button
     Then I verify the header "Applications"
     Then I verify applications "<ApplicationsUnchecked1>" are unchecked
@@ -209,8 +209,8 @@ Feature: Edit user page for PTA
     Then I verify applications "<ApplicationsChecked2>" are checked
 
     Examples: 
-      | User                            | PreviousRole | Role1      | ApplicationsChecked1       | ApplicationsUnchecked1 | Role2   | ApplicationsChecked2       | ApplicationsUnchecked2 |
-      | Partner Technical Administrator | Executive    | Physicians | Reports, Episodes, Lessons | Physician Connect      | Manager | Reports, Episodes, Lessons |                        |
+      | User                            | PreviousRole | Role1      | NPI | ApplicationsChecked1       | ApplicationsUnchecked1 | Role2   | ApplicationsChecked2       | ApplicationsUnchecked2 |
+      | Partner Technical Administrator | Executive    | Physicians | NPI | Reports, Episodes, Lessons | Physician Connect      | Manager | Reports, Episodes, Lessons |                        |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -233,14 +233,14 @@ Feature: Edit user page for PTA
     Then I verify the validation message "<ValidationMsg>" on Create User Page
 
     Examples: 
-      | Description                                           | User                            | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg          |
-      | Verify validation message for blank First name        | Partner Technical Administrator |            | Last Name | test.automatemail | 9874563210 | Physicians |            | First Name is required |
-      | Verify validation message for blank Last name         | Partner Technical Administrator | First Name |           | test.automatemail | 9874563210 | Physicians |            | Last Name is required  |
-      | Verify validation message for blank NPI               | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required        |
-      | Verify validation message for invalid Phone           | Partner Technical Administrator | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Phone is required      |
-      | Verify validation message for NPI less than 10 digits | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | NPI is required        |
-      | Verify validation message for NPI as alphabets        | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | NPI is required        |
-      | Verify validation message for NPI as alphanumeric     | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | NPI is required        |
+      | Description                                           | User                            | FirstName  | LastName  | Email             | Phone      | Role       | NPI        | ValidationMsg                     |
+      | Verify validation message for blank First name        | Partner Technical Administrator |            | Last Name | test.automatemail | 9874563210 | Physicians |            | First Name is required            |
+      | Verify validation message for blank Last name         | Partner Technical Administrator | First Name |           | test.automatemail | 9874563210 | Physicians |            | Last Name is required             |
+      | Verify validation message for blank NPI               | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required                   |
+      | Verify validation message for invalid Phone           | Partner Technical Administrator | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Please enter a valid phone number |
+      | Verify validation message for NPI less than 10 digits | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | Please enter a valid NPI          |
+      | Verify validation message for NPI as alphabets        | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | Please enter a valid NPI          |
+      | Verify validation message for NPI as alphanumeric     | Partner Technical Administrator | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | Please enter a valid NPI          |
 
   Scenario Outline: Edit locations -<Description>
     Given I am on the login page
@@ -332,7 +332,7 @@ Feature: Edit user page for PTA
 
     Examples: 
       | Description                            | User                            | FirstName                                 | LastName                                 | Email             | Phone | NPI | Role                      | EnableApplications | Applications               | ApplicationsNotVisible                          | Health System | Programs    | RemoveLocations                                                                   | AddLocations                                                                     | Locations                                                                                                        | Roletext | ReportCategory | ReportName                   | BPID | Facilities                                                                         | HealthSystemValidation | ProgramsValidation     | LocationsValidation                                                                                                                            | LearningPathway                                                                                                                                           |
-      | Multiple locations to single locations | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | test.automatemail |       |     | Transitional Case Manager | Episodes, Episodes | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician connect | Covenant      | BPCI-Model3 | 3056-i42--Palo Alto Sub-acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown |                                                                                  | 3056-i45--Highland Health                                                                                        | ROLE_TCS | Patient ID     | Episode DRG Issues [Model 3] |      | Highland Health                                                                    | Covenant               | Covenant--BPCI Model 3 | Covenant--3056-i45--Highland Health                                                                                                            | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 |
+      | Multiple locations to single locations | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstNameFirst | LastName                                 | test.automatemail |       |     | Transitional Case Manager | Episodes, Episodes | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician connect | Covenant      | BPCI-Model3 | 3056-i42--Palo Alto Sub-Acute, 3056-i43--Meadow Manor, 3056-i44--Villa Georgetown |                                                                                  | 3056-i45--Highland Health                                                                                        | ROLE_TCS | Patient ID     | Episode DRG Issues [Model 3] |      | Highland Health                                                                    | Covenant               | Covenant--BPCI Model 3 | Covenant--3056-i45--Highland Health                                                                                                            | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 |
       | Single locations to multi locations    | Partner Technical Administrator | FirstName                                 | LastNameLastNameLastNameLastNameLastName | test.automatemail |       |     | Manager                   | Episodes, Episodes | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician connect | Covenant      | BPCI-Model3 |                                                                                   | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center | 3056-809--Courtyard Health Care Center, 3056-810--Emerald Gardens Nursing Center, 3056-808--Arbor Nursing Center | ROLE_PRM | Patient ID     | Episode DRG Issues [Model 3] |      | Arbor Nursing Center, Courtyard Health Care Center, Emerald Gardens Nursing Center | Covenant               | Covenant--BPCI Model 3 | Covenant--3056-809--Courtyard Health Care Center, Covenant--3056-810--Emerald Gardens Nursing Center, Covenant--3056-808--Arbor Nursing Center | Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University          |
 
   Scenario Outline: Changing General information, Role from <PreviousRole> to <Role> and Edit apps and permissions

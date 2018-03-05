@@ -78,6 +78,7 @@ public class MailCreateUser extends BaseClass{
 	}
 	
 	public void iClickOnInboxUnderMail() throws InterruptedException {
+		Thread.sleep(4000);
 		iWillWaitToSee(By.xpath("//a[contains(text(),'Inbox')]"));
 		clickElement(driver.findElement(By.xpath("//a[contains(text(),'Inbox')]")));
 		Thread.sleep(4000);
