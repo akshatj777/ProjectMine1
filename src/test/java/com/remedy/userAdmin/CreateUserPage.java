@@ -127,16 +127,18 @@ public class CreateUserPage extends BaseClass{
 
     public void iEnterFirstName(String text)
     {
-    		iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
-        	driver.findElement(By.xpath("//input[@placeholder='First Name']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);
-            iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
+
+    	iWillWaitToSee(By.xpath("//input[@placeholder='First Name']"));
+        iFillInText(driver.findElement(By.xpath("//input[@placeholder='First Name']")), text);
+
     }
 
     public void iEnterLasttName(String text) 
     {
-        	iWillWaitToSee(By.xpath("//input[@placeholder='Last Name']"));
-            driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);
-        	iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
+
+        iWillWaitToSee(By.xpath("//input[@placeholder='Last Name']"));
+    	iFillInText(driver.findElement(By.xpath("//input[@placeholder='Last Name']")), text);
+
     }
 
     public final static String iGenerateEmail(String text) 
