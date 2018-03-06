@@ -419,7 +419,6 @@ Feature: Create User - PTA User
       | Verify validation message for blank First name        |            | Last Name | test.automatemail | 9874563210 | Executive  |            | First Name is required            |
       | Verify validation message for blank Last name         | First Name |           | test.automatemail | 9874563210 | Executive  |            | Last Name is required             |
       | Verify validation message for blank Email             | First Name | Last Name |                   | 9874563210 | Executive  |            | Email is required                 |
-      | Verify validation message for blank Role              | First Name | Last Name | test.automatemail | 9874563210 |            |            | Role is required                  |
       | Verify validation message for blank NPI               | First Name | Last Name | test.automatemail | 9874563210 | Physicians |            | NPI is required                   |
       | Verify validation message for invalid Email           | First Name | Last Name | abc               | 9874563210 | Physicians | NPI        | Please enter a valid email        |
       | Verify validation message for invalid Phone           | First Name | Last Name | test.automatemail |     123564 | Physicians | NPI        | Please enter a valid phone number |

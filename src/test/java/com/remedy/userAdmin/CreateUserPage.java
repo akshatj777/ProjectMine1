@@ -1267,31 +1267,55 @@ public class CreateUserPage extends BaseClass{
 	   }else{return;}
    }
    
-   public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
+   public void selectLocationsForDownstreamProvider(String locationList) throws Throwable 
+   {
 	   if(!(locationList.equals("")))
 	   	{
-		   StringTokenizer st = new StringTokenizer(locationList,",");
-	       while (st.hasMoreTokens()) {
-	    	   String token = st.nextToken().trim();
-	    		   delay();
-	    		   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
-		    	   {
-		    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
-		    	   }
+		   if(driver.findElements(By.xpath("//h5[text()='Which location(s) does this user have access to?']")).size()>0)
+		   {
+			   StringTokenizer st = new StringTokenizer(locationList,",");
+		       while (st.hasMoreTokens()) 
+		       {
+		    	   String token = st.nextToken().trim();
+		    	   delay();
+		    	   while(!(driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+			    	   {
+			    		   driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+			    	   }
+		    	   delay();
+		    	   iFillInText(driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), token);
+		    	   iWillWaitToSee(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]"));
+		    	   driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]")).click();
+		    	   Thread.sleep(3000); 
+		   		}
+		   	}
+		   else if(driver.findElements(By.xpath("//p[text()='Which location(s) does this user have access to?']")).size()>0)
+		   {
+			   StringTokenizer st = new StringTokenizer(locationList,",");
+		       while (st.hasMoreTokens()) 
+		       {
+		    	   String token = st.nextToken().trim();
+		    	   delay();
+		    	   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+			    	   {
+			    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).clear();  
+			    	   }
 		    	   delay();
 		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), token);
 		    	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]"));
 		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]")).click();
 		    	   Thread.sleep(3000); 
-	   	}
+		   		}
+		   	}
 	   	}
    }
+   
    
    public void selectLocationsForPTAUser(String locationList) throws Throwable {
 	   if(!(locationList.equals("")))
 	   	{
 		   if(locationList.equalsIgnoreCase("All Locations")){
-			   clickElement(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[text()='All Locations']")));
+			   clickElement(driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//label[text()='All Locations']")));
 			   delay();
 		   }
 		   else if (locationList.contains(","))
