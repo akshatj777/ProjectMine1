@@ -29,7 +29,7 @@ Feature: Create Managing organization functionality tests
     And I verify "Submit" button on create organization page
     And I verify "Cancel" button on create organization page
 
-  Scenario Outline: Create MO all Mandatory fields missing
+  Scenario: Create MO all Mandatory fields missing
     When I click on Organization link on Program Management page
     Then I click on "+" button on "Managing" organization page
     And I verify "Create Managing Organization" header text on create organization page

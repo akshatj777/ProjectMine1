@@ -98,8 +98,8 @@ public class CreateProgramsStepDef extends DriverScript{
 	    }
 	
 	@And("^I verify Search box for Hospital Organization on \"([^\"]*)\" Netwotk Conntract page$")
-	  public void i_Verify_Search_Box_For_Hospital_Organization_On_Network_Contract_Page(String text, String page) throws Throwable {
-		programs.iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(text, page);
+	  public void i_Verify_Search_Box_For_Hospital_Organization_On_Network_Contract_Page(String page) throws Throwable {
+		programs.iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(page);
 	    }
 	
 	@And("^I verify \"([^\"]*)\" field on \"([^\"]*)\" Netwotk Conntract page$")
@@ -145,5 +145,20 @@ public class CreateProgramsStepDef extends DriverScript{
 	@And("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" dropdown box$")
 	  public void i_Search_With_Search_List_Options_On_Dropdown_Box(String searchParam, String org) throws Throwable {
 		programs.iSearchWithSearchListOptionsOnDropdownBox(searchParam, org);
+	    }
+	
+	@Then("^I click on cancel search button$")
+	  public void i_Click_On_Cancel_Search_Button() throws Throwable {
+		programs.iClickOnCancelSearchButton();
+	    }
+	
+	@Then("^I verify the selected Hospital organization should not be displayed in the search box$")
+	  public void i_Verify_The_Selected_Hospital_Organization_Should_Not_Be_Displayed_In_The_Search_Box() throws Throwable {
+		programs.iVerifyTheSelectedHospitalOrganizationShouldNotBeDisplayedInTheSearchBox();
+	    }
+	
+	@Then("^I verify the \"([^\"]*)\" message for invalid search in Organization Name dropdown box$")
+	  public void i_Verify_The_Error_Message_For_Invalid_Search_In_Organization_Name_Dropdown_Box(String text) throws Throwable {
+		programs.iVerifyTheErrorMessageForInvalidSearchInOrganizationNameDropdownBox(text);
 	    }
 }

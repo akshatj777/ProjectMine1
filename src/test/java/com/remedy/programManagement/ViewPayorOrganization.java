@@ -25,6 +25,6 @@ public class ViewPayorOrganization extends BaseClass {
 	}
 	
 	public void iClickOnTabOnViewProfileOfPayorOrganization(String tab, String org) {
-		clickElement(driver.findElement(By.xpath("//a[text()='Contracts']")));
+		clickElement(driver.findElement(By.xpath("//a[text()='"+tab+"']")));
 	}
 }

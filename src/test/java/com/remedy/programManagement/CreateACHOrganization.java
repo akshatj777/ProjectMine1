@@ -2,8 +2,10 @@ package com.remedy.programManagement;
 
 import java.util.HashMap;
 import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,7 +28,9 @@ public class CreateACHOrganization extends BaseClass{
 	}
 	
 	public void iClickOnParticularOrganizationTabOrganizationDashboard(String text) {
-		delay();
+		longDelay();
+		iWillWaitToSee(By.cssSelector(".navLink.noselect"));
+				
 		List<WebElement> element = driver.findElements(By.cssSelector(".navLink.noselect"));
 		for (WebElement ele : element) {
 			if(ele.getText().contains(text)){

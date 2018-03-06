@@ -82,7 +82,7 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
-			verifyTextForElement(driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")), text);
+		verifyTextForElement(driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")), text);
 	}
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
@@ -289,7 +289,7 @@ public class CreatePrograms extends BaseClass {
 		isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.moOrg.get("MONAME")+"'"));
 	}
 	
-	public void iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(String text, String page){
+	public void iVerifySearchBoxForHospitalOrganizationOnNetworkContractPage(String page){
 		isElementPresent(By.xpath("//div[text()='Search Name or CCN']"));
 	}
 	
@@ -311,17 +311,17 @@ public class CreatePrograms extends BaseClass {
 		{
 			result = getTextForElement(driver.findElement(By.xpath("//div[@class='contract-id']")));
 			result = result.substring(result.indexOf(":")+1);
-			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
+			Assert.assertEquals(result,CreatePrograms.programs.get(1));
 		}
 		else if(field.contains("Start Date")){
 			result = getTextForElement(driver.findElement(By.xpath("//div[@class='start-date']")));
 			result = result.substring(result.indexOf(":")+1);
-			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
+			Assert.assertEquals(result,CreatePrograms.programs.get(1));
 		}
 		else if(field.contains("End Date")){
 			result = getTextForElement(driver.findElement(By.xpath("//div[@class='end-date']")));
 			result = result.substring(result.indexOf(":")+1);
-			Assert.assertEquals(result,CreatePrograms.programs.get("PROGRAMNAME"));
+			Assert.assertEquals(result,CreatePrograms.programs.get(1));
 		}
 	}
 	
@@ -570,11 +570,17 @@ public class CreatePrograms extends BaseClass {
 	public void iClickOnReactDatePickerCloseIconForDate(String field){
 		if(field.contains("Start Date"))
 		{
-			clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
 		}
 		else
 		{
-			clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']")));
+			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']"));
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
 		}
 	}
 	
@@ -582,10 +588,10 @@ public class CreatePrograms extends BaseClass {
 	{
 		String value = searchParam;
 		if (value.equals("ACHNAME - YES")){
-//			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
-//			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-//			  value = CreateACHOrganization.achOrg.get("ACHNAME");
-//			  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  iFillInText(driver.findElement(By.cssSelector(".text-input-field-organizationFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
+			  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			  value = CreateACHOrganization.achOrg.get("ACHNAME");
+			  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
 		}
 		  else if (value.equals("ACHNAME - NO"))
 		  {
@@ -612,6 +618,19 @@ public class CreatePrograms extends BaseClass {
 			  value = CreateACHOrganization.achOrg_noMO.get("CCN");
 			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
 		  }
+	}
+	
+	public void iClickOnCancelSearchButton(){
+		driver.findElement(By.xpath("//div[@class='select-field-container organization-list-dropdown ']//div//span[text()='×']")).click();
+	}
+	
+	public void iVerifyTheSelectedHospitalOrganizationShouldNotBeDisplayedInTheSearchBox(){
+		isElementNotPresentOnPage(By.xpath("//div[@class='react-select-value-row']"));
+	}
+	
+	public void iVerifyTheErrorMessageForInvalidSearchInOrganizationNameDropdownBox(String text){
+		iWillWaitToSee(By.cssSelector(".Select-noresults"));
+		Assert.assertEquals(text, driver.findElement(By.cssSelector(".Select-noresults")).getText());
 	}
 }
 

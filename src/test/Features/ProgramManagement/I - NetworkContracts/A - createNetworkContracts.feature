@@ -9,6 +9,26 @@ Feature: Create Network Contracts functionality tests
     When I click on Organization link on Program Management page
 
   Scenario Outline: <Description>
+    Then I verify "+" button under "Managing" organization page
+    Then I click on "+" button on "Managing" organization page
+    And I verify "Create Managing Organization" header text on create organization page
+    Then I enter <MO_Name> in "Managing Organization Name" on create organization page
+    And I enter <Address1> in "Address 1" on create organization page
+    And I enter <Contact_Person> in "Contact Person" on create organization page
+    And I enter <Address2> in "Address 2" on create organization page
+    And I enter <Contact_Email> in "Contact Email" on create organization page
+    And I enter <City> in "City" on create organization page
+    And I enter <Contact_Phone> in "Contact Phone" on create organization page
+    And I select <State> in State on create organization page
+    And I enter <Postal_Code> in "Postal Code" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "create MO" organization page
+
+    Examples: 
+      | Description                                            | MO_Name | Contact_Person    | Contact_Email      | Contact_Phone | Address1 | Address2 | City | State    | Postal_Code | Message                                     |
+      | Create Managing Organization with all available fields | MONAME  | ContactPersonTest | Sample@yopmail.com |    5555599999 | Address1 | Address2 | City | New York |       10001 | Managing Organization Successfully Created. |
+
+  Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
     Then I click on "+" button on "Hospital" organization page
     And I verify "Create Hospital Organization" header text on create organization page
@@ -105,9 +125,9 @@ Feature: Create Network Contracts functionality tests
     Examples: 
       | Description                              | Payor_Name | Program_Name | Message                      |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
-      | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME1 | Program Successfully Created |
-      | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME2 | Program Successfully Created |
 
+  #| Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME1 | Program Successfully Created |
+  #| Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME2 | Program Successfully Created |
   Scenario Outline: Create Contracts with all available fields
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
@@ -138,9 +158,9 @@ Feature: Create Network Contracts functionality tests
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1                          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | BundleHosp PMBCHWMO BPTest_1_Feb7 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | mB1eBpqaWVJYJ0818 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | mB1eBpqaWVJYJ0818 |   123 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: Verify available fields on create network contract page
     When I click on "PGP" organization tab on organization dashboard
@@ -203,7 +223,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
     And I click on react date picker close icon for "Start Date"
     And I click on react date picker close icon for "End Date"
     Then I click on "Submit" button on "create" organization page
@@ -211,10 +231,10 @@ Feature: Create Network Contracts functionality tests
 
     Examples: 
       | Description                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name | ValidationMessage                                        |
-      | Check validation for blank Program Name      | NO     | PGPNAME  |              | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | Hospitalsmoke16   | Program is not present                                   |
+      | Check validation for blank Program Name      | NO     | PGPNAME  |              | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Program is not present                                   |
       | Check validation for blank Organization name | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   |                                                          |
-      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   | Start Date is not present                                |
-      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   | End Date is greater than the Contract (Program) End Date |
+      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Start Date is not present                                |
+      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | End Date is greater than the Contract (Program) End Date |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -228,7 +248,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     And I click on react date picker close icon for "End Date"
@@ -275,7 +295,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
@@ -307,3 +327,42 @@ Feature: Create Network Contracts functionality tests
       | Description                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name | ContractStartDate | ContractEndDate | Message                              |
       | Create Network contract with all the available fields | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
       | Create Network contract with all the available fields | YES    | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           | 2017/01/12        | 2019/12/20      | NetworkContract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    Then I click on cancel search button
+    And I verify the selected Hospital organization should not be displayed in the search box
+
+    Examples: 
+      | Description                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name |
+      | Check the cancel search button functionality | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | ACHNAME           |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    Then I verify the "No results found" message for invalid search in Organization Name dropdown box
+
+    Examples: 
+      | Description                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name |
+      | Error message if an organization is not found | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |                   |

@@ -22,10 +22,11 @@ public class HomePagePM extends BaseClass {
 		 assertEquals(value, text);
 	 }
 	
-	 public void iClickOnOrganizationalLinkOnProgramManagementPage() {
+	 public void iClickOnOrganizationalLinkOnProgramManagementPage() throws InterruptedException {
 		 WebElement element = driver.findElement(By.xpath("//a[text()='Organization']"));
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 executor.executeScript("arguments[0].click();", element);
+		 Thread.sleep(11000);
 	 }
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {
