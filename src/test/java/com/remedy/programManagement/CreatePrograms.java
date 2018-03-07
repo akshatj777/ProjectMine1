@@ -164,6 +164,14 @@ public class CreatePrograms extends BaseClass {
 			delay();
 			driver.findElement(By.cssSelector(".org-name")).click();
 		}
+		else
+		{
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+			longDelay();
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
+			delay();
+			driver.findElement(By.cssSelector(".org-name")).click();
+		}
 	}
 	
 	public void iEnterPriceOnCreateContractsPage(String text, int num, String field) 

@@ -282,8 +282,11 @@ public class CreateACHOrganization extends BaseClass{
 			}
 			else 
 			{
+				delay();
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
+				longDelay();
 				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+				delay();
 			}
 		}
 	}
