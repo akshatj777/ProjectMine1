@@ -51,9 +51,9 @@ public class CreateManagingOrganization extends BaseClass {
 //		scrollIntoViewByJS(element);
 //		delay();
 //		clickElement(element);
-//		delay();
 		
-		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		 delay();
+		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 executor.executeScript("arguments[0].click();", element);
 	}

@@ -45,6 +45,10 @@ Feature: Create Managing organization functionality tests
     And I verify "Please select a State" mandatory field validation message on create organization page
     And I verify "Please enter a Postal Code" mandatory field validation message on create organization page
 
+    Examples: 
+      | Description                            | MO_Name | Address1 | City | State | Postal_Code |
+      | Create MO all Mandatory fields missing |         |          |      |       |             |
+
   Scenario Outline: <Description>
     When I click on Organization link on Program Management page
     Then I verify "+" button under "Managing" organization page

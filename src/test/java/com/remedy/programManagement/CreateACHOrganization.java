@@ -31,6 +31,7 @@ public class CreateACHOrganization extends BaseClass{
 		for (WebElement ele : element) {
 			if(ele.getText().contains(text)){
 				ele.click();
+				delay();
 			}
 		}
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -274,12 +275,16 @@ public class CreateACHOrganization extends BaseClass{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), "");	
 			}
 			else if (managingOrg.contains("Invalid")){
-				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);	
+				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);
+				delay();
 			}
 			else 
 			{
+				iWillWaitToSee(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']"));
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
+				iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption"));
 				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
+				delay();
 			}
 		}
 	}
@@ -302,6 +307,7 @@ public class CreateACHOrganization extends BaseClass{
     }
     
     public void iVerifyMessageInHasAManagementOrganization(String text) {
+    	iWillWaitToSee(By.cssSelector(".Select-noresults"));
     	verifyTextForElement(driver.findElement(By.cssSelector(".Select-noresults")), text);
     }
 }
