@@ -102,6 +102,18 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyDisabledNextButton(String text){
 		editUser.iVerifyDisabledNextButton(text);
 	}
+	@Then("^I verify that Next button is \"([^\"]*)\"$")
+	public void iVerifyNextButtonStatus(String text){
+		editUser.iVerifyNextButtonStatus(text);
+	}
+	@Then("^I verify that Submit button is \"([^\"]*)\"$")
+	public void iVerifySubmitButtonStatus(String text){
+		editUser.iVerifySubmitButtonStatus(text);
+	}
+	@Then("^I verify that \"([^\"]*)\" menu is \"([^\"]*)\"$")
+	public void iVerifyleftMenuStatus(String text1, String text2){
+		editUser.iVerifyleftMenuStatus(text1, text2);
+	}
 	@Then("^I should see error message \"([^\"]*)\"$")
 	public void iVerifyErrorMessage(String text){
 		editUser.iVerifyErrorMessage(text);
@@ -130,18 +142,31 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyProductsCount(String text, int count){
 		editUser.iVerifyProductsCount(text,count);
 	}
-	@Then("^I search location by \"([^\"]*)\" and select \"([^\"]*)\"$")
-	public void iSearchLocByBPID(String bpid, String location) throws InterruptedException{
-		editUser.iSearchLocByBPID(bpid, location);
+	@Then("^I select location by BPID \"([^\"]*)\"$")
+	public void iSelectLocByBPID(String location) throws InterruptedException{
+		editUser.iSearchLocByBPID(location);
+	}
+	@Then("^I deselect location by BPID \"([^\"]*)\"$")
+	public void iDeSelectLocByBPID(String location) throws InterruptedException{
+		editUser.iSearchLocByBPID(location);
+	}
+	@Then("^I select location by BPID \"([^\"]*)\" for PTA$")
+	public void iSelectLocByBPIDForPTA(String location) throws InterruptedException{
+		editUser.iSearchLocByBPIDForPTA(location);
+	}
+	@Then("^I deselect location by BPID \"([^\"]*)\" for PTA$")
+	public void iDeselectLocByBPIDForPTA(String location) throws InterruptedException{
+		editUser.iSearchLocByBPIDForPTA(location);
 	}
 	@Then("^I should see \"([^\"]*)\" for locations under data permissions$")
 	public void iVerifyFacilityKey(String key){
 		editUser.iVerifyFacilityKey(key);
 	}
-	@Then("^I select location by \"([^\"]*)\"$")
+	@Then("^I select location by facility key \"([^\"]*)\"$")
 	public void iSelectLocByFacilityKey(String key) throws InterruptedException{
 		editUser.iSelectLocByFacilityKey(key);
 	}
+	
 	@Then("^I verify that \"([^\"]*)\" is not shown in edit page$")
 	public void iVerifyLearningPathwayIDIsNotPresentOnEditPage(String text){
 		editUser.iVerifyLearningPathwayIDIsNotPresentOnEditPage(text);
@@ -167,5 +192,33 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	@Then("^I click on learning pathway dropdown$")
 	public void iClickOnLearningPathwayDropdown(){
 		editUser.iClickOnLearningPathwayDropdown();
+	}
+	@Then("^I verify No results found for invalid health system$")
+	public void iVerifyMessageForInvalidHealthSystem() throws InterruptedException{
+		editUser.iVerifyMessageForInvalidHealthSystem();
+	}
+	@Then("^I verify No results found for invalid Location for \"([^\"]*)\" organisation$")
+	public void iVerifyMessageForInvalidLocation(String text) throws InterruptedException{
+		editUser.iVerifyMessageForInvalidLocation(text);
+	}
+	@Then("^I click on Select dropdown$")
+	public void iClickOnSelectOrgDropdown(){
+		editUser.iClickOnSelectOrgDropdown();
+	}
+	@Then("^I select \"([^\"]*)\" invalid locations$")
+	public void iSelectInvalidLoc(String location) throws InterruptedException{
+		editUser.iSelectInvalidLoc(location);
+	}
+	@Then("^I select \"([^\"]*)\" invalid locations for PTA$")
+	public void iSelectInvalidLocForPTA(String location) throws InterruptedException{
+		editUser.iSelectInvalidLocForPTA(location);
+	}
+	@Then("^I verify incomplete status for health system$")
+	public void iVerifyIncompleteOrganisation(){
+		editUser.iVerifyIncompleteOrganisation();
+	}
+	@Then("^I delete \"([^\"]*)\" from selected locations column$")
+	public void deleteLocationsFromSelectedLocationsCol(String locationList) throws Throwable {
+		editUser.deleteLocationsFromSelectedLocationsCol(locationList);
 	}
 }

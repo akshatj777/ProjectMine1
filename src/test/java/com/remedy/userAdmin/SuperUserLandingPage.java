@@ -472,11 +472,12 @@ public void iClickOnTileFromEC(String text){
 	
 }
 public void iSelectTileFromManagementDropDown(String text){
-	iWillWaitToSee(By.xpath("//div[contains(text(),'Management')]"));
-	
-	clickElement(driver.findElement(By.xpath("//div[contains(text(),'Management')]")));
-longDelay();
+
+iWillWaitToSee(By.xpath("//span[contains(text(),'"+text+"')]"));
+clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+
 		clickSingleElementFromList(By.xpath("//a"), text);
+
 		
 }
 		
