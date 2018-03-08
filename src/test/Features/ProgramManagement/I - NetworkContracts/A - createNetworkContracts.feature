@@ -126,8 +126,8 @@ Feature: Create Network Contracts functionality tests
       | Description                              | Payor_Name | Program_Name | Message                      |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME  | Program Successfully Created |
 
-  #| Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME1 | Program Successfully Created |
-  #| Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME2 | Program Successfully Created |
+  | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME1 | Program Successfully Created |
+  | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME2 | Program Successfully Created |
   Scenario Outline: Create Contracts with all available fields
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box

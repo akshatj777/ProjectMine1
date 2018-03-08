@@ -323,13 +323,13 @@ public class CreatePrograms extends BaseClass {
 		}
 		else if(field.contains("Start Date")){
 			result = getTextForElement(driver.findElement(By.xpath("//div[@class='start-date']")));
-			result = result.substring(result.indexOf(":")+1);
-			Assert.assertEquals(result,CreatePrograms.programs.get(1));
+			//result = result.substring(result.indexOf(":")+1);
+			Assert.assertEquals(result,text);
 		}
 		else if(field.contains("End Date")){
 			result = getTextForElement(driver.findElement(By.xpath("//div[@class='end-date']")));
-			result = result.substring(result.indexOf(":")+1);
-			Assert.assertEquals(result,CreatePrograms.programs.get(1));
+			//result = result.substring(result.indexOf(":")+1);
+			Assert.assertEquals(result,text);
 		}
 	}
 	
