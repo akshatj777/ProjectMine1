@@ -166,7 +166,7 @@ public class ViewUserPage extends BaseClass {
 	}
 	
 	public void clickCrossButton() throws Throwable {
-		driver.findElement(By.xpath("//i[@class='close icon']")).click();
+		driver.findElement(By.xpath("//*[name()='svg' and @fill='#48677b']//*[name()='g' and @id='iCons']")).click();
 	}
 	
 	public void clickEditIcon() throws Throwable {

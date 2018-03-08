@@ -185,7 +185,10 @@ public class MailCreateUser extends BaseClass{
 	
 	public void iClickOnChangePasswordMailInInboxInMyAccount() {
 		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
-		clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+		if(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).isEnabled())
+		{
+			clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));
+		}
 	}
 	
 	public void iEnterNewPasswordToSetNewPassword(String text) {
