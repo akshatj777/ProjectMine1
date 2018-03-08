@@ -654,3 +654,122 @@ Feature: Create User - Super Admin User
     Examples: 
       | Description                                         | User        | UserName                               | Password | FirstName | LastName | Email             | Phone      | Role         | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter         | Health System1                                                         | Programs1   | Locations1                                                   | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Verify successful removal of selected health system | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | 9988776655 | Case Manager | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2 | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | BPCI-Model2 | 2070-023--Allentown, 2070-023--Bethlehem, 2070-025--Anderson | No               |                |           |            | No               |                |           |            |
+
+  Scenario Outline: Verify that Next button and left side menu is enabled only when mandatory fields are selected
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    Then I verify that Next button is "disabled"
+    Then I verify that "Applications" menu is "disabled"
+    Then I verify that "Permissions" menu is "disabled"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I verify that Next button is "enabled"
+    Then I verify that "Applications" menu is "disabled"
+    Then I verify that "Permissions" menu is "disabled"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify that "General Information" menu is "enabled"
+    Then I verify that "Permissions" menu is "disabled"
+    Then I verify that Next button is "disabled"
+    Then I select "<Applications>" product
+    Then I verify that Next button is "enabled"
+    Then I click on Next button
+    Then I verify that "General Information" menu is "enabled"
+    Then I verify that "Permissions" menu is "enabled"
+    Then I verify that Submit button is "disabled"
+    And I search for health system with <Health System1>
+    And I select a <Health System1>
+    Then I select "<Programs1>" programs
+    Then I select location by BPID "<Locations_BPID>"
+    Then I select location by facility key "<Locations_facility key>"
+    Then I verify that Submit button is "enabled"
+
+    Examples: 
+      | FirstName  | LastName  | Email             | Role       | NPI | Applications | Health System1 | Programs1   | Locations_BPID                                          | Locations_facility key |
+      | First'Name | Last'Name | test.automatemail | Physicians | NPI | Reports      | Penn           | BPCI-Model2 | 2070-020--Upenn - Hospital Of The Univ. Of Pennsylvania | PMC                    |
+
+  Scenario Outline: Enter invalid health system and location and verify error message
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    And I enter Phone field with <Phone>
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I select "<Applications>" product
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    And I search for health system with <Health System_invalid>
+    And I verify No results found for invalid health system
+    Then I click on Select dropdown
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I select "<invalidLocations>" invalid locations
+    And I verify No results found for invalid Location for "first" organisation
+    Then I click on existing organisation "<Health System>"
+    Then I verify incomplete status for health system
+
+    Examples: 
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Phone      | Role         | Applications | NPI | Health System_invalid | Health System | Programs    | invalidLocations |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | 9988776655 | Case Manager | Reports      |     | hkfj                  | Penn          | BPCI-Model2 | hkfj             |
+
+  Scenario Outline: Creating user with existing NPI and validating error message
+    Given I am on the login page
+    When I enter email field <UserName> for login
+    And I enter password field <Password> for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with existing NPI for "<User>-<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications>" are unchecked
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I verify applications "<Applications>" are checked
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations
+    Then I click on Submit button for "<User>"
+    Then I should see error message for duplicate NPI "Account with this NPI already exists"
+
+    Examples: 
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Role       | Applications | NPI | Health System     | Programs    | Locations                   |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Physicians | Reports      |     | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital |

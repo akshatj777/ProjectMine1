@@ -1263,8 +1263,11 @@ public class CreateUserPage extends BaseClass{
         	   Thread.sleep(3000);   
     	   }
     	   
-	   	    }	
-	   }else{return;}
+	   	    }
+	
+	   }else{
+		   return;
+	   }
    }
    
    public void selectLocationsForDownstreamProvider(String locationList) throws Throwable {
@@ -1845,7 +1848,17 @@ public class CreateUserPage extends BaseClass{
 		 longDelay();
 	 }
 
-	 
+	 public void iEnterExistingNPI(String text){	
+	String npi=CreateUserPage.usersNPIPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
+	iWillWaitToSee(By.xpath("//input[@placeholder='NPI']"));
+	driver.findElement(By.xpath("//input[@placeholder='NPI']")).clear();
+	iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")),npi);
+	System.out.println("NPI : "+npi);
+	 }
+	 public void duplicateNPIMsg(String text){
+		 iWillWaitToSee(By.cssSelector("div.ui.text.loader"));
+		 Assert.assertTrue(driver.findElement(By.cssSelector("div.ui.text.loader")).getAttribute("innerText").contains(text));
+	 }
 }
 
 

@@ -833,6 +833,13 @@ public class CreateUserSteps extends DriverScript {
 		public void i_Click_on_Arrow_Buttons_on_Landing_Page(String text) throws Throwable {
 		 createUser.iClickonArrowButtonsonLandingPage(text);
 	 }
-
+	 @Then("^I enter NPI field with existing NPI for \"([^\"]*)\"$")
+	 public void iEnterExistingNPI(String user){
+		 createUser.iEnterExistingNPI(user);
+	 }
+	 @Then("^I should see error message for duplicate NPI \"([^\"]*)\"$")
+	 public void duplicateNPIMsg(String text){
+		 createUser.duplicateNPIMsg(text);
+	 }
 }
 

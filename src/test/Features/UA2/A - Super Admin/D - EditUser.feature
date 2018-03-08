@@ -38,8 +38,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | FirstName       | LastName       | Email             | Phone        | NPI | RemoveLearningPathwaySearchParameter | Applications       |
-      | Super Admin | Physicians | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | i am learning path, 18h7phZr1h81     | Episodes, Episodes |
+      | User        | Role       | FirstName        | LastName        | Email             | Phone        | NPI | RemoveLearningPathwaySearchParameter | Applications       |
+      | Super Admin | Physicians | FirstName'Edited | LastName'Edited | test.automatemail | 996-385-2451 | NPI | i am learning path, 18h7phZr1h81     | Episodes, Episodes |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -321,8 +321,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | Description                          | User        | Role      | Email             | Applications                    | ApplicationsNotVisible                          | Remove HealthSystem | Health System    | Programs    | Locations                                        | Facilities                             | ProgramsValidation             | LocationsValidation                                                | LearningPathway                                           | FirstName                                 | LastName                                 | Roletext | ReportCategory | ReportName         |
-      | Remove Existing org and add new org1 | Super Admin | Executive | test.automatemail | Reports, Episodes, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | Stamford Hospital   | Sound Physicians | BPCI-Model2 | 6005-080--Winchester Medical Center - Rehab Unit | Winchester Medical Center - Rehab Unit | Sound Physicians--BPCI Model 2 | Sound Physicians--6005-080--Winchester Medical Center - Rehab Unit | i am learning path, Learning Pathway 2, Remedy University | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | ROLE_PRM | Patient ID     | Episode DRG Issues |
+      | Description                          | User        | Role      | Email             | Applications                    | ApplicationsNotVisible                          | Remove HealthSystem | Health System    | Programs    | Locations                                                                               | Facilities                                                          | ProgramsValidation             | LocationsValidation                                                                                                         | LearningPathway                                           | FirstName                                 | LastName                                 | Roletext | ReportCategory | ReportName         |
+      | Remove Existing org and add new org1 | Super Admin | Executive | test.automatemail | Reports, Episodes, TCI, Lessons | Episodes 2.0, Administration, Physician Connect | Stamford Hospital   | Sound Physicians | BPCI-Model2 | 6005-080--Winchester Medical Center - Rehab Unit, 6005-063--Fairbanks Memorial Hospital | Winchester Medical Center - Rehab Unit, Fairbanks Memorial Hospital | Sound Physicians--BPCI Model 2 | Sound Physicians--6005-080--Winchester Medical Center - Rehab Unit, Sound Physicians--6005-063--Fairbanks Memorial Hospital | i am learning path, Learning Pathway 2, Remedy University | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | ROLE_PRM | Patient ID     | Episode DRG Issues |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -635,7 +635,7 @@ Feature: Edit user page for SA
     And I search for health system with <Health System>
     And I select a <Health System>
     Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
+    Then I select location by facility key "<Locations>"
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     Then I verify first name "<FirstName>"
     Then I verify last name "<LastName>"
@@ -712,8 +712,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName | LastName       | Email             | Phone        | NPI | PreviousRole | Role    | EnableApplications | Applications               | ApplicationsNotVisible                          | Remove HealthSystem                                                    | Health System    | Programs    | Locations                          | LearningPathwaySearchParameter | Roletext | ReportCategory | ReportName                   | BPID | Facilities               | LearningPathway                                                                     | ProgramsValidation             | LocationsValidation                                  |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager | Manager | Reports            | Episodes, Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | Sound Physicians | BPCI-Model3 | 3056-b75--Warren Memorial Hospital |                                | ROLE_PRM | Patient ID     | Episode DRG Issues [Model 3] |      | Warren Memorial Hospital | i am learning path, Learning Pathway 2, max-test-052417, Care Coordination External | Sound Physicians--BPCI Model 3 | Sound Physicians--3056-b75--Warren Memorial Hospital |
+      | User        | UserName                               | Password | FirstName | LastName       | Email             | Phone        | NPI | PreviousRole | Role    | EnableApplications | Applications               | ApplicationsNotVisible                          | Remove HealthSystem                                                    | Health System                                                          | Programs    | Locations | LearningPathwaySearchParameter | Roletext | ReportCategory | ReportName         | BPID | Facilities                              | LearningPathway                                                                     | ProgramsValidation                                                                   | LocationsValidation                                                                                                       |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastNameEdited | test.automatemail | 996-385-2451 |     | Case Manager | Manager | Reports            | Episodes, Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | BPCI-Model2 |    390035 |                                | ROLE_PRM | Patient ID     | Episode DRG Issues |      | St. Luke'S Hospital Quakertown Hospital | i am learning path, Learning Pathway 2, max-test-052417, Care Coordination External | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network--BPCI Model 2 | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network--2070-026--St. Luke'S Hospital Quakertown Hospital |
 
   Scenario Outline: Changing General information, Role from <PreviousRole> to <Role> and edit Data permissions
     Given I am on the login page
@@ -937,7 +937,7 @@ Feature: Edit user page for SA
     Then I click on Next button
     Then I click on existing organisation "<Health System>"
     Then I select "<DisableLocations>" locations
-    Then I select "<EnableLocations>" locations
+    Then I select location by BPID "<EnableLocations>"
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     Then I verify phone "<PhoneValidation>"
     Then I verify enabled "<EnableApplications>"
@@ -1139,3 +1139,75 @@ Feature: Edit user page for SA
     Examples: 
       | User        | PreviousRole | Role1                          | ApplicationsChecked1       | ApplicationsUnchecked1                               | Role2             | ApplicationsChecked2 | ApplicationsUnchecked2 |
       | Super Admin | Executive    | Remedy Technical Administrator | Reports, Episodes, Lessons | Episodes 2.0, Physician Connect, Administration, TCI | Remedy Sales Team | Lessons, Reports     | TCI                    |
+
+  Scenario Outline: Invalid Health system and invalid location validation
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click Add Organization button for "<HasHealthSystem2>" flag
+    And I search for health system with <InvalidHealthSystem>
+    And I verify No results found for invalid health system
+    Then I click on Select dropdown
+    And I search for health system with <Health System2>
+    And I select a <Health System2>
+    Then I select "<Programs2>" programs
+    Then I select "<invalidLocations>" invalid locations
+    And I verify No results found for invalid Location for "second" organisation
+    Then I click on existing organisation "<Health System2>"
+    Then I verify incomplete status for health system
+
+    Examples: 
+      | User        | Role    | HasHealthSystem2 | InvalidHealthSystem | Health System2 | Programs2   | invalidLocations |
+      | Super Admin | Manager | Yes              | hdvb                | Adcare Health  | BPCI-Model3 | hkfj             |
+
+  Scenario Outline: Remove selected locations and then remove the org
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on existing organisation "<Health System>"
+    Then I select "<DisableLocations>" locations
+    Then I remove health system "<Health System>"
+    And I click on "Remove" button on permissions tab
+    Then I click on Submit button while edit for "<User>-<Role>"
+
+    Examples: 
+      | User        | Role      | Health System | DisableLocations                         |
+      | Super Admin | Remedy RN | TeamHealth    | 3056-q91--The Medical Center At Franklin |
+
+  Scenario Outline: <Description>
+    Given I am on the login page
+    When I enter email field lbarinstein+qaadmin@remedypartners.com for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I verify the header "Permissions"
+    Then I click on existing organisation "<Health System>"
+    And I verify selected Location "<SelectedLocations>" in the selected Locations section
+    Then I search the "<Locations>" in the Selected Locations section
+    And I click on remove link icon for selected Locations on selected Locations section
+    And I verify Selected Locations section after click on remove link icon
+
+    Examples: 
+      | User        | UserName                               | Password | Role      | Health System    | SelectedLocations                    | Locations                             |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | Executive | Sound Physicians | Fairbanks Memorial Hospital (020012) | 6005-063--Fairbanks Memorial Hospital |

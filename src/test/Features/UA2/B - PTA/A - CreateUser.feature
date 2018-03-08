@@ -616,3 +616,74 @@ Feature: Create User - PTA User
     Examples: 
       | Description                                           | User        | UserName                               | Password | FirstName                                          | LastName                                           | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                              | Health System1 | Programs1   | Locations1                     | SelectedLocations    | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Verify the search functionality in selected locations | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | 3056-808--Arbor Nursing Center | Arbor Nursing Center | No               |                |           |            | No               |                |           |            |
+
+  Scenario Outline: Verify that Next button and left side menu is enabled only when mandatory fields are selected
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    Then I verify that Next button is "disabled"
+    Then I verify that "Applications" menu is "disabled"
+    Then I verify that "Permissions" menu is "disabled"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I verify that Next button is "enabled"
+    Then I verify that "Applications" menu is "disabled"
+    Then I verify that "Permissions" menu is "disabled"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify that "General Information" menu is "enabled"
+    Then I verify that "Permissions" menu is "disabled"
+    Then I verify that Next button is "disabled"
+    Then I select "<Applications>" product
+    Then I verify that Next button is "enabled"
+    Then I click on Next button
+    Then I verify that "General Information" menu is "enabled"
+    Then I verify that "Permissions" menu is "enabled"
+    Then I verify that Submit button is "disabled"
+    Then I select location by BPID "<Locations_BPID>" for PTA
+    Then I verify that Submit button is "enabled"
+
+    Examples: 
+      | FirstName  | LastName  | Email             | Role       | NPI | Applications | Locations_BPID                         |
+      | First'Name | Last'Name | test.automatemail | Physicians | NPI | Reports      | 3056-804--Catered Manor Nursing Center |
+
+  Scenario Outline: Enter invalid location and verify error message
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    And I enter Phone field with <Phone>
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I select "<Applications>" product
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I select "<invalidLocations>" invalid locations for PTA
+    And I verify No results found for invalid Location for "first" organisation
+
+    Examples: 
+      | FirstName | LastName | Email             | Phone      | Role         | Applications | NPI | Health System_invalid | Health System | Programs    | invalidLocations |
+      | FirstName | LastName | test.automatemail | 9988776655 | Case Manager | Reports      |     | hkfj                  | Penn          | BPCI-Model2 | hkfj             |
