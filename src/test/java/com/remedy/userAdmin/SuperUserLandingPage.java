@@ -1,14 +1,10 @@
 package com.remedy.userAdmin;
 
-import java.util.StringTokenizer;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.remedy.baseClass.BaseClass;
 import com.remedy.userAdmin.CreateUserPage;
 
@@ -16,8 +12,9 @@ public class SuperUserLandingPage extends BaseClass {
 	static String mail = "test.automatemail";
 	static String email = null;
 	WebDriverWait wait = new WebDriverWait(driver, 60);
-	public SuperUserLandingPage(WebDriver driver) {
-
+	
+	public SuperUserLandingPage(WebDriver driver) 
+	{
 		super(driver);
 	}
 
@@ -294,7 +291,6 @@ public class SuperUserLandingPage extends BaseClass {
 		{
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")));
 		}
-		
 	}
 
 	public void iVerifyTextfromUnlockPopup(String text) {
@@ -310,6 +306,7 @@ public class SuperUserLandingPage extends BaseClass {
 	public void iClickOnButtonFromPopup(String text) {
 		iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
 		clickElement(driver.findElement(By.xpath("//*[contains(text(),'"+text+"')]")));
+		longDelay();
 	}
 
 	public void iClickOnUsersLink() {
@@ -319,12 +316,14 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnAddUserButton() {
-		iWillWaitToSee(By.cssSelector("button.ui.green.right.floated.button.add-user-button"));
-		clickElement(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+		scrollToTopOfThePage();
+		iWillWaitToSee(By.xpath("//button[text()='Add User']"));
+		clickElement(driver.findElement(By.xpath("//button[text()='Add User']")));
 	}
 
 	public void iverifyAddUserButton() {
-		isElementVisible(driver.findElement(By.cssSelector("button.ui.green.right.floated.button.add-user-button")));
+		scrollToTopOfThePage();
+		isElementPresentOnPage(By.xpath("//button[text()='Add User']"));
 	}
 
 	public void iVerifyAddUserPage() {
@@ -377,6 +376,7 @@ public void iVerifyRowCountForSearchByEmail(){
 	Assert.assertEquals(driver.findElements(By.cssSelector(".five.wide")).size(), 1);
 }
 public void iSelectAUser(){
+	scrollToTopOfThePage();
 	iWillWaitToSee(By.cssSelector("td.five.wide"));
 	clickElement(driver.findElements(By.cssSelector("td.five.wide")).get(0));
 	
@@ -472,11 +472,11 @@ public void iClickOnTileFromEC(String text){
 	
 }
 public void iSelectTileFromManagementDropDown(String text){
-	iWillWaitToSee(By.xpath("//div[contains(text(),'Management')]"));
-	
-	clickElement(driver.findElement(By.xpath("//div[contains(text(),'Management')]")));
+
 iWillWaitToSee(By.xpath("//span[contains(text(),'"+text+"')]"));
 clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
+
+		clickSingleElementFromList(By.xpath("//a"), text);
 
 		
 }
