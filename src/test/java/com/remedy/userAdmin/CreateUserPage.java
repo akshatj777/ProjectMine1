@@ -1883,6 +1883,15 @@ public class CreateUserPage extends BaseClass{
 		 iWillWaitToSee(By.cssSelector("div.ui.text.loader"));
 		 Assert.assertTrue(driver.findElement(By.cssSelector("div.ui.text.loader")).getAttribute("innerText").contains(text));
 	 }
+	 public void iEnterExistingEmail(String user){
+		 String email=CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
+		 iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
+			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);
+	 }
+ public void iVerifyAllLocationsPresence(String text) {
+	 delay();
+	Assert.assertFalse(driver.findElements(By.cssSelector("tr.component-bpid-row")).get(0).getAttribute("innerText").toString().contains(text));
+	 }
 }
 
 

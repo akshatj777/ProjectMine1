@@ -627,45 +627,7 @@ public class EditUser extends BaseClass {
 
 	}
 
-	public void deleteLocationsFromSelectedLocationsCol(String locationList) throws Throwable {
-		if (!(locationList.equals(""))) {
-
-			if (locationList.contains(",")) {
-				StringTokenizer st = new StringTokenizer(locationList, ",");
-				while (st.hasMoreTokens()) {
-					String token = st.nextToken().trim();
-					String location = token.substring(token.indexOf("--") + 2, token.length());
-					String BPID = token.substring(0, token.indexOf("--"));
-					delay();
-					while(!(driver.findElements(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).get(1).getText().equals("")))
-			    	   {
-			    		   driver.findElements(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).get(1).clear();  
-			    	   }
-			    	   delay();
-			    	   iFillInText(driver.findElements(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).get(1), location);
-			    	  
-					iWillWaitToSee(By.xpath("//h5[contains(text(),'Selected Locations')]/following-sibling::div//tr[@class='component-bpid-row']/td[contains(text(),'"+location+"')]/..//i[@class='remove link icon']"));
-					clickElement(driver.findElement(By.xpath("//h5[contains(text(),'Selected Locations')]/following-sibling::div//tr[@class='component-bpid-row']/td[contains(text(),'"+location+"')]/..//i[@class='remove link icon']")));
-					
-				}
-			} else {
-				String token = locationList;
-				String location = token.substring(token.indexOf("--") + 2, token.length());
-				String BPID = token.substring(0, token.indexOf("--"));
-				delay();
-				while(!(driver.findElements(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).get(1).getText().equals("")))
-		    	   {
-		    		   driver.findElements(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).get(1).clear();  
-		    	   }
-		    	   delay();
-		    	   iFillInText(driver.findElements(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).get(1), location);
-				iWillWaitToSee(By
-						.xpath("//h5[contains(text(),'Selected Locations')]/following-sibling::div//tr[@class='component-bpid-row']/td[contains(text(),'"
-								+ location + "')]/..//i[@class='remove link icon']"));
-				clickElement(driver.findElement(By.xpath("//h5[contains(text(),'Selected Locations')]/following-sibling::div//tr[@class='component-bpid-row']/td[contains(text(),'"+location+"')]/..//i[@class='remove link icon']")));
-				
-				
-}
-		}
+public void iVerifyLearningPathwayName(String name) {
+		Assert.assertEquals(driver.findElement(By.cssSelector("div.ui.label")).getAttribute("innerText").toString(),name);
 	}
 }

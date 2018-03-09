@@ -217,8 +217,9 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyIncompleteOrganisation(){
 		editUser.iVerifyIncompleteOrganisation();
 	}
-	@Then("^I delete \"([^\"]*)\" from selected locations column$")
-	public void deleteLocationsFromSelectedLocationsCol(String locationList) throws Throwable {
-		editUser.deleteLocationsFromSelectedLocationsCol(locationList);
+	
+	@Then("^I verify that only learning pathway name \\\"([^\\\"]*)\\\" is displayed$")
+	public void iVerifyLearningPathwayName(String name) {
+		editUser.iVerifyLearningPathwayName(name);
 	}
 }

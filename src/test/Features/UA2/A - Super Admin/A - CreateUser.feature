@@ -602,13 +602,15 @@ Feature: Create User - Super Admin User
     Then I select "<Programs1>" programs
     Then I select "<Locations1>" locations
     And I verify selected Location "<SelectedLocations>" in the selected Locations section
+    Then I search the "<LocationsInvalid>" in the Selected Locations section
+    And I verify No results found for invalid Location for "first" organisation
     Then I search the "<Locations1>" in the Selected Locations section
     And I click on remove link icon for selected Locations on selected Locations section
     And I verify Selected Locations section after click on remove link icon
 
     Examples: 
-      | Description                                           | User        | UserName                               | Password | FirstName                                          | LastName                                           | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter         | Health System1    | Programs1   | Locations1                  | SelectedLocations       | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
-      | Verify the search functionality in selected locations | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2 | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Stamford Hospital (TSH) | No               |                |           |            | No               |                |           |            |
+      | Description                                           | User        | UserName                               | Password | FirstName                                          | LastName                                           | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter         | Health System1    | Programs1   | Locations1                  | SelectedLocations       | LocationsInvalid | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Verify the search functionality in selected locations | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2 | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | Stamford Hospital (TSH) | fhdjfs           | No               |                |           |            | No               |                |           |            |
 
   Scenario Outline: <Description>
     Given I am on the login page
@@ -767,8 +769,77 @@ Feature: Create User - Super Admin User
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
     Then I click on Submit button for "<User>"
-    Then I should see error message for duplicate NPI "Account with this NPI already exists"
+    Then I should see error message for duplicate value "Account with this NPI already exists"
 
     Examples: 
       | User        | UserName                               | Password | FirstName | LastName | Email             | Role       | Applications | NPI | Health System     | Programs    | Locations                   |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Physicians | Reports      |     | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital |
+
+  Scenario Outline: Creating user with existing Email and validating error message
+    Given I am on the login page
+    When I enter email field <UserName> for login
+    And I enter password field <Password> for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter existing Email to Create user for "<User>-<Role>"
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications>" are unchecked
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I verify applications "<Applications>" are checked
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations
+    Then I click on Submit button for "<User>"
+    Then I should see error message for duplicate value "Account with this email already exists"
+
+    Examples: 
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Role       | Applications | NPI | Health System     | Programs    | Locations                   |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Physicians | Reports      | NPI | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital |
+
+  Scenario Outline: Validating that BPID with one location does not have All locations under BPID
+    Given I am on the login page
+    When I enter email field <UserName> for login
+    And I enter password field <Password> for Login
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications>" are unchecked
+    Then I select "<Applications>" product
+    Then I verify applications "<Applications>" are checked
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    And I search for health system with <Health System>
+    And I select a <Health System>
+    Then I select "<Programs>" programs
+    Then I verify that "<Locations>" is not present under the bpid
+
+    Examples: 
+      | User        | UserName                               | Password | FirstName | LastName | Email             | Role       | Applications | NPI | Health System     | Programs    | Locations    |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Physicians | Reports      | NPI | Stamford Hospital | BPCI-Model2 | All 2070-015 |

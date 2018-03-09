@@ -575,7 +575,7 @@ Feature: Create User - PTA User
       | Role1     | Applications1              | Role2      | Applications2                                 | NPI |
       | Executive | Episodes, Reports, Lessons | Physicians | Episodes, Reports, Physician Connect, Lessons | NPI |
 
-  Scenario Outline: <Description>
+ Scenario Outline: <Description>
     Given I am on the login page
     Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
     Then I enter newuser password for login to Remedy
@@ -608,13 +608,15 @@ Feature: Create User - PTA User
     Then I select "<Programs1>" programs
     Then I select "<Locations1>" locations for PTA user
     And I verify selected Location "<SelectedLocations>" in the selected Locations section
+    Then I search the "<LocationsInvalid>" in the Selected Locations section
+    And I verify No results found for invalid Location for "first" organisation
     Then I search the "<Locations1>" in the Selected Locations section
     And I click on remove link icon for selected Locations on selected Locations section
     And I verify Selected Locations section after click on remove link icon
 
     Examples: 
-      | Description                                           | User        | UserName                               | Password | FirstName                                          | LastName                                           | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                              | Health System1 | Programs1   | Locations1                     | SelectedLocations    | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
-      | Verify the search functionality in selected locations | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | 3056-808--Arbor Nursing Center | Arbor Nursing Center | No               |                |           |            | No               |                |           |            |
+      | Description                                           | User        | UserName                               | Password | FirstName                                          | LastName                                           | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                              | Health System1 | Programs1   | LocationsInvalid | Locations1                     | SelectedLocations    | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Verify the search functionality in selected locations | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | hjfd             | 3056-808--Arbor Nursing Center | Arbor Nursing Center | No               |                |           |            | No               |                |           |            |
 
   Scenario Outline: Verify that Next button and left side menu is enabled only when mandatory fields are selected
     Given I am on the login page
@@ -684,5 +686,75 @@ Feature: Create User - PTA User
     And I verify No results found for invalid Location for "first" organisation
 
     Examples: 
-      | FirstName | LastName | Email             | Phone      | Role         | Applications | NPI | Health System_invalid | Health System | Programs    | invalidLocations |
-      | FirstName | LastName | test.automatemail | 9988776655 | Case Manager | Reports      |     | hkfj                  | Penn          | BPCI-Model2 | hkfj             |
+      | FirstName | LastName | Email             | Phone      | Role         | Applications | NPI | invalidLocations |
+      | FirstName | LastName | test.automatemail | 9988776655 | Case Manager | Reports      |      | hkfj             |
+
+  Scenario Outline: Creating user with existing NPI and validating error message
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter Email "<Email>" to Create user
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with existing NPI for "<User>-<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications>" are unchecked
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I verify applications "<Applications>" are checked
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    And I search for health system with <Health System>
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations for PTA user
+    Then I click on Submit button for "<User>"
+    Then I should see error message for duplicate value "Account with this NPI already exists"
+
+    Examples: 
+      | User                            | FirstName | LastName | Email             | Role       | Applications | NPI | Programs    | Locations                      |
+      | Partner Technical Administrator | FirstName | LastName | test.automatemail | Physicians | Reports      |     | BPCI-Model3 | 3056-808--Arbor Nursing Center |
+      
+       Scenario Outline: Creating user with existing Email and validating error message
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    When I click on Add User button
+    Then I should see "Add New User" on the user creation page
+    Then I verify the header "General Information"
+    And I fill in First Name with "<FirstName>"
+    Then I fill in Last Name with <LastName>
+    And I enter existing Email to Create user for "<User>-<Role>"
+    When I click the Organizational Role Field
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI>" for role "<Role>"
+    Then I click on Next button
+    Then I verify the header "Applications"
+    Then I verify applications "<Applications>" are unchecked
+    Then I verify Learning Pathway search box is not available
+    Then I select "<Applications>" product
+    Then I verify applications "<Applications>" are checked
+    Then I click on Next button
+    Then I verify the header "Permissions"
+    Then I select "<Programs>" programs
+    Then I select "<Locations>" locations for PTA user
+    Then I click on Submit button for "<User>"
+    Then I should see error message for duplicate value "Account with this email already exists"
+
+    Examples: 
+      | User                            | FirstName | LastName | Email             | Role       | Applications | NPI | Programs    | Locations                      |
+      | Partner Technical Administrator | FirstName | LastName | test.automatemail | Physicians | Reports      | NPI | BPCI-Model3 | 3056-808--Arbor Nursing Center |
+      
