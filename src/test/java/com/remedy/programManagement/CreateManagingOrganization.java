@@ -137,18 +137,8 @@ public class CreateManagingOrganization extends BaseClass {
 		else if(text.equals("PROGRAMNAME")) {
 			CreatePrograms.tempPrograms.put(1, createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(1));
-			
 		}
-		else if(text.equals("PROGRAMNAME1")) {
-			CreatePrograms.tempPrograms.put(2, createRandomName(text));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(2));
-			
-		}
-		else if(text.equals("PROGRAMNAME2")) {
-			CreatePrograms.tempPrograms.put(3, createRandomName(text));
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(3));
-			
-		}
+		
 		else if(text.equals("equalsTo75Characters")){
 			if(field.contains("Managing"))
 			{
@@ -227,9 +217,9 @@ public class CreateManagingOrganization extends BaseClass {
 		}
 	}
 	
-	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
-				
-//		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
+	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) 
+	{
+//		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size()>0)	
 //		{
 			if(org.contains("MO"))
 				{
