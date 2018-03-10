@@ -105,8 +105,9 @@ public class DriverScript {
             options.addArguments("--disable-browser-side-navigation");
 			options.addArguments("--disable-extensions");
 			options.addArguments("disable-infobars");
+			options.addArguments("--disable-plugins-discovery");
             driver = new ChromeDriver(options);
-            driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+            driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 
 			break;			
 		case "ie":

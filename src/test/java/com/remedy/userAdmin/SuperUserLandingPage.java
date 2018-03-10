@@ -35,8 +35,8 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iVerifyLandingPageUI(String text) {
-		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table.users-table"));
-		iWillWaitToSee(By.cssSelector("div.chevron-group"));
+		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table tbody"));
+		//iWillWaitToSee(By.cssSelector("div.chevron-group"));
 		if (text.contains("User table"))
 			isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
 		else if(text.equals("SearchBox"))
@@ -278,7 +278,7 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iLockUnlockUser() {
-		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg']")));
+		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg']//*//*[name()='g' and @id='iCons']")));
 		longDelay();
 	}
 	

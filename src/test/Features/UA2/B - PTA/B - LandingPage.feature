@@ -82,7 +82,7 @@ Feature: Verification of Landing Page for PTA User
     And I click on submit button to set new password
 
     Examples: 
-      | Description                                                                           | User        | UserName                               | Password | FirstName | LastName                                 | Email              | Phone | Role                            | Applications                                                  | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter                 | Health System1 | Programs1   | Locations1                                                                                                                                                                                                        | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Description                                                                           | User        | UserName                               | Password | FirstName | LastName                                 | Email             | Phone | Role                            | Applications                                                  | ApplicationsNotVisible | NPI | LearningPathwaySearchParameter                 | Health System1 | Programs1   | Locations1                                                                                                                                                                                                        | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Super Admin User and create user with Partner Technical Administrator role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastNameLastNameLastNameLastNameLastName | test.automatemail |       | Partner Technical Administrator | Episodes, Reports, Physician Connect, Administration, Lessons | Episodes 2.0, TCI      |     | HZhmTBQzHtU1, Learning Pathway 2, n9yn5n0Qa581 | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center,  3056-807--Carson Nursing And Rehabilitation Center,  3056-808--Arbor Nursing Center | No               |                |           |            | No               |                |           |            |
 
   Scenario Outline: <Description>
@@ -155,7 +155,7 @@ Feature: Verification of Landing Page for PTA User
     And I click on submit button to set new password
 
     Examples: 
-      | Description                                                                         | User                            | FirstName                            | LastName                                 | Email              | Phone      | Role      | Applications | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                                                                                                                               | Health System1 | Programs1   | Locations1                                                                                                                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Description                                                                         | User                            | FirstName                            | LastName                                 | Email             | Phone      | Role      | Applications | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                                                                                                                               | Health System1 | Programs1   | Locations1                                                                                                                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
       | Login with Partner Technical Administrator User and create user with Executive role | Partner Technical Administrator | FirstNameFirstNameFirstNameFirstName | LastNameLastNameLastNameLastNameLastName | test.automatemail | 9988776655 | Executive | Episodes     | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2, Remedy University | Covenant       | BPCI-Model3 | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center |                  |                |           |            |                  |                |           |            |
 
   Scenario: Verification of availability of fields on PTA User Landing page
@@ -221,7 +221,7 @@ Feature: Verification of Landing Page for PTA User
     Then I verify availability of "<SearchParameter>" for "<user>-<Role>"
 
     Examples: 
-      | Description                    | user                            | Role      | Email              | InvalidSearchParameter | SearchParameter                          |
+      | Description                    | user                            | Role      | Email             | InvalidSearchParameter | SearchParameter                          |
       | Search a user using First Name | Partner Technical Administrator | Executive | test.automatemail |                1768789 | FirstNameFirstNameFirstNameFirstName     |
       | Search a user using Last Name  | Partner Technical Administrator | Executive | test.automatemail |                1768789 | LastNameLastNameLastNameLastNameLastName |
       | Search a user using Email      | Partner Technical Administrator | Executive | test.automatemail |                1768789 | FetchFromHM                              |
@@ -248,7 +248,7 @@ Feature: Verification of Landing Page for PTA User
     Then I should see User is Blocked
 
     Examples: 
-      | user                            | Role      | Email              | SearchParameter |
+      | user                            | Role      | Email             | SearchParameter |
       | Partner Technical Administrator | Executive | test.automatemail | FetchFromHM     |
 
   Scenario Outline: Verify ability of PTA user to unlock a locked user
@@ -275,5 +275,5 @@ Feature: Verification of Landing Page for PTA User
     Then I verify "<Applications>" product on SPOE page
 
     Examples: 
-      | user                            | Role      | Email              | SearchParameter | Applications |
+      | user                            | Role      | Email             | SearchParameter | Applications |
       | Partner Technical Administrator | Executive | test.automatemail | FetchFromHM     | Episodes     |
