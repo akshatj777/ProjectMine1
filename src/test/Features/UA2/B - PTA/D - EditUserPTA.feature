@@ -440,7 +440,7 @@ Feature: Edit user page for PTA
       | User                            | FirstName       | LastName       | Email             | Phone        | NPI | PreviousRole | Role       | EnableApplications | Applications                                  | ApplicationsNotVisible       | Health System | Programs    | invalidLocations | RemoveLocations                                                                                                             | AddLocations                   | LearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities           | ProgramsValidation     | LocationsValidation                      | LearningPathway                                                                                                    |
       | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Executive    | Physicians | Physician Connect  | Episodes, Reports, Physician Connect, Lessons | Episodes 2.0, Administration | Covenant      | BPCI-Model3 | hkfj             | 3056-804--Catered Manor Nursing Center, 3056-805--Downey Care Center, 3056-806--Encinitas Nursing And Rehabilitation Center | 3056-808--Arbor Nursing Center |                                | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Arbor Nursing Center | Covenant--BPCI Model 3 | Covenant--3056-808--Arbor Nursing Center | Care Coordination External, Clinical Operations Acute Care Hospital Model 2, Executive Acute Care Hospital Model 2 |
 
-  Scenario Outline: Verify the search functionality in selected locations
+  Scenario Outline: Verify the search functionality in selected locations and delete a location
     Given I am on the login page
     Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
     Then I enter newuser password for login to Remedy
@@ -462,3 +462,35 @@ Feature: Edit user page for PTA
     Examples: 
       | User                            | Role         | Locations                              | SelectedLocations                     |
       | Partner Technical Administrator | Case Manager | 3056-809--Courtyard Health Care Center | Courtyard Health Care Center (055922) |
+
+  Scenario Outline: Changing role from physician to Manager then back to Physicians
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<PreviousRole>"
+    Then I select user with role "<User>-<PreviousRole>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    When I click the Organizational Role Field to edit
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI1>" for role "<Role>"
+    Then I click on Next button
+    Then I click on Next button
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
+    Then I verify role "<Role>"
+    And I click on Edit button
+    When I click the Organizational Role Field to edit
+    Then I pick a Organizational <PreviousRole>
+    Then I enter NPI field with "<NPI2>" for role "<PreviousRole>"
+    Then I click on Next button
+    Then I click on Next button
+    Then I click on Submit button while edit for "<User>-<PreviousRole>--<Role>"
+    Then I verify role "<PreviousRole>"
+
+    Examples: 
+      | User                            | Email             | NPI1 | NPI2 | PreviousRole | Role    | EnableApplications | Applications                                                     | ApplicationsNotVisible       | LearningPathwaySearchParameter | Roletext | ReportCategory | ReportName                   | BPID | LearningPathway                                                                                                                       | FirstName | LastName | Facilities        |
+      | Partner Technical Administrator | test.automatemail |      | NPI  | Physicians   | Manager |                    | Episodes, Reports, Physician Connect, Lessons, Physician Connect | Administration, Episodes 2.0 |                                | ROLE_PRM | Patient ID     | Episode DRG Issues [Model 3] |      | i am learning path, Learning Pathway 2, max-test-052417, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | FirstName | LastName | Apple - Watertown |

@@ -1188,7 +1188,7 @@ Feature: Edit user page for SA
       | User        | Role      | Health System | DisableLocations                         |
       | Super Admin | Remedy RN | TeamHealth    | 3056-q91--The Medical Center At Franklin |
 
-  Scenario Outline: <Description>
+  Scenario Outline: Verify the search functionality in selected locations and delete a location
     Given I am on the login page
     When I enter email field lbarinstein+qaadmin@remedypartners.com for login
     And I enter password field Testing1 for Login
@@ -1211,3 +1211,33 @@ Feature: Edit user page for SA
     Examples: 
       | User        | UserName                               | Password | Role      | Health System    | SelectedLocations                    | Locations                             |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | Executive | Sound Physicians | Fairbanks Memorial Hospital (020012) | 6005-063--Fairbanks Memorial Hospital |
+
+  Scenario Outline: Changing role from physician to Manager then back to Physicians
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<PreviousRole>"
+    Then I select user with role "<User>-<PreviousRole>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    When I click the Organizational Role Field to edit
+    Then I pick a Organizational <Role>
+    Then I enter NPI field with "<NPI1>" for role "<Role>"
+    Then I click on Next button
+    Then I click on Next button
+    Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
+    Then I verify role "<Role>"
+    And I click on Edit button
+    When I click the Organizational Role Field to edit
+    Then I pick a Organizational <PreviousRole>
+    Then I enter NPI field with "<NPI2>" for role "<PreviousRole>"
+    Then I click on Next button
+    Then I click on Next button
+    Then I click on Submit button while edit for "<User>-<PreviousRole>--<Role>"
+    Then I verify role "<PreviousRole>"
+
+    Examples: 
+      | User        | UserName                               | Password | Email             | NPI1 | NPI2 | PreviousRole | Role    | EnableApplications | Applications                                                     | ApplicationsNotVisible       | LearningPathwaySearchParameter | Roletext | ReportCategory | ReportName                   | BPID | LearningPathway                                                                                                                       | FirstName | LastName | Facilities        |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | test.automatemail |      | NPI  | Physicians   | Manager |                    | Episodes, Reports, Physician Connect, Lessons, Physician Connect | Administration, Episodes 2.0 |                                | ROLE_PRM | Patient ID     | Episode DRG Issues [Model 3] |      | i am learning path, Learning Pathway 2, max-test-052417, Executive Acute Care Hospital Model 2, Physician Acute Care Hospital Model 2 | FirstName | LastName | Apple - Watertown |
