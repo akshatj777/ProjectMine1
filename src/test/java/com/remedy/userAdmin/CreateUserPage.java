@@ -1278,45 +1278,25 @@ public class CreateUserPage extends BaseClass{
    {
 	   if(!(locationList.equals("")))
 	   	{
-		   if(driver.findElements(By.xpath("//h5[text()='Which location(s) does this user have access to?']")).size()>0)
-		   {
 			   StringTokenizer st = new StringTokenizer(locationList,",");
 		       while (st.hasMoreTokens()) 
 		       {
 		    	   String token = st.nextToken().trim();
-		    	   delay();
-		    	   while(!(driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
-			    	   {
-			    		   driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
-			    	   }
-		    	   delay();
-		    	   iFillInText(driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), token);
-		    	   iWillWaitToSee(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]"));
-		    	   driver.findElement(By.xpath("//h5[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]")).click();
-		    	   Thread.sleep(3000); 
-		   		}
-		   	}
-		   else if(driver.findElements(By.xpath("//p[text()='Which location(s) does this user have access to?']")).size()>0)
-		   {
-			   StringTokenizer st = new StringTokenizer(locationList,",");
-		       while (st.hasMoreTokens()) 
-		       {
-		    	   String token = st.nextToken().trim();
-		    	   delay();
-		    	   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
-			    	   {
-			    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
-			    	   }
-		    	   delay();
-		    	   iFillInText(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")), token);
-		    	   iWillWaitToSee(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]"));
-		    	   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//label[contains(text(),\""+token+"\")]")).click();
-		    	   Thread.sleep(3000); 
+//		    	   delay();
+//		    	   while(!(driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).getText().equals("")))
+//			    	   {
+//			    		   driver.findElement(By.xpath("//p[text()='Which location(s) does this user have access to?']//../..//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
+//			    	   }
+//		    	   delay();
+		    	   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//section[@class='component-remedy-facility-select']/div/div/input[@placeholder='Search']"))));
+		    	   driver.findElement(By.xpath("//section[@class='component-remedy-facility-select']/div/div/input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);
+		    	   iFillInText(driver.findElement(By.xpath("//section[@class='component-remedy-facility-select']/div/div/input[@placeholder='Search']")), token);
+		    	   iWillWaitToSee(By.xpath("//tr[@class='component-bpid-row']//label[contains(text(),\""+token+"\")]"));
+		    	   driver.findElement(By.xpath("//tr[@class='component-bpid-row']//label[contains(text(),\""+token+"\")]")).click();
+//		    	   Thread.sleep(3000); 
 		   		}
 		   	}
 	   	}
-   }
-   
    
    public void selectLocationsForPTAUser(String locationList) throws Throwable {
 	   if(!(locationList.equals("")))
@@ -1895,18 +1875,17 @@ public class CreateUserPage extends BaseClass{
 		 longDelay();
 	 }
 
-	 public void iEnterExistingNPI(String text){	
+	 public void iEnterExistingNPI(String userRole){	
 	String npi=CreateUserPage.usersNPIPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 	iWillWaitToSee(By.xpath("//input[@placeholder='NPI']"));
 	driver.findElement(By.xpath("//input[@placeholder='NPI']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);
 	iFillInText(driver.findElement(By.xpath("//input[@placeholder='NPI']")),npi);
-	System.out.println("NPI : "+npi);
 	 }
 	 public void duplicateNPIMsg(String text){
 		 iWillWaitToSee(By.cssSelector("div.ui.text.loader"));
 		 Assert.assertTrue(driver.findElement(By.cssSelector("div.ui.text.loader")).getAttribute("innerText").contains(text));
 	 }
-	 public void iEnterExistingEmail(String user){
+	 public void iEnterExistingEmail(String userRole){
 		 String email=CreateUserPage.usersEmailPerRole.get(userRole).get(userRole.substring((userRole.indexOf("-")+1)).trim());
 		 iWillWaitToSee(By.xpath("//input[@placeholder='Email']"));
 			driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys(email);

@@ -834,8 +834,8 @@ public class CreateUserSteps extends DriverScript {
 		 createUser.iClickonArrowButtonsonLandingPage(text);
 	 }
 	 @Then("^I enter NPI field with existing NPI for \"([^\"]*)\"$")
-	 public void iEnterExistingNPI(String user){
-		 createUser.iEnterExistingNPI(user);
+	 public void iEnterExistingNPI(String userRole){
+		 createUser.iEnterExistingNPI(userRole);
 	 }
 	 @Then("^I should see error message for duplicate value \"([^\"]*)\"$")
 	 public void duplicateNPIMsg(String text){
@@ -843,8 +843,8 @@ public class CreateUserSteps extends DriverScript {
 	 }
 	
 	 @Then("^I enter existing Email to Create user for \"([^\"]*)\"$")
-	 public void iEnterExistingEmail(String user){
-		 createUser.iEnterExistingEmail(user);
+	 public void iEnterExistingEmail(String userRole){
+		 createUser.iEnterExistingEmail(userRole);
 	 }
 	 @Then("^I verify that \\\"([^\\\"]*)\\\" is not present under the bpid$")
 	 public void iVerifyAllLocationsPresence(String text) {

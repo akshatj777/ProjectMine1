@@ -38,7 +38,7 @@ public class SuperUserLandingPage extends BaseClass {
 		iWillWaitToSee(By.cssSelector("table.ui.celled.sortable.striped.table tbody"));
 		//iWillWaitToSee(By.cssSelector("div.chevron-group"));
 		if (text.contains("User table"))
-			isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table.users-table")));
+			isElementVisible(driver.findElement(By.cssSelector("table.ui.celled.sortable.striped.table tbody")));
 		else if(text.equals("SearchBox"))
 		{
 			iWillWaitToSee(By.xpath("//input[@placeholder='Search']"));
@@ -277,9 +277,17 @@ public class SuperUserLandingPage extends BaseClass {
 		selectElementByDesc(".item", text);
 	}
 
-	public void iLockUnlockUser() {
-		clickElement(driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg']//*//*[name()='g' and @id='iCons']")));
-		longDelay();
+	public void iLockUnlockUser(String action) {
+		if(action.equals("locl"))
+		{
+			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")).click();
+			delay();
+		}
+		else if(action.equals("unlock"))
+		{
+			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
+			delay();
+		}
 	}
 	
 	public void verifyLockedUser(String action) {
@@ -473,6 +481,8 @@ public void iClickOnTileFromEC(String text){
 }
 public void iSelectTileFromManagementDropDown(String text){
 
+	iWillWaitToSee(By.cssSelector(".btn.btn-menu.valentino-icon-spoe"));
+	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
 iWillWaitToSee(By.xpath("//span[contains(text(),'"+text+"')]"));
 clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
 

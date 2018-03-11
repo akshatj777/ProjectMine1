@@ -66,7 +66,7 @@ public class SuperUserLandingPageSteps extends DriverScript {
 
 	@Then("^I \"([^\"]*)\" user$")
 	public void iLockUnlockUser(String action) throws Throwable {
-		ua2LandingPage.iLockUnlockUser();
+		ua2LandingPage.iLockUnlockUser(action);
 	}
 	
 	@Then("^I verify user is \"([^\"]*)\"$")
