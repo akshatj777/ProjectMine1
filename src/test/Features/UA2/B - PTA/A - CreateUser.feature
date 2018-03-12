@@ -721,8 +721,13 @@ Feature: Create User - PTA User
     Then I should see error message for duplicate value "Account with this NPI already exists"
 
     Examples: 
+<<<<<<< HEAD
       | User                            | FirstName | LastName | Email             | Role       | Applications | NPI | Programs    | Health System | Locations                      |
       | Partner Technical Administrator | FirstName | LastName | test.automatemail | Physicians | Reports      |     | BPCI-Model3 | Covenant      | 3056-808--Arbor Nursing Center |
+=======
+      | User                            | FirstName | LastName | Email             | Role       | Applications | NPI | Programs    | Locations                      |
+      | Partner Technical Administrator | FirstName | LastName | test.automatemail | Physicians | Reports      |     | BPCI-Model3 | 3056-808--Arbor Nursing Center |
+>>>>>>> 53c5b65e69280b20f947c71ee834f6d7599ec708
 
   Scenario Outline: Creating user with existing Email and validating error message
     Given I am on the login page
@@ -757,3 +762,26 @@ Feature: Create User - PTA User
     Examples: 
       | User                            | FirstName | LastName | Email             | Role       | Applications | NPI | Programs    | Locations                      |
       | Partner Technical Administrator | FirstName | LastName | test.automatemail | Physicians | Reports      | NPI | BPCI-Model3 | 3056-808--Arbor Nursing Center |
+<<<<<<< HEAD
+=======
+
+  Scenario Outline: Verify that Only name is displayed for Learning Pathway ID's
+    Given I am on the login page
+    Then I enter newuser email for "Super Admin-Partner Technical Administrator" login to Remedy
+    Then I enter newuser password for login to Remedy
+    Then I click Access button
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Applications" tab
+    Then I verify the header "Applications"
+    Then I verify that Learning Pathway ID "<LearningPathwayID>" is not displayed for the enabled Learning Pathway
+
+    Examples: 
+      | User                            | Role         | LearningPathwayID |
+      | Partner Technical Administrator | Case Manager | 5HDc3E6aK_E1      |
+>>>>>>> 53c5b65e69280b20f947c71ee834f6d7599ec708
