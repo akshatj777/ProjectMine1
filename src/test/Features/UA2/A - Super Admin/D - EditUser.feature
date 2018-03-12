@@ -27,6 +27,7 @@ Feature: Edit user page for SA
     Then I click on learning pathway dropdown
     Then I enter "<RemoveLearningPathwaySearchParameter>" in Learning Pathway search box
     Then I remove "<RemoveLearningPathwaySearchParameter>" from the results
+    Then I verify that Learning Pathway ID "<LearningPathwayID>" is not displayed for the enabled Learning Pathway
     Then I click on Next button
     Then I click on Submit button while edit for "<User>-<Role>"
     Then I verify first name "<FirstName>"
@@ -38,8 +39,8 @@ Feature: Edit user page for SA
     And I should see Log in widget
 
     Examples: 
-      | User        | Role       | FirstName        | LastName        | Email             | Phone        | NPI | RemoveLearningPathwaySearchParameter | Applications       |
-      | Super Admin | Physicians | FirstName'Edited | LastName'Edited | test.automatemail | 996-385-2451 | NPI | i am learning path, 18h7phZr1h81     | Episodes, Episodes |
+      | User        | Role       | FirstName        | LastName        | Email             | Phone        | NPI | RemoveLearningPathwaySearchParameter | LearningPathwayID | Applications       |
+      | Super Admin | Physicians | FirstName'Edited | LastName'Edited | test.automatemail | 996-385-2451 | NPI | i am learning path, 18h7phZr1h81     | n9yn5n0Qa581      | Episodes, Episodes |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -1205,12 +1206,13 @@ Feature: Edit user page for SA
     Then I click on existing organisation "<Health System>"
     And I verify selected Location "<SelectedLocations>" in the selected Locations section
     Then I search the "<Locations>" in the Selected Locations section
+    Then I verify facility key "<facilityKey>" is displayed with location name "Fairbanks Memorial Hospital"
     And I click on remove link icon for selected Locations on selected Locations section
     And I verify Selected Locations section after click on remove link icon
 
     Examples: 
-      | User        | UserName                               | Password | Role      | Health System    | SelectedLocations                    | Locations                             |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | Executive | Sound Physicians | Fairbanks Memorial Hospital (020012) | 6005-063--Fairbanks Memorial Hospital |
+      | User        | UserName                               | Password | Role      | Health System    | SelectedLocations                    | Locations                             | facilityKey |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | Executive | Sound Physicians | Fairbanks Memorial Hospital (020012) | 6005-063--Fairbanks Memorial Hospital |      020012 |
 
   Scenario Outline: Changing role from physician to Manager then back to Physicians
     Given I am on the login page

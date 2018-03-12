@@ -627,7 +627,22 @@ public class EditUser extends BaseClass {
 
 	}
 
-public void iVerifyLearningPathwayName(String name) {
-		Assert.assertEquals(driver.findElement(By.cssSelector("div.ui.label")).getAttribute("innerText").toString(),name);
+public void iVerifyLearningPathwayIDIsNotDisplayed(String id){
+
+		Assert.assertFalse(driver.findElements(By.cssSelector("div.ui.label")).get(0).getAttribute("innerText").toString().contains(id));
 	}
+public void iVerifyLocationDisplayedWithFacilityKey(String key, String text){
+ 	waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]"))));
+// 	String actual = getTextForElement(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
+//	Assert.assertEquals(text,actual);
+ 	
+ 	Assert.assertTrue(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")).getText().contains(key));
+}
+public void iVerifyLocationNotDisplayedWithFacilityKey(String key, String text){
+ 	waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]"))));
+// 	String actual = getTextForElement(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
+//	Assert.assertEquals(text,actual);
+ 	
+ 	Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")).getText().contains(key));
+}
 }

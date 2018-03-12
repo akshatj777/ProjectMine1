@@ -29,6 +29,7 @@ Feature: Edit user page for PTA
     Then I click on learning pathway dropdown
     Then I enter "<RemoveLearningPathwaySearchParameter>" in Learning Pathway search box
     Then I remove "<RemoveLearningPathwaySearchParameter>" from the results
+    Then I verify that Learning Pathway ID "<LearningPathwayID>" is not displayed for the enabled Learning Pathway
     Then I click on Next button
     Then I click on Submit button while edit for "<User>-<Role>"
     Then I verify first name "<FirstName>"
@@ -104,8 +105,8 @@ Feature: Edit user page for PTA
     And I should see Log in widget
 
     Examples: 
-      | User                            | FirstName       | LastName       | Email             | Phone        | NPI | Role       | RemoveApplications | Applications                         | ApplicationsNotVisible                | RemoveLearningPathwaySearchParameter | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                       |
-      | Partner Technical Administrator | FirstNameEdited | LastNameEdited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports            | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1                         | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Executive Acute Care Hospital Model 2 |
+      | User                            | FirstName        | LastName        | Email             | Phone        | NPI | Role       | RemoveApplications | Applications                         | ApplicationsNotVisible                | LearningPathwayID | RemoveLearningPathwaySearchParameter  | Roletext       | ReportCategory | ReportName                   | BPID | Facilities                                                                                                                                                       | LearningPathway                       |
+      | Partner Technical Administrator | FirstName'Edited | LastName'Edited | test.automatemail | 996-385-2451 | NPI | Physicians | Reports            | Episodes, Physician Connect, Lessons | Reports, Episodes 2.0, Administration | p11D0Vl2FSg1      | Executive Acute Care Hospital Model 2 | ROLE_CLINICIAN | Patient ID     | Episode DRG Issues [Model 3] |      | Pacific Coast Manor, Sunrise Skilled Nursing & Rehabilitation Center, Pyramid Point Post-Acute Rehabilitation Center, Hilltop Skilled Nursing, McCormick's Creek | Executive Acute Care Hospital Model 2 |
 
   Scenario: Verify NPI on the EC1 tile
     Given I am on the login page
@@ -456,12 +457,13 @@ Feature: Edit user page for PTA
     Then I verify the header "Permissions"
     And I verify selected Location "<SelectedLocations>" in the selected Locations section
     Then I search the "<Locations>" in the Selected Locations section
+    Then I verify facility key "<facilityKey>" is not displayed with location name "Courtyard Health Care Center"
     And I click on remove link icon for selected Locations on selected Locations section
     And I verify Selected Locations section after click on remove link icon
 
     Examples: 
-      | User                            | Role         | Locations                              | SelectedLocations                     |
-      | Partner Technical Administrator | Case Manager | 3056-809--Courtyard Health Care Center | Courtyard Health Care Center (055922) |
+      | User                            | Role         | Locations                              | SelectedLocations            | facilityKey |
+      | Partner Technical Administrator | Case Manager | 3056-809--Courtyard Health Care Center | Courtyard Health Care Center |      055922 |
 
   Scenario Outline: Changing role from physician to Manager then back to Physicians
     Given I am on the login page

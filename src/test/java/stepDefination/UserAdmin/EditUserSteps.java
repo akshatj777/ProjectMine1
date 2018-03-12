@@ -218,8 +218,18 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 		editUser.iVerifyIncompleteOrganisation();
 	}
 	
-	@Then("^I verify that only learning pathway name \\\"([^\\\"]*)\\\" is displayed$")
-	public void iVerifyLearningPathwayName(String name) {
-		editUser.iVerifyLearningPathwayName(name);
+	
+	
+	@Then("^I verify facility key \"([^\"]*)\" is displayed with location name \"([^\"]*)\"$")
+	public void iVerifyLocationDisplayedWithFacilityKey(String key, String text){
+		editUser.iVerifyLocationDisplayedWithFacilityKey(key, text);
+	}
+	@Then("^I verify facility key \"([^\"]*)\" is not displayed with location name \"([^\"]*)\"$")
+	public void iVerifyLocationNotDisplayedWithFacilityKey(String key, String text){
+		editUser.iVerifyLocationNotDisplayedWithFacilityKey(key, text);
+	}
+	@Then("^I verify that Learning Pathway ID \"([^\"]*)\" is not displayed for the enabled Learning Pathway$")
+	public void iVerifyLearningPathwayIDIsNotDisplayed(String id){
+		editUser.iVerifyLearningPathwayIDIsNotDisplayed(id);
 	}
 }
