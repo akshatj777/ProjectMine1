@@ -96,4 +96,14 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void enterDateInContractPage(String date, String field, int index) throws Throwable {
 		programs.enterDate(date,field, index);
 	    }
+	
+	@And("^I verify \"([^\"]*)\" attribution rules on \"([^\"]*)\" program page$")
+	  public void i_Verify_Attribution_Rules_On_Create_Program_Page(String text, String act) throws Throwable {
+		programs.iVerifyAttributionRulesOnCreateProgramPage(text,act);
+	    }
+	
+	@And("^I drag and drop the attribution rules in \"([^\"]*)\" Program page$")
+	  public void i_DragandDrop_the_Attribution_Rules_On_Create_Program_Page(String act) throws Throwable {
+		programs.iDragandDroptheAttributionRulesOnCreateProgramPage(act);
+	    }
 }
