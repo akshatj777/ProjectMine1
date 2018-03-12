@@ -520,6 +520,11 @@ public class CreateUserSteps extends DriverScript {
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
 		createUser.clickSubmitButtonForDifferentUsers(user);
 	}
+	
+	@Then("^I click on Submit button to check for error message$")
+	public void clickSubmitButtonToCheckError() throws Throwable {
+		createUser.clickSubmitButtonToCheckErrorMessage();
+	}
 
 	@Then("^I verify applications \"([^\"]*)\" are unchecked$")
 	public void verifyAppUnchecked(String appName) throws Throwable {
