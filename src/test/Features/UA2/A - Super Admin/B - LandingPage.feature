@@ -216,3 +216,24 @@ Feature: Super Admin Landing page verification
     Then I verify current page "Reports" title
     And I click on "User Admin" tile from menu
     Then I should see header text "Users"
+
+  Scenario Outline: Verifying that User is redirected to User admin page although doesn't have access to UA
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Adming
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    And I click on the top user link
+    Then I select "Log Out" option from the dropdown list
+    And I should see Log in widget
+    Given I am on the login page
+    Then I click on "Log Out" button again
+    And I should see Log in widget
+    Then I enter newuser email for "<user>-<Role>" login to Remedy
+    Then I enter newuser password for login to Remedy
+    And I click Access button
+    Then I verify "<Applications>" product on SPOE page
+
+    Examples: 
+      | user        | Role      | Applications               |
+      | Super Admin | Executive | Episodes, Reports, Lessons |

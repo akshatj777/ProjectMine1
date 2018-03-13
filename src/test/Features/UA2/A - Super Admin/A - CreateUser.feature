@@ -768,7 +768,7 @@ Feature: Create User - Super Admin User
     And I select a <Health System>
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button
     Then I should see error message for duplicate value "Account with this NPI already exists"
 
     Examples: 
@@ -804,7 +804,7 @@ Feature: Create User - Super Admin User
     And I select a <Health System>
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button
     Then I should see error message for duplicate value "Account with this email already exists"
 
     Examples: 

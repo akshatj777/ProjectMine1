@@ -717,7 +717,7 @@ Feature: Create User - PTA User
     And I search for health system with <Health System>
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations for PTA user
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button
     Then I should see error message for duplicate value "Account with this NPI already exists"
 
     Examples: 
@@ -751,7 +751,7 @@ Feature: Create User - PTA User
     Then I verify the header "Permissions"
     Then I select "<Programs>" programs
     Then I select "<Locations>" locations for PTA user
-    Then I click on Submit button for "<User>"
+    Then I click on Submit button
     Then I should see error message for duplicate value "Account with this email already exists"
 
     Examples: 
