@@ -278,13 +278,15 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iLockUnlockUser(String action) {
-		if(action.equals("locl"))
+		if(action.equals("lock"))
 		{
+			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']"));
 			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")).click();
 			delay();
 		}
 		else if(action.equals("unlock"))
 		{
+			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
 			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
 			delay();
 		}
@@ -293,10 +295,12 @@ public class SuperUserLandingPage extends BaseClass {
 	public void verifyLockedUser(String action) {
 		if(action.equals("Locked"))
 		{
+			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']")));
 		}
 		else if(action.equals("Unlocked"))
 		{
+			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']"));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")));
 		}
 	}
@@ -340,8 +344,8 @@ public class SuperUserLandingPage extends BaseClass {
 	}
 
 	public void iClickOnCloseIconFromAddUserPage() {
-		iWillWaitToSee(By.cssSelector("i.close.icon"));
-		clickElement(driver.findElement(By.cssSelector("i.close.icon")));
+		iWillWaitToSee(By.xpath("//*[name()='svg'][@fill='#48677b']"));
+		clickElement(driver.findElement(By.xpath("//*[name()='svg'][@fill='#48677b']")));
 	}
 
 	public void verifyUserBlockedMessageOnLandingPage() {
