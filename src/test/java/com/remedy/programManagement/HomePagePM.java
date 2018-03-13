@@ -21,12 +21,13 @@ public class HomePagePM extends BaseClass {
 		 String value = getTextForElement(driver.findElement(By.cssSelector("h1")));
 		 assertEquals(value, text);
 	 }
-	
-	 public void iClickOnOrganizationalLinkOnProgramManagementPage() throws InterruptedException {
+
+	 public void iClickOnOrganizationalLinkOnProgramManagementPage() {
+		 iWillWaitToSee(By.xpath("//a[text()='Organization']"));
 		 WebElement element = driver.findElement(By.xpath("//a[text()='Organization']"));
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 executor.executeScript("arguments[0].click();", element);
-		 Thread.sleep(11000);
+		 waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	 }
 	 
 	 public void iVerifyDefaultTabOrganizationSelectedOnHomepage(String text) {

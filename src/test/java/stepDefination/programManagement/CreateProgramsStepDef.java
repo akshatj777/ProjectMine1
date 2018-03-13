@@ -160,5 +160,15 @@ public class CreateProgramsStepDef extends DriverScript{
 	@Then("^I verify the \"([^\"]*)\" message for invalid search in Organization Name dropdown box$")
 	  public void i_Verify_The_Error_Message_For_Invalid_Search_In_Organization_Name_Dropdown_Box(String text) throws Throwable {
 		programs.iVerifyTheErrorMessageForInvalidSearchInOrganizationNameDropdownBox(text);
+	}
+	
+	@And("^I verify \"([^\"]*)\" attribution rules on \"([^\"]*)\" program page$")
+	  public void i_Verify_Attribution_Rules_On_Create_Program_Page(String text, String act) throws Throwable {
+		programs.iVerifyAttributionRulesOnCreateProgramPage(text,act);
+	    }
+	
+	@And("^I drag and drop the attribution rules in \"([^\"]*)\" Program page$")
+	  public void i_DragandDrop_the_Attribution_Rules_On_Create_Program_Page(String act) throws Throwable {
+		programs.iDragandDroptheAttributionRulesOnCreateProgramPage(act);
 	    }
 }

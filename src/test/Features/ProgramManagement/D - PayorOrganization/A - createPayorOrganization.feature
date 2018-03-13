@@ -98,6 +98,10 @@ Feature: Create Payor organization functionality tests
     And I verify "Please select a State" mandatory field validation message on create organization page
     And I verify "Please enter a Postal Code" mandatory field validation message on create organization page
 
+    Examples: 
+      | Description                               | Payor_Name | Address1 | City | State | Postal_Code |
+      | Create Payor all Mandatory fields missing |            |          |      |       |             |
+
   Scenario Outline: <Description>
     Then I click on "+" button on "Payor" organization page
     And I verify "Create Payor Organization" header text on create organization page

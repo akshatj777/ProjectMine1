@@ -640,6 +640,18 @@ public class CreatePrograms extends BaseClass {
 		iWillWaitToSee(By.cssSelector(".Select-noresults"));
 		Assert.assertEquals(text, driver.findElement(By.cssSelector(".Select-noresults")).getText());
 	}
+	public void iVerifyAttributionRulesOnCreateProgramPage(String text, String act)
+	{
+		verifyTextForElement(driver.findElement(By.xpath("//li[text()='"+text+"']")), text);
+	}
+	
+	public void iDragandDroptheAttributionRulesOnCreateProgramPage(String act)
+	{
+		WebElement drag=driver.findElement(By.xpath("//li[text()='Attribute to the physician who has the highest claim allowed amount during the lookForward window']"));
+		WebElement drop=driver.findElement(By.xpath("//li[text()='Attribute to the physician who admitted the patient']"));
+		Actions act1=new Actions(driver);
+		act1.dragAndDrop(drag, drop).build().perform();
+	}
 }
 
 

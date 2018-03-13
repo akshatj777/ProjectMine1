@@ -35,6 +35,7 @@ public class CreateACHOrganization extends BaseClass{
 		for (WebElement ele : element) {
 			if(ele.getText().contains(text)){
 				ele.click();
+				delay();
 			}
 		}
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
@@ -245,19 +246,23 @@ public class CreateACHOrganization extends BaseClass{
     	}
     }
     
-    public void iEnterStateForLocationOnACHOrg(String text, int num) {
+    public void iEnterStateForLocationOnACHOrg(String text, int num) 
+    {
     	driver.findElements(By.xpath("//div[text()='State']/preceding-sibling::div//input[@role='combobox']")).get(num).sendKeys(text);
-    	if(!text.isEmpty()){
-    	clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
+    	if(!text.isEmpty())
+    	{
+    		clickElement(driver.findElement(By.xpath("//div[(contains(@class,'VirtualizedSelectOption')) and text()='"+text+"']")));
     	}
     }
     
-    public void iEnterZipForLocationOnACHOrg(String text, int num) {
+    public void iEnterZipForLocationOnACHOrg(String text, int num) 
+    {
     	num = num-1;
     	iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].address.postalCode']")), text);
     }
 
-	public void iSelectRadioButtonForManagingOrganization(String text) { 
+	public void iSelectRadioButtonForManagingOrganization(String text) 
+	{ 
 		if(text.equalsIgnoreCase("YES"))
 		{
 			waitTo().until(ExpectedConditions.elementToBeClickable(By.cssSelector(".radio-button->input[value='true']")));
@@ -270,7 +275,8 @@ public class CreateACHOrganization extends BaseClass{
 		}
 	}
 	
-	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String managingOrg, String text) {
+	public void iSelectManagingOrgNameInHasAManagingOrganizationDropDown(String managingOrg, String text) 
+	{
 		if(text.equalsIgnoreCase("YES"))
 		{
 			if(managingOrg.equalsIgnoreCase("BLANK"))
@@ -278,37 +284,45 @@ public class CreateACHOrganization extends BaseClass{
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), "");	
 			}
 			else if (managingOrg.contains("Invalid")){
-				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);	
+				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), managingOrg);
+				delay();
 			}
 			else 
 			{
-				delay();
+				iWillWaitToSee(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']"));
 				iFillInText(driver.findElement(By.xpath("//div[@class='radio-button-']/following-sibling::div//input[@role='combobox']")), CreateManagingOrganization.moOrg.get("MONAME"));
-				longDelay();
+				iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption"));
 				clickElement(driver.findElement(By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")));
 				delay();
 			}
 		}
 	}
 	
-	public void iVerifyLocationHeaderOnOrganizationPage(String location) {
+	public void iVerifyLocationHeaderOnOrganizationPage(String location) 
+	{
 		String actual = null;
 		List <WebElement> element = driver.findElements(By.cssSelector(".col-md-11.location-indcator"));
-	    for(WebElement ele: element) {
-	    	if (ele.getText().replace("-", "").trim().equals(location)) {
+	    for(WebElement ele: element) 
+	    {
+	    	if (ele.getText().replace("-", "").trim().equals(location)) 
+	    	{
 	    		actual = ele.getText().replace("-", "").trim();
 	    	}
 	    }
 	    Assert.assertEquals(actual,location);
 	}
 	
-    public void iVerifyLocationCountOnViewOrganizationPage(int count) {
+    public void iVerifyLocationCountOnViewOrganizationPage(int count) 
+    {
+    	iWillWaitToSee(By.cssSelector(".fixedDataTableRowLayout_rowWrapper"));
     	List<WebElement> element = driver.findElements(By.cssSelector(".fixedDataTableRowLayout_rowWrapper"));
     	int actual = (element.size())-1;
     	Assert.assertEquals(count, actual);
     }
     
-    public void iVerifyMessageInHasAManagementOrganization(String text) {
+    public void iVerifyMessageInHasAManagementOrganization(String text) 
+    {
+    	iWillWaitToSee(By.cssSelector(".Select-noresults"));
     	verifyTextForElement(driver.findElement(By.cssSelector(".Select-noresults")), text);
     }
 }

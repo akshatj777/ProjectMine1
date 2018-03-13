@@ -51,9 +51,9 @@ public class CreateManagingOrganization extends BaseClass {
 //		scrollIntoViewByJS(element);
 //		delay();
 //		clickElement(element);
-//		delay();
 		
-		WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		 delay();
+		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 executor.executeScript("arguments[0].click();", element);
 	}
@@ -136,10 +136,15 @@ public class CreateManagingOrganization extends BaseClass {
 		}
 		else if(text.equals("PROGRAMNAME")) {
 			CreatePrograms.tempPrograms.put(1, createRandomName(text));
-			CreatePrograms.tempPrograms.put(2, createRandomName(text));
-			CreatePrograms.tempPrograms.put(3, createRandomName(text));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(1));
-			
+		}
+		else if(text.equals("equalsTo45Characters")){
+				CreatePrograms.tempPrograms.put(1,RandomStringUtils.randomAlphabetic(45));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(1));
+		}
+		else if(text.equals("DUPLICATE_PROGRAMNAME"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(1));
 		}
 		else if(text.equals("equalsTo75Characters")){
 			if(field.contains("Managing"))
@@ -174,7 +179,7 @@ public class CreateManagingOrganization extends BaseClass {
 			}
 		}
 		else if(text.equals("AllowedCharatcters")){
-			String str="a~`@!#$%^&*()-+_={}|;'[]<>,.?/Testing120";
+			String str="a~`@!#$%^&*()-+_={}|;'[]<>,.?/Test120";
 			if(field.contains("Managing")){
 			CreateManagingOrganization.tempMoOrg.put("MONAME",str+RandomStringUtils.randomAlphabetic(7));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
@@ -204,6 +209,11 @@ public class CreateManagingOrganization extends BaseClass {
 				CreateHHAOrganization.tempHHAOrg.put("HHANAME",str+RandomStringUtils.randomAlphabetic(7));
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreateHHAOrganization.tempHHAOrg.get("HHANAME"));
 			}
+			else if(field.contains("Program"))
+			{
+				CreatePrograms.tempPrograms.put(1,str+RandomStringUtils.randomAlphabetic(7));
+				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.tempPrograms.get(1));
+			}
 		}
 		else 	
 		{
@@ -219,9 +229,9 @@ public class CreateManagingOrganization extends BaseClass {
 		}
 	}
 	
-	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) {
-				
-//		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size() > 0)	
+	public void iVerifyMessageAfterSubmittingCreateOrganizationPage(String msg, String org) 
+	{
+//		if(driver.findElements(By.cssSelector(".alert.alert-dismissible.alert-success>a")).size()>0)	
 //		{
 			if(org.contains("MO"))
 				{
