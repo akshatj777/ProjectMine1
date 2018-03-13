@@ -222,16 +222,17 @@ public class CreateUserPage extends BaseClass{
     		clickElement(driver.findElement(By.xpath("//div[text()='Select']")));
     		iWillWaitToSee(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input"));
             driver.findElement(By.xpath("//div[text()='Select']/parent::div/following-sibling::div/div/div/input")).sendKeys(text);
-            //Thread.sleep(2000);
+            Thread.sleep(4000);
     	}
     }
 
-    public void iSelectHealthSystem(String desc) 
+    public void iSelectHealthSystem(String desc) throws InterruptedException 
     {
     	if(!(desc.equals("")))
     	{
     	iWillWaitToSee(By.xpath("//div[text()='"+desc+"']"));
         clickElement(driver.findElement(By.xpath("//div[text()='"+desc+"']")));
+        Thread.sleep(3000);
     	}
     }
 
@@ -988,6 +989,13 @@ public class CreateUserPage extends BaseClass{
 		}
    }
    
+   public void clickSubmitButtonToCheckErrorMessage() throws Throwable {
+	   iWillWaitToSee(By.xpath("//button[.='Submit']"));
+		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+   }
+   
+   
+   
 	public void clickSubmitButtonForDifferentUsers(String user) throws Throwable {
 		iWillWaitToSee(By.xpath("//button[.='Submit']"));
 		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
@@ -1218,7 +1226,7 @@ public class CreateUserPage extends BaseClass{
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
-		    	   //Thread.sleep(3000);
+		    	   Thread.sleep(3000);
 	    	   }
 	    	   else
 	    	   {
@@ -1232,7 +1240,7 @@ public class CreateUserPage extends BaseClass{
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
-		    	   //Thread.sleep(3000); 
+		    	   Thread.sleep(3000); 
 	    	   }
 	       }   
 	   }
@@ -1253,7 +1261,7 @@ public class CreateUserPage extends BaseClass{
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
-        	   //Thread.sleep(3000);
+        	   Thread.sleep(3000);
     	   }
     	   else
     	   {
@@ -1267,7 +1275,7 @@ public class CreateUserPage extends BaseClass{
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
-        	   //Thread.sleep(3000);   
+        	   Thread.sleep(3000);   
     	   }
     	   
 	   	    }
