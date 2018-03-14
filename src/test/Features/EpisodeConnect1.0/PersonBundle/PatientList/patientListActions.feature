@@ -44,6 +44,7 @@ Feature: Patient list action
     And I click on "Assign" button
     And I refresh the page
     And I verify "Needs Onboarding" onboarding status on patient list page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     Then I Expand to the patient summary page
     And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow#/careFlowForms"
