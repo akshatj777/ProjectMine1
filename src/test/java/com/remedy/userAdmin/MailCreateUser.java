@@ -183,8 +183,9 @@ public class MailCreateUser extends BaseClass{
     	Assert.assertTrue(isElementPresentOnPage((By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password We recently received a request to create')]"))));
 	}
 	
-	public void iClickOnChangePasswordMailInInboxInMyAccount() {
+	public void iClickOnChangePasswordMailInInboxInMyAccount() throws InterruptedException {
 		iWillWaitToSee(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]"));
+		Thread.sleep(3000);
 		if(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")).isEnabled())
 		{
 			clickElement(driver.findElement(By.xpath("//span[contains(text(),'Remedy Partners - Change Your Password')]")));

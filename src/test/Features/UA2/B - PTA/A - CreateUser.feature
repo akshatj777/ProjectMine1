@@ -714,8 +714,6 @@ Feature: Create User - PTA User
     Then I verify applications "<Applications>" are checked
     Then I click on Next button
     Then I verify the header "Permissions"
-    And I search for health system with <Health System>
-    Then I select "<Programs>" programs
     Then I select "<Locations>" locations for PTA user
     Then I click on Submit button to check for error message
     Then I should see error message for duplicate value "Account with this NPI already exists"

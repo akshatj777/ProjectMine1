@@ -82,8 +82,8 @@ Feature: Super Admin Landing page verification
     And I click on submit button to set new password
 
     Examples: 
-      | Description                                                     | User        | UserName                               | Password | FirstName       | LastName       | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter         | Health System1    | Programs1   | Locations1                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
-      | Login with Super Admin User and create user with Executive role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | SearchFirstName | SearchLastName | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2 | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | No               |                |           |            | No               |                |           |            |
+      | Description                                                     | User        | UserName                               | Password | FirstName                                 | LastName                                 | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                            | Health System1    | Programs1   | Locations1                  | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
+      | Login with Super Admin User and create user with Executive role | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastName | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | i am learning path, Learning Pathway 2, Remedy University | Stamford Hospital | BPCI-Model2 | 2070-015--Stamford Hospital | No               |                |           |            | No               |                |           |            |
 
   Scenario: Verification of availability of fields on Super User Landing page
     Given I am on the login page
@@ -144,10 +144,10 @@ Feature: Super Admin Landing page verification
     Then I verify availability of "<SearchParameter>" for "<user>-<Role>"
 
     Examples: 
-      | Description                    | user        | Role      | Email             | InvalidSearchParameter | SearchParameter |
-      | Search a user using First Name | Super Admin | Executive | test.automatemail |                1768789 | SearchFirstName |
-      | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | SearchLastName  |
-      | Search a user using Email      | Super Admin | Executive | test.automatemail |                1768789 | FetchFromHM     |
+      | Description                    | user        | Role      | Email             | InvalidSearchParameter | SearchParameter                           |
+      | Search a user using First Name | Super Admin | Executive | test.automatemail |                1768789 | FirstNameFirstNameFirstNameFirstNameFirst |
+      | Search a user using Last Name  | Super Admin | Executive | test.automatemail |                1768789 | LastNameLastNameLastNameLastNameLastName  |
+      | Search a user using Email      | Super Admin | Executive | test.automatemail |                1768789 | FetchFromHM                               |
 
   Scenario Outline: Verify ability of Super Admin user to lock a user
     Given I am on the login page
@@ -200,8 +200,8 @@ Feature: Super Admin Landing page verification
     Then I verify "<Applications>" product on SPOE page
 
     Examples: 
-      | user        | Role      | Email             | SearchParameter | Applications               |
-      | Super Admin | Executive | test.automatemail | FetchFromHM     | Episodes, Reports, Lessons |
+      | user        | Role      | Email             | SearchParameter |
+      | Super Admin | Executive | test.automatemail | FetchFromHM     |
 
   Scenario: User should not get error message when he goes back to User Admin page from top navigation Menu
     Given I am on the login page

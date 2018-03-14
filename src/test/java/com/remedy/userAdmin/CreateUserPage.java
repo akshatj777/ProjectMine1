@@ -1225,6 +1225,7 @@ public class CreateUserPage extends BaseClass{
 	    		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+		    	   delay();
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
 		    	   Thread.sleep(3000);
 	    	   }
@@ -1239,6 +1240,7 @@ public class CreateUserPage extends BaseClass{
 	    		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+		    	   delay();
 		    	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
 		    	   Thread.sleep(3000); 
 	    	   }
@@ -1260,6 +1262,7 @@ public class CreateUserPage extends BaseClass{
     		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+        	   delay();
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
         	   Thread.sleep(3000);
     	   }
@@ -1274,6 +1277,7 @@ public class CreateUserPage extends BaseClass{
     		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
+        	   delay();
         	   driver.findElement(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]")).click();
         	   Thread.sleep(3000);   
     	   }
