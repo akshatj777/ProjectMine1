@@ -287,7 +287,7 @@ public class SuperUserLandingPage extends BaseClass {
 		else if(action.equals("unlock"))
 		{
 			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
-			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
+			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']")).click();
 			delay();
 		}
 	}
@@ -485,8 +485,8 @@ public void iClickOnTileFromEC(String text){
 }
 public void iSelectTileFromManagementDropDown(String text){
 
-	iWillWaitToSee(By.cssSelector(".btn.btn-menu.valentino-icon-spoe"));
-	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
+	iWillWaitToSee(By.xpath("//div[text()='Management']"));
+	clickElement(driver.findElement(By.xpath("//div[text()='Management']")));
 iWillWaitToSee(By.xpath("//span[contains(text(),'"+text+"')]"));
 clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
 
