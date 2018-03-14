@@ -75,10 +75,13 @@ public class CreatePrograms extends BaseClass {
 
 	public void iSelectProgramNameInCreateContractPageUnderPayorOrganization(String text) 
 	{
-		driver.findElement(By.xpath("//div[text()='Select a Program']")).click();
-		delay();
-		clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get(1));
-		delay();
+		if(!text.equals(""))
+		{
+			driver.findElement(By.xpath("//div[text()='Select a Program']")).click();
+			delay();
+			clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get(1));
+			delay();
+		}
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
@@ -87,90 +90,93 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
-		
-		driver.findElement(By.xpath("//*[contains(@name,'orgType')]/../div")).click();
-		iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption"));
-//		clickSingleElementFromList(By.cssSelector(".VirtualizedSelectOption"), text);
-//		selectElementByTextDescByXpath("//div[@class='ReactVirtualized__Grid__innerScrollContainer']/div", text);
-		clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
-		delay();
+		if(!text.equals(""))
+		{
+			driver.findElement(By.xpath("//*[contains(@name,'orgType')]/../div")).click();
+			iWillWaitToSee(By.cssSelector(".VirtualizedSelectOption"));
+			clickElement(driver.findElement(By.xpath("//div[text()='"+text+"']")));
+			delay();
+		}
 	}
 	
 	public void iSelectOrganizationNameOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
 	{
 		//driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 		//longDelay();
-		if(text.contains("ACHNAME - NO"))
+		if(!text.equals(""))
 		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg.get("ACHNAME"));
-			longDelay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("ACHNAME - YES"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("PGPNAME - NO"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("PGPNAME - YES"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg.get("PGPNAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("SNFNAME - NO"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("SNFNAME - YES"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg.get("SNFNAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("HHANAME - NO"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg_noMO.get("HHANAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else if(text.contains("HHANAME - YES"))
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg.get("HHANAME"));
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
-		}
-		else
-		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
-			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
-			delay();
-			driver.findElement(By.cssSelector(".org-name")).click();
+			if(text.contains("ACHNAME - NO"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg.get("ACHNAME"));
+				longDelay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("ACHNAME - YES"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("PGPNAME - NO"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("PGPNAME - YES"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg.get("PGPNAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("SNFNAME - NO"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg_noMO.get("SNFNAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("SNFNAME - YES"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg.get("SNFNAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("HHANAME - NO"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg_noMO.get("HHANAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else if(text.contains("HHANAME - YES"))
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg.get("HHANAME"));
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
+			else
+			{
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+				longDelay();
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
+				delay();
+				driver.findElement(By.cssSelector(".org-name")).click();
+			}
 		}
 	}
 	
@@ -191,9 +197,17 @@ public class CreatePrograms extends BaseClass {
 		delay();
 	}
 	
-	public void iEnterBundle_Price1DetailsOnContractsPage(String text, String field, int num, String field1) 
+	public void iEnterDetailsOnCreateContractPage(String text, String field, String field1) 
 	{
-		iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
+		if(field.contains("Contract Id"))
+		{
+			tempPrograms.put(111, createRandomNumber(8));
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
+		}
+		else
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
+		}
 	}
 
 	public static String currentdate(int days,String format) 

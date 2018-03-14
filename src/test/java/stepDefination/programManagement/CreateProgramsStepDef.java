@@ -56,9 +56,9 @@ public class CreateProgramsStepDef extends DriverScript{
 		programs.iEnterPriceOnCreateContractsPage(text,num,field);
 	    }
 	
-	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" for \"([^\"]*)\" for Contract \"([^\"]*)\"$")
-	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1, int num) throws Throwable {
-		programs.iEnterBundle_Price1DetailsOnContractsPage(text, field, num, field1);
+	@And("^I enter \"([^\"]*)\" in \"([^\"]*)\" field for \"([^\"]*)\" on create Contract page$")
+	  public void i_Enter_For_Bundle_Price1_on_Create_Contracts_Page(String text, String field, String field1) throws Throwable {
+		programs.iEnterDetailsOnCreateContractPage(text, field,field1);
 	    }
 	
 	@Then ("^I select the date from date picker with logic \"([^\"]*)\" days from current date$")
