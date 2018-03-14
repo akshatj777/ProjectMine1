@@ -1026,7 +1026,10 @@ public class CreateUserPage extends BaseClass{
 			usersNPIPerRole.put(user.trim()+"-"+userRole.trim(), NPIList);
 		}
 	}
-   
+	public void clickSubmitButton() throws Throwable {
+		iWillWaitToSee(By.xpath("//button[.='Submit']"));
+		clickElement(driver.findElement(By.xpath("//button[.='Submit']")));
+	}
    public void verifyAppUnchecked(String fieldName) throws Throwable {
 	   if(fieldName.contains(","))
 	   {
