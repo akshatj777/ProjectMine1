@@ -32,8 +32,8 @@ public class CreateProgramsStepDef extends DriverScript{
 		}
 	
 	@And("^I verify \"([^\"]*)\" on \"([^\"]*)\" page under Payor Organization$")
-	  public void i_Verify_On_Contract_On_Create_Contract_Page_Under_Payor_Organization(String text, String field) throws Throwable {
-		programs.iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(text);
+	  public void i_Verify_On_Contract_On_Create_Contract_Page_Under_Payor_Organization(String text, String act) throws Throwable {
+		programs.iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(text, act);
 	    }
 	
 	@And("^I select Organization type \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")

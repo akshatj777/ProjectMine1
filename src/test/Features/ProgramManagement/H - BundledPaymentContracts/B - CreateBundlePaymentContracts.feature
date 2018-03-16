@@ -194,15 +194,15 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "Contracts" tab present under "Payor" Organization
     And I click on "Contracts" tab on view profile of "payor" Organization
     And I verify the "Create New Contract" button on view profile of "payor" Organization
-    And I verify "Program " header label under "Payor" view profile page
-    And I verify "Contract ID " header label under "Payor" view profile page
-    And I verify "Organization Name " header label under "Payor" view profile page
-    And I verify "Type " header label under "Payor" view profile page
-    And I verify "Address " header label under "Payor" view profile page
+    And I verify "Program" header label under "Payor" view profile page
+    And I verify "Contract ID" header label under "Payor" view profile page
+    And I verify "Organization Name" header label under "Payor" view profile page
+    And I verify "Type" header label under "Payor" view profile page
+    And I verify "Address" header label under "Payor" view profile page
     Then I click on "Create New Contract" button on "create" organization page
     And I verify "Create Contract" header text on create Contracts page
     And I verify "*Program" field on create Contracts page
-    And I verify "Contract 1 " on "Create Contract" page under Payor Organization
+    And I verify "Contract 1" on "Create Contract" page under Payor Organization
     And I verify "Contract Id" field on create Contracts page under Payor Organization
     And I verify "*Start Date" field for "Contract1" on create Contracts page
     And I verify "End Date" field for "Contract1" on create Contracts page
@@ -367,9 +367,8 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
     And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
-    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
-    And I enter "<Price>" in "price" field for "Bundle Price1" on create Contract page
+    And I enter "<Price>" in "Price of bundle" field for "Bundle Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
@@ -382,11 +381,11 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "Upper Bound" field for "Bundle Price1" on create Contract page
     And I enter "<Lower_Bound>" in "Lower Bound" field for "Bundle Price1" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1 | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                 |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           |         111 | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                                                 | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1 | Price | Trend_Factor | Upper_Bound | Lower_Bound | ValidationMsg                 |
+      | Create Contracts with all available fields(Without Contract Id) using Hospital Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           |         111 | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
@@ -403,7 +402,33 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
-    And I enter "<Price>" in "price" field for "Bundle Price1" on create Contract page
+    And I enter "<Price>" in "Price of bundle" field for "Bundle Price1" on create Contract page
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "1"
+    Then I enter date "<PriceStartDate>" in "PriceStartDate" field for index "2"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                                        | Has_MO | Payor_Name | ContractStartDate | BundleStartDate | PriceStartDate | Program_Name | Organization_Type | Organization_Name | Bundle_1          | Price | Message                       |
+      | Create Contracts only Mandatory fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/01/01      | 2019/03/03     | PROGRAMNAME  | ACH               | ACHNAME           | mB1xAglksoqZt4324 |   123 | Contract Successfully Created |
+
+  Scenario Outline: <Description>
+    When I click on "Payor" organization tab on organization dashboard
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
+    And I verify the "Create New Contract" button on view profile of "Payor" Organization
+    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Create Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    And I select Organization type "<Organization_Type>" for Contract "1" on "create" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Contracts page
+    And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
+    And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
+    And I enter "<Price>" in "Price of bundle" field for "Bundle Price1" on create Contract page
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
@@ -416,15 +441,15 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Upper_Bound>" in "Upper Bound" field for "Bundle Price1" on create Contract page
     And I enter "<Lower_Bound>" in "Lower Bound" field for "Bundle Price1" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    And I verify "<ValidationMsg>" mandatory field validation message on create organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1 | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using SNF Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using HHA Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | Bundle   |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using SNF Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | SNF               | SNFNAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization      | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using HHA Organization      | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | HHA               | HHANAME           | mB1xAglksoqZt4324 |   123 |          121 |         135 |         106 | Contract Successfully Created |

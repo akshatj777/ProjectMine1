@@ -84,8 +84,9 @@ public class CreatePrograms extends BaseClass {
 		}
 	}
 	
-	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text) {
-		verifyTextForElement(driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")), text);
+	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text, String act) {
+		//verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
+		driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")).getText();
 	}
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
@@ -109,7 +110,7 @@ public class CreatePrograms extends BaseClass {
 			{
 				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 				longDelay();
-				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg.get("ACHNAME"));
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
 				longDelay();
 				driver.findElement(By.cssSelector(".org-name")).click();
 			}
@@ -117,7 +118,7 @@ public class CreatePrograms extends BaseClass {
 			{
 				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 				longDelay();
-				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+				driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg.get("ACHNAME"));
 				delay();
 				driver.findElement(By.cssSelector(".org-name")).click();
 			}
@@ -188,6 +189,7 @@ public class CreatePrograms extends BaseClass {
 	{
 		if(!text.equals("")){
 		delay();
+		scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
 		driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 //		delay();
 		iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
@@ -636,7 +638,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg.get("CCN"));
 			  delay();
 			  value = CreateACHOrganization.achOrg.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("CCN - NO"))
 		  {
@@ -645,7 +647,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateACHOrganization.achOrg_noMO.get("CCN"));
 			  delay();
 			  value = CreateACHOrganization.achOrg_noMO.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("PGPNAME - YES"))
 		  {
@@ -672,7 +674,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg.get("EIN"));
 			  delay();
 			  value = CreatePGPOrganization.pgpOrg.get("EIN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("EIN - NO"))
 		  {
@@ -681,7 +683,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreatePGPOrganization.pgpOrg_noMO.get("EIN"));
 			  delay();
 			  value = CreatePGPOrganization.pgpOrg_noMO.get("EIN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("SNFNAME - YES"))
 		  {
@@ -708,7 +710,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg.get("CCN"));
 			  delay();
 			  value = CreateSNFOrganization.SNFOrg.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("CCN - NO"))
 		  {
@@ -717,7 +719,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg_noMO.get("CCN"));
 			  delay();
 			  value = CreateSNFOrganization.SNFOrg_noMO.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("SNFNAME - YES"))
 		  {
@@ -744,7 +746,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg.get("CCN"));
 			  delay();
 			  value = CreateSNFOrganization.SNFOrg.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("CCN - NO"))
 		  {
@@ -753,7 +755,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateSNFOrganization.SNFOrg_noMO.get("CCN"));
 			  delay();
 			  value = CreateSNFOrganization.SNFOrg_noMO.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("HHANAME - YES"))
 		  {
@@ -780,7 +782,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg.get("CCN"));
 			  delay();
 			  value = CreateHHAOrganization.HHAOrg.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		  else if (value.equals("CCN - NO"))
 		  {
@@ -789,7 +791,7 @@ public class CreatePrograms extends BaseClass {
 			  driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(CreateHHAOrganization.HHAOrg_noMO.get("CCN"));
 			  delay();
 			  value = CreateHHAOrganization.HHAOrg_noMO.get("CCN");
-			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-name")));
+			  Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".org-main-id")));
 		  }
 		}
 		else if(org.equals("Bundle_1"))
