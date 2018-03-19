@@ -1043,6 +1043,8 @@ Feature: Edit user page for SA
       | Verify validation message for NPI less than 10 digits | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians |     123564 | Please enter a valid NPI          |
       | Verify validation message for NPI as alphabets        | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcdefgihj | Please enter a valid NPI          |
       | Verify validation message for NPI as alphanumeric     | Super Admin | First Name | Last Name | test.automatemail | 9874563210 | Physicians | abcde12345 | Please enter a valid NPI          |
+ | Verify validation message for invalid First Name      | 8473827919 | Last Name  | test.automatemail | 9874563210 | Physicians | NPI        | Please enter a valid name         |
+      | Verify validation message for invalid Last name       | First Name | 8473827919 | test.automatemail | 9874563210 | Physicians | NPI        | Please enter a valid name         |
 
   Scenario Outline: Verify auto selected programs in Organizations
     Given I am on the login page

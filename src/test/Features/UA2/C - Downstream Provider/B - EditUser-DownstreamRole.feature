@@ -368,15 +368,20 @@ Feature: Edit page for Downstream provider
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
     Then I verify text "Which location(s) does this user have access to?" is "Not Present" in Permission tab
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I select "<Programs>" programs
-    Then I select "<Locations>" locations
+    And I search for health system with <Health System1>
+    And I select a <Health System1>
+    Then I select "<Programs1>" programs
+    Then I select "<Locations1>" locations
+    Then I click Add Organization button for "<HasHealthSystem2>" flag
+    And I search for health system with <Health System2>
+    And I select a <Health System2>
+    Then I select "<Programs2>" programs
+    Then I select "<Locations2>" locations
     Then I click on Submit button while edit for "<User>-<Role>--<PreviousRole>"
     And I verify that I am navigated to user page
     Then I verify role "<Role>"
     Then I verify enabled "<ApplicationsEnabled>"
-    Then I verify health system "<Health System>"
+    Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
     And I click on the top user account link
@@ -447,5 +452,5 @@ Feature: Edit page for Downstream provider
     And I should see Log in widget
 
     Examples: 
-      | User        | UserName                               | Password | FirstName       | LastName       | Email             | NPI | PreviousRole        | Role      | DisableApplications | EnableApplications | Applications     | ApplicationsNotVisible                          | LearningPathwayName | LearningPathwaySearchParameter         | Roletext | Health System | Programs    | Locations                          | ReportCategory | ReportName                   | BPID | Facilities               | LearningPathway                        | ProgramsValidation          | LocationsValidation                               |
-      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail |     | Downstream Provider | Executive | Episodes            | Reports, Lessons   | Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | Test123             | i am learning path, Learning Pathway 2 | ROLE_PRM | Adcare Health | BPCI-Model3 | 3056-343--Coosa Valley Health Care | Patient ID     | Episode DRG Issues [Model 3] |      | Coosa valley health care | i am learning path, Learning Pathway 2 | Adcare Health--BPCI Model 3 | Adcare Health--3056-343--Coosa Valley Health Care |
+      | User        | UserName                               | Password | FirstName       | LastName       | Email             | NPI | PreviousRole        | Role      | DisableApplications | EnableApplications | Applications     | ApplicationsNotVisible                          | LearningPathwayName | LearningPathwaySearchParameter         | Roletext | Health System1 | Programs1   | Locations1                         | HasHealthSystem2 | Health System2 | Programs2   | Locations2                                   | ReportCategory | ReportName                   | BPID | Facilities               | LearningPathway                        | HealthSystemValidation | ProgramsValidation                              | LocationsValidation                                                                                   |
+      | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameEdited | LastNameEdited | test.automatemail |     | Downstream Provider | Executive | Episodes            | Reports, Lessons   | Reports, Lessons | Administration, Physician Connect, Episodes 2.0 | Test123             | i am learning path, Learning Pathway 2 | ROLE_PRM | Adcare Health  | BPCI-Model3 | 3056-343--Coosa Valley Health Care | Yes              | Penn           | BPCI-Model2 | 2070-021--Upenn - Penn Presbyterian Hospital | Patient ID     | Episode DRG Issues [Model 3] |      | Coosa valley health care | i am learning path, Learning Pathway 2 | Penn,  Adcare Health   | Adcare Health--BPCI Model 3, Penn--BPCI Model 2 | Adcare Health--3056-343--Coosa Valley Health Care, Penn--2070-021--Upenn - Penn Presbyterian Hospital |
