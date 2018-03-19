@@ -264,7 +264,7 @@ public class PatientCreationRules extends BaseClass {
     }
     
     public void iVerifyHelpPageURL(String url){
-    	Assert.assertEquals(getTheCurrentUrl(),url);
+    	Assert.assertTrue(getTheCurrentUrl().contains(url));
     }
     
     public void iClickOnMyProfileEpisodeConnectPage(){

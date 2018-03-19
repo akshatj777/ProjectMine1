@@ -12,4 +12,4 @@ Feature: Verification of help page from episode connect 1
     When I move the mouse to user profile icon
     Then I click on the help under the user profile icon
     And I switch to new window
-    Then I verify the help page url "https://ec-help.remedypartners.com/display/ECO/Episode+Connect+User+Guide?os_username=ecdocs&os_password=4xpPhXpd05pj"
+    Then I verify the help page url "https://ec-help.remedypartners.com/display/ECO"

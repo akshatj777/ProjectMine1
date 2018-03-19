@@ -204,7 +204,7 @@ Feature: Managing Various Episode States
     Then I navigate to the "/secure/person/mongoID/careflow/forms"
     And I will wait to see patient's name on patient summary page
     Then I verify "Clinical Risk Assessment assigned" in "Assigned Form list" "2"
-    And I should see text of "3" in assigned form counter
+    And I should see text of "2" in assigned form counter
     Then I edit the CRA
     And I will wait to see "Clinical Risk Assessment Form (Read/Write)" in "h4" tag
     Then I submit the Clinical Risk Assessment Form

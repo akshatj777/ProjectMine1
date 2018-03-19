@@ -24,8 +24,14 @@ Feature: Messages on patient list
     Then I click on the next button present on the Primary Care Physician Information page
     Then I click on the Cancel Button on the New Transition on Add Patient page
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     When I click on Send message from patients list patient gear menu
+    
     Then I verify "New message" header on popup
     When I fill in "Message Body" xpath "//*[@id='bp_msg_form_message']" with "Test Message Functionality"
     And I click on "Send" button

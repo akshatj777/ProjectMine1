@@ -60,8 +60,10 @@ public class PatientOverview extends BaseClass {
 	public void iClickOnButtonUnderPatientOverview(String button) {
 		delay();
 		if (button.equalsIgnoreCase("Join Care Team")) {
+			longDelay();
 			clickElement(driver.findElement(By.xpath("//a[contains(@href,'assignMyself')]")));
 		} else
+			longDelay();
 			iWillWaitToSee(By.xpath("//div[@class='row header-nav-line']//a"));
 			clickSingleElementFromList(By.xpath("//div[@class='row header-nav-line']//a"), button);
 	}

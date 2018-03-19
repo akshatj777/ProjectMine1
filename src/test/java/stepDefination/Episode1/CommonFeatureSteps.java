@@ -32,7 +32,7 @@ public class CommonFeatureSteps extends DriverScript {
 	}
 
 	@Then("^I will wait to see \"([^\"]*)\" in \"([^\"]*)\" tag$")
-	public void i_Wait_To_See(String text, String tag) {
+	public void i_Wait_To_See(String text, String tag) throws InterruptedException {
 		common.i_Wait_To_See(text, tag);
 	}
 

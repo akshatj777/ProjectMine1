@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.remedy.Episode2.DischargeCarlForm;
 import com.remedy.baseClass.BaseClass;
 
@@ -295,6 +297,14 @@ public class PatientsListPage extends BaseClass {
 
 	public void iClickOnFirstCheckboxOnClinicianModal() {
 		longDelay();
+		try{
+			new WebDriverWait(driver,100).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span")))); 	
+			longDelay();
+			new WebDriverWait(driver,200).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+			longDelay();
+		}catch(Exception e){
+			longDelay();
+		}
 		iWillWaitToSee(By.cssSelector(".lpn-checkbox input"));
 		clickElement(driver.findElements(By.cssSelector(".lpn-checkbox input")).get(0));
 	}
@@ -356,7 +366,7 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iClickOnSendMessageFromPatientslistPatientGearMenu() {
-		scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
+		//scrollIntoViewByJS(driver.findElement(By.xpath("//div[@class='col-md-2 center open']//li")));
 		delay();
 		clickElement(driver.findElement(By.xpath("//a[contains(@symfony-routing,'new_message')]")));
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span"))));

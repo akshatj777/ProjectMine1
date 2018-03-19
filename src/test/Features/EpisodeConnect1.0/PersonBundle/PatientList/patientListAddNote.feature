@@ -27,6 +27,11 @@ Feature: New Note from patient list actions
 
   Scenario: Verify that note is created from patient list and displayed properly on care plan->Notes list
     Given I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
+    Then I Expand to the patient summary page
+    And I will wait to see "Attestation" in "span" tag
+    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
+    And I will wait to see patient's name on patient summary page
+    Given I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     Then I click on Add Note from patients list patient gear menu
     Then I verify "New Note" header on popup
@@ -34,10 +39,6 @@ Feature: New Note from patient list actions
     When I fill in "Body" xpath "//*[@id='bp_personbundle_bpnotetype_body']" with "Body"
     And I click on "Create Note" button
     And I will wait to see "Note created." in "p" tag
-    Then I Expand to the patient summary page
-    And I will wait to see "Attestation" in "span" tag
-    When I click "Agree" xpath element "//*[@id='submitButtonAdd']"
-    And I will wait to see patient's name on patient summary page
     Then I navigate to the "/secure/person/mongoID/careflow"
     Then I click on Notes tab under care plan
     And I will wait to see "Body" in "pre" tag

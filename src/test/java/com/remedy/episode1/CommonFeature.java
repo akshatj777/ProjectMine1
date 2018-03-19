@@ -65,11 +65,16 @@ public class CommonFeature extends BaseClass {
 		delay();
 	}
 
-	public void i_Wait_To_See(String text, String tag) {
+	public void i_Wait_To_See(String text, String tag) throws InterruptedException {
+		if(text.equals("Assigned to Care Team successfully.")){
+		Thread.sleep(1000);
+		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));	
+		}else{
+		Thread.sleep(1000);
 		iWillWaitToSee(By.xpath("//" + tag + "[contains(text(),'" + text + "')]"));
 		isElementVisible(driver.findElement(By.xpath("//" + tag + "[contains(text(),'" + text + "')]")));
 		delay();
-		
+		}
 	}
 
 	public void i_Wait_For_Invisibility_Of(String text, String tag) {
