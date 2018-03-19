@@ -200,8 +200,8 @@ Feature: Super Admin Landing page verification
     Then I verify "<Applications>" product on SPOE page
 
     Examples: 
-      | user        | Role      | Email             | SearchParameter |
-      | Super Admin | Executive | test.automatemail | FetchFromHM     |
+      | user        | Role      | Email             | SearchParameter | Applications               |
+      | Super Admin | Executive | test.automatemail | FetchFromHM     | Episodes, Reports, Lessons |
 
   Scenario: User should not get error message when he goes back to User Admin page from top navigation Menu
     Given I am on the login page
