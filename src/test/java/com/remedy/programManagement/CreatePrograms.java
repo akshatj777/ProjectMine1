@@ -203,10 +203,14 @@ public class CreatePrograms extends BaseClass {
 	
 	public void iEnterDetailsOnCreateContractPage(String text, String field, String field1) 
 	{
-		if(field.contains("Contract Id"))
+		if(text.contains("CID"))
 		{
 			tempPrograms.put(111, createRandomNumber(8));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), tempPrograms.get(111));
+		}
+		else if(text.contains("Duplicate_CID"))
+		{
+			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
 		}
 		else
 		{
