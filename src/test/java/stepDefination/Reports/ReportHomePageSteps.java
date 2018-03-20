@@ -1899,5 +1899,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_same_episodes_data_is_appearing_under_overall_performance_column_in_quaterly_performance_table() throws Throwable{
     	reportHomePage.iVerifySameEpisodesDataIsAppearingUnderOverallPerformanceInQuaterlyPerformanceTable();
     }
+    
+    @And("^I click on \"([^\"]*)\" report under ([^\"]*) in reports$")
+    public void i_click_on_report_text_for_module_report(String report,String module) throws Throwable{
+    	reportHomePage.iClickOnReportUnderModuleInReports(report, module);
+    }
 }
 

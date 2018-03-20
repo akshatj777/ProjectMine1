@@ -1509,4 +1509,8 @@ public class ReportHomePage extends BaseClass {
     public void iVerifySameEpisodesDataIsAppearingUnderOverallPerformanceInQuaterlyPerformanceTable(){
     	verifyTextForElementFromListByXpath("//td[text()='Episodes (Eps)']/following-sibling::td[contains(@class,'column5')]",episodes);
     }
+    
+    public void iClickOnReportUnderModuleInReports(String report,String module){
+    	selectElementByTextDescByXpath("//div[label[text()='"+module+"']]/following-sibling::div/a", report);
+    }
 }
