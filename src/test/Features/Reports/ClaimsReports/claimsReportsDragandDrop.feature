@@ -437,7 +437,7 @@ Feature: Cover the drag and drop functionality through add to report in claims r
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
       
-  Scenario Outline: User should be able to drag and drop the fields Dashboard-Anchor CCN,BPID,Bundle Code,Bundle Risk and Episode Initiator through add to report in snf performance claims report under post acute care
+  Scenario Outline: User should be able to drag and drop the fields Dashboard-Anchor CCN,BPID,Bundle Code,Bundle Risk and Episode Initiator through add to report in snf volume claims report under post acute care
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
