@@ -61,6 +61,7 @@ public class PatientsListPage extends BaseClass {
 	}
 
 	public void iClickOnLoadFilterInToLoadThePatientListPresentOnThePatientsDropdown(String text) {
+		longDelay();
 		iWillWaitToSee(By.xpath("//a[@name='" + text + "' and text()='Load filter']"));
 		new Actions(driver).moveToElement(driver.findElement(By.xpath("//a[@name='" + text + "' and text()='Load filter']"))).build().perform();
 		clickElement(driver.findElement(By.xpath("//a[@name='" + text + "' and text()='Load filter']")));
@@ -298,9 +299,12 @@ public class PatientsListPage extends BaseClass {
 	public void iClickOnFirstCheckboxOnClinicianModal() {
 		longDelay();
 		try{
-			new WebDriverWait(driver,100).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span")))); 	
+			new WebDriverWait(driver,150).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span")))); 	
 			longDelay();
-			new WebDriverWait(driver,200).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+			longDelay();
+			longDelay();
+			new WebDriverWait(driver,200).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
+			new WebDriverWait(driver,400).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
 			longDelay();
 		}catch(Exception e){
 			longDelay();

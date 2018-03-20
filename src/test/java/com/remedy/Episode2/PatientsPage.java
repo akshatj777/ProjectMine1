@@ -548,8 +548,8 @@ public class PatientsPage extends BaseClass {
 
 	public void iClickOnTheNextButtonPresentOnTheAddPatientPage() {
 		longDelay();
-		iWillWaitToSee(By.cssSelector("button#submitButton"));
 		longDelay();
+		iWillWaitToSee(By.cssSelector("button#submitButton"));
 		clickElement(driver.findElement(By.cssSelector("button#submitButton")));
 	}
 

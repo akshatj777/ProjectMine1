@@ -280,6 +280,7 @@ public class Ec1DashboardPage extends BaseClass {
 	}
 
 	public void iClickOnOptionUnderCareSettingFilter(String value) {
+		longDelay();
 		iWillWaitToSee(By.cssSelector(".dropdown-list.available.scroller>label"));
 		clickSingleElementFromList(By.cssSelector(".dropdown-list.available.scroller>label"), value);
 		waitTo().until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("#tblPatients_processing"))));
