@@ -652,7 +652,6 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should verify "Anchor Post Acute Discharge Care Type Detail (EC)" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Setting Code (EC)" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Care Type Code (EC)" is appearing under Episodes drill through columns popup
-    #Then I should verify "" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Admit Date" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Post Acute Discharge Date" is appearing under Episodes drill through columns popup
 
@@ -975,6 +974,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                         |
-      | shutestauf171115a@yopmail.com |
-      | shutestagu22945am@yopmail.com |
+      | email                              |
+      | email                              |
+      | shutestaug15252p@yopmail.com       |
+      | shutestaug26212p@yopmail.com       |

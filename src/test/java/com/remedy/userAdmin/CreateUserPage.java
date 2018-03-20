@@ -74,7 +74,6 @@ public class CreateUserPage extends BaseClass{
         	scrollIntoViewByJS(element);
         	element.click();
         	userRole = desc;
-        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,"+"));
     	}
     }
     
@@ -1639,5 +1638,19 @@ public class CreateUserPage extends BaseClass{
 	 
 	 public void iClickonRemoveButtonPopUpWindow(String text){
 		 clickElement(driver.findElement(By.xpath("//div[@class='actions']//button[text()='Remove']")));
+	 }
+	 
+	 public void iVerifyPagetextOnLandingPage(String text){
+		 System.out.println("jgujhg");
+		 Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='paginator-text']/div[text()='"+text+"']/../div[contains(text(),'of ')]")));
+	 }
+	 
+	 public void iClickonArrowButtonsonLandingPage(String text){
+//		 WebElement element = driver.findElement(By.xpath("//div[@class='single-chevron']//i[@class='"+text+"']"));
+//		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+//		 executor.executeScript("arguments[0].click();", element);
+		 iWillWaitToSee(By.xpath("//div[@class='single-chevron']//i[@class='"+text+"']"));
+		 clickElement(driver.findElement(By.xpath("//div[@class='single-chevron']//i[@class='"+text+"']")));
+		 longDelay();
 	 }
 }
