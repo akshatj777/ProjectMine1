@@ -22,8 +22,8 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
     Then I should see "Anchor Hospital Discharge Facility CCN" for Nsoc Summary under "level" field
-    Then I should see "1st Post Acute Facility" for Nsoc Summary under "level" field
-    Then I should see "1st Post Acute Type" for Nsoc Summary under "level" field
+    Then I should see "Anchor Hospital Discharge Facility" for Nsoc Summary under "level" field
+    Then I should see "Anchor Hospital Discharge Facility Type" for Nsoc Summary under "level" field
     Then I should see "Anchor Discharge Care Type" appearing under "level" field
     Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
     Then I should see "Anchor Facility Type" appearing under "level" field
@@ -188,7 +188,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
     Then I should verify "Anchor Hospital Facility Type" is appearing under Episodes table
-    Then I should verify "1st Post Acute Facility" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
 
     Examples: 
@@ -371,7 +371,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Anchor Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
+    Then I verify "Anchor Hospital Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
     #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
     When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
     And I choose add to report option from select options of filter field

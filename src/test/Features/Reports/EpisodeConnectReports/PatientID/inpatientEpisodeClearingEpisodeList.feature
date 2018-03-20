@@ -25,19 +25,16 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I should verify "Patient" is appearing under Episodes table
     Then I should verify "DOB" is appearing under Episodes table
     Then I should verify "Patient Risk" is appearing under Episodes table
-    Then I should verify "Anchor Begin Date" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Date" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
     Then I should verify "CCN" is appearing under Episodes table
-    Then I should verify "Anchor Facility" is appearing under Episodes table
-    Then I should verify "1st Post Acute Type" is appearing under Episodes table
-    Then I should verify "1st Post Acute CCN" is appearing under Episodes table
-    Then I should verify "1st Post Acute Facility" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
     Then I should verify "NSOC Category" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Setting" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Type" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Setting Code (EC)" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Type Code (EC)" is appearing under Episodes table
-    Then I should verify "Anchor Discharge Care Type Detail (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Setting" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Type" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Setting Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Type Code (EC)" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Care Type Detail (EC)" is appearing under Episodes table
     Then I should verify "CARL Status" is appearing under Episodes table
     Then I should verify "Last Predicted DRG" is appearing under Episodes table
     Then I should verify "Last Predicted Bundle" is appearing under Episodes table
@@ -109,15 +106,15 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    And I click on "Anchor Facility Type" checkbox under "Anchor Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
-    Then I should verify "Anchor Facility Type" is appearing under Episodes table
-    Then I should verify "1st Post Acute Facility" is appearing under Episodes table
-    Then I should verify "1st Post Acute CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility Type" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
 
     Examples: 
       | email                         |

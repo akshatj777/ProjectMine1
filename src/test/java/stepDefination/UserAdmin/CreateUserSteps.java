@@ -797,4 +797,14 @@ public class CreateUserSteps extends DriverScript {
 		public void i_Click_on_Remove_Button_Pop_Up_Window(String text) throws Throwable {
 		 createUser.iClickonRemoveButtonPopUpWindow(text);
 	 }
+	 
+	 @Then("^I verify \"([^\"]*)\" text on landing page$")
+		public void i_Verify_Page_text_On_Landing_Page(String text) throws Throwable {
+		 createUser.iVerifyPagetextOnLandingPage(text);
+	 }
+	 
+	 @And("^I click on \"([^\"]*)\" on landing page$")
+		public void i_Click_on_Arrow_Buttons_on_Landing_Page(String text) throws Throwable {
+		 createUser.iClickonArrowButtonsonLandingPage(text);
+	 }
 }
