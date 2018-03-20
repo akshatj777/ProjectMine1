@@ -290,7 +290,7 @@ Feature: Edit page for Downstream provider
     Then I verify health system "<HealthSystemValidation>"
     Then I verify programs "<ProgramsValidation>"
     Then I verify location "<LocationsValidation>"
-    #include downstream view page validation
+    
     And I click on the top user account link
     Then I click on "Log Out" button
     Given I am on the login page
