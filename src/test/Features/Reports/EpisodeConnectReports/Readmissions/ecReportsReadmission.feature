@@ -117,14 +117,14 @@ Feature: Verification of Readmissions EC report
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -314,15 +314,15 @@ Feature: Verification of Readmissions EC report
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    And I click on "Anchor Facility Type" checkbox under "Anchor Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute Facility" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute CCN" checkbox under "Anchor Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
-    Then I should verify "Anchor Facility Type" is appearing under Episodes table
-    Then I should verify "1st Post Acute Facility" is appearing under Episodes table
-    Then I should verify "1st Post Acute CCN" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Facility Type" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
+    Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
 
     Examples: 
       | email                         |

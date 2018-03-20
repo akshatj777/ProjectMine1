@@ -122,20 +122,8 @@ Feature: Create User - PTA User
     Then I verify "<ApplicationsNotVisible>" is not visible on Applications tab
     Then I click on Next button
     Then I verify the header "Permissions"
-    #And I search for health system with <Health System1>
-    #And I select a <Health System1>
     Then I select "<Programs1>" programs
     Then I select "<Locations1>" locations for PTA user
-    #Then I click Add Organization button for "<HasHealthSystem2>" flag
-    #And I search for health system with <Health System2>
-    #And I select a <Health System2>
-    #Then I select "<Programs2>" programs
-    #Then I select "<Locations2>" locations
-    #Then I click Add Organization button for "<HasHealthSystem3>" flag
-    #And I search for health system with <Health System3>
-    #And I select a <Health System3>
-    #Then I select "<Programs3>" programs
-    #Then I select "<Locations3>" locations
     Then I click on Submit button for "<User>"
     And I click on the top user account link
     Then I click on "Log Out" button
@@ -283,20 +271,8 @@ Feature: Create User - PTA User
     Then I verify "<ApplicationsNotVisible>" is not visible on Applications tab
     Then I click on Next button
     Then I verify the header "Permissions"
-    #And I search for health system with <Health System1>
-    #And I select a <Health System1>
     Then I select "<Programs1>" programs
     Then I select "<Locations1>" locations for PTA user
-    #Then I click Add Organization button for "<HasHealthSystem2>" flag
-    #And I search for health system with <Health System2>
-    #And I select a <Health System2>
-    #Then I select "<Programs2>" programs
-    #Then I select "<Locations2>" locations
-    #Then I click Add Organization button for "<HasHealthSystem3>" flag
-    #And I search for health system with <Health System3>
-    #And I select a <Health System3>
-    #Then I select "<Programs3>" programs
-    #Then I select "<Locations3>" locations
     Then I click on Submit button for "<User>"
     And I click on the top user account link
     Then I click on "Log Out" button

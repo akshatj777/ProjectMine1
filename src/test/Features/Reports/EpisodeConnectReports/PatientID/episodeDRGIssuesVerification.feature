@@ -23,9 +23,9 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Avg. Days to First Working DRG" under "measures" field
     Then I should see "Avg. Days to First Predicted DRG" under "measures" field
     Then I should see "Avg. Days to First Final DRG" under "measures" field
-    Then I should see "1st Post Acute CCN" appearing under "level" field
-    Then I should see "1st Post Acute Facility" appearing under "level" field
-    Then I should see "1st Post Acute Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility CCN" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
     Then I should see "Anchor Facility" appearing under "level" field
@@ -145,9 +145,9 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I remove "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field from default filters
     #Then I remove "Model" field filter under "Model" filter field from default filters
     When I click on field-panel-icon button
-    When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field
+    When I click to "Anchor Hospital Discharge Month" field filter under "Anchor Hospital Discharge Date" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Anchor Discharge Month" in the header text of filter page
+    And I should see "Anchor Hospital Discharge Month" in the header text of filter page
     Then I select "PREVIOUS" discharge month in anchor discharge month filter
     And I click on ok button from filter
     And I wait until refresh button is disappeared
@@ -343,58 +343,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | shutestaug231132a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
 
-  Scenario Outline: User should be able to drag and drop the fields in to reports in episode drg issues report under patientID
-    Given I am on the login page
-    When I enter email field <email> for login
-    And I enter password field Testing1 for Login
-    Then I click Access button
-    And I wait to see "Reports" tile
-    When I click on the "Reports" tile
-    And I wait to see "Patient ID" under reports tile text
-    When I click on the Reports Tile with text "Patient ID"
-    Then I click on "Episode DRG Issues" report text for Patient ID Reports
-    And I wait for the reports embedded iframe to load
-    When I switch to reports embedded iframe
-    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
-    And I wait until refresh button is disappeared
-    When I click on field-panel-icon button
-    When I click on field-layout-icon button
-    #CCN Drag and Drop
-    When I click to "Anchor Hospital Facility CCN" field filter under "Anchor Hospital Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
-    #BPID Drag and Drop
-    When I click to "BPID" field filter under "Episode Initiator" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "BPID" field is appearing in the layout section after selecting add to report
-    Then I verify "BPID" column is added to report after selecting add to report option
-    #Patient Risk Drag and Drop
-    When I click to "Patient Risk" field filter under "Patient" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Patient Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Patient Risk" column is added to report after selecting add to report option
-    #Onboarding Sttaus Drag and Drop
-    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Onboarding Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Onboarding Status" column is added to report after selecting add to report option
-    #Risk Score Drag and Drop
-    When I click to "Risk Score" field filter under "Patient" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Risk Score" field is appearing in the layout section after selecting add to report
-    Then I verify "Risk Score" column is added to report after selecting add to report option
-
-    Examples: 
-      | email                              |
-      | shutestaug231132a@yopmail.com      |
-      | reptestachmodel2opsfin@yopmail.com |
-
   Scenario Outline: Verification of episode drg issues report with pgp model3 users
     Given I am on the login page
     When I enter email field <email> for login
@@ -413,7 +361,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     When I click on show all filters icon button
     #Default Filters
     Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor hospital admission year filter
-    Then I verify "anchor Discharge Date Key includes 1" is appearing under preselected filters for anchor Discharge Date Key
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Default Dimensions
@@ -481,7 +428,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
@@ -912,4 +859,3 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | email                              |
       | shutestaug15252p@yopmail.com       |
       | shutestaug26212p@yopmail.com       |
-      | reptestachmodel2opsfin@yopmail.com |
