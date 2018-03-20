@@ -1321,11 +1321,11 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnRemoveFromReportInTheList(){
-    	clickElement(driver.findElement(By.xpath(".//*[@id='PM:removeAttr_text']")));
+    	clickElement(driver.findElement(By.xpath(".//td[@id='PM:removeAttr_text']")));
     }
     
     public void iVerifyTextNotPresentInTheReportsTable(String text){
-    	verifyTextNotPresentForElementFromList(".sortActiveAsc>div>div:nth-of-type(1)",text);
+    	isElementNotPresentOnPage(By.xpath("//div[@class='resize'] //div[text()='"+text+"']"));
     }
     
     public void iSeeAnchorHospitalAdmissionYearFilterPreselected(String text){
