@@ -1035,16 +1035,16 @@ Feature: Edit user page for SA
     Then I verify the validation message "<ValidationMsg>" on Create User Page
 
     Examples: 
-      | Description                                           | User        | FirstName  | LastName          | Email             | Phone      | Role       | NPI                       | ValidationMsg                     |
-      | Verify validation message for blank First name        | Super Admin |            | Last Name         | test.automatemail | 9874563210 | Executive  |                           | First Name is required            |
-      | Verify validation message for blank Last name         | Super Admin | First Name |                   | test.automatemail | 9874563210 | Executive  |                           | Last Name is required             |
-      | Verify validation message for blank NPI               | Super Admin | First Name | Last Name         | test.automatemail | 9874563210 | Physicians |                           | NPI is required                   |
-      | Verify validation message for invalid Phone           | Super Admin | First Name | Last Name         | test.automatemail |     123564 | Physicians | NPI                       | Please enter a valid phone number |
-      | Verify validation message for NPI less than 10 digits | Super Admin | First Name | Last Name         | test.automatemail | 9874563210 | Physicians |                    123564 | Please enter a valid NPI          |
-      | Verify validation message for NPI as alphabets        | Super Admin | First Name | Last Name         | test.automatemail | 9874563210 | Physicians | abcdefgihj                | Please enter a valid NPI          |
-      | Verify validation message for NPI as alphanumeric     | Super Admin | First Name | Last Name         | test.automatemail | 9874563210 | Physicians | abcde12345                | Please enter a valid NPI          |
-      | Verify validation message for invalid First Name      |  8473827919 | Last Name  | test.automatemail |        9874563210 | Physicians | NPI        | Please enter a valid name |                                   |
-      | Verify validation message for invalid Last name       | First Name  | 8473827919 | test.automatemail |        9874563210 | Physicians | NPI        | Please enter a valid name |                                   |
+      | Description                                           | User        | FirstName  | LastName   | Email             | Phone      | Role       | NPI        | ValidationMsg                     |
+      | Verify validation message for blank First name        | Super Admin |            | Last Name  | test.automatemail | 9874563210 | Executive  |            | First Name is required            |
+      | Verify validation message for blank Last name         | Super Admin | First Name |            | test.automatemail | 9874563210 | Executive  |            | Last Name is required             |
+      | Verify validation message for blank NPI               | Super Admin | First Name | Last Name  | test.automatemail | 9874563210 | Physicians |            | NPI is required                   |
+      | Verify validation message for invalid Phone           | Super Admin | First Name | Last Name  | test.automatemail |     123564 | Physicians | NPI        | Please enter a valid phone number |
+      | Verify validation message for NPI less than 10 digits | Super Admin | First Name | Last Name  | test.automatemail | 9874563210 | Physicians |     123564 | Please enter a valid NPI          |
+      | Verify validation message for NPI as alphabets        | Super Admin | First Name | Last Name  | test.automatemail | 9874563210 | Physicians | abcdefgihj | Please enter a valid NPI          |
+      | Verify validation message for NPI as alphanumeric     | Super Admin | First Name | Last Name  | test.automatemail | 9874563210 | Physicians | abcde12345 | Please enter a valid NPI          |
+      | Verify validation message for invalid First Name      | Super Admin | 8473827919 | Last Name  | test.automatemail | 9874563210 | Physicians | NPI        | Please enter a valid name         |
+      | Verify validation message for invalid Last name       | Super Admin | First Name | 8473827919 | test.automatemail | 9874563210 | Physicians | NPI        | Please enter a valid name         |
 
   Scenario Outline: Verify auto selected programs in Organizations
     Given I am on the login page
