@@ -26,8 +26,24 @@ public class CreateBundlePaymentContracts extends BaseClass{
 		}
 	}
 	
-//	public void iEnterContractIDOnCreateContractsPage(String text, int num, String action){
-//		iFillInText(obj, text);
-//	}
+	public void iClickandSearchWithInvalidNameonDropdownBox(String text){
+		if(text.equalsIgnoreCase("InvalidSearchOrganizationName"))
+		{
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+			longDelay();
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
+			longDelay();
+		}
+		else if(text.equalsIgnoreCase("InvalidSearchBundle"))
+		{
+			delay();
+			scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+			delay();
+			iWillWaitToSee(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input"));
+			driver.findElement(By.xpath("//div[text()='Select a Bundle']/following-sibling::div/input")).sendKeys(text);
+			longDelay();
+		}
+	}
 
 }

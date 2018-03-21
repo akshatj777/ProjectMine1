@@ -22,8 +22,8 @@ public class CreateBundlePaymentContractsStepDef extends DriverScript {
 		CreateBPContracts.iVerifyDateFieldsOnCreateContractsPage(text,action);
 	 }
 	
-//	@And("^I enter Contract Id \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Contracts page$")
-//	  public void i_Enter_ContractID_On_Create_Contracts_Page(String text, int num,String action) throws Throwable {
-//		CreateBPContracts.iEnterContractIDOnCreateContractsPage(text,num,action);
-//	 }
+	@And("^I click and search with invalid name on \"([^\"]*)\" dropdown box$")
+	  public void i_Click_and_Search_with_Invalid_Name_on_Dropdown_Box(String text) throws Throwable {
+		CreateBPContracts.iClickandSearchWithInvalidNameonDropdownBox(text);
+	 }
 }
