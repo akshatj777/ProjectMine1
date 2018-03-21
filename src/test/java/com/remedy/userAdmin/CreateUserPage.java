@@ -1843,14 +1843,37 @@ public class CreateUserPage extends BaseClass{
 	 public void removeAlreadySelectedRole() throws Throwable {
 		 driver.findElement(By.xpath("//i[@class='close icon']")).click();
 	 }
+	 public void iVerifyTheSelectedLocationsAreNotPresentInSelectLocationsSection (String text){
+		 iWillWaitToSee(By.xpath("//h5[text()='Selected Locations:']"));
+		 if(text.contains(",")){
+			 StringTokenizer st = new StringTokenizer(text, ",");
+			   while(st.hasMoreTokens())
+			   {
 
+				 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+st.nextToken().trim()+"\")]")));   
+		 }}
+		 else{
+
+		 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
+	 } 
+	 }
 	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String text){
+		 if(text.contains(",")){
+			 StringTokenizer st = new StringTokenizer(text, ",");
+			   while(st.hasMoreTokens())
+			   {
+				   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+st.nextToken().trim()+"\")]"))));
+//				 	String actual = getTextForElement(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
+//					Assert.assertEquals(text,actual);
+				 	Assert.assertTrue(isElementPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+st.nextToken().trim()+"\")]")));   
+		 }}
+		 else{
 		 	waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]"))));
 //		 	String actual = getTextForElement(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
 //			Assert.assertEquals(text,actual);
 		 	Assert.assertTrue(isElementPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
 	 }
-	 
+	 }
 	 public void iSearchTheSelectedLocationsInTheSelectLocationsSection(String locationList){
 		 iFillInText(driver.findElement(By.xpath("//*[text()='Selected Locations:']//following::input")), locationList);
 		 Assert.assertTrue(isElementPresent(By.xpath("//*[text()='Selected Locations:']//following::input")));

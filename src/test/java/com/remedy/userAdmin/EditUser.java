@@ -645,4 +645,7 @@ public void iVerifyLocationNotDisplayedWithFacilityKey(String key, String text){
  	
  	Assert.assertFalse(driver.findElement(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")).getText().contains(key));
 }
+public void iCheckErrMsgIsNotShown(String text){
+	Assert.assertTrue(isElementNotPresentOnPage(text));
+}
 }
