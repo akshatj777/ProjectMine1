@@ -76,9 +76,17 @@ public class SearchOrganization extends BaseClass{
 		}
 		else if(text.contains("PROGRAMNAME"))
 		{
-			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get(1));
-			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			if(text.contains("PROGRAMNAME"))
+			{
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get(1));
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+			}
+			else
+			{
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), text);
+			}
 		}
 		else
 		{	

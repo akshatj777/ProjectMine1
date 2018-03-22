@@ -1,5 +1,6 @@
 package com.remedy.programManagement;
 
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -800,6 +801,34 @@ public class CreatePrograms extends BaseClass {
 		WebElement drop=driver.findElement(By.xpath("//li[text()='Attribute to the physician who admitted the patient']"));
 		Actions act1=new Actions(driver);
 		act1.dragAndDrop(drag, drop).build().perform();
+	}
+	
+	public void iSearchAndVerifyWithSearchListOptionsOnProgramsSearchBox(String searchParam, String org) throws ClassNotFoundException, SQLException{
+		String value = searchParam;
+		if (org.equalsIgnoreCase("Programs"))
+		{
+			if (value.equals("PROGRAMNAME"))
+			{
+				 iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get(1));
+				 waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				 value = CreatePrograms.programs.get(1);
+				 iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
+				 Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			}
+			else if (value.equals("ID"))
+			{
+				String query = "SELECT id from program_management.program where name = '"+CreatePrograms.programs.get(1)+"'";
+				value = fetchParticipantID(query);
+				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
+				waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			}
+			else
+			{
+				iWillWaitToSee(By.cssSelector(".text-input-field-programFilterTerm"));
+				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
+			}
+		}
 	}
 }
 

@@ -171,4 +171,9 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_DragandDrop_the_Attribution_Rules_On_Create_Program_Page(String act) throws Throwable {
 		programs.iDragandDroptheAttributionRulesOnCreateProgramPage(act);
 	    }
+	
+	@Then("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" search box$")
+	  public void i_Search_And_Verify_With_Search_List_Options_On_Programs_Search_Box(String searchParam, String org) throws Throwable {
+		programs.iSearchAndVerifyWithSearchListOptionsOnProgramsSearchBox(searchParam,org);
+	    }
 }
