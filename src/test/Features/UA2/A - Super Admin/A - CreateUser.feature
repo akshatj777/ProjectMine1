@@ -846,47 +846,4 @@ Feature: Create User - Super Admin User
       | User        | UserName                               | Password | FirstName | LastName | Email             | Role       | Applications | NPI | Health System     | Programs    | Locations    |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Physicians | Reports      | NPI | Stamford Hospital | BPCI-Model2 | All 2070-015 |
 
-  Scenario Outline: <Description>
-    Given I am on the login page
-    When I enter email field <UserName> for login
-    And I enter password field <Password> for Login
-    Then I click Access button
-    Then I should see Tile text User Admin
-    And I click on the "User Admin" tile
-    Then I should see header text "Users"
-    When I click on Add User button
-    Then I should see "Add New User" on the user creation page
-    Then I verify the header "General Information"
-    And I fill in First Name with "<FirstName>"
-    Then I fill in Last Name with <LastName>
-    And I enter Email "<Email>" to Create user
-    When I click the Organizational Role Field
-    Then I pick a Organizational <Role>
-    Then I enter NPI field with "<NPI>" for role "<Role>"
-    Then I click on Next button
-    Then I verify the header "Applications"
-    Then I verify applications "<Applications>" are unchecked
-    Then I select "<Applications>" product
-    Then I verify applications "<Applications>" are checked
-    Then I click on Next button
-    Then I verify the header "Permissions"
-    And I search for health system with <Health System>
-    And I select a <Health System>
-    Then I select "<Programs1>" programs
-    Then I select "<Locations1>" locations
-    Then I select "<Programs2>" programs for existing organisation
-    Then I select "<Locations2>" locations
-    Then I click on Submit button for "<User>"
-    Then I should see header text "Users"
-    Then I search for user with role "<User>-<Role>"
-    Then I select user with role "<User>-<Role>"
-    And I verify that I am navigated to user page
-    And I click on Edit button
-    Then I select "Permissions" tab
-    Then I verify the header "Permissions"
-    Then I click on existing organisation "<Health System>"
-    And I verify selected Location "<SelectedLocations>" are not shown in selected Locations section
-
-    Examples: 
-      | Description                                                                                             | User        | UserName                               | Password | FirstName | LastName | Email             | Role    | NPI | Applications | Health System    | Programs1   | Locations1    | Programs2   | Locations2                                     | SelectedLocations                                       |
-      | All Locations for Model-2 are getting displayed as selected on selecting Model-3 while editing the user | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Manager |     | Reports      | Sound Physicians | BPCI-Model2 | All Locations | BPCI-Model3 | 3090-066--Presence Saint Joseph Medical Center | Presence Saint Joseph Medical Center, Evanston Hospital |
+  

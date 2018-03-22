@@ -1849,12 +1849,12 @@ public class CreateUserPage extends BaseClass{
 			 StringTokenizer st = new StringTokenizer(text, ",");
 			   while(st.hasMoreTokens())
 			   {
-
-				 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+st.nextToken().trim()+"\")]")));   
+				   Assert.assertFalse(isElementPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+st.nextToken().trim()+"\")]")));
+				  
 		 }}
 		 else{
 
-		 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
+		 	Assert.assertFalse(isElementPresentOnPage(By.xpath("//h5[text()='Selected Locations:']/..//td[contains(text(),\""+text+"\")]")));
 	 } 
 	 }
 	 public void iVerifyTheSelectedLocationsInTheSelectLocationsSection(String text){

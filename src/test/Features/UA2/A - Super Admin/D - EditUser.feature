@@ -1298,3 +1298,23 @@ Feature: Edit user page for SA
     Examples: 
       | Description                                                                                         | User        | Role      | Remove HealthSystem | Health System                                                          | Programs    | Locations     |
       | Error message "User does not exist. Please go back to the users list page." should not be displayed | Super Admin | Executive | Sound Physicians    | St. Lukes Health Network, Inc. DBA St. Lukes University Health Network | BPCI-Model2 | All Locations |
+
+  Scenario Outline: Validating- all locations should not be displayed as selected when the "All Locations" check box is unchecked while editing the user
+    Given I am on the login page
+    When I log in as super user
+    Then I should see Tile text User Admin
+    And I click on the "User Admin" tile
+    Then I should see header text "Users"
+    Then I search for user with role "<User>-<Role>"
+    Then I select user with role "<User>-<Role>"
+    And I verify that I am navigated to user page
+    And I click on Edit button
+    Then I select "Permissions" tab
+    Then I click on existing organisation "<Health System>"
+    Then I select "<AddLocations>" locations
+    Then I deselect "<AddLocations>" locations
+    And I verify selected Location "<SelectedLocations>" are not shown in selected Locations section
+
+    Examples: 
+      | User        | Role      | Health System    | AddLocations  | SelectedLocations                  |
+      | Super Admin | Executive | Sound Physicians | All Locations | Advocate Trinity Hospital (140048) |
