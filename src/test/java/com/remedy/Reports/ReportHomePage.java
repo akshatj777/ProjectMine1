@@ -1516,4 +1516,10 @@ public class ReportHomePage extends BaseClass {
     public void iClickOnReportUnderModuleInReports(String report,String module){
     	selectElementByTextDescByXpath("//div[label[text()='"+module+"']]/following-sibling::div/a", report);
     }
+    
+    public void iVerifyNotAppearingInsideColumnsInReports(String value,String field){
+    	WebElement element = driver.findElement(By.xpath("//td[@class='pivotTableRowLabelSection']//td[contains(@formula,'"+field+"')]/div"));
+    	scrollIntoViewByJS(element);
+    	verifyTextNotPresentForElementFromListByXpath("//td[@class='pivotTableRowLabelSection']//td[contains(@formula,'"+field+"')]/div",value);
+    }
 }

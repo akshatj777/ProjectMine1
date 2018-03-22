@@ -1904,5 +1904,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_click_on_report_text_for_module_report(String report,String module) throws Throwable{
     	reportHomePage.iClickOnReportUnderModuleInReports(report, module);
     }
+    
+    @And("^I verify there is no \"([^\"]*)\" value appearing inside report in the column \"([^\"]*)\"$")
+    public void i_verify_there_is_no_value_appearing_inside_report_in_the_column(String value,String field) throws Throwable{
+    	reportHomePage.iVerifyNotAppearingInsideColumnsInReports(value, field);
+    }
 }
 

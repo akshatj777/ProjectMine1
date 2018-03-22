@@ -17,6 +17,9 @@ Feature: Accepatance testing for reports
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
     #Participant
+    And I verify there is no "Null" value appearing inside report in the column "Participant"
+    And I verify there is no "0" value appearing inside report in the column "Participant"
+    And I verify there is no "NA" value appearing inside report in the column "Participant"
     When I click to "Participant" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Participant" in the header text of filter page
@@ -26,6 +29,9 @@ Feature: Accepatance testing for reports
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     #Episode Initiator
+    And I verify there is no "Null" value appearing inside report in the column "Episode Initiator"
+    And I verify there is no "0" value appearing inside report in the column "Episode Initiator"
+    And I verify there is no "NA" value appearing inside report in the column "Episode Initiator"
     When I click to "Episode Initiator" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Episode Initiator" in the header text of filter page
@@ -45,6 +51,12 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     #CCN
     When I click to "CCN" field filter under "<ccn type>" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "CCN"
+    And I verify there is no "0" value appearing inside report in the column "CCN"
+    And I verify there is no "NA" value appearing inside report in the column "CCN"
+    When I click to "CCN" field filter under "<ccn type>" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "<ccn field>" in the header text of filter page
     And I should not see "Null" in the filter value list
@@ -54,6 +66,12 @@ Feature: Accepatance testing for reports
     And I wait until refresh button is disappeared
     #BPID
     When I click to "BPID" field filter under "Episode Initiator" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "BPID"
+    And I verify there is no "0" value appearing inside report in the column "BPID"
+    And I verify there is no "NA" value appearing inside report in the column "BPID"
+    When I click to "BPID" field filter under "Episode Initiator" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "BPID" in the header text of filter page
     And I should not see "Null" in the filter value list
@@ -61,16 +79,13 @@ Feature: Accepatance testing for reports
     And I should not see "NA" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    #Bundle Risk
-    #When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Bundle Risk" in the header text of filter page
-    #And I should not see "Null" in the filter value list
-    #And I should not see "0" in the filter value list
-    #And I should not see "NA" in the filter value list
-    #And I click on cancel button from filter
-    #And I wait until refresh button is disappeared
     #Bundle Code
+    When I click to "Bundle Code" field filter under "Bundle" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "BPID"
+    And I verify there is no "0" value appearing inside report in the column "BPID"
+    And I verify there is no "NA" value appearing inside report in the column "BPID"
     When I click on "Bundle Code" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Bundle Code" in the header text of filter page
@@ -80,7 +95,13 @@ Feature: Accepatance testing for reports
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     #Patient Risk
-    When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
+    When I click to "Patient Risk" field filter under "Patient" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "BPID"
+    And I verify there is no "0" value appearing inside report in the column "BPID"
+    And I verify there is no "NA" value appearing inside report in the column "BPID"
+    When I click on "Patient Risk" field which is listed under "Patient" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
     And I should not see "Null" in the filter value list
@@ -89,7 +110,13 @@ Feature: Accepatance testing for reports
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     #Onboarding Status
-    When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
+    When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "BPID"
+    And I verify there is no "0" value appearing inside report in the column "BPID"
+    And I verify there is no "NA" value appearing inside report in the column "BPID"
+    When I click on "Onboarding Status" field which is listed under "Onboarding Status" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
     And I should not see "Null" in the filter value list
@@ -98,6 +125,12 @@ Feature: Accepatance testing for reports
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     #Eligibility
+    When I click to "Eligibility" field filter under "Eligibility" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "BPID"
+    And I verify there is no "0" value appearing inside report in the column "BPID"
+    And I verify there is no "NA" value appearing inside report in the column "BPID"
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Eligibility" in the header text of filter page
@@ -115,6 +148,33 @@ Feature: Accepatance testing for reports
       | shutestaug231132a@yopmail.com | Patient ID        | InPatient Episode Clearing         | EC Model2      | InPatient Episode Clearing | Anchor Hospital Facility | Anchor Hospital Facility | Dashboard - Anchor Facility | Dashboard - Anchor CCN |
       | shutestaug231132a@yopmail.com | Post Acute Care   | Initial SNF Length of Stay Summary | EC Model2      | SNF LOS Summary            | Anchor Facility          | Anchor Facility          | Anchor Facility             | CCN                    |
       | shutestaug231132a@yopmail.com | Readmissions      | Readmissions                       | EC Model2      | Readmissions EC            | Anchor Hospital Facility | Anchor Hospital Facility | Dashboard - Anchor Facility | Dashboard - Anchor CCN |
+
+  Scenario Outline: User should not see Null,Zero and NA in episode drg issues report page.
+    Given I am on the login page
+    When I enter email field <email> for login
+    And I enter password field Testing1 for Login
+    Then I click Access button
+    And I wait to see "Reports" tile
+    When I click on the "Reports" tile
+    And I wait to see "<Module>" under reports tile text
+    When I click on the Reports Tile with text "<Module>"
+    Then I click on "<Report>" report under <Module> in reports
+    And I wait for the reports embedded iframe to load
+    When I switch to reports embedded iframe
+    And I will wait to see "<ReportToLoad>" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on field-panel-icon button
+    And I wait until refresh button is disappeared
+    When I click to "<anchor facility>" field filter under "<facility type>" filter field
+    And I choose add to report option from select options of filter field
+    And I wait until refresh button is disappeared
+    And I verify there is no "Null" value appearing inside report in the column "<anchor facility>"
+    And I verify there is no "0" value appearing inside report in the column "<anchor facility>"
+    And I verify there is no "NA" value appearing inside report in the column "<anchor facility>"
+
+    Examples: 
+      | email                         | Module     | Report             | Type Of Report | ReportToLoad       | anchor facility          | facility type            |
+      | shutestaug231132a@yopmail.com | Patient ID | Episode DRG Issues | EC Model2      | Episode DRG Issues | Anchor Hospital Facility | Anchor Hospital Facility |
 
   Scenario Outline: User should be able to verify the business functionalities in  <Report> EC Model3 report and make sure there are NON-Null,Non-zero,Non-N/A in the report page
     Given I am on the login page
@@ -150,19 +210,10 @@ Feature: Accepatance testing for reports
     And I should not see "NA" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    #Anchor Facility
-    #When I click to "<anchor facility>" field filter under "<facility type>" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "<anchor facility>" in the header text of filter page
-    #And I should not see "Null" in the filter value list
-    #And I should not see "0" in the filter value list
-    #And I should not see "NA" in the filter value list
-    #And I click on cancel button from filter
-    #And I wait until refresh button is disappeared
-    #CCN
-    When I click to "CCN" field filter under "Dashboard - Anchor Facility" filter field
+    #Anchor Post Acute Provider CCN
+    When I click on "Anchor Post Acute Provider CCN" field which is listed under "Anchor Post Acute Provider" filter from available fields
     And I choose "Filter" option from select options of filter field
-    And I should see "Dashboard - Anchor CCN" in the header text of filter page
+    And I should see "Anchor Post Acute Provider CCN" in the header text of filter page
     And I should not see "Null" in the filter value list
     And I should not see "0" in the filter value list
     And I should not see "NA" in the filter value list
@@ -177,15 +228,6 @@ Feature: Accepatance testing for reports
     And I should not see "NA" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    #Bundle Risk
-    #When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Bundle Risk" in the header text of filter page
-    #And I should not see "Null" in the filter value list
-    #And I should not see "0" in the filter value list
-    #And I should not see "NA" in the filter value list
-    #And I click on cancel button from filter
-    #And I wait until refresh button is disappeared
     #Bundle Code
     When I click on "Bundle Code" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
@@ -196,7 +238,7 @@ Feature: Accepatance testing for reports
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     #Patient Risk
-    When I click on "Patient Risk" field which is listed under "Patient Details" filter from available fields
+    When I click on "Patient Risk" field which is listed under "Patient" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
     And I should not see "Null" in the filter value list
@@ -205,7 +247,7 @@ Feature: Accepatance testing for reports
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     #Onboarding Status
-    When I click on "Onboarding Status" field which is listed under "Patient Details" filter from available fields
+    When I click on "Onboarding Status" field which is listed under "Onboarding Status" filter from available fields
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
     And I should not see "Null" in the filter value list
@@ -222,6 +264,15 @@ Feature: Accepatance testing for reports
     And I should not see "NA" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
+    #Anchor Post Acute Provider
+    When I click on "Anchor Post Acute Provider" field which is listed under "Anchor Post Acute Provider" filter from available fields
+    And I choose "Filter" option from select options of filter field
+    And I should see "Anchor Post Acute Provider" in the header text of filter page
+    And I should not see "Null" in the filter value list
+    And I should not see "0" in the filter value list
+    And I should not see "NA" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
 
     Examples: 
       | email                            | Module            | Report                               | Type Of Report | ReportToLoad                         |
@@ -230,7 +281,7 @@ Feature: Accepatance testing for reports
       | RPFINM3HHASNFVisitQA@yopmail.com | Next Site of Care | Next Site of Care Summary [Model 3]  | EC Model3      | Next Site of Care Summary [Model 3]  |
       | RPFINM3HHASNFVisitQA@yopmail.com | Readmissions      | Readmissions [Model 3]               | EC Model3      | Readmissions EC [Model 3]            |
 
-  Scenario Outline: User should be able to verify the business functionalities in  <Report> Claims report and make sure there are NON-Null,Non-zero,Non-N/A in the report page
+  Scenario Outline: User should be able to verify the business functionalities in <Report> Claims report and make sure there are NON-Null,Non-zero,Non-N/A in the report page
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -336,16 +387,25 @@ Feature: Accepatance testing for reports
     And I should not see "NA" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    #Adjusted Historic Values
-    #When I click to "" field filter under "" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "" in the header text of filter page
-    #And I should not see "Null" in the filter value list
-    #And I should not see "0" in the filter value list
-    #And I should not see "NA" in the filter value list
-    #And I click on cancel button from filter
-    #And I wait until refresh button is disappeared
-    
+    #Post Acute facility
+    When I click to "Post Acute Facility" field filter under "Post Acute Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute Facility" in the header text of filter page
+    And I should not see "Null" in the filter value list
+    And I should not see "0" in the filter value list
+    And I should not see "NA" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+    #Post Acute CCN
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute CCN" in the header text of filter page
+    And I should not see "Null" in the filter value list
+    And I should not see "0" in the filter value list
+    And I should not see "NA" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+
     Examples: 
       | email                         | Module          | Report                         | Type Of Report | ReportToLoad          |
       | shutestaug231132a@yopmail.com | Overall Program | Performance (Claims)           | Claims         | Performance           |
@@ -418,15 +478,6 @@ Feature: Accepatance testing for reports
     And I should not see "NA" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    #Bundle Risk
-    #When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
-    #And I choose "Filter" option from select options of filter field
-    #And I should see "Bundle Risk" in the header text of filter page
-    #And I should not see "Null" in the filter value list
-    #And I should not see "0" in the filter value list
-    #And I should not see "NA" in the filter value list
-    #And I click on cancel button from filter
-    #And I wait until refresh button is disappeared
     #Bundle Code
     When I click on "Bundle Code" field which is listed under "Bundle" filter from available fields
     And I choose "Filter" option from select options of filter field
@@ -458,6 +509,24 @@ Feature: Accepatance testing for reports
     When I click to "DRG Code" field filter under "DRG" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "DRG Code" in the header text of filter page
+    And I should not see "Null" in the filter value list
+    And I should not see "0" in the filter value list
+    And I should not see "NA" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+    #Post Acute facility
+    When I click to "Post Acute Facility" field filter under "Post Acute Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute Facility" in the header text of filter page
+    And I should not see "Null" in the filter value list
+    And I should not see "0" in the filter value list
+    And I should not see "NA" in the filter value list
+    And I click on cancel button from filter
+    And I wait until refresh button is disappeared
+    #Post Acute CCN
+    When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
+    And I choose "Filter" option from select options of filter field
+    And I should see "Post Acute CCN" in the header text of filter page
     And I should not see "Null" in the filter value list
     And I should not see "0" in the filter value list
     And I should not see "NA" in the filter value list

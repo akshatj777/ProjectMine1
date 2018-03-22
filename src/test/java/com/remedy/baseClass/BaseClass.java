@@ -516,5 +516,12 @@ public class BaseClass {
 	public String getTheCurrentUrl(){
 		return driver.getCurrentUrl();
 	}
+	
+	public void verifyTextNotPresentForElementFromListByXpath(String element, String itemtext) {
+        List<WebElement> listItems = driver.findElements(By.xpath(element));
+        for (WebElement item : listItems) {
+            Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
+        }
+    }
 }
 
