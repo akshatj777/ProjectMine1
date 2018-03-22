@@ -884,7 +884,10 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iWaitUntillLoadingIconDisappears(){
+    	longDelay();
     	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".img.blockUIDefaultImg")));
+    	delay();
+    	longDelay();
     }
     
     public void iWaitToSeeOverallProgramUnderDashboardReport(String text){
