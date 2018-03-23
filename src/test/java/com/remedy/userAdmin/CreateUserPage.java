@@ -411,14 +411,13 @@ public class CreateUserPage extends BaseClass{
 		   if(st.nextToken().trim().equals("Episodes 2.0")){
 			   if(role.substring((role.indexOf("-")+1)).equals("Remedy Technical Administrator"))
 			   {
-				  
-				   driver.navigate().back();
+				   iWillWaitToSee(By.xpath("//h2[text()='BPCI Performance']"));
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h2[text()='BPCI Performance']")));
 			   }
 			   else
 			   {
 				   iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
 				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
-				   driver.navigate().back();   
 			   }
 		   }
 	   }   
@@ -455,14 +454,16 @@ public class CreateUserPage extends BaseClass{
 		   if(st.nextToken().trim().equals("Episodes 2.0")){
 			   if(role.substring((role.indexOf("-")+1)).equals("Remedy Technical Administrator"))
 			   {
-				  
-				   driver.navigate().back();
+				   iWillWaitToSee(By.xpath("//button[contains(text(),'View All Patients')]"));
+				 driver.findElement(By.xpath("//button[contains(text(),'View All Patients')]")).click();
+				 iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
+				 
 			   }
 			   else
 			   {
 				   iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
 				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
-				   driver.navigate().back();   
 			   }
 		   }
 	   }   
@@ -915,12 +916,12 @@ public class CreateUserPage extends BaseClass{
    }
    
    public void clickNextButton() throws Throwable {
-	   iWillWaitToSee(By.xpath("//button[.='Next >']"));
-	   clickElement(driver.findElement(By.xpath("//button[.='Next >']")));  
+	   iWillWaitToSee(By.xpath("//button[text()='Next ']"));
+	   clickElement(driver.findElement(By.xpath("//button[text()='Next ']")));  
    }
    
    public void clickBackButton() throws Throwable {
-	   clickElement(driver.findElement(By.xpath("//button[text()='< Back']")));  
+	   clickElement(driver.findElement(By.xpath("//button[text()=' Back']")));  
 }
    
    public void clickTab(String text) throws Throwable {
