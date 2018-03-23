@@ -187,6 +187,7 @@ public class CreatePrograms extends BaseClass {
 	}
 	public void iSelectBundleOnCreateContractsPageUnderPayorOrganization(String text, int num, String field)
 	{
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		if(!text.equals("")){
 		delay();
 		scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
@@ -211,12 +212,21 @@ public class CreatePrograms extends BaseClass {
 		else if(text.contains("Duplicate_CID"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
+		}else{
+			if(field1.contains("Bnudl"))
+			{
+				String[] splitStr = field1.split("\\s+");	
+				String Price=splitStr[1].substring(splitStr[1].length() - 1);
+				String Bundle=splitStr[0].substring(splitStr[0].length() - 1);
+				iWillWaitToSee(By.xpath("//div["+Bundle+"]/div[5]/div["+Price+"]/div[2]/div/input[@placeholder='Price of bundle']"));
+				scrollIntoViewByJS(driver.findElement(By.xpath("//div["+Bundle+"]/div[5]/div["+Price+"]/div[2]/div/input[@placeholder='Price of bundle']")));
+				delay();
+				iFillInText(driver.findElement(By.xpath("//div["+Bundle+"]/div[5]/div["+Price+"]/div[2]/div/input[@placeholder='Price of bundle']")), text);
+			    }else{
+			 iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
+			}}
 		}
-		else
-		{
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
-		}
-	}
+	
 
 	public static String currentdate(int days,String format) 
 	{
