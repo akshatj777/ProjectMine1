@@ -1909,5 +1909,20 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_there_is_no_value_appearing_inside_report_in_the_column(String value,String field) throws Throwable{
     	reportHomePage.iVerifyNotAppearingInsideColumnsInReports(value, field);
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under selected drgcode filter$")
+    public void i_verify_is_appearing_under_selected_grdcode_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyDRGCodeTextInSelectedFilter(text);
+    }
+    
+    @Then("^I remove the field \"([^\"]*)\" from the report column$")
+    public void i_remove_the_field_from_the_report_column(String text) throws Throwable{
+    	reportHomePage.iRemoveTheTheFieldFromReportColumn(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is not appearing in the added field \"([^\"]*)\"$")
+    public void i_verify_is_not_appearing_in_the_added_field(String text,String field) throws Throwable{
+    	reportHomePage.iVerifyIsNoTAppearinGInTheAddedField(text, field);
+    }
 }
 

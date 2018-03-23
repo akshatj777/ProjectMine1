@@ -523,5 +523,14 @@ public class BaseClass {
             Assert.assertFalse(item.getText().equalsIgnoreCase(itemtext));
         }
     }
+	
+	public String getLastnCharacters(String inputString, int subStringLength) {
+  	  int length = inputString.length();
+  	  if (length <= subStringLength) {
+  	   return inputString;
+  	  }
+  	  int startIndex = length - subStringLength;
+  	  return inputString.substring(startIndex);
+  	 }
 }
 

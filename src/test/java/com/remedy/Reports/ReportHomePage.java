@@ -1,13 +1,16 @@
 package com.remedy.Reports;
 
 import com.remedy.baseClass.BaseClass;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
@@ -1521,5 +1524,31 @@ public class ReportHomePage extends BaseClass {
     	WebElement element = driver.findElement(By.xpath("//td[@class='pivotTableRowLabelSection']//td[contains(@formula,'"+field+"')]/div"));
     	scrollIntoViewByJS(element);
     	verifyTextNotPresentForElementFromListByXpath("//td[@class='pivotTableRowLabelSection']//td[contains(@formula,'"+field+"')]/div",value);
+    }
+    
+    public void iVerifyDRGCodeTextInSelectedFilter(String text){
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[contains(@class,'filterItem')][@formula='[DRG].[DRG Code]']/span")),text);
+    }
+    
+    public void iRemoveTheTheFieldFromReportColumn(String text){
+    	WebElement element = driver.findElement(By.xpath("//td[@title='"+text+"']"));
+    	scrollIntoViewByJS(element);
+    	new Actions(driver).contextClick(driver.findElement(By.xpath("//td[@title='"+text+"']"))).build().perform();
+    	longDelay();
+    	clickElement(driver.findElement(By.xpath(".//*[@id='PM:removeMetric_text']")));
+    	longDelay();
+    }
+    
+    public void iVerifyIsNoTAppearinGInTheAddedField(String text,String field){
+    	String content=getTextForElement(driver.findElement(By.cssSelector("#RPT001StatusBar")));
+    	String count=getLastnCharacters(content,2);
+    	System.out.println(count);
+    	int result=Integer.parseInt(count);
+    	System.out.println(result);
+    	int originalnumber=result-1;
+    	System.out.println(originalnumber);
+    	WebElement element = driver.findElement(By.xpath("//td[@title='"+field+"']"));
+    	scrollIntoViewByJS(element);
+    	verifyTextNotPresentForElementFromListByXpath("//div[@class='cells pivotTableDataContainer'] //tbody/tr/td[@colindex='"+originalnumber+"']",text);
     }
 }
