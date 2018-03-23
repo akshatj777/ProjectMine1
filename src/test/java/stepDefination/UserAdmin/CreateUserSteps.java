@@ -789,8 +789,10 @@ public class CreateUserSteps extends DriverScript {
 			createUser.selectLocations(locationList);
 		}
 
-
-
+	 @And("^I verify selected Location \"([^\"]*)\" are not shown in selected Locations section$")
+	 public void i_verify_The_Selected_Locations_Not_Present_In_The_selectLocations_Section(String text) throws Throwable {
+			createUser.iVerifyTheSelectedLocationsAreNotPresentInSelectLocationsSection(text);
+		}
 	 
 	 @And("^I verify selected Location \"([^\"]*)\" in the selected Locations section$")
 		public void i_verify_The_Selected_Locations_In_The_selectLocations_Section(String text) throws Throwable {

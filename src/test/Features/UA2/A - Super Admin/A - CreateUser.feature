@@ -845,3 +845,5 @@ Feature: Create User - Super Admin User
     Examples: 
       | User        | UserName                               | Password | FirstName | LastName | Email             | Role       | Applications | NPI | Health System     | Programs    | Locations    |
       | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstName | LastName | test.automatemail | Physicians | Reports      | NPI | Stamford Hospital | BPCI-Model2 | All 2070-015 |
+
+  

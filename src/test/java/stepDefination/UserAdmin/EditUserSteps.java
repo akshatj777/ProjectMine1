@@ -232,4 +232,8 @@ CreateUserPage createUserPage=new CreateUserPage(driver);
 	public void iVerifyLearningPathwayIDIsNotDisplayed(String id){
 		editUser.iVerifyLearningPathwayIDIsNotDisplayed(id);
 	}
+	@Then("^I verify error message \"([^\"]*)\" is not displayed$")
+	public void iCheckErrMsgIsNotShown(String text){
+		editUser.iCheckErrMsgIsNotShown(text);
+	}
 }
