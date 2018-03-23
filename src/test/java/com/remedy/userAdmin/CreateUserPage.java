@@ -401,7 +401,6 @@ public class CreateUserPage extends BaseClass{
 			   clickElement(driver.findElement(By.xpath("//p[text()='Episodes 2.0']")));
 		   }  
 	   }
-	   
    }
    
    public void iVerifyNavigationOnEpisodes2HomePage(String role){
@@ -410,8 +409,17 @@ public class CreateUserPage extends BaseClass{
 	   while(st.hasMoreTokens())
 	   {
 		   if(st.nextToken().trim().equals("Episodes 2.0")){
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//h1[text()='Patients']")));
-			   Assert.assertTrue(isElementPresentOnPage(By.xpath("//button[@href='#/patient/add']")));
+			   if(role.substring((role.indexOf("-")+1)).equals("Remedy Technical Administrator"))
+			   {
+				  
+				   driver.navigate().back();
+			   }
+			   else
+			   {
+				   iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
+				   driver.navigate().back();   
+			   }
 		   }
 	   }   
    }
@@ -445,9 +453,17 @@ public class CreateUserPage extends BaseClass{
 	   while(st.hasMoreTokens())
 	   {
 		   if(st.nextToken().trim().equals("Episodes 2.0")){
-			   iWillWaitToSee(By.cssSelector(".card-view-body"));
-			   Assert.assertTrue(isElementPresentOnPage(By.cssSelector(".card-view-body")));
-			   driver.navigate().back();
+			   if(role.substring((role.indexOf("-")+1)).equals("Remedy Technical Administrator"))
+			   {
+				  
+				   driver.navigate().back();
+			   }
+			   else
+			   {
+				   iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
+				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
+				   driver.navigate().back();   
+			   }
 		   }
 	   }   
    }
