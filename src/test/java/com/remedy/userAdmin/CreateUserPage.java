@@ -458,12 +458,13 @@ public class CreateUserPage extends BaseClass{
 				 driver.findElement(By.xpath("//button[contains(text(),'View All Patients')]")).click();
 				 iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
 				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
-				 
+				 driver.navigate().back();
 			   }
 			   else
 			   {
 				   iWillWaitToSee(By.xpath("//div[@class='patient-card']"));
 				   Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='patient-card']")));
+				   driver.navigate().back();
 			   }
 		   }
 	   }   
@@ -1905,7 +1906,7 @@ public class CreateUserPage extends BaseClass{
 	 }
 	 
 	 public void iVerifyTextonpopupWindowAfterClickonRemovelinkIcon(){
-		 verifyTextForElement(driver.findElement(By.xpath("//div[@class='content']//h3[text()='Are you sure you want to remove']")), "Are you sure you want to remove");
+		 Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[text()='Are you sure you want to remove']")));
 	 }
 	 
 	 public void iClickonCancelLinkPopUpWindow(String text){

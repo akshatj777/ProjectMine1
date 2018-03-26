@@ -127,12 +127,12 @@ public class ViewUserPage extends BaseClass {
 					String location = token.substring(token.lastIndexOf("--")+2, token.length());
 			    	driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 			    	Thread.sleep(3000);
-			    	if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
+			    	if(driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).isDisplayed())
 			    	{
-			    		driver.findElement(By.xpath("//div[@class='content active']//input")).sendKeys(location);
+			    		driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).sendKeys(location);
 			    		Thread.sleep(3000);
-			    		iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
-			    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
+			    		iWillWaitToSee(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
+			    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
 			    		Thread.sleep(3000);
 			    		driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 			    	}
@@ -145,12 +145,12 @@ public class ViewUserPage extends BaseClass {
 				String location = locations.substring(locations.lastIndexOf("--")+2, locations.length());
 				driver.findElement(By.xpath("//span[contains(text(),'"+healthSystem+"')]")).click();
 				Thread.sleep(3000);
-				if(driver.findElement(By.xpath("//div[@class='content active']//input")).isDisplayed())
+				if(driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).isDisplayed())
 		    	{
-		    		driver.findElement(By.xpath("//div[@class='content active']//input")).sendKeys(location);
+		    		driver.findElement(By.xpath("//div[@class='content active data-permissions-content']//input")).sendKeys(location);
 		    		Thread.sleep(3000);
-		    		iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
-		    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
+		    		iWillWaitToSee(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]"));
+		    		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='content active data-permissions-content']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//td[contains(text(),\""+location+"\")]")));
 		    		Thread.sleep(3000);
 		    	}
 			}

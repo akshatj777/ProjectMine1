@@ -221,7 +221,7 @@ public class EditUser extends BaseClass {
 	}
 
 	public void iVerifyNextButtonStatus(String text) {
-		WebElement el = driver.findElement(By.xpath("//*[contains(text(),'Next >')]"));
+		WebElement el = driver.findElement(By.xpath("//button[text()='Next ']"));
 		if (text.equalsIgnoreCase("enabled")) {
 			Assert.assertTrue(el.isEnabled());
 		} else {

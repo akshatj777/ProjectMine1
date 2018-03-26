@@ -280,14 +280,14 @@ public class SuperUserLandingPage extends BaseClass {
 	public void iLockUnlockUser(String action) {
 		if(action.equals("lock"))
 		{
-			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']"));
-			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")).click();
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon unlocked']"));
+			driver.findElement(By.xpath("//span[@class='component-lock-icon unlocked']")).click();
 			delay();
 		}
 		else if(action.equals("unlock"))
 		{
-			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
-			driver.findElement(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']")).click();
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon locked']"));
+			driver.findElement(By.xpath("//span[@class='component-lock-icon locked']")).click();
 			delay();
 		}
 	}
@@ -295,13 +295,13 @@ public class SuperUserLandingPage extends BaseClass {
 	public void verifyLockedUser(String action) {
 		if(action.equals("Locked"))
 		{
-			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']"));
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#007193']")));
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon locked']"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[@class='component-lock-icon locked']")));
 		}
 		else if(action.equals("Unlocked"))
 		{
-			iWillWaitToSee(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']"));
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//tr[@class='component-user-table-row']//*[name()='svg'][@fill='#D5EBFB']")));
+			iWillWaitToSee(By.xpath("//span[@class='component-lock-icon unlocked']"));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//span[@class='component-lock-icon unlocked']")));
 		}
 	}
 
@@ -393,10 +393,10 @@ public void iSelectAUser(){
 	clickElement(driver.findElements(By.cssSelector("td.five.wide")).get(0));
 	
 }
-public void iVerifyViewUserPage(){
-	delay();
-	iWillWaitToSee(By.cssSelector(".six.wide.column.header-navigation>a"));
-	isElementPresent(By.cssSelector(".six.wide.column.header-navigation>a"));
+public void iVerifyViewUserPage()
+{
+	iWillWaitToSee(By.xpath("//a[text()='All Users /']"));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//a[text()='All Users /']")));
 }
 public void iShouldNotSeeErrorMsgOnUsersPage(String text){
 	Assert.assertFalse(isElementNotPresentOnPage(By.xpath("//*[contains(text(),'"+text+"')]")));
@@ -472,15 +472,9 @@ public void iClickDeleteButtonToDeleteUser(String text){
 	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ui.modal.transition.visible.active.component-add-user-form")));
 }
 public void iClickOnTileFromEC(String text){
-	delay();
-	iWillWaitToSee(By.cssSelector(".btn.btn-menu.valentino-icon-spoe"));
-	clickElement(driver.findElement(By.cssSelector(".btn.btn-menu.valentino-icon-spoe")));
-	try {
-	clickSingleElementFromList(By.xpath("//li"), text);
-	}catch(org.openqa.selenium.StaleElementReferenceException ex)
-	{
-		clickSingleElementFromList(By.xpath("//li"), text);
-	}
+	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']"));
+	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
+	driver.findElement(By.xpath("//li[@feature='app.user-admin-1']")).click();
 	
 }
 public void iSelectTileFromManagementDropDown(String text){
