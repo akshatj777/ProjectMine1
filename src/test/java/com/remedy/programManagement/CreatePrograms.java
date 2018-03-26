@@ -85,8 +85,8 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text, String act) {
-		//verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
-		driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")).getText();
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='col-sm-11 row contract-indicator']//div[contains(text(),'Contract')]")), text);
+		//driver.findElement(By.xpath("//div[@class='col-sm-11 row contract-indicator']//div[contains(text(),'Contract')]")).getText();
 	}
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
@@ -212,21 +212,20 @@ public class CreatePrograms extends BaseClass {
 		else if(text.contains("Duplicate_CID"))
 		{
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), CreatePrograms.programs.get(111));
-		}else{
-			if(field1.contains("Bnudl"))
-			{
-				String[] splitStr = field1.split("\\s+");	
-				String Price=splitStr[1].substring(splitStr[1].length() - 1);
-				String Bundle=splitStr[0].substring(splitStr[0].length() - 1);
-				iWillWaitToSee(By.xpath("//div["+Bundle+"]/div[5]/div["+Price+"]/div[2]/div/input[@placeholder='Price of bundle']"));
-				scrollIntoViewByJS(driver.findElement(By.xpath("//div["+Bundle+"]/div[5]/div["+Price+"]/div[2]/div/input[@placeholder='Price of bundle']")));
-				delay();
-				iFillInText(driver.findElement(By.xpath("//div["+Bundle+"]/div[5]/div["+Price+"]/div[2]/div/input[@placeholder='Price of bundle']")), text);
-			    }else{
-			 iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);	
-			}}
 		}
-	
+		else
+		{
+			if(field1.equals("Bundle1 Price1")){
+				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[0].bundlePrices[0]."+field+"']")), text);
+			}
+			else if(field1.equals("Bundle1 Price2")){
+				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[0].bundlePrices[1]."+field+"']")), text);
+			}
+			else if(field1.equals("Bundle2 Price1")){
+				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[1].bundlePrices[0]."+field+"']")), text);
+			}
+		}
+	}
 
 	public static String currentdate(int days,String format) 
 	{
@@ -310,6 +309,7 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iVerifyCreateContractHeaderTextOnCreateContractsPage(String text){
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		verifyTextForElement(driver.findElement(By.cssSelector(".row.headline")), text);
 	}
 	

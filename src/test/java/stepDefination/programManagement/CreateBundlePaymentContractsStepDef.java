@@ -26,4 +26,9 @@ public class CreateBundlePaymentContractsStepDef extends DriverScript {
 	  public void i_Click_and_Search_with_Invalid_Name_on_Dropdown_Box(String text) throws Throwable {
 		CreateBPContracts.iClickandSearchWithInvalidNameonDropdownBox(text);
 	 }
+	
+//	@And("^I enter price \"([^\"]*)\" in \"([^\"]*)\" field for \"([^\"]*)\" on create Contract page$")
+//	  public void i_Click_and_Search_with_Invalid_Name_on_Dropdown_Box(String text, String field, String field1) throws Throwable {
+//		CreateBPContracts.iEnterPriceDetailsInCreateContractPage(text,field,field1);
+//	 }
 }
