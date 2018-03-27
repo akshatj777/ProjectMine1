@@ -150,7 +150,29 @@ Feature: Edit PGP organization functionality tests
       | Edit PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + Region + Market + postal Code - Without MO | YES    |              | PGPNAME  | PGPNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated.                                                           |
       | Edit PGP Organization with Mandatory fields + Address1 + Short Name + City + State + Region + Market + postal Code - With MO               | YES    | MONAME       | PGPNAME  | PGPNAME              | Address1                                                | Short_Name                                    |                                                         | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated.                                                           |
       | Edit PGP Organization with Mandatory fields + Address1 + Short Name + Address2 + City + State + postal Code- Without MO                    | YES    |              | PGPNAME  | PGPNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          |         |         | California |       10001 | PGP Organization Successfully Updated.                                                           |
-      | Edit Duplicate PGP Organization with all the available fields - Without MO                                                                 | NO     |              | PGPNAME  | DUPLICATE_PGP        | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | There is a conflict error because an entity with similar identifying attributes already existed. |
-      | Edit Duplicate PGP Organization with all the available fields - With MO                                                                    | YES    | MONAME       | PGPNAME  | DUPLICATE_PGP        | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | There is a conflict error because an entity with similar identifying attributes already existed. |
       | Edit PGP Organization with all the available fields - Without MO                                                                           | NO     |              | PGPNAME  | PGPNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated.                                                           |
       | Edit PGP Organization with all the available fields - With MO                                                                              | YES    | MONAME       | PGPNAME  | PGPNAME              | Address1                                                | Short_Name                                    | Address2                                                | City                                          | Midwest | Chicago | California |       10000 | PGP Organization Successfully Updated.                                                           |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    Then I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I verify "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I click on "Edit" button on particular organization
+    And I verify "Edit PGP Organization" header text on edit organization page
+    And I edit "PGP Organization Name" field to "<Edited_PGP_Name> - <Has_MO>" for organization
+    And I edit "Address 1" field to "<Address1>" for organization
+    And I edit "Short Name" field to "<Short_Name>" for organization
+    And I edit "Address 2" field to "<Address2>" for organization
+    And I edit Region "<Region>" in "edit PGP" organization page
+    And I edit Market dropdown field to "<Market>" for Region "<Region>" for "PGP" organization
+    And I edit "City" field to "<City>" for organization
+    And I edit <State> field for organization
+    And I edit "Postal Code" field to "<Postal_Code>" for organization
+    Then I click on "Submit" button on "Edit" organization page
+    Then I verify duplicate "<Message>" after submitting the "Edit PGP - <Has_MO>" organization page
+
+    Examples: 
+      | Description                                                                | Has_MO | Managing_Org | PGP_Name | Edited_PGP_Name | Address1 | Short_Name | Address2 | City | Region  | Market  | State      | Postal_Code | Message                                                                                          |
+      | Edit Duplicate PGP Organization with all the available fields - Without MO | NO     |              | PGPNAME  | DUPLICATE_PGP   | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Edit Duplicate PGP Organization with all the available fields - With MO    | YES    | MONAME       | PGPNAME  | DUPLICATE_PGP   | Address1 | Short_Name | Address2 | City | Midwest | Chicago | California |       10000 | There is a conflict error because an entity with similar identifying attributes already existed. |
