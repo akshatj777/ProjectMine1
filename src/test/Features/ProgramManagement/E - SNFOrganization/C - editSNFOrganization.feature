@@ -127,7 +127,7 @@ Feature: Edit SNF organization functionality tests
       | Check validation for blank Location Address1    | YES    | SNFNAME  | SNFNAME         | Address1     | City     | California |           10000 | LocName  |              | LCity    | California |           10001 | Please enter an Address           |
       | Check validation for blank Location City        | YES    | SNFNAME  | SNFNAME         | Address1     | City     | California |           10000 | LocName  | LAddress1    |          | California |           10001 | Please enter a City               |
       | Check validation for blank Location State       | YES    | SNFNAME  | SNFNAME         | Address1     | City     | California |           10000 | LocName  | LAddress1    | LCity    |            |           10001 | Please select a State             |
-      | Check validation for blank Location Postal code | NO     | SNFNAME  | SNFNAME         | Address1     | City     | California |           10000 | LocName  | LAddress1    | LCity    | California |                 | Please enter a Postal Code        |
+      | Check validation for blank Location Postal code | NO     | SNFNAME  | SNFNAME         | Address1     | City     | California |                 | LocName  | LAddress1    | LCity    | California |                 | Please enter a Postal Code        |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
