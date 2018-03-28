@@ -46,4 +46,9 @@ public class CreateBundlePaymentContracts extends BaseClass{
 		}
 	}
 
+//	public void iEnterPriceDetailsInCreateContractPage(String text, String field, String field1){
+//		if(field1.equals("")){
+//			iFillInText(obj, text);
+//		}
+//	}
 }

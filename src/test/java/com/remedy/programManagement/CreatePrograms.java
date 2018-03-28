@@ -86,8 +86,8 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iVerifyContractHeaderOnCreateContractPageUnderPayorOrganization(String text, String act) {
-		//verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
-		driver.findElement(By.cssSelector(".col-sm-11.row.contract-indicator>div")).getText();
+		verifyTextForElement(driver.findElement(By.xpath("//div[@class='col-sm-11 row contract-indicator']//div[contains(text(),'Contract')]")), text);
+		//driver.findElement(By.xpath("//div[@class='col-sm-11 row contract-indicator']//div[contains(text(),'Contract')]")).getText();
 	}
 	
 	public void iSelectOrganizationTypeOnCreateContratsPageUnderPayorOrganization(String text, int num, String field) 
@@ -188,6 +188,7 @@ public class CreatePrograms extends BaseClass {
 	}
 	public void iSelectBundleOnCreateContractsPageUnderPayorOrganization(String text, int num, String field)
 	{
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		if(!text.equals("")){
 		delay();
 		scrollIntoViewByJS(driver.findElement(By.xpath("//div[text()='Select a Bundle']/parent::span/following-sibling::span[@class='Select-arrow-zone']")));
@@ -215,7 +216,15 @@ public class CreatePrograms extends BaseClass {
 		}
 		else
 		{
-			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), text);
+			if(field1.equals("Bundle1 Price1")){
+				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[0].bundlePrices[0]."+field+"']")), text);
+			}
+			else if(field1.equals("Bundle1 Price2")){
+				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[0].bundlePrices[1]."+field+"']")), text);
+			}
+			else if(field1.equals("Bundle2 Price1")){
+				iFillInText(driver.findElement(By.xpath("//input[@name='contracts[0].contractBundles[1].bundlePrices[0]."+field+"']")), text);
+			}
 		}
 	}
 
@@ -301,6 +310,7 @@ public class CreatePrograms extends BaseClass {
 	}
 	
 	public void iVerifyCreateContractHeaderTextOnCreateContractsPage(String text){
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		verifyTextForElement(driver.findElement(By.cssSelector(".row.headline")), text);
 	}
 	

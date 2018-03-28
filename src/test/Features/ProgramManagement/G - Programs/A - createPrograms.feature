@@ -89,11 +89,26 @@ Feature: Create Programs organization under Payor Organization functionality tes
     Then I verify "<Message>" after submitting the "create Programs" on Payor organization page
 
     Examples: 
-      | Description                                                 | Payor_Name | Program_Name          | Message                                                                                          |
-      | Check Character Limit edge condition for Program Name field | PAYORNAME  | equalsTo45Characters  | Program Successfully Created                                                                     |
-      | To check the Allowed characters for the available field     | PAYORNAME  | AllowedCharatcters    | Program Successfully Created                                                                     |
-      | Create Programs under Payor Organization                    | PAYORNAME  | PROGRAMNAME           | Program Successfully Created                                                                     |
-      | Create Programs using duplicate program name                | PAYORNAME  | DUPLICATE_PROGRAMNAME | There is a conflict error because an entity with similar identifying attributes already existed. |
+      | Description                                                 | Payor_Name | Program_Name         | Message                      |
+      | Check Character Limit edge condition for Program Name field | PAYORNAME  | equalsTo45Characters | Program Successfully Created |
+      | To check the Allowed characters for the available field     | PAYORNAME  | AllowedCharatcters   | Program Successfully Created |
+      | Create Programs under Payor Organization                    | PAYORNAME  | PROGRAMNAME          | Program Successfully Created |
+
+  Scenario Outline: <Description>
+    When I search with "<Payor_Name>" on organization in search box
+    And I click "<Payor_Name>" field in search list on organization page
+    And I verify "<Payor_Name>" name on the header of view profile
+    And I verify "Programs" as default tab selected on view profile of Payor Organization
+    And I verify the "Create New Program" button on view profile of "payor" Organization
+    Then I click on "Create New Program" button on "create" organization page
+    And I verify "Create Program" header text on create organization page
+    Then I enter <Program_Name> in "Program Name" on create organization page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify duplicate "<Message>" after submitting the "create Programs" organization page
+
+    Examples: 
+      | Description                                  | Payor_Name | Program_Name          | Message                                                                                          |
+      | Create Programs using duplicate program name | PAYORNAME  | DUPLICATE_PROGRAMNAME | There is a conflict error because an entity with similar identifying attributes already existed. |
 
   Scenario Outline: <Description>
     When I search with "<Payor_Name>" on organization in search box
