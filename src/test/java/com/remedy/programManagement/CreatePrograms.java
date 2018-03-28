@@ -839,6 +839,38 @@ public class CreatePrograms extends BaseClass {
 				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
 			}
 		}
+		else if (org.equalsIgnoreCase("Bundle Payment Contract"))
+		{
+			if (value.equals("PROGRAMNAME"))
+			{
+				 iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreatePrograms.programs.get(1));
+				 waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				 value = CreatePrograms.programs.get(1);
+				 iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
+				 Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			}
+			else if (value.equals("ACHNAME - YES")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreateACHOrganization.achOrg.get("ACHNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateACHOrganization.achOrg.get("ACHNAME");
+				  iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			  else if (value.equals("ACHNAME - NO")){
+				  iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), CreateACHOrganization.achOrg_noMO.get("ACHNAME"));
+				  waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+				  value = CreateACHOrganization.achOrg_noMO.get("ACHNAME");
+				  iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
+				  Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			  }
+			else
+			{
+				iWillWaitToSee(By.cssSelector(".text-input-field-programFilterTerm"));
+				iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
+				iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]"));
+				Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+value+"')]")));
+			}
+		}
 	}
 }
 
