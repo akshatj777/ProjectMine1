@@ -367,6 +367,13 @@ public class CreateManagingOrganization extends BaseClass {
 	    	}	
 	}
 	
+	public void iVerifyDuplicateMessageAfterSubmittingCreateOrganizationPage(String msg, String org)
+	{
+		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+	}
+	
 	public void iSwitchFocusToButton(String text) {
 		driver.findElement(By.xpath("//button[@type='"+text+"']")).sendKeys(Keys.TAB);
 		delay();
