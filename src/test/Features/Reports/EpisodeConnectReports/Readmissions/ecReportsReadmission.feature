@@ -288,10 +288,10 @@ Feature: Verification of Readmissions EC report
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in readmissions under readmissions
     Given I am on the login page

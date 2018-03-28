@@ -132,10 +132,10 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in snf los summary report under post acute care
     Given I am on the login page
@@ -163,10 +163,10 @@ Feature: Verification of Initial SNF Length of Stay Summary EC Report
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in snf los summary report under post acute care
     Given I am on the login page

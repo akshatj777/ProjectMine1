@@ -188,10 +188,10 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in inpatient episode clearing report under patient id
     Given I am on the login page
@@ -219,10 +219,10 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: Verify onboarding status values in database for inpatient episode clearing report under patient id
     Given I am on the login page
