@@ -921,6 +921,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyTextUnderPhysicianDashboardReport(String text){
+    	iWillWaitToSee(By.xpath("//div[contains(text(),'"+text+"')]"));
         verifyTextForElement(driver.findElement(By.cssSelector("#tableTitleObj")), text);
     }
     

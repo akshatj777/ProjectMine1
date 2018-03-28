@@ -1,6 +1,6 @@
 Feature: Verification of physician report under dashboard
 
-  Scenario Outline: User should see physician dashboard report for the role user RPFIN,RPNOFIN and OPSFIN
+  Scenario Outline: User should see physician dashboard report for the role user RPFIN,RPNOFIN
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -32,7 +32,9 @@ Feature: Verification of physician report under dashboard
     When I click on the "Reports" tile
     And I wait to see "Dashboards" under reports tile text
     Then I verify current page "Reports" title
-    And I should not see Reports Tile text as "Dashboards"
+    #And I should not see Reports Tile text as "Dashboards"
+    When I click on the Reports Tile with text "Dashboards"
+    Then I should not see "Physician" report after clicking on dashboards
 
     Examples: 
       | email                              | Role     |
@@ -71,7 +73,7 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              | Role   | Facility |
       | shutestaug231132a@yopmail.com      | RPFIN  | ACH      |
-      | reptestachmodel2opsfin@yopmail.com | OPSFIN | ACH      |
+      #| reptestachmodel2opsfin@yopmail.com | OPSFIN | ACH      |
       | shutestaug15252p@yopmail.com       | RPFIN  | PGP      |
 
   Scenario Outline: Verify top hundread,count,three sections and pagination on physicain dashboard report
@@ -794,7 +796,7 @@ Feature: Verification of physician report under dashboard
     Examples: 
       | email                              | fourth most recent quarter | third most recent quarter | second most recent quarter | most recent quarter |
       | shutestaug231132a@yopmail.com      | 2016Q4                     | 2017Q1                    | 2017Q2                     | 2017Q3              |
-      | reptestachmodel2opsfin@yopmail.com | 2016Q4                     | 2017Q2                    | 2017Q2                     | 2017Q3              |
+      #| reptestachmodel2opsfin@yopmail.com | 2016Q4                     | 2017Q2                    | 2017Q2                     | 2017Q3              |
 
   Scenario Outline: User should see only not applicable when logged in with non remedy award convener user
     Given I am on the login page

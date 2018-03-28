@@ -1899,5 +1899,10 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_verify_same_episodes_data_is_appearing_under_overall_performance_column_in_quaterly_performance_table() throws Throwable{
     	reportHomePage.iVerifySameEpisodesDataIsAppearingUnderOverallPerformanceInQuaterlyPerformanceTable();
     }
+    
+    @Then("^I should not see \"([^\"]*)\" report after clicking on dashboards$")
+    public void i_should_not_see_report_after_clicking_on_dashboards(String report) throws Throwable{
+    	reportHomePage.iShouldNotSeeReportName(report);
+    }
 }
 
