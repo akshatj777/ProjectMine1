@@ -586,7 +586,7 @@ Feature: Create User - PTA User
     Then I verify "<ApplicationsNotVisible>" is not visible on Applications tab
     Then I click on Next button
     Then I verify the header "Permissions"
-    Then I select "<Programs1>" programs
+    Then I select "<Programs1>" programs 
     Then I select "<Locations1>" locations for PTA user
     Then I click on Submit button for "<User>"
     And I click on the top user account link
