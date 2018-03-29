@@ -88,14 +88,14 @@ Feature: Search a Program
       | Description                             | Payor_Name | SearchParam              |
       | Error message if a Program is Not found | PAYORNAME  | InvalidSearchProgramName |
 
-  #Search-BPC
   Scenario Outline: <Description>
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
     And I verify "<Payor_Name>" name on the header of view profile
+    And i navigate my URL "https://program-management-qa.remedypartners.com/#/organization-viewer/45/programs"
     And I verify "Programs" as default tab selected on view profile of "Payor" Organization
-    And I verify the "Create New Contract" button on view profile of "Payor" Organization
-    Then I click on "Create New Contract" button on "create" organization page
+    And I verify "Contracts" tab present under "Payor" Organization
+    And I click on "Contracts" tab on view profile of "Payor" Organization
     Then I search "<SearchParam>" and verify with search list options on "Bundle Payment Contract" search box
 
     Examples: 
@@ -104,4 +104,4 @@ Feature: Search a Program
       | Search for a Contract by Contract ID       | PAYORNAME  | CID           |
       | Search for a Contract by Organization Name | PAYORNAME  | ACHNAME       |
       | Search for a Contract by Provider Type     | PAYORNAME  | ACH           |
-      | Search for a Contract by  Address          | PAYORNAME  | Address1,City |
+      | Search for a Contract by  Address          | PAYORNAME  | Address1 |

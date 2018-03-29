@@ -2,6 +2,7 @@ package com.remedy.programManagement;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -25,6 +26,7 @@ public class ViewPayorOrganization extends BaseClass {
 	}
 	
 	public void iClickOnTabOnViewProfileOfPayorOrganization(String tab, String org) {
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 		clickElement(driver.findElement(By.xpath("//a[text()='"+tab+"']")));
 	}
 }
