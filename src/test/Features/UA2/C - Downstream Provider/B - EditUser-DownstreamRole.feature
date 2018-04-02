@@ -357,12 +357,8 @@ Feature: Edit page for Downstream provider
     Then I verify Learning Pathway search box is not available
     Then I select "<EnableApplications>" product
     Then I unselect "<DisableApplications>" product
-    Then I click on Select button
-    Then I verify Learning Pathway search box is available
-    Then I enter "<LearningPathwayName>" in Learning Pathway search box
+    Then I enter "<LearningPathwayName>" in Learning Pathway
     And I verify No results found under Learning Pathway search box
-    Then I click on Select button
-    Then I click on Select button
     Then I enter "<LearningPathwaySearchParameter>" in Learning Pathway search box
     Then I select "<LearningPathwaySearchParameter>" from the results
     Then I click on Next button
