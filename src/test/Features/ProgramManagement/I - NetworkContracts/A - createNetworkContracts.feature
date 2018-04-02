@@ -128,7 +128,7 @@ Feature: Create Network Contracts functionality tests
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME1 | Program Successfully Created |
       | Create Programs under Payor Organization | PAYORNAME  | PROGRAMNAME2 | Program Successfully Created |
 
-  Scenario Outline: Create Contracts with all available fields
+  Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
@@ -159,11 +159,11 @@ Feature: Create Network Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Bundle_1          | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | mB1eBpqaWVJYJ0818 |   123 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/10        | 2019/12/28      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | mB1eBpqaWVJYJ0818 |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
 
-  Scenario Outline: Create contract with 1 Bundle having multiple Price
+  Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
     When I search with "<Payor_Name>" on organization in search box
     And I click "<Payor_Name>" field in search list on organization page
@@ -203,8 +203,8 @@ Feature: Create Network Contracts functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                         | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | PriceStartDate2 | PriceEndDate2 | BaselineStartDate2 | BaselineEndDate2 | Program_Name | Organization_Type | Organization_Name | Bundle_1 | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create contract with 1 Bundle having multiple Price | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2018/01/01      | 2019/06/30    | 2018/03/03      | 2018/05/04    | 2018/03/09         | 2018/05/01       | 2018/06/01      | 2018/07/07    | 2018/04/28         | 2018/05/28       | PROGRAMNAME  | ACH               | ACHNAME           | Bundle   |    123 |    124 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1             | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPBun1rSJpbinZbN2926 |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "Payor" organization tab on organization dashboard
