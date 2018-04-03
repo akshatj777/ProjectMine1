@@ -12,7 +12,7 @@ public class CreateBundlePaymentContracts extends BaseClass{
 	}
 	
 	public void iVerifyContractsFieldOnCreateContractsPageUnderPayorOrganiztion(String text){
-		verifyTextForElement(driver.findElement(By.cssSelector(".input-field-caption")), text);
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
 	}
 	
 	public void iVerifyDateFieldsOnCreateContractsPage(String text, String action){

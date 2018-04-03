@@ -171,4 +171,9 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_DragandDrop_the_Attribution_Rules_On_Create_Program_Page(String act) throws Throwable {
 		programs.iDragandDroptheAttributionRulesOnCreateProgramPage(act);
 	    }
+	
+	@And("^I click on date picker close icon$")
+	  public void i_Click_on_Date_Picker_Close_Icon() throws Throwable {
+		programs.iClickonDatePickerCloseIcon();
+	    }
 }

@@ -200,7 +200,6 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "Type" header label under "Payor" view profile page
     And I verify "Address" header label under "Payor" view profile page
     Then I click on "Create New Contract" button on "create" organization page
-    And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/payor/45/contract/create"
     And I verify "Create Contract" header text on create Contracts page
     And I verify "*Program" field on create Contracts page
     And I verify "Contract 1 " on "Create Contract" page under Payor Organization
@@ -211,7 +210,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I verify "End Date" field for "Bundle1" on create Contracts page
     And I verify "*Start Date" field for "Bundle_price1" on create Contracts page
     And I verify "End Date" field for "Bundle_price1" on create Contracts page
-    And I verify "*" field on create Contracts page under Payor Organization
+    And I verify "Price" field on create Contracts page under Payor Organization
     And I verify "Trend Factor" field on create Contracts page under Payor Organization
     And I verify "Upper Bound" field on create Contracts page under Payor Organization
     And I verify "Lower Bound" field on create Contracts page under Payor Organization
@@ -468,6 +467,7 @@ Feature: Create Bundled Payment Contracts functionality tests
     And I enter "<Contract_Id>" in "Contract Id" field for "Contract1" on create Contract page
     And I select Bundle "<Bundle_1>" for Contract "1" on "create" Contracts page
     And I enter "<Price>" in "price" field for "Bundle1 Price1" on create Contract page
+    And I click on date picker close icon
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
     Then I enter date "<BundleStartDate>" in "BundleStartDate" field for index "2"
