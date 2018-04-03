@@ -149,7 +149,7 @@ Feature: Accepatance testing for reports
       | shutestaug231132a@yopmail.com | Post Acute Care   | Initial SNF Length of Stay Summary | EC Model2      | SNF LOS Summary            | Anchor Facility          | Anchor Facility          | Anchor Facility             | CCN                    |
       | shutestaug231132a@yopmail.com | Readmissions      | Readmissions                       | EC Model2      | Readmissions EC            | Anchor Hospital Facility | Anchor Hospital Facility | Dashboard - Anchor Facility | Dashboard - Anchor CCN |
 
-  Scenario Outline: User should not see Null,Zero and NA in episode drg issues report page.
+  Scenario Outline: User should be able to verify anchor facility field in episode drg issues report to make sure there are NON-Null,Non-zero,Non-N/A in report.
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -538,7 +538,7 @@ Feature: Accepatance testing for reports
       | shutestaug231132a@yopmail.com | Overall Program | Spending (Claims) | Claims         | Spending           |
       | shutestaug231132a@yopmail.com | Physician       | Spending (Claims) | Claims         | Physician Spending |
 
-  Scenario: User should be able to validate the data is loading in program overview report.
+  Scenario: User should be able to validate the data is loading in program overview report
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
@@ -583,7 +583,7 @@ Feature: Accepatance testing for reports
     And I should see "READMITS PER EPISODE" under overall program
     Then I verify readmits per episode graph appearing under overall program report
 
-  Scenario: User should validate physician dashboard report episodes count matching and verify LMJ Link
+  Scenario: User should validate episodes count is matching on performance evaluation and performance score card pages are matching and verify LMJ Link in physician dashboard report
     Given I am on the login page
     When I enter email field shutestaug231132a@yopmail.com for login
     And I enter password field Testing1 for Login
