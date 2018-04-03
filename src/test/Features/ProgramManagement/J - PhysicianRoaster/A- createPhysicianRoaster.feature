@@ -162,21 +162,54 @@ Feature: Create Physician Roaster functionality tests
       | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
 
-  Scenario Outline: Elements on Add Physician page without selecting any program.
+  Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
     When I search with "<PGP_Name> - <Has_MO>" on organization in search box
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Network Contracts" tab present under "PGP" Organization
-    And I click on "Network Contracts" tab on view profile of "PGP" Organization
-    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Network Contract" button on "create" organization page
-    And I verify "Create Network Contract" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Netwotk Conntract page
-    And I verify "Submit" button on create organization page
-    And I verify "Cancel" button on create organization page
+    And I verify "Physician Roster" tab present under "PGP" Organization
+    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify the "Create New Practitioner Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Practitioner Contract" button on "create" organization page
+    And I verify "Create Practitioner Contract" header text on create organization page
+    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    And I verify "Please select and add at least one practitioner to this contract" text is appearing on the "Create" Physician Roster page
+    And I verify "Select a practitioner" text is appearing on the "Create" Physician Roster page
+    And I verify "practitioner" dropdown above add practioner is appearing on "Create" Physician Roster page
+    And I verify "Add Practitioner" button on "Create" Physician Roster page
+    And I verify "Submit" button on create Physician Roster page
+    And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
-      | Elements on Add Physician page without selecting any program. | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
+      | Description                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
+      | Verify Fields on Create Physician Roster page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Physician Roster" tab present under "PGP" Organization
+    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify the "Create New Practitioner Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Practitioner Contract" button on "create" organization page
+    And I verify "Create Practitioner Contract" header text on create organization page
+    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
+    And I verify "start-date" is appearing after selecting program from dropdown on physician roster page
+    And I verify "end-date" is appearing after selecting program from dropdown on physician roster page
+    And I verify "Please select and add at least one practitioner to this contract" text is appearing on the "Create" Physician Roster page
+    And I verify "Select a practitioner" text is appearing on the "Create" Physician Roster page
+    And I verify "practitioner" dropdown above add practioner is appearing on "Create" Physician Roster page
+    And I verify "Add Practitioner" button on "Create" Physician Roster page
+    And I verify "Submit" button on create Physician Roster page
+    And I verify "Cancel" button on create Physician Roster page
+
+    Examples: 
+      | Description                                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
+      | Verify Fields on Create Physician Roster page after selecting a program | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
