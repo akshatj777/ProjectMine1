@@ -149,7 +149,7 @@ Feature: Accepatance testing for reports
       | shutestaug231132a@yopmail.com | Post Acute Care   | Initial SNF Length of Stay Summary | EC Model2      | SNF LOS Summary            | Anchor Facility          | Anchor Facility          | Anchor Facility             | CCN                    |
       | shutestaug231132a@yopmail.com | Readmissions      | Readmissions                       | EC Model2      | Readmissions EC            | Anchor Hospital Facility | Anchor Hospital Facility | Dashboard - Anchor Facility | Dashboard - Anchor CCN |
 
-  Scenario Outline: User should be able to verify anchor facility field in episode drg issues report to make sure there are NON-Null,Non-zero,Non-N/A in report.
+  Scenario Outline: User should be able to verify anchor facility field and facility type in the standalone episode drg issues report to make sure there are NON-Null, Non-zero, Non-N/A in the report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
