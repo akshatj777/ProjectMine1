@@ -868,7 +868,7 @@ Feature: Edit user page for PTA
 
     Examples: 
       | User                            | Role    | AddLocations  | SelectedLocations                                            |
-      | Partner Technical Administrator | Manager | All Locations | Adventist Health Bakersfield, Adventist Bolingbrook Hospital |
+      | Partner Technical Administrator | Manager | All Locations | Adventist Bolingbrook Hospital |
 
   Scenario Outline: <Description>
     Given I am on mail login page

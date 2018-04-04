@@ -1071,7 +1071,7 @@ Feature: Create User - PTA User
     Then I verify "<ApplicationsNotVisible>" is not visible on Applications tab
     Then I click on Next button
     Then I verify the header "Permissions"
-    Then I select "<Programs1>" programs
+    #Then I select "<Programs1>" programs
     Then I select "<Locations1>" locations for PTA user
     And I verify selected Location "<SelectedLocations>" in the selected Locations section
     Then I search the "<LocationsInvalid>" in the Selected Locations section
@@ -1082,7 +1082,7 @@ Feature: Create User - PTA User
 
     Examples: 
       | Description                                           | User        | UserName                               | Password | FirstName                                          | LastName                                           | Email             | Phone | Role      | Applications               | ApplicationsNotVisible                               | NPI | LearningPathwaySearchParameter                                              | Health System1 | Programs1   | LocationsInvalid | Locations1                     | SelectedLocations    | HasHealthSystem2 | Health System2 | Programs2 | Locations2 | HasHealthSystem3 | Health System3 | Programs3 | Locations3 |
-      | Verify the search functionality in selected locations | Super Admin | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | hjfd             | 3056-808--Arbor Nursing Center | Arbor Nursing Center | No               |                |           |            | No               |                |           |            |
+      | Verify the search functionality in selected locations | Partner Technical Administrator | lbarinstein+qaadmin@remedypartners.com | Testing1 | FirstNameFirstNameFirstNameFirstNameFirstNameFirst | LastNameLastNameLastNameLastNameLastNameLastNameLN | test.automatemail |       | Executive | Episodes, Reports, Lessons | Episodes 2.0, Administration, Physician Connect, TCI |     | Care Coordination External, Clinical Operations Acute Care Hospital Model 2 | Covenant       | BPCI-Model3 | hjfd             | 3056-808--Arbor Nursing Center | Arbor Nursing Center | No               |                |           |            | No               |                |           |            |
 
   Scenario Outline: Verify that Next button and left side menu is enabled only when mandatory fields are selected
     Given I am on the login page
