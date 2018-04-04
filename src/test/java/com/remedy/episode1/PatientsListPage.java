@@ -301,10 +301,8 @@ public class PatientsListPage extends BaseClass {
 		try{
 			new WebDriverWait(driver,150).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".loading-message.loading-message-boxed>span")))); 	
 			longDelay();
-			longDelay();
-			longDelay();
 			new WebDriverWait(driver,200).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
-			new WebDriverWait(driver,400).until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".dataTables_processing"))));
+			new WebDriverWait(driver,600).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".dataTables_processing")));
 			longDelay();
 		}catch(Exception e){
 			longDelay();

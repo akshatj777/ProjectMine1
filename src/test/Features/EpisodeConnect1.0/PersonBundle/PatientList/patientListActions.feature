@@ -54,7 +54,6 @@ Feature: Patient list action
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     When I click on Add New Clinician from patients list patient gear menu
-    Then I verify "Add New Clinician" header on popup
     And I click on first checkbox on Clinician modal
     And I click on "Assign" button
     And I will wait to see "Clinicians assigned to patient correctly" in "p" tag

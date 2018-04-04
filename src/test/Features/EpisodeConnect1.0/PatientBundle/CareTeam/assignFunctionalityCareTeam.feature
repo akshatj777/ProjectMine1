@@ -1,6 +1,6 @@
 @EC1Smoke
- Feature: Add New Clinician
- 
+Feature: Add New Clinician
+
   Background: Episode Active - create anchor transition
     Given I am on the login page
     When I enter email field qa.adminuser@yopmail.com for login
@@ -42,23 +42,21 @@
     Then I click on "TCRN Checklist" label tab on add a new transition
     Then I click on the Create Transition Button to add a new transition
     And I will wait to see patient's name on patient summary page
-    
- Scenario: Functionality of buttons present under Care Team
-	  Then I navigate to the "/secure/patient/mongoID/careteam"
+
+  Scenario: Functionality of buttons present under Care Team
+    Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Add New Clinician" button under "Care Team" on Patient overview
-    And I will wait to see "Add New Clinician" in "h4" tag
     And I click on first checkbox on Clinician modal
-    And I click on "Assign" button 
+    And I click on "Assign" button
     And I will wait to see "Clinicians assigned to patient correctly" in "p" tag
     Then I navigate to the "/secure/patient/mongoID/careteam"
-    And I should see Physician card under Physicians under Care Team on Patient page 
+    And I should see Physician card under Physicians under Care Team on Patient page
     Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Assign Team Member" button under "Care Team" on Patient overview
     And I will wait to see "Assign Team Member" in "h4" tag
     And I select first facility checkbox on Assign Team Member modal
     And I click on "Assign" button
     And I will wait to see "Employees assigned to patient(s) correctly" in "p" tag
-    
     Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Add Family" button under "Care Team" on Patient overview
     And I will wait to see "Add Family" in "h4" tag
@@ -66,19 +64,17 @@
     And I enter "Last Name" details in "lastName" under Add famaily modal
     And I click on Add Family button on Add Family modal
     And I will wait to see "New relative created." in "p" tag
-    
-  	Then I navigate to the "/secure/patient/mongoID/careteam"
+    Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
-    Then I click on Alert Icon on header navigation bar 
+    Then I click on Alert Icon on header navigation bar
     And I click on first alert message under alert
     Then I verify "Dashboard" tab is present under header navigation on patient overview
-    
-   Scenario: Verify functionality of dismiss all alerts
-  	Then I navigate to the "/secure/patient/mongoID/careteam"
+
+  Scenario: Verify functionality of dismiss all alerts
+    Then I navigate to the "/secure/patient/mongoID/careteam"
     And I click on "Join Care Team" button under "Care Team" on Patient overview
     And I will wait to see "Assigned to Care Team successfully." in "p" tag
     Then I click on Alert Icon on header navigation bar
     And I click on "Dismiss All" button
-    And I should not see any count appearing on Alert Icon      
-    
+    And I should not see any count appearing on Alert Icon

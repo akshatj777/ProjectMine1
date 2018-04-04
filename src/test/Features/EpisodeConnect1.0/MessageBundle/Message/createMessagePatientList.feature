@@ -31,7 +31,6 @@ Feature: Messages on patient list
     And I am on cutom tab page "/secure/pn/patientslist#/filterId=custom&ssn=%%SSN&" filtered by SSN
     And I click on first patient gear menu
     When I click on Send message from patients list patient gear menu
-    
     Then I verify "New message" header on popup
     When I fill in "Message Body" xpath "//*[@id='bp_msg_form_message']" with "Test Message Functionality"
     And I click on "Send" button
