@@ -29,9 +29,9 @@ public class CreateBundlePaymentContracts extends BaseClass{
 	public void iClickandSearchWithInvalidNameonDropdownBox(String text){
 		if(text.equalsIgnoreCase("InvalidSearchOrganizationName"))
 		{
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN/EIN']/parent::span/following-sibling::span[@class='Select-arrow-zone']")).click();
 			longDelay();
-			driver.findElement(By.xpath("//div[text()='Search Name or CCN']/following-sibling::div/input")).sendKeys(text);
+			driver.findElement(By.xpath("//div[text()='Search Name or CCN/EIN']/following-sibling::div/input")).sendKeys(text);
 			longDelay();
 		}
 		else if(text.equalsIgnoreCase("InvalidSearchBundle"))

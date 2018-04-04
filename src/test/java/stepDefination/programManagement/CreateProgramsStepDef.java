@@ -176,4 +176,10 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_Click_on_Date_Picker_Close_Icon() throws Throwable {
 		programs.iClickonDatePickerCloseIcon();
 	    }
+	
+	
+	@And("^I select Organization name \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Network Contract page$")
+	  public void i_Select_Organization_Name_on_Create_Network_Contract_Page(String text, int num, String field) throws Throwable {
+		programs.iSelectOrganizationNameOnCreateNetworkContractPageUnderPayorOrganization(text, num, field);
+	    }
 }

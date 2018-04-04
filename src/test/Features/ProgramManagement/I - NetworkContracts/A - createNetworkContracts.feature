@@ -297,7 +297,7 @@ Feature: Create Network Contracts functionality tests
 
     Examples: 
       | Description                                                                                           | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
-      | Verify after selecting Contract(Program) with Start Date and End Date on create Network Contract page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
+      | Verify after selecting Contract(Program) with Start Date and End Date on create Network Contract page | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017-01-01 | 2019-12-31 |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -311,7 +311,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     And I click on react date picker close icon for "End Date"
     Then I click on "Submit" button on "create" organization page
@@ -321,8 +321,8 @@ Feature: Create Network Contracts functionality tests
       | Description                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name | ValidationMessage                                        |
       | Check validation for blank Program Name      | NO     | PGPNAME  |              | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Program is not present                                   |
       | Check validation for blank Organization name | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   |                                                          |
-      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Start Date is not present                                |
-      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | End Date is greater than the Contract (Program) End Date |
+      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 |  | 2018-02-02 | ACHNAME           | Start Date is not present                                |
+      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 |  | ACHNAME           | End Date is greater than the Contract (Program) End Date |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -336,7 +336,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     And I click on react date picker close icon for "End Date"
@@ -383,7 +383,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I click on "Submit" button on "create" organization page
     Then I verify "<Message>" after submitting the "create Contracts" on Payor organization page
 
@@ -403,7 +403,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     And I click on react date picker close icon for "Start Date"
     Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
     And I click on react date picker close icon for "End Date"
@@ -428,7 +428,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I click on cancel search button
     And I verify the selected Hospital organization should not be displayed in the search box
 
@@ -448,7 +448,7 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create Network" Contracts page
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
 
     Examples: 
