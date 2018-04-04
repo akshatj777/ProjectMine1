@@ -49,4 +49,39 @@ public class PhysicianRosterStepDef extends DriverScript{
 	public void i_verify_is_appearing_after_selecting_program_from_dropdown_on_physician_roster_page(String text) throws Throwable{
 		physicianroster.iVerifytextAfterSelectingProgramFromDropdownOnPhysicianRosterPage(text);
 	}
+	
+	@And("^I select a Physician \"([^\"]*)\" on \"([^\"]*)\" Physician Roster page$")
+	public void i_Select_a_Physician_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
+		physicianroster.iSelectaPhysicianonCreatePhysicianRosterPage(text, act);
+	}
+	
+	@And("^I click on \"([^\"]*)\" button on \"([^\"]*)\" Physician Roster page$")
+	public void i_Click_On_Add_Physician_Button(String text, String act) throws Throwable{
+		physicianroster.iClickOnAddPhysicianButton(text, act);
+	}
+	
+	@Then("^I verify first name \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
+	public void i_Verify_FirstName_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+	}
+	
+	@Then("^I verify last name \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
+	public void i_Verify_LastName_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+	}
+	
+	@Then("^I verify npi \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
+	public void i_Verify_NPI_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+	}
+	
+	@Then("^I verify start date \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
+	public void i_Verify_StartDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+	}
+	
+	@Then("^I verify end date \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
+	public void i_Verify_EndDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+	}
 }

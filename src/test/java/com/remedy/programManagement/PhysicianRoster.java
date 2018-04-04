@@ -48,4 +48,19 @@ public class PhysicianRoster extends BaseClass{
 	public void iVerifytextAfterSelectingProgramFromDropdownOnPhysicianRosterPage(String text){
 		isElementPresentOnPage(By.cssSelector("."+text+""));
 	}
+	
+	public void iSelectaPhysicianonCreatePhysicianRosterPage(String text, String act){
+		clickElement(driver.findElement(By.xpath("//div[@class='Select-placeholder']")));
+		delay();
+		iFillInText(driver.findElement(By.xpath("//div[@class='Select-placeholder']")), text);
+	}
+	
+	public void iClickOnAddPhysicianButton(String text, String act){
+		clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+	}
+	
+	public void iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
+		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
+		verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
+	}
 }

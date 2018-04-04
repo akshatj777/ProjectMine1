@@ -213,3 +213,43 @@ Feature: Create Physician Roaster functionality tests
     Examples: 
       | Description                                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
       | Verify Fields on Create Physician Roster page after selecting a program | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Physician Roster" tab present under "PGP" Organization
+    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify the "Create New Practitioner Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Practitioner Contract" button on "create" organization page
+    And I verify "Create Practitioner Contract" header text on create organization page
+    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
+    And I verify "start-date" is appearing after selecting program from dropdown on physician roster page
+    And I verify "end-date" is appearing after selecting program from dropdown on physician roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
+    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
+    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    And I verify "Submit" button on create Physician Roster page
+    And I verify "Cancel" button on create Physician Roster page
+
+    Examples: 
+      | Description                                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
+      | Verify Fields on Create Physician Roster page after selecting a program | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
