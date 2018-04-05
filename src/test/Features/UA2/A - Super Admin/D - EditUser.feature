@@ -245,6 +245,7 @@ Feature: Edit user page for SA
     And I click on Edit button
     Then I select "Permissions" tab
     Then I remove health system "<Remove HealthSystem1>"
+    And I click on "Remove" button on permissions tab
     Then I remove health system "<Remove HealthSystem2>"
     And I click on "Remove" button on permissions tab
     And I search for health system with <Health System>
