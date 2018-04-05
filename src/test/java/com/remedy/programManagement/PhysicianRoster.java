@@ -18,6 +18,7 @@ public class PhysicianRoster extends BaseClass{
 	
 	public void iVerifyProgramDropdownOnPhysicianRosterPage(String text,String page){
 		isElementPresentOnPage(By.xpath("//div[contains(text(),'"+text+"')]"));
+		longDelay();
 	}
 	
 	public void iVerifyTextOnPhysicianRosterPage(String text,String page){
@@ -39,7 +40,7 @@ public class PhysicianRoster extends BaseClass{
 	}
 	
 	public void iSelectProgramInProgramDropDownOnPhysicianRosterPage(String page){
-		clickElement(driver.findElement(By.cssSelector(".program-contract-selector .Select-placeholder")));
+		clickElement(driver.findElement(By.xpath("//*[@id='react-select-2--value']/div[1]")));
 		delay();
 		clickElement(driver.findElement(By.cssSelector(".ReactVirtualized__Grid__innerScrollContainer")));
 		longDelay();
@@ -47,12 +48,16 @@ public class PhysicianRoster extends BaseClass{
 	
 	public void iVerifytextAfterSelectingProgramFromDropdownOnPhysicianRosterPage(String text){
 		isElementPresentOnPage(By.cssSelector("."+text+""));
+		delay();
 	}
 	
 	public void iSelectaPhysicianonCreatePhysicianRosterPage(String text, String act){
-		clickElement(driver.findElement(By.xpath("//div[@class='Select-placeholder']")));
+		clickElement(driver.findElement(By.xpath("//div[text()='Select...']")));
+		longDelay();
+		driver.findElement(By.xpath("//div[@class='Select-placeholder']")).sendKeys(text);
+		longDelay();
+		clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
 		delay();
-		iFillInText(driver.findElement(By.xpath("//div[@class='Select-placeholder']")), text);
 	}
 	
 	public void iClickOnAddPhysicianButton(String text, String act){
@@ -62,5 +67,9 @@ public class PhysicianRoster extends BaseClass{
 	public void iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
 		iWillWaitToSee(By.xpath("//div[text()='"+text+"']"));
 		verifyTextForElement(driver.findElement(By.xpath("//div[text()='"+text+"']")), text);
+	}
+	
+	public void iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
+		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
 	}
 }

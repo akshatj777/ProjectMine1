@@ -226,6 +226,7 @@ Feature: Create Physician Roaster functionality tests
     Then I click on "Create New Practitioner Contract" button on "create" organization page
     And I verify "Create Practitioner Contract" header text on create organization page
     And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13256/practitioner-contract/create"
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
@@ -251,5 +252,5 @@ Feature: Create Physician Roaster functionality tests
     And I verify "Cancel" button on create Physician Roster page
 
     Examples: 
-      | Description                                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   |
-      | Verify Fields on Create Physician Roster page after selecting a program | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |
+      | Description                                                             | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
+      | Verify Fields on Create Physician Roster page after selecting a program | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 |

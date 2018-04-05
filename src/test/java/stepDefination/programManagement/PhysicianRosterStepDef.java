@@ -77,11 +77,11 @@ public class PhysicianRosterStepDef extends DriverScript{
 	
 	@Then("^I verify start date \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
 	public void i_Verify_StartDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
-		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+		physicianroster.iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 	
 	@Then("^I verify end date \"([^\"]*)\" after adding Physician from dropdown on Create physician roster page$")
 	public void i_Verify_EndDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
-		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
+		physicianroster.iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 }
