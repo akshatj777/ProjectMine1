@@ -158,7 +158,7 @@ Feature: Create Network Contracts functionality tests
 
     Examples: 
       | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/30        | 2019/12/27      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
       | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
@@ -198,8 +198,8 @@ Feature: Create Network Contracts functionality tests
     And I enter "<Upper_Bound>" in "upperBound" field for "Bundle1 Price2" on create Contract page
     And I enter "<Lower_Bound>" in "lowerBound" field for "Bundle1 Price2" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
+    #Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
     Examples: 
       | Description                                          | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1             | Price | Price1 | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
       | Create contract with 1 Bundle having multiple Prices | NO     | PAYORNAME  | 2017/02/05        | 2019/12/28      | 2018/01/04      | 2019/06/21    | 2018/02/02     | 2018/05/30   | 2018/03/01        | 2018/04/04      | 2018/06/02      | 2018/10/30    | 2018/07/01         | 2018/08/04       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | BPBun1rSJpbinZbN2926 |   123 |    101 |          121 |         135 |         106 | Contract Successfully Created |
@@ -244,8 +244,8 @@ Feature: Create Network Contracts functionality tests
     And I enter "<Upper_Bound1>" in "upperBound" field for "Bundle2 Price1" on create Contract page
     And I enter "<Lower_Bound1>" in "lowerBound" field for "Bundle2 Price1" on create Contract page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
+    #Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
     Examples: 
       | Description                           | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | BundleStartDate1 | BundleEndDate1 | PriceStartDate1 | PriceEndDate1 | BaselineStartDate1 | BaselineEndDate1 | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1              | Bundle_2           | Price1 | Price2 | Trend_Factor | Upper_Bound | Lower_Bound | Trend_Factor1 | Upper_Bound1 | Lower_Bound1 | Message                       |
       | Create contract with multiple Bundles | NO     | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2017/03/01      | 2018/03/30    | 2017/05/01     | 2017/08/30   | 2017/06/09        | 2017/07/12      | 2018/05/01       | 2019/06/30     | 2018/08/03      | 2019/03/26    | 2018/11/09         | 2019/01/12       | PROGRAMNAME  | ACH               | ACHNAME           | CID         | bundle-odMHVgKKzU4124 | BNC2dIojiGTMkl0308 |    113 |     96 |          121 |         135 |         106 |           121 |          135 |          106 | Contract Successfully Created |
@@ -321,8 +321,8 @@ Feature: Create Network Contracts functionality tests
       | Description                                  | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Start_Date | End_Date   | Organization_Name | ValidationMessage                                        |
       | Check validation for blank Program Name      | NO     | PGPNAME  |              | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 | ACHNAME           | Program is not present                                   |
       | Check validation for blank Organization name | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 | 2018-02-02 |                   |                                                          |
-      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 |  | 2018-02-02 | ACHNAME           | Start Date is not present                                |
-      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 |  | ACHNAME           | End Date is greater than the Contract (Program) End Date |
+      | Check validation for blank Start Date name   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 |            | 2018-02-02 | ACHNAME           | Start Date is not present                                |
+      | Check validation for blank End Date name     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2018-02-02 |            | ACHNAME           | End Date is greater than the Contract (Program) End Date |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -345,12 +345,11 @@ Feature: Create Network Contracts functionality tests
     And I verify "<ValidationMessage>" field validation message on create organization page
 
     Examples: 
-      | Description                                                                                         | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | ContractStartDate | ContractEndDate | Organization_Name | ValidationMessage                                                                                                    |
-      | Check Validation when Network Contract Start Date is prior to Bundled Payment Contract Start Date   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/01        | 2019/12/28      | ACHNAME           | Start Date is prior to the Contract (Program) Start Date                                                             |
-      | Check Validation when Network Contract Start Date is greater than Bundled Payment Contract End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2019/12/31        | 2019/12/28      | ACHNAME           | Start Date is greater than the Contract (Program) End Date                                                           |
-      | Check Validation when Network Contract End Date is prior to Bundled Payment Contract Start Date     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2019/12/26        | 2019/12/20      | ACHNAME           | End Date is prior to the Start Date                                                                                  |
-      | Check Validation when Network Contract End Date is greater than Bundled Payment Contract End Date   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/01        | 2019/12/31      | ACHNAME           | End Date is greater than the Contract (Program) End Date                                                             |
-      | Check Validation when Network Contract Start Date is same as Network Contract End Date              | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2019/12/28        | 2019/12/28      | ACHNAME           | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                                                         | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | ContractStartDate | ContractEndDate | Organization_Name | ValidationMessage                                          |
+      | Check Validation when Network Contract Start Date is prior to Bundled Payment Contract Start Date   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/01        | 2019/12/28      | ACHNAME           | Start Date is prior to the Contract (Program) Start Date   |
+      | Check Validation when Network Contract Start Date is greater than Bundled Payment Contract End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2019/12/31        | 2019/12/28      | ACHNAME           | Start Date is greater than the Contract (Program) End Date |
+      | Check Validation when Network Contract End Date is prior to Bundled Payment Contract Start Date     | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/30        | 2017/01/26      | ACHNAME           | End Date is prior to the Start Date                        |
+      | Check Validation when Network Contract End Date is greater than Bundled Payment Contract End Date   | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/01        | 2019/12/29      | ACHNAME           | End Date is greater than the Contract (Program) End Date   |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -364,7 +363,31 @@ Feature: Create Network Contracts functionality tests
     Then I click on "Create New Network Contract" button on "create" organization page
     And I verify "Create Network Contract" header text on create organization page
     And I select "<Program_Name>" Program name in create Contract page under Payor Organization
-    Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "Organization_Name" dropdown box
+    And I select Organization name "<Organization_Name> - <Has_MO>" for Contract "1" on "create" Network Contract page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify duplicate "<Message>" after submitting the "create Network Contract" organization page
+
+    Examples: 
+      | Description                                                                            | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | ContractStartDate | ContractEndDate | Organization_Name | Message                                                                                                              |
+      | Check Validation when Network Contract Start Date is same as Network Contract End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | 2017/01/30        | 2017/01/30      | ACHNAME           | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+
+  Scenario Outline: <Description>
+    When I click on "PGP" organization tab on organization dashboard
+    When I search with "<PGP_Name> - <Has_MO>" on organization in search box
+    And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
+    And I verify "Network Contracts" tab present under "PGP" Organization
+    And I click on "Network Contracts" tab on view profile of "PGP" Organization
+    And I verify the "Create New Network Contract" button on view profile of "PGP" Organization
+    Then I click on "Create New Network Contract" button on "create" organization page
+    And I verify "Create Network Contract" header text on create organization page
+    And I select "<Program_Name>" Program name in create Contract page under Payor Organization
+    Then I search "<SearchParam> - <Has_MO>" and verify with search list options on "Organization_Name" dropdown box in Network Contract page
 
     Examples: 
       | Description                                                      | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | SearchParam |
@@ -452,5 +475,5 @@ Feature: Create Network Contracts functionality tests
     Then I verify the "No results found" message for invalid search in Organization Name dropdown box
 
     Examples: 
-      | Description                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name |
-      | Error message if an organization is not found | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |                   |
+      | Description                                   | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Organization_Name     |
+      | Error message if an organization is not found | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               | NoNetworkContractName |

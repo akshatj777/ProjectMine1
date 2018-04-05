@@ -182,4 +182,10 @@ public class CreateProgramsStepDef extends DriverScript{
 	  public void i_Select_Organization_Name_on_Create_Network_Contract_Page(String text, int num, String field) throws Throwable {
 		programs.iSelectOrganizationNameOnCreateNetworkContractPageUnderPayorOrganization(text, num, field);
 	    }
+	
+	
+	@And("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" dropdown box in Network Contract page$")
+	  public void i_Search_With_Search_List_Options_On_Dropdown_Box_In_NetworkContract_Page(String searchParam, String org) throws Throwable {
+		programs.iSearchWithSearchListOptionsOnDropdownBoxinNetworkContractpage(searchParam, org);
+	    }
 }
