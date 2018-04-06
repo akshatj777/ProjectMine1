@@ -1,5 +1,7 @@
 package com.remedy.programManagement;
 
+import junit.framework.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,9 +54,9 @@ public class PhysicianRoster extends BaseClass{
 	}
 	
 	public void iSelectaPhysicianonCreatePhysicianRosterPage(String text, String act){
-		clickElement(driver.findElement(By.xpath("//div[text()='Select...']")));
+		driver.findElement(By.xpath("//div[text()='Select...']")).click();
 		longDelay();
-		driver.findElement(By.xpath("//div[@class='Select-placeholder']")).sendKeys(text);
+		driver.findElement(By.xpath("//div[text()='Select...']")).sendKeys(text);
 		longDelay();
 		clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
 		delay();
@@ -71,5 +73,20 @@ public class PhysicianRoster extends BaseClass{
 	
 	public void iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
 		verifyTextForElement(driver.findElement(By.xpath("//label[text()='"+text+"']")), text);
+	}
+	
+	public void iSearchWithSearchListOptionsOnSelectAPhysicianDropdownBox(String searchParam){
+		String value = searchParam;
+		driver.findElement(By.xpath("//div[text()='Select...']")).click();
+		delay();
+		driver.findElement(By.xpath("//div[text()='Select...']")).sendKeys(value);
+		delay();
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
+	}
+	
+	public void iVerifyTheErrorMessageForInvalidSearchInSelectaPhysicianDropdownBox(String text)
+	{
+		iWillWaitToSee(By.cssSelector(".Select-noresults"));
+		Assert.assertEquals(text, driver.findElement(By.cssSelector(".Select-noresults")).getText());
 	}
 }

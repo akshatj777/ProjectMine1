@@ -84,4 +84,14 @@ public class PhysicianRosterStepDef extends DriverScript{
 	public void i_Verify_EndDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
 		physicianroster.iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
+	
+	@Then("^I search \"([^\"]*)\" and verify with search list options on select a Physician dropdown box$")
+	public void i_Search_With_Search_List_Options_On_Select_a_Physician_Dropdown_Box(String searchParam) throws Throwable{
+		physicianroster.iSearchWithSearchListOptionsOnSelectAPhysicianDropdownBox(searchParam);
+	}
+	
+	@Then("^I verify the \"([^\"]*)\" message for invalid search in select a Physician dropdown box$")
+	public void i_Verify_The_Error_Message_For_Invalid_Search_In_Organization_Name_Physician_Dropdown_Box(String text) throws Throwable{
+		physicianroster.iVerifyTheErrorMessageForInvalidSearchInSelectaPhysicianDropdownBox(text);
+	}
 }
