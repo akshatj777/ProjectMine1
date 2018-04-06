@@ -15,11 +15,11 @@ Feature: Verification of My Profile
     And I click on save changes button on the my profile page
     And I verify "First name required" as field validation on myprofile page
     And I verify "Last name required" as field validation on myprofile page
-    Then I update "firstName" with "ADMIN" on the my profile page
-    Then I update "lastName" with "QA" on the my profile page
+    Then I update "firstName" with "ADMINONE" on the my profile page
+    Then I update "lastName" with "USERINFO" on the my profile page
     And I click on save changes button on the my profile page
     And I will wait to see "Your changes have been successfully saved." in "p" tag
-    Then I update "firstName" with "QA" on the my profile page
-    Then I update "lastName" with "ADMIN" on the my profile page
+    Then I update "firstName" with "USERINFO" on the my profile page
+    Then I update "lastName" with "ADMINONE" on the my profile page
     And I click on save changes button on the my profile page
     And I will wait to see "Your changes have been successfully saved." in "p" tag
