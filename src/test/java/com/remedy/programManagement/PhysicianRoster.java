@@ -56,7 +56,7 @@ public class PhysicianRoster extends BaseClass{
 	public void iSelectaPhysicianonCreatePhysicianRosterPage(String text, String act){
 		driver.findElement(By.xpath("//div[text()='Select...']")).click();
 		longDelay();
-		driver.findElement(By.xpath("//div[text()='Select...']")).sendKeys(text);
+		driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(text);
 		longDelay();
 		clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
 		delay();
@@ -78,9 +78,9 @@ public class PhysicianRoster extends BaseClass{
 	public void iSearchWithSearchListOptionsOnSelectAPhysicianDropdownBox(String searchParam){
 		String value = searchParam;
 		driver.findElement(By.xpath("//div[text()='Select...']")).click();
-		delay();
-		driver.findElement(By.xpath("//div[text()='Select...']")).sendKeys(value);
-		delay();
+		longDelay();
+		driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(value);
+		longDelay();
 		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+value+"']")));
 	}
 	
