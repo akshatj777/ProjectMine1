@@ -190,10 +190,6 @@ Feature: Create SNF organization functionality tests
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
-    When I search with "<SNF_Name> - <Has_MO>" on organization in search box
-    And I click "<SNF_Name> - <Has_MO>" field in search list on organization page
-    And I verify "1" location count on view "SNF" organization page
 
     Examples: 
       | Description                                                                         | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                |
@@ -228,7 +224,7 @@ Feature: Create SNF organization functionality tests
     And I enter zip <Loc_Postal_Code> for Location "1" on "create" organization page
     Then I click on "+" button on "SNF" organization page
     And I verify "Location 2" on "Create SNF" organization page
-    And I enter location name <Loc_Name> for Location "2" on "create" organization page
+    And I enter location name <Loc_Name1> for Location "2" on "create" organization page
     And I enter address1 <Loc_Address1> for Location "2" on "create" organization page
     And I select location type <Loc_Type> for Location "2" on "create" organization page
     And I enter address2 <Loc_Address2> for Location "2" on "create" organization page
@@ -241,9 +237,9 @@ Feature: Create SNF organization functionality tests
     Then I verify "<Message>" after submitting the "create SNF - <Has_MO>" organization page
 
     Examples: 
-      | Description                                                                      | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1 | CCN | EIN | NPI | Message                                |
-      | Create SNF Organization with different details in multiple location - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Loc_Name1 | CCN | EIN | NPI | SNF Organization Successfully Created. |
-      | Create SNF Organization with different details in multiple location - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Loc_Name1 | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Description                                                                      | Has_MO | Managing_Org | SNF_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type        | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | Loc_Name1     | CCN | EIN | NPI | Message                                |
+      | Create SNF Organization with different details in multiple location - Without MO | NO     |              | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Loc_Name New  | CCN | EIN | NPI | SNF Organization Successfully Created. |
+      | Create SNF Organization with different details in multiple location - With MO    | YES    | MONAME       | SNFNAME  | Address1 | Short_Name | Address2 | City | California |       10000 | Loc_Name | Loc_Address1 | Skilled Nursing | Midwest    | Chicago    | Loc_Address2 | Loc_City | California |           10000 | Loc_Name New1 | CCN | EIN | NPI | SNF Organization Successfully Created. |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard

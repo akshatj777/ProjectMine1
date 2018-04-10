@@ -118,7 +118,7 @@ Feature: Search SNF organization functionality tests
 
     Examples: 
       | Description                                                                    | Has_MO | SNF_Name | Loc_Name       |
-      | Search SNF Organization with Location Name in SNF view profile page  - With MO | YES    | SNFNAME  | NoMatchLocNAME |
+      | Search SNF Organization with Location Name in SNF view profile page  - With MO | YES    | SNFNAME  | NoMatches |
 
   Scenario Outline: <Description>
     When I click on "SNF" organization tab on organization dashboard
