@@ -83,9 +83,9 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
-    Then I enter "Network Tier" in the search field textbox for filters
+    #Then I enter "Network Tier" in the search field textbox for filters
     And I verify "Network Tier (Anchor Hospital Discharge)" is appearing in the available fields under next site of care summary report
-    And I verify "Network Tier (Post Acute Admission)" is appearing in the available fields under next site of care summary report
+    #And I verify "Network Tier (Post Acute Admission)" is appearing in the available fields under next site of care summary report
     When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
@@ -93,11 +93,11 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I should see "<networktier1>" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Post Acute Admission)" in the header text of filter page
-    And I should see "<networktier1>" in the filter value list
-    And I should see "<networktier1>" in the filter value list
+    #When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
+    #And I choose "Filter" option from select options of filter field
+    #And I should see "Network Tier (Post Acute Admission)" in the header text of filter page
+    #And I should see "<networktier1>" in the filter value list
+    #And I should see "<networktier1>" in the filter value list
 
     Examples: 
       | email                         | networktier1   | networktier2 |
@@ -183,7 +183,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
@@ -341,9 +341,9 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
-    Then I enter "Anchor Hospital Discharge Facility CCN" in the search field textbox for filters
-    And I verify "Anchor Hospital Discharge Facility CCN" is appearing in the available fields under next site of care summary report
-    And I click on clear search field element
+    #Then I enter "Anchor Hospital Discharge Facility CCN" in the search field textbox for filters
+    #And I verify "Anchor Hospital Discharge Facility CCN" is appearing in the available fields under next site of care summary report
+    #And I click on clear search field element
     And I wait until refresh button is disappeared
     #Drag and Drop(Anchor Hospital Discharge Facility CCN)
     When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
@@ -396,9 +396,9 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                              | dischargefacilityccn filter |
       | shutestaug231132a@yopmail.com      | Not Available               |
-      | reptestachmodel2opsfin@yopmail.com | Not Available               |
-      | shutestaug231132a@yopmail.com      |                           0 |
-      | reptestachmodel2opsfin@yopmail.com |                           0 |
+      #| reptestachmodel2opsfin@yopmail.com | Not Available               |
+      #| shutestaug231132a@yopmail.com      |                           0 |
+      #| reptestachmodel2opsfin@yopmail.com |                           0 |
 
   Scenario Outline: User should be able to filter the values for Tier One,Tier Two and Out Of Network under network tier(anchor discharge) filter field
     Given I am on the login page
