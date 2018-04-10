@@ -175,5 +175,20 @@ public class CreateProgramsStepDef extends DriverScript{
 	@Then("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" search box$")
 	  public void i_Search_And_Verify_With_Search_List_Options_On_Programs_Search_Box(String searchParam, String org) throws Throwable {
 		programs.iSearchAndVerifyWithSearchListOptionsOnProgramsSearchBox(searchParam,org);
+	}
+
+	@And("^I click on date picker close icon$")
+	  public void i_Click_on_Date_Picker_Close_Icon() throws Throwable {
+		programs.iClickonDatePickerCloseIcon();
+	    }
+	
+	@And("^I select Organization name \"([^\"]*)\" for Contract \"([^\"]*)\" on \"([^\"]*)\" Network Contract page$")
+	  public void i_Select_Organization_Name_on_Create_Network_Contract_Page(String text, int num, String field) throws Throwable {
+		programs.iSelectOrganizationNameOnCreateNetworkContractPageUnderPayorOrganization(text, num, field);
+	    }
+	
+	@And("^I search \"([^\"]*)\" and verify with search list options on \"([^\"]*)\" dropdown box in Network Contract page$")
+	  public void i_Search_With_Search_List_Options_On_Dropdown_Box_In_NetworkContract_Page(String searchParam, String org) throws Throwable {
+		programs.iSearchWithSearchListOptionsOnDropdownBoxinNetworkContractpage(searchParam, org);
 	    }
 }

@@ -303,12 +303,12 @@ public class EditManagingOrganization extends BaseClass {
 			CreateManagingOrganization.tempMoOrg.put("MONAME",str+RandomStringUtils.randomAlphabetic(15));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreateManagingOrganization.tempMoOrg.get("MONAME"));
 		}
-		else if(field2.contains("AllowedCharatcters")){
+		else if(field2.equals("AllowedCharatcters")){
 			String str="a~`@!#$%^&*()-+_={}|;'[]<>,.?/Testing120";
 			scrollIntoViewByJS(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")));
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).sendKeys(Keys.CONTROL,"a");
 			driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")).sendKeys(Keys.DELETE);
-			CreateManagingOrganization.tempMoOrg.put("PAYORNAME",str+RandomStringUtils.randomAlphabetic(7));
+			CreateManagingOrganization.tempMoOrg.put("PAYORNAME",str+RandomStringUtils.randomAlphabetic(5));
 			iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field1+"']")), CreatePayorOrganization.tempPayorOrg.get("PAYORNAME"));
 		}
 		else if(field2.equalsIgnoreCase("HHANAME - YES")){

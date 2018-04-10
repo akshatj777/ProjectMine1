@@ -48,7 +48,7 @@ Feature: View Payor Organization functionality tests
     And I verify <Contact_Phone> in "contact-phone" on view profile of "Payor" Organization
     And I verify <Contact_Email> in "contact-email" on view profile of "Payor" Organization
     And I Verify the "Edit" button on View page
-    And I verify "Programs" as default tab selected on view profile of Payor Organization
+    And I verify "Programs" as default tab selected on view profile of "Payor" Organization
     And I verify the "Create New Program" button on view profile of "payor" Organization
     And I verify "Contracts" tab present under "Payor" Organization
 

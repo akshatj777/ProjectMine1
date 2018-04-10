@@ -191,10 +191,6 @@ Feature: Create Hospital organization functionality tests
     And I select state <Loc_State> for Location "2" on "create" organization page
     And I enter zip <Loc_Postal_Code> for Location "2" on "create" organization page
     Then I click on "Submit" button on "create" organization page
-    Then I verify "<Message>" after submitting the "create ACH - <Has_MO>" organization page
-    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
-    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
-    And I verify "1" location count on view "Hospital" organization page
 
     Examples: 
       | Description                                                                              | Has_MO | Managing_Org | Hosp_Name | Address1 | Short_Name | Address2 | City | State      | Postal_Code | Loc_Name | Loc_Address1 | Loc_Type  | Loc_Region | Loc_Market | Loc_Address2 | Loc_City | Loc_State  | Loc_Postal_Code | CCN | EIN | NPI | Message                                     |
