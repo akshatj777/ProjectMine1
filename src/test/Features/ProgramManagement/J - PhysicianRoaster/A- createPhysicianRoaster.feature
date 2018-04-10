@@ -158,9 +158,11 @@ Feature: Create Physician Roaster functionality tests
     Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
 
     Examples: 
-      | Description                                                       | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
-      | Create Contracts with all available fields using PGP Organization | NO     | PAYORNAME  | 2017/01/30        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
-      | Create Contracts with all available fields using PGP Organization | YES    | PAYORNAME  | 2017/01/29        | 2019/12/25      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Description                                                            | Has_MO | Payor_Name | ContractStartDate | ContractEndDate | BundleStartDate | BundleEndDate | PriceStartDate | PriceEndDate | BaselineStartDate | BaselineEndDate | Program_Name | Organization_Type | Organization_Name | Contract_Id | Bundle_1                    | Price | Trend_Factor | Upper_Bound | Lower_Bound | Message                       |
+      | Create Contracts with all available fields using Hospital Organization | NO     | PAYORNAME  | 2017/01/09        | 2019/12/19      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | mB1xAglksoqZt4324           |   123 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using Hospital Organization | YES    | PAYORNAME  | 2017/01/01        | 2019/12/31      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | ACH               | ACHNAME           | CID         | DeleteBundle1EZneESdcRF0817 |   103 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | NO     | PAYORNAME  | 2017/01/30        | 2019/12/26      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | DelRefBundle1iUcLlBcukb0312 |   113 |          121 |         135 |         106 | Contract Successfully Created |
+      | Create Contracts with all available fields using PGP Organization      | YES    | PAYORNAME  | 2017/01/29        | 2019/12/25      | 2019/01/01      | 2019/06/30    | 2019/03/03     | 2019/05/26   | 2019/03/09        | 2019/05/12      | PROGRAMNAME  | PGP               | PGPNAME           | CID         | BNC1FhdQtwAnpJ1426          |   113 |          121 |         135 |         106 | Contract Successfully Created |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -168,12 +170,12 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
-    And I verify the "Create New Practitioner Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Practitioner Contract" button on "create" organization page
-    And I verify "Create Practitioner Contract" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     And I verify "Please select and add at least one physician" text is appearing on the "Create" Physician Roster page
     And I verify "Select a physician" text is appearing on the "Create" Physician Roster page
@@ -192,12 +194,12 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
@@ -220,13 +222,13 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
-    And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13256/practitioner-contract/create"
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13256/practitioner-contract/create"
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
@@ -262,13 +264,13 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
-    And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13246/practitioner-contract/create"
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13246/practitioner-contract/create"
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I select a Physician "<Physician>" on "Create" Physician Roster page
@@ -288,12 +290,12 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I select a Physician "<Physician>" on "Create" Physician Roster page
@@ -321,12 +323,12 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     Then I search "<SearchParam>" and verify with search list options on select a Physician dropdown box
@@ -343,12 +345,12 @@ Feature: Create Physician Roaster functionality tests
     And I click "<PGP_Name> - <Has_MO>" field in search list on organization page
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     Then I search "<SearchParam>" and verify with search list options on select a Physician dropdown box
@@ -365,12 +367,12 @@ Feature: Create Physician Roaster functionality tests
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
     And I verify "Network Contracts" tab present under "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I select a Physician "<Physician>" on "Create" Physician Roster page
@@ -391,12 +393,12 @@ Feature: Create Physician Roaster functionality tests
     And I verify "<PGP_Name> - <Has_MO>" name on the header of view profile
     And I verify "Bundled Payment Contracts" as default tab selected on view profile of "PGP" Organization
     And I verify "Network Contracts" tab present under "PGP" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I select a Physician "<Physician>" on "Create" Physician Roster page
@@ -424,7 +426,7 @@ Feature: Create Physician Roaster functionality tests
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
-    And I verify the "<PGP_Organization_Name>" on "Create" Physician Roster page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     Then I select program from program dropdown on "Create" Physician Roster page
     And I select a Physician "<Physician1>" on "Create" Physician Roster page
@@ -445,12 +447,13 @@ Feature: Create Physician Roaster functionality tests
     When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
     And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
     And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
-    And I verify the "Create New Practitioner Contract" button on view profile of "PGP" Organization
-    Then I click on "Create New Practitioner Contract" button on "create" organization page
-    And I verify "Create Practitioner Contract" header text on create organization page
-    And I verify the "<Hospital_Organization_Name>" on "Create" Physician Roster page
+    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organization-viewer/13256/bundled-payment-contracts"
+    And I verify "Physicians" tab present under "Hospital" Organization
+    And I click on "Physicians" tab on view profile of "Hospital" Organization
+    And I verify the "Add Physician" button on view profile of "Hospital" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
     And I verify "Program" dropdown is appearing on "Create" Physician Roster page
     And I verify "Please select and add at least one physician" text is appearing on the "Create" Physician Roster page
     And I verify "Select a physician" text is appearing on the "Create" Physician Roster page
@@ -462,3 +465,263 @@ Feature: Create Physician Roaster functionality tests
     Examples: 
       | Description                                                  | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name |
       | Elements on Add Physician page without selecting any program | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
+    And I verify "start-date" is appearing after selecting program from dropdown on physician roster page
+    And I verify "end-date" is appearing after selecting program from dropdown on physician roster page
+    And I verify "Please select and add at least one physician" text is appearing on the "Create" Physician Roster page
+    And I verify "Select a physician" text is appearing on the "Create" Physician Roster page
+    And I verify "practitioner" dropdown above add practioner is appearing on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I verify "Submit" button on create Physician Roster page
+    And I verify "Cancel" button on create Physician Roster page
+
+    Examples: 
+      | Description                                                                                     | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   |
+      | Elements on Add Physician page after selecting a Contract(Program) with Start Date and End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-02-02 | 2018-02-02 |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13256/practitioner-contract/create"
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I verify "contract-id" is appearing after selecting program from dropdown on physician roster page
+    And I verify "start-date" is appearing after selecting program from dropdown on physician roster page
+    And I verify "end-date" is appearing after selecting program from dropdown on physician roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
+    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I verify first name "<FirstName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify last name "<LastName>" after adding Physician from dropdown on Create physician roster page
+    Then I verify npi "<NPI>" after adding Physician from dropdown on Create physician roster page
+    Then I verify start date "<Start_Date>" after adding Physician from dropdown on Create physician roster page
+    Then I verify end date "<End_Date>" after adding Physician from dropdown on Create physician roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I verify "Submit" button on create Physician Roster page
+    And I verify "Cancel" button on create Physician Roster page
+
+    Examples: 
+      | Description                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
+      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    #And i navigate my URL "https://program-management-qa.remedypartners.com/#/organizations/13246/practitioner-contract/create"
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    And I click on react date picker close icon for "Start Date"
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMessage>" field validation message on create organization page
+
+    Examples: 
+      | Description                                    | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      | ValidationMessage                                                  |
+      | Validation message if Start Date is left blank | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | The start date is before the start of the Bundled Payment Contract |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    And I click on react date picker close icon for "Start Date"
+    Then I enter date "<ContractStartDate>" in "ContractStartDate" field for index "0"
+    And I click on react date picker close icon for "End Date"
+    Then I enter date "<ContractEndDate>" in "ContractEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    And I verify "<ValidationMessage>" field validation message on create organization page
+
+    Examples: 
+      | Description                                                                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                  |
+      | Check validation message when Physician Roster Start Date is prior to Bundle Payment Contract Start Date   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | 2017/01/28        | 2019/12/26      | The start date is before the start of the Bundled Payment Contract |
+      | Check validation message when Physician Roster Start Date is greater than Bundle Payment Contract End Date | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | 2019/12/27        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is greater than Physician Roster End Date                      | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | 2017/01/30        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is greater than Bundle Payment Contract End Date                 | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | 2017/01/30        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster End Date is prior to Bundle Payment Contract Start Date                   | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | 2017/01/30        | 2019/12/26      | The start date and end date are not valid.                         |
+      | Validation when Physician Roster Start Date is same as Physician Roster End Date                           | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2018-04-02 | 2019-04-06 | pc150501  | firstName | testLastName | pc150501 | 2017/01/30        | 2019/12/26      | The start date and end date are not valid.                         |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    Then I search "<SearchParam>" and verify with search list options on select a Physician dropdown box
+
+    Examples: 
+      | Description                                       | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam  |
+      | Search for a Physician organization by NPI        | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | pc150501     |
+      | Search for a Physician organization by First Name | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName    |
+      | Search for a Physician organization by Last Name  | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | testLastName |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    Then I search "<SearchParam>" and verify with search list options on select a Physician dropdown box
+    Then I verify the "No results found" message for invalid search in select a Physician dropdown box
+
+    Examples: 
+      | Description                      | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | SearchParam   |
+      | Error message for invalid search | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | invalidsearch |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | Message                         |
+      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName | Physicians Successfully Updated |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I select a Physician "<Physician>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I enter date "<PhysicianStartDate>" in "PhysicianStartDate" field for index "0"
+    Then I enter date "<PhysicianEndDate>" in "PhysicianEndDate" field for index "1"
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+
+    Examples: 
+      | Description                                 | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician | PhysicianStartDate | PhysicianEndDate | Message                         |
+      | Add Physician with all the available fields | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName | 2017/01/30         | 2017/12/01       | Physicians Successfully Updated |
+      | Add Physician with all the available fields | YES    | ACHNAME   | PROGRAMNAME  | ACHNAME                    | firstName | 2018/01/01         | 2018/12/01       | Physicians Successfully Updated |
+
+  Scenario Outline: <Description>
+    When I click on "Hospital" organization tab on organization dashboard
+    When I search with "<Hosp_Name> - <Has_MO>" on organization in search box
+    And I click "<Hosp_Name> - <Has_MO>" field in search list on organization page
+    And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
+    And I verify "Locations" as default tab selected on view profile of "Hospital" Organization
+    And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
+    And I verify "Physician Roster" tab present under "PGP" Organization
+    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    Then I click on "Add Physician" button on "create" organization page
+    And I verify "Add Physician" header text on create organization page
+    And I verify the "<PGP_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
+    And I verify "Program" dropdown is appearing on "Create" Physician Roster page
+    Then I select program from program dropdown on "Create" Physician Roster page
+    And I select a Physician "<Physician1>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    And I select a Physician "<Physician2>" on "Create" Physician Roster page
+    And I verify "Add Physician" button on "Create" Physician Roster page
+    And I click on "Add Physician" button on "Create" Physician Roster page
+    Then I click on "Submit" button on "create" organization page
+    Then I verify "<Message>" after submitting the "Create Contracts" on Payor organization page
+
+    Examples: 
+      | Description             | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Physician1 | Physician2 | Message                         |
+      | Add multiple Physicians | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    | pc220709   | pc220709   | Physicians Successfully Updated |

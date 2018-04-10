@@ -14,8 +14,24 @@ public class PhysicianRoster extends BaseClass{
 		super(driver);
 	}
 	
-	public void iVerifyPGPOrganizationNameOnPhysicianRosterPage(String text, String page){
-		isElementPresentOnPage(By.xpath("//div[text()='"+CreateManagingOrganization.moOrg.get("MONAME")+"'"));
+	public void iVerifyPGPOrganizationNameOnPhysicianRosterPage(String text, String page)
+	{
+		if(text.contains("PGPNAME - YES"))
+		{
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg.get("PGPNAME")+"'"));
+		}
+		else if(text.contains("PGPNAME - NO"))
+		{
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreatePGPOrganization.pgpOrg_noMO.get("PGPNAME")+"'"));
+		}
+		else if(text.contains("ACHNAME - YES"))
+		{
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg.get("ACHNAME")+"'"));
+		}
+		else if(text.contains("ACHNAME - NO"))
+		{
+			isElementPresentOnPage(By.xpath("//div[text()='"+CreateACHOrganization.achOrg_noMO.get("ACHNAME")+"'"));
+		}
 	}
 	
 	public void iVerifyProgramDropdownOnPhysicianRosterPage(String text,String page){
