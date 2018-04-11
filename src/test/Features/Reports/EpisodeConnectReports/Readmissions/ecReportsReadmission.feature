@@ -30,27 +30,27 @@ Feature: Verification of Readmissions EC report
     Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 60 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 90 days" under "measures" field
-    Then I should see "1st Post Acute CCN" appearing under "level" field
-    Then I should see "1st Post Acute Facility" appearing under "level" field
-    Then I should see "1st Post Acute Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility CCN" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -315,8 +315,6 @@ Feature: Verification of Readmissions EC report
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
-    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
-    And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode

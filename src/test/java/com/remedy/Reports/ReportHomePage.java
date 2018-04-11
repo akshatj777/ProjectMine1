@@ -581,6 +581,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFiltersCountLabel(){
+    	WebElement element = driver.findElement(By.cssSelector("#RPT001FilterCountLabel"));
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.cssSelector("#RPT001FilterCountLabel")));
     }
     
@@ -750,7 +752,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admission Year]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admit Date]']/span")),text);
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){

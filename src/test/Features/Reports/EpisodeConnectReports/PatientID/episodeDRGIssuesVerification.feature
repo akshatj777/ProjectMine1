@@ -15,7 +15,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    #Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -28,22 +27,22 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -110,14 +109,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 

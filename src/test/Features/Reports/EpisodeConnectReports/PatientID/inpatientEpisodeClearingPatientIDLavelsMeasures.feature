@@ -21,33 +21,30 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
     When I click on show all filters icon button
-    #Then I should see "Model includes 2" is present under preselected model filter
-    #Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
-    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
+    Then I verify "Anchor Hospital Admit Date includes previous 30 Anchor Hospital Admit Date" is appearing under preselected anchor admission date filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
-    Then I should see "1st Post Acute CCN" appearing under "level" field
-    Then I should see "1st Post Acute Facility" appearing under "level" field
-    Then I should see "1st Post Acute Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility CCN" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
-    Then I should see "AtRisk" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -114,14 +111,14 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -146,15 +143,14 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I remove "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field from default filters
-    #Then I remove "Model" field filter under "Model" filter field from default filters
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     When I click on field-panel-icon button
     And I wait for 2000 milli seconds
-    When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field
+    When I click to "Anchor Hospital Discharge Month" field filter under "Anchor Hospital Discharge Date" filter field
     And I wait for 2000 milli seconds
     And I choose "Filter" option from select options of filter field
     And I wait for 2000 milli seconds
-    And I should see "Anchor Discharge Month" in the header text of filter page
+    And I should see "Anchor Hospital Discharge Month" in the header text of filter page
     Then I select "PREVIOUS" discharge month in anchor discharge month filter
     And I click on ok button from filter
     And I wait for 3000 milli seconds
@@ -251,7 +247,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
       | rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
 
-  Scenario Outline: Verify patient risk values in database for inpatient episode clearing report under patient id
+  Scenario Outline: Verify patient risk values in inpatient episode clearing report under patient id
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -272,6 +268,10 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I should see "Calculating Risk" in the filter value list
     And I should see "High" in the filter value list
     And I should see "Low" in the filter value list
+    
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
 
   Scenario Outline: User should be able to see patient risk and onboarding status under Episodes List in Inpatient Episode Clearing Report after clicking on any episode number link
     Given I am on the login page
