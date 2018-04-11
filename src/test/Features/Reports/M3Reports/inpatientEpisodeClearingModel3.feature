@@ -64,7 +64,7 @@ Feature: Inpatient Episode Clearing Model3 report verification
     And I will wait to see "InPatient Episode Clearing [Model 3]" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    Then I verify anchor post acute admission year "Anchor Post Acute Admission Year includes previous Anchor Post Acute Admission Year and current Anchor Post Acute Admission Year" is preselected under nsoc model3 report
+    Then I verify anchor post acute admission year "Anchor Post Acute Admit Date includes previous 30 Anchor Post Acute Admit Date" is preselected under nsoc model3 report
 
     Examples: 
       | email                              | role   | facility    |
