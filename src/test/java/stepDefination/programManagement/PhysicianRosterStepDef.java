@@ -40,9 +40,9 @@ public class PhysicianRosterStepDef extends DriverScript{
 		physicianroster.iVerifyOnButtonOnCreatePhysicianosterPage(text);
 	}
 	
-	@Then("^I select program from program dropdown on \"([^\"]*)\" Physician Roster page$")
-	public void i_select_program_from_program_dropdown_on_Physician_Roster_page(String page) throws Throwable{
-		physicianroster.iSelectProgramInProgramDropDownOnPhysicianRosterPage(page);
+	@Then("^I select \"([^\"]*)\" Program name from program dropdown on \"([^\"]*)\" Physician Roster page$")
+	public void i_select_program_from_program_dropdown_on_Physician_Roster_page(String text, String page) throws Throwable{
+		physicianroster.iSelectProgramInProgramDropDownOnPhysicianRosterPage(text,page);
 	}
 	
 	@And("^I verify \"([^\"]*)\" is appearing after selecting program from dropdown on physician roster page$")
@@ -93,5 +93,10 @@ public class PhysicianRosterStepDef extends DriverScript{
 	@Then("^I verify the \"([^\"]*)\" message for invalid search in select a Physician dropdown box$")
 	public void i_Verify_The_Error_Message_For_Invalid_Search_In_Organization_Name_Physician_Dropdown_Box(String text) throws Throwable{
 		physicianroster.iVerifyTheErrorMessageForInvalidSearchInSelectaPhysicianDropdownBox(text);
+	}
+	
+	@And("^I verify \"([^\"]*)\" field validation message on create Physician Roster page$")
+	public void i_Verify_Validation_Message_Message_on_Create_Physician_Roster_Page(String msg) throws Throwable{
+		physicianroster.iVerifyValidationMessageMessageonCreatePhysicianRosterPage(msg);
 	}
 }

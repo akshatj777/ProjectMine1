@@ -3,8 +3,10 @@ package com.remedy.programManagement;
 import junit.framework.Assert;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.remedy.baseClass.BaseClass;
 
@@ -57,11 +59,14 @@ public class PhysicianRoster extends BaseClass{
 		isElementPresent(By.xpath("//button[text()='"+text+"']"));
 	}
 	
-	public void iSelectProgramInProgramDropDownOnPhysicianRosterPage(String page){
-		clickElement(driver.findElement(By.xpath("//*[@id='react-select-2--value']/div[1]")));
-		delay();
-		clickElement(driver.findElement(By.cssSelector(".ReactVirtualized__Grid__innerScrollContainer")));
-		longDelay();
+	public void iSelectProgramInProgramDropDownOnPhysicianRosterPage(String text, String page){
+		if(!text.equals(""))
+		{
+			driver.findElement(By.xpath("//div[text()='Select a Program']")).click();
+			delay();
+			clickSingleElementFromList((By.cssSelector(".VirtualizedSelectOption.VirtualizedSelectFocusedOption")), CreatePrograms.programs.get(1));
+			delay();
+		}
 	}
 	
 	public void iVerifytextAfterSelectingProgramFromDropdownOnPhysicianRosterPage(String text){
@@ -75,11 +80,15 @@ public class PhysicianRoster extends BaseClass{
 		driver.findElement(By.xpath("//div[text()='Select...']/following-sibling::div/input")).sendKeys(text);
 		longDelay();
 		clickElement(driver.findElement(By.cssSelector(".practitioner-field.npi")));
-		delay();
+		longDelay();
 	}
 	
 	public void iClickOnAddPhysicianButton(String text, String act){
-		clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+		//clickElement(driver.findElement(By.xpath("//button[text()='"+text+"']")));
+		 delay();
+		 WebElement element = driver.findElement(By.xpath("//button[text()='"+text+"']"));
+		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+		 executor.executeScript("arguments[0].click();", element);
 	}
 	
 	public void iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(String text){
@@ -104,5 +113,11 @@ public class PhysicianRoster extends BaseClass{
 	{
 		iWillWaitToSee(By.cssSelector(".Select-noresults"));
 		Assert.assertEquals(text, driver.findElement(By.cssSelector(".Select-noresults")).getText());
+	}
+	
+	public void iVerifyValidationMessageMessageonCreatePhysicianRosterPage(String msg){
+		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
+		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 	}
 }
