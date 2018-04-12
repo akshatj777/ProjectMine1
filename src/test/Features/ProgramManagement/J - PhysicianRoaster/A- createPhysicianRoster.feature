@@ -339,8 +339,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<ValidationMessage>" field validation message on create Physician Roster page
 
     Examples: 
-      | Description                                                                      | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
-      | Validation when Physician Roster Start Date is same as Physician Roster End Date | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
+      | Description                                                              | Has_MO | PGP_Name | Program_Name | PGP_Organization_Name | Contract_ID | Physician | FirstName | LastName     | NPI      | ContractStartDate | ContractEndDate | ValidationMessage                                                                                                    |
+      | Validation when Physician Start and End Dates are edited with same dates | NO     | PGPNAME  | PROGRAMNAME  | PGPNAME               |         123 | pc150501  | firstName | testLastName | pc150501 | 2019/12/26        | 2019/12/26      | Validation errors: Require valid date range. End date (if specified) should be less a future date to the start date. |
 
   Scenario Outline: <Description>
     When I click on "PGP" organization tab on organization dashboard
@@ -560,7 +560,7 @@ Feature: Create Physician Roster functionality tests
 
     Examples: 
       | Description                                                | Has_MO | Hosp_Name | Program_Name | Hospital_Organization_Name | Contract_ID | Start_Date | End_Date   | Physician | FirstName | LastName     | NPI      |
-      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | up100653  | firstName | testLastName | pc150501 |
+      | Elements on Add Physician page after selecting a Physician | NO     | ACHNAME   | PROGRAMNAME  | ACHNAME                    |         123 | 2017-01-09 | 2019-12-26 | up100653  | firstName | testLastName | up100653 |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -755,8 +755,8 @@ Feature: Create Physician Roster functionality tests
     And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
     And I verify "Location" as default tab selected on view profile of "Hospital" Organization
     And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
-    And I verify "Physician Roster" tab present under "PGP" Organization
-    And I click on "Physician Roster" tab on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "PGP" Organization
+    And I click on "Physicians" tab on view profile of "PGP" Organization
     And I verify the "Add Physician" button on view profile of "PGP" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
