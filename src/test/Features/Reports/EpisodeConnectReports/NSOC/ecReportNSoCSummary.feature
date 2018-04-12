@@ -25,9 +25,9 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Anchor Hospital Discharge Facility CCN" for Nsoc Summary under "level" field
     Then I should see "Anchor Hospital Discharge Facility" for Nsoc Summary under "level" field
     Then I should see "Anchor Hospital Discharge Facility Type" for Nsoc Summary under "level" field
-    Then I should see "Anchor Discharge Care Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Care Type" appearing under "level" field
     Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
@@ -35,8 +35,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DataQualityFlag" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
     Then I should see "MDC" appearing under "level" field
@@ -48,16 +47,14 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Patient" appearing under "level" field
     Then I should see "Principal Account Practitioner" appearing under "level" field
     Then I should see "Risk Score" appearing under "level" field
-    Then I should see "isAnchorAdmission" appearing under "level" field
-    Then I should see "isSNFAdmissionReport" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -374,9 +371,9 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     Then I verify "Anchor Hospital Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
     #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
-    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
+    #When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
+    #And I choose add to report option from select options of filter field
+    #And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Care Setting" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Discharge Care Setting" column is added to report after selecting add to report option
     #Network Tier(Anchor Discharge - Tier Unknown)
@@ -433,7 +430,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Hospital Discharge) includes Out of Network" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Out Of Network" is appearing under selected network tier anchor discharge filter
     And I verify "<networktier1>" is visible under "Network Tier (Anchor Hospital Discharge)" column in the report
     Then I remove "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field from default filters
     #Filtering(Tier 1)
@@ -461,4 +458,4 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                     | networktier1   | networktier2 | networktier3 |
       | RPFIN2User2@yopmail.com   | Out Of Network | Tier 1       | Tier 2       |
-      | OPSFINTier1_2@yopmail.com | Out Of Network | Tier 1       | Tier 2       |
+      #| OPSFINTier1_2@yopmail.com | Out Of Network | Tier 1       | Tier 2       |

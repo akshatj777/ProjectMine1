@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 120);
+	WebDriverWait wait = new WebDriverWait(driver, 180);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -1308,7 +1308,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Hospital Discharge)].[Network Tier (Anchor Hospital Discharge)]']/span")),text);
     }
     
     public void iClickOnDashboardAnchorCCNFilterField(String text){
