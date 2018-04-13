@@ -1239,7 +1239,7 @@ public class CreateUserPage extends BaseClass{
 //		    	   {
 //		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
 //		    	   }
-//		    	   delay();
+		    	   delay();
 	    		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
@@ -1254,7 +1254,7 @@ public class CreateUserPage extends BaseClass{
 //		    	   {
 //		    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
 //		    	   }
-//		    	   delay();
+		    	   delay();
 	    		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
 		    	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
 		    	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
@@ -1276,7 +1276,7 @@ public class CreateUserPage extends BaseClass{
 //	    	   {
 //	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
 //	    	   }
-//        	   delay();
+        	   delay();
     		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), BPID);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
@@ -1291,7 +1291,7 @@ public class CreateUserPage extends BaseClass{
 //	    	   {
 //	    		   driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")).sendKeys(Keys.CONTROL,"a",Keys.DELETE);  
 //	    	   }
-//        	   delay();
+        	   delay();
     		   waitTo().until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']"))));
         	   iFillInText(driver.findElement(By.xpath("//div[@class='content active']//input[@placeholder='Search']")), location);
         	   iWillWaitToSee(By.xpath("//div[@class='content active']//th[contains(text(),\""+BPID+"\")]/../../following-sibling::tbody//label[contains(text(),\""+location+"\")]"));
