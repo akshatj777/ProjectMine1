@@ -617,6 +617,8 @@ public class CreatePrograms extends BaseClass {
 			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
+			longDelay();
+			longDelay();
 		}
 		else
 		{

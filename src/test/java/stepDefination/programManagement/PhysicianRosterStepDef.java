@@ -61,27 +61,27 @@ public class PhysicianRosterStepDef extends DriverScript{
 	}
 	
 	@Then("^I verify first name \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
-	public void i_Verify_FirstName_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+	public void i_Verify_FirstName_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
 		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 	
 	@Then("^I verify last name \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
-	public void i_Verify_LastName_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+	public void i_Verify_LastName_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
 		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 	
 	@Then("^I verify npi \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
-	public void i_Verify_NPI_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+	public void i_Verify_NPI_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
 		physicianroster.iVerifyDetailsAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 	
 	@Then("^I verify start date \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
-	public void i_Verify_StartDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+	public void i_Verify_StartDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
 		physicianroster.iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 	
 	@Then("^I verify end date \"([^\"]*)\" after adding Physician from dropdown on ([^\"]*) physician roster page$")
-	public void i_Verify_EndDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text) throws Throwable{
+	public void i_Verify_EndDate_after_adding_Physician_From_Dropdown_on_Create_Physician_Roster_Page(String text, String act) throws Throwable{
 		physicianroster.iVerifyDateAfterAddingPhysicianFromDropdownonCreatePhysicianRosterPage(text);
 	}
 	
@@ -96,7 +96,7 @@ public class PhysicianRosterStepDef extends DriverScript{
 	}
 	
 	@And("^I verify \"([^\"]*)\" field validation message on ([^\"]*) Physician Roster page$")
-	public void i_Verify_Validation_Message_Message_on_Create_Physician_Roster_Page(String msg) throws Throwable{
-		physicianroster.iVerifyValidationMessageMessageonCreatePhysicianRosterPage(msg);
+	public void i_Verify_Validation_Message_Message_on_Create_Physician_Roster_Page(String msg, String act) throws Throwable{
+		physicianroster.iVerifyValidationMessageMessageonCreatePhysicianRosterPage(msg,act);
 	}
 }

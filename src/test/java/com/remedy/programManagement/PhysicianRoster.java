@@ -115,7 +115,7 @@ public class PhysicianRoster extends BaseClass{
 		Assert.assertEquals(text, driver.findElement(By.cssSelector(".Select-noresults")).getText());
 	}
 	
-	public void iVerifyValidationMessageMessageonCreatePhysicianRosterPage(String msg){
+	public void iVerifyValidationMessageMessageonCreatePhysicianRosterPage(String msg, String act){
 		iWillWaitToSee(By.cssSelector(".alert.alert-dismissible.alert-danger>div"));
 		verifyTextForElement(driver.findElement(By.cssSelector(".alert.alert-dismissible.alert-danger>div")), msg);
 		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));

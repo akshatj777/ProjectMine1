@@ -701,9 +701,9 @@ Feature: Create Physician Roster functionality tests
     And I verify "<Hosp_Name> - <Has_MO>" name on the header of view profile
     And I verify "Location" as default tab selected on view profile of "Hospital" Organization
     And I verify "Bundled Payment Contracts" tab present under "Hospital" Organization
-    And I verify "Physicians" tab present under "PGP" Organization
-    And I click on "Physicians" tab on view profile of "PGP" Organization
-    And I verify the "Add Physician" button on view profile of "PGP" Organization
+    And I verify "Physicians" tab present under "Hospital" Organization
+    And I click on "Physicians" tab on view profile of "Hospital" Organization
+    And I verify the "Add Physician" button on view profile of "Hospital" Organization
     Then I click on "Add Physician" button on "create" organization page
     And I verify "Add Physician" header text on create organization page
     And I verify the "<Hospital_Organization_Name> - <Has_MO>" on "Create" Physician Roster page
