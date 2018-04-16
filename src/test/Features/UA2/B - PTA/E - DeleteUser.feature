@@ -234,7 +234,7 @@ Feature: Delete a user from PTA
     Then I verify "<ApplicationsNotVisible>" is not visible on Applications tab
     Then I click on Next button
     Then I verify the header "Permissions"
-    Then I select "<Programs1>" programs
+    Then I select "<Programs1>" programs for existing organisation
     Then I select "<Locations1>" locations for PTA user
     Then I click on Submit button for "<User>"
     And I wait for 3000 milli seconds

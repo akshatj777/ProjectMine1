@@ -50,7 +50,8 @@ public class SuperUserLandingPage extends BaseClass {
 		}
 		else if(text.equals("EmailOnTopRight"))
 		{
-			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='lbarinstein+qaadmin@remedypartners.com']")));
+			//Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='lbarinstein+qaadmin@remedypartners.com']")));
+			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='Leonid']")));
 		}
 		else if(text.equals("Next Page Icon"))
 		{
@@ -441,8 +442,9 @@ public void iVerifyProductListInTopNavigationBarIsClosed(){
 }
 
 public void iVerifyEmailForPTAExecutiveRole(String text, String Role){
-	String emailVal = CreateUserPage.usersEmailPerRole.get(Role).get(Role.substring((Role.indexOf("-")+1)).trim());
-	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
+	//String emailVal = CreateUserPage.usersEmailPerRole.get(Role).get(Role.substring((Role.indexOf("-")+1)).trim());
+	//Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='"+emailVal.toLowerCase()+"']")));
+	Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[text()='FirstName']")));
 }
 public void iVerifyDeleteUserLink(String text){
 	iWillWaitToSee(By.xpath("//*[contains(text(),'"+text+"')]"));
