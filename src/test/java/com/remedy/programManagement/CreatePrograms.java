@@ -613,15 +613,16 @@ public class CreatePrograms extends BaseClass {
 	public void iClickOnReactDatePickerCloseIconForDate(String field){
 		if(field.contains("Start Date"))
 		{
+			delay();
 			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container start-date-picker ']//a[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
 			longDelay();
-			longDelay();
 		}
 		else
 		{
+			delay();
 			//clickElement(driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']")));
 			WebElement element = driver.findElement(By.xpath("//div//div[@class='react-datepicker-input-field-container end-date-picker ']//a[@class='react-datepicker__close-icon']"));
 			JavascriptExecutor executor = (JavascriptExecutor)driver;

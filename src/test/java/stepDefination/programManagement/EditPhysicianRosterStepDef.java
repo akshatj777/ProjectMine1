@@ -31,4 +31,8 @@ public class EditPhysicianRosterStepDef extends DriverScript {
 		editPhysicianRoster.iVerifyProgramNameIsNotEditable();
 	    }
 	
+	@Then("^I search \"([^\"]*)\" and verify with search list options on view profile of \"([^\"]*)\" organization search box$")
+	  public void i_Search_And_Verify_Search_List_Options_on_View_Profile_Of_Organization_Search_Box(String searchParam, String org) throws Throwable {
+		editPhysicianRoster.iSearchAndVerifySearchListOptionsonViewProfileOfOrganizationSearchBox(searchParam,org);
+	    }
 }
