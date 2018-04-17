@@ -1722,4 +1722,9 @@ public class ReportHomePageSteps extends DriverScript {
     public void i_wait_untill_page_loading_message_disappears() throws Throwable{
     	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
     }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    public void i_verify_anchor_hospital_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
+    }
 }
