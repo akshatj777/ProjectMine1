@@ -83,7 +83,6 @@ Feature: Create Payor organization functionality tests
       | Check Allowed Characters for EIN field          |                                                                              |                                                           |                                                |                                                            |                                                                                                                                                                                                                                                                  |                                                |                    |       |             | @&^%*&#       | The EIN field must be alphanumeric.                            |
 
   Scenario Outline: <Description>
-    When I click on Organization link on Program Management page
     Then I click on "+" button on "Payor" organization page
     And I verify "Create Payor Organization" header text on create organization page
     Then I enter <Payor_Name> in "Payor Organization Name" on create organization page
