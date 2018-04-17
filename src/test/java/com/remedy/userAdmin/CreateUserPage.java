@@ -34,7 +34,6 @@ public class CreateUserPage extends BaseClass{
 	public static HashMap<String,HashMap<String,String>> usersEmailPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersApplicationsPerRole=new HashMap<String,HashMap<String,String>>();
 	public static HashMap<String,HashMap<String,String>> usersNPIPerRole=new HashMap<String,HashMap<String,String>>();
-	//WebDriverWait wait = new WebDriverWait(driver, 60); 
 	LandingPage objLandingPage = new LandingPage(driver);
 	
     public CreateUserPage(WebDriver driver){
@@ -1951,5 +1950,3 @@ public class CreateUserPage extends BaseClass{
 	Assert.assertFalse(driver.findElements(By.cssSelector("tr.component-bpid-row")).get(0).getAttribute("innerText").toString().contains(text));
 	 }
 }
-
-

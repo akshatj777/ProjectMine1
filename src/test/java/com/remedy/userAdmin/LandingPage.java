@@ -181,7 +181,4 @@ public class LandingPage extends BaseClass{
     	iWillWaitToSee(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']"));
     	clickElement(driver.findElement(By.xpath("//i[@class='btn btn-menu valentino-icon-spoe']")));
     }
-    
-
 }
-

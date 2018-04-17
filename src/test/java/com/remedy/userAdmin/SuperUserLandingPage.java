@@ -482,20 +482,15 @@ public void iClickOnTileFromEC(String text){
 }
 public void iSelectTileFromManagementDropDown(String text){
 
-	
 	clickElement(driver.findElement(By.cssSelector(".ui.dropdown.remedy-connect-title"))); 	
 iWillWaitToSee(By.xpath("//span[contains(text(),'"+text+"')]"));
 clickElement(driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]")));
 
-		clickSingleElementFromList(By.xpath("//a"), text);
-
-		
+		clickSingleElementFromList(By.xpath("//a"), text);		
 }
 public void iVerifyReportsPage(){
 	iWillWaitToSee(By.cssSelector(".dropdown-tile-head"));
 	System.out.println(driver.getCurrentUrl());
 	Assert.assertTrue(driver.getCurrentUrl().contains("reports"));
 }	
-		
-
 }
