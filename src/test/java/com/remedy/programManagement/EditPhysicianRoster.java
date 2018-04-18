@@ -52,13 +52,13 @@ public class EditPhysicianRoster extends BaseClass {
 	public void iSearchAndVerifySearchListOptionsonViewProfileOfOrganizationSearchBox(String searchParam, String org){
 		String value = searchParam;
 		if(org.equals("PGP")){
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value.replace("-", "").trim());
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-programFilterTerm")), value);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]"));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));
 		}
 		else if(org.equals("Hospital")){
-			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value.replace("-", "").trim());
+			iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), value);
 			waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
 			iWillWaitToSee(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]"));
 			Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='data-table-cell link-content' and contains(text(),'"+(value.replace("-", "").trim())+"')]")));

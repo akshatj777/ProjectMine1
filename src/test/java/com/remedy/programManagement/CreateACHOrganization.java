@@ -185,10 +185,7 @@ public class CreateACHOrganization extends BaseClass{
 				String value = createRandomNumber(5);
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
 			}
-			else if(id.contains("greaterThan10")){
-				String value = createRandomNumber(11);
-				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), value);
-			}
+			
 			else {
 				iFillInText(driver.findElement(By.xpath("//input[@placeholder='"+field+"']")), id.substring(id.indexOf("-")+1).trim());
 				delay();
@@ -324,5 +321,34 @@ public class CreateACHOrganization extends BaseClass{
     {
     	iWillWaitToSee(By.cssSelector(".Select-noresults"));
     	verifyTextForElement(driver.findElement(By.cssSelector(".Select-noresults")), text);
+    }
+    
+    public void iEnterLocationIDForLocationOnACHOrg(String text, int num) {
+    	num = num-1;
+    	if(text.equals("LID"))
+    	{
+			tempAchOrg.put("LID", createRandomNumber(20));
+			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), tempAchOrg.get("LID"));
+		}
+    	else if(text.equals("DUPLICATE_LID"))
+    	{
+    		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), achOrg.get("LID"));
+    	}
+    	else if(text.equals("greaterthan20"))
+    	{
+    		String value = createRandomNumber(22);
+			iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), value);
+    	}
+    	else
+    	{
+    		iFillInText(driver.findElement(By.xpath("//input[@name='locations["+num+"].locationId']")), text);
+    	}
+    }
+    public void iVerifyLocationIDShouldbeSameasOrganizationCCN()
+    {
+    	delay();
+    	iFillInText(driver.findElement(By.cssSelector(".text-input-field-locationFilterTerm")), CreateACHOrganization.achOrg_noMO.get("CCN"));
+		waitTo().until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='global-spinner-overlay']")));
+		Assert.assertTrue(isElementPresentOnPage(By.xpath("//div[@class='public_fixedDataTableCell_cellContent' and contains(text(),'"+CreateACHOrganization.achOrg_noMO.get("CCN")+"')]")));
     }
 }

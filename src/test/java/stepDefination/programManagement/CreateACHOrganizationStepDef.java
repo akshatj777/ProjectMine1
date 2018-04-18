@@ -94,4 +94,14 @@ public class CreateACHOrganizationStepDef extends DriverScript {
 	  public void i_Click_On_Particular_Organization_Tab_on_Under_Managing_Organization(String text) throws Throwable {
 		 createACH.iClickOnParticularOrganizationTabOrganizationDashboard(text);
 	 }
+	 
+	 @And("^I enter Location Id ([^\"]*) for Location \"([^\"]*)\" on \"([^\"]*)\" organization page$")
+	  public void i_Enter_LocationID_For_Locations_On_OrganizationPage(String text,int num, String field) throws Throwable {
+		 createACH.iEnterLocationIDForLocationOnACHOrg(text,num);
+	    }
+	 
+	 @And("^I verify Location ID should be same as Organization CCN$")
+	  public void i_Verify_LocationID_Should_be_Same_as_Organization_CCN() throws Throwable {
+		 createACH.iVerifyLocationIDShouldbeSameasOrganizationCCN();
+	    }
 }

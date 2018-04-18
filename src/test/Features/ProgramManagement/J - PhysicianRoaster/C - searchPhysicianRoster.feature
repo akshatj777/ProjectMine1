@@ -1,4 +1,4 @@
-Feature: Edit Physician Roster functionality tests
+Feature: Search Physician Roster functionality tests
 
   Background: 
     Given I am on the login page
@@ -252,7 +252,7 @@ Feature: Edit Physician Roster functionality tests
 
     Examples: 
       | Description                               | Has_MO | PGP_Name | Physician_Roster |
-      | Search for a Physician by invalid details | NO     | PGPNAME  | Invalisearch     |
+      | Search for a Physician by invalid details | NO     | PGPNAME  | Invalidsearch     |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -266,12 +266,12 @@ Feature: Edit Physician Roster functionality tests
     Then I search "<SearchParam>" and verify with search list options on view profile of "Hospital" organization search box
 
     Examples: 
-      | Description                          | Has_MO | PGP_Name | SearchParam  |
-      | Search for a Physician by NPI        | NO     | PGPNAME  | up100653     |
-      | Search for a Physician by First Name | NO     | PGPNAME  | firstName    |
-      | Search for a Physician by Last Name  | NO     | PGPNAME  | testLastName |
-      | Search for a Physician by Start Date | NO     | PGPNAME  | 2017-01-30   |
-      | Search for a Physician by End Date   | NO     | PGPNAME  | 2017-12-01   |
+      | Description                          | Has_MO | Hosp_Name | SearchParam  |
+      | Search for a Physician by NPI        | NO     | ACHNAME  | up100653     |
+      | Search for a Physician by First Name | NO     | ACHNAME  | firstName    |
+      | Search for a Physician by Last Name  | NO     | ACHNAME  | testLastName |
+      | Search for a Physician by Start Date | NO     | ACHNAME  | 2017-01-30   |
+      | Search for a Physician by End Date   | NO     | ACHNAME  | 2017-12-01   |
 
   Scenario Outline: <Description>
     When I click on "Hospital" organization tab on organization dashboard
@@ -287,4 +287,4 @@ Feature: Edit Physician Roster functionality tests
 
     Examples: 
       | Description                               | Has_MO | Hosp_Name | Physician_Roster |
-      | Search for a Physician by invalid details | NO     | PGPNAME   | Invalisearch     |
+      | Search for a Physician by invalid details | NO     | ACHNAME   | Invalidsearch     |
