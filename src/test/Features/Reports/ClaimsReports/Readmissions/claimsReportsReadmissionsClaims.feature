@@ -784,6 +784,7 @@ Feature: Verification of Readmissions Claims Report
     When I click to "Post Acute CCN" field filter under "Post Acute Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
+    And I wait untill the field "Post Acute CCN" is appearing in the report
     And I verify "Post Acute CCN" field is appearing in the layout section after selecting add to report
     Then I verify "Post Acute CCN" column is added to report after selecting add to report option
     
