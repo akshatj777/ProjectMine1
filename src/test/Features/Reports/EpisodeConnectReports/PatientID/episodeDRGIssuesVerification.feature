@@ -15,7 +15,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    #Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -28,22 +27,22 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -110,14 +109,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -181,10 +172,10 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in episode drg issues report under patient id
     Given I am on the login page
@@ -212,10 +203,10 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: Verify onboarding status values in database for episode drg issues report under paatient id
     Given I am on the login page
@@ -468,11 +459,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle DRG Code" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Admit Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Admission Month" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Month" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Admission Week" field filter under "Anchor Hospital Admit Date.Anchor Hospital Admission Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -518,7 +504,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecting add to report option
-    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Discharge Date" filter field
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
