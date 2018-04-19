@@ -21,33 +21,32 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Discharge Care Setting"
     Then I should see Episode DRG Issues reports column Tile text as "Anchor Admission Month"
     When I click on show all filters icon button
-    #Then I should see "Model includes 2" is present under preselected model filter
-    #Then I verify "Anchor Admission Year includes current Anchor Admission Year" is appearing under preselected anchor admission year filter
-    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
+    Then I verify "Anchor Hospital Admit Date includes previous 30 Anchor Hospital Admit Date" is appearing under preselected anchor admission date filter
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
-    Then I should see "1st Post Acute CCN" appearing under "level" field
-    Then I should see "1st Post Acute Facility" appearing under "level" field
-    Then I should see "1st Post Acute Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility CCN" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
-    Then I should see "AtRisk" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -114,14 +113,14 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -145,19 +144,15 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
-    When I click on show all filters icon button
-    Then I remove "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field from default filters
-    #Then I remove "Model" field filter under "Model" filter field from default filters
     When I click on field-panel-icon button
-    And I wait for 2000 milli seconds
-    When I click to "Anchor Discharge Month" field filter under "Anchor Discharge Date" filter field
-    And I wait for 2000 milli seconds
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
+    When I click to "Anchor Hospital Discharge Month" field filter under "Anchor Hospital Discharge Date" filter field
     And I choose "Filter" option from select options of filter field
-    And I wait for 2000 milli seconds
-    And I should see "Anchor Discharge Month" in the header text of filter page
+    And I should see "Anchor Hospital Discharge Month" in the header text of filter page
     Then I select "PREVIOUS" discharge month in anchor discharge month filter
     And I click on ok button from filter
-    And I wait for 3000 milli seconds
 
     Examples: 
       | email                         |
@@ -182,16 +177,19 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     Then I enter "Fracture/Non-Fracture" in the search field textbox for filters
     And I should not see "Fracture/Non-Fracture" in the searched results under the measures
 
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in inpatient episode clearing report under patient id
     Given I am on the login page
@@ -209,6 +207,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     Then I enter "Patient Risk" in the search field textbox for filters
     Then I verify "Patient Risk" is appearing in the level fields after searching
     And I click on clear search field element
@@ -219,10 +220,10 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: Verify onboarding status values in database for inpatient episode clearing report under patient id
     Given I am on the login page
@@ -239,6 +240,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click to "Onboarding Status" field filter under "Onboarding Status" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Onboarding Status" in the header text of filter page
@@ -251,7 +255,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | email                           | onboardingstatus1 | onboardingstatus2 | onboardingstatus3 | onboardingstatus4 |
       | rmexeallonboradvale@yopmail.com | Unknown           | Onboarded         | Needs Onboarding  | Not Onboarded     |
 
-  Scenario Outline: Verify patient risk values in database for inpatient episode clearing report under patient id
+  Scenario Outline: Verify patient risk values in inpatient episode clearing report under patient id
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -266,12 +270,19 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click to "Patient Risk" field filter under "Patient" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Patient Risk" in the header text of filter page
     And I should see "Calculating Risk" in the filter value list
     And I should see "High" in the filter value list
     And I should see "Low" in the filter value list
+    
+    Examples: 
+      | email                              |
+      | shutestaug231132a@yopmail.com      |
 
   Scenario Outline: User should be able to see patient risk and onboarding status under Episodes List in Inpatient Episode Clearing Report after clicking on any episode number link
     Given I am on the login page
@@ -286,6 +297,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -313,6 +327,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click to "Eligibility" field filter under "Eligibility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -353,25 +370,21 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     #Default Filters
-    Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor hospital admission year filter
+    Then I verify "Anchor Hospital Admit Date includes previous 30 Anchor Hospital Admit Date" is appearing under preselected anchor admission date filter
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Default Dimensions
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
     Then I should see "Anchor Hospital Facility" under "dimensions" field
-    Then I should see "Bundle" under "dimensions" field
-    Then I should see "Anchor Hospital Discharge Care Setting" under "dimensions" field
-    Then I should see "Anchor Hospital Admission Month" under "dimensions" field
     #Default Measures
     Then I should see "# Episodes" under "measures" field
     #Default Fields Verification in reports
     And I verify "Participant" column is already present on the reports
     And I verify "Episode Initiator" column is already present on the reports
     And I verify "Anchor Hospital Facility" column is already present on the reports
-    And I verify "Bundle" column is already present on the reports
-    And I verify "Anchor Hospital Discharge Care Setting" column is already present on the reports
-    And I verify "Anchor Hospital Admission Month" column is already present on the reports
     And I verify "# Episodes" column is already present on the reports
     #Dimension Fields(Drag and Drop)
     When I click to "Anchor Post Acute Provider" field filter under "Anchor Post Acute Provider" filter field
@@ -404,7 +417,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
@@ -554,7 +567,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecting add to report option
-    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Discharge Date" filter field
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
@@ -598,6 +611,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
     And I wait until refresh button is disappeared
     Then I click on a number under episodes column
     Then I switch to new window
@@ -674,12 +690,14 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I switch to reports embedded iframe
     And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     And I wait until refresh button is disappeared
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I switch to default window from iframe
     When I see "0" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Payer" filter is appearing under global filters
     Then I see <payer1> appearing under payer filter of global filters
-    Then I see <payer2> appearing under payer filter of global filters
     Then I verify "Participant" filter is appearing under global filters
     Then I see <participant1> appearing under participant filter of global filters
     Then I verify "Episode Initiator" filter is appearing under global filters
@@ -697,7 +715,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -705,13 +723,13 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     Then I verify payer filter is selected with <payer1> under selected filters
     When I switch to default window from iframe
     When I click on "Patient ID" tile on the top navigation of reports page
-    Then I click on "InPatient Episode Clearing" report under "Patient ID" reports tile on the top of reports page
+    Then I click on "Episode DRG Issues" report under "Patient ID" reports tile on the top of reports page
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I switch to default window from iframe
-    Then I verify "InPatient Episode Clearing" in the reports header page
+    Then I verify "Episode DRG Issues" in the reports header page
     When I see "4" filters applied under global filters applied count
     Then I click on Show Summary button to unhide the available global filters
     Then I verify "Payer" filter is appearing under global filters
@@ -725,7 +743,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "InPatient Episode Clearing" is appearing inside the iframe
+    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
@@ -754,6 +772,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click to "Model" field filter under "Model" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -804,6 +825,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click to "Model" field filter under "Model" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
