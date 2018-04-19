@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 120);
+	WebDriverWait wait = new WebDriverWait(driver, 180);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -581,6 +581,8 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iClickOnFiltersCountLabel(){
+    	WebElement element = driver.findElement(By.cssSelector("#RPT001FilterCountLabel"));
+    	scrollIntoViewByJS(element);
     	clickElement(driver.findElement(By.cssSelector("#RPT001FilterCountLabel")));
     }
     
@@ -750,7 +752,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAnchorAdmissionYearPreSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admission Year]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath("//div[@class='filterItem'][@formula='[Anchor Hospital Admit Date].[Anchor Hospital Admit Date]']/span")),text);
     }
     
     public void iClickOnFacilityFilterUnderFilterOptions(String facility){
@@ -1145,7 +1147,7 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iSeeAnchorPostAcuteAdmissionYearFilterPreselected(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admission Year]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@formula='[Anchor Post Acute Admit Date].[Anchor Post Acute Admit Date]']/span")),text);
     }
     
     public void iSeeIsAnchorAdmissionFilterPreselected(String text){
@@ -1302,11 +1304,11 @@ public class ReportHomePage extends BaseClass {
     }
     
     public void iVerifyAnchorDischrgeCareSettingFilterTextInSelectedFilters(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Discharge Care Setting]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Dim Anchor Discharge Care Setting].[Anchor Hospital Discharge Care Setting]']/span")),text);
     }
     
     public void iVerifyNetworkTierAnchorDischargeTextInSelectedFilter(String text){
-    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Discharge)].[Network Tier (Anchor Discharge)]']/span")),text);
+    	verifyTextForElement(driver.findElement(By.xpath(".//div[@class='filterItem'][@formula='[Network Tier (Anchor Hospital Discharge)].[Network Tier (Anchor Hospital Discharge)]']/span")),text);
     }
     
     public void iClickOnDashboardAnchorCCNFilterField(String text){

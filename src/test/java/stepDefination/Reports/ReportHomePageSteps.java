@@ -940,7 +940,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter();
     }
     
-    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission date filter$")
     public void i_verify_anchor_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
     	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
@@ -1730,11 +1730,16 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I should see \"([^\"]*)\" is present under preselected anchor discharge date key filter$")
     public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
-    	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
+    	reportHomePage.iSeeAnchorDischargeDateKeyFilterPreselected(text);
     }
 
     @Then("^I wait untill page loading message disappears$")
     public void i_wait_untill_page_loading_message_disappears() throws Throwable{
     	reportHomePage.iWillWaitUntillLoadingMessageDisappears();
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    public void i_verify_anchor_hospital_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
 }

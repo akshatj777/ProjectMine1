@@ -26,7 +26,7 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     Then I should verify "DOB" is appearing under Episodes table
     Then I should verify "Patient Risk" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Date" is appearing under Episodes table
-    Then I should verify "CCN" is appearing under Episodes table
+    Then I should verify "Dashboard - Anchor CCN" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Facility CCN" is appearing under Episodes table
     Then I should verify "Anchor Hospital Discharge Facility" is appearing under Episodes table
     Then I should verify "NSOC Category" is appearing under Episodes table
@@ -107,8 +107,6 @@ Feature: Episode List Verification Under Inpatient Episode Clearing Reports
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
-    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
-    And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
