@@ -756,7 +756,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
       | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
 
-  Scenario Outline: User should be able to verify episode status having potential M3 for Model3 users in inpatient episode clearing report
+  Scenario Outline: User should be able to verify anchor post acute fields for Model3 users in inpatient episode clearing report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -806,22 +806,22 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "No additional information available" in the filter value list
+    And I click on "No additional information available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "NOT AVAILABLE" in the filter value list
+    And I click on "NOT AVAILABLE" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Detail (EC)" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "No Care Setting or Care Type selected" in the filter value list
+    And I click on "No Care Setting or Care Type selected" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
@@ -843,21 +843,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | email                                | model |
       | shutestauf171115a@yopmail.com        |     3 |
       | shutestagu22945am@yopmail.com        |     3 |
-      | shutestaug231132a@yopmail.com        |     2 |
-      | reptestachmodel2opsfin@yopmail.com   |     2 |
-      | Opsfinmodelone@yopmail.com           |     1 |
-      | ModeloneRPFIN@yopmail.com            |     1 |
-      | MoneMtwotestuser@yopmail.com         |     1 |
-      | MoneMtwotestuser@yopmail.com         |     2 |
-      | MoneMthreetestuser@yopmail.com       |     1 |
       | MoneMthreetestuser@yopmail.com       |     3 |
-      | MtwoMthreetestuser@yopmail.com       |     2 |
       | MtwoMthreetestuser@yopmail.com       |     3 |
-      | OPSFINMoneMtwotest@yopmail.com       |     1 |
-      | OPSFINMoneMtwotest@yopmail.com       |     2 |
-      | OPSFINMoneMthreetestuser@yopmail.com |     1 |
       | OPSFINMoneMthreetestuser@yopmail.com |     3 |
-      | OPSFINMtwoMthreetestuser@yopmail.com |     2 |
       | OPSFINMtwoMthreetestuser@yopmail.com |     3 |
 
 
@@ -909,7 +897,7 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
       | shutestaug15252p@yopmail.com |
       | shutestaug26212p@yopmail.com |
       
-  Scenario Outline: Anchor Post Acute dimensions value should not be Not Available when episode status is not equal to PotentialM3 in inpatient episode clearing report
+  Scenario Outline: User should be able to verify anchor post acute fields other than Model3 users in inpatient episode clearing report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -925,6 +913,9 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on show all filters icon button
+    Then I remove "Anchor Hospital Admit Date" field filter under "Anchor Hospital Admit Date" filter field from default filters
+    And I wait until refresh button is disappeared
     When I click to "Model" field filter under "Model" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -933,12 +924,12 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I click to "Model" field filter under "Model" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Model" in the header text of filter page
-    And I should see "3" in the filter value list
-    And I click on "3" in the filter value list
+    And I should see "<model>" in the filter value list
+    And I click on "<model>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "3" result in "Model" field column for "Model" filter field
+    And I should see "<model>" result in "Model" field column for "Model" filter field
     When I click to "Episode Status" field filter under "Episode Status" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -947,58 +938,60 @@ Feature: Inpatient Episode Clearing Levels,Measures and Remove Default Filters
     When I click to "Episode Status" field filter under "Episode Status" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Episode Status" in the header text of filter page
-    And I should see "Active" in the filter value list
-    And I should see "Completed" in the filter value list
-    And I should see "Expired" in the filter value list
     And I should see "potentialM3" in the filter value list
-    And I click on "Active" in the filter value list
+    And I click on "potentialM3" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "Active" result in "Episode Status" field column for "Episode Status" filter field
+    And I should see "potentialM3" result in "Episode Status" field column for "Episode Status" filter field
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA skilled services" in the filter value list
-    And I click on "HHA skilled services" in the filter value list
+    And I should see "No additional information available" in the filter value list
+    And I click on "No additional information available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA" in the filter value list
-    And I click on "HHA" in the filter value list
+    And I should see "NOT AVAILABLE" in the filter value list
+    And I click on "NOT AVAILABLE" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Detail (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "(HHA) Skilled Services" in the filter value list
-    And I click on "(HHA) Skilled Services" in the filter value list
+    And I should see "No Care Setting or Care Type selected" in the filter value list
+    And I click on "No Care Setting or Care Type selected" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Code (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHAS" in the filter value list
-    And I click on "HHAS" in the filter value list
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Code" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting Code (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA" in the filter value list
-    And I click on "HHA" in the filter value list
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-
+    
     Examples: 
-      | email                              |
-      | email                              |
-      | shutestaug15252p@yopmail.com       |
-      | shutestaug26212p@yopmail.com       |
+      | email                                | model |
+      | shutestaug231132a@yopmail.com        |     2 |
+      | reptestachmodel2opsfin@yopmail.com   |     2 |
+      | Opsfinmodelone@yopmail.com           |     1 |
+      | ModeloneRPFIN@yopmail.com            |     1 |
+      | MoneMtwotestuser@yopmail.com         |     1 |
+      | MoneMtwotestuser@yopmail.com         |     2 |
+      | MoneMthreetestuser@yopmail.com       |     1 |
+      | MtwoMthreetestuser@yopmail.com       |     2 |
+      | OPSFINMoneMtwotest@yopmail.com       |     1 |
+      | OPSFINMoneMtwotest@yopmail.com       |     2 |
+      | OPSFINMoneMthreetestuser@yopmail.com |     1 |
+      | OPSFINMtwoMthreetestuser@yopmail.com |     2 |
+      

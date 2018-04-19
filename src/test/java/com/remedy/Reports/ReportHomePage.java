@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  */
 public class ReportHomePage extends BaseClass {
 	
-	WebDriverWait wait = new WebDriverWait(driver, 180);
+	WebDriverWait wait = new WebDriverWait(driver, 360);
 
     public ReportHomePage(WebDriver driver){
         super(driver);
@@ -270,6 +270,7 @@ public class ReportHomePage extends BaseClass {
     
     public void iClickOnReportTextForNSoCReports(String text){
     	selectElementByTextDescByXpath("//div[label[text()='Next Site of Care']]/following-sibling::div/a", text);
+    	longDelay();
     }
     
     public void iSelectFromTheDropdownListOnTheFilterPage(String range){
