@@ -940,7 +940,7 @@ public class ReportHomePageSteps extends DriverScript {
     	reportHomePage.iClickOnFindButtonAfterEnteringAnchorAdmissionQuarter();
     }
     
-    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission date filter$")
     public void i_verify_anchor_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
     	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
     }
@@ -1731,7 +1731,7 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I should see \"([^\"]*)\" is present under preselected anchor discharge date key filter$")
     public void i_should_see_is_present_under_preselected_anchor_discharge_date_key_filter(String text) throws Throwable{
-    	reportHomePage.iSeeAnchorMonthFilterPreselected(text);
+    	reportHomePage.iSeeAnchorDischargeDateKeyFilterPreselected(text);
     }
 
     @And("^I verify search field is appearing below the count on performance evaluation by physician page$")
@@ -1902,7 +1902,17 @@ public class ReportHomePageSteps extends DriverScript {
     
     @Then("^I should not see \"([^\"]*)\" report after clicking on dashboards$")
     public void i_should_not_see_report_after_clicking_on_dashboards(String report) throws Throwable{
-    	reportHomePage.iShouldNotSeeReportName(report);
+    	reportHomePage.iShouldNotSeeReportName(report);	
+    }
+    
+    @Then("^I verify \"([^\"]*)\" is appearing under preselected anchor admission year filter$")
+    public void i_verify_anchor_hospital_admission_year_appearing_under_preselected_filter(String text) throws Throwable{
+    	reportHomePage.iVerifyAnchorAdmissionYearPreSelectedFilter(text);
+    }
+    
+    @Then("^I verify \"([^\"]*)\" column is appearing in report after selecting add to report option$")
+    public void i_velrify_column_is_appearing_in_report_after_selecting_add_to_report_option(String text) throws Throwable{
+    	reportHomePage.iVerifyColumnAfterClickingAddToReport(text);
     }
 }
 

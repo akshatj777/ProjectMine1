@@ -15,8 +15,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    #Then I verify "Model" filter is preselected under the filter
-    #Then I should see "Model includes 2" is present under preselected model filter
     Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -24,9 +22,9 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Anchor Hospital Discharge Facility CCN" for Nsoc Summary under "level" field
     Then I should see "Anchor Hospital Discharge Facility" for Nsoc Summary under "level" field
     Then I should see "Anchor Hospital Discharge Facility Type" for Nsoc Summary under "level" field
-    Then I should see "Anchor Discharge Care Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Care Type" appearing under "level" field
     Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
@@ -34,8 +32,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Anchor Hospital Facility CCN" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DataQualityFlag" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
     Then I should see "MDC" appearing under "level" field
@@ -47,16 +44,14 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I should see "Patient" appearing under "level" field
     Then I should see "Principal Account Practitioner" appearing under "level" field
     Then I should see "Risk Score" appearing under "level" field
-    Then I should see "isAnchorAdmission" appearing under "level" field
-    Then I should see "isSNFAdmissionReport" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Admission Year" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Month" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Quarter" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Week" appearing under "Time" field
+    Then I should see "Anchor Hospital Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -82,9 +77,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     When I click on field-panel-icon button
     And I wait until refresh button is disappeared
-    Then I enter "Network Tier" in the search field textbox for filters
     And I verify "Network Tier (Anchor Hospital Discharge)" is appearing in the available fields under next site of care summary report
-    And I verify "Network Tier (Post Acute Admission)" is appearing in the available fields under next site of care summary report
     When I click to "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Network Tier (Anchor Hospital Discharge)" in the header text of filter page
@@ -92,11 +85,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I should see "<networktier1>" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Network Tier (Post Acute Admission)" in the header text of filter page
-    And I should see "<networktier1>" in the filter value list
-    And I should see "<networktier1>" in the filter value list
 
     Examples: 
       | email                         | networktier1   | networktier2 |
@@ -124,10 +112,10 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in next site of care summary report under next site of care summary
     Given I am on the login page
@@ -155,10 +143,10 @@ Feature: Verification of Next Site of Care Summary EC Report
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify under next site of care sumary report under next site of care
     Given I am on the login page
@@ -182,7 +170,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
-    And I click on "1st Post Acute Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
+    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
@@ -340,9 +328,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on show all filters icon button
     Then I remove "Anchor Month" field filter under "Anchor Month" filter field from default filters
     Then I remove "anchor Discharge Date Key" field filter under "anchor Discharge Date Key" filter field from default filters
-    Then I enter "Anchor Hospital Discharge Facility CCN" in the search field textbox for filters
-    And I verify "Anchor Hospital Discharge Facility CCN" is appearing in the available fields under next site of care summary report
-    And I click on clear search field element
     And I wait until refresh button is disappeared
     #Drag and Drop(Anchor Hospital Discharge Facility CCN)
     When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
@@ -373,9 +358,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     Then I verify "Anchor Hospital Discharge Care Setting includes HHA and SNF" is appearing under selected anchor discharge care setting filter
     #Drag and Drop(Anchor Discharge Care Setting for SNF and HHA)
-    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Care Setting" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Discharge Care Setting" column is added to report after selecting add to report option
     #Network Tier(Anchor Discharge - Tier Unknown)
@@ -432,7 +414,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    Then I verify "Network Tier (Anchor Hospital Discharge) includes Out of Network" is appearing under selected network tier anchor discharge filter
+    Then I verify "Network Tier (Anchor Hospital Discharge) includes Out Of Network" is appearing under selected network tier anchor discharge filter
     And I verify "<networktier1>" is visible under "Network Tier (Anchor Hospital Discharge)" column in the report
     Then I remove "Network Tier (Anchor Hospital Discharge)" field filter under "Network Tier (Anchor Hospital Discharge)" filter field from default filters
     #Filtering(Tier 1)
@@ -459,8 +441,8 @@ Feature: Verification of Next Site of Care Summary EC Report
 
     Examples: 
       | email                     | networktier1   | networktier2 | networktier3 |
-      | RPFIN2User2@yopmail.com   | Out of Network | Tier 1       | Tier 2       |
-      | OPSFINTier1_2@yopmail.com | Out of Network | Tier 1       | Tier 2       |
+      | RPFIN2User2@yopmail.com   | Out Of Network | Tier 1       | Tier 2       |
+      | OPSFINTier1_2@yopmail.com | Out Of Network | Tier 1       | Tier 2       |
 
   Scenario Outline: Verify drag and drop functionality for ccn and network tier(post acute admission) to the report
     Given I am on the login page
@@ -484,12 +466,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Facility CCN" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Hospital Facility CCN" column is added to report after selecting add to report option
-    #Drag and Drop(Network Tier Post Acute Admission)
-    When I click to "Network Tier (Post Acute Admission)" field filter under "Network Tier (Post Acute Admission)" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Network Tier (Post Acute Admission)" field is appearing in the layout section after selecting add to report
-    Then I verify "Network Tier (Post Acute Admission)" column is added to report after selecting add to report option
 
     Examples: 
       | email                   |
@@ -505,17 +481,15 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
     #Default Filters
-    Then I verify "Dashboard Admission Month" is appearing under preselected anchor hospital admission year filter
-    Then I verify "is between (and includes) 2017-01 and 2018-12" is appearing under preselected filters for anchor Discharge Date Key
-    Then I verify "anchor Discharge Date Key" is appearing under preselected anchor hospital admission year filter
-    Then I verify "includes 1" is appearing under preselected filters for anchor Discharge Date Key
+    Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
+    Then I verify "anchor Discharge Date Key includes 1" is appearing under preselected filters for anchor Discharge Date Key
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     #Default Dimensions
@@ -533,13 +507,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I verify "Anchor Hospital Facility" column is already present on the reports
     And I verify "Anchor Hospital Discharge Care Setting" column is already present on the reports
     And I verify "# Episodes" column is already present on the reports
-    And I verify "Anchor Hospital Admission Month" column is already present on the reports
     #Dimension Fields(Drag and Drop)
-    When I click to "Anchor Hospital Facility" field filter under "Anchor Hospital Facility" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Facility" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Facility" column is added to report after selecting add to report option
     When I click to "Anchor Post Acute Provider" field filter under "Anchor Post Acute Provider" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -580,7 +548,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
@@ -620,11 +588,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle DRG Code" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Admit Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Admission Month" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Month" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Admission Week" field filter under "Anchor Hospital Admit Date.Anchor Hospital Admission Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -634,12 +597,12 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Admission Quarter" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Quarter" column is added to report after selecting add to report option
+    Then I verify "Anchor Hospital Admission Quarter" column is appearing in report after selecting add to report option
     When I click to "Anchor Hospital Admission Year" field filter under "Anchor Hospital Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Admission Year" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Year" column is added to report after selecting add to report option
+    Then I verify "Anchor Hospital Admission Year" column is appearing in report after selecting add to report option
     When I click to "Anchor Hospital Discharge Week" field filter under "Anchor Hospital Discharge Date.Anchor Hospital Discharge Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -670,7 +633,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecting add to report option
-    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Discharge Date" filter field
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
@@ -710,21 +673,15 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
+    When I click on field-panel-icon button
+    When I click on field-layout-icon button
     #measures field drag and drop
-    When I click to "# Episodes" field filter under "Measures" filter field in layout section
-    And I choose remove report option from select options of filter field
-    Then I search for the field "#" from the available fields
-    When I click to "# Episodes" field filter under "Measures" filter field
-    And I verify "# Episodes" field is appearing in the layout section after selecting add to report
-    Then I verify "# Episodes" column is added to report after selecting add to report option
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
     And I verify "# Episodes" field is appearing in the layout section after selecting add to report
     Then I verify "# Episodes" column is added to report after selecting add to report option
 
@@ -742,7 +699,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -776,7 +733,6 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I switch to new window
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
-    Then I should verify "Anchor Hospital Admission Weeks" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Hospital Admission Week" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Hospital Admit Date" is appearing under Episodes drill through columns popup
     Then I should verify "Anchor Hospital Admission Year" is appearing under Episodes drill through columns popup
@@ -823,7 +779,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -851,7 +807,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters
@@ -901,7 +857,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -938,22 +894,22 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "No additional information available" in the filter value list
+    And I click on "No additional information available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "NOT AVAILABLE" in the filter value list
+    And I click on "NOT AVAILABLE" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Detail (EC)" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "No Care Setting or Care Type selected" in the filter value list
+    And I click on "No Care Setting or Care Type selected" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
@@ -975,21 +931,9 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                                | model |
       | shutestauf171115a@yopmail.com        |     3 |
       | shutestagu22945am@yopmail.com        |     3 |
-      | shutestaug231132a@yopmail.com        |     2 |
-      | reptestachmodel2opsfin@yopmail.com   |     2 |
-      | Opsfinmodelone@yopmail.com           |     1 |
-      | ModeloneRPFIN@yopmail.com            |     1 |
-      | MoneMtwotestuser@yopmail.com         |     1 |
-      | MoneMtwotestuser@yopmail.com         |     2 |
-      | MoneMthreetestuser@yopmail.com       |     1 |
       | MoneMthreetestuser@yopmail.com       |     3 |
-      | MtwoMthreetestuser@yopmail.com       |     2 |
       | MtwoMthreetestuser@yopmail.com       |     3 |
-      | OPSFINMoneMtwotest@yopmail.com       |     1 |
-      | OPSFINMoneMtwotest@yopmail.com       |     2 |
-      | OPSFINMoneMthreetestuser@yopmail.com |     1 |
       | OPSFINMoneMthreetestuser@yopmail.com |     3 |
-      | OPSFINMtwoMthreetestuser@yopmail.com |     2 |
       | OPSFINMtwoMthreetestuser@yopmail.com |     3 |
 
   Scenario Outline: User with model2 shoould not see episode status potential M3 value under Next Site Of Care Summary report
@@ -1001,7 +945,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -1036,8 +980,8 @@ Feature: Verification of Next Site of Care Summary EC Report
       | email                        |
       | shutestaug15252p@yopmail.com |
       | shutestaug26212p@yopmail.com |
-
-  Scenario Outline: Anchor Post Acute dimensions value should not be Not Available when episode status is not equal to PotentialM3 in Next Site Of Care Summary report
+      
+  Scenario Outline: User should be able to verify anchor post acute fields other than Model3 users in Next Site Of Care Summary report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -1046,7 +990,7 @@ Feature: Verification of Next Site of Care Summary EC Report
     When I click on the "Reports" tile
     And I wait to see "Next Site of Care" under reports tile text
     When I click on the Reports Tile with text "Next Site of Care"
-    Then I click on "Next Site of Care Summary" report text for Patient ID Reports
+    Then I click on "Next Site of Care Summary" report text for NSoC Reports
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
     And I will wait to see "Next Site Of Care Summary" is appearing inside the iframe
@@ -1060,72 +1004,60 @@ Feature: Verification of Next Site of Care Summary EC Report
     Then I verify "Model" column is added to report after selecting add to report option
     When I click to "Model" field filter under "Model" filter field
     And I choose "Filter" option from select options of filter field
-    And I should see "Model" in the header text of filter page
-    And I should see "3" in the filter value list
-    And I click on "3" in the filter value list
+    And I should see "<model>" in the filter value list
+    And I click on "<model>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "3" result in "Model" field column for "Model" filter field
-    When I click to "Episode Status" field filter under "Episode Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Episode Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Episode Status" column is added to report after selecting add to report option
-    When I click to "Episode Status" field filter under "Episode Status" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Episode Status" in the header text of filter page
-    And I should see "Active" in the filter value list
-    And I should see "Completed" in the filter value list
-    And I should see "Expired" in the filter value list
-    And I should see "potentialM3" in the filter value list
-    And I click on "Active" in the filter value list
-    And I click on add selected in the filter model
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "Active" result in "Episode Status" field column for "Episode Status" filter field
+    And I should see "<model>" result in "Model" field column for "Model" filter field
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA skilled services" in the filter value list
-    And I click on "HHA skilled services" in the filter value list
+    And I should see "No additional information available" in the filter value list
+    And I click on "No additional information available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA" in the filter value list
-    And I click on "HHA" in the filter value list
+    And I should see "NOT AVAILABLE" in the filter value list
+    And I click on "NOT AVAILABLE" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Detail (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "(HHA) Skilled Services" in the filter value list
-    And I click on "(HHA) Skilled Services" in the filter value list
+    And I should see "No Care Setting or Care Type selected" in the filter value list
+    And I click on "No Care Setting or Care Type selected" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Code (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHAS" in the filter value list
-    And I click on "HHAS" in the filter value list
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Code" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting Code (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA" in the filter value list
-    And I click on "HHA" in the filter value list
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
 
     Examples: 
-      | email                         |
-      | shutestauf171115a@yopmail.com |
-      | shutestagu22945am@yopmail.com |
+      | email                                | model |
+      | shutestaug231132a@yopmail.com        |     2 |
+      | reptestachmodel2opsfin@yopmail.com   |     2 |
+      | Opsfinmodelone@yopmail.com           |     1 |
+      | ModeloneRPFIN@yopmail.com            |     1 |
+      | MoneMtwotestuser@yopmail.com         |     1 |
+      | MoneMtwotestuser@yopmail.com         |     2 |
+      | MoneMthreetestuser@yopmail.com       |     1 |
+      | MtwoMthreetestuser@yopmail.com       |     2 |
+      | OPSFINMoneMtwotest@yopmail.com       |     1 |
+      | OPSFINMoneMtwotest@yopmail.com       |     2 |
+      | OPSFINMoneMthreetestuser@yopmail.com |     1 |
+      | OPSFINMtwoMthreetestuser@yopmail.com |     2 |
+      

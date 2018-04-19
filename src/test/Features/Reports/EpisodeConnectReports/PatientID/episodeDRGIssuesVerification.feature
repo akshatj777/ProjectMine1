@@ -15,7 +15,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I will wait to see "Episode DRG Issues" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    #Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Hospital Admission Year includes previous Anchor Hospital Admission Year and current Anchor Hospital Admission Year" is appearing under preselected anchor admission year filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
@@ -28,22 +27,22 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -110,14 +109,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Then I should see "Venipuncture/ Blood Testing" appearing under "level" field
     Then I should see "Working DRG Status" appearing under "level" field
     Then I should see "Wound Care" appearing under "level" field
-    Then I should see "Anchor Admission Month" appearing under "Time" field
-    Then I should see "Anchor Admission Quarter" appearing under "Time" field
-    Then I should see "Anchor Admission Week" appearing under "Time" field
-    Then I should see "Anchor Admission Year" appearing under "Time" field
-    Then I should see "Anchor Discharge Month" appearing under "Time" field
-    Then I should see "Anchor Discharge Quarter" appearing under "Time" field
-    Then I should see "Anchor Discharge Week" appearing under "Time" field
-    Then I should see "Anchor Discharge Year" appearing under "Time" field
     Then I should see "Dashboard Admission Month" appearing under "Time" field
 
     Examples: 
@@ -181,10 +172,10 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to see onboarding status and patient risk values in available fields in episode drg issues report under patient id
     Given I am on the login page
@@ -212,10 +203,10 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: Verify onboarding status values in database for episode drg issues report under paatient id
     Given I am on the login page
@@ -468,11 +459,6 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle DRG Code" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Admit Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Admission Month" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Month" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Admission Week" field filter under "Anchor Hospital Admit Date.Anchor Hospital Admission Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -518,7 +504,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecting add to report option
-    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Discharge Date" filter field
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
@@ -765,7 +751,7 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | shutestauf171115a@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
       | shutestagu22945am@yopmail.com | Sound Physicians | Hospitalist Medicine Physicians Of Texas, PLLC | Christus Health Shreveport - Bossier |         441324 | 3090-196 | 190041 | Medicare |
 
-  Scenario Outline: User should be able to verify episode status having potential M3 for Model<model> users in episode drg issues report
+  Scenario Outline: User should be able to verify anchor post acute fields for Model3 users in episode drg issues report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -812,22 +798,22 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "No additional information available" in the filter value list
+    And I click on "No additional information available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "NOT AVAILABLE" in the filter value list
+    And I click on "NOT AVAILABLE" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Detail (EC)" in the header text of filter page
-    And I should see "Not Available" in the filter value list
-    And I click on "Not Available" in the filter value list
+    And I should see "No Care Setting or Care Type selected" in the filter value list
+    And I click on "No Care Setting or Care Type selected" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
@@ -849,21 +835,9 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | email                                | model |
       | shutestauf171115a@yopmail.com        |     3 |
       | shutestagu22945am@yopmail.com        |     3 |
-      | shutestaug231132a@yopmail.com        |     2 |
-      | reptestachmodel2opsfin@yopmail.com   |     2 |
-      | Opsfinmodelone@yopmail.com           |     1 |
-      | ModeloneRPFIN@yopmail.com            |     1 |
-      | MoneMtwotestuser@yopmail.com         |     1 |
-      | MoneMtwotestuser@yopmail.com         |     2 |
-      | MoneMthreetestuser@yopmail.com       |     1 |
       | MoneMthreetestuser@yopmail.com       |     3 |
-      | MtwoMthreetestuser@yopmail.com       |     2 |
       | MtwoMthreetestuser@yopmail.com       |     3 |
-      | OPSFINMoneMtwotest@yopmail.com       |     1 |
-      | OPSFINMoneMtwotest@yopmail.com       |     2 |
-      | OPSFINMoneMthreetestuser@yopmail.com |     1 |
       | OPSFINMoneMthreetestuser@yopmail.com |     3 |
-      | OPSFINMtwoMthreetestuser@yopmail.com |     2 |
       | OPSFINMtwoMthreetestuser@yopmail.com |     3 |
 
   Scenario Outline: User with model2 shoould not see episode status potential M3 value under episode drg issues report
@@ -910,8 +884,8 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
       | email                        |
       | shutestaug15252p@yopmail.com |
       | shutestaug26212p@yopmail.com |
-
-  Scenario Outline: Anchor Post Acute dimensions value should not be Not Available when episode status is not equal to PotentialM3 in episode drg issues report
+      
+  Scenario Outline: User should be able to verify anchor post acute fields other than Model3 users in episode drg issues report
     Given I am on the login page
     When I enter email field <email> for login
     And I enter password field Testing1 for Login
@@ -935,70 +909,59 @@ Feature: Episode DRG Issues Levels,Measures and Remove Default Filters
     When I click to "Model" field filter under "Model" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Model" in the header text of filter page
-    And I should see "3" in the filter value list
-    And I click on "3" in the filter value list
+    And I should see "<model>" in the filter value list
+    And I click on "<model>" in the filter value list
     And I click on add selected in the filter model
     And I click on ok button from filter
     And I wait until refresh button is disappeared
-    And I should see "3" result in "Model" field column for "Model" filter field
-    When I click to "Episode Status" field filter under "Episode Status" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Episode Status" field is appearing in the layout section after selecting add to report
-    Then I verify "Episode Status" column is added to report after selecting add to report option
-    When I click to "Episode Status" field filter under "Episode Status" filter field
-    And I choose "Filter" option from select options of filter field
-    And I should see "Episode Status" in the header text of filter page
-    And I should see "Active" in the filter value list
-    And I should see "Completed" in the filter value list
-    And I should see "Expired" in the filter value list
-    And I should see "potentialM3" in the filter value list
-    And I click on "Active" in the filter value list
-    And I click on add selected in the filter model
-    And I click on ok button from filter
-    And I wait until refresh button is disappeared
-    And I should see "Active" result in "Episode Status" field column for "Episode Status" filter field
+    And I should see "<model>" result in "Model" field column for "Model" filter field
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA skilled services" in the filter value list
-    And I click on "HHA skilled services" in the filter value list
+    And I should see "No additional information available" in the filter value list
+    And I click on "No additional information available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA" in the filter value list
-    And I click on "HHA" in the filter value list
+    And I should see "NOT AVAILABLE" in the filter value list
+    And I click on "NOT AVAILABLE" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Detail (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Detail (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "(HHA) Skilled Services" in the filter value list
-    And I click on "(HHA) Skilled Services" in the filter value list
+    And I should see "No Care Setting or Care Type selected" in the filter value list
+    And I click on "No Care Setting or Care Type selected" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Type Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Type" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Type Code (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHAS" in the filter value list
-    And I click on "HHAS" in the filter value list
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
     When I click to "Anchor Post Acute Discharge Care Setting Code (EC)" field filter under "Dim Anchor Post Acute Discharge Care Setting Code" filter field
     And I choose "Filter" option from select options of filter field
     And I should see "Anchor Post Acute Discharge Care Setting Code (EC)" in the header text of filter page
-    And I should not see "Not Available" in the filter value list
-    And I should see "HHA" in the filter value list
-    And I click on "HHA" in the filter value list
+    And I should see "Not Available" in the filter value list
+    And I click on "Not Available" in the filter value list
     And I click on cancel button from filter
     And I wait until refresh button is disappeared
-
-    Examples:                              |
-      | shutestaug15252p@yopmail.com       |
-      | shutestaug26212p@yopmail.com       |
+    
+    Examples: 
+      | email                                | model |
+      | shutestaug231132a@yopmail.com        |     2 |
+      | reptestachmodel2opsfin@yopmail.com   |     2 |
+      | Opsfinmodelone@yopmail.com           |     1 |
+      | ModeloneRPFIN@yopmail.com            |     1 |
+      | MoneMtwotestuser@yopmail.com         |     1 |
+      | MoneMtwotestuser@yopmail.com         |     2 |
+      | MoneMthreetestuser@yopmail.com       |     1 |
+      | MtwoMthreetestuser@yopmail.com       |     2 |
+      | OPSFINMoneMtwotest@yopmail.com       |     1 |
+      | OPSFINMoneMtwotest@yopmail.com       |     2 |
+      | OPSFINMoneMthreetestuser@yopmail.com |     1 |
+      | OPSFINMtwoMthreetestuser@yopmail.com |     2 |

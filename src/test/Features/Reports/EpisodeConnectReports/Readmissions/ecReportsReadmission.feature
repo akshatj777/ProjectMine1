@@ -15,42 +15,40 @@ Feature: Verification of Readmissions EC report
     And I will wait to see "Readmissions EC" is appearing inside the iframe
     And I wait until refresh button is disappeared
     When I click on show all filters icon button
-    #Then I verify "Model" filter is preselected under the filter
-    #Then I should see "Model includes 2" is present under preselected model filter
     Then I verify "Anchor Month" filter is preselected under the filter
     Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
     When I click on field-panel-icon button
     When I click on field-layout-icon button
     Then I should see "# Episodes" under "measures" field
     Then I should see "% Eps w Readmit" under "measures" field
-    Then I should see "Readmit per Eps" under "measures" field
-    Then I should see "Leaked Readmits per Eps" under "measures" field
+    Then I should see "Readmits per Eps" under "measures" field
+    Then I should see "Leaked Readmit per Eps" under "measures" field
     Then I should see "% Eps w Readmit w/in 7 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 15 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 60 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 90 days" under "measures" field
-    Then I should see "1st Post Acute CCN" appearing under "level" field
-    Then I should see "1st Post Acute Facility" appearing under "level" field
-    Then I should see "1st Post Acute Type" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility CCN" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Discharge Facility Type" appearing under "level" field
     Then I should see "Agrees with CARL Proposal" appearing under "level" field
     Then I should see "Ambulatory Status" appearing under "level" field
-    Then I should see "Anchor Facility" appearing under "level" field
-    Then I should see "Anchor Facility Type" appearing under "level" field
+    Then I should see "Anchor Hospital Facility" appearing under "level" field
+    Then I should see "Anchor Hospital Facility Type" appearing under "level" field
     Then I should see "AtRisk" appearing under "level" field
     Then I should see "BPID" appearing under "level" field
     Then I should see "Bundle" appearing under "level" field
     Then I should see "Bundle Code" appearing under "level" field
     Then I should see "CARL Status" appearing under "level" field
-    Then I should see "CCN" appearing under "level" field
+    Then I should see "Dashboard - Anchor CCN" appearing under "level" field
     Then I should see "Capable Caregiver Availability" appearing under "level" field
     Then I should see "Catheter" appearing under "level" field
     Then I should see "Clinical Nursing Oversight" appearing under "level" field
     Then I should see "Cognitive Status" appearing under "level" field
     Then I should see "DOB" appearing under "level" field
     Then I should see "DRG" appearing under "level" field
-    Then I should see "DRG Code" appearing under "level" field
-    Then I should see "DRG Status" appearing under "level" field
+    Then I should see "Bundle DRG Code" appearing under "level" field
+    Then I should see "Bundle DRG Status" appearing under "level" field
     Then I should see "Disagreement Reasons" appearing under "level" field
     Then I should see "Eligibility" appearing under "level" field
     Then I should see "Episode Initiator" appearing under "level" field
@@ -288,10 +286,10 @@ Feature: Verification of Readmissions EC report
     Examples: 
       | email                              |
       | shutestaug231132a@yopmail.com      |
-      | shutestaug221130a@yopmail.com      |
+      #| shutestaug221130a@yopmail.com      |
       | reptestachmodel2opsfin@yopmail.com |
-      | shutestaug15240p@yopmail.com       |
-      | shutestaug221145a@yopmail.com      |
+      #| shutestaug15240p@yopmail.com       |
+      #| shutestaug221145a@yopmail.com      |
 
   Scenario Outline: User should be able to click on drill through column in episode connect report and select the columns and verify in readmissions under readmissions
     Given I am on the login page
@@ -315,8 +313,6 @@ Feature: Verification of Readmissions EC report
     When I switch to reports embedded iframe
     Then I verify "Select Drill-Through Columns" title is appearing on popup after clicking select columns
     And I click on "Anchor Hospital Facility Type" checkbox under "Anchor Hospital Facility" in the popup of select drill through columns
-    And I click on "Anchor Hospital Discharge Facility" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
-    And I click on "Anchor Hospital Discharge Facility CCN" checkbox under "Anchor Hospital Discharge Facility" in the popup of select drill through columns
     And I click on ok button after selecting drill through column
     Then I switch to new window
     And I wait for the elements to load in new window after clicking one of the episode
@@ -499,8 +495,8 @@ Feature: Verification of Readmissions EC report
     When I click on show all filters icon button
     #Default Filters
     Then I should see "Dashboard Admission Month is between (and includes) 2017-01 and 2018-12" is present under preselected anchor month filter
-    When I click on field-panel-icon button
     When I click on field-layout-icon button
+    When I click on field-panel-icon button
     #Default Dimensions
     Then I should see "Participant" under "dimensions" field
     Then I should see "Episode Initiator" under "dimensions" field
@@ -510,8 +506,8 @@ Feature: Verification of Readmissions EC report
     #Default Measures
     Then I should see "# Episodes" under "measures" field
     Then I should see "% Eps w Readmit" under "measures" field
-    Then I should see "Readmit per Eps" under "measures" field
-    Then I should see "Leaked Readmits per Eps" under "measures" field
+    Then I should see "Readmits per Eps" under "measures" field
+    Then I should see "Leaked Readmit per Eps" under "measures" field
     Then I should see "% Eps w Readmit w/in 7 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 15 days" under "measures" field
     Then I should see "% Eps w Readmit w/in 30 days" under "measures" field
@@ -525,8 +521,8 @@ Feature: Verification of Readmissions EC report
     And I verify "Anchor Hospital Admission Month" column is already present on the reports
     And I verify "# Episodes" column is already present on the reports
     And I verify "% Eps w Readmit" column is already present on the reports
-    And I verify "Readmit per Eps" column is already present on the reports
-    And I verify "Leaked Readmits per Eps" column is already present on the reports
+    And I verify "Readmits per Eps" column is already present on the reports
+    And I verify "Leaked Readmit per Eps" column is already present on the reports
     And I verify "% Eps w Readmit w/in 7 days" column is already present on the reports
     And I verify "% Eps w Readmit w/in 15 days" column is already present on the reports
     And I verify "% Eps w Readmit w/in 30 days" column is already present on the reports
@@ -568,7 +564,7 @@ Feature: Verification of Readmissions EC report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Provider" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Provider" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Post Acute Discharge Provider" filter field
+    When I click to "Anchor Hospital Discharge Facility CCN" field filter under "Anchor Hospital Discharge Facility" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Hospital Discharge Facility CCN" field is appearing in the layout section after selecting add to report
@@ -608,21 +604,11 @@ Feature: Verification of Readmissions EC report
     And I wait until refresh button is disappeared
     And I verify "Bundle DRG Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle DRG Code" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Care Setting" field filter under "Dim Anchor Discharge Care Setting" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Discharge Care Setting" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Discharge Care Setting" column is added to report after selecting add to report option
     When I click to "Anchor Post Acute Discharge Care Setting" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Care Setting" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Care Setting" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Discharge Care Type" field filter under "Dim Anchor Discharge Care Setting" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Discharge Care Type" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Discharge Care Type" column is added to report after selecting add to report option
     When I click to "Anchor Post Acute Discharge Care Type" field filter under "Dim Anchor Post Acute Discharge Care Setting" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -658,11 +644,6 @@ Feature: Verification of Readmissions EC report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Discharge Care Type Code (EC)" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Discharge Care Type Code (EC)" column is added to report after selecting add to report option
-    When I click to "Anchor Hospital Admission Month" field filter under "Anchor Hospital Admit Date" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Anchor Hospital Admission Month" field is appearing in the layout section after selecting add to report
-    Then I verify "Anchor Hospital Admission Month" column is added to report after selecting add to report option
     When I click to "Anchor Hospital Admission Week" field filter under "Anchor Hospital Admit Date.Anchor Hospital Admission Weeks" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
@@ -713,7 +694,7 @@ Feature: Verification of Readmissions EC report
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Quarter" field is appearing in the layout section after selecting add to report
     Then I verify "Anchor Post Acute Admission Quarter" column is added to report after selecting add to report option
-    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Discharge Date" filter field
+    When I click to "Anchor Post Acute Admission Year" field filter under "Anchor Post Acute Admit Date" filter field
     And I choose add to report option from select options of filter field
     And I wait until refresh button is disappeared
     And I verify "Anchor Post Acute Admission Year" field is appearing in the layout section after selecting add to report
@@ -877,7 +858,7 @@ Feature: Verification of Readmissions EC report
     And I click on Apply filters button for global filters
     And I wait for the reports embedded iframe to load
     When I switch to reports embedded iframe
-    And I will wait to see "Episode DRG Issues" is appearing inside the iframe
+    And I will wait to see "Readmissions EC" is appearing inside the iframe
     When I click on show all filters icon button
     Then I verify participant filter is selected with <participantid1> under selected filters
     Then I verify episode initiator filter is selected with <bpid1> under selected filters

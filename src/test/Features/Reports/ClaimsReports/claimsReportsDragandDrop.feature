@@ -145,11 +145,11 @@ Feature: Cover the drag and drop functionality through add to report in claims r
     And I verify "Bundle Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle Code" column is added to report after selecting add to report option
     #Bundle Risk Drag and Drop
-    When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Bundle Risk" column is added to report after selecting add to report option
+    #When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
+    #And I choose add to report option from select options of filter field
+    #And I wait until refresh button is disappeared
+    #And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
+    #Then I verify "Bundle Risk" column is added to report after selecting add to report option
     #Episode Initiator Drag and Drop
     When I click on "Episode Initiator" field in the layout section to open the list
     Then I click on remove from report option in the list
@@ -254,11 +254,11 @@ Feature: Cover the drag and drop functionality through add to report in claims r
     And I verify "Bundle Code" field is appearing in the layout section after selecting add to report
     Then I verify "Bundle Code" column is added to report after selecting add to report option
     #Bundle Risk Drag and Drop
-    When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
-    And I choose add to report option from select options of filter field
-    And I wait until refresh button is disappeared
-    And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
-    Then I verify "Bundle Risk" column is added to report after selecting add to report option
+    #When I click to "Bundle Risk" field filter under "Bundle Risk" filter field
+    #And I choose add to report option from select options of filter field
+    #And I wait until refresh button is disappeared
+    #And I verify "Bundle Risk" field is appearing in the layout section after selecting add to report
+    #Then I verify "Bundle Risk" column is added to report after selecting add to report option
     #Episode Initiator Drag and Drop
     When I click on "Episode Initiator" field in the layout section to open the list
     Then I click on remove from report option in the list
